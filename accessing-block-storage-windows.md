@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-06-23"
+lastupdated: "2017-08-22"
 
 ---
 {:new_window: target="_blank"}
@@ -70,7 +70,7 @@ Following are the steps required to connect a Windows-based Bluemix Infrastructu
 ![Enable Multi-path](/images/Connect_0.png)
 3. Click **Advanced** and select **Enable CHAP log on**. 
 ![Enable CHAP](/images/chap_0.png)
-4. Enter the username in the Name field, and enter the password in the Target secret field.
+4. Enter the username in the Name field, and enter the password in the Target secret field.<br/>
 **Note:** The Name and Target secret field values can be obtained from the Block Storage Details screen in the portal as User name and Password respectively
 5. Click **OK** until the iSCSI Initiator Properties window is displayed. The status of the target in the Discovered Targets section changes from Inactive to Connected. 
 ![Connected status](/images/Connected.png) 
@@ -91,8 +91,7 @@ Following are the steps required to connect a Windows-based Bluemix Infrastructu
    - Click **OK** on the Connect To Target window to go back to the Properties window. The Properties window should now display more than one session within the Identifier window. You now have more than one session into the iSCSI storage. 
    ![Settings](/images/Settings.png) 
    
-5. In the Properties window, click **Devices** and launch the Devices window. The device interface name should have mpio at the beginning of the device name.
-
+5. In the Properties window, click **Devices** and launch the Devices window. The device interface name should have mpio at the beginning of the device name. <br/>
   ![Devices](/images/Devices.png) 
   
 6. Click **MPIO** to launch the Device Details window. This window lets you to choose load balancing policies for MPIO and also shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balancing policy.
@@ -114,3 +113,15 @@ ows versions according to the OS vendor documentation.
 
 1. Click the **Discovery** tab in the iSCSI Initiator.
 2. Highlight the target portal associated with your storage volume and click **Remove**.
+
+## How to verify if MPIO is configured correctly in Windows OSes
+
+To verify if Windows MPIO is configured, you must first ensure the MPIO Add-on is enabled and the requisite reboot has been completed:
+
+![Roles_Features_0](/images/Roles_Features_0.png)
+
+Once the reboot is complete and the Performance Storage Device is added, we can verify if MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
+![DeviceDetails_0](/images/DeviceDetails_0.png)
+
+If MPIO has not been configured on your Performance Storage Device and the SoftLayer Teams performs Maintenance or a Network Outage occurs, your Storage Device will disconnect and become unavailable. MPIO will ensure an extra level of connecitivty during those events, and will keep an established session with active reads/writes going to the LUN.
+

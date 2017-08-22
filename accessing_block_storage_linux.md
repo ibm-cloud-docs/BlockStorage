@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2017-08-22"
 
 ---
 {:new_window: target="_blank"}
@@ -227,3 +227,25 @@ Following are the steps to create a file system on top of the newly mounted volu
   ()Type m for Help.
 
   ()Type L to list the hex codes
+  
+## How to Verify if MPIO is Configured Correctly in *NIX OSes
+
+To check if multipath is picking up the devices, only the NETAPP devices should show up and there should be two of them.
+
+```root@server:~# multipath -l 3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw |-+- policy='round-robin 0' prio=-1 status=active | `- 6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled `- 7:0:0:101 sde 8:64 active undef running```
+
+Check that the disks are present, and there should be two disks with the same identifier, and a /dev/mapper listing of the same size with the same identifier. The /dev/mapper device is the one that multipath sets up:
+
+```root@server:~# fdisk -l | grep Disk Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1```
+
+If it is not correctly setup, it will look like this:
+
+```No multipath output root@server:~# multipath -l root@server:~#```
+
+This will show the devices blacklisted:
+
+```root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02 | sda: device node name blacklisted Feb 17 19:55:02 | sdb: device node name blacklisted Feb 17 19:55:02 | sdc: device node name blacklisted Feb 17 19:55:02 | sdd: device node name blacklisted Feb 17 19:55:02 | sde: device node name blacklisted```
+
+fdisk shows only the `sd*` devices, and no `/dev/mapper`
+
+```root@server:~# fdisk -l | grep Disk Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1```
