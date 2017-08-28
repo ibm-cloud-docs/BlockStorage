@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-01"
+lastupdated: "2017-08-28"
 
 ---
 {:new_window: target="_blank"}
@@ -29,6 +29,7 @@ The new Block and File storage is currently available in following regions/data 
 		<tr>
 			<td>
 				<p>SJC03<br />
+				   SJC04<br />
 					WDC04<br />
 					WDC06<br />
 					WDC07<br />
@@ -40,25 +41,26 @@ The new Block and File storage is currently available in following regions/data 
 			<td>
 				<p>LON02<br />
 				LON04<br />
+				LON06<br />
 					FRA02<br />
 					AMS03<br />
-					OSLO1<br /><br /><br /><br /></p>
+					OSLO1<br />PAR01<br /><br /><br /></p>
 			</td>
 			<td>
 				<p>SYD01<br />
 				SYD04<br />
-				MEL01<br /><br /><br /><br /><br /><br /></p>
+				MEL01<br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 			<td>
 				<p>TOR01<br />
-					MON01<br /><br /><br /><br /><br /><br /><br /></p>
+					MON01<br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 			<td>
-				<p>MEX01<br /><br /><br /><br /><br /><br /><br /><br /></p>
+				<p>MEX01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 						<td>
 				<p>TOK02<br />
-					HKG02<br /><br /><br /><br /><br /><br /><br /></p>
+					HKG02<br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 			</tr>
 	</tbody>
