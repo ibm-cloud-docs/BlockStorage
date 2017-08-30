@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-22"
+lastupdated: "2017-08-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,6 +35,15 @@ Take advantage of the following core features of Block Storage:
 - **Clustered databases**
    - Supports advanced use cases, such as clustered databases
      
+## Hourly / Monthly Billing
+
+You can select hourly or monthly billing for a Block LUN. The type of billing selected for a LUN will apply to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees will be billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees will be billed monthly. 
+
+With **hourly billing**, the calculation of the number of hours the block LUN existed on the account is performed at the time the LUN is deleted or at the end of the billing cycle, which ever comes first.  Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage provisioned in [select data centers](/docs/infrastructure/BlockStorage/new-ibm-block-and-file-storage-location-and-features.html). 
+
+With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There is no refund If a LUN is deleted before the end of the billing cycle.  Monthly billing is a good choice for storage used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer).  
+
+
 ## Provisioning
 
 Block Storage LUNs can be provisioned from 20GB to 12TB with two options for provisioning:
