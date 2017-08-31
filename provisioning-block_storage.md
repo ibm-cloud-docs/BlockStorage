@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-04-27"
+lastupdated: "2017-08-31"
 
 ---
 {:new_window: target="_blank"}
@@ -59,6 +59,8 @@ lastupdated: "2017-04-27"
 ### Authorize hosts to access to Block Storage
 
 “Authorized” hosts are hosts that have been given access rights to a particular LUN. Without host authorization you won’t be able to access or use the storage from your system. Authorizing a host to access your LUN generates the Username, Password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
+
+**Note**: You can only authorize and connect hosts that reside in the same datacenter as your storage. If you have multiple accounts, you cannot authorize a host from one account to access your storage on another.
 
 1. Click **Storage** -> **Block Storage**, and click on your LUN Name.
 2. Scroll to the Authorized Hosts section of the page.

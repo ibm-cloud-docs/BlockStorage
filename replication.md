@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2017
-lastupdated: "2017-07-28"
+lastupdated: "2017-08-31"
  
 ---
 
@@ -37,10 +37,10 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			<td><strong>US 1</strong></td>
 			<td><strong>US 2</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Latin/South America</strong></td>
-			<td><strong>Canada</strong><sup><img src="./images/numberone.png" alt="1" /></sup></td>
+			<td><strong>Canada</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Europe</strong></td>
 			<td><strong>Asian Pacific</strong></td>
-			<td><strong>Australias</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
+			<td><strong>Australias</strong><sup><img src="./images/numberone.png" alt="1" /></sup></td>
 		</tr>
 		<tr>
 			<td>DAL01<br />
@@ -52,53 +52,61 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				<br />
 				<br />
 				<br />
+				<br /><br />
 			</td>
 			<td><p>SJC03<br />
+			       SJC04<br />
 			       WDC04<br />
 			       WDC06<br />
 			       WDC07<br />
 				DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13</p>
+				DAL13<br /><br /></p>
 			</td>
-			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /></td>
+			<td>MEX01<sup><img src="/images/numberone.png" alt="1" /></sup><br />______<br />
+				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
 			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /></td>
+				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
 			<td>
 				AMS03<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				FRA02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				LON02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				LON04<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				LON06<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				OSL01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				PAR01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				______<br />
-				PAR01<br />
 				MIL01<br />
-				AMS01<br /><br />
+				AMS01<br />
 			</td>
-			<td>HKG02<br />
-				TOK02<br />
+			<td>HKG02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				TOK02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				______<br />
 				SEO01<br />
 				SNG01<br />
 				CHE01<br />
 				<br />
 				<br />
 				<br />
-				<br />
+				<br /><br />
 				</td>
 			<td>
 				SYD01<br />
 				SYD04<br />
 				MEL01<br />
-				<br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 		</tr>
 		<tr>
 			<td colspan="100%">
-				<p><sup><img src="/images/numberone.png" alt="1" /></sup>All data centers in this region have encrypted storage.</p>
-				<p>PAR01, MIL01 and AMS01 are all replication partners, and can initiate
-					replication to data centers with encrypted storage above the line.&nbsp;
-					Data centers with encrypted storage cannot initiate replication to non-encrypted data centers.</p>
+				<p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region have encrypted storage.</p>
+				<p>In EU region, PAR01, MIL01 and AMS01 are all replication partners, and can initiate
+replication to data centers with encrypted storage as replicas (data centers above the line). <br/>
+In Asia Pacific region, SEO01, SNG01 and CHE01 are all replication partners, and can initiate replication data centers with encrypted storage as replicas (data centers above the line). <br/>
+In Latin America Region, MEX01 is enabled with encrypted storage. Replication not allowed from MEX01 to SAO01. But, replication can be established from SAO01 to MEX01. <br/>
+<strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.
+</p>
 			</td>
 		</tr>
 	</tbody>
