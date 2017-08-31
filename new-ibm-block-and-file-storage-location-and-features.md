@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-28"
+lastupdated: "2017-08-31"
 
 ---
 {:new_window: target="_blank"}
@@ -75,7 +75,6 @@ The new storage has the following features and capabilities:
 - 10 IOPS per GB tier option.  A new tier has been added to the Endurance type Block and File storage to support the most demanding workloads.
 - All flash-backed storage.  Block and File storage provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
 - Snapshot and Replication support with Block and File storage provisioned with Performance.
-- Hourly Billing option added for storage that is planned to be used for less than a full month. 
 - Up to 48,000 IOPS for Block and File storage provisioned with Performance.
 - Create a new clone of your data with the [Block Storage Volume Duplication feature](how-to-create-duplicate-volume.html).  
 
