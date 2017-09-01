@@ -49,14 +49,15 @@ From the customer portal, click **Storage**, **Block Storage** OR from Bluemix C
       - Select **Create from latest snapshot** – this will create a duplicate from whatever the latest snapshot that exists for this volume. 
     - If ordering from a replica volume – the only option for snapshot is to use the latest snapshot available. 
 3. Storage Type (Endurance or Performance) and Location will remain the same as the original volume.
-4. If desired you can specify IOPs or IOPs Tier for the new volume. The IOPs designation of the original volume is set by default. 
+4. Hourly or Monthly Billing – you can choose to provision the new duplicate LUN with hourly or monthly billing.  The billing type for the original volume is automatically selected, but if you would like to choose a different billing type for your new duplicate storage, you can make that selection here. 
+5. If desired you can specify IOPs or IOPs Tier for the new volume. The IOPs designation of the original volume is set by default. 
     - If your original volume is 0.25 IOPs Endurance tier, you will not be able to make a new selection. 
     - If you original volume is 2, 4, or 10 IOPs Endurance tier, you can move anywhere between those tiers for the new volume. 
     - Available Performance and size combinations will be displayed. 
-5. If desired you can update the size of the new volume so that it is larger than the original.  The size of the original volume is set by default. 
+6. If desired you can update the size of the new volume so that it is larger than the original.  The size of the original volume is set by default. 
     - **Note**: Block storage can only be resized to 10x the original size of the volume. 
-6. If desired you can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume will be set by default. 
-7. Click **Continue** to place your order for the duplicate. 
+7. If desired you can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume will be set by default. 
+8. Click **Continue** to place your order for the duplicate. 
 
 
 
