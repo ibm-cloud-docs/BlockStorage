@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-09-07"
 
 ---
 {:new_window: target="_blank"}
@@ -71,52 +71,76 @@ While choosing the right tier of Endurance block storage for your workload it is
 Performance is a class of block storage that is designed to support high I/O applications with well understood performance requirements that don’t fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. IOPS ranging from 100 through 48,000 can be provisioned with storage sizes that range from 20 GB to 12 TB. 
 
 Performance for block storage is accessed and mounted through a Multipath I/O (MPIO) Internet Small Computer System Interface (iSCSI) connection. Block storage is typically used when the volume will be accessed by a single machine. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS in Table 1 for Linux, XEN, VMware, and Windows operating systems.
-<table cellpadding="1" cellspacing="1">
-	<caption>Table 1. -  Sizes and IOPS ranges</caption>
-	<tbody>
-		<tr>
-			<td><strong>Size (GB)</strong></td>
-			<td><strong>20</strong></td>
-			<td><strong>40</strong></td>
-			<td><strong>80</strong></td>
-			<td><strong>100</strong></td>
-			<td><strong>250</strong></td>
-			<td><strong>500</strong></td>
-			<td><strong>1,000</strong></td>
-			<td><strong>2,000 - 3,000</strong></td>
-			<td><strong>4,000 - 7,000</strong></td>
-			<td><strong>8,000 - 9,000</strong></td>
-			<td><strong>10,000 - 12,000</strong></td>
-		</tr>
-		<tr>
-			<td><strong>Min IOPS</strong></td>
-			<td>100</td>
-			<td>100</td>
-			<td>100</td>
-			<td>100</td>
-			<td>100</td>
-			<td>100</td>
-			<td>100</td>
-			<td>200</td>
-			<td>300</td>
-			<td>500</td>
-			<td>1,000</td>
-		</tr>
-		<tr>
-			<td><strong>Max IOPS</strong></td>
-			<td>1,000</td>
-			<td>2,000</td>
-			<td>4,000</td>
-			<td>6,000</td>
-			<td>6,000</td>
-			<td>6,000 or 10,000<sup><img src="./images/numberone.png" alt="1"/></sup></td>
-			<td>6,000 or 20,000<sup><img src="./images/numberone.png" alt="1"/></sup></td>
-			<td>6,000 or 40,000<sup><img src="./images/numberone.png" alt="1"/></sup></td>
-			<td>,000 or 48,000<sup><img src="./images/numberone.png" alt="1"/></sup></td>
-			<td>6,000 or 48,000<sup><img src="./images/numberone.png" alt="1"/></sup></td>
-			<td>6,000 or 48,000<sup><img src="./images/numberone.png" alt="1"/></sup></td>
-		</tr>
-	</tbody>
+
+
+<table cellpadding="1" cellspacing="1" style="width: 99%;">
+        <colgroup>
+          <col/>
+          <col/>
+          <col/>
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>Size (GB)</th>
+            <th>Min IOPS</th>
+            <th>Max IOPS</th>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>100</td>
+            <td>1,000</td>
+          </tr>
+          <tr>
+            <td>40</td>
+            <td>100</td>
+            <td>2,000</td>
+          </tr>
+          <tr>
+            <td>80</td>
+            <td>100</td>
+            <td>4,000</td>
+          </tr>
+          <tr>
+            <td>100</td>
+            <td>100</td>
+            <td>6,000</td>
+          </tr>
+          <tr>
+            <td>250</td>
+            <td>100</td>
+            <td>6,000</td>
+          </tr>
+          <tr>
+            <td>500</td>
+            <td>100</td>
+            <td>6,000 or 10,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+          </tr>
+          <tr>
+            <td>1,000</td>
+            <td>100</td>
+            <td>6,000 or 20,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+          </tr>
+          <tr>
+            <td>2,000-3,000</td>
+            <td>200</td>
+            <td>6,000 or 40,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+          </tr>
+          <tr>
+            <td>4,000-7,000</td>
+            <td>300</td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+          </tr>
+          <tr>
+            <td>8,000-9,000</td>
+            <td>500</td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+          </tr>
+          <tr>
+            <td>10,000-12,000</td>
+            <td>1,000</td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+          </tr>
+        </tbody>
 </table>
 
 <sup>![footnote](/images/numberone.png)</sup> IOPs limit above 6,000 available in select data centers.
