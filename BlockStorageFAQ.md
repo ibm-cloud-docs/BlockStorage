@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-09-08"
 
 ---
 {:new_window: target="_blank"}
@@ -49,3 +49,6 @@ By default, you can provision a combined total of 250 block and file storage vol
 
 ## Will I be able to achieve more throughput if I used a faster Ethernet connection?
 Throughput limits are set at a per-volume/LUN level so using a faster Ethernet connection will not increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
+
+## Will firewalls/security groups impact performance?
+We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.

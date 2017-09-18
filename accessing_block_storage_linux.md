@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-22"
+lastupdated: "2017-09-18"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 # Connecting to MPIO iSCSI LUNs on Linux
+
+These instructions are for RHEL6/Centos6. If you are using another Linux operating systems, please refer to documentation of your specific distro for configuration and ensure that the multipath supports ALUA for path priority.
 
 Before starting, make sure the host accessing the Block Storage volume has been authorized through the Bluemix Portal:
 
@@ -22,46 +24,48 @@ Following are the steps required to connect a Linux-based Bluemix compute instan
 
 **Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the Block Storage Details screen in the Portal.
 
+**Note:** We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
+
 1. Install the iSCSI and multipath utilities to your host
    - yum install iscsi-initiator-utils device-mapper-multipath (RHEL/CentOS)
    - apt-get install open-iscsi multipath-tools (Ubuntu/Debian)
 2. Create or edit your multipath configuration file.
    - Edit /etc/multipath.conf with the minimum configuration provided in the following commands.
 
-**Be aware that for RHEL7/CentOS7,** multipath.conf **can be blank as the OS has built-in configurations.**
+   **Be aware that for RHEL7/CentOS7,** multipath.conf **can be blank as the OS has built-in configurations.**
 
-```
-defaults {
-user_friendly_names no
-max_fds max
-flush_on_last_del yes
-​queue_without_daemon no
-dev_loss_tmo infinity
-fast_io_fail_tmo 5
-}
-# All data under blacklist must be specific to your system.
-blacklist {
-wwid "SAdaptec*"
-devnode "^hd[a-z]"
-devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-devnode "^cciss.*"
-}
-devices {
-device {
-vendor "NETAPP"
-product "LUN"
-path_grouping_policy group_by_prio
-features "3 queue_if_no_path pg_init_retries 50"
-prio "alua"
-path_checker tur
-failback immediate
-path_selector "round-robin 0"
-hardware_handler "1 alua"
-rr_weight uniform
-rr_min_io 128
-}
-}
-```
+   ```
+   defaults {
+   user_friendly_names no
+   max_fds max
+   flush_on_last_del yes
+   queue_without_daemon no
+   dev_loss_tmo infinity
+   fast_io_fail_tmo 5
+   }
+   # All data under blacklist must be specific to your system.
+   blacklist {
+   wwid "SAdaptec*"
+   devnode "^hd[a-z]"
+   devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+   devnode "^cciss.*"  
+   }
+   devices {
+   device {
+   vendor "NETAPP"
+   product "LUN"
+   path_grouping_policy group_by_prio
+   features "3 queue_if_no_path pg_init_retries 50"
+   prio "alua"
+   path_checker tur
+   failback immediate
+   path_selector "round-robin 0"
+   hardware_handler "1 alua"
+   rr_weight uniform
+   rr_min_io 128
+   }
+   }
+   ```
 
 3. Load the multipath module, start multipath services and set it start on boot.
    - modprobe dm-multipath
@@ -70,11 +74,11 @@ rr_min_io 128
 4. Verify multipath is working.
    - multipath -l (if it returns blank at this time it is working. RHEL 7/CentOS 7 may return No fc_host device for 'host-1', which can be ignored. )
 5. Update /etc/iscsi/initiatorname.iscsi file with the IQN from the Customer Portal. Enter the value as lower case. 
-```
-InitiatorName="value-from-the-SL-Portal" 
-```
+   ```
+   InitiatorName="value-from-the-SL-Portal" 
+   ```
 6. Edit the CHAP settings in /etc/iscsi/iscsid.conf using the username and password from the Portal (minus the quotation marks). Use upper case for CHAP names.
-```
+   ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = "Username-value-from-SL-Portal"
     node.session.auth.password = "Password-value-from-SL-Portal"
@@ -82,7 +86,7 @@ InitiatorName="value-from-the-SL-Portal"
     discovery.sendtargets.auth.username = "Username-value-from-SL-Portal"
     discovery.sendtargets.auth.password = "Password-value-from-SL-Portal" 
    ```
-**Note:** Leave the other CHAP settings commented. Bluemix storage uses only one-way authentication.
+   **Note:** Leave the other CHAP settings commented. Bluemix storage uses only one-way authentication.
           
 7. Set iSCSI to start at boot and start it at this time.
    - chkconfig iscsi on
@@ -90,10 +94,15 @@ InitiatorName="value-from-the-SL-Portal"
    - service iscsi start
    - service iscsid start
 8. Discover the device using the Target IP address obtained from the Customer Portal.
-   a. Run the discovery against the iSCSI array:
-     - iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"
-   b. Set the host to automatically log into the iSCSI array:
-     - iscsiadm -m node -L automatic
+
+    a. Run the discovery against the iSCSI array:
+    
+    `iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"`
+       
+    b. Set the host to automatically log into the iSCSI array:
+    
+    `iscsiadm -m node -L automatic`
+       
 9. Verify that the host has logged into the iSCSI array and maintained its sessions.
    - iscsiadm -m session
    - multipath -l (should report the paths at this time)
@@ -224,9 +233,9 @@ Following are the steps to create a file system on top of the newly mounted volu
 		</tbody>
 	</table>
   
-  ()Type m for Help.
+  (`*`)Type m for Help.
 
-  ()Type L to list the hex codes
+  (`**`)Type L to list the hex codes
   
 ## How to Verify if MPIO is Configured Correctly in *NIX OSes
 
