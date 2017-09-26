@@ -2,14 +2,14 @@
  
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-09-26"
  
 ---
 
 {:shortdesc: .shortdesc} 
 {:new_window: target="_blank"}
 
-# Replication
+# Working with Replication
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site in the event of corrupted data or a catastrophic event.
 

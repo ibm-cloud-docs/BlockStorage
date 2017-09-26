@@ -2,13 +2,13 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-07-28"
+lastupdated: "2017-09-26"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Use LUKS in Red Hat Enterprise Linux for Full Disk Encryption
+# Using LUKS in Red Hat Enterprise Linux for Full Disk Encryption
 
 Linux Unified Key Setup-on-disk-format (LUKS) allows you to encrypt partitions on your Red Hat Enterprise Linux 6 (server), which is particularly important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
 

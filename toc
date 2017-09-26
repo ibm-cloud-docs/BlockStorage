@@ -1,25 +1,26 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="Block Storage" audience="services" href="/docs/infrastructure/blockstorage/index.html"}
+{: .toc subcollection="BlockStorage" audience="services" href="/docs/infrastructure/blockstorage/index.html"}
 IBM Bluemix Storage - Block Storage
 
     {: .navgroup id="learn"}
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
+    block-file-storage-encryption-rest.md
+    replication.md
+    snapshots.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
     provisioning-block_storage.md
-    replication.md
-    snapshots.md
-    block-file-storage-encryption-rest.md
     accessing_block_storage_linux.md
     accessing-block-storage-windows.md
     how-to-create-duplicate-volume.md
     migrate-block-storage-encrypted-block-storage.md
     set-host-queue-depth-settings-performance-and-endurance-storage.md
     use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
+    brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

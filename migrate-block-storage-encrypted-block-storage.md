@@ -1,12 +1,12 @@
 ---
 copyright:
   years: 2014, 2017
-lastupdated: "2017-06-16"
+lastupdated: "2017-09-25"
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Migrate Block Storage to Encrypted Block Storage
+# Migrating Block Storage to Encrypted Block Storage
 
 ## Overview
 

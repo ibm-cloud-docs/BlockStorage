@@ -2,13 +2,13 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-09-26"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# How to Create a Duplicate Block Volume
+# Creating a Duplicate Block Volume
 
 We provide the ability to create a duplicate of an existing Block or File storage volume. The duplicate volume will inherit the capacity and performance options of the original LUN/volume by default and will have a copy of the data up to the point in time of a snapshot.   
 
