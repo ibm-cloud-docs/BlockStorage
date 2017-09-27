@@ -2,21 +2,21 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-22"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 # Connecting to MPIO iSCSI LUNS on Microsoft Windows
-Before starting, make sure the host accessing the Block Storage volume has been authorized through the Portal:
+Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}} volume has been authorized through the Portal:
 
-1. From the Block Storage listing page, click the **Actions** button associated with the newly provisioned volume, and click **Authorize Host**.
+1. From the {{site.data.keyword.Block Storage}} listing page, click the **Actions** button associated with the newly provisioned volume, and click **Authorize Host**.
 2. Select the desired host(s) from the list and click **Submit**; this authorizes the host(s) to access the volume.
 
-## Mounting Block Storage Volumes
+## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 
-Following are the steps required to connect a Windows-based Bluemix Infrastructure compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system (OS) vendor documentation.
+Following are the steps required to connect a Windows-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system (OS) vendor documentation.
 
 ## High-level steps
 
@@ -47,7 +47,7 @@ Following are the steps required to connect a Windows-based Bluemix Infrastructu
 1. Launch iSCSI Initiator from the Server Manager and select **Tools**, **iSCSI Initiator**.
 2. Click the **Configuration** tab.
     - The Initiator Name field may already be populated with an entry similar to iqn.1991-05.com.microsoft:.
-    - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN). The IQN name can be obtained from the Block Storage Details screen in the Bluemix Portal. 
+    - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN). The IQN name can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the Portal. 
     ![iSCSI Initiator Properties](/images/iSCSI.png)
     - Click the **Discovery** tab and click **Discover Portal**.
     - Input the IP address of your iSCSI target and leave Port at the default value of 3260. 
@@ -57,7 +57,7 @@ Following are the steps required to connect a Windows-based Bluemix Infrastructu
     **Note:** The Name and Target secret fields are case sensitive.
          - Delete any existing entries in the Name field and input the username from the portal.
          - Enter the password from the portal in the Target secret field.<br/>
-         **Note:** The Name and Target secret values can be obtained from the Block Storage Details screen in the portal as Username and Password respectively.
+         **Note:** The Name and Target secret values can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the portal as Username and Password respectively.
     - Click **OK** on the Advanced Settings and Discover Target Portal windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, recheck the username and password entries. 
     ![Inactive Target](/images/Inactive_0.png)
     Note that the name of your target appears in the Discovered targets section with an Inactive status. 
@@ -71,7 +71,7 @@ Following are the steps required to connect a Windows-based Bluemix Infrastructu
 3. Click **Advanced** and select **Enable CHAP log on**. 
 ![Enable CHAP](/images/chap_0.png)
 4. Enter the username in the Name field, and enter the password in the Target secret field.<br/>
-**Note:** The Name and Target secret field values can be obtained from the Block Storage Details screen in the portal as User name and Password respectively
+**Note:** The Name and Target secret field values can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the portal as User name and Password respectively
 5. Click **OK** until the iSCSI Initiator Properties window is displayed. The status of the target in the Discovered Targets section changes from Inactive to Connected. 
 ![Connected status](/images/Connected.png) 
 
@@ -99,7 +99,7 @@ Following are the steps required to connect a Windows-based Bluemix Infrastructu
   
 7. Click **OK** several times to exit the iSCSI Initiator.
 
-### Unmounting Block Storage volumes
+### Unmounting {{site.data.keyword.blockstorageshort}} volumes
 
 Following are the steps required to disconnect a Windows-based Bluemix compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Wind
 ows versions according to the OS vendor documentation.
@@ -123,5 +123,5 @@ To verify if Windows MPIO is configured, you must first ensure the MPIO Add-on i
 Once the reboot is complete and the Performance Storage Device is added, we can verify if MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-If MPIO has not been configured on your Performance Storage Device and the SoftLayer Teams performs Maintenance or a Network Outage occurs, your Storage Device will disconnect and become unavailable. MPIO will ensure an extra level of connecitivty during those events, and will keep an established session with active reads/writes going to the LUN.
+If MPIO has not been configured on your Performance Storage Device and the {{site.data.keyword.BluSoftlayer_full}} Teams performs Maintenance or a Network Outage occurs, your Storage Device will disconnect and become unavailable. MPIO will ensure an extra level of connecitivty during those events, and will keep an established session with active reads/writes going to the LUN.
 

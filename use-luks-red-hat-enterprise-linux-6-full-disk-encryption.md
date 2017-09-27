@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-26"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
@@ -24,11 +24,11 @@ Linux Unified Key Setup-on-disk-format (LUKS) allows you to encrypt partitions o
 ## What LUKS does not do:
 
 - Allow applications requiring many (more than eight) users to have distinct access keys to same devices.
-- Work with applications requiring file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html).
+- Work with applications requiring file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## How to Set up New LUKS Encrypted Volume with Endurance Block Storage
+## How to Set up New LUKS Encrypted Volume with Endurance {{site.data.keyword.Block Storage}}
 
-These steps assume the server already has access to a new, unencrypted block storage volume that has not been formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access IBM CLoud Block Storage with Linux.
+These steps assume the server already has access to a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that has not been formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access {{site.data.keyword.blockstorageshort}} with Linux.
 
 Note that performing data encryption creates a load on the host that could potentially impact performance.
 

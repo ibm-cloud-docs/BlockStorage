@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-08"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2017-09-08"
 
 # Brocade vRouter (Vyatta) Set up Guide for VMware Environments with Endurance or Performance Storage
 
-You can configure a Brocade vRouter (Brocade vRouter (Vyatta) appliance [high availability (HA) configuration] within a VMware environment that is using either Endurance or Performance storage. Use the following information in conjunction with the [Advanced Single-Site VMware Reference Architecture](http://knowledgelayer.softlayer.com/articles/advanced-single-site-vmware-reference-architecturesoftlayer) to set up one of these storage options in your VMware environment.
+You can configure a Brocade vRouter (Brocade vRouter (Vyatta) appliance [high availability (HA) configuration] within a VMware environment that is using either Endurance or Performance storage. Use the following information in conjunction with the [Advanced Single-Site VMware Reference Architecture](http://knowledgelayer.softlayer.com/articles/advanced-single-site-vmware-reference-architecturesoftlayer){:new_window} to set up one of these storage options in your VMware environment.
 
 ## Brocade vRouter (Vyatta) Overview
 
@@ -355,7 +355,7 @@ save
 
 Once the zones and firewall rules have been set up on the Brocade vRouter (Vyatta), we must associate the VLANs to it and enable routing of the VLANs via the Brocade vRouter (Vyatta).
 
-1. Log in to the [Customer portal](https://control.softlayer.com/) and click on **Network > Gateway Appliance** and click on the Brocade vRouter (Vyatta).
+1. Log in to the [Customer portal](https://control.softlayer.com/){:new_window} and click on **Network > Gateway Appliance** and click on the Brocade vRouter (Vyatta).
 2. Select a **VLAN** and click on the **Associate** button.
 3. Repeat step 2 for each VLAN you created for your environment. The VLANs next need to have routing enabled in order to be associated with the Brocade vRouter (Vyatta).
 4. Locate the VLANs under **Associated VLANs** and check the box next to each one.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-26"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2017-09-26"
 
 # Creating a Duplicate Block Volume
 
-We provide the ability to create a duplicate of an existing Block or File storage volume. The duplicate volume will inherit the capacity and performance options of the original LUN/volume by default and will have a copy of the data up to the point in time of a snapshot.   
+{{site.data.keyword.BluSoftlayer_full}} provides the ability to create a duplicate of an existing {{site.data.keyword.blockstoragefull}} or File Storage volume. The duplicate volume will inherit the capacity and performance options of the original LUN/volume by default and will have a copy of the data up to the point in time of a snapshot.   
 
 Because the duplicate is based on the data in a point in time snapshot, snapshot space is required on the original volume before you can create a duplicate.  To learn more about snapshots and how to order snapshot space, refer to [Snapshot documentation](snapshots.html).  
 
@@ -31,13 +31,13 @@ Some common uses for a duplicate volume:
 - **Storage Resize**: Create a new volume with the new size and/or IOPS without having to perform a host based migration of your data.  
 	
 
-There are a couple of ways to create a duplicate volume via the customer portal: 
+There are a couple of ways to create a duplicate volume via the [Customer Portal](https://control.softlayer.com/){:new_window}: 
 
 ## How to Create a Duplicate From a Specific Volume in the Storage List
 
-Navigate to your list of Block:
+Navigate to your list of {{site.data.keyword.blockstorageshort}}:
 
-From the customer portal, click **Storage**, **Block Storage** OR from Bluemix Catalog click **Infrastructure->Storage->Block Storage**. 
+From the customer portal, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure->Storage->{{site.data.keyword.blockstorageshort}}**. 
 
 
 1. Select a LUN from the list and click **Actions** -> **Duplicate LUN (Volume)** 
@@ -55,7 +55,7 @@ From the customer portal, click **Storage**, **Block Storage** OR from Bluemix C
     - If you original volume is 2, 4, or 10 IOPs Endurance tier, you can move anywhere between those tiers for the new volume. 
     - Available Performance and size combinations will be displayed. 
 6. If desired you can update the size of the new volume so that it is larger than the original.  The size of the original volume is set by default. 
-    - **Note**: Block storage can only be resized to 10x the original size of the volume. 
+    - **Note**: {{site.data.keyword.blockstorageshort}} can only be resized to 10x the original size of the volume. 
 7. If desired you can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume will be set by default. 
 8. Click **Continue** to place your order for the duplicate. 
 
@@ -63,9 +63,9 @@ From the customer portal, click **Storage**, **Block Storage** OR from Bluemix C
 
 ## How to Create a Duplicate From a Specific Snapshot
 
-Navigate to your list of Block or File storage:
+Navigate to your list of {{site.data.keyword.blockstorageshort}}:
 
-1. Click on a **LUN/volume** from the list to view the details page. (Can either be a replica or non-replica volume) 
+1. Click on a **LUN/volume** from the list to view the details page. (It can either be a replica or non-replica volume.) 
 2. Scroll down and select an existing snapshot from the list on the details page and click **Actions ->Duplicate**.   
 3. Storage Type (Endurance or Performance) and Location will remain the same as the original volume. 
 4. If desired, you can specify IOPs or IOPs Tier for the new volume. The IOPs designation of the original volume is set by default. 
@@ -73,7 +73,7 @@ Navigate to your list of Block or File storage:
     - If you original volume is 2, 4, or 10 IOPs Endurance tier, you can move anywhere between those tiers for the new volume. 
     - Available Performance and size combinations will be displayed. 
 5. If desired, you can update the size of the new volume so that it is larger than the original.  The size of the original volume is set by default. 
-    - **Note**: Block storage can only be resized to 10x the original size of the volume. 
+    - **Note**: {{site.data.keyword.blockstorageshort}} can only be resized to 10x the original size of the volume. 
 6. If desired, you can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume will be set by default. 
 7. Click **Continue** to place your order for the duplicate. 
 

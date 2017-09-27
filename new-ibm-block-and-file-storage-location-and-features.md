@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
@@ -10,11 +10,13 @@ lastupdated: "2017-08-31"
 
 # New IBM Block and File Storage Location and Features
 
-IBM Bluemix Infrastructure is introducing a new version of IBM Block and File storage!  The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage provisioned in the select data centers will automatically be provisioned with the new version of Block and File storage.
+{{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}! 
+
+The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage provisioned in the select data centers will automatically be provisioned with the new version of {{site.data.keyword.blockstorageshort}} and File Storage.
 
 **Note:** The NFS mount point for new volumes has changed. See **New Mount Point for encrypted File Storage Volumes** below for details.
 
-The new Block and File storage is currently available in following regions/data centers with additional data center availability coming soon!
+The new {{site.data.keyword.blockstorageshort}} and File storage is currently available in following regions/data centers with additional data center availability coming soon!
 <table style="width:100%;">
 	<caption>Data Center Availability</caption>
 	<tbody>
@@ -72,15 +74,15 @@ The new Block and File storage is currently available in following regions/data 
 The new storage has the following features and capabilities:
 
 - [Provider Managed encryption for data-at-rest](block-file-storage-encryption-rest.html). All Block and File storage will automatically be provisioned as encrypted at no additional charge.
-- 10 IOPS per GB tier option.  A new tier has been added to the Endurance type Block and File storage to support the most demanding workloads.
-- All flash-backed storage.  Block and File storage provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
-- Snapshot and Replication support with Block and File storage provisioned with Performance.
+- 10 IOPS per GB tier option.  A new tier has been added to the Endurance type {{site.data.keyword.blockstorageshort}} and File storage to support the most demanding workloads.
+- All flash-backed storage.  {{site.data.keyword.blockstorageshort}} and File storage provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
+- Snapshot and Replication support with {{site.data.keyword.blockstorageshort}} and File storage provisioned with Performance.
 - Hourly Billing option added for storage that is planned to be used for less than a full month. 
-- Up to 48,000 IOPS for Block and File storage provisioned with Performance.
-- Create a new clone of your data with the [Block Storage Volume Duplication feature](how-to-create-duplicate-volume.html).  
+- Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}} and File Storage provisioned with Performance.
+- Create a new clone of your data with the [{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html).  
 
-## New Mount Point for Encrypted File Storage Volumes
+## New Mount Point for Encrypted Storage Volumes
 
-All encrypted File storage volumes provisioned in these data centers have a different mount point than non-encrypted volumes.  To ensure you are using the correct mount point for both your encrypted and non-encrypted file storage volumes you can view the mount point information in the Volume Details page in the UI as well as access the correct mountpoint via an API call:  `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+All encrypted storage volumes provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you are using the correct mount point for both your encrypted and non-encrypted storage volumes you can view the mount point information in the Volume Details page in the UI as well as access the correct mountpoint via an API call:  `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Check back here to see when additional data centers have been upgraded and for newly available features and capabilities that are being added for Block and File storage.
+Check back here to see when additional data centers have been upgraded and for newly available features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.

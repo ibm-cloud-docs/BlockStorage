@@ -2,15 +2,15 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-26"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Setting Up Host Queue Depth Settings
+# Setting up Host Queue Depth Settings
 
-Bluemix recommends a maximum host and application input/output (I/O) queue depth for each performance tiers. The host setting doesn’t affect disk and controller latency, only latency observed by the host and application.
+{{site.data.keyword.BluSoftlayer_full}} recommends a maximum host and application input/output (I/O) queue depth for each performance tiers. The host setting doesn’t affect disk and controller latency, only latency observed by the host and application.
 
 Queue depth above the recommended numbers can increase host I/O latency; while queue depth below the recommended number may reduce host I/O performance. Because each application is different, adjustment and observation is required to achieve maximum storage performance.
 

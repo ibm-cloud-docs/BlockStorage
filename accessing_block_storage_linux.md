@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-18"
+lastupdated: "2017-09-27"
 
 ---
 {:new_window: target="_blank"}
@@ -12,17 +12,17 @@ lastupdated: "2017-09-18"
 
 These instructions are for RHEL6/Centos6. If you are using another Linux operating systems, please refer to documentation of your specific distro for configuration and ensure that the multipath supports ALUA for path priority.
 
-Before starting, make sure the host accessing the Block Storage volume has been authorized through the Bluemix Portal:
+Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}}  volume has been authorized through the [Customer Portal](https://control.softlayer.com/){:new_window}:
 
-1. From the Block Storage listing page, click the **Actions** associated with the newly provisioned volume 
+1. From the {{site.data.keyword.blockstorageshort}}  listing page, click the **Actions** associated with the newly provisioned volume 
 2. Click Authorize Host.
 3. Select the desired host(s) from the list and click **Submit**; this authorizes the host(s) to access the volume.
 
-## Mounting Block Storage volumes
+## Mounting {{site.data.keyword.blockstorageshort}} volumes
 
-Following are the steps required to connect a Linux-based Bluemix compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Red Hat Enterprise Linux 6. The steps can be adjusted for other Linux distributions according to the operating system (OS) vendor documentation.
+Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full)}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Red Hat Enterprise Linux 6. The steps can be adjusted for other Linux distributions according to the operating system (OS) vendor documentation.
 
-**Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the Block Storage Details screen in the Portal.
+**Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [Customer Portal](https://control.softlayer.com/){:new_window}.
 
 **Note:** We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
 
@@ -32,7 +32,7 @@ Following are the steps required to connect a Linux-based Bluemix compute instan
 2. Create or edit your multipath configuration file.
    - Edit /etc/multipath.conf with the minimum configuration provided in the following commands.
 
-   **Be aware that for RHEL7/CentOS7,** multipath.conf **can be blank as the OS has built-in configurations.**
+   **Be aware that for RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations.**
 
    ```
    defaults {
@@ -143,7 +143,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 			</tr>
 			<tr>
 				<td><li>
-							*<code>Command: n</code>
+							<code>* Command: n</code>
 						</li>
 				</td>
 				<td>Creates a new partition.
@@ -192,7 +192,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 			</tr>
 			<tr>
 				<td>
-						<li>*<code>Command: t</code>
+						<li><code>* Command: t</code>
 						</li>
 				</td>
 				<td>Sets up the type of partition.
@@ -210,7 +210,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 			<tr>
 				<td>
 						<li>
-							**<code>Hex code: 83</code>
+							<code>** Hex code: 83</code>
 						</li>
 				</td>
 				<td>Selects Linux as the Type (83 is the hex code for Linux).
@@ -224,7 +224,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 			<tr>
 				<td>
 						<li>
-							*<code>Command: w</code>
+							<code>* Command: w</code>
 						</li>
 				</td>
 				<td>Writes the new partition information to the disk.
