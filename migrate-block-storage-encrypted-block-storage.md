@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-09-28"
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
@@ -26,7 +26,7 @@ The more common scenarios have been outlined for your convenience. There is an a
 Use the following steps to create a LUN of the same size or larger that is encrypted to facilitate the migration process. 
 Order an encrypted Endurance storage LUN
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [Customer Portal](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
 
 2. Click on the **Order {{site.data.keyword.blockstorageshort}}** link on the {{site.data.keyword.blockstorageshort}} page.
 
@@ -46,7 +46,7 @@ Order an encrypted Endurance storage LUN
 
 ## Order an encrypted Performance storage LUN
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [Customer Portal](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
 
 2. Click **Order {{site.data.keyword.blockstorageshort}}**.
 
@@ -62,7 +62,7 @@ Order an encrypted Endurance storage LUN
 
 8. Submit the order.
 
-Storage will be provisioned in less than a minute and will be visible on the {{site.data.keyword.blockstorageshort}} page of the customer portal.
+Storage will be provisioned in less than a minute and will be visible on the {{site.data.keyword.blockstorageshort}} page of the {{site.data.keyword.slportal}}.
 
  
 ## Connect new volume to host

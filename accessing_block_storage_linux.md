@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-09-28"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2017-09-27"
 
 These instructions are for RHEL6/Centos6. If you are using another Linux operating systems, please refer to documentation of your specific distro for configuration and ensure that the multipath supports ALUA for path priority.
 
-Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}}  volume has been authorized through the [Customer Portal](https://control.softlayer.com/){:new_window}:
+Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}}  volume has been authorized through the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}:
 
 1. From the {{site.data.keyword.blockstorageshort}}  listing page, click the **Actions** associated with the newly provisioned volume 
 2. Click Authorize Host.
@@ -22,7 +22,7 @@ Before starting, make sure the host accessing the {{site.data.keyword.blockstora
 
 Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full)}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Red Hat Enterprise Linux 6. The steps can be adjusted for other Linux distributions according to the operating system (OS) vendor documentation.
 
-**Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [Customer Portal](https://control.softlayer.com/){:new_window}.
+**Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
 
 **Note:** We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
 

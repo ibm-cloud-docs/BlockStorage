@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-09-28"
 
 ---
 {:new_window: target="_blank"}
@@ -34,7 +34,7 @@ In order to create snapshots of your storage volume, either automated or manuall
 
 ## How Do I Create a Snapshot Schedule?
 
-Snapshot schedules let you decide how often and when you want to create a point-in-time reference of your storage volume. You can have a maximum of 50 snapshots per storage volume. Schedules are managed via the **Storage**, **{{site.data.keyword.blockstorageshort}}** tab of the [Customer Portal](https://control.softlayer.com/){:new_window}.
+Snapshot schedules let you decide how often and when you want to create a point-in-time reference of your storage volume. You can have a maximum of 50 snapshots per storage volume. Schedules are managed via the **Storage**, **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you did not purchase it during the initial provisioning of the storage volume.
 
@@ -126,7 +126,7 @@ You may need to take your storage volume back to a specific point in time becaus
 1. Unmount and detach your storage volume from the host.
    - Click [here](accessing_block_storage_linux.html)  for b{{site.data.keyword.blockstorageshort}} on Linux instructions.
    - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}} on Microsoft Windows instructions.
-2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the customer portal.
+2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
 3. Scroll down and click on your volume to be restored. The Snapshots section of the Detail page will display a list of all saved snapshots along with their size and creation date.
 4. Click the **Actions** button for the snapshot to be used and click Restore. 
   **Note**: Performing a restore will result in a loss of data that has been created or modified since the snapshot being used was taken. Once complete, your storage volume will be returned to the same state it was in when the snapshot was taken. A prompt will appear to notify you of this.
