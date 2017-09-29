@@ -31,7 +31,7 @@ Some common uses for a duplicate volume:
 - **Storage Resize**: Create a new volume with the new size and/or IOPS without having to perform a host based migration of your data.  
 	
 
-There are a couple of ways to create a duplicate volume via the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}: 
+There are a couple of ways to create a duplicate volume via the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}: 
 
 ## How to Create a Duplicate From a Specific Volume in the Storage List
 

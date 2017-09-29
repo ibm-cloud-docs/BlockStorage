@@ -14,7 +14,7 @@ lastupdated: "2017-09-28"
 
 ### How to order Endurance for {{site.data.keyword.blockstorageshort}}
 
-1. From the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. In the top right corner, click on **Order {{site.data.keyword.blockstorageshort}}** link.
 3. Select **Endurance** from the Select Storage Type drop-down list.
 4. Click the drop-down list and select your deployment Location (data center).
@@ -39,7 +39,7 @@ lastupdated: "2017-09-28"
 
 ### How to order Performance for Block Storage
 
-1. From the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. Click on **Order {{site.data.keyword.blockstorageshort}}** in the top right corner of the screen.
 3. Select **Performance** from the **Select Storage Type** drop-down list.
 4. Click the **Location** drop-down list and select your data center.
@@ -110,7 +110,7 @@ You can revoke access from either Storage from the Device List or the Storage vi
 
 ### Revoke access from the Device List:
 
-1. Click **Devices**, **Device List** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} and double-click the appropriate device.
+1. Click **Devices**, **Device List** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} and double-click the appropriate device.
 2. Select the **Storage** tab.
 3. You will then be presented with a list of storage LUNs that this particular host has access to, all grouped by storage type (block, file, other). Select the respective Action menu next to the LUN that you want to revoke access from and click **Revoke Access**.
 4. You will be asked if you want to revoke the access for a LUN because the action cannot be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.

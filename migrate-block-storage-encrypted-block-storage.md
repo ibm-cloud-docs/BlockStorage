@@ -26,7 +26,7 @@ The more common scenarios have been outlined for your convenience. There is an a
 Use the following steps to create a LUN of the same size or larger that is encrypted to facilitate the migration process. 
 Order an encrypted Endurance storage LUN
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
 
 2. Click on the **Order {{site.data.keyword.blockstorageshort}}** link on the {{site.data.keyword.blockstorageshort}} page.
 
@@ -46,7 +46,7 @@ Order an encrypted Endurance storage LUN
 
 ## Order an encrypted Performance storage LUN
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
 
 2. Click **Order {{site.data.keyword.blockstorageshort}}**.
 

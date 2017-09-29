@@ -355,7 +355,7 @@ save
 
 Once the zones and firewall rules have been set up on the Brocade vRouter (Vyatta), we must associate the VLANs to it and enable routing of the VLANs via the Brocade vRouter (Vyatta).
 
-1. Log in to the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} and click on **Network > Gateway Appliance** and click on the Brocade vRouter (Vyatta).
+1. Log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} and click on **Network > Gateway Appliance** and click on the Brocade vRouter (Vyatta).
 2. Select a **VLAN** and click on the **Associate** button.
 3. Repeat step 2 for each VLAN you created for your environment. The VLANs next need to have routing enabled in order to be associated with the Brocade vRouter (Vyatta).
 4. Locate the VLANs under **Associated VLANs** and check the box next to each one.

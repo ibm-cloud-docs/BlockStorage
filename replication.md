@@ -115,7 +115,7 @@ In Latin America Region, MEX01 is enabled with encrypted storage. Replication no
 
 ## How Do I Create an Initial Replication?
 
-Replications work off of a snapshot schedule. You must first have snapshot space and a snapshot schedule set up for the source volume before you can replicate. You’ll receive prompts letting you know space needs to be purchased or a schedule set up if you try to set up replication and one or the other is not in place. Replications are managed under Storage, {{site.data.keyword.blockstorageshort}} or File Storage from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
+Replications work off of a snapshot schedule. You must first have snapshot space and a snapshot schedule set up for the source volume before you can replicate. You’ll receive prompts letting you know space needs to be purchased or a schedule set up if you try to set up replication and one or the other is not in place. Replications are managed under Storage, {{site.data.keyword.blockstorageshort}} or File Storage from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. Click on your storage volume.
 2. Click on the **Replica** tab and click the **Purchase a replication** link.
@@ -129,7 +129,7 @@ Select an existing snapshot schedule that you want your replications to follow. 
 
 ## How Do I Edit an Existing Replication?
 
-You can edit your replication schedule and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
+You can edit your replication schedule and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
  
 
@@ -191,7 +191,7 @@ Click [here](snapshots.html) to learn how to increase your snapshot space.
 
 In the case of a failure event, the **Failover** action lets you initiate a failover to your destination, or target, volume. The target volume will become active, the last successfully replicated snapshot is activated, and the volume is made active for mounting. Any data written to the source volume since the previous replication cycle will be destroyed. Be aware that once a failover is initiated, the **replication relationship flipped**. Your target volume is now your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
 
-Failovers are initiated under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [[{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
+Failovers are initiated under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 **Before proceeding with this process, it is recommended to disconnect the volume. Failure to do so, will end with corruption and/or data loss.**
 
@@ -217,7 +217,7 @@ Once your original source volume has been repaired, the **Fallback** action lets
 
 Be aware that once a fallback is initiated, the **replication relationship is once again flipped**. Your source volume is restored as your source volume, and your target volume once again is the target volume as indicated by the **LUN Name** followed by **REP**.
 
-Fallbacks are initiated under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window}.
+Fallbacks are initiated under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. Click on your active Endurance LUN (“target”).
 2. Click on the **Replica** tab and click the **Actions** link in the upper-right corner.
