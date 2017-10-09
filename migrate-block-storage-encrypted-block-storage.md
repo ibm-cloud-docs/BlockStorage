@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-10-09"
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
@@ -36,7 +36,7 @@ Order an encrypted Endurance storage LUN
 
 5. Select the desired IOPS tier.
 
-6. Select the desired amount of storage space in GBs. For TB, 1TB equals 1,000GB, and 12TB equals 12,000GB.
+6. Select the desired amount of storage space in GBs. For TB, 1 TB equals 1,000 GB, and 12 TB equals 12,000 GB.
 
 7. Enter the desired amount of storage space in GBs for snapshots.
 
@@ -54,7 +54,7 @@ Order an encrypted Endurance storage LUN
 
 4. Select the data center where your original LUN is located. Note that encryption is only available in data centers with an asterisk (`*`).
 
-5. Select the desired amount of storage space in GBs. For TB, 1TB equals 1,000GB, and 12TB equals 12,000GB.
+5. Select the desired amount of storage space in GBs. For TB, 1 TB equals 1,000 GB, and 12 TB equals 12,000 GB.
 
 6. Enter the desired amount of IOPS in intervals of 100.
 
