@@ -2,21 +2,21 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-10-09"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# New IBM Block and File Storage Location and Features
+# New IBM {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full_notm}} Location and Features
 
 {{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}! 
 
 The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage provisioned in the select data centers will automatically be provisioned with the new version of {{site.data.keyword.blockstorageshort}} and File Storage.
 
-**Note:** The NFS mount point for new volumes has changed. See **New Mount Point for encrypted File Storage Volumes** below for details.
+**Note:** The NFS mount point for new volumes has changed. See **New Mount Point for encrypted {{site.data.keyword.filestorage_short}} Volumes** below for details.
 
-The new {{site.data.keyword.blockstorageshort}} and File storage is currently available in following regions/data centers with additional data center availability coming soon!
+The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} is currently available in following regions/data centers with additional data center availability coming soon!
 <table style="width:100%;">
 	<caption>Data Center Availability</caption>
 	<tbody>
@@ -73,10 +73,10 @@ The new {{site.data.keyword.blockstorageshort}} and File storage is currently av
 
 The new storage has the following features and capabilities:
 
-- [Provider Managed encryption for data-at-rest](block-file-storage-encryption-rest.html). All Block and File storage will automatically be provisioned as encrypted at no additional charge.
-- 10 IOPS per GB tier option.  A new tier has been added to the Endurance type {{site.data.keyword.blockstorageshort}} and File storage to support the most demanding workloads.
-- All flash-backed storage.  {{site.data.keyword.blockstorageshort}} and File storage provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
-- Snapshot and Replication support with {{site.data.keyword.blockstorageshort}} and File storage provisioned with Performance.
+- [Provider Managed encryption for data-at-rest](block-file-storage-encryption-rest.html). All {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} will automatically be provisioned as encrypted at no additional charge.
+- 10 IOPS per GB tier option. A new tier has been added to the Endurance type {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} to support the most demanding workloads.
+- All flash-backed storage. {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
+- Snapshot and Replication support with {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with Performance.
 - Hourly Billing option added for storage that is planned to be used for less than a full month. 
 - Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}} and File Storage provisioned with Performance.
 - Create a new clone of your data with the [{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html).  

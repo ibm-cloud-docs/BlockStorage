@@ -2,14 +2,15 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-10-09"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Block and File Storage Encryption-At-Rest 
-{{site.data.keyword.BluSoftlayer_full}} takes the need for security seriously, and understand the importance of being able to encrypt data to keep it safe. With provider managed encryption, both {{site.data.keyword.blockstoragefull}} and File storage provisioned with either Endurance or Performance are encrypted by default at no additional cost and no impact to performance.
+# {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full}}  Encryption-At-Rest 
+
+{{site.data.keyword.BluSoftlayer_full}} takes the need for security seriously, and understand the importance of being able to encrypt data to keep it safe. With provider managed encryption, both {{site.data.keyword.blockstoragefull}} and {{site.data.keyword.filestorage_full}} provisioned with either Endurance or Performance are encrypted by default at no additional cost and no impact to performance.
 
 The provider managed encryption-at-rest feature uses the following industry standard protocols:
 
@@ -23,7 +24,7 @@ All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} 
 
 ## Provisioning Storage with Encryption
 
-The provider managed encryption-at-rest feature is only available for {{site.data.keyword.blockstorageshort}} that is provisioned in select data centers with new data center availability being added regularly. All storage provisioned in these data centers is automatically provisioned with encryption for data-at-rest. Click [here](new-ibm-block-and-file-storage-location-and-features.html) to see the current list of data centers where Block and File storage encryption for data-at-rest is available.
+The provider managed encryption-at-rest feature is only available for {{site.data.keyword.blockstorageshort}} that is provisioned in select data centers with new data center availability being added regularly. All storage provisioned in these data centers is automatically provisioned with encryption for data-at-rest. Click [here](new-ibm-block-and-file-storage-location-and-features.html) to see the current list of data centers where {{site.data.keyword.blockstorageshort}} encryption for data-at-rest is available.
 
 When ordering your {{site.data.keyword.blockstorageshort}}, select a data center noted with an * and message stating that encryption is available. You will see a lock icon to the right of the LUN/Volume Name field indicating that it is encrypted. See Figure 1.
 
@@ -34,4 +35,4 @@ When ordering your {{site.data.keyword.blockstorageshort}}, select a data center
 
 **Note** that non-encrypted storage provisioned prior to a data center upgrade will **not** be automatically encrypted. If you have non-encrypted storage in an upgraded data center, you will need to create a new LUN or volume and perform a data migration. The following articles can provide guidance.
 
-* [Block Storage Migration in Upgraded Data Centers](migrate-block-storage-encrypted-block-storage.html)
+* [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](migrate-block-storage-encrypted-block-storage.html)

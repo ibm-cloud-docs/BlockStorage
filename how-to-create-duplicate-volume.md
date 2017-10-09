@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-10-09"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2017-09-28"
 
 # Creating a Duplicate Block Volume
 
-{{site.data.keyword.BluSoftlayer_full}} provides the ability to create a duplicate of an existing {{site.data.keyword.blockstoragefull}} or File Storage volume. The duplicate volume will inherit the capacity and performance options of the original LUN/volume by default and will have a copy of the data up to the point in time of a snapshot.   
+{{site.data.keyword.BluSoftlayer_full}} provides the ability to create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume will inherit the capacity and performance options of the original LUN/volume by default and will have a copy of the data up to the point in time of a snapshot.   
 
 Because the duplicate is based on the data in a point in time snapshot, snapshot space is required on the original volume before you can create a duplicate.  To learn more about snapshots and how to order snapshot space, refer to [Snapshot documentation](snapshots.html).  
 
