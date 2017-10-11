@@ -8,7 +8,7 @@ lastupdated: "2017-10-11"
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# New Locations and Features of IBM {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full_notm}}
+# New Locations and Features of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}
 
 {{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}! 
 
