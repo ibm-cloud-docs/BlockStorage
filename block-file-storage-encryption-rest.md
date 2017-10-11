@@ -8,7 +8,7 @@ lastupdated: "2017-10-09"
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full}}  Encryption-At-Rest 
+# {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full_notm}}  Encryption-At-Rest 
 
 {{site.data.keyword.BluSoftlayer_full}} takes the need for security seriously, and understand the importance of being able to encrypt data to keep it safe. With provider managed encryption, both {{site.data.keyword.blockstoragefull}} and {{site.data.keyword.filestorage_full}} provisioned with either Endurance or Performance are encrypted by default at no additional cost and no impact to performance.
 
