@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-27"
+lastupdated: "2017-10-19"
 
 ---
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2017-09-27"
 # Connecting to MPIO iSCSI LUNS on Microsoft Windows
 Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}} volume has been authorized through the Portal:
 
-1. From the {{site.data.keyword.Block Storage}} listing page, click the **Actions** button associated with the newly provisioned volume, and click **Authorize Host**.
+1. From the {{site.data.keyword.blockstorageshort}} listing page, click the **Actions** button associated with the newly provisioned volume, and click **Authorize Host**.
 2. Select the desired host(s) from the list and click **Submit**; this authorizes the host(s) to access the volume.
 
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
