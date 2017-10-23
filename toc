@@ -10,6 +10,7 @@ IBM Cloud Storage - Block Storage
     block-file-storage-encryption-rest.md
     replication.md
     snapshots.md
+    brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
@@ -20,9 +21,9 @@ IBM Cloud Storage - Block Storage
     migrate-block-storage-encrypted-block-storage.md
     set-host-queue-depth-settings-performance-and-endurance-storage.md
     use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-    brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     BlockStorageFAQ.md
+    [Python API Client Information](https://github.com/softlayer/softlayer-python)
     {: .navgroup-end}
