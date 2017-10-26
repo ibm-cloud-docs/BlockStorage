@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-10-26"
 
 ---
 {:new_window: target="_blank"}
@@ -75,16 +75,16 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    - multipath -l (if it returns blank at this time it is working. RHEL 7/CentOS 7 may return No fc_host device for 'host-1', which can be ignored. )
 5. Update /etc/iscsi/initiatorname.iscsi file with the IQN from the Customer Portal. Enter the value as lower case. 
    ```
-   InitiatorName="value-from-the-SL-Portal" 
+   InitiatorName=<value-from-the-SL-Portal> 
    ```
 6. Edit the CHAP settings in /etc/iscsi/iscsid.conf using the username and password from the Portal (minus the quotation marks). Use upper case for CHAP names.
    ```
     node.session.auth.authmethod = CHAP
-    node.session.auth.username = "Username-value-from-SL-Portal"
-    node.session.auth.password = "Password-value-from-SL-Portal"
+    node.session.auth.username = <Username-value-from-SL-Portal>
+    node.session.auth.password = <Password-value-from-SL-Portal>
     discovery.sendtargets.auth.authmethod = CHAP
-    discovery.sendtargets.auth.username = "Username-value-from-SL-Portal"
-    discovery.sendtargets.auth.password = "Password-value-from-SL-Portal" 
+    discovery.sendtargets.auth.username = <Username-value-from-SL-Portal>
+    discovery.sendtargets.auth.password = <Password-value-from-SL-Portal>
    ```
    **Note:** Leave the other CHAP settings commented. Bluemix storage uses only one-way authentication.
           
