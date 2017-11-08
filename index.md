@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
@@ -35,13 +35,57 @@ Take advantage of the following core features of {{site.data.keyword.blockstorag
 - **Clustered databases**
    - Supports advanced use cases, such as clustered databases
      
-## Hourly / Monthly Billing
+## Hourly/Monthly Billing
 
 You can select hourly or monthly billing for a Block LUN. The type of billing selected for a LUN will apply to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees will be billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees will be billed monthly. 
 
 With **hourly billing**, the calculation of the number of hours the block LUN existed on the account is performed at the time the LUN is deleted or at the end of the billing cycle, which ever comes first.  Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
 
-With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There is no refund If a LUN is deleted before the end of the billing cycle.  Monthly billing is a good choice for storage used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer).  
+With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There is no refund If a LUN is deleted before the end of the billing cycle.  Monthly billing is a good choice for storage used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer). 
+
+### Performance:
+<table>
+<table>
+ <tbody>
+  <tr>
+   <th>Monthly Price</th>
+   <td>$0.10/GB + $0.07/IOP</td>
+  </tr>
+  <tr>
+   <th>Hourly Price</th>
+   <td>$0.0001/GB + $0.0002/IOP</td>
+  </tr>
+  </tbody>
+</table>
+ 
+### Endurance:
+<table>
+<table>
+ <tbody>
+  <tr>
+   <th>IOPS Tier</th>
+   <th>0.25 IOPS/GB</th>
+   <th>2 IOPS/GB</th>
+   <th>4 IOPS/GB</th>
+   <th>10 IOPS/GB</th>
+  </tr>
+  <tr>
+   <th>Monthly Price</th>
+   <td>$0.10/GB</td>
+   <td>$0.20/GB</td>
+   <td>$0.35/GB</td>
+   <td>$0.58/GB</td>
+  </tr>
+  <tr>
+   <th>Hourly Price</th>
+   <td>0.0002/GB</td>
+   <td>$0.0003/GB</td>
+   <td>$0.0005/GB</td>
+   <td>$0.0009/GB</td>
+  </tr>
+  </tbody>
+</table>
+
 
 
 ## Provisioning
