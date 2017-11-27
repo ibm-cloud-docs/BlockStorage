@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-11-14"
 
 ---
 {:new_window: target="_blank"}
@@ -17,7 +17,8 @@ lastupdated: "2017-09-28"
 1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. In the top right corner, click on **Order {{site.data.keyword.blockstorageshort}}** link.
 3. Select **Endurance** from the Select Storage Type drop-down list.
-4. Click the drop-down list and select your deployment Location (data center).
+4. Click the drop-down list and select your deployment **Location** (data center).
+   - Ensure that the new Storage will be added in the same location as the previously ordered host(s).
    - If you selected a data center with improved capabilities (denoted with an * in the drop-down), you will have the option to choose between Monthly or Hourly Billing. 
      1. With **hourly** billing, the calculation of the number of hours the block LUN existed on the account is performed at the time the LUN is deleted or at the end of the billing cycle, which ever comes first.  Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There is no refund If a block LUN is deleted before the end of the billing cycle.  Monthly billing is a good choice for storage used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
@@ -43,6 +44,7 @@ lastupdated: "2017-09-28"
 2. Click on **Order {{site.data.keyword.blockstorageshort}}** in the top right corner of the screen.
 3. Select **Performance** from the **Select Storage Type** drop-down list.
 4. Click the **Location** drop-down list and select your data center.
+   - Ensure that the new Storage will be added in the same location as the previously ordered host(s).
    - If you selected a data center with improved capabilities (denoted with an * in the drop-down), you will have the option to choose between Monthly or Hourly Billing. 
      1. With **hourly** billing, the calculation of the number of hours the block LUN existed on the account is performed at the time the LUN is deleted or at the end of the billing cycle, which ever comes first.  Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There is no refund If a block LUN is deleted before the end of the billing cycle.  Monthly billing is a good choice for storage used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
