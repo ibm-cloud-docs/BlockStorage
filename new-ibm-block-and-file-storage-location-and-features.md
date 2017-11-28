@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-10-11"
+lastupdated: "2017-11-28"
 
 ---
 {:new_window: target="_blank"}
@@ -22,7 +22,7 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 	<tbody>
 		<tr>
 			<td><strong>US 2</strong></td>
-			<td><strong>EU</strong><img src="./images/numberone.png" alt="1" /></td>
+			<td><strong>EU</strong></td>
 			<td><strong>Australia</strong></td>
 			<td><strong>Canada</strong></td>
 			<td><strong>Latin America</strong></td>
@@ -44,9 +44,11 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 				<p>LON02<br />
 				LON04<br />
 				LON06<br />
-					FRA02<br />
-					AMS03<br />
-					OSLO1<br />PAR01<br /><br /><br /></p>
+				FRA02<br />
+				AMS03<br />
+				OSLO1<br />
+				PAR01<br />
+				MIL01<br /><br /></p>
 			</td>
 			<td>
 				<p>SYD01<br />
@@ -69,7 +71,7 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 </table>
  
 
-<sup>![1](/images/numberone.png)</sup> Support for encrypted storage in Paris, Milan and Seoul will be coming soon. In the meantime, replication is only allowed to the above EU data centers from Paris, Milan and Seoul, but not TO Paris, Milan or Seoul. 
+<sup>![1](/images/numberone.png)</sup> Support for encrypted storage in Seoul will be coming soon. In the meantime, replication is only allowed to the above mentioned APAC data centers from Seoul, but not TO Seoul. 
 
 The new storage has the following features and capabilities:
 
@@ -78,8 +80,10 @@ The new storage has the following features and capabilities:
 - All flash-backed storage. {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
 - Snapshot and Replication support with {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with either Endurance or Performance.
 - Hourly Billing option added for storage that is planned to be used for less than a full month. 
-- Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}} and File Storage provisioned with Performance.
-- Create a new clone of your data with the [{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html).  
+- Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with Performance.
+- IOPS rates are adjustable to improve performance in case of seasonal load changes. Read more about this feature [here](adjustable-iops.html).
+- Create a new clone of your data with the [{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html).
+- Storage is expandable in GB increments up to 12 TB on the fly, without the need to create a duplicate or manually migrate data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
 
 ## New Mount Point for Encrypted Storage Volumes
 
