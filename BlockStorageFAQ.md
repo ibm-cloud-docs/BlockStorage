@@ -17,14 +17,14 @@ The default limit for number of authorizations per block volume is 8. Please con
 IOPS are enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## How are IOPS measured?
-IOPS are measured based on a load profile of 16kb blocks with random 50% read and 50% writes. Workloads that differ from this profile may experience lower performance.
+IOPS are measured based on a load profile of 16 BK blocks with random 50% read and 50% writes. Workloads that differ from this profile may experience lower performance.
 
 ## What happens if I use a smaller block size when measuring performance?
 Maximum IOPS can still be obtained when using smaller block sizes, however throughput will be lower. For example; a volume with 6000 IOPS would have the following throughput at various block sizes:
 
-- 16KB * 6000 IOPS == ~93.75 MB/sec 
--  8KB * 6000 IOPS == ~46.88 MB/sec
--  4KB * 6000 IOPS == ~23.44 MB/sec
+- 16 KB * 6000 IOPS == ~93.75 MB/sec 
+-  8 KB * 6000 IOPS == ~46.88 MB/sec
+-  4 KB * 6000 IOPS == ~23.44 MB/sec
 
 ## Does the volume need to be pre-warmed to achieve expected throughput?
 There is no need for pre-warming. You will observe specified throughput immediately upon provisioning the volume.
