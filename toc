@@ -6,14 +6,14 @@ IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
     index.md
+    provisioning-block_storage.md
     new-ibm-block-and-file-storage-location-and-features.md
     block-file-storage-encryption-rest.md
+    snapshots.md    
     replication.md
-    snapshots.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
-    provisioning-block_storage.md
     accessing_block_storage_linux.md
     accessing-block-storage-windows.md
     how-to-create-duplicate-volume.md
