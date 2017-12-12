@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-12-07"
+lastupdated: "2017-12-12"
 
 ---
 {:new_window: target="_blank"}
@@ -196,7 +196,7 @@ Performance volumes are designed to perform consistently close to the provisione
 
 ## Tips for Provisioning IOPS for {{site.data.keyword.blockstorageshort}}
 
-IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50% random workload. ~16 KB block is the equivalent of one write to the volume.
+IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50% random workload. A 16 KB block is the equivalent of one write to the volume.
 
 The block size used by your application will directly impact storage performance.  If the block size used by your application is smaller than 16 KB the IOP limit will be realized prior to the throughput limit.  Conversely, if the block size used by your application is larger than 16KB the throughput limit will be realized prior to the IOP limit.
 
