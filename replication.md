@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-28"
+lastupdated: "2017-12-11"
  
 ---
 
@@ -118,8 +118,9 @@ Replications work off of a snapshot schedule. You must first have snapshot space
 
 1. Click on your storage volume.
 2. Click on the **Replica** tab and click the **Purchase a replication** link.
-Select an existing snapshot schedule that you want your replications to follow. The list will contain all of your active snapshot schedules. 
-  **Note:** You can only select one schedule even if you have a mix of hourly, daily, and weekly.  All snapshots captured since the previous replication cycle will be replicated regardless of the schedule that originated.
+Select an existing snapshot schedule that you want your replications to follow. The list will contain all of your active snapshot schedules. <br />
+  **Note:** You can only select one schedule even if you have a mix of hourly, daily, and weekly.  All snapshots captured since the previous replication cycle will be replicated regardless of the schedule that originated.<br />
+  **Note:** If you do not have Snapshots setup you will be prompted to do so before you can order replication. See [Working with Snapshots](snapshots.html) for more details.
 3. Click the **Location** drop-down arrow and select the data center that will be your DR site.
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one and click **Recalculate**. The other fields in the dialog box will default.

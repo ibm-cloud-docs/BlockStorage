@@ -17,7 +17,7 @@ The default limit for number of authorizations per block volume is 8. Please con
 IOPS are enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## How are IOPS measured?
-IOPS are measured based on a load profile of 16 BK blocks with random 50% read and 50% writes. Workloads that differ from this profile may experience lower performance.
+IOPS are measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile may experience lower performance.
 
 ## What happens if I use a smaller block size when measuring performance?
 Maximum IOPS can still be obtained when using smaller block sizes, however throughput will be lower. For example; a volume with 6000 IOPS would have the following throughput at various block sizes:
