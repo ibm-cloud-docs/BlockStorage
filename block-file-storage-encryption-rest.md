@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-12-14"
 
 ---
 {:new_window: target="_blank"}
@@ -20,7 +20,7 @@ The provider managed encryption-at-rest feature uses the following industry stan
 
 ## Encryption-at-Rest for Snapshots or Replicated storage  
 
-All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default.
+All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature cannot be turned off on a volume basis.
 
 ## Provisioning Storage with Encryption
 
