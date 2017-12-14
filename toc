@@ -11,6 +11,8 @@ IBM Cloud Storage - Block Storage
     block-file-storage-encryption-rest.md
     snapshots.md
     replication.md
+    expandable_file_storage.md
+    adjustable-iops.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}

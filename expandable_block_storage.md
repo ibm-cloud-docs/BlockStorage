@@ -8,7 +8,7 @@ lastupdated: "2017-12-14"
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Introducing Expandable Storage
+# Expandable File Share Capacity
 
 With this new feature, our current {{site.data.keyword.blockstoragefull}} users are able to expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB on the fly, without the need to create a duplicate or manually  migrate data to a larger volume.  There is no outage or lack of access to the storage while the resize is taking place. 
 
