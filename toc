@@ -9,7 +9,7 @@ IBM Cloud Storage - Block Storage
     provisioning-block_storage.md
     new-ibm-block-and-file-storage-location-and-features.md
     block-file-storage-encryption-rest.md
-    snapshots.md    
+    snapshots.md
     replication.md
     {: .navgroup-end}
     

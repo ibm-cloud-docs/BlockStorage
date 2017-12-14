@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-12-12"
+lastupdated: "2017-11-28"
 
 ---
 {:new_window: target="_blank"}
@@ -81,7 +81,9 @@ The new storage has the following features and capabilities:
 - Snapshot and Replication support with {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with either Endurance or Performance.
 - Hourly Billing option added for storage that is planned to be used for less than a full month. 
 - Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with Performance.
+- IOPS rates are adjustable to improve performance in case of seasonal load changes. Read more about this feature [here](adjustable-iops.html).
 - Create a new clone of your data with the [{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html).
+- Storage is expandable in GB increments up to 12 TB on the fly, without the need to create a duplicate or manually migrate data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
 
 ## New Mount Point for Encrypted Storage Volumes
 
