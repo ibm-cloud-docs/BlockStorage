@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-10-26"
+lastupdated: "2017-12-15"
 
 ---
 {:new_window: target="_blank"}
@@ -20,7 +20,7 @@ Before starting, make sure the host accessing the {{site.data.keyword.blockstora
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 
-Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full)}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Red Hat Enterprise Linux 6. The steps can be adjusted for other Linux distributions according to the operating system (OS) vendor documentation.
+Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Red Hat Enterprise Linux 6. The steps can be adjusted for other Linux distributions according to the operating system (OS) vendor documentation.
 
 **Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
