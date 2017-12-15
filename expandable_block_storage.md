@@ -2,13 +2,13 @@
 
 copyright:
   years: 2014, 2017
-lastupdated: "2017-12-14"
+lastupdated: "2017-12-15"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Expandable File Share Capacity
+# Expandable Block Storage Capacity
 
 With this new feature, our current {{site.data.keyword.blockstoragefull}} users are able to expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB on the fly, without the need to create a duplicate or manually  migrate data to a larger volume.  There is no outage or lack of access to the storage while the resize is taking place. 
 
@@ -28,7 +28,7 @@ Expand action on the primary storage will result automatic resize of the replica
 
 ## Are There Any Limitations?
 
-This feature is only avaialble for storage that is provisioned in [datacenters](new-ibm-block-and-file-storage-location-and-features.html) with enhanced capabilities. 
+This feature is only available for storage that is provisioned in [datacenters](new-ibm-block-and-file-storage-location-and-features.html) with enhanced capabilities. 
 
 Storage that is provisioned on updated storage in these data centers prior to release of this feature (December 14, 2017)  can only be increased to 10x it's original size.  All other storage provisioned, after that date can be increased up to the max 12 TB size. 
 
