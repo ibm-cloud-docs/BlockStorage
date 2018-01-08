@@ -82,10 +82,10 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			</td>
 			<td>HKG02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				TOK02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				SNG01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				______<br />
 				SEO01<br />
-				SNG01<br />
+				CHE01<br />
 				<br />
 				<br />
 				<br />
@@ -102,7 +102,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			<td colspan="100%">
 				<p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region have encrypted storage.</p>
 				<p>In EU region, AMS01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).<br/>
-In Asia Pacific region, SEO01 and SNG01 are all replication partners, and can initiate replication data centers with encrypted storage as replicas (data centers above the line). <br/>
+In Asia Pacific region, SEO01 and CHE01 are all replication partners, and can initiate replication data centers with encrypted storage as replicas (data centers above the line). <br/>
 In Latin America Region, MEX01 is enabled with encrypted storage. Replication not allowed from MEX01 to SAO01. But, replication can be established from SAO01 to MEX01. <br/>
 <strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.
 </p>
