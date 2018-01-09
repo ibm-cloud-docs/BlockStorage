@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2017
-lastupdated: "2017-12-11"
+  years: 2014, 2018
+lastupdated: "2018-01-09"
 
 ---
 {:new_window: target="_blank"}
@@ -54,3 +54,6 @@ Throughput limits are set at a per-volume/LUN level so using a faster Ethernet c
 
 ## Will firewalls/security groups impact performance?
 We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
+
+## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
+Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
