@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-08"
+lastupdated: "2018-01-17"
  
 ---
 
@@ -36,7 +36,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 		<tr>
 			<td><strong>US 1</strong></td>
 			<td><strong>US 2</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
-			<td><strong>Latin/South America</strong></td>
+			<td><strong>Latin/South America</strong><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Canada</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Europe</strong></td>
 			<td><strong>Asian Pacific</strong></td>
@@ -64,8 +64,8 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				DAL12<br />
 				DAL13<br /><br /></p>
 			</td>
-			<td>MEX01<sup><img src="/images/numberone.png" alt="1" /></sup><br />______<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
+			<td>MEX01<br />
+				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
 			<td>TOR01<br />
 				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
 			<td>
@@ -103,7 +103,6 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				<p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region have encrypted storage.</p>
 				<p>In EU region, AMS01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).<br/>
 In Asia Pacific region, SEO01 and CHE01 are all replication partners, and can initiate replication data centers with encrypted storage as replicas (data centers above the line). <br/>
-In Latin America Region, MEX01 is enabled with encrypted storage. Replication not allowed from MEX01 to SAO01. But, replication can be established from SAO01 to MEX01. <br/>
 <strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.
 </p>
 			</td>
