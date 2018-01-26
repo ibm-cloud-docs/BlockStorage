@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-17"
+lastupdated: "2018-01-26"
  
 ---
 
@@ -83,8 +83,8 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			<td>HKG02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				TOK02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				SNG01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				SEO01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				______<br />
-				SEO01<br />
 				CHE01<br />
 				<br />
 				<br />
@@ -102,7 +102,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			<td colspan="100%">
 				<p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region have encrypted storage.</p>
 				<p>In EU region, AMS01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).<br/>
-In Asia Pacific region, SEO01 and CHE01 are all replication partners, and can initiate replication data centers with encrypted storage as replicas (data centers above the line). <br/>
+In Asia Pacific region, CHE01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line). <br/>
 <strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.
 </p>
 			</td>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-01-17"
+lastupdated: "2018-01-26"
 
 ---
 {:new_window: target="_blank"}
@@ -26,7 +26,7 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 			<td><strong>Australia</strong></td>
 			<td><strong>Canada</strong></td>
 			<td><strong>Latin America</strong></td>
-			<td><strong>Asia Pacific</strong><img src="/images/numberone.png" alt="1" /></td>
+			<td><strong>Asia Pacific</strong></td>
 		</tr>
 		<tr>
 			<td>
@@ -65,14 +65,13 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 						<td>
 				<p>TOK02<br />
 				HKG02<br />
-				SNG01<br /><br /><br /><br /><br /><br /><br /></p>
+			        SEO01<br />
+				SNG01<br /><br /><br /><br /><br /><br /></p>
 			</td>
 			</tr>
 	</tbody>
 </table>
- 
 
-<sup>![1](/images/numberone.png)</sup> Support for encrypted storage in Seoul will be coming soon. In the meantime, replication is only allowed to the above mentioned APAC data centers from Seoul, but not TO Seoul. 
 
 The new storage has the following features and capabilities:
 
