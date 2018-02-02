@@ -58,6 +58,10 @@ We recommend running storage traffic on a vlan which bypasses the firewall as a 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
-## What happens to my data when {{site.data.keyword.blockstorageshort}} Volumes are deleted?
+## What happens to my data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
 
 When storage is deleted any pointers to the data on that volume are removed thus the data becomes completely inaccessible. If the physical storage is re-provisioned to another account a new set of pointers are assigned. There is no way for the new account to access any data that may have been on the physical storage, the new set of pointers shows all 0's. When new data is written to the volume/LUN, any inaccessible data that still exists gets overwritten. 
+
+## What performance latency can I expect from my {{site.data.keyword.blockstorageshort}}?   
+
+Target latency within the storage is <1ms. Our storage is connected to compute instances on a shared network, so the exact performance latency will depend on the network traffic within a given timeframe.
