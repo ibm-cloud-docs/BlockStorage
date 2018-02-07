@@ -36,7 +36,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 		<tr>
 			<td><strong>US 1</strong></td>
 			<td><strong>US 2</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
-			<td><strong>Latin/South America</strong><img src="/images/numberone.png" alt="1" /></sup></td>
+			<td><strong>Latin/South America</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Canada</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Europe</strong></td>
 			<td><strong>Asian Pacific</strong></td>
