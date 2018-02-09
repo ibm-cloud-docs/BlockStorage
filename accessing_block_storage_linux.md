@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-08"
+lastupdated: "2018-02-09"
 
 ---
 {:new_window: target="_blank"}
@@ -93,7 +93,6 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    - `chkconfig iscsid on`
    - `service iscsi start`
    - `service iscsid start`
-   
 8. Discover the device using the Target IP address obtained from the {{site.data.keyword.slportal}}.
     a. Run the discovery against the iSCSI array:
     `iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"`
@@ -105,7 +104,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    - `iscsiadm -m session`
    - `multipath -l` (should report the paths at this time)
 10. Verify the device is connected.  By default the device will attach to /dev/mapper/mpathX where X is the generated ID of the connected device.
-    - `fdisk -l | grep /dev/mapper`<br/>
+    - `fdisk -l | grep /dev/mapper`
   Should report something similar to the following,
     - `Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte`
     
@@ -129,9 +128,11 @@ Following are the steps to create a file system on top of the newly mounted volu
    - `mkdir /PerfDisk` (or where you want to mount the file system).
    - `mount /dev/mapper/XXXlp1 /PerfDisk` (using the partition name from Step 3).
    - `df -h` (you should see your new file system listed).
-5. Add the new filesystem to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Edit `/etc/fstab` to append the following line to the bottom <br /> 
-   ```/dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1```
+5. Add the new filesystem to the system's **/etc/fstab** file to enable automatic mounting on boot.
+   - Edit **/etc/fstab** to append the following line to the bottom (using the partition name from Step 3). <br /> 
+   ```
+   /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+   ```
 
 ### Fdisk command table
 <table border="0" cellpadding="0" cellspacing="0">
