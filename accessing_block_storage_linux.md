@@ -26,7 +26,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
 
 **Note:** We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
 
-1. Install the iSCSI and multipath utilities to your host
+1. Install the iSCSI and multipath utilities to your host:
    - `yum install iscsi-initiator-utils device-mapper-multipath` (RHEL/CentOS)
    - `apt-get install open-iscsi multipath-tools` (Ubuntu/Debian)
 2. Create or edit your multipath configuration file.
@@ -128,6 +128,9 @@ Following are the steps to create a file system on top of the newly mounted volu
    - `mkdir /PerfDisk` (or where you want to mount the file system).
    - `mount /dev/mapper/XXXlp1 /PerfDisk` (using the partition name from Step 3).
    - `df -h` (you should see your new file system listed).
+5. Add the new filesystem to the system's `/etc/fstab` file to enable automatic mounting on boot.
+   - Edit `/etc/fstab` to append the following line to the bottom <br /> 
+   ```/dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1```
 
 ### Fdisk command table
 <table border="0" cellpadding="0" cellspacing="0">
