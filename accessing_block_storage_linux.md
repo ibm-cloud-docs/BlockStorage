@@ -26,7 +26,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
 
 **Note:** We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
 
-1. Install the iSCSI and multipath utilities to your host
+1. Install the iSCSI and multipath utilities to your host:
    - `yum install iscsi-initiator-utils device-mapper-multipath` (RHEL/CentOS)
    - `apt-get install open-iscsi multipath-tools` (Ubuntu/Debian)
 2. Create or edit your multipath configuration file.
@@ -93,6 +93,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    - `chkconfig iscsid on`
    - `service iscsi start`
    - `service iscsid start`
+   
 8. Discover the device using the Target IP address obtained from the {{site.data.keyword.slportal}}.
     a. Run the discovery against the iSCSI array:
     `iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"`
@@ -104,7 +105,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    - `iscsiadm -m session`
    - `multipath -l` (should report the paths at this time)
 10. Verify the device is connected.  By default the device will attach to /dev/mapper/mpathX where X is the generated ID of the connected device.
-    - `fdisk -l | grep /dev/mapper`
+    - `fdisk -l | grep /dev/mapper`<br/>
   Should report something similar to the following,
     - `Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte`
     
