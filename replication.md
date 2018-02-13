@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-26"
+lastupdated: "2018-02-13"
  
 ---
 
@@ -38,7 +38,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			<td><strong>US 2</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Latin/South America</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Canada</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
-			<td><strong>Europe</strong></td>
+			<td><strong>Europe</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
 			<td><strong>Asian Pacific</strong></td>
 			<td><strong>Australias</strong><sup><img src="./images/numberone.png" alt="1" /></sup></td>
 		</tr>
@@ -69,16 +69,16 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			<td>TOR01<br />
 				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
 			<td>
-				AMS03<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				FRA02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				LON02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				LON04<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				LON06<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				OSL01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				PAR01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				MIL01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				______<br />
 				AMS01<br />
+				AMS03<br />
+				FRA02<br />
+				LON02<br />
+				LON04<br />
+				LON06<br />
+				OSL01<br />
+				PAR01<br />
+				MIL01<br />
+				<br />
 			</td>
 			<td>HKG02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
 				TOK02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
@@ -101,10 +101,8 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 		<tr>
 			<td colspan="100%">
 				<p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region have encrypted storage.</p>
-				<p>In EU region, AMS01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).<br/>
-In Asia Pacific region, CHE01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line). <br/>
-<strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.
-</p>
+				<p>In Asia Pacific region, CHE01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).</p>
+				<p><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.</p>
 			</td>
 		</tr>
 	</tbody>
