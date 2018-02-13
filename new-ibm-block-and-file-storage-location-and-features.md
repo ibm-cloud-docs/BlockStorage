@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-01-26"
+lastupdated: "2018-02-13"
 
 ---
 {:new_window: target="_blank"}
@@ -45,10 +45,11 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 				LON04<br />
 				LON06<br />
 				FRA02<br />
+				AMS01<br />
 				AMS03<br />
 				OSLO1<br />
 				PAR01<br />
-				MIL01<br /><br /></p>
+				MIL01<br /></p>
 			</td>
 			<td>
 				<p>SYD01<br />
