@@ -34,13 +34,13 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 	<caption>Table 1</caption>
 	<tbody>
 		<tr>
-			<td><strong>US 1</strong></td>
-			<td><strong>US 2</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
-			<td><strong>Latin/South America</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
-			<td><strong>Canada</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
-			<td><strong>Europe</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
+			<td><strong>US 1</strong><sup><img src="/images/numberone.png" alt="1" /></sup></td>
+			<td><strong>US 2</strong></td>
+			<td><strong>Latin/South America</strong></td>
+			<td><strong>Canada</strong></td>
+			<td><strong>Europe</strong></td>
 			<td><strong>Asian Pacific</strong></td>
-			<td><strong>Australias</strong><sup><img src="./images/numberone.png" alt="1" /></sup></td>
+			<td><strong>Australias</strong></td>
 		</tr>
 		<tr>
 			<td>DAL01<br />
@@ -52,22 +52,23 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				<br />
 				<br />
 				<br />
-				<br /><br />
 			</td>
-			<td><p>SJC03<br />
+			<td>SJC03<br />
 			       SJC04<br />
 			       WDC04<br />
 			       WDC06<br />
 			       WDC07<br />
-				DAL09<br />
+			       DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13<br /><br /></p>
+				DAL13<br />
 			</td>
 			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
+				SAO01<br /><br /><br /><br /><br /><br /><br /><br />
+			</td>
 			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></td>
+				MON01<br /><br /><br /><br /><br /><br /><br /><br />
+			</td>
 			<td>
 				AMS01<br />
 				AMS03<br />
@@ -78,31 +79,26 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				OSL01<br />
 				PAR01<br />
 				MIL01<br />
+			</td>
+			<td>HKG02<br />
+				TOK02<br />
+				SNG01<br />
+				SEO01<br />
+                                _____<br />
+				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+				<br />
+				<br />
 				<br />
 			</td>
-			<td>HKG02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				TOK02<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				SNG01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				SEO01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
-				______<br />
-				CHE01<br />
-				<br />
-				<br />
-				<br />
-				<br /><br />
-				</td>
 			<td>
 				SYD01<br />
 				SYD04<br />
 				MEL01<br />
-				<br /><br /><br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%">
-				<p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region have encrypted storage.</p>
-				<p>In Asia Pacific region, CHE01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).</p>
-				<p><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.<br />In Asia Pacific region, CHE01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).</p>
 			</td>
 		</tr>
 	</tbody>
