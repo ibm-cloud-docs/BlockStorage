@@ -5,10 +5,10 @@
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
+    getting-started.md
     index.md
     provisioning-block_storage.md
     new-ibm-block-and-file-storage-location-and-features.md
-    block-file-storage-encryption-rest.md
     snapshots.md
     replication.md
     expandable_block_storage.md
@@ -16,12 +16,20 @@ IBM Cloud Storage - Block Storage
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
-    accessing_block_storage_linux.md
-    accessing-block-storage-windows.md
-    how-to-create-duplicate-volume.md
-    migrate-block-storage-encrypted-block-storage.md
-    set-host-queue-depth-settings-performance-and-endurance-storage.md
-    use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
+    {: .topicgroup}
+    Configuration
+        accessing_block_storage_linux.md
+        accessing-block-storage-windows.md
+        [Connecting iSCSI LUNS in VMWare ESXi](https://console.bluemix.net/docs/infrastructure/vmware/mounting-iscsi-vmware-esxi.html)
+        set-host-queue-depth-settings-performance-and-endurance-storage.md
+        
+    {: .topicgroup}
+    Security
+        block-file-storage-encryption-rest.md
+        migrate-block-storage-encrypted-block-storage.md
+        use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
+    
+    how-to-create-duplicate-volume.md  
     brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
     {: .navgroup-end}
 
