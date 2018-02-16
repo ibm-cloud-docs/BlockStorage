@@ -5,7 +5,6 @@
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
-    getting-started.md
     index.md
     provisioning-block_storage.md
     new-ibm-block-and-file-storage-location-and-features.md
