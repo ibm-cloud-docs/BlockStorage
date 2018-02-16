@@ -1,12 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2017
-lastupdated: "2017-09-27"
+  years: 2014, 2018
+lastupdated: "2018-02-12"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Using LUKS in Red Hat Enterprise Linux for Full Disk Encryption
 
@@ -26,28 +29,48 @@ Linux Unified Key Setup-on-disk-format (LUKS) allows you to encrypt partitions o
 - Allow applications requiring many (more than eight) users to have distinct access keys to same devices.
 - Work with applications requiring file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## How to Set up New LUKS Encrypted Volume with Endurance {{site.data.keyword.Block Storage}}
+## How to Set up New LUKS Encrypted Volume with Endurance {{site.data.keyword.blockstorageshort}}
 
 These steps assume the server already has access to a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that has not been formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access {{site.data.keyword.blockstorageshort}} with Linux.
 
 Note that performing data encryption creates a load on the host that could potentially impact performance.
 
 1. Type the following at a shell prompt as root to install the required package:   <br/>
-   `# yum install cryptsetup-luks`
+   ```
+   # yum install cryptsetup-luks
+   ```
+   {: pre}
 2. Get the disk ID:<br/>
-   `# fdisk –l | grep /dev/mapper`
+   ```
+   # fdisk –l | grep /dev/mapper
+   ```
+   {: pre}
 3. Locate your volume in the listing.
-4. Encrypt the block device; this command initializes the volume and allows you to set a passphrase: <br/>
-   `# cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564`<br/>
-   Respond with YES (all uppercase letters.)<br/>
-   The device will now appear as an encrypted volume:   <br/>
-   `# blkid | grep LUKS`
-   `/dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"`
+4. Encrypt the block device; 
+      1. this command initializes the volume and allows you to set a passphrase: <br/>
+      ```
+      # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
+      ```
+      {: pre}
+      
+      2. Respond with YES (all uppercase letters.)
+      
+      3. The device will now appear as an encrypted volume: 
+      ```
+      # blkid | grep LUKS
+      /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
+      ```
+      {: pre}
+      
 5. Open the volume and create a mapping:   <br/>
-   `# cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData`
+   ```
+   # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
+   ```
+   {: pre}
 6. Enter the password previously provided.
 7. Verify the mapping and view status of the encrypted volume:   <br/>
-   ```# cryptsetup -v status cryptData
+   ```
+   # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
      type:  LUKS1
      cipher:  aes-cbc-essiv:sha256
@@ -58,36 +81,54 @@ Note that performing data encryption creates a load on the host that could poten
      mode:    read/write
      Command successful
    ```
-8. Write random data to /dev/mapper/cryptData encrypted device. This ensures that outside world will see this as random data, i.e., it is protected against disclosure of usage patterns. Be aware that this step can take a while.<br/>
-    `# shred -v -n1 /dev/mapper/cryptData`
+8. Write random data to /dev/mapper/cryptData encrypted device. This ensures that outside world will see this as random data, which means it is protected against disclosure of usage patterns. Be aware that this step can take a while.<br/>
+    ```
+    # shred -v -n1 /dev/mapper/cryptData
+    ```
+    {: pre}
 9. Format the volume:<br/>
-   `# mkfs.ext4 /dev/mapper/cryptData`
+   ```
+   # mkfs.ext4 /dev/mapper/cryptData
+   ```
+   {: pre}
 10. Mount the volume:<br/>
-   `# mkdir /cryptData`<br/>
-   `# mount /dev/mapper/cryptData /cryptData`<br/>
-   `# df -H /cryptData`<br/>
+   ```
+   # mkdir /cryptData
+   ```
+   {: pre}
+   ```
+   # mount /dev/mapper/cryptData /cryptData
+   ```
+   {: pre}
+   ```
+   # df -H /cryptData
+   ```
+   {: pre}
 
 ### How to unmount and close the encrypted volume securely
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
+   {: codeblock}
 
 ### How to remount and mount an existing LUKS encrypted partition
-    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
+   ```
+   # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.
-    # mount /dev/mapper/cryptData /cryptData
-    # df -H /cryptData
-    # lsblk
-    NAME                                       MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
-    xvdb                                       202:16   0    2G  0 disk
-    └─xvdb1                                    202:17   0    2G  0 part  [SWAP]
-    xvda                                       202:0    0   25G  0 disk
-    ├─xvda1                                    202:1    0  256M  0 part  /boot
-    └─xvda2                                    202:2    0 24.8G  0 part  /
-    sda                                          8:0    0   20G  0 disk
-    └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-     └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
-     sdb                                          8:16   0   20G  0 disk
-     └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-     └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   # mount /dev/mapper/cryptData /cryptData
+   # df -H /cryptData
+   # lsblk
+   NAME                                       MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+   xvdb                                       202:16   0    2G  0 disk
+   └─xvdb1                                    202:17   0    2G  0 part  [SWAP]
+   xvda                                       202:0    0   25G  0 disk
+   ├─xvda1                                    202:1    0  256M  0 part  /boot
+   └─xvda2                                    202:2    0 24.8G  0 part  /
+   sda                                          8:0    0   20G  0 disk
+   └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
+   └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   sdb                                          8:16   0   20G  0 disk
+   └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
+   └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   ```

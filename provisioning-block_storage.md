@@ -1,14 +1,14 @@
 ---
 
 copyright:
-  years: 2014, 2017
-lastupdated: "2017-11-14"
+  years: 2014, 2018
+lastupdated: "2018-02-12"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Provisioning and Managing Block Storage
+# Ordering and Managing Block Storage
 
 ## Provisioning {{site.data.keyword.blockstorageshort}}
 
@@ -37,7 +37,6 @@ lastupdated: "2017-11-14"
 12. Your new storage allocation should be available in a few minutes.
 
  
-
 ### How to order Performance for Block Storage
 
 1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} Catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.

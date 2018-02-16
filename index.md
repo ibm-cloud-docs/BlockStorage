@@ -2,19 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-01-15"
+lastupdated: "2018-02-12"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Getting Started with {{site.data.keyword.blockstorageshort}}
+# About {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.blockstoragefull}} is persistent, high performance iSCSI storage that is provisioned and managed independent of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices via redundant multi- path I/O (MPIO) connections.
 
 {{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set and is built using industry standards and best practices, and designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures while providing a consistent performance baseline.
 
-Take advantage of the following core features of {{site.data.keyword.blockstorageshort}}:
+## Core Features
+
+Take advantage of the following features of {{site.data.keyword.blockstorageshort}}:
 
 - **Consistent performance baseline**
    - Provided through the allocation of protocol-level IOPS to individual volumes
@@ -89,7 +91,8 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 ## Provisioning
 
 {{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options for provisioning: <br/>
-Provision **Endurance** tiers featuring pre-defined performance levels and features like snapshots and replication or build a high-powered **Performance** environment with allocated input/output operations per second (IOPS). 
+- Provision **Endurance** tiers featuring pre-defined performance levels and features like snapshots and replication.
+- Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS). 
 
 ### Endurance Tiers
 
@@ -188,9 +191,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 Performance volumes are designed to perform consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a given level of performance. Additionally, given the range of volume sizes and IOPS counts, it becomes possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
 
- 
-
-## Tips for Provisioning IOPS for {{site.data.keyword.blockstorageshort}}
+### Tips for Provisioning IOPS for {{site.data.keyword.blockstorageshort}}
 
 IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50% random workload. A 16 KB block is the equivalent of one write to the volume.
 
