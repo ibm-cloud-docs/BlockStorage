@@ -404,7 +404,7 @@ To create a file system with **parted** follow these steps:
       ```
       (parted) quit
       ```
-     {: pre}
+      {: pre}
 
 3. Create a file system on the new partition.
 
