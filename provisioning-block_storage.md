@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-02-20"
 
 ---
 {:new_window: target="_blank"}
@@ -95,9 +95,9 @@ You will then be presented with a list of storage LUNs that this particular host
 
 Refer to the following articles with details for mounting and unmounting {{site.data.keyword.blockstorageshort}} from a host.
 
-- [{{site.data.keyword.blockstorageshort}} on Linux](accessing_block_storage_linux.md)
+- [{{site.data.keyword.blockstorageshort}} on Linux](accessing_block_storage_linux.html)
 
-- [{{site.data.keyword.blockstorageshort}} on Microsoft Windows](accessing-block-storage-windows.md)
+- [{{site.data.keyword.blockstorageshort}} on Microsoft Windows](accessing-block-storage-windows.html)
 
  
 
