@@ -392,7 +392,7 @@ To create a file system with **parted** follow these steps:
       {: pre}
 
    4. Parted can be used to create primary and logical disk partitions, the steps involved are the same. To create new partition, parted uses **mkpart**. You can give it additional parameters like **primary** or **logical** depending on the partition type that you wish to create.
-   <br /> **Note**: The listed units in this example are in megabytes (MB), to create a 10 GB partition you should start from 1 and end at 10000. You can also change the sizing units to terabytes by entering '(parted) unit TB' if you want to.
+   <br /> **Note**: The listed units in this example are in megabytes (MB), to create a 10 GB partition you should start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
 
       ```
       (parted) mkpart
