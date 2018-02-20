@@ -100,7 +100,7 @@ Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adju
      ```
      {: pre}
    
-   - CentOS: 
+   - CentOS 7: 
      ```
      modprobe dm-multipath
      ```
