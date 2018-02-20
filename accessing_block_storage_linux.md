@@ -84,20 +84,37 @@ Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adju
    {: codeblock}
 
 3. Load the multipath module, start multipath services and set it start on boot.
-   ```
-   modprobe dm-multipath
-   ```
-   {: pre}
+   - RHEL 6:
+     ```
+     modprobe dm-multipath
+     ```
+     {: pre}
 
-   ```
-   service multipathd start
-   ```
-   {: pre}
+     ```
+     service multipathd start
+     ```
+     {: pre}
 
-   ```
-   chkconfig multipathd on
-   ```
-   {: pre}
+     ```
+     chkconfig multipathd on
+     ```
+     {: pre}
+   
+   - CentOS: 
+     ```
+     modprobe dm-multipath
+     ```
+     {: pre}
+
+     ```
+     systemctl enable multipathd
+     ```
+     {: pre}
+
+     ```
+     systemctl start multipathd
+     ```
+     {: pre}
 
 4. Verify multipath is working.
    ```
