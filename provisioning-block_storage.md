@@ -99,6 +99,8 @@ Refer to the following articles with details for mounting and unmounting {{site.
 
 - [{{site.data.keyword.blockstorageshort}} on Microsoft Windows](accessing-block-storage-windows.html)
 
+- [{{site.data.keyword.blockstorageshort}} on VMWare ESXi](https://console.bluemix.net/docs/infrastructure/vmware/mounting-iscsi-vmware-esxi.html){:new_window}
+
  
 
 ### Revoke a host's access to {{site.data.keyword.blockstorageshort}}
