@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-20"
+lastupdated: "2018-02-21"
 
 ---
 {:new_window: target="_blank"}
@@ -107,22 +107,33 @@ Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adju
      {: pre}
 
      ```
-     systemctl enable multipathd
-     ```
-     {: pre}
-
-     ```
      systemctl start multipathd
      ```
      {: pre}
 
-4. Verify multipath is working.
-   ```
-   multipath -l
-   ```
-   {: pre}
+     ```
+     systemctl enable multipathd
+     ```
+     {: pre}
+     
+   - Ubuntu only uses`service multipath-tools start`. For other distributions, please consult the OS vendor documentation.
 
-   If it returns blank at this time it is working. <br /> **Notes**: RHEL 7/CentOS 7 may return No fc_host device for 'host-1', which can be ignored. Ubuntu only uses`service multipath-tools start`.
+4. Verify multipath is working.
+   - RHEL 6
+     ```
+     multipath -l
+     ```
+     {: pre}
+     
+     If it returns blank at this time it is working. 
+   
+   - CentOS 7:
+     ```
+     multipath -ll
+     ```
+     {: pre}
+     
+     RHEL 7/CentOS 7 may return No fc_host device, which can be ignored. 
 
 5. Update **/etc/iscsi/initiatorname.iscsi** file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lower case.
    ```
