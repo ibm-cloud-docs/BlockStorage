@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-02-28"
 
 ---
 {:new_window: target="_blank"}
@@ -301,7 +301,7 @@ Following are the steps to create a file system on top of the newly mounted volu
    - Append the following line to the bottom of **/etc/fstab** (using the partition name from Step 3). <br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
