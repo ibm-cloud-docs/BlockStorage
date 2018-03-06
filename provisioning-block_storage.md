@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-20"
+lastupdated: "2018-03-06"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,11 @@ lastupdated: "2018-02-20"
 # Ordering and Managing Block Storage
 
 ## Provisioning {{site.data.keyword.blockstorageshort}}
+
+There are two different types of storage you can provision based on your needs and preferences. The two options of {{site.data.keyword.blockstorageshort}} volumes are: 
+
+- **Endurance**: provision Endurance tiers featuring pre-defined performance levels and features like snapshots and replication. 
+- **Performance**: build a high powered Performance environment where you can allocate the desired input/output operations per second (IOPS).
 
 ### How to order Endurance for {{site.data.keyword.blockstorageshort}}
 
@@ -36,6 +41,9 @@ lastupdated: "2018-02-20"
 11. Click the **I have read the Master Service Agreement** checkbox and click the **Place Order** button.
 12. Your new storage allocation should be available in a few minutes.
 
+**Note**: By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes please contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).
+
+For the limit on simultaneous authorizations please see our [FAQs](BlockStorageFAQ.html)
  
 ### How to order Performance for Block Storage
 
@@ -54,7 +62,11 @@ lastupdated: "2018-02-20"
 8. Click the **I have read the Master Service Agreement** checkbox and click the **Place Order Button**.
 9. Your new storage allocation should be available in a few minutes.
 
- 
+**Note**: By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes please contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).
+
+For the limit on simultaneous authorizations please see our [FAQs](BlockStorageFAQ.html)
+
+
 ## Managing {{site.data.keyword.blockstorageshort}}
 
 ### Authorize hosts to access to {{site.data.keyword.blockstorageshort}}
