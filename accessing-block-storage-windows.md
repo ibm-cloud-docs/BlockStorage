@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2017
-lastupdated: "2017-10-19"
+  years: 2014, 2018
+lastupdated: "2018-03-15"
 
 ---
 {:new_window: target="_blank"}
@@ -41,6 +41,8 @@ Following are the steps required to connect a Windows-based {{site.data.keyword.
 1. Open the MPIO Properties. To open MPIO Properties, click **Start**, point to Administrative Tools, and then click **MPIO**.
 2. Click the **Discover Multi-Paths** tab
 3. Select the **Add support for iSCSI devices** check box, and then click **Add**. When prompted to restart the computer, click **Yes**.
+
+**Note**: In case of Windows Server 2008, adding support for iSCSI allows the Microsoft Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which first requires a connection to an iSCSI Target.
 
 ### Configure the iSCSI Initiator
 
