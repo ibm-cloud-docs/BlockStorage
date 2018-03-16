@@ -25,8 +25,8 @@ IBM Cloud Storage - Block Storage
         accessing_block_storage_linux.md
         accessing-block-storage-windows.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
-        block-storage-for-backup-cpanel.md
-        block-storage-for-backup-plesk.md
+        configure-backup-cpanel.md
+        configure-backup-plesk.md
         
     {: .topicgroup}
     Security
