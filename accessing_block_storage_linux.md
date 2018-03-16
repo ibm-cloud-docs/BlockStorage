@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-03-09"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ Before starting, make sure the host accessing the {{site.data.keyword.blockstora
 
 Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adjusted for other Linux distributions according to the operating system (OS) vendor documentation. We have added notes for other OS, but this documentation does not cover all Linux distributions. For example, for Ubuntu iSCSI Initiator Configuration instructions click [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}
+Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adjusted for other Linux distributions according to the operating system (OS) vendor documentation. We have added notes for other OS, but this documentation does **not** cover all Linux distributions. For example, in the case of Ubuntu, click [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} for iSCSI Initiator Configuration instructions and click [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} for more information regarding DM-Multipath setup.
 
 **Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
@@ -42,7 +42,8 @@ Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adju
    - Ubuntu/Debian:
 
    ```
-   apt-get install open-iscsi multipath-tools
+   sudo apt-get update
+   sudo apt-get install multipath-tools
    ```
    {: pre}
 
@@ -116,10 +117,16 @@ Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adju
      ```
      {: pre}
      
-   - Ubuntu only uses`service multipath-tools start`. For other distributions, please consult the OS vendor documentation.
+   - Ubuntu:
+     ```
+     service multipath-tools start 
+     ```
+     {: pre}
+    
+   - For other distributions, please consult the OS vendor documentation.
 
 4. Verify multipath is working.
-   - RHEL 6
+   - RHEL 6:
      ```
      multipath -l
      ```

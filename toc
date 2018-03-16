@@ -17,6 +17,7 @@ IBM Cloud Storage - Block Storage
     {: .topicgroup}
     Provisioning
         provisioning-block_storage.md
+        ordering-snapshots.md
         managing-storage-limits.md
         
     {: .topicgroup}
@@ -24,6 +25,8 @@ IBM Cloud Storage - Block Storage
         accessing_block_storage_linux.md
         accessing-block-storage-windows.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
+        block-storage-for-backup-cpanel.md
+        block-storage-for-backup-plesk.md
         
     {: .topicgroup}
     Security
@@ -31,7 +34,9 @@ IBM Cloud Storage - Block Storage
         migrate-block-storage-encrypted-block-storage.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
     
-    how-to-create-duplicate-volume.md  
+    managing-block-storage.md
+    how-to-create-duplicate-volume.md
+    working-with-snapshots.md
     brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
     {: .navgroup-end}
 

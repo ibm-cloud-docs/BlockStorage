@@ -2,13 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-16"
+lastupdated: "2018-02-12"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Getting Started with {{site.data.keyword.blockstorageshort}}
+# About {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.blockstoragefull}} is persistent, high performance iSCSI storage that is provisioned and managed independent of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices via redundant multi- path I/O (MPIO) connections.
 

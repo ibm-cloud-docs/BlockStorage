@@ -9,24 +9,15 @@ lastupdated: "2018-03-15"
 {:shortdesc: .shortdesc}
 
 # Connecting to MPIO iSCSI LUNS on Microsoft Windows
-Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}} volume has been authorized through the Portal:
+
+Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}}  volume has been authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, click the **Actions** button associated with the newly provisioned volume, and click **Authorize Host**.
 2. Select the desired host(s) from the list and click **Submit**; this authorizes the host(s) to access the volume.
 
-## Mounting {{site.data.keyword.blockstorageshort}} Volumes
+## How to Mount {{site.data.keyword.blockstorageshort}} Volumes
 
 Following are the steps required to connect a Windows-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system (OS) vendor documentation.
-
-## High-level steps
-
-1. Configure the MPIO feature at the system level.
-2. Configure block storage (iSCSI) by running the iSCSI Initiator.
-3. Make sure the MPIO option is selected in the iSCSI Initiator.
-4. Add multiple sessions and paths to the block storage.
-5. Verify the provisioned input/output operations per second (IOPS).
-
-## Detailed steps
 
 ### Configure the MPIO feature
 
@@ -67,6 +58,7 @@ Following are the steps required to connect a Windows-based {{site.data.keyword.
     The following steps show how to activate the target.
     
 ### Activate Target
+
 1. Click **Connect** to connect to the target.
 2. Select **Enable multi-path** checkbox to enable multi-path IO to the target. 
 ![Enable Multi-path](/images/Connect_0.png)
@@ -101,20 +93,7 @@ Following are the steps required to connect a Windows-based {{site.data.keyword.
   
 7. Click **OK** several times to exit the iSCSI Initiator.
 
-### Unmounting {{site.data.keyword.blockstorageshort}} volumes
 
-Following are the steps required to disconnect a Windows-based Bluemix compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Wind
-ows versions according to the OS vendor documentation.
-
-#### Launch the iSCSI Initiator.
-
-1. Click the **Targets** tab.
-2. Select the targets you wish to remove and click **Disconnect**.
-
-#### Optional if you will no longer need to access the iSCSI targets:
-
-1. Click the **Discovery** tab in the iSCSI Initiator.
-2. Highlight the target portal associated with your storage volume and click **Remove**.
 
 ## How to verify if MPIO is configured correctly in Windows OSes
 
@@ -127,3 +106,17 @@ Once the reboot is complete and the Performance Storage Device is added, we can 
 
 If MPIO has not been configured on your Performance Storage Device and the {{site.data.keyword.BluSoftlayer_full}} Teams performs Maintenance or a Network Outage occurs, your Storage Device will disconnect and become unavailable. MPIO will ensure an extra level of connecitivty during those events, and will keep an established session with active reads/writes going to the LUN.
 
+## How to unmount {{site.data.keyword.blockstorageshort}} volumes
+
+Following are the steps required to disconnect a Windows-based Bluemix compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Wind
+ows versions according to the OS vendor documentation.
+
+### Launch the iSCSI Initiator.
+
+1. Click the **Targets** tab.
+2. Select the targets you wish to remove and click **Disconnect**.
+
+### Optional if you will no longer need to access the iSCSI targets:
+
+1. Click the **Discovery** tab in the iSCSI Initiator.
+2. Highlight the target portal associated with your storage volume and click **Remove**.
