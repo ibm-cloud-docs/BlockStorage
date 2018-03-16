@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-02-12"
 
 Linux Unified Key Setup-on-disk-format (LUKS) allows you to encrypt partitions on your Red Hat Enterprise Linux 6 (server), which is particularly important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
 
-## What LUKS does:
+## What LUKS does
 
 - Encrypts entire block devices and is therefore well-suited for protecting the contents of mobile devices such as removable storage media or laptop disk drives.
     - The underlying contents of the encrypted block device are arbitrary, making it useful for encrypting swap devices. The encrypting can also be useful with certain databases that use specially formatted block devices for data storage.
@@ -24,7 +24,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) allows you to encrypt partitions o
 - Allows users to add backup keys or passphrases because LUKS devices contain multiple key slots.
 
 
-## What LUKS does not do:
+## What LUKS does not do
 
 - Allow applications requiring many (more than eight) users to have distinct access keys to same devices.
 - Work with applications requiring file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
@@ -47,20 +47,22 @@ Note that performing data encryption creates a load on the host that could poten
    {: pre}
 3. Locate your volume in the listing.
 4. Encrypt the block device; 
-      1. this command initializes the volume and allows you to set a passphrase: <br/>
+
+   1. this command initializes the volume and allows you to set a passphrase: <br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. Respond with YES (all uppercase letters.)
-      
-      3. The device will now appear as an encrypted volume: 
+   2. Respond with YES (all uppercase letters.)
+   
+   3. The device will now appear as an encrypted volume: 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
 5. Open the volume and create a mapping:   <br/>
    ```
