@@ -1,0 +1,46 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="BlockStorage" audience="services" href="/docs/infrastructure/blockstorage/index.html"}
+IBM Cloud Storage - Block Storage
+
+    {: .navgroup id="learn"}
+    index.md
+    new-ibm-block-and-file-storage-location-and-features.md
+    snapshots.md
+    replication.md
+    expandable_block_storage.md
+    adjustable-iops.md
+    {: .navgroup-end}
+    
+    {: .navgroup id="howto"}
+    {: .topicgroup}
+    Provisioning
+        provisioning-block_storage.md
+        ordering-snapshots.md
+        managing-storage-limits.md
+        
+    {: .topicgroup}
+    Configuration
+        accessing_block_storage_linux.md
+        accessing-block-storage-windows.md
+        set-host-queue-depth-settings-performance-and-endurance-storage.md
+        configure-backup-cpanel.md
+        configure-backup-plesk.md
+        
+    {: .topicgroup}
+    Security
+        block-file-storage-encryption-rest.md
+        migrate-block-storage-encrypted-block-storage.md
+        use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
+    
+    managing-block-storage.md
+    how-to-create-duplicate-volume.md
+    working-with-snapshots.md
+    brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    BlockStorageFAQ.md
+    [Python API Client Information](https://github.com/softlayer/softlayer-python)
+    {: .navgroup-end}
