@@ -1,12 +1,12 @@
 ---
- 
+
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
- 
+lastupdated: "2018-04-13"
+
 ---
 
-{:shortdesc: .shortdesc} 
+{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
 # Working with Replication
@@ -20,7 +20,7 @@ Replicas let you
 
 Before you can replicate, you must create a snapshot schedule. When you failover, you’re “flipping the switch” from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. In the case of a failure event, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London has been repaired, a snapshot is taken of the Amsterdam volume in order to fall back to London and the once-again primary volume from a compute instance in London.
 
- 
+
 **Note:** Unless otherwise noted, the steps are the same for both {{site.data.keyword.blockstoragefull}} and File Storage.
 
 ## How Do I Determine the Remote Data Center for My Replicated Storage Volume?
@@ -103,7 +103,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 		</tr>
 	</tbody>
 </table>
- 
+
 
 ## How Do I Create an Initial Replication?
 
@@ -118,13 +118,13 @@ Select an existing snapshot schedule that you want your replications to follow. 
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one and click **Recalculate**. The other fields in the dialog box will default.
 6. Click the **I have read the Master Service Agreement…** check box and click **Place Order**.
- 
+
 
 ## How Do I Edit an Existing Replication?
 
 You can edit your replication schedule and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
- 
+
 
 ## How Do I Edit a Replication Schedule?
 
@@ -136,7 +136,7 @@ Changing the schedule can be done on the Primary or Replica tab.
 2. Select **Edit Snapshot Schedule**.
 3. Look in the Snapshot frame under Schedule to determine which schedule you’re using for replication. Make the changes to the schedule that is being used for replication; e.g., if your replication schedule is **Daily**, you can change the time of day replication is to take place.
 4. Click **Save**.
- 
+
 
 ## How Do I Change Replication space?
 
@@ -147,19 +147,19 @@ Select **Add More Snapshot Space**.
 Select the storage size from the list and click **Continue**.
 Enter in a **Promo Code** if you have one and click **Recalculate**. The other fields in the dialog box will default.
 Click the I have read the Master Service Agreement… check box and click the Place Order button.
- 
+
 
 ## How Do I See My Replica Volumes in the Volume List?
 
 You can view your replication volumes from the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. The LUN Name will have the primary volume’s name followed by REP. The Type is Endurance(Performance) – Replica, the Target Address is N/A because the replica volume is not mounted at the replica data center, and the Status is Inactive.
 
- 
+
 
 ## How Do I View a Replicated Volume's Details at the Replica Data Center?
 
 You can view the replica volume details on the **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}**. Another option is to select the replica volume from the **{{site.data.keyword.blockstorageshort}}** page and click on the **Replica** tab.
 
- 
+
 
 ## How Do I Specify Host Authorizations Prior to Failing over to the Secondary Data Center?
 
@@ -170,7 +170,7 @@ Authorized hosts and volumes must be in the same data center. You can’t have a
 3. Scroll down to the **Authorize Hosts** frame and click on the **Authorize Hosts** link on the right side of the screen.
 4. Highlight the host that is to be authorized for replications. To select multiple hosts, use the CTRL-key and click on the applicable hosts.
 5. Click **Submit**. If you have no hosts, the dialog box will offer you the option of purchasing compute resources in the same data center or you can click **Close**.
- 
+
 
 ## How Do I Increase My Snapshot Space in My Replica Data Center When I Increase Space in My Primary Data Center?
 
@@ -178,7 +178,7 @@ Your volume sizes must be the same for your primary and replica storage volumes;
 
 Click [here](snapshots.html) to learn how to increase your snapshot space.
 
- 
+
 
 ## How Do I Initiate a Failover from a Volume to Its Replica?
 
@@ -196,11 +196,11 @@ Failovers are initiated under **Storage**, **{{site.data.keyword.blockstoragesho
 4. Click the **View All** (**{{site.data.keyword.blockstorageshort}}**) Storage link in the top right corner.
 5. Click on your active LUN (formerly your target volume). This volume will now have an **Active** status.
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
- 
 
-## How Do I Initiate a Fallback from a Volume to Its Replica?
 
-Once your original source volume has been repaired, the **Fallback** action lets you initiate a controlled fallback to your original source volume. In a controlled fallback,
+## How Do I Initiate a Failback from a Volume to Its Replica?
+
+Once your original source volume has been repaired, the **Failback** action lets you initiate a controlled Failback to your original source volume. In a controlled Failback,
 
 - The acting source volume is taken offline;
 - A snapshot taken;
@@ -208,30 +208,30 @@ Once your original source volume has been repaired, the **Fallback** action lets
 - The just-taken data snapshot activated;
 - And, the source volume made active for mounting.
 
-Be aware that once a fallback is initiated, the **replication relationship is once again flipped**. Your source volume is restored as your source volume, and your target volume once again is the target volume as indicated by the **LUN Name** followed by **REP**.
+Be aware that once a Failback is initiated, the **replication relationship is once again flipped**. Your source volume is restored as your source volume, and your target volume once again is the target volume as indicated by the **LUN Name** followed by **REP**.
 
-Fallbacks are initiated under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Failbacks are initiated under **Storage**, **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. Click on your active Endurance LUN (“target”).
 2. Click on the **Replica** tab and click the **Actions** link in the upper-right corner.
-3. Select **Fallback**.
-   You will receive a message across the top of the page stating the failover is in progress. Additionally, an icon will appear next to your volume on the **{{site.data.keyword.blockstorageshort}}** indicating that an active transaction is occurring. Hovering over the icon produces a dialog indicating the transaction. The icon will disappear once the transaction is complete. During the fallback process, configuration-related actions are read only; you cannot edit any snapshot schedule, change snapshot space, and so on. The event is logged in replication history.
+3. Select **Failback**.
+   You will receive a message across the top of the page stating the failover is in progress. Additionally, an icon will appear next to your volume on the **{{site.data.keyword.blockstorageshort}}** indicating that an active transaction is occurring. Hovering over the icon produces a dialog indicating the transaction. The icon will disappear once the transaction is complete. During the Failback process, configuration-related actions are read only; you cannot edit any snapshot schedule, change snapshot space, and so on. The event is logged in replication history.
    Another message will let you know when your source volume is live. Your target volume will now have an Inactive status.
 4. Click the **View All** (**{{site.data.keyword.blockstorageshort}}**) link in the top right corner.
 5. Click on your active Endurance LUN (source). This volume will now have an **Active** status.
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
- 
+
 
 ## How Do I See My Replication History?
 
 Replication history is viewed on the **Audit Log** via the **Account** tab under **Manage**. Both the primary and replica volumes will display identical replication history, which includes:
 
-- Type for replication (failover or fallback)
+- Type for replication (failover or Failback)
 - When it was initiated,
 - Snapshot used for the replication
 - Size of the replication
 - When it completed
- 
+
 
 ## How Do I Cancel an Existing Replication?
 
@@ -242,7 +242,7 @@ Cancellation can be performed either immediately or on the anniversary date, whi
 3. Select **Cancel Replica**.
 4. Select when to cancel – **Immediately** or **Anniversary Date** and click **Continue**.
 5. Click the **I acknowledge that due to cancellation, data loss may occur** checkbox and click **Cancel Replica**.
- 
+
 
 ## How Do I Cancel Replication When the Primary Volume Is Cancelled?
 
