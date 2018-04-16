@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-13"
+lastupdated: "2018-04-16"
 
 ---
 
@@ -54,11 +54,11 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -84,8 +84,8 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions or specifically noted within a region do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.<br />In Asia Pacific region, CHE01 can initiate replication to data centers with encrypted storage as replicas (data centers above the line).</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.</p>
 			</td>
 		</tr>
 	</tbody>

@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-14"
  
 ---
 
@@ -84,8 +84,8 @@ Tenga en cuenta que algunas ciudades, como Dallas, San José, Washington, D.C. y
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ Tenga en cuenta que algunas ciudades, como Dallas, San José, Washington, D.C. y
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Los centros de datos en estas regiones o específicamente indicados dentro de una región NO tienen almacenamiento cifrado.<br /><strong>Nota</strong>: Los centros de datos con almacenamiento cifrado <strong>no pueden</strong> iniciar la réplica con centros de datos no cifrados como destinos de réplica.<br />En la región de Asia Pacífico, CHE01 puede iniciar la réplica a centros de datos con almacenamiento cifrado como réplicas (centros de datos sobre la línea).</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Los centros de datos en estas regiones NO tienen almacenamiento cifrado.<br /><strong>Nota</strong>: Los centros de datos con almacenamiento cifrado <strong>no pueden</strong> iniciar la réplica con centros de datos no cifrados como destinos de réplica.</p>
 			</td>
 		</tr>
 	</tbody>

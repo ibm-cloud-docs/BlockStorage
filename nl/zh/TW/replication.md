@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
  
 ---
 
@@ -53,11 +53,11 @@ lastupdated: "2018-02-13"
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -83,8 +83,8 @@ lastupdated: "2018-02-13"
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -97,7 +97,7 @@ lastupdated: "2018-02-13"
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>這些地區中的資料中心或在地區內特別註明的資料中心「沒有」加密儲存空間。<br /><strong>附註</strong>：具有加密儲存空間的資料中心<strong>無法</strong>起始以未加密資料中心作為抄本目標的抄寫。<br />在亞太地區中，CHE01 可以使用加密儲存空間作為抄本來起始抄寫至資料中心（在此行上方的資料中心）。</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>這些地區中的資料中心或在地區內特別註明的資料中心「沒有」加密儲存空間。<br /><strong>附註</strong>：具有加密儲存空間的資料中心<strong>無法</strong>起始以未加密資料中心作為抄本目標的抄寫。</p>
 			</td>
 		</tr>
 	</tbody>

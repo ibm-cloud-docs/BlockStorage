@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
 
 ---
 {:new_window: target="_blank"}
@@ -40,14 +40,14 @@ adicional em breve!
 		<tr>
 			<td>
 				<p>SJC03<br />
-				   SJC04<br />
-					WDC04<br />
-					WDC06<br />
-					WDC07<br />
-					DAL09<br />
-					DAL10<br />
-					DAL12<br />
-					DAL13</p>
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
+				DAL10<br />
+				DAL12<br />
+				DAL13</p>
 			</td>
 			<td>
 				<p>LON02<br />
@@ -67,16 +67,17 @@ adicional em breve!
 			</td>
 			<td>
 				<p>TOR01<br />
-					MON01<br /><br /><br /><br /><br /><br /><br /><br /></p>
+				MON01<br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 			<td>
 				<p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
-						<td>
+			<td>
 				<p>TOK02<br />
 				HKG02<br />
 			        SEO01<br />
-				SNG01<br /><br /><br /><br /><br /><br /></p>
+				SNG01<br />
+				CHE01<br /><br /><br /><br /><br /></p>
 			</td>
 			</tr>
 	</tbody>

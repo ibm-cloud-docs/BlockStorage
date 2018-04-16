@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
  
 ---
 
@@ -54,11 +54,11 @@ lastupdated: "2018-02-13"
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+			 	WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -84,8 +84,8 @@ lastupdated: "2018-02-13"
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ lastupdated: "2018-02-13"
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup> 这些区域中的数据中心或者在某个区域中特别注明的数据中心没有加密存储器。<br /><strong>注</strong>：具有加密存储器的数据中心<strong>无法</strong>将非加密数据中心的复制作为复制目标启动。<br />在亚太地区，CHE01 可以启动复制到以加密存储器作为副本的数据中心（横线上方的数据中心）。</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup> 这些区域中的数据中心或者在某个区域中特别注明的数据中心没有加密存储器。<br /><strong>注</strong>：具有加密存储器的数据中心<strong>无法</strong>将非加密数据中心的复制作为复制目标启动。</p>
 			</td>
 		</tr>
 	</tbody>

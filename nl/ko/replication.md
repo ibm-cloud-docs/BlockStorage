@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
  
 ---
 
@@ -54,11 +54,11 @@ lastupdated: "2018-02-13"
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -84,8 +84,8 @@ lastupdated: "2018-02-13"
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ lastupdated: "2018-02-13"
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>이 지역 내의 데이터 센터 및 지역 내에 특별하게 명시된 데이터 센터에는 암호화된 스토리지가 없습니다. <br /><strong>참고</strong>: 암호화된 스토리지가 있는 데이터 센터는 암호화되지 않은 데이터 센터를 복제 대상으로 하는 복제를 시작할 수 <strong>없습니다</strong>. <br />아시아 태평양 지역에서, CHE01은 암호화된 스토리지가 복제본(표준 이상 데이터 센터)인 데이터 센터로의 복제를 시작할 수 있습니다. </p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>이 지역 내의 데이터 센터 및 지역 내에 특별하게 명시된 데이터 센터에는 암호화된 스토리지가 없습니다. <br /><strong>참고</strong>: 암호화된 스토리지가 있는 데이터 센터는 암호화되지 않은 데이터 센터를 복제 대상으로 하는 복제를 시작할 수 <strong>없습니다</strong>. </p>
 			</td>
 		</tr>
 	</tbody>

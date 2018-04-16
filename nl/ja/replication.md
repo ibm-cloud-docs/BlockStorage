@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
  
 ---
 
@@ -54,11 +54,11 @@ lastupdated: "2018-02-13"
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -84,8 +84,8 @@ lastupdated: "2018-02-13"
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ lastupdated: "2018-02-13"
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>これらの地域のデータ・センターまたは地域内の特に明記されたデータ・センターには、暗号化されたストレージがありません。<br /><strong>注</strong>: 暗号化されたストレージがあるデータ・センターは、暗号化されていないデータ・センターをレプリカ・ターゲットとして使用してレプリケーションを開始することは<strong>できません</strong>。<br />アジア太平洋地域では、CHE01 は、レプリカとして暗号化ストレージを持つデータ・センター (線より上のデータ・センター) へのレプリケーションを開始することができます。</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>これらの地域のデータ・センターまたは地域内の特に明記されたデータ・センターには、暗号化されたストレージがありません。<br /><strong>注</strong>: 暗号化されたストレージがあるデータ・センターは、暗号化されていないデータ・センターをレプリカ・ターゲットとして使用してレプリケーションを開始することは<strong>できません</strong>。</p>
 			</td>
 		</tr>
 	</tbody>

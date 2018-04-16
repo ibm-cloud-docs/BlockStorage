@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
  
 ---
 
@@ -54,11 +54,11 @@ Beachten Sie, dass einige in Tabelle 1 aufgeführten Städte wie Dallas, San Jos
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -84,8 +84,8 @@ Beachten Sie, dass einige in Tabelle 1 aufgeführten Städte wie Dallas, San Jos
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ Beachten Sie, dass einige in Tabelle 1 aufgeführten Städte wie Dallas, San Jos
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Rechenzentren in diesen Regionen oder mit einer speziellen Anmerkung innerhalb einer Region haben KEINEN verschlüsselten Speicher.<br /><strong>Hinweis</strong>: Rechenzentren mit verschlüsseltem Speicher können die Replikation mit nicht verschlüsselten Rechenzentren als Replikatzielen <strong>nicht</strong> einleiten.<br />In der Region Asien/Pazifik kann CHE01 die Replikation in Rechenzentren mit verschlüsseltem Speicher als Replikate einleiten (Rechenzentren über der Linie).</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Rechenzentren in diesen Regionen haben KEINEN verschlüsselten Speicher.<br /><strong>Hinweis</strong>: Rechenzentren mit verschlüsseltem Speicher können die Replikation mit nicht verschlüsselten Rechenzentren als Replikatzielen <strong>nicht</strong> einleiten.</p>
 			</td>
 		</tr>
 	</tbody>

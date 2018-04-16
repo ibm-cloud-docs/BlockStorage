@@ -2,7 +2,7 @@
  
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-04-16"
  
 ---
 
@@ -54,11 +54,11 @@ Nota: alcune città. come Dallas, San Jose, Washington, D.C. e Amsterdam hanno p
 				<br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
 				DAL13<br />
@@ -84,8 +84,8 @@ Nota: alcune città. come Dallas, San Jose, Washington, D.C. e Amsterdam hanno p
 				TOK02<br />
 				SNG01<br />
 				SEO01<br />
-                                _____<br />
-				CHE01<sup><img src="/images/numberone.png" alt="1" /></sup><br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -98,7 +98,7 @@ Nota: alcune città. come Dallas, San Jose, Washington, D.C. e Amsterdam hanno p
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>I data center in queste regioni o specificamente indicati in una regione NON hanno l'archiviazione crittografata.<br /><strong>Nota</strong>: i data center con l'archiviazione crittografata <strong>non possono</strong> avviare la replica con data center non crittografati come destinazioni della replica.<br />Nella regione Asia Pacifico, CHE01 può avviare la replica ai data center con l'archiviazione crittografata come repliche (data center sopra la riga).</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>I data center in queste regioni o specificamente indicati in una regione NON hanno l'archiviazione crittografata.<br /><strong>Nota</strong>: i data center con l'archiviazione crittografata <strong>non possono</strong> avviare la replica con data center non crittografati come destinazioni della replica.</p>
 			</td>
 		</tr>
 	</tbody>
