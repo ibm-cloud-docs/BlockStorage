@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-04-21"
 
 ---
 {:new_window: target="_blank"}
@@ -17,7 +17,7 @@ lastupdated: "2018-02-12"
 The provider managed encryption-at-rest feature uses the following industry standard protocols:
 
 * Industry-Standard AES-256 encryption
-* Keys are managed in-house with industry standard Key Management Improbability Protocol (KMIP)
+* Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP)
 * Storage is Federal Information Processing Standard (FIPS) Publication 140-2 validated for Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) and EU Data Protection Directive 95/46/EC compliance
 
 ## Encryption-at-Rest for Snapshots or Replicated storage  
