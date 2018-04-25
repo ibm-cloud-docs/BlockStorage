@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-16"
+lastupdated: "2018-04-25"
 
 ---
 
@@ -51,7 +51,7 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				WDC01<br />
 				<br />
 				<br />
-				<br />
+				<br /><br />
 			</td>
 			<td>SJC03<br />
 				SJC04<br />
@@ -61,18 +61,19 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13<br />
+				DAL13<br /><br />
 			</td>
 			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br />
+				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br />
+				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 			<td>
 				AMS01<br />
 				AMS03<br />
 				FRA02<br />
+				FRA04<br />
 				LON02<br />
 				LON04<br />
 				LON06<br />
@@ -89,16 +90,17 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 				<br />
 				<br />
 				<br />
+				<br />
 			</td>
 			<td>
 				SYD01<br />
 				SYD04<br />
 				MEL01<br />
-				<br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in these regions do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers in this region do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>cannot</strong> initiate replication with non-encrypted data centers as replica targets.</p>
 			</td>
 		</tr>
 	</tbody>
