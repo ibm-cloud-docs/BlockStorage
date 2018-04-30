@@ -100,8 +100,8 @@ lastupdated: "2018-03-09"
      chkconfig multipathd on
      ```
      {: pre}
-
-   - CentOS 7：
+   
+   - CentOS 7： 
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +116,13 @@ lastupdated: "2018-03-09"
      systemctl enable multipathd
      ```
      {: pre}
-
+     
    - Ubuntu：
      ```
      service multipath-tools start
      ```
      {: pre}
-
+    
    - 若為其他發行套件，請參閱 OS 供應商文件。
 
 4. 驗證多路徑正在運作中。
@@ -131,16 +131,16 @@ lastupdated: "2018-03-09"
      multipath -l
      ```
      {: pre}
-
-     如果此時傳回空白，則表示它正在運作中。
-
+     
+     如果此時傳回空白，則表示它正在運作中。 
+   
    - CentOS 7：
      ```
      multipath -ll
      ```
      {: pre}
-
-     RHEL 7/CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。
+     
+     RHEL 7/CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。 
 
 5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 **/etc/iscsi/initiatorname.iscsi** 檔案。請以小寫字體輸入此值。
    ```
@@ -205,7 +205,7 @@ lastupdated: "2018-03-09"
       {: pre}
 
    - 其他發行套件：請參閱 OS 供應商文件。
-
+   
 8. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
 
      a. 針對 iSCSI 陣列執行探索：
@@ -246,7 +246,7 @@ lastupdated: "2018-03-09"
 
 ## 建立檔案系統（選用）
 
-下列是在新裝載的磁區之上建立檔案系統的步驟。大部分應用程式都需要檔案系統，才能利用磁區。請對小於 2 TB 的磁碟使用 **fdisk**，而對大於 2 TB 的磁碟使用 **parted**。
+以下是在新裝載的磁區之上建立檔案系統的步驟。大部分應用程式都需要檔案系統，才能利用磁區。請對小於 2 TB 的磁碟使用 **fdisk**，而對大於 2 TB 的磁碟使用 **parted**。
 
 ### fdisk
 
@@ -255,7 +255,7 @@ lastupdated: "2018-03-09"
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   傳回的磁碟名稱應該與 /dev/mapper/XXX 類似。
+   傳回的磁碟名稱應該類似於 /dev/mapper/XXX。
 
 2. 使用 fdisk 在磁碟上建立分割區。
 
@@ -320,7 +320,7 @@ lastupdated: "2018-03-09"
 		<td style="width:60%;">結果</td>
 	</tr>
 	<tr>
-		<td><li><code>Command: n</code></li>	</td>
+		<td><li>&#42; <code>Command: n</code></li>	</td>
 		<td>建立新的分割區。</td>
 	</tr>
 	<tr>
@@ -340,7 +340,7 @@ lastupdated: "2018-03-09"
 		<td>按 Enter 鍵以移至最後一個磁柱。</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Command: t</code></li></td>
+		<td><li>&#42; <code>Command: t</code></li></td>
 		<td>設定分割區的類型。</td>
 	</tr>
 	<tr>
@@ -348,11 +348,11 @@ lastupdated: "2018-03-09"
 		<td>選取要設為特定類型的分割區 1。</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Hex code: 83</code></li></td>
+		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
 		<td>選取 Linux 作為「類型」（83 是適用於 Linux 的十六進位碼）。</td>
 	 </tr>
 	<tr>
-		<td><li>*<code>Command: w</code></li></td>
+		<td><li>&#42; <code>Command: w</code></li></td>
 		<td>將新的分割區資訊寫入磁碟中。</td>
 	</tr>
  </tbody>
@@ -402,8 +402,8 @@ lastupdated: "2018-03-09"
       ```
       {: pre}
 
-   3. 建立新的 GPT 分割區表格。
-
+   3. 建立新的 GPT 分割區表格。 
+   
       ```
       (parted) mklabel gpt
       ```
@@ -468,7 +468,7 @@ lastupdated: "2018-03-09"
 
 ## 如何驗證是否在 *NIX OS 中正確地設置 MPIO
 
-若要檢查多路徑是否正在挑選裝置，則只有 NETADP 裝置才會顯示，且其中應該有兩個。
+若要檢查多路徑是否正在挑選裝置，則應該只會顯示 NETADP 裝置，且應該有兩個。
 
 ```
 # multipath -l

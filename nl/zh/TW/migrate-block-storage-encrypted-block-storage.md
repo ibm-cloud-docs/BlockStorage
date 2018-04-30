@@ -95,17 +95,17 @@ lastupdated: "2018-02-12"
  
 ### Microsoft Windows
 
-若要將資料從原始 {{site.data.keyword.blockstorageshort}} LUN 複製到加密 LUN，請使用「Windows 檔案總管」格式化新的儲存空間並覆寫檔案。
+若要將資料從原始 {{site.data.keyword.blockstorageshort}} LUN 複製到加密 LUN，請使用「Windows 檔案總管」格式化新的儲存空間並將檔案複製到其中。
 
  
 ### Linux
 
-您可以考慮使用 rsync 來覆寫資料。以下是範例指令：
+您可以考慮使用 rsync 來複製資料。以下是範例指令：
 
 ``[root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/encrypted/block/storage
 ``
 
-建議您搭配使用上述指令與 --dry-run 旗標一次，確定正確地啟動路徑。如果此程序被岔斷，建議您刪除最後一個正在複製的目的地檔案，確定從頭將它複製到新位置。
+建議您搭配使用上述指令與 --dry-run 旗標一次，以確定正確地排列路徑。如果此程序被岔斷，建議您刪除最後一個正在複製的目的地檔案，以確定從頭將它複製到新位置。
 
 此指令在沒有 --dry-run 旗標的情況下完成之後，資料應該已複製到加密 {{site.data.keyword.blockstorageshort}} LUN。您應該向上捲動並重新執行指令，確定未遺漏任何項目。您也可以手動檢閱這兩個位置，以尋找任何可能遺漏的項目。
 

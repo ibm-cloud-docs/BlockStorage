@@ -24,7 +24,7 @@ lastupdated: "2018-01-08"
 - 包括基本最常用的情境步驟，以使用基礎架構服務。
 - 不要包括從 Bluemix 型錄新增服務的步驟；我們假設使用者已在使用者介面中執行新增服務的步驟。
 - 包括以所有語言撰寫且可複製的程式碼 Snippet，以及 VCAP 服務資訊。VCAP 服務資訊的相關資訊，請參閱 https://console.ng.bluemix.net/docs/cli/vcapsvc.html
-- 針對配置、管理等等其他作業，請在作業區段或所使用的「關於」區段下面新增作業區段 (## Gerund_task_title)。使用 "Configuring x"、"Administering y"、"Managing z" 這類作業標題。-->
+- 針對配置、管理等等其他作業，請在作業區段或所使用的「關於」區段下面新增作業區段 (## Gerund_task_title)。使用 "Configuring x"、"Administering y"、"Managing z" 這類作業標題。 
 
 ## 必要條件
 管理者必須先具有已升級的 {{site.data.keyword.Bluemix}} 帳戶，才能佈建或管理其基礎架構供應項目。如需相關資訊，請參閱[升級與統一 {{site.data.keyword.Bluemix_notm}} 及 SoftLayer 計費帳戶](../docs/admin/softlayerlink.html)。

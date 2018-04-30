@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -15,16 +15,16 @@ lastupdated: "2018-02-12"
 
 Linux Unified Key Setup-on-disk-format (LUKS) 可讓您將 Red Hat Enterprise Linux 6（伺服器）上的分割區加密，這在涉及行動電腦及抽取式媒體時尤其重要。LUKS 容許使用多個使用者金鑰來解密用於分割區大量加密的主要金鑰。
 
-## LUKS 可以執行下列作業：
+## LUKS 可以執行的作業
 
 - 加密整個區塊裝置，因此非常適合用來保護行動裝置的內容，例如抽取式儲存媒體或筆記型電腦磁碟機。
     - 已加密區塊裝置的基礎內容是任意內容，這使它有助於加密交換裝置。加密也適用於使用特殊格式的區塊裝置進行資料儲存的特定資料庫。
 - 使用現有的裝置對映器核心子系統。
-- 提供通行詞組強化，以避免字典連接。
-- 容許使用者新增備用金鑰或通行詞組，因為 LUKS 裝置包含多個金鑰屬性。
+- 提供通行詞組強化，以避免字典攻擊。
+- 容許使用者新增備用金鑰或通行詞組，因為 LUKS 裝置包含多個金鑰槽。
 
 
-## LUKS 不會執行下列作業：
+## LUKS 不會執行的作業
 
 - 容許需要多個（超過 8 個）使用者的應用程式，對相同的裝置具有不同的存取金鑰。
 - 使用需要檔案層次加密的應用程式（[相關資訊](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}）。
@@ -33,7 +33,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) 可讓您將 Red Hat Enterprise Li
 
 這些步驟假設伺服器已有權存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需使用 Linux 存取 {{site.data.keyword.blockstorageshort}} 的方式，請按一下[這裡](accessing_block_storage_linux.html)。
 
-請注意，執行資料加密會在主機上建立可能影響效能的負載。
+請注意，執行資料加密會在主機上產生可能影響效能的負載。
 
 1. 在 Shell 提示上，以 root 使用者身分鍵入下列指令，以安裝必要套件：<br/>
    ```
@@ -47,20 +47,22 @@ Linux Unified Key Setup-on-disk-format (LUKS) 可讓您將 Red Hat Enterprise Li
    {: pre}
 3. 在清單中找出您的磁區。
 4. 加密區塊裝置； 
-      1. 此指令會起始設定磁區，並可讓您設定通行詞組：<br/>
+
+   1. 此指令會起始設定磁區，並可讓您設定通行詞組：<br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. 以 YES 回應（全為大寫字母）。
-      
-      3. 裝置現在會顯示為加密磁區： 
+   2. 以 YES 回應（全為大寫字母）。
+   
+   3. 裝置現在會顯示為加密磁區： 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
 5. 開啟磁區並建立對映：<br/>
    ```
@@ -81,7 +83,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) 可讓您將 Red Hat Enterprise Li
      mode:    read/write
      Command successful
    ```
-8. 將隨機資料寫入 /dev/mapper/cryptData 加密裝置中。這可確保外面的世界會將此資料視為隨機資料，表示它受到保護而不會揭露使用型樣。請注意，此步驟可能需要一些時間。<br/>
+8. 將隨機資料寫入 /dev/mapper/cryptData 加密裝置中。這可確保外面的世界會將此資料視為隨機資料，表示它受到保護而不會揭露使用模式。請注意，此步驟可能需要一些時間。<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

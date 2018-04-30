@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -77,11 +77,11 @@ Snapshot 空間是透過**儲存空間、{{site.data.keyword.blockstorageshort}}
 
 - **75% 容量**：傳送 Snapshot 空間使用率已超過 75% 的警告。如果您注意到警告，並手動新增空間，或刪除保留或不需要的 Snapshot，則會註明動作並關閉問題單。如果您未執行任何動作，則必須手動確認該問題單，然後將其關閉。
 - **90% 容量**：當 Snapshot 空間使用率超過 90% 時，會傳送第二個警告。如同達到 75% 容量一樣，如果您採取必要的動作來減少使用的空間，則會註明該動作並關閉問題單。如果您未執行任何動作，則必須手動確認該問題單，然後將其關閉。
-- **95% 容量**：傳送最終警告。如果未採取任何動作讓空間低於臨界值，則會產生通知，並自動進行刪除，以便可以建立未來的 Snapshot。會刪除已排定的 Snapshot（從最舊的 Snapshot 開始），直到使用率低於 95% 為止，而且每次使用率超出 95% 時都會繼續進行刪除，直到它低於臨界值為止。如果手動增加空間或刪除 Snapshot，則會重設警告，並在再次超出臨界值時重新發出。如果未採取任何動作，則這會是收到的唯一警告。
+- **95% 容量**：傳送最終警告。如果未採取任何動作讓空間低於臨界值，則會產生通知，並自動進行刪除作業，以便可以建立未來的 Snapshot。會刪除已排定的 Snapshot（從最舊的 Snapshot 開始），直到使用率低於 95% 為止，而且每次使用率超出 95% 時都會繼續進行刪除，直到它低於臨界值為止。如果手動增加空間或刪除 Snapshot，則會重設警告，並在再次超出臨界值時重新發出。如果未採取任何動作，則這會是收到的唯一警告。
 
 ## 如何刪除 Snapshot 排程？
 
-Snapshot 排程可以透過**儲存空間、{{site.data.keyword.blockstorageshort}}** 來取消。
+Snapshot 排程可以透過**儲存空間、{{site.data.keyword.blockstorageshort}}** 來刪除。
 
 1. 在**詳細資料**頁面的 **Snapshot 排程**頁框中，按一下要刪除的排程。
 2. 按一下要刪除之排程旁的勾選框，然後按一下**儲存**。<br />
@@ -89,7 +89,7 @@ Snapshot 排程可以透過**儲存空間、{{site.data.keyword.blockstorageshor
 
 ## 如何刪除 Snapshot？
 
-可以手動移除不再需要的 Snapshot，以釋放空間供未來的 Snapshot 使用。刪除是透過**儲存空間、{{site.data.keyword.blockstorageshort}}** 來執行。
+可以手動移除不再需要的 Snapshot，以釋放空間供未來的 Snapshot 使用。刪除作業是透過**儲存空間、{{site.data.keyword.blockstorageshort}}** 來進行。
 
 1. 按一下儲存空間磁區，然後向下捲動至 Snapshot 區段，以查看現有 Snapshot 清單。
 2. 按一下特定 Snapshot 旁邊的**動作**下拉清單，然後按一下**刪除**來刪除 Snapshot。這不會影響相同排程上的任何未來或過去 Snapshot，因為 Snapshot 之間沒有相依關係。
@@ -107,9 +107,9 @@ Snapshot 排程可以透過**儲存空間、{{site.data.keyword.blockstorageshor
 3. 向下捲動並按一下要還原的磁區。**詳細資料**頁面的 **Snapshot** 區段會顯示所有已儲存 Snapshot 的清單及其大小和建立日期。
 4. 按一下要使用之 Snapshot 的**動作**按鈕，然後按一下**還原**。<br/>
   **附註**：執行還原會導致在擷取所使用 Snapshot 之後建立或修改的資料流失。完成時，儲存空間磁區將回到擷取 Snapshot 時所處的相同狀態。系統會出現提示來通知您這種情況。
-5. 按一下**是**，以起始還原。您將會在頁面頂端收到一則訊息，指出使用選取的 Snapshot 還原磁區。此外，{{site.data.keyword.blockstorageshort}} 上的磁區旁會出現一個圖示，指出正在進行作用中交易。將游標移至圖示上方會產生一個對話框，指出交易。完成交易之後，圖示即會消失。
+5. 按一下**是**，以起始還原。您將會在頁面頂端收到一則訊息，指出使用選取的 Snapshot 還原磁區。此外，{{site.data.keyword.blockstorageshort}} 上的磁區旁會出現一個圖示，指出有一個作用中交易正在進行。將游標移至圖示上方會產生一個對話框，指出交易。完成交易之後，圖示即會消失。
 6. 將儲存空間磁區裝載並重新連接至主機。
    - 按一下[這裡](accessing_block_storage_linux.html)，以取得 Linux 上的 {{site.data.keyword.blockstorageshort}} 指示。
    - 按一下[這裡](accessing-block-storage-windows.html)，以取得 Microsoft Windows 上的 {{site.data.keyword.blockstorageshort}} 指示。
    
-**附註**：還原磁區將導致在還原的 Snapshot 之前刪除所有 Snapshot。
+**附註**：還原磁區將導致刪除所還原 Snapshot 之前的所有 Snapshot。

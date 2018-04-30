@@ -41,7 +41,7 @@ lastupdated: "2018-02-23"
 1. 從 {{site.data.keyword.slportal}} 中，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，或者，從「{{site.data.keyword.BluSoftlayer_full}} 型錄」中，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中選取 LUN，然後按一下**動作** > **修改 LUN**。
 3. 在**儲存空間 IOPS 選項**下，進行新的選擇：
-    - 耐久性（分層 IOP）：為儲存空間選取大於 0.25 IOPS/GB 的「IOPS 層級」。您隨時可以增加 IOPS 層級。不過，一個月只能減少一次。
+    - 耐久性（分層 IOPS）：為儲存空間選取大於 0.25 IOPS/GB 的「IOPS 層級」。您隨時可以增加 IOPS 層級。不過，一個月只能減少一次。
     - 效能（已配置的 IOPS）：針對您的儲存空間指定新的 IOPS 選項，方法是輸入 100 到 48,000 IOPS 之間的值。（請務必在訂單表格中查看大小所需的任何特定界限）。
 4. 檢閱您的選擇及新的定價。
 5. 按一下**我已閱讀主要服務合約...** 勾選框，然後按一下**下訂單**。

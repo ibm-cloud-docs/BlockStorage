@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -16,7 +16,7 @@ Snapshot 是 {{site.data.keyword.blockstoragefull}} 的特性。Snapshot 代表�
 
 Snapshot 副本是 {{site.data.keyword.blockstorageshort}} LUN 的唯讀映像檔，可擷取磁區某個時間點的狀態。在建立 Snapshot 副本所需的時間以及儲存空間這兩方面，Snapshot 副本都極具效率。不論儲存空間上的磁區大小或活動層次為何，只需要幾秒鐘就可以建立 {{site.data.keyword.blockstorageshort}} Snapshot 副本（通常不到 1 秒）。建立 Snapshot 副本之後，對資料物件的變更會反映在物件現行版本的更新中，就像 Snapshot 副本不存在一樣。同時，資料的副本仍會完全穩定。 
 
-Snapshot 副本不會造成任何效能額外負擔；使用者可以輕鬆地儲存多達 50 個已排定的 Snapshot，且每個 {{site.data.keyword.blockstorageshort}} 磁區可以有 50 個手動 Snapshot，這全部都可以作為資料的唯讀及線上版本進行存取。
+Snapshot 副本不會造成任何效能額外負擔；使用者可以輕鬆地針對每個 {{site.data.keyword.blockstorageshort}} 磁區儲存最多 50 個已排定的 Snapshot 及 50 個手動 Snapshot，這全部都可以作為資料的唯讀及線上版本進行存取。
 
 
 Snapshot 可讓使用者
@@ -29,7 +29,7 @@ Snapshot 可讓使用者
 ## Snapshot 最佳作法
 
 Snapshot 設計取決於客戶環境。下列設計考量可協助您計劃及實作 Snapshot 副本： 
-- 	透過排程最多可以建立 50 個 Snapshot，且在每一個磁區或 LUN 上最多可以手動建立 50 個 Snapshot。 
+- 	在每個磁區或 LUN 上透過排程最多可以建立 50 個 Snapshot，透過手動方式最多可建立 50 個 Snapshot。 
 - 	不要過度擷取快照。請確定已排定的 Snapshot 頻率符合 RTO 及 RPO 需求，以及應用程式商業需求，方法是排定每小時、每日或每週 Snapshot。 
 - 	Snapshot AutoDelete 應該用來控制儲存空間耗用的成長。<br/>
     **附註**：AutoDelete 臨界值固定為 95%。

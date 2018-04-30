@@ -17,7 +17,7 @@ lastupdated: "2018-03-15"
 
 ## 如何裝載 {{site.data.keyword.blockstorageshort}} 磁區
 
-下列是將 Windows 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 供應商文件來調整其他 Windows 版本的步驟。
+以下是將 Windows 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 供應商文件來調整其他 Windows 版本的步驟。
 
 ### 配置 MPIO 特性
 
@@ -30,7 +30,7 @@ lastupdated: "2018-03-15"
 ### 新增 MPIO 的 iSCSI 支援
 
 1. 開啟「MPIO 內容」。若要開啟「MPIO 內容」，請按一下**開始**、指向「系統管理工具」，然後按一下 **MPIO**。
-2. 按一下**探索多路徑**標籤
+2. 按一下**探索多路徑**標籤。
 3. 選取**新增 iSCSI 裝置的支援**勾選框，然後按一下**新增**。系統提示您重新啟動電腦時，請按一下**是**。
 
 **附註**：若為 Windows Server 2008，新增 iSCSI 的支援容許「Microsoft 裝置特定模組 (MSDSM)」針對 MPIO 宣告所有的 iSCSI 裝置，此舉首先需要連線至「iSCSI 目標」。
@@ -88,7 +88,7 @@ lastupdated: "2018-03-15"
 5. 在「內容」視窗中，按一下**裝置**，然後啟動「裝置」視窗。裝置介面名稱應該在裝置名稱的開頭處具有 mpio。<br/>
   ![裝置](/images/Devices.png) 
   
-6. 按一下 **MPIO** 以啟動「裝置詳細資料」視窗。此視窗可讓您選擇 MPIO 的負載平衡原則，同時也會顯示 iSCSI 的路徑。在此範例中，會顯示兩個路徑，供具有「以子網路循環配置資源」負載平衡原則的 MPIO 使用。
+6. 按一下 **MPIO** 以啟動「裝置詳細資料」視窗。此視窗可讓您選擇 MPIO 的負載平衡原則，同時也會顯示 iSCSI 的路徑。在此範例中，會顯示兩個可供 MPIO 使用的路徑，以及「以子網路循環配置資源」負載平衡原則。
   ![DeviceDetails](/images/DeviceDetails.png)
   
 7. 按一下**確定**數次，以結束「iSCSI 起始器」。
@@ -108,7 +108,7 @@ lastupdated: "2018-03-15"
 
 ## 如何卸載 {{site.data.keyword.blockstorageshort}} 磁區
 
-下列是將 Windows 型 Bluemix 運算實例與 MPIO iSCSI LUN 中斷連線所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據 OS 供應商文件來調整其他 Windows 版本的步驟。
+以下是將 Windows 型 Bluemix 運算實例與 MPIO iSCSI LUN 中斷連線所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據 OS 供應商文件來調整其他 Windows 版本的步驟。
 
 ### 啟動「iSCSI 起始器」。
 

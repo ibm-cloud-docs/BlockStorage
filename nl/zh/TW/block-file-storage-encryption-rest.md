@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-04-23"
 
 ---
 {:new_window: target="_blank"}
@@ -24,7 +24,7 @@ lastupdated: "2018-02-12"
 
 依預設，已加密 {{site.data.keyword.blockstorageshort}} 的所有 Snapshot 及抄本也會加密。無法根據磁區來關閉此特性。
 
-## 使用加密來佈建儲存空間
+## 佈建具有加密的儲存空間
 
 提供者管理的靜態加密特性只適用於在定期新增資料中心可用性之精選資料中心內佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內佈建的所有儲存空間，佈建時都會自動具有靜態資料的加密。按一下[這裡](new-ibm-block-and-file-storage-location-and-features.html)，以查看提供靜態資料之 {{site.data.keyword.blockstorageshort}} 加密的現行資料中心清單。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-13"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -13,16 +13,16 @@ lastupdated: "2018-03-13"
  
 # 利用 cPanel 配置 {{site.data.keyword.blockstorageshort}} 進行備份
 
-在這篇文章中，我們旨在提供指示，讓您透過 cPanel 配置要儲存在 {{site.data.keyword.blockstoragefull}} 中的備份。假設 root 或 sudo SSH 及完整 WebHost Manager (WHM) 存取可供使用。此範例以 **CentOS 7** 主機為基礎。
+在這篇文章中，我們旨在提供指示，讓您透過 cPanel 配置要儲存在 {{site.data.keyword.blockstoragefull}} 中的備份。我們假設可以使用 root 或 sudo SSH 及完整 WebHost Manager (WHM) 存取權。此範例以 **CentOS 7** 主機為基礎。
 
-**附註**：您可以在[這裡](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}找到 cPanel 的「配置備份目錄」文件。
+**附註**：您可以在[這裡](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}找到關於配置備份目錄的 cPanel 文件。
 
 1. 透過 SSH 連接至主機。
 
 2. 確定裝載點目標已存在。<br />
    **附註**：依預設，cPanel 系統會在本端將備份檔儲存至 `/backup` 目錄。基於本文件的用途，我們假設 `/backup` 已存在且包含備份，因此我們將使用 `/backup2` 作為新的裝載點。
    
-3. 依照[在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html) 的說明，配置您的 {{site.data.keyword.blockstorageshort}}。請確定您將它裝載至 `/backup2`，並在 `/etc/fstab` 中加以配置，以在開機時啟用裝載。
+3. 依照[在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html) 的說明，配置您的 {{site.data.keyword.blockstorageshort}}。請確定您將它裝載至 `/backup2`，並在 `/etc/fstab` 中加以配置，以啟用在開機時進行裝載。
 
 4. **選用**：將現有備份複製到新的儲存空間。請使用 `rsync`，例如：
    ```
