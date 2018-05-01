@@ -10,11 +10,11 @@ lastupdated: "2018-02-14"
 
 # エンデュランス・ストレージまたはパフォーマンス・ストレージを備えた VMware 環境向けの Brocade vRouter (Vyatta) セットアップ・ガイド
 
-エンデュランス・ストレージまたはパフォーマンス・ストレージのいずれかを使用している VMware 環境内に Brocade vRouter (Vyatta) アプライアンス [高可用性 (HA) 構成] を構成できます。以下の情報を [拡張単一サイト VMware リファレンス・アーキテクチャー (Advanced Single-Site VMware Reference Architecture)](https://console.bluemix.net/docs/infrastructure/virtualization/advanced-single-site-vmware-reference-architecturesoftlayer.html){:new_window} とともに使用して、VMware 環境でこれらのストレージ・オプションのいずれかをセットアップします。
+エンデュランス・ストレージまたはパフォーマンス・ストレージのいずれかを使用している VMware 環境内に Brocade vRouter (Vyatta) アプライアンス [高可用性 (HA) 構成] を構成できます。 以下の情報を [拡張単一サイト VMware リファレンス・アーキテクチャー (Advanced Single-Site VMware Reference Architecture)](https://console.bluemix.net/docs/infrastructure/virtualization/advanced-single-site-vmware-reference-architecturesoftlayer.html){:new_window} とともに使用して、VMware 環境でこれらのストレージ・オプションのいずれかをセットアップします。
 
 ## Brocade vRouter (Vyatta) の概要
 
-Brocade vRouter (Vyatta) ゲートウェイは、ご使用の環境のゲートウェイおよびルーターとして機能し、サブネットで構成されるゾーンを含んでいます。ゾーン間にはファイアウォール・ルールが設定され、ゾーンが相互に通信できるようになります。他のゾーンと通信する必要がないゾーンの場合、すべてのパケットがドロップされるため、ファイアウォール・ルールは不要です。
+Brocade vRouter (Vyatta) ゲートウェイは、ご使用の環境のゲートウェイおよびルーターとして機能し、サブネットで構成されるゾーンを含んでいます。 ゾーン間にはファイアウォール・ルールが設定され、ゾーンが相互に通信できるようになります。 他のゾーンと通信する必要がないゾーンの場合、すべてのパケットがドロップされるため、ファイアウォール・ルールは不要です。
 
 この例の構成では、Brocade vRouter (Vyatta) 内に 5 つのゾーンが作成されます。
 
@@ -25,7 +25,7 @@ Brocade vRouter (Vyatta) ゲートウェイは、ご使用の環境のゲート�
 - OUTSIDE – パブリック・インターネット・アクセス
 
 
-図 1 は、各ゾーン間の通信を示しています。ご使用の環境はこれとは異なる場合があり、異なるゾーンやファイアウォール・ルールが必要になる場合があります。
+図 1 は、各ゾーン間の通信を示しています。 ご使用の環境はこれとは異なる場合があり、異なるゾーンやファイアウォール・ルールが必要になる場合があります。
 
 ![図 1: Brocade vRouter (Vyatta) ゾーン構成](/images/figure1_6.png)
 
@@ -40,9 +40,9 @@ Brocade vRouter (Vyatta) を構成するには、以下のようにします。
 
 ### インターフェースのセットアップ
 
-このセクションでは、環境内のサブネットにリンクされる、両方の Brocade vRouter (Vyatta) の結合インターフェースを構成します。記載されている VLAN (1101、1102、および 1103) は、ご使用の環境の対応する VLAN に置換してください。また、<> 付きで示されている指示は、ご使用の環境の詳細に置換する必要があります (その際、<> は削除してください)。
+このセクションでは、環境内のサブネットにリンクされる、両方の Brocade vRouter (Vyatta) の結合インターフェースを構成します。 記載されている VLAN (1101、1102、および 1103) は、ご使用の環境の対応する VLAN に置換してください。 また、<> 付きで示されている指示は、ご使用の環境の詳細に置換する必要があります (その際、<> は削除してください)。
 
-以下のコマンドを使用して、Brocade vRouter (Vyatta) の結合インターフェースを構成します。構成モードになっている必要があります。
+以下のコマンドを使用して、Brocade vRouter (Vyatta) の結合インターフェースを構成します。 構成モードになっている必要があります。
 
 Brocade vRouter (Vyatta) 1
 ```
@@ -111,7 +111,7 @@ save
 ```
 ### 外部アクセス用の SNAT の構成
 
-このステップでは、管理 VM およびキャパシティー・クラスター上の VM がインターネットにアクセスできるように、SNAT を構成します。後の時点でセットアップを同期化するので、このステップからは、構成を実行する必要があるのは一方の Brocade vRouter (Vyatta) のみになります。
+このステップでは、管理 VM およびキャパシティー・クラスター上の VM がインターネットにアクセスできるように、SNAT を構成します。 後の時点でセットアップを同期化するので、このステップからは、構成を実行する必要があるのは一方の Brocade vRouter (Vyatta) のみになります。
 
 構成モードで以下のコマンドを使用します。
 ```
@@ -357,12 +357,12 @@ Brocade vRouter (Vyatta) でのゾーンとファイアウォール・ルール�
 
 1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} にログインし、**「ネットワーク」 > 「ゲートウェイ・アプライアンス」**をクリックし、 「Brocade vRouter (Vyatta)」をクリックします。
 2. **「VLAN」**を選択し、**「関連付ける」**ボタンをクリックします。
-3. ご使用の環境用に作成した VLAN ごとに、ステップ 2 を繰り返します。次に、Brocade vRouter (Vyatta) と関連付けるために、VLAN のルーティングを有効にする必要があります。
+3. ご使用の環境用に作成した VLAN ごとに、ステップ 2 を繰り返します。 次に、Brocade vRouter (Vyatta) と関連付けるために、VLAN のルーティングを有効にする必要があります。
 4. **「関連付けられた VLAN」**の下で目的の VLAN を見つけ、それぞれの横にあるボックスにチェック・マークを付けます。
 5. **「一括アクション」**ドロップダウン・メニューをクリックし、**「経路指定」**を選択します。
 6. ポップアップ画面で**「OK」**をクリックします。
 
-これで、VLAN は Brocade vRouter (Vyatta) 経由でルーティングされます。2 つのゾーン間の通信が妨げられていることに気付いた場合、問題がある特定の VLAN をバイパスし、Brocade vRouter (Vyatta) 設定を確認してください。
+これで、VLAN は Brocade vRouter (Vyatta) 経由でルーティングされます。 2 つのゾーン間の通信が妨げられていることに気付いた場合、問題がある特定の VLAN をバイパスし、Brocade vRouter (Vyatta) 設定を確認してください。
 
 これで、Brocade vRouter (Vyatta) によって保護された機能する単一サイト VMware 環境を IBM Cloud インフラストラクチャー内で使用できるようになりました。
 

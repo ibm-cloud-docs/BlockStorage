@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -13,29 +13,29 @@ lastupdated: "2018-02-12"
 
 # Red Hat Enterprise Linux でのフルディスク暗号化のための LUKS の使用
 
-Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enterprise Linux 6 (サーバー) 上のパーティションを暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは特に重要です。LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
+Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enterprise Linux 6 (サーバー) 上のパーティションを暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは特に重要です。 LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
 
-## LUKS にある機能:
+## LUKS にある機能
 
 - ブロック・デバイス全体を暗号化するので、取り外し可能ストレージ・メディアやラップトップ・ディスク・ドライブなどのモバイル・デバイスの内容を保護するのに適している。
-    - 暗号化ブロック・デバイスは、基礎となる内容が任意なので、スワップ・デバイスの暗号化に役立ちます。暗号化は、データ・ストレージ用の特殊なフォーマットのブロック・デバイスを使用する特定のデータベースにも役立ちます。
+    - 暗号化ブロック・デバイスは、基礎となる内容が任意なので、スワップ・デバイスの暗号化に役立ちます。 暗号化は、データ・ストレージ用の特殊なフォーマットのブロック・デバイスを使用する特定のデータベースにも役立ちます。
 - 既存のデバイス・マッパー・カーネル・サブシステムを使用する。
 - パスフレーズを強化して、辞書攻撃から保護する。
 - LUKS デバイスは複数の鍵スロットを含んでいるため、ユーザーはバックアップ鍵やパスフレーズを追加できる。
 
 
-## LUKS にない機能:
+## LUKS にない機能
 
 - 多数 (8 人を超える) のユーザーが同じデバイスに対して異なるアクセス・キーを持つことを必要とするアプリケーションを許可する。
 - ファイル・レベルの暗号化を必要とするアプリケーションを処理する ([詳細情報](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window})。
 
 ## Endurance {{site.data.keyword.blockstorageshort}}を使用した新規の LUKS 暗号化ボリュームをセットアップする方法
 
-以下のステップでは、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームに対し、サーバーが既にアクセス権限を持っていることを想定しています。Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
+以下のステップでは、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームに対し、サーバーが既にアクセス権限を持っていることを想定しています。 Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
 
 データ暗号化を実行すると、ホストに負荷がかかり、パフォーマンスに影響する可能性があることに注意してください。
 
-1. root としてシェル・プロンプトに以下を入力し、必要なパッケージをインストールします。<br/>
+1. root としてシェル・プロンプトに以下を入力し、必要なパッケージをインストールします。   <br/>
    ```
    # yum install cryptsetup-luks
    ```
@@ -47,28 +47,30 @@ Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enter
    {: pre}
 3. リスト内で該当するボリュームを見つけます。
 4. ブロック・デバイスを暗号化します。 
-      1. 次のコマンドは、ボリュームを初期化し、パスフレーズを設定できるようにします。<br/>
+
+   1. 次のコマンドは、ボリュームを初期化し、パスフレーズを設定できるようにします。 <br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. YES (すべて大文字) で応答します。
-      
-      3. これにより、デバイスが暗号化されたボリュームとして表示されます。 
+   2. YES (すべて大文字) で応答します。
+   
+   3. これにより、デバイスが暗号化されたボリュームとして表示されます。 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
-5. ボリュームを開き、マッピングを作成します。<br/>
+5. ボリュームを開き、マッピングを作成します。   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
 6. 前に指定したパスワードを入力します。
-7. 以下のようにして、マッピングを検証し、暗号化されたボリュームの状況を表示します。<br/>
+7. 以下のようにして、マッピングを検証し、暗号化されたボリュームの状況を表示します。   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -81,7 +83,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enter
      mode:    read/write
      Command successful
    ```
-8. /dev/mapper/cryptData 暗号化デバイスにランダム・データを書き込みます。これにより、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。このステップには少し時間がかかる場合があることに注意してください。<br/>
+8. /dev/mapper/cryptData 暗号化デバイスにランダム・データを書き込みます。 これにより、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。 このステップには少し時間がかかる場合があることに注意してください。<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
@@ -119,16 +121,16 @@ Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enter
    # mount /dev/mapper/cryptData /cryptData
    # df -H /cryptData
    # lsblk
-   NAME                                       MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
-   xvdb                                       202:16   0    2G  0 disk
+   NAME                                         MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+   xvdb                                         202:16   0    2G  0 disk
    └─xvdb1                                    202:17   0    2G  0 part  [SWAP]
-   xvda                                       202:0    0   25G  0 disk
+   xvda                                         202:0    0   25G  0 disk
    ├─xvda1                                    202:1    0  256M  0 part  /boot
    └─xvda2                                    202:2    0 24.8G  0 part  /
-   sda                                          8:0    0   20G  0 disk
+   sda                                          8:0      0   20G  0 disk
    └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-   └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
-   sdb                                          8:16   0   20G  0 disk
+   └─cryptData (dm-1)                         253:1    0   20G  0 crypt /cryptData
+   sdb                                          8:16     0   20G  0 disk
    └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-   └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   └─cryptData (dm-1)                         253:1    0   20G  0 crypt /cryptData　
    ```
