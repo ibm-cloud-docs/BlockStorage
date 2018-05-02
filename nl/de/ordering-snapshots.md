@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -34,9 +34,9 @@ Wenn Sie bei einem Datenträger mit 500 GB Daten 12 stündliche Snapshots machen
 
 Wenn sich andererseits bei diesen 500 GB Daten mit 12 stündlichen Snapshots jede Stunde 10% ändern, ergibt das (50 GB Änderungsrate) x (12 stündliche Snapshots) = 600 GB.
 
-Berücksichtigen Sie also bei der Bestimmung des benötigten Snapshotbereichs die Änderungsrate in angemessener Weise. Sie hat erheblichen Einfluss auf die Menge des erforderlichen Snapshotbereichs. Auch wenn die Größe eines Datenträgers tendenziell eine größere Änderungsmenge bedeutet, belegen ein 500-GB-Datenträger mit 5 GB Änderung und ein 10-TB-Datenträger mit 5 GB Änderung denselben Snapshotspeicher.
+Berücksichtigen Sie also bei der Bestimmung des benötigten Snapshotbereichs die Änderungsrate in angemessener Weise. Sie hat erheblichen Einfluss auf die Menge des erforderlichen Snapshotbereichs.  Auch wenn die Größe eines Datenträgers tendenziell eine größere Änderungsmenge bedeutet, belegen ein 500-GB-Datenträger mit 5 GB Änderung und ein 10-TB-Datenträger mit 5 GB Änderung denselben Snapshotspeicher.
 
-Außerdem gilt bei den meisten Workloads, das umso weniger Speicherplatz anfangs für Snapshots reserviert werden muss, je größer ein Datenträger ist. Dies liegt in erster Linie an der zugrunde liegenden Datenleistung Ihrer Plattform sowie an der Funktionsweise von Snapshots in Ihrer Umgebung.
+Außerdem gilt bei den meisten Workloads, das umso weniger Speicherplatz anfangs für Snapshots reserviert werden muss, je größer ein Datenträger ist.  Dies liegt in erster Linie an der zugrunde liegenden Datenleistung Ihrer Plattform sowie an der Funktionsweise von Snapshots in Ihrer Umgebung.
 
 
 

@@ -39,11 +39,11 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
      
 ## Stündliche/monatliche Abrechnung
 
-Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für deren Snapshotbereich und Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet.  
+Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für deren Snapshotbereich und Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet. 
 
-Bei **stündlicher Abrechnung** erfolgt die Abrechnung der Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
+Bei **stündlicher Abrechnung** erfolgt die Abrechnung der Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt.  Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
 
-Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und im Zugriff sein müssen (einen Monat oder länger). 
+Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung.  Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und im Zugriff sein müssen (einen Monat oder länger). 
 
 ### Performance:
 <table>
@@ -96,12 +96,12 @@ Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der E
 
 ### Endurance-Tiers
 
-Endurance ist in drei IOPS-Performance-Tiers verfügbar und unterstützt wechselnde Anwendungsbedürfnisse.<br />
+Endurance ist in drei IOPS-Performance-Tiers verfügbar und unterstützt wechselnde Anwendungsbedürfnisse. <br />
 
 - **0,25 IOPS pro GB** ist für Workloads mit niedriger Ein-/Ausgabeintensität gedacht. Bei diesen Workloads ist in der Regel zu jedem Zeitpunkt ein großer Prozentsatz der Daten inaktiv. Beispielanwendungen sind Speichermailboxen oder Dateifreigaben auf Abteilungsebene.
 - **2 IOPS pro GB** ist für die meisten allgemeinen Verwendungszwecke gedacht. Beispielanwendungen sind Hostings kleiner Datenbanken, Sicherungen von Webanwendungen oder Plattenimages virtueller Maschinen für einen Hypervisor.
 - **4 IOPS pro GB** ist für Workloads mit höherer Intensität gedacht. Bei diesen Workloads ist in der Regel zu jedem Zeitpunkt ein hoher Prozentsatz der Daten aktiv. Beispielanwendungen sind transaktionsorientierte und andere leistungskritische Datenbanken.
-- **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse. Dieses Tier ist für Speicher bis zu 4 TB verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
+- **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse.  Dieses Tier ist für Speicher bis zu 4 TB verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
 
 Bis zu 48.000 IOPS sind bei einem 12-TB-Endurance-Datenträger verfügbar.
  
@@ -195,7 +195,7 @@ Performance-Datenträger sind dazu gedacht, durchgängig eine Leistung nahe der 
 
 IOPS für Endurance und Performance basiert auf einer Blockgröße von 16 KB mit einer 50/50-Lese-/Schreibworkload mit 50% Zufälligkeit. Ein 16-KB-Block entspricht einem Schreibvorgang auf dem Datenträger.
 
-Die von Ihrer Anwendung verwendete Blockgröße hat einen direkten Einfluss auf die Speicherleistung. Wenn die von Ihrer Anwendung verwendete Blockgröße kleiner als 16 KB ist, wird der IOPS-Grenzwert vor dem Durchsatzgrenzwert umgesetzt. Wenn dagegen die von Ihrer Anwendung verwendete Blockgröße größer als 16 KB ist, wird der Durchsatzgrenzwert vor dem IOPS-Grenzwert umgesetzt. 
+Die von Ihrer Anwendung verwendete Blockgröße hat einen direkten Einfluss auf die Speicherleistung.  Wenn die von Ihrer Anwendung verwendete Blockgröße kleiner als 16 KB ist, wird der IOPS-Grenzwert vor dem Durchsatzgrenzwert umgesetzt.  Wenn dagegen die von Ihrer Anwendung verwendete Blockgröße größer als 16 KB ist, wird der Durchsatzgrenzwert vor dem IOPS-Grenzwert umgesetzt.
 
 Die Änderung der Blockgröße wirkt sich wie folgt auf die Leistung aus:
 

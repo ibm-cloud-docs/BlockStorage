@@ -100,8 +100,8 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
      chkconfig multipathd on
      ```
      {: pre}
-
-   - CentOS 7:
+   
+   - CentOS 7: 
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +116,13 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
      systemctl enable multipathd
      ```
      {: pre}
-
+     
    - Ubuntu:
      ```
-     service multipath-tools start
+     service multipath-tools start 
      ```
      {: pre}
-
+    
    - Lesen Sie bei anderen Distributionen die Dokumentation des Anbieters des Betriebssystems.
 
 4. Überprüfen Sie, ob Multipath funktioniert.
@@ -131,16 +131,16 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
      multipath -l
      ```
      {: pre}
-
-     Eine leere Rückgabe zeigt an, dass es funktioniert.
-
+     
+     Eine leere Rückgabe zeigt an, dass es funktioniert. 
+   
    - CentOS 7:
      ```
      multipath -ll
      ```
      {: pre}
-
-     Möglicherweise gibt RHEL 7/CentOS 7 kein fc_host-Gerät zurück. Dies kann ignoriert werden.
+     
+     Möglicherweise gibt RHEL 7/CentOS 7 kein fc_host-Gerät zurück. Dies kann ignoriert werden. 
 
 5. Aktualisieren Sie die Datei **/etc/iscsi/initiatorname.iscsi** mit dem IQN aus dem {{site.data.keyword.slportal}}. Geben Sie den Wert in Kleinbuchstaben ein.
    ```
@@ -205,7 +205,7 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
       {: pre}
 
    - Lesen Sie bei anderen Distributionen die Dokumentation des Anbieters des Betriebssystems.
-
+   
 8. Führen Sie die Erkennung des Geräts mithilfe der aus dem {{site.data.keyword.slportal}} abgerufenen Ziel-IP-Adresse aus.
 
      a. Führen Sie die Erkennung für das iSCSI-Array aus:
@@ -233,7 +233,7 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
 
    Damit sollten diesmal die Pfade zurückgemeldet werden.
 
-10. Überprüfen Sie, ob das Gerät verbunden ist. Standardmäßig wird das Gerät an /dev/mapper/mpathX angehängt, wobei X die generierte ID des verbundenen Geräts ist.
+10. Überprüfen Sie, ob das Gerät verbunden ist.  Standardmäßig wird das Gerät an /dev/mapper/mpathX angehängt, wobei X die generierte ID des verbundenen Geräts ist.
     ```
     fdisk -l | grep /dev/mapper
     ```
@@ -264,7 +264,7 @@ Nachfolgend finden Sie die Schritte zum Erstellen eines Dateisystems auf einem n
    ```
    {: pre}
 
-   XXX steht für den in Schritt 1 zurückgegebenen Datenträgernamen.<br />
+   XXX steht für den in Schritt 1 zurückgegebenen Datenträgernamen. <br />
 
    **Hinweis**: Wenn Sie nach unten blättern, finden Sie die in der Fdisk-Befehlstabelle nach diesem Abschnitt aufgeführten Befehlscodes.
 
@@ -320,7 +320,7 @@ Nachfolgend finden Sie die Schritte zum Erstellen eines Dateisystems auf einem n
 		<td style="width:60%;">Ergebnis</td>
 	</tr>
 	<tr>
-		<td><li><code>Befehl: n</code></li>	</td>
+		<td><li>&#42; <code>Befehl: n</code></li>	</td>
 		<td>Erstellt eine neue Partition.</td>
 	</tr>
 	<tr>
@@ -340,7 +340,7 @@ Nachfolgend finden Sie die Schritte zum Erstellen eines Dateisystems auf einem n
 		<td>Drücken Sie die Eingabetaste, um zum letzten Zylinder zu wechseln.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Befehl: t</code></li></td>
+		<td><li>&#42; <code>Befehl: t</code></li></td>
 		<td>Legt den Partitionstyp fest.</td>
 	</tr>
 	<tr>
@@ -348,11 +348,11 @@ Nachfolgend finden Sie die Schritte zum Erstellen eines Dateisystems auf einem n
 		<td>Wählt Partition 1 für die Einrichtung als spezieller Typ aus.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Hexadezimaler Code: 83</code></li></td>
+		<td><li>&#42;&#42; <code>Hexadezimaler Code: 83</code></li></td>
 		<td>Wählt Linux als Typ aus (83 ist der hexadezimale Code für Linux).</td>
 	 </tr>
 	<tr>
-		<td><li>*<code>Befehl: w</code></li></td>
+		<td><li>&#42; <code>Befehl: w</code></li></td>
 		<td>Schreibt die Informationen zur neuen Partition auf den Datenträger.</td>
 	</tr>
  </tbody>
@@ -367,13 +367,13 @@ Nachfolgend finden Sie die Schritte zum Erstellen eines Dateisystems auf einem n
 Bei vielen Linux-Distributionen ist **parted** vorinstalliert. Wenn das Programm nicht in Ihrer Distribution enthalten ist, können Sie es wie folgt installieren:
 - Debian/Ubuntu
   ```
-  sudo apt-get install parted
+  sudo apt-get install parted  
   ```
   {: pre}
 
 - RHEL/CentOS:
   ```
-  yum install parted
+  yum install parted  
   ```
   {: pre}
 
@@ -402,8 +402,8 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit **parted** zu ers
       ```
       {: pre}
 
-   3. Erstellen Sie eine neue GPT-Partitionstabelle.
-
+   3. Erstellen Sie eine neue GPT-Partitionstabelle. 
+   
       ```
       (parted) mklabel gpt
       ```
@@ -427,8 +427,8 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit **parted** zu ers
 3. Erstellen Sie auf der neuen Partition ein Dateisystem.
 
    ```
-     mkfs.ext3 /dev/mapper/XXXlp1
-     ```
+   mkfs.ext3 /dev/mapper/XXXlp1
+   ```
    {: pre}
 
    **Hinweis**: Es ist wichtig, dass Sie bei der Ausführung des obigen Befehls den richtigen Datenträger und die richtige Partition auswählen!

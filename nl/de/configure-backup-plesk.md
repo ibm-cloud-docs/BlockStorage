@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-13"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -19,7 +19,7 @@ In diesem Artikel werden Anweisungen zum Konfigurieren von {{site.data.keyword.b
 1. Stellen Sie über SSH eine Verbindung zu dem Host her.
 
 2. Stellen Sie sicher, dass ein Mountpunktziel vorhanden ist. <br />
-   **Hinweis**: Plesk bietet zwei Optionen zum Speichern von Sicherungen. Die eine ist der interne Plesk-Speicher, ein Sicherungsspeicher auf Ihrem Plesk-Server. Die andere ist eine externer FTP-Speicher, ein Sicherungsspeicher, der sich auf einem externen Server im Web oder in Ihrem lokalen Netz befindet. In der Regel werden interne Sicherungen in Plesk-Fenstern im Pfad `/var/lib/psa/dumps` gespeichert und verwenden `/tmp` als temporäres Verzeichnis.Im vorliegenden Beispiel wird das temporäre lokale Verzeichnis beibehalten, das Speicherauszugsverzeichnis jedoch auf das STaaS-Ziel (`/backup/psa/dumps`) verschoben. Es sind keine FTP-Benutzerberechtigungsnachweise erforderlich.
+   **Hinweis**: Plesk bietet zwei Optionen zum Speichern von Sicherungen. Die eine ist der interne Plesk-Speicher, ein Sicherungsspeicher auf Ihrem Plesk-Server. Die andere ist eine externer FTP-Speicher, ein Sicherungsspeicher, der sich auf einem externen Server im Web oder in Ihrem lokalen Netz befindet. In der Regel werden interne Sicherungen in Plesk-Fenstern im Pfad `/var/lib/psa/dumps` gespeichert und verwenden `/tmp` als temporäres Verzeichnis. Im vorliegenden Beispiel wird das temporäre lokale Verzeichnis beibehalten, das Speicherauszugsverzeichnis jedoch auf das STaaS-Ziel (`/backup/psa/dumps`) verschoben. Es sind keine FTP-Benutzerberechtigungsnachweise erforderlich.
    
 3. Konfigurieren Sie Ihre {{site.data.keyword.blockstorageshort}}-Instanz entsprechend der Beschreibung im Abschnitt [Verbindung zu MPIO iSCSI LUNs unter Linux herstellen](accessing_block_storage_linux.html). Hängen Sie {{site.data.keyword.blockstorageshort}} an `/backup` an und konfigurieren Sie `/etc/fstab`, um das Anhängen beim Booten zu ermöglichen.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -39,7 +39,7 @@ Im Bereich 'Snapshots' der Seite 'Details' wird eine Liste der ausgeführten Sna
 
 Manuelle Snapshots können an verschiedenen Punkten während der Aktualisierung oder Wartung einer Anwendung gemacht werden. Sie können auf Anwendungsebene auch Snapshots auf mehreren Maschinen machen, die vorübergehend inaktiviert wurden.
 
-Auf einem Speicherdatenträger können maximal 50 manuelle Snapshots vorhanden sein. 
+Auf einem Speicherdatenträger können maximal 50 manuelle Snapshots vorhanden sein.
 
 1. Klicken Sie auf Ihren Speicherdatenträger.
 2. Klicken Sie auf die Dropdown-Liste 'Aktionen'.
@@ -56,7 +56,7 @@ Die aufbewahrten Snapshots basieren auf der Zahl, die Sie beim Einrichten Ihrer 
 
 ## Wie kann ich sehen, wie viel Snapshotbereich verwendet wurde?
 
-Das Kreisdiagramm oben auf der Seite 'Details' zeigt an, wie viel Speicherplatz verwendet wurde und wie viel Speicherplatz übrig ist. Sie erhalten Benachrichtigungen, wenn Sie sich Schwellenwerten für den Speicherplatz nähern – 75%, 90% und 95%. 
+Das Kreisdiagramm oben auf der Seite 'Details' zeigt an, wie viel Speicherplatz verwendet wurde und wie viel Speicherplatz übrig ist. Sie erhalten Benachrichtigungen, wenn Sie sich Schwellenwerten für den Speicherplatz nähern – 75%, 90% und 95%.
 
 ## Wie ändere ich die Menge des Snapshotbereichs für meinen Datenträger?
 
@@ -108,8 +108,8 @@ Möglicherweise müssen Sie Ihren Speicherdatenträger aufgrund eines Benutzerfe
 3. Blättern Sie abwärts und klicken Sie auf Ihren wiederherzustellenden Datenträger. Im Bereich **Snapshots** der Seite **Detail** wird eine Liste aller gespeicherten Snapshots mit ihrer Größe und dem Erstellungsdatum angezeigt.
 4. Klicken Sie auf die Schaltfläche **Aktionen** des Snapshots, den Sie verwenden wollen, und klicken Sie auf **Wiederherstellen**. <br/>
   **Hinweis**: Bei einer Wiederherstellung gehen die Daten verloren, die seit dem Moment, an dem der betreffende Snapshot gemacht wurde, erstellt oder geändert wurden. Sobald die Aktion abgeschlossen ist, wird Ihr Speicherdatenträger in denselben Zustand versetzt, in dem er zum Zeitpunkt seiner Erstellung war. An einer Eingabeaufforderung wird eine entsprechende Benachrichtigung darüber angezeigt.
-5. Klicken Sie auf **Ja**, um die Wiederherstellung einzuleiten. Oben auf der Seite wird eine Nachricht angezeigt, dass der Datenträger mithilfe des ausgewählten Snapshots wiederhergestellt wurde. Außerdem wird neben Ihrem Datenträger auf dem {{site.data.keyword.blockstorageshort}} ein Symbol angezeigt, das angibt, dass eine aktive Transaktion läuft. Wenn Sie die Maus über das Symbol bewegen, wird ein Dialogfeld mit Angaben zu der Transaktion angezeigt. Sobald die Transaktion abgeschlossen ist, wird das Symbol ausgeblendet. 
-6. Hängen Sie Ihren Speicherdatenträger wieder an den Host an. 
+5. Klicken Sie auf **Ja**, um die Wiederherstellung einzuleiten. Oben auf der Seite wird eine Nachricht angezeigt, dass der Datenträger mithilfe des ausgewählten Snapshots wiederhergestellt wurde. Außerdem wird neben Ihrem Datenträger auf dem {{site.data.keyword.blockstorageshort}} ein Symbol angezeigt, das angibt, dass eine aktive Transaktion läuft. Wenn Sie die Maus über das Symbol bewegen, wird ein Dialogfeld mit Angaben zu der Transaktion angezeigt. Sobald die Transaktion abgeschlossen ist, wird das Symbol ausgeblendet.
+6. Hängen Sie Ihren Speicherdatenträger wieder an den Host an.
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Linux finden Sie [hier](accessing_block_storage_linux.html).
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Microsoft Windows finden Sie [hier](accessing-block-storage-windows.html).
    

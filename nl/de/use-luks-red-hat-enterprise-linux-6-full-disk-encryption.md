@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-02-12"
 
 Linux Unified Key Setup-on-disk-format (LUKS) gibt Ihnen die Möglichkeit, Partitionen auf Ihrem Red Hat Enterprise Linux 6 (Server) zu verschlüsseln. Dies ist bei tragbaren Computern und Wechseldatenträgern besonders wichtig. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
 
-## LUKS bietet folgende Möglichkeiten:
+## LUKS bietet folgende Möglichkeiten
 
 - Es verschlüsselt ganze Blockeinheiten und eignet sich daher gut für den Schutz der Inhalte von mobilen Geräten wie Wechselspeichermedien oder Plattenlaufwerken von Laptops.
     - Der zugrunde liegende Inhalt des verschlüsselten Blockgeräts ist beliebig. Daher ist es hilfreich beim Verschlüsseln von Auslagerungseinheiten. Die Verschlüsselung kann auch bei bestimmten Datenbanken hilfreich sein, die zur Datenspeicherung speziell formatierte Blockgeräte verwenden.
@@ -24,7 +24,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) gibt Ihnen die Möglichkeit, Parti
 - Es ermöglicht Benutzern, Sicherungsschlüssel oder Kennphrasen hinzuzufügen, da LUKS-Geräte mehrere Schlüsselslots enthalten.
 
 
-## LUKS bietet folgende Möglichkeiten nicht:
+## LUKS bietet folgende Möglichkeiten nicht
 
 - Es stellt für Anwendungen, die viele Benutzer (mehr als acht) erfordern, keine unterschiedlichen Zugriffsschlüssel auf dieselben Geräte bereit.
 - Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist [weitere Informationen](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
@@ -47,20 +47,22 @@ Beachten Sie, dass bei der Durchführung von Datenverschlüsselung eine Belastun
    {: pre}
 3. Suchen Sie Ihren Datenträger in der Liste.
 4. Verschlüsseln Sie das Blockgerät. 
-      1. Dieser Befehl initialisiert den Datenträger und gibt Ihnen die Möglichkeit, eine Kennphrase festzulegen:<br/>
+
+   1. Dieser Befehl initialisiert den Datenträger und gibt Ihnen die Möglichkeit, eine Kennphrase festzulegen: <br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. Antworten Sie mit YES (in Großbuchstaben).
-      
-      3. Nun wird das Gerät als verschlüsselter Datenträger angezeigt: 
+   2. Antworten Sie mit YES (in Großbuchstaben).
+   
+   3. Nun wird das Gerät als verschlüsselter Datenträger angezeigt: 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
 5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung:   <br/>
    ```

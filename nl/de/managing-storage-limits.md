@@ -10,7 +10,7 @@ lastupdated: "2018-03-06"
 
 # Speichergrenzwerte verwalten
 
-Standardmäßig können Sie global insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen.  
+Standardmäßig können Sie global insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. 
 
 Sie können eine Erhöhung des Grenzwerts anfordern, indem Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} ein Ticket übergeben. Sobald die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
 
@@ -30,7 +30,7 @@ Geben Sie in dem Ticket die folgenden Informationen an:
 *Ihre Antwort könnte beispielsweise "25x Performance 20GB @ 10 IOPS in DAL09" oder "50x Endurance 2TB @ 0,25 IOPS in SJC03" sein.*
  
 - **Geben Sie eine Schätzung dazu ab, wann Sie erwarten, dass die gesamte angeforderte Datenträgererhöhung bereitgestellt sein wird.** <br />
-*Ihre Antwort könnte beispielsweise "90 Tage" sein.*
+ *Ihre Antwort könnte beispielsweise "90 Tage" sein.*
 
 - **Treffen Sie eine Prognose über die erwartete durchschnittliche Kapazitätsnutzung dieser Datenträger in den nächsten 90 Tagen.** <br />
 *Ihre Antwort könnte beispielsweise sein: "Nutzung von 25% in 30 Tagen, von 50% in 60 Tagen und von 75% in 90 Tagen".*

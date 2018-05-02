@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="BlockStorage" audience="services" href="/docs/infrastructure/BlockStorage/index.html"}
-IBM Cloud Storage - Blockspeicher
+IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
     index.md
@@ -15,21 +15,21 @@ IBM Cloud Storage - Blockspeicher
 
     {: .navgroup id="howto"}
     {: .topicgroup}
-    Bereitstellung
+    Provisioning
         provisioning-block_storage.md
         ordering-snapshots.md
         managing-storage-limits.md
 
     {: .topicgroup}
-    Konfiguration
+    Configuration
         accessing_block_storage_linux.md
         accessing-block-storage-windows.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
-        configure-backup-cpanel
-        configure-backup-plesk
+        configure-backup-cpanel.md
+        configure-backup-plesk.md
 
     {: .topicgroup}
-    Sicherheit
+    Security
         block-file-storage-encryption-rest.md
         migrate-block-storage-encrypted-block-storage.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
@@ -42,5 +42,5 @@ IBM Cloud Storage - Blockspeicher
 
     {: .navgroup id="help"}
     BlockStorageFAQ.md
-    [Informationen zum Python-API-Client](https://github.com/softlayer/softlayer-python)
+    [Python API Client Information](https://github.com/softlayer/softlayer-python)
     {: .navgroup-end}

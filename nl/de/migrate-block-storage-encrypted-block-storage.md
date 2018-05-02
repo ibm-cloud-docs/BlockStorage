@@ -23,7 +23,7 @@ Die häufigeren Szenarios werden zur Veranschaulichung skizziert. Es wird angeno
  
 ## Verschlüsselte LUN erstellen
 
-Erstellen Sie mithilfe der folgenden Schritte eine LUN derselben Größe oder größer, die verschlüsselt ist, um den Migrationsprozess zu erleichtern.
+Erstellen Sie mithilfe der folgenden Schritte eine LUN derselben Größe oder größer, die verschlüsselt ist, um den Migrationsprozess zu erleichtern. 
 Verschlüsselte Endurance-Speicher-LUN bestellen
 
 1. Klicken Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} auf der auf der Homepage auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
@@ -38,7 +38,7 @@ Verschlüsselte Endurance-Speicher-LUN bestellen
 
 6. Wählen Sie die gewünschte Speichermenge in GB aus. Bei TB entspricht 1 TB 1.000 GB und 12 TB entspricht 12.000 GB.
 
-7. Geben Sie die gewünschte Speichermenge für Snapshots in GB ein. 
+7. Geben Sie die gewünschte Speichermenge für Snapshots in GB ein.
 
 8. Wählen Sie in der Dropdown-Liste das VMware-Betriebssystem aus.
 

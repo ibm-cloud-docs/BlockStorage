@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-13"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -36,7 +36,7 @@ In diesem Artikel werden Anweisungen zum Konfigurieren Ihrer in {{site.data.keyw
 
 6.  Bearbeiten Sie die Konfiguration so, dass die Sicherungen an dem neuen Mountpunkt gespeichert werden. 
     - Ändern Sie das standardmäßige Sicherungsverzeichnis, indem Sie anstelle des Verzeichnisses /backup/ den absoluten Pfad zu der neuen Position eingeben. 
-    - Wählen Sie die Option **Anhängen eines Sicherungslaufwerks aktivieren**. Diese Einstellung veranlasst den Sicherungskonfigurationsprozess, in der Datei `/etc/fstab` einen Sicherungsmount (`/backup2`) zu suchen. <br /> **Hinweis**: Wenn ein Mount mit demselben Namen wie das Staging-Verzeichnis vorhanden ist, hängt der Sicherungskonfigurationsprozess das Laufwerk an und sichert die Informationen auf diesem Laufwerk. Nach Abschluss des Sicherungsprozesses wird das Laufwerk abgehängt. 
+    - Wählen Sie die Option **Anhängen eines Sicherungslaufwerks aktivieren**. Diese Einstellung veranlasst den Sicherungskonfigurationsprozess, in der Datei `/etc/fstab` einen Sicherungsmount (`/backup2`) zu suchen. <br /> **Hinweis**: Wenn ein Mount mit demselben Namen wie das Staging-Verzeichnis vorhanden ist, hängt der Sicherungskonfigurationsprozess das Laufwerk an und sichert die Informationen auf diesem Laufwerk.  Nach Abschluss des Sicherungsprozesses wird das Laufwerk abgehängt. 
 
 7. Wenden Sie die Änderungen an, indem Sie unten in der Schnittstelle **Sicherungskonfiguration** auf **Konfiguration speichern** klicken.
 

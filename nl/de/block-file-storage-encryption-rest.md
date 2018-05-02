@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-04-23"
 
 ---
 {:new_window: target="_blank"}
@@ -17,7 +17,7 @@ lastupdated: "2018-02-12"
 Bei der anbietergesteuerten ruhenden Verschlüsselungsfunktion werden folgende Branchenstandardprotokolle verwendet:
 
 * Branchenstandardverschlüsselung AES-256
-* Schlüssel werden unternehmensintern mit dem Branchenstandardprotokoll KMIP (Key Management Improbability Protocol) verwaltet
+* Schlüssel werden unternehmensintern mit dem Branchenstandardprotokoll KMIP (Key Management Interoperability Protocol) verwaltet
 * Speicherung ist per Federal Information Processing Standard (FIPS) Publication 140-2 für Konformität mit Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) und EU Data Protection Directive 95/46/EC validiert
 
 ## Ruhende Verschlüsselung zur Speicherung von Snapshots oder Replikaten  

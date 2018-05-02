@@ -17,7 +17,7 @@ Stellen Sie vor dem Start sicher, dass der Host, der auf den {{site.data.keyword
 
 ## Vorgehensweise zum Anhängen von {{site.data.keyword.blockstorageshort}}-Datenträgern
 
-Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = Internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Bei anderen Windows-Versionen können die Schritte entsprechend der Dokumentation des Anbieters des Betriebssystems angepasst werden. 
+Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = Internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Bei anderen Windows-Versionen können die Schritte entsprechend der Dokumentation des Anbieters des Betriebssystems angepasst werden.
 
 ### Funktion MPIO konfigurieren
 

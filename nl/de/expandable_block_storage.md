@@ -10,7 +10,7 @@ lastupdated: "2017-12-15"
 
 # Erweiterbare Blockspeicherkapazität
 
-Mit dieser neuen Funktion können die aktuellen {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz spontan in GB-Schritten bis auf 12 TB erhöhen, ohne ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren zu müssen. Während der Größenänderung gibt keinen keinerlei Ausfall oder Zugriffsbeschränkung. 
+Mit dieser neuen Funktion können die aktuellen {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz spontan in GB-Schritten bis auf 12 TB erhöhen, ohne ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren zu müssen.  Während der Größenänderung gibt keinen keinerlei Ausfall oder Zugriffsbeschränkung. 
 
 Die Abrechnung für den Datenträger wird automatisch so aktualisiert, dass die anteilige Differenz des neuen Preises zum aktuellen Abrechnungszyklus hinzugefügt und beim nächsten Abrechnungszyklus der gesamte neue Betrag abgerechnet wird.
 
@@ -30,13 +30,13 @@ Eine Erweiterungsaktion für den primären Speicher bewirkt eine automatische Gr
 
 Diese Funktion ist nur für Speicher verfügbar, der in [Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) mit erweiterten Leistungsmerkmalen bereitgestellt wird. 
 
-Speicher, der vor der Freigabe dieser Funktion (14. Dezember 2017) in diesen Rechenzentren für aktualisierten Speicher bereitgestellt wird, kann nur auf das 10-fache seiner Originalgröße vergrößert werden. Der gesamte übrige Speicher, der nach diesem Datum bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
+Speicher, der vor der Freigabe dieser Funktion (14. Dezember 2017) in diesen Rechenzentren für aktualisierten Speicher bereitgestellt wird, kann nur auf das 10-fache seiner Originalgröße vergrößert werden.  Der gesamte übrige Speicher, der nach diesem Datum bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
 
 Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.data.keyword.blockstorageshort}} gelten weiterhin (bis zu 4 TB für das 10-IOPS-Tier und bis zu 12 TB für alle anderen Tiers).
 
 ## Wie kann ich erkennen, ob mein bereitgestellter Speicher erweiterbar ist?
 
-Speicher, der mit erweiterten Leistungsmerkmalen bereitgestellt wird, wird stets ruhend verschlüsselt. Sie können leicht erkennen, dass Ihr Speicher infrage kommt, wenn in der Portalbenutzerschnittstelle ein 'Schlosssymbol' neben seinem Eintrag angezeigt wird. 
+Speicher, der mit erweiterten Leistungsmerkmalen bereitgestellt wird, wird stets ruhend verschlüsselt.  Sie können leicht erkennen, dass Ihr Speicher infrage kommt, wenn in der Portalbenutzerschnittstelle ein 'Schlosssymbol' neben seinem Eintrag angezeigt wird. 
 
 ## Wie kann ich die Größe meines Speichers ändern?
 

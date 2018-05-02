@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-04-16"
+lastupdated: "2018-04-25"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-04-16"
 
 {{site.data.keyword.BluSoftlayer_full}} führt eine neue Version von {{site.data.keyword.blockstoragefull}} ein! 
 
-Der neue Speicher ist in ausgewählten Rechenzentren verfügbar und wird durch Flashspeicher auf höherem IOPS-Niveau mit Verschlüsselung ruhender Daten auf Datenträgerebene gesichert. Der gesamte in den ausgewählten Rechenzentren bereitgestellte Speicher wird automatisch mit der neuen Version von {{site.data.keyword.blockstorageshort}} und {{site.data.keyword.filestorage_full}} bereitgestellt.
+Der neue Speicher ist in ausgewählten Rechenzentren verfügbar und wird durch Flashspeicher auf höherem IOPS-Niveau mit Verschlüsselung ruhender Daten auf Datenträgerebene gesichert.  Der gesamte in den ausgewählten Rechenzentren bereitgestellte Speicher wird automatisch mit der neuen Version von {{site.data.keyword.blockstorageshort}} und {{site.data.keyword.filestorage_full}} bereitgestellt.
 
 **Hinweis** Der NFS-Mountpunkt für neue Datenträger hat sich geändert. Details dazu finden Sie unten im Abschnitt **Neuer Mountpunkt für verschlüsselte {{site.data.keyword.filestorage_short}}-Datenträger**.
 
@@ -38,37 +38,38 @@ Der neue {{site.data.keyword.blockstorageshort}} und {{site.data.keyword.filesto
 				DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13</p>
+				DAL13<br /><br /></p>
 			</td>
 			<td>
 				<p>LON02<br />
 				LON04<br />
 				LON06<br />
 				FRA02<br />
+				FRA04<br />
 				AMS01<br />
 				AMS03<br />
 				OSLO1<br />
 				PAR01<br />
-				MIL01<br /></p>
+				MIL01</p>
 			</td>
 			<td>
 				<p>SYD01<br />
 				SYD04<br />
-				MEL01<br /><br /><br /><br /><br /><br /><br /></p>
+				MEL01<br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 			<td>
 				<p>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /></p>
+				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
 			<td>
-				<p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /></p>
+				<p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 			</td>
-			<td>
+						<td>
 				<p>TOK02<br />
 				HKG02<br />
 			        SEO01<br />
 				SNG01<br />
-				CHE01<br /><br /><br /><br /><br /></p>
+				CHE01<br /><br /><br /><br /><br /><br /></p>
 			</td>
 			</tr>
 	</tbody>
