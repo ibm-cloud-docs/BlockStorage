@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-04-23"
 
 ---
 {:new_window: target="_blank"}
@@ -17,10 +17,10 @@ O {{site.data.keyword.BluSoftlayer_full}} leva muito a sério a necessidade de s
 O recurso Criptografia de dados em repouso gerenciada por provedor usa os protocolos padrão de mercado a seguir:
 
 * Criptografia AES-256 padrão de mercado
-* As chaves são gerenciadas internamente com o Key Management Improbabilidade Protocol (KMIP) padrão de mercado
+* As chaves são gerenciadas internamente com o padrão de mercado Key Management Interoperability Protocol (KMIP)
 * O armazenamento é o Federal Information Processing Standard (FIPS) Publication 140-2 validado para conformidade com o Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) e UE Data Protection Directive 95/46/EC
 
-## Criptografia de dados em repouso para armazenamento Capturas instantâneas ou Replicado   
+## Criptografia de dados em repouso para armazenamento Capturas instantâneas ou Replicado  
 
 Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorageshort}} criptografado também são criptografadas por padrão. Esse recurso não pode ser desativado em uma base de volume.
 

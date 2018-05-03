@@ -13,8 +13,7 @@ lastupdated: "2017-12-15"
 Com esse novo recurso, os usuários atuais do {{site.data.keyword.blockstoragefull}}
 conseguem expandir o tamanho de seu {{site.data.keyword.blockstorageshort}} existente em incrementos
 de GB até 12 TB rapidamente, sem a necessidade de criar uma duplicata ou de migrar manualmente dados para
-um volume maior.
-Não há indisponibilidade ou falta de acesso ao armazenamento enquanto o redimensionamento ocorre.  
+um volume maior.  Não há indisponibilidade ou falta de acesso ao armazenamento enquanto o redimensionamento ocorre. 
 
 O faturamento para o volume é atualizado automaticamente para incluir a diferença rateada entre o
 novo preço e o ciclo de faturamento atual e, então, a nova quantia total será faturada no próximo ciclo de
@@ -43,16 +42,14 @@ Esse recurso está disponível somente para armazenamento que é provisionado no
 
 O armazenamento que é provisionado no armazenamento atualizado nesses data centers antes da liberação
 deste recurso (14 de dezembro de 2017) pode ser aumentado em até 10 vezes apenas com relação ao seu tamanho
-original.
-
-Todos os outros armazenamentos provisionados, após essa data, podem ser aumentados até o tamanho máximo de 12 TB. 
+original.  Todos os outros armazenamentos provisionados, após essa data, podem ser aumentados até o tamanho máximo de 12 TB. 
 
 As limitações de tamanho existentes para o {{site.data.keyword.blockstorageshort}} provisionado
 com Resistência ainda se aplicam (até 4 TB para uma camada de 10 IOPS e até 12 TB para todas as outras camadas).
 
 ## Como identificar se meu armazenamento provisionado é expansível?
 
-O armazenamento provisionado com recursos aprimorados é sempre submetido à criptografia de dados em repouso. É possível verificar facilmente se seu armazenamento é elegível quando ele possui um ícone
+O armazenamento provisionado com recursos aprimorados é sempre submetido à criptografia de dados em repouso.  É possível verificar facilmente se seu armazenamento é elegível quando ele possui um ícone
 "bloqueio" adjacente na UI do portal. 
 
 ## Como redimensionar meu armazenamento?

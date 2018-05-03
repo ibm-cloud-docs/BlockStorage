@@ -14,8 +14,7 @@ Por padrão, é possível provisionar um total combinado de 250
 {{site.data.keyword.blockstorageshort}} volumes globalmente. 
 
 É possível solicitar um aumento de limite enviando um chamado no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. 
-Quando a solicitação é aprovada, ela resulta em um limite de volume que é configurado para um
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Quando a solicitação é aprovada, ela resulta em um limite de volume que é configurado para um
 data center específico.  
 
 Para solicitar uma atualização ou um aumento do limite, abra um chamado e encaminhe-o ao seu representante

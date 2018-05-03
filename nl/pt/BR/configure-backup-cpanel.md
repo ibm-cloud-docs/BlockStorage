@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-13"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -30,8 +30,7 @@ diretório `/backup`. Para os propósitos deste documento, supondo que o
 `/backup` já existe e que contém os backups, usaremos o `/backup2` como
 o novo ponto de montagem.
    
-3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](accessing_block_storage_linux.html). 
-Certifique-se de montá-lo no `/backup2` e de configurá-lo em `/etc/fstab`
+3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](accessing_block_storage_linux.html). Certifique-se de montá-lo no `/backup2` e de configurá-lo em `/etc/fstab`
 para ativar a montagem na inicialização.
 
 4. **Opcional**: copie os backups existentes para o novo armazenamento. Use `rsync` por exemplo:

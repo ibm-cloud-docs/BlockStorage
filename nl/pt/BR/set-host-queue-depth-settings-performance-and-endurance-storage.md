@@ -23,8 +23,7 @@ hypervisor e às vezes no aplicativo. Os padrões, como 32 ou 64, podem causar l
 do aplicativo.
 
 Se um host ou hypervisor estiver usando múltiplas camadas de desempenho, use a profundidade da fila para
-a camada mais rápida e observe a latência na camada de desempenho mais lenta.
-Se a latência na camada mais baixa for inaceitável, ajuste a profundidade da fila até que o balanceamento
+a camada mais rápida e observe a latência na camada de desempenho mais lenta. Se a latência na camada mais baixa for inaceitável, ajuste a profundidade da fila até que o balanceamento
 da latência e do desempenho seja observado em todas as camadas.
 
 <table align="center">

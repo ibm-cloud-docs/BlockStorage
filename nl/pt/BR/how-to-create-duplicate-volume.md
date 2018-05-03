@@ -25,7 +25,7 @@ duplicatas são criadas no mesmo data center do volume original.  Por exemplo, s
 meio de um volume de réplica, o novo volume será criado no mesmo data center do volume de réplica.    
 
 Os volumes duplicados podem ser acessados por um host para leitura/gravação assim que o armazenamento
-é provisionado. As capturas instantâneas e a replicação não serão permitidas até que a cópia de dados do
+é provisionado.  As capturas instantâneas e a replicação não serão permitidas até que a cópia de dados do
 original para a duplicata seja concluída. 
 
 Quando a cópia de dados é concluída, a duplicata pode ser gerenciada e usada como um volume
@@ -80,7 +80,7 @@ criará uma duplicata de qualquer captura instantânea mais recente que existe p
 captura instantânea mais recente disponível. 
 3. O tipo de armazenamento (Resistência ou Desempenho) e Local permanecerão os mesmos que o volume original.
 4. Faturamento por hora ou mensal – é possível escolher provisionar o novo LUN duplicado com
-faturamento por hora ou mensal. O tipo de faturamento para o volume original é selecionado automaticamente,
+faturamento por hora ou mensal.  O tipo de faturamento para o volume original é selecionado automaticamente,
 mas se você deseja escolher um tipo de faturamento diferente para seu novo armazenamento duplicado, é
 possível fazer essa seleção aqui. 
 5. Se desejar, é possível especificar IOPS ou Camada de IOPS para o novo volume. A designação de IOPs do volume original é configurada por padrão. 

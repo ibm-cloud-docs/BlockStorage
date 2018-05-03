@@ -12,9 +12,8 @@ lastupdated: "2018-02-23"
 
 Com esse novo recurso, os usuários de armazenamento do {{site.data.keyword.blockstoragefull}}
 poderão ajustar as IOPS de seu {{site.data.keyword.blockstorageshort}} existente rapidamente, sem a
-necessidade de criar uma duplicata ou de migrar dados manualmente para o novo armazenamento.
-O usuário não sofre nenhum tipo de indisponibilidade ou falta de acesso ao armazenamento enquanto o ajuste
-ocorre.  
+necessidade de criar uma duplicata ou de migrar dados manualmente para o novo armazenamento. O usuário não sofre nenhum tipo de indisponibilidade ou falta de acesso ao armazenamento enquanto o ajuste
+ocorre. 
 
 O faturamento para o armazenamento será atualizado para incluir a diferença rateada entre o novo
 preço e o ciclo de faturamento atual e, então, a nova quantia total será faturada no próximo ciclo de
@@ -26,8 +25,7 @@ Esse recurso está disponível somente nos [data centers selecionados](new-ibm-b
 
 - Gerenciamento de custo - alguns dos nossos clientes podem precisar de mais IOPS apenas durante
 os períodos de pico de uso. Por exemplo, uma loja de varejo grande tem um pico de uso durante os feriados
-e pode precisar de mais IOPS no armazenamento do que no verão.
-Esse recurso permite que eles gerenciem seus custos e paguem por mais IOPS apenas quando realmente
+e pode precisar de mais IOPS no armazenamento do que no verão. Esse recurso permite que eles gerenciem seus custos e paguem por mais IOPS apenas quando realmente
 necessário.
 
 ## Existe alguma limitação?

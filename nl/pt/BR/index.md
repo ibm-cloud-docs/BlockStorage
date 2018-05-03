@@ -66,8 +66,7 @@ de capturas instantâneas ou de réplicas serão cobradas mensalmente.
 
 Com o **faturamento por hora**, o cálculo do número de horas em que o LUN de bloco
 existiu na conta é feito no momento em que o LUN é excluído ou no término do ciclo de faturamento, que nunca
-vem antes.  O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. 
-O faturamento por hora está disponível apenas para armazenamento provisionado em
+vem antes.  O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível apenas para armazenamento provisionado em
 [data centers de seleção](new-ibm-block-and-file-storage-location-and-features.html). 
 
 Com o **faturamento mensal**, o cálculo do preço é rateado a partir da data
@@ -142,7 +141,7 @@ aquelas criadas por bancos de dados NoSQL e para processamento de dados para an�
 disponível para um armazenamento provisionado até 4 TB de tamanho nos
 [data centers de seleção](new-ibm-block-and-file-storage-location-and-features.html).
 
-Até 48.000 IOPS estão disponíveis com um volume de Resistência 12 TB.
+Até 48.000 IOPS estão disponíveis com um volume de Resistência de 12 TB.
  
 
 Ao escolher o nível certo do {{site.data.keyword.blockstorageshort}} de Resistência,
@@ -160,8 +159,7 @@ de IOPS de nível de protocolo para volumes individuais. Entre 100 e 48.000 IOPS
 tamanhos de armazenamento que variam de 20 GB a 12 TB. 
 
 O Desempenho para {{site.data.keyword.blockstorageshort}} é acessado e montado por meio de uma
-conexão Small Computer System Interface (iSCSI) de E/S de caminhos múltiplos (MPIO). 
-O {{site.data.keyword.blockstorageshort}} é geralmente utilizado quando o volume é acessado por uma
+conexão Small Computer System Interface (iSCSI) de E/S de caminhos múltiplos (MPIO). O {{site.data.keyword.blockstorageshort}} é geralmente utilizado quando o volume é acessado por uma
 única máquina. Múltiplos volumes podem ser montados em um host e divididos juntos para atingir volumes
 e contagens de IOPS maiores. Os volumes de desempenho podem ser solicitados de acordo com o tamanho e com as
 IOPS na Tabela 1 para sistemas operacionais Linux, XEN, VMware e Windows.

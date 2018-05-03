@@ -1,12 +1,12 @@
 ---
- 
+
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-16"
- 
+lastupdated: "2018-04-25"
+
 ---
 
-{:shortdesc: .shortdesc} 
+{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
 # Trabalhando com a replicação
@@ -29,7 +29,7 @@ primário de uma instância de cálculo em Amsterdã. Depois que seu volume em L
 instantânea é obtida do volume de Amsterdã para efetuar fallback para Londres e para o volume novamente primário
 de uma instância de cálculo em Londres.
 
- 
+
 **Nota:** a menos que seja indicado de outra forma, as etapas são as mesmas para o
 {{site.data.keyword.blockstoragefull}} e o Armazenamento de arquivo.
 
@@ -39,7 +39,7 @@ Os data centers mundiais do {{site.data.keyword.BluSoftlayer_full}} foram empare
 combinações primárias e remotas.
 Consulte a Tabela 1 para obter uma lista completa dos destinos de disponibilidade e de
 replicação de data center.
-Observe que algumas cidades, como Dallas, San Jose, Washington, D.C. e Amsterdã possuem múltiplos data centers. 
+Observe que algumas cidades, como Dallas, San Jose, Washington, D.C. e Amsterdã possuem múltiplos data centers.
 
 
 <table cellpadding="1" cellspacing="1">
@@ -63,7 +63,7 @@ Observe que algumas cidades, como Dallas, San Jose, Washington, D.C. e Amsterdã
 				WDC01<br />
 				<br />
 				<br />
-				<br />
+				<br /><br />
 			</td>
 			<td>SJC03<br />
 				SJC04<br />
@@ -73,18 +73,19 @@ Observe que algumas cidades, como Dallas, San Jose, Washington, D.C. e Amsterdã
 				DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13<br />
+				DAL13<br /><br />
 			</td>
 			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br />
+				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br />
+				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 			<td>
 				AMS01<br />
 				AMS03<br />
 				FRA02<br />
+				FRA04<br />
 				LON02<br />
 				LON04<br />
 				LON06<br />
@@ -101,24 +102,24 @@ Observe que algumas cidades, como Dallas, San Jose, Washington, D.C. e Amsterdã
 				<br />
 				<br />
 				<br />
+				<br />
 			</td>
 			<td>
 				SYD01<br />
 				SYD04<br />
 				MEL01<br />
-				<br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Os data centers nessas regiões
-ou especificamente aqueles observados em uma região NÃO têm um armazenamento criptografado.<br /><strong>Nota</strong>:
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Data centers nessa região NÃO têm armazenamento criptografado.<br /><strong>Nota</strong>:
 os datacenters com armazenamento criptografado <strong>não podem</strong> iniciar a replicação com data centers
 não criptografados como destinos de réplica.</p>
 			</td>
 		</tr>
 	</tbody>
 </table>
- 
+
 
 ## Como criar uma replicação inicial?
 
@@ -133,10 +134,9 @@ no Armazenamento de arquivo do
 1. Clique em seu volume de armazenamento.
 2. Clique na guia **Réplica** e clique no link **Comprar uma
 replicação**.
-Selecione um planejamento de captura instantânea existente que você deseja que suas replicações sigam.
-A lista conterá todos os seus planejamentos de captura instantânea ativos. <br />
+Selecione um planejamento de captura instantânea existente que você deseja que suas replicações sigam. A lista conterá todos os seus planejamentos de captura instantânea ativos. <br />
   **Nota:** é possível selecionar um planejamento, mesmo se você possui uma combinação de
-planejamentos por hora, diários e semanais. Todas as capturas instantâneas capturadas desde o ciclo de
+planejamentos por hora, diários e semanais.  Todas as capturas instantâneas capturadas desde o ciclo de
 replicação anterior serão replicadas, independentemente do planejamento que as originou.<br />
   **Nota:** se você não tiver capturas instantâneas configuradas, será
 solicitado a fazer isso para poder solicitar a replicação. Consulte [Trabalhando
@@ -147,7 +147,7 @@ o seu site DR.
 5. Insira em um **Código promocional** se você tiver um e clique em **Recalcular**. Os outros campos na caixa de diálogo serão padrão.
 6. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principal…**
 e clique em **Fazer o pedido**.
- 
+
 
 ## Como editar uma replicação existente?
 
@@ -156,7 +156,7 @@ e clique em **Fazer o pedido**.
 **{{site.data.keyword.blockstorageshort}}**, no
 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
- 
+
 
 ## Como editar um planejamento de replicação?
 
@@ -174,12 +174,11 @@ está usando para replicação. Faça as mudanças no planejamento que está sen
 exemplo, se o seu planejamento de replicação for **Diário**, será possível mudar
 a hora do dia em que a replicação deverá ocorrer.
 4. Clique em **Salvar**.
- 
+
 
 ## Como mudar o espaço de replicação?
 
-Seu espaço de captura instantânea primário e seu espaço de réplica devem ser os mesmos.
-Se você mudar o espaço na guia **Primário** ou **Réplica**, ela
+Seu espaço de captura instantânea primário e seu espaço de réplica devem ser os mesmos. Se você mudar o espaço na guia **Primário** ou **Réplica**, ela
 incluirá espaço automaticamente nos seus data centers de origem e de destino. O aumento do espaço de captura instantânea acionará uma atualização de replicação imediata.
 
 Clique no menu suspenso **Ações** na guia **Primário** ou **Réplica**.
@@ -188,7 +187,7 @@ Selecione o tamanho de armazenamento na lista e clique em **Continuar**.
 Insira em um **Código promocional** se você tiver um e clique em **Recalcular**. Os outros campos na caixa de diálogo serão padrão.
 Clique na caixa de seleção Eu li o Contrato de Prestação de Serviços Principal… e clique no botão Fazer
 o pedido.
- 
+
 
 ## Como ver meus volumes de réplica na lista de volumes?
 
@@ -198,17 +197,16 @@ em **Armazenamento > {{site.data.keyword.blockstorageshort}}**. O nome do LUN te
 nome do volume primário seguido por REP. O tipo é Resistência (Desempenho) - Réplica, o endereço de destino é
 N/A porque o volume de réplica não está montado no data center de réplica e o status é Inativo.
 
- 
+
 
 ## Como visualizar os detalhes de um volume replicado no data center de réplica?
 
 É possível visualizar os detalhes do volume de réplica na guia **Réplica** em
-**Armazenamento**, **{{site.data.keyword.blockstorageshort}}**. 
-Outra opção é selecionar o volume de réplica na página do
+**Armazenamento**, **{{site.data.keyword.blockstorageshort}}**. Outra opção é selecionar o volume de réplica na página do
 **{{site.data.keyword.blockstorageshort}}** e clicar na
 guia **Réplica**.
 
- 
+
 
 ## Como especificar autorizações de host antes de efetuar failover para o data center secundário?
 
@@ -225,20 +223,19 @@ tecla CTRL e clique nos hosts aplicáveis.
 5. Clique em **Enviar**. Se você não tiver hosts, a caixa de diálogo oferecerá a
 opção para comprar recursos de cálculo no mesmo data center ou é possível clicar em
 **Fechar**.
- 
+
 
 ## Como aumentar meu espaço de captura instantânea em meu data center de réplica ao aumentar espaço
 em meu data center primário?
 
 Seus tamanhos de volume devem ser os mesmos para seus volumes de armazenamento primários e de réplica, ou
 seja, um não pode ser maior que o outro. Ao aumentar o espaço de captura instantânea para o volume
-primário, o espaço de réplica é aumentado automaticamente. O aumento do espaço de captura instantânea acionará uma atualização de replicação imediata. 
-O aumento de ambos os volumes será mostrado como itens de linha em sua fatura e será rateado conforme
+primário, o espaço de réplica é aumentado automaticamente. O aumento do espaço de captura instantânea acionará uma atualização de replicação imediata. O aumento de ambos os volumes será mostrado como itens de linha em sua fatura e será rateado conforme
 necessário.
 
 Clique [aqui](snapshots.html) para saber como aumentar o espaço de captura instantânea.
 
- 
+
 
 ## Como iniciar um failover de um volume para sua réplica?
 
@@ -259,8 +256,8 @@ isso resulta em distorção e/ou em perda de dados.**
 
 1. Clique em seu LUN ativo (“origem”).
 2. Clique na guia **Réplica** e clique no link **Ações** no canto superior direito.
-3. Selecione Failover. Você receberá uma mensagem na parte superior da página informando que o failover está em andamento. Além disso, um ícone aparecerá próximo ao seu volume no **{{site.data.keyword.blockstorageshort}}** indicando que uma transação ativa está ocorrendo. Passar o mouse sobre o ícone produz um diálogo indicando a transação. O ícone desaparecerá quando a transação estiver concluída. 
-Durante o processo de failover, as ações relacionadas à configuração são somente leitura; não é possível
+3. Selecione Failover.
+   Você receberá uma mensagem na parte superior da página informando que o failover está em andamento. Além disso, um ícone aparecerá próximo ao seu volume no **{{site.data.keyword.blockstorageshort}}** indicando que uma transação ativa está ocorrendo. Passar o mouse sobre o ícone produz um diálogo indicando a transação. O ícone desaparecerá quando a transação estiver concluída. Durante o processo de failover, as ações relacionadas à configuração são somente leitura; não é possível
 editar qualquer planejamento de captura instantânea, mudar o espaço de captura instantânea e assim
 por diante. O evento é registrado no histórico de replicação.
    Outra mensagem informará quando seu volume de destino está ativo. O Nome do LUN do seu volume de origem
@@ -269,12 +266,11 @@ original será seguido por REP e seu status será Inativo.
 (**{{site.data.keyword.blockstorageshort}}**) no canto superior direito.
 5. Clique em seu LUN ativo (anteriormente seu volume de destino). Esse volume terá agora um status **Ativo**.
 6. Monte e conecte o seu volume de armazenamento no host. Clique [aqui](provisioning-block_storage.html) para obter instruções.
- 
 
-## Como iniciar um fallback de um volume para sua réplica?
 
-Quando o volume de origem original é reparado, a ação **Fallback** permite o
-início de um fallback controlado para seu volume de origem original. Em um fallback controlado,
+## Como iniciar um failback de um volume para sua réplica?
+
+Depois que seu volume de origem original for reparado, a ação **Failback** permitirá iniciar um failback controlado para ele. Em um failback controlado,
 
 - O volume de origem interino é colocado off-line.
 - Uma captura instantânea é obtida;
@@ -282,28 +278,23 @@ início de um fallback controlado para seu volume de origem original. Em um fall
 - A captura instantânea de dados recém-obtida é ativada e;
 - O volume de origem é ativado para montagem.
 
-Lembre-se de que quando um fallback é iniciado, o **relacionamento de replicação se inverte
-novamente**. Seu volume de origem é restaurado como seu volume de origem e seu volume de destino
+Esteja ciente de que quando um failback for iniciado, o **relacionamento de replicação será novamente invertido**. Seu volume de origem é restaurado como seu volume de origem e seu volume de destino
 novamente é o volume de destino, conforme indicado pelo **Nome do LUN** seguido por
 **REP**.
 
-Os fallbacks são iniciados em **Armazenamento**,
-**{{site.data.keyword.blockstorageshort}}** no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Os failbacks são iniciados no **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. Clique em seu LUN de Resistência ativo (“destino”).
 2. Clique na guia **Réplica** e clique no link **Ações** no canto superior direito.
-3. Selecione **Fallback**.
-   Você receberá uma mensagem na parte superior da página informando que o failover está em andamento. Além disso, um ícone aparecerá próximo ao seu volume no **{{site.data.keyword.blockstorageshort}}** indicando que uma transação ativa está ocorrendo. Passar o mouse sobre o ícone produz um diálogo indicando a transação. O ícone desaparecerá quando a transação estiver concluída. 
-Durante o processo de fallback, as ações relacionadas à configuração são somente leitura; não é possível
-editar qualquer planejamento de captura instantânea, mudar o espaço de captura instantânea e assim por diante. O evento é registrado no histórico de replicação.
+3. Selecione **Failback**.
+   Você receberá uma mensagem na parte superior da página informando que o failover está em andamento. Além disso, um ícone aparecerá próximo ao seu volume no **{{site.data.keyword.blockstorageshort}}** indicando que uma transação ativa está ocorrendo. Passar o mouse sobre o ícone produz um diálogo indicando a transação. O ícone desaparecerá quando a transação estiver concluída. Durante o processo de failback, as ações relacionadas à configuração serão somente leitura; não será possível editar nenhum planejamento de captura instantânea, mudar o espaço de captura instantânea e assim por diante. O evento é registrado no histórico de replicação.
    Outra mensagem informará quando seu volume de origem está ativo. Seu volume de destino terá agora um
 status Inativo.
 4. Clique no link **Visualizar tudo**
 (**{{site.data.keyword.blockstorageshort}}**) no canto superior direito.
 5. Clique em seu LUN de Resistência ativo (origem). Esse volume terá agora um status **Ativo**.
 6. Monte e conecte o seu volume de armazenamento no host. Clique [aqui](provisioning-block_storage.html) para obter instruções.
- 
+
 
 ## Como ver meu histórico de replicação?
 
@@ -311,12 +302,12 @@ O histórico de replicação é exibido no **Log de auditoria** por meio da
 guia **Conta** em **Gerenciar**. Os volumes primários e de réplica
 exibirão o histórico de replicação idêntico, que inclui:
 
-- O tipo de replicação (failover ou fallback)
+- Tipo para replicação (failover ou failback)
 - Quando ele foi iniciado
 - Captura instantânea usada para a replicação
 - Tamanho da replicação
 - Quando é concluído
- 
+
 
 ## Como cancelar uma replicação existente?
 
@@ -332,7 +323,7 @@ seja finalizado. A replicação pode ser cancelada nas guias **Primário** ou
 de aniversário** e clique em **Continuar**.
 5. Clique na caixa de seleção **Eu reconheço que pode ocorrer perda de
 dados devido ao cancelamento** e clique em **Cancelar réplica**.
- 
+
 
 ## Como cancelar a replicação quando o volume primário é cancelado?
 

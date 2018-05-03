@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -23,13 +23,11 @@ no quadro Capturas instantâneas.
 apropriada.
 4. Clique em **Continuar**.
 5. Insira qualquer Código promocional que tenha e clique em **Recalcular**. Os Encargos para essa ordem e Revisão de ordem terão valores padrão.
-6. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principal…** e clique em **Colocar a ordem**. 
-Seu espaço de captura instantânea será provisionado em alguns minutos.
+6. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principal…** e clique em **Colocar a ordem**. Seu espaço de captura instantânea será provisionado em alguns minutos.
 
 ## Como determinar a quantia de espaço de captura instantânea a ser solicitada
 
-Infelizmente, não há uma melhor prática com relação à melhor recomendação com base no aplicativo. 
-Genericamente falando, o espaço de captura instantânea é consumido por capturas instantâneas com base em duas
+Infelizmente, não há uma melhor prática com relação à melhor recomendação com base no aplicativo. Genericamente falando, o espaço de captura instantânea é consumido por capturas instantâneas com base em duas
 partes chave de informações:
 - a quantia de mudança que seu sistema de arquivos possui e 
 - por quanto tempo você planeja reter as capturas instantâneas.  
@@ -53,13 +51,12 @@ Por outro lado, se nesses 500 GB de dados reais, com 12 capturas instantâneas p
 hora) = 600 GB.
 
 Portanto, ao determinar quanto espaço de captura instantânea que você precisa, considere a taxa de
-mudança cuidadosamente. Isso influencia enormemente a quantia de espaço de captura instantânea que você precisa.
-Enquanto o tamanho de um volume provavelmente significará uma quantia maior de mudança, um volume
+mudança cuidadosamente. Isso influencia enormemente a quantia de espaço de captura instantânea que você precisa.  Enquanto o tamanho de um volume provavelmente significará uma quantia maior de mudança, um volume
 de 500 G com 5 G de mudança e um volume de 10 TB com 5 G de mudança resultariam no mesmo uso de espaço de
 captura instantânea.
 
 Além disso, para a maioria das cargas de trabalho, quanto maior o volume, menos espaço precisa ser
-reservado inicialmente para capturas instantâneas. Isso é principalmente devido à eficiência dos dados
+reservado inicialmente para capturas instantâneas.  Isso é principalmente devido à eficiência dos dados
 subjacentes da nossa plataforma, bem como devido à natureza de como as capturas instantâneas funcionam em nosso
 ambiente.
 

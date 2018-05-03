@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-13"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -31,8 +31,7 @@ rede local. Em geral nas caixas do Plesk, os backups internos são armazenados e
 exemplo, o diretório temporário local é mantido, mas o diretório de dump é movido para o destino STaaS
 (`/backup/psa/dumps`). Nenhuma credencial de usuário FTP é necessária.
    
-3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](accessing_block_storage_linux.html). 
-Monte o {{site.data.keyword.blockstorageshort}} em `/backup` e configure
+3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](accessing_block_storage_linux.html). Monte o {{site.data.keyword.blockstorageshort}} em `/backup` e configure
 `/etc/fstab` para ativar a montagem na inicialização.
 
 4. **Opcional**: copie os backups existentes para o novo armazenamento. Use `rsync` por exemplo:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -50,8 +50,7 @@ descartar a mais antiga.
 o padrão é o dia, a hora e o minuto atuais.
       - Selecione o número de capturas instantâneas semanais a serem retidas antes de descartar a
 mais antiga.
-3. Clique em **Salvar** e crie outro planejamento com uma frequência diferente. 
-Observe que você receberá uma mensagem de aviso e não será possível salvar se o número total de capturas
+3. Clique em **Salvar** e crie outro planejamento com uma frequência diferente. Observe que você receberá uma mensagem de aviso e não será possível salvar se o número total de capturas
 instantâneas planejadas for maior que 50.
 
 Uma lista das capturas instantâneas é exibida conforme elas são obtidas na seção Capturas instantâneas
@@ -74,8 +73,7 @@ planejamento será Manual.
 ## Como ver uma lista de capturas instantâneas com espaço consumido e funções de gerenciamento?
 
 Uma lista de capturas instantâneas retidas e do espaço consumido pode ser vista na
-página **Detalhes** (Armazenamento, {{site.data.keyword.blockstorageshort}}). 
-As funções de gerenciamento (edição de planejamentos e inclusão de mais espaço) são realizadas na página
+página **Detalhes** (Armazenamento, {{site.data.keyword.blockstorageshort}}). As funções de gerenciamento (edição de planejamentos e inclusão de mais espaço) são realizadas na página
 Detalhes usando o menu suspenso **Ações** ou os links nas várias seções na
 página.
 
@@ -89,15 +87,15 @@ Captura instantânea. As capturas instantâneas são listadas por planejamento.
 
 O gráfico de pizza na parte superior da página Detalhes exibe a quantia de espaço
 utilizada e a quantia de espaço restante. Você receberá notificações quando começar a atingir os limites de
-espaço, 75%, 90% e 95%. 
+espaço, 75%, 90% e 95%.
+
 ## Como mudar a quantia de espaço de captura instantânea para Meu volume?
 
 Poderá ser necessário incluir espaço de captura instantânea em um volume que não tenha tido anteriormente
 ou que possa requerer espaço de captura instantânea adicional. É possível incluir de 5 GB a 4.000 GB,
 dependendo suas necessidades. 
 
-**Nota**: o espaço de captura instantânea pode ser somente aumentado, não reduzido. 
-É possível selecionar uma quantia menor de espaço até determinar a quantia de espaço que você realmente
+**Nota**: o espaço de captura instantânea pode ser somente aumentado, não reduzido. É possível selecionar uma quantia menor de espaço até determinar a quantia de espaço que você realmente
 precisa. Lembre-se de que as capturas instantâneas automatizadas e manuais compartilham o mesmo espaço.
 
 O espaço de captura instantânea é mudado por meio de **Armazenamento,
@@ -109,22 +107,20 @@ e clique em **Incluir mais espaço de captura instantânea**.
 de seu volume.
 3. Clique em **Continuar** para provisionar o espaço adicional.
 4. Insira qualquer Código promocional que tenha e clique em **Recalcular**. Os Encargos para essa ordem e Revisão de ordem terão valores padrão.
-5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principal…** e clique em **Colocar a ordem**. 
-Seu espaço de captura instantânea adicional será provisionado em alguns minutos.
+5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principal…** e clique em **Colocar a ordem**. Seu espaço de captura instantânea adicional será provisionado em alguns minutos.
 
 ## Como receber notificações quando estou próximo de meu limite de espaço de captura instantânea e
 quando as capturas instantâneas são excluídas?
 
 As notificações são enviadas por meio de chamados de suporte do Suporte para o Usuário principal em sua
-conta quando você atinge três limites de espaço diferentes, 75%, 90% e 95%. 
+conta quando você atinge três limites de espaço diferentes, 75%, 90% e 95%.
+
 - **75% de capacidade**: um aviso é enviado quanto à utilização de espaço de
 captura instantânea excede 75%. Se você seguir o aviso e incluir manualmente espaço ou excluir capturas
-instantâneas retidas e desnecessárias, a ação será registrada e o chamado será encerrado.
-Se você não fizer nada, deverá confirmar manualmente o chamado e, em seguida, ele será encerrado.
+instantâneas retidas e desnecessárias, a ação será registrada e o chamado será encerrado. Se você não fizer nada, deverá confirmar manualmente o chamado e, em seguida, ele será encerrado.
 - **90% de capacidade**: um segundo aviso é enviado quando a utilização de espaço de
 captura instantânea excede 90%. Assim como quando você atinge 75% da capacidade, se executar as ações
-necessárias para reduzir o espaço utilizado, a ação será registrada e o chamado será encerrado.
-Se você não fizer nada, deverá confirmar manualmente o chamado e, em seguida, ele será encerrado.
+necessárias para reduzir o espaço utilizado, a ação será registrada e o chamado será encerrado. Se você não fizer nada, deverá confirmar manualmente o chamado e, em seguida, ele será encerrado.
 - **95% da capacidade**: um aviso final é enviado. Se nenhuma ação for executada
 para trazer seu espaço abaixo do limite, uma notificação será gerada e uma exclusão automática ocorrerá para que
 capturas instantâneas futuras possam ser criadas. As capturas instantâneas planejadas são excluídas, iniciando

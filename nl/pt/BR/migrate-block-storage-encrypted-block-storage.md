@@ -8,7 +8,7 @@ lastupdated: "2018-02-12"
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Migrando o {{site.data.keyword.blockstorageshort}} para o {{site.data.keyword.blockstorageshort}} criptografado 
+# Migrando o {{site.data.keyword.blockstorageshort}} para o {{site.data.keyword.blockstorageshort}} criptografado
 
 O {{site.data.keyword.blockstoragefull}} criptografado para Resistência ou Desempenho agora é data centers de seleção disponíveis. Abaixo você encontrará informações sobre como migrar seu {{site.data.keyword.blockstorageshort}} de não criptografado para criptografado. Para obter mais informações sobre o armazenamento criptografado gerenciado por provedor, leia o artigo [Criptografia de dados em repouso do {{site.data.keyword.blockstorageshort}}](block-file-storage-encryption-rest.html). Para ver uma lista de data centers submetidos a upgrade e de recursos disponíveis, clique [aqui](new-ibm-block-and-file-storage-location-and-features.html).
 
@@ -23,7 +23,7 @@ Os cenários mais comuns foram descritos para sua conveniência. Supõe-se que s
  
 ## Crie um LUN criptografado
 
-Use as etapas a seguir para criar um LUN do mesmo tamanho ou maior que esteja criptografado para facilitar o processo de migração.
+Use as etapas a seguir para criar um LUN do mesmo tamanho ou maior que esteja criptografado para facilitar o processo de migração. 
 Solicite um LUN de armazenamento de Resistência criptografado
 
 1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** na página inicial do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} OU clique em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** no catálogo do {{site.data.keyword.BluSoftlayer_full}}.

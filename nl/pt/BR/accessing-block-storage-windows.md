@@ -21,8 +21,7 @@ botão **Ações** associado ao volume recém-provisionado e clique em
 
 A seguir estão as etapas necessárias para conectar uma instância
 do {{site.data.keyword.BluSoftlayer_full}} Compute baseada em Windows a um número da unidade lógica
-(LUN) Internet Small Computer System Interface (iSCSI) para E/S de caminhos múltiplos (MPIO).
-O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de
+(LUN) Internet Small Computer System Interface (iSCSI) para E/S de caminhos múltiplos (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de
 acordo com a documentação do fornecedor do sistema operacional (S.O.).
 
 ### Configure o recurso MPIO
@@ -107,7 +106,7 @@ Conectar-se ao destino.
    - Deixe o Padrão como o valor para os campos Adaptador local e IP do inicializador. Para servidores
 host com múltiplas interfaces no iSCSI, será necessário escolher o valor apropriado para o campo IP do
 inicializador.
-   - Selecione o IP de seu armazenamento iSCSI na lista suspensa IP do portal de destino. 
+   - Selecione o IP de seu armazenamento iSCSI na lista suspensa IP do portal de destino.
    - Clique na caixa de seleção **Ativar logon do CHAP**
    - Insira os valores de Nome e Segredo de destino obtidos do portal e clique em
 **OK**.
@@ -116,8 +115,7 @@ Propriedades. A janela Propriedades agora deve exibir mais de uma sessão dentro
 você tem mais de uma sessão para o armazenamento iSCSI.
 ![Configurações](/images/Settings.png) 
    
-5. Na janela Propriedades, clique em **Dispositivos** e ative a janela Dispositivos. 
-O nome da interface de dispositivo deve ter mpio no início do nome do dispositivo. <br/>
+5. Na janela Propriedades, clique em **Dispositivos** e ative a janela Dispositivos. O nome da interface de dispositivo deve ter mpio no início do nome do dispositivo. <br/>
   ![Dispositivos](/images/Devices.png) 
   
 6. Clique em **MPIO** para ativar a janela Detalhes do dispositivo. Essa janela

@@ -25,7 +25,6 @@ Antes de iniciar, verifique se o host que está acessando o volume do {{site.dat
 
 A seguir estão as etapas necessárias para conectar uma instância do {{site.data.keyword.BluSoftlayer_full}} Compute baseada em Linux a um número da unidade lógica (LUN) Internet Small Computer System Interface (iSCSI) para E/S de caminhos múltiplos (MPIO).
 
-
 O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajustadas para outras distribuições do Linux de acordo com a documentação do fornecedor do sistema operacional (S.O.). Incluímos notas para outro S.O., mas esta documentação **não** cobre todas as distribuições do Linux. Por exemplo, no caso de Ubuntu, clique [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} para obter instruções de configuração do Inicializador iSCSI e clique [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} para obter mais informações sobre a configuração de DM-Multipath.
 
 **Nota:** o IQN do host, o nome do usuário e o endereço de destino referenciados nas instruções podem ser obtidos na tela **Detalhes do {{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
@@ -101,8 +100,8 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
      chkconfig multipathd on
      ```
      {: pre}
-
-   - CentOS 7:
+   
+   - CentOS 7: 
      ```
      modprobe dm-multipath
      ```
@@ -117,13 +116,13 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
      systemctl enable multipathd
      ```
      {: pre}
-
+     
    - Ubuntu:
      ```
-     service multipath-tools start
+     service multipath-tools start 
      ```
      {: pre}
-
+    
    - Para outras distribuições, consulte a documentação do fornecedor do S.O.
 
 4. Verifique se os caminhos múltiplos estão funcionando.
@@ -132,16 +131,16 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
      multipath -l
      ```
      {: pre}
-
-     Se ele retorna em branco neste momento, ele está funcionando.
-
+     
+     Se ele retorna em branco neste momento, ele está funcionando. 
+   
    - CentOS 7:
      ```
      multipath -ll
      ```
      {: pre}
-
-     O RHEL 7/CentOS 7 pode retornar Nenhum dispositivo fc_host, que pode ser ignorado.
+     
+     O RHEL 7/CentOS 7 pode retornar Nenhum dispositivo fc_host, que pode ser ignorado. 
 
 5. Atualize o arquivo **/etc/iscsi/initiatorname.iscsi** com o IQN do {{site.data.keyword.slportal}}. Digite o valor em minúsculas.
    ```
@@ -206,7 +205,7 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
       {: pre}
 
    - Outras distribuições: consulte a documentação do fornecedor do S.O.
-
+   
 8. Descubra o dispositivo usando o endereço IP de destino obtido do {{site.data.keyword.slportal}}.
 
      a. Execute a descoberta com relação à matriz iSCSI:
@@ -321,7 +320,7 @@ A seguir estão as etapas para criar um sistema de arquivos sobre o volume recé
 		<td style="width:60%;">Resultado</td>
 	</tr>
 	<tr>
-		<td><li><code>Command: n</code></li>	</td>
+		<td><li>&#42; <code>Command: n</code></li>	</td>
 		<td>Cria uma nova partição.</td>
 	</tr>
 	<tr>
@@ -341,7 +340,7 @@ A seguir estão as etapas para criar um sistema de arquivos sobre o volume recé
 		<td>Pressione Enter para acessar o último cilindro.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Command: t</code></li></td>
+		<td><li>&#42; <code>Command: t</code></li></td>
 		<td>Configura o tipo de partição.</td>
 	</tr>
 	<tr>
@@ -349,11 +348,11 @@ A seguir estão as etapas para criar um sistema de arquivos sobre o volume recé
 		<td>Seleciona a partição 1 para ser configurada como um tipo específico.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Hex code: 83</code></li></td>
+		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
 		<td>Seleciona Linux como o Tipo (83 é o código hexadecimal para Linux).</td>
 	 </tr>
 	<tr>
-		<td><li>*<code>Command: w</code></li></td>
+		<td><li>&#42; <code>Command: w</code></li></td>
 		<td>Grava as informações da nova partição no disco.</td>
 	</tr>
  </tbody>
@@ -403,8 +402,8 @@ Para criar um sistema de arquivos com **parted**, siga estas etapas:
       ```
       {: pre}
 
-   3. Crie uma nova tabela de partição GPT
-
+   3. Crie uma nova tabela de partição GPT 
+   
       ```
       (parted) mklabel gpt
       ```
@@ -432,7 +431,8 @@ Para criar um sistema de arquivos com **parted**, siga estas etapas:
    ```
    {: pre}
 
-   **Nota**: é importante selecionar o disco e a partição certos ao executar o comando acima. Verifique o resultado por imprimir a tabela de partição. Na coluna de sistema de arquivos, deverá ser exibido ext3.
+   **Nota**: é importante selecionar o disco e a partição certos ao executar o comando acima.
+   Verifique o resultado por imprimir a tabela de partição. Na coluna de sistema de arquivos, deverá ser exibido ext3.
 
 4. Crie um ponto de montagem para o sistema de arquivos e monte-o.
    - crie um nome de partição PerfDisk ou no local em que você desejar montar o sistema de arquivos:

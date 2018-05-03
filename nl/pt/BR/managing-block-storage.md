@@ -14,8 +14,7 @@ lastupdated: "2018-03-09"
 # Gerenciando {{site.data.keyword.blockstorageshort}}
 
 É possível gerenciar seus volumes do {{site.data.keyword.blockstoragefull}} por meio do
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. 
-Este artigo fornece instruções para as tarefas mais comuns.
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Este artigo fornece instruções para as tarefas mais comuns.
 
 ## Consulte os detalhes de um LUN do {{site.data.keyword.blockstorageshort}} provisionado
 
@@ -27,8 +26,7 @@ recursos de captura instantânea e de replicação adicionais que foram incluíd
 
 ## Autorize hosts para acessar o {{site.data.keyword.blockstorageshort}}
 
-Hosts “autorizados” são hosts que receberam direitos de acesso a um LUN específico.
-Sem autorização do host, não é possível acessar ou usar o armazenamento de seu sistema. A autorização de um
+Hosts “autorizados” são hosts que receberam direitos de acesso a um LUN específico. Sem autorização do host, não é possível acessar ou usar o armazenamento de seu sistema. A autorização de um
 host para acesso ao seu LUN gera o nome de usuário, a senha e o nome qualificado de iSCSI (IQN), que são
 necessários para montar a conexão iSCSI de E/S de caminhos múltiplos (MPIO).
 
@@ -67,8 +65,7 @@ fazer uma conexão - nome do LUN, tipo de armazenamento, endereço de destino, c
 clique no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
 
-Será apresentada uma lista a você de LUNs de armazenamento ao quais esse host específico tem acesso, todos agrupados por tipo de armazenamento (bloco, arquivo, outros). 
-Nos respectivos menus Ações, é possível autorizar armazenamento adicional ou remover o acesso.
+Será apresentada uma lista a você de LUNs de armazenamento ao quais esse host específico tem acesso, todos agrupados por tipo de armazenamento (bloco, arquivo, outros). Nos respectivos menus Ações, é possível autorizar armazenamento adicional ou remover o acesso.
 
  
 
@@ -103,8 +100,7 @@ nas visualizações de Armazenamento.
 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} e
 dê um clique duplo no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
-3. Será apresentada uma lista a você de LUNs de armazenamento ao quais esse host específico tem acesso, todos agrupados por tipo de armazenamento (bloco, arquivo, outros). 
-Selecione o menu Ação respectivo ao lado do LUN do qual você deseja revogar o acesso e clique em
+3. Será apresentada uma lista a você de LUNs de armazenamento ao quais esse host específico tem acesso, todos agrupados por tipo de armazenamento (bloco, arquivo, outros). Selecione o menu Ação respectivo ao lado do LUN do qual você deseja revogar o acesso e clique em
 **Revogar acesso**.
 4. Será perguntado a você se deseja revogar o acesso para um LUN porque a ação não pode ser desfeita. Clique em **Sim** para revogar acesso ao LUN ou **Não** para cancelar a ação.
 

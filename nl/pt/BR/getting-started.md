@@ -17,14 +17,14 @@ lastupdated: "2018-01-08"
 
 A seção de descrição simples deve incluir uma ou duas sentenças que descrevam por que um administrador do
 sistema ou um engenheiro de operações de desenvolvimento desejaria usar esta oferta ou serviço de
-infraestrutura. Mencione brevemente qual é o objetivo de aprendizado do usuário e inclua as seguintes
+infraestrutura.
+Mencione brevemente qual é o objetivo de aprendizado do usuário e inclua as seguintes
 palavras-chave do SEO no título e/ou na descrição simples: IBM Cloud, ServiceName. Certifique-se de usar um
 estilo de conversação. Para obter mais detalhes, consulte a orientação sobre o estilo de conversação no
 Carbon Design System em http://www.carbondesignsystem.com/guidelines/content/general.
 
 Exemplo: quando o recurso exige pico, serviços de infraestrutura em nuvem são necessários, que podem
-ser aumentados de acordo com esses novos requisitos imediatamente de maneira controlada.
-Os servidores virtuais do {{site.data.keyword.Bluemix}} podem ser implementados em uma
+ser aumentados de acordo com esses novos requisitos imediatamente de maneira controlada. Os servidores virtuais do {{site.data.keyword.Bluemix}} podem ser implementados em uma
 questão de minutos por meio de imagens do servidor virtual de sua escolha, na região geográfica que faça
 sentido para suas cargas de trabalho. Assim que suas cargas de trabalho diminuem, esses servidores virtuais
 podem ser suspensos ou desligados para que seu ambiente de nuvem se ajuste perfeitamente às necessidades
@@ -45,8 +45,7 @@ como "Configurando x", "Administrando y", "Gerenciando z". -->
 
 ## Pré-requisitos
 Para que um administrador possa provisionar ou gerenciar suas ofertas de infraestrutura, ele
-deverá ter uma conta do {{site.data.keyword.Bluemix}} submetida a upgrade.
-Para obter mais informações, consulte [Fazendo upgrade e
+deverá ter uma conta do {{site.data.keyword.Bluemix}} submetida a upgrade. Para obter mais informações, consulte [Fazendo upgrade e
 unificando as contas de cobrança do {{site.data.keyword.Bluemix_notm}} e do SoftLayer](../docs/admin/softlayerlink.html).
 
 ## Título e descrição orientados a tarefas

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -18,7 +18,7 @@ Linux 6 (servidor), que é particularmente importante quando se trata de computa
 removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
 que é usada para a criptografia em massa da partição.
 
-## O que o LUKS faz:
+## O que o LUKS faz
 
 - Criptografa dispositivos de bloco inteiros sendo, portanto, adequado para proteção do conteúdo de
 dispositivos móveis, como mídia de armazenamento removível ou unidades de disco laptop.
@@ -31,7 +31,7 @@ que usam dispositivos de bloco especialmente formatados para armazenamento de da
 contêm múltiplos slots de chave.
 
 
-## O que o LUKS não faz:
+## O que o LUKS não faz
 
 - Permitir que aplicativos que requerem muitos usuários (mais de oito) tenham chaves de acesso
 distintas para os mesmos dispositivos.
@@ -43,8 +43,7 @@ informações](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_
 {{site.data.keyword.blockstorageshort}} de resistência
 
 Estas etapas supõem que o servidor já tem acesso a um novo volume
-do {{site.data.keyword.blockstoragefull}} não criptografado que não tenha sido formatado ou montado. 
-Clique [aqui](accessing_block_storage_linux.html) para saber como acessar
+do {{site.data.keyword.blockstoragefull}} não criptografado que não tenha sido formatado ou montado. Clique [aqui](accessing_block_storage_linux.html) para saber como acessar
 o {{site.data.keyword.blockstorageshort}} com o Linux.
 
 Observe que a execução da criptografia de dados cria uma carga no host que pode potencialmente
@@ -62,20 +61,22 @@ impactar o desempenho.
    {: pre}
 3. Localize seu volume na listagem.
 4. Criptografe o dispositivo de bloco; 
-      1. Este comando inicializa o volume e permite configurar um passphrase: <br/>
+
+   1. Este comando inicializa o volume e permite configurar um passphrase: <br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. Responda com SIM (todas as letras maiúsculas).
-      
-      3. O dispositivo aparecerá agora como um volume criptografado: 
+   2. Responda com SIM (todas as letras maiúsculas).
+   
+   3. O dispositivo aparecerá agora como um volume criptografado: 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
 5. Abra o volume e crie um mapeamento:   <br/>
    ```
