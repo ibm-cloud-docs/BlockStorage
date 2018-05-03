@@ -17,7 +17,7 @@ Avant de commencer, assurez-vous que l'hôte qui accède au volume {{site.data.k
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 
-Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Windows à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI). L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation. 
+Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Windows à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI). L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 
 ### Configuration de la fonction MPIO
 
@@ -50,7 +50,7 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
     **Remarque :** Les zones Nom et Secret de la cible sont sensibles à la casse.
          - Supprimez les entrées existantes dans la zone Nom et saisissez le nom d'utilisateur fourni par le portail.
          - Saisissez le mot de passe provenant du portail dans la zone Secret de la cible.<br/>
-         **Remarque :** Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail en tant que Nom d'utilisateur et Mot de passe respectivement. 
+         **Remarque :** Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail en tant que Nom d'utilisateur et Mot de passe respectivement.
     - Cliquez sur **OK** dans les fenêtres Paramètres avancés et Détecter un portail cible pour revenir à l'écran principal des propriétés de l'initiateur SCSI. Si des erreurs d'authentification s'affichent, vérifiez à nouveau le nom d'utilisateur et le mot de passe.
     ![Cible inactive](/images/Inactive_0.png)
     Notez que le nom de votre cible apparaît dans la section Cibles découvertes avec un statut Inactif. 
@@ -65,7 +65,7 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
 3. Cliquez sur **Avancé** et sélectionnez **Activer l'ouverture de session CHAP**.
 ![Activer l'ouverture de session CHAP](/images/chap_0.png)
 4. Saisissez le nom d'utilisateur dans la zone Nom et le mot de passe dans la zone Secret de la cible.<br/>
-**Remarque :** Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail en tant que Nom d'utilisateur et Mot de passe respectivement. 
+**Remarque :** Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail en tant que Nom d'utilisateur et Mot de passe respectivement.
 5. Cliquez sur **OK** jusqu'à ce que la fenêtre Propriétés de l'initiateur iSCSI s'affiche. Le statut de la cible dans la section Cibles découvertes passe d'Inactif à Connecté.
 ![Statut Connecté](/images/Connected.png) 
 
@@ -78,7 +78,7 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
   ![Cible](/images/Target.png) 
   
 4. Dans la fenêtre Paramètres avancés
-   - Laissez la valeur Par défaut pour les zones Adaptateur local et IP de l'initiateur. Pour les serveurs hôte avec plusieurs interfaces vers iSCSI, vous devrez choisir la valeur appropriée pour la zone IP de l'initiateur. 
+   - Laissez la valeur Par défaut pour les zones Adaptateur local et IP de l'initiateur. Pour les serveurs hôte avec plusieurs interfaces vers iSCSI, vous devrez choisir la valeur appropriée pour la zone IP de l'initiateur.
    - Sélectionnez l'adresse IP de votre stockage iSCSI dans la liste déroulante IP du portail cible.
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
@@ -91,24 +91,24 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
 6. Cliquez sur **MPIO** pour ouvrir la fenêtre contenant les détails du périphérique. Elle vous permet de choisir les règles d'équilibrage de charge pour MPIO et vous indique également les chemins d'accès à l'interface iSCSI. Dans cet exemple, deux chemins sont disponibles pour MPIO avec une règle d'équilibrage de charge Round Robin avec sous-ensemble.
   ![DeviceDetails](/images/DeviceDetails.png) 
   
-7. Cliquez plusieurs fois sur **OK** pour quitter l'initiateur iSCSI. 
+7. Cliquez plusieurs fois sur **OK** pour quitter l'initiateur iSCSI.
 
 
 
 ## Comment vérifier si MPIO est correctement configuré dans les systèmes d'exploitation Windows
 
-Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer que le module complémentaire MPIO est activé et que le réamorçage prérequis s'est effectué. 
+Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer que le module complémentaire MPIO est activé et que le réamorçage prérequis s'est effectué.
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
 Une fois le réamorçage terminé et le périphérique de stockage des performances ajouté, nous pouvons vérifier si MPIO est configuré et fonctionne. Pour ce faire, consultez les **Détails du périphérique cible** et cliquez sur **MPIO** :
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Si MPIO n'a pas été configuré sur votre périphérique de stockage des performances et que l'équipe {{site.data.keyword.BluSoftlayer_full}} effectue une opération de maintenance ou en cas d'indisponibilité du réseau, votre périphérique de stockage se déconnectera et ne sera plus disponible. MPIO garantira un niveau supplémentaire de connectivité au cours de ces événements et conservera une session établie avec des lectures/écritures actives à destination du numéro d'unité logique (LUN). 
+Si MPIO n'a pas été configuré sur votre périphérique de stockage des performances et que l'équipe {{site.data.keyword.BluSoftlayer_full}} effectue une opération de maintenance ou en cas d'indisponibilité du réseau, votre périphérique de stockage se déconnectera et ne sera plus disponible. MPIO garantira un niveau supplémentaire de connectivité au cours de ces événements et conservera une session établie avec des lectures/écritures actives à destination du numéro d'unité logique (LUN).
 
 ## Démontage de volumes {{site.data.keyword.blockstorageshort}}
 
-Vous trouverez ci-dessous la procédure à suivre pour déconnecter une instance de calcul Bluemix basée sur Windows d'un numéro d'unité logique MPIO iSCSI. L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation. 
+Vous trouverez ci-dessous la procédure à suivre pour déconnecter une instance de calcul Bluemix basée sur Windows d'un numéro d'unité logique MPIO iSCSI. L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 
 ### Lancez l'initiateur iSCSI.
 
