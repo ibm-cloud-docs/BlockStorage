@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-04-23"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-02-12"
 
 ## {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_full_notm}} 静态加密 
 
-{{site.data.keyword.BluSoftlayer_full}} 认真对待安全性需求，并深知能够加密数据以保证数据安全的重要性。借助提供者管理的加密，缺省情况下，会免费加密供应有“耐久性”或“性能”的 {{site.data.keyword.blockstoragefull}} 和 {{site.data.keyword.filestorage_full}}，不会对性能产生任何影响。
+{{site.data.keyword.BluSoftlayer_full}} 认真对待安全性需求，并深知能够加密数据以保证数据安全的重要性。借助提供者管理的加密，缺省情况下，会免费加密所供应的类型为“耐久性”或“性能”的 {{site.data.keyword.blockstoragefull}} 和 {{site.data.keyword.filestorage_full}}，不会对性能产生任何影响。
 
 提供者管理的静态加密功能使用以下业界标准协议：
 
@@ -24,9 +24,9 @@ lastupdated: "2018-02-12"
 
 缺省情况下，加密{{site.data.keyword.blockstorageshort}}的所有快照和副本也都已加密。此功能无法逐个卷加以禁用。
 
-## 供应使用加密的存储器
+## 为存储器供应加密
 
-提供者管理的静态加密功能仅可用于在精选数据中心（会定期添加更多新的数据中心）内供应的 {{site.data.keyword.blockstorageshort}}。在这些数据中心内供应的所有存储器都会自动供应静态数据加密。单击[此处](new-ibm-block-and-file-storage-location-and-features.html)以查看可使用 {{site.data.keyword.blockstorageshort}} 静态数据加密的数据中心的当前列表。
+提供者管理的静态加密功能仅可用于在精选数据中心（会定期添加更多新的数据中心）内供应的 {{site.data.keyword.blockstorageshort}}。对于在这些数据中心内供应的所有存储器，都自动供应了静态数据加密。单击[此处](new-ibm-block-and-file-storage-location-and-features.html)以查看可使用 {{site.data.keyword.blockstorageshort}} 静态数据加密的数据中心的当前列表。
 
 订购 {{site.data.keyword.blockstorageshort}} 时，请选择标有 * 以及声明加密可用的消息的数据中心。您将在“LUN/卷名”字段右侧看到“锁定”图标，指示已对其进行加密。请参阅图 1。
 

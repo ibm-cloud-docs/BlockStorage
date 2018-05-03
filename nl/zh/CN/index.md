@@ -25,10 +25,10 @@ lastupdated: "2018-02-12"
 - **静态数据加密**（[在精选数据中心内可用](new-ibm-block-and-file-storage-location-and-features.html)。）
    - 免费对静态数据进行提供者管理的加密
 - **所有支持闪存的存储器**（[在精选数据中心内可用](new-ibm-block-and-file-storage-location-and-features.html)。）
-   - 用于供应有 2 IOPS/GB 或更高的“持久性”或“性能”的卷的所有闪存存储器
-- **快照**（在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应有“耐久性”或“性能”时。）
+   - 用于在 2 IOPS/GB 或更高级别供应的类型为“耐久性”或“性能”的卷的所有闪存存储器
+- **快照**（在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应的类型为“耐久性”或“性能”时。）
    - 以非破坏性方式捕获时间点数据快照
-- **复制**（在[精选数据中心](/new-ibm-block-and-file-storage-location-and-features.html)内供应有“耐久性”或“性能”时。）
+- **复制**（在[精选数据中心](/new-ibm-block-and-file-storage-location-and-features.html)内供应的类型为“耐久性”或“性能”时。）
    - 自动将快照复制到合作伙伴的 {{site.data.keyword.BluSoftlayer_full}} 数据中心
 - **高度可用的连接**
    - 使用冗余网络连接以最大限度提高可用性 - 基于 iSCSI 的 {{site.data.keyword.blockstorageshort}} 使用多路径 I/O (MPIO)
@@ -43,7 +43,7 @@ lastupdated: "2018-02-12"
 
 对于**按小时计费**，在删除 LUN 时或在计费周期结束时（以先发生者为准），将计算块 LUN 在帐户上存在的小时数。对于使用了数天或不足一个月的存储器，按小时计费是不错的选择。按小时计费仅可用于在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应的存储器。 
 
-对于**按月计费**，将从创建日期一直到记帐周期结束按比例计算价格并立即记帐。如果在计费周期结束之前删除了 LUN，那么不会有任何退款。对于使用需要长时间（一个月或更长时间）存储和访问的数据的生产工作负载中使用的存储器，按月计费是不错的选择。 
+对于**按月计费**，将从创建日期一直到记帐周期结束按比例计算价格并立即记帐。如果在计费周期结束之前删除了 LUN，那么不会有任何退款。对于所用数据需要长期（一个月或更长时间）存储和访问的生产工作负载，存储器选择按月计费是不错的选择。 
 
 ### 性能：
 <table>

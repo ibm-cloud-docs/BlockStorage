@@ -56,23 +56,23 @@ set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 preempt 'false'
 set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 priority '253'
 set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 'rfc3768-compatibility'
 set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 sync-group 'vgroup1'
-set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<主专用 VLAN 中绑定到 1101/管理的网关地址/掩码>’
-set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<可移植专用 VLAN 中绑定到 1101/管理 VM 的网关地址/掩码>’
+set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<GATEWAY ADDRESS/MASK of Primary Private VLAN Bound to 1101/Management>’
+set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1101/Management VMs>’
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 advertise-interval '1'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 preempt 'false'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 priority '253'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 'rfc3768-compatibility'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 sync-group 'vgroup1'
-set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<主专用 VLAN 中绑定到 1102/存储器的网关地址/掩码>’
-set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<可移植专用 VLAN 中绑定到 1102/存储路径 A 的网关地址/掩码>’
-set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<可移植专用 VLAN 中绑定到 1102/存储路径 B 的网关地址/掩码>’
+set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<GATEWAY ADDRESS/MASK of Primary Private VLAN Bound to 1102/Storage>’
+set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1102/Storage Path A>’
+set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1102/Storage Path B>’
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 advertise-interval '1'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 preempt 'false'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 priority '253'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 'rfc3768-compatibility'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 sync-group 'vgroup1'
-set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<主专用 VLAN 中绑定到 1103/虚拟机的网关地址/掩码>’
-set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<可移植专用 VLAN 中绑定到 1103/虚拟机的网关地址/掩码>’
+set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<GATEWAY ADDRESS/MASK of Primary Private VLAN Bound to 1103/Virtual Machines>’
+set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1103/Virtual Machines>’
 commit
 save
 ```
@@ -89,23 +89,23 @@ set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 preempt 'false'
 set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 priority '253'
 set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 'rfc3768-compatibility'
 set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 sync-group 'vgroup1'
-set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<主专用 VLAN 中绑定到 1101/管理的网关地址/掩码>’
-set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<可移植专用 VLAN 中绑定到 1101/管理 VM 的网关地址/掩码>’
+set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<GATEWAY ADDRESS/MASK of Primary Private VLAN Bound to 1101/Management>’
+set interfaces bonding bond0 vif 1101 vrrp vrrp-group 2 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1101/Management VMs>’
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 advertise-interval '1'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 preempt 'false'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 priority '253'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 'rfc3768-compatibility'
 set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 sync-group 'vgroup1'
-set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<主专用 VLAN 中绑定到 1102/存储器的网关地址/掩码>’
-set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<可移植专用 VLAN 中绑定到 1102/存储路径 A 的网关地址/掩码>’
-set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<可移植专用 VLAN 中绑定到 1102/存储路径 B 的网关地址/掩码>’
+set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<GATEWAY ADDRESS/MASK of Primary Private VLAN Bound to 1102/Storage>’
+set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1102/Storage Path A>’
+set interfaces bonding bond0 vif 1102 vrrp vrrp-group 3 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1102/Storage Path B>’
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 advertise-interval '1'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 preempt 'false'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 priority '253'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 'rfc3768-compatibility'
 set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 sync-group 'vgroup1'
-set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<主专用 VLAN 中绑定到 1103/虚拟机的网关地址/掩码>’
-set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<可移植专用 VLAN 中绑定到 1103/虚拟机的网关地址/掩码>’
+set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<GATEWAY ADDRESS/MASK of Primary Private VLAN Bound to 1103/Virtual Machines>’
+set interfaces bonding bond0 vif 1103 vrrp vrrp-group 4 virtual-address ‘<GATEWAY ADDRESS/MASK of Portable Private VLAN Bound to 1103/Virtual Machines>’
 commit
 save
 ```

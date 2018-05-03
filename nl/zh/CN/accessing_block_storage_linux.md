@@ -100,8 +100,8 @@ lastupdated: "2018-03-09"
      chkconfig multipathd on
      ```
      {: pre}
-
-   - CentOS 7：
+   
+   - CentOS 7： 
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +116,13 @@ lastupdated: "2018-03-09"
      systemctl enable multipathd
      ```
      {: pre}
-
+     
    - Ubuntu：
      ```
      service multipath-tools start
      ```
      {: pre}
-
+    
    - 对于其他分发版，请查阅相应的操作系统供应商文档。
 
 4. 验证多路径是否生效。
@@ -131,16 +131,16 @@ lastupdated: "2018-03-09"
      multipath -l
      ```
      {: pre}
-
-     如果此时返回空白，说明多路径生效。
-
+     
+     如果此时返回空白，说明多路径生效。 
+   
    - CentOS 7：
      ```
      multipath -ll
      ```
      {: pre}
-
-     RHEL 7/CentOS 7 可能会返回“无 fc_host 设备”，可以忽略此消息。
+     
+     RHEL 7/CentOS 7 可能会返回“无 fc_host 设备”，可以忽略此消息。 
 
 5. 使用 {{site.data.keyword.slportal}}中的 IQN 更新 **/etc/iscsi/initiatorname.iscsi** 文件。请以小写输入值。
    ```
@@ -205,7 +205,7 @@ lastupdated: "2018-03-09"
       {: pre}
 
    - 其他分发版：请查阅相应的操作系统供应商文档。
-
+   
 8. 使用从 {{site.data.keyword.slportal}}中获取的目标 IP 地址来发现该设备。
 
      a. 针对 iSCSI 阵列运行发现：
@@ -320,7 +320,7 @@ lastupdated: "2018-03-09"
 		<td style="width:60%;">结果</td>
 	</tr>
 	<tr>
-		<td><li><code>Command: n</code></li>	</td>
+		<td><li>&#42; <code>Command: n</code></li>	</td>
 		<td>创建新分区。</td>
 	</tr>
 	<tr>
@@ -340,7 +340,7 @@ lastupdated: "2018-03-09"
 		<td>点击 Enter 键以转至最后一个柱面。</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Command: t</code></li></td>
+		<td><li>&#42; <code>Command: t</code></li></td>
 		<td>设置分区的类型。</td>
 	</tr>
 	<tr>
@@ -348,11 +348,11 @@ lastupdated: "2018-03-09"
 		<td>选择分区 1 以设置为特定类型。</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Hex code: 83</code></li></td>
+		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
 		<td>选择 Linux 作为类型（83 是表示 Linux 的十六进制代码）。</td>
 	 </tr>
 	<tr>
-		<td><li>*<code>Command: w</code></li></td>
+		<td><li>&#42; <code>Command: w</code></li></td>
 		<td>将新的分区信息写入磁盘。</td>
 	</tr>
  </tbody>
@@ -402,8 +402,8 @@ lastupdated: "2018-03-09"
       ```
       {: pre}
 
-   3. 创建新的 GPT 分区表
-
+   3. 创建新的 GPT 分区表 
+   
       ```
       (parted) mklabel gpt
       ```

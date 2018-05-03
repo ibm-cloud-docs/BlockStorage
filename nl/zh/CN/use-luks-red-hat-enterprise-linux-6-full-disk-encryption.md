@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-02-12"
 
 通过 Linux Unified Key Setup-on-disk-format (LUKS)，可以在 Red Hat Enterprise Linux 6（服务器）上加密分区，这对于移动计算机和可移动介质尤其重要。LUKS 支持使用多个用户密钥对用于分区批量加密的主密钥进行解密。
 
-## LUKS 可执行以下操作：
+## LUKS 可执行以下操作
 
 - 对整个块设备进行加密，因此非常适合保护移动设备（例如，可移动存储介质或笔记本电脑磁盘驱动器）的内容。
     - 加密块设备的底层内容是任意的，因此对于加密交换设备非常有用。该加密对于某些使用特殊格式化的块设备进行数据存储的数据库也很有用。
@@ -24,7 +24,7 @@ lastupdated: "2018-02-12"
 - 允许用户添加备份密钥或口令，因为 LUKS 设备包含多个密钥槽。
 
 
-## LUKS 不执行以下操作：
+## LUKS 不执行以下操作
 
 - 允许需要多个（超过 8 个）用户的应用程序对相同设备具有不同的访问密钥。
 - 使用需要文件级别加密的应用程序；请参阅[更多信息](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}。
@@ -47,20 +47,22 @@ lastupdated: "2018-02-12"
    {: pre}
 3. 在列表中找到您的卷。
 4. 加密块设备： 
-      1. 此命令会初始化卷并允许您设置口令：<br/>
+
+   1. 此命令会初始化卷并允许您设置口令：<br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. 以 YES（全大写字母）进行响应。
-      
-      3. 现在设备将显示为加密卷： 
+   2. 以 YES（全大写字母）进行响应。
+   
+   3. 现在设备将显示为加密卷： 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
 5. 打开该卷并创建映射：<br/>
    ```
