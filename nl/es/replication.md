@@ -1,12 +1,12 @@
 ---
- 
+
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-14"
- 
+lastupdated: "2018-04-25"
+
 ---
 
-{:shortdesc: .shortdesc} 
+{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
 # Trabajar con réplicas
@@ -20,7 +20,7 @@ Las réplicas le permiten
 
 Antes de poder replicar, debe crear una planificación de instantáneas. Cuando realiza la migración tras error, está “cambiando el interruptor” de su volumen de almacenamiento del centro de datos primario al volumen de destino del centro de datos remoto. Por ejemplo, su centro de datos primario es Londres y el centro de datos secundario es Amsterdam. Si se produce un suceso de error, realizaría la migración a Amsterdam – conectando al ahora volumen primario desde una instancia de cálculo en Amsterdam. Cuando su volumen de Londres se haya reparado, se realiza una instantánea del volumen de Amsterdam para volver a Londres y al volumen primario de nuevo desde una instancia de cálculo de Londres.
 
- 
+
 **Nota:** A menos que se indique lo contrario, los pasos son los mismos para {{site.data.keyword.blockstoragefull}} y File Storage.
 
 ## ¿Cómo determino el centro de datos remoto para mi volumen de almacenamiento replicado?
@@ -51,28 +51,29 @@ Tenga en cuenta que algunas ciudades, como Dallas, San José, Washington, D.C. y
 				WDC01<br />
 				<br />
 				<br />
-				<br />
+				<br /><br />
 			</td>
 			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
+				SJC04<br />
+				WDC04<br />
+				WDC06<br />
+				WDC07<br />
+				DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13<br />
+				DAL13<br /><br />
 			</td>
 			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br />
+				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br />
+				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br />
 			</td>
 			<td>
 				AMS01<br />
 				AMS03<br />
 				FRA02<br />
+				FRA04<br />
 				LON02<br />
 				LON04<br />
 				LON06<br />
@@ -89,21 +90,22 @@ Tenga en cuenta que algunas ciudades, como Dallas, San José, Washington, D.C. y
 				<br />
 				<br />
 				<br />
+				<br />
 			</td>
 			<td>
 				SYD01<br />
 				SYD04<br />
 				MEL01<br />
-				<br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Los centros de datos en estas regiones NO tienen almacenamiento cifrado.<br /><strong>Nota</strong>: Los centros de datos con almacenamiento cifrado <strong>no pueden</strong> iniciar la réplica con centros de datos no cifrados como destinos de réplica.</p>
+			<td colspan="100%"><p><sup><img src="/images/numberone.png" alt="1" /></sup>Los centros de datos de esta región NO disponen de almacenamiento cifrado.<br /><strong>Nota</strong>: Los centros de datos con almacenamiento cifrado <strong>no pueden</strong> iniciar la réplica con centros de datos no cifrados como destinos de réplica.</p>
 			</td>
 		</tr>
 	</tbody>
 </table>
- 
+
 
 ## ¿Cómo creo una réplica inicial?
 
@@ -118,13 +120,13 @@ Seleccione la planificación de instantáneas existente que quiera que sigan sus
 4. Pulse **Continuar**.
 5. Especifique un **Código promocional** si tiene uno y pulse **Recalcular**. Los otros campos del recuadro de diálogo tienen valores predeterminados.
 6. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro…** y pulse **Realizar pedido**.
- 
+
 
 ## ¿Cómo edito una réplica existente?
 
 Puede editar la planificación de la réplica y cambiar el espacio de réplica desde el separador **Primario** o **Réplica** de **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** desde el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
- 
+
 
 ## ¿Cómo edito una planificación de réplica?
 
@@ -136,7 +138,7 @@ Los cambios en la planificación pueden realizarse en el separador Primario o R�
 2. Seleccione **Editar planificación de instantáneas**.
 3. Consulte en el marco Instantánea, en Planificación, para determinar qué planificación está utilizando para la réplica. Realice los cambios en la planificación que se utiliza para la réplica; por ejemplo, si la planificación de réplica es **A diario**, puede cambiar la hora del día en que tendrá lugar la réplica.
 4. Pulse **Guardar**.
- 
+
 
 ## ¿Cómo cambio el espacio de réplica?
 
@@ -147,19 +149,19 @@ Seleccione **Añadir más espacio de instantáneas**.
 Seleccione el tamaño de almacenamiento de la lista y pulse **Continuar**.
 Especifique un **Código promocional** si tiene uno y pulse **Recalcular**. Los otros campos del recuadro de diálogo tienen valores predeterminados.
 Marque el recuadro de selección He leído el Acuerdo de Servicio Maestro… y pulse Realizar pedido.
- 
+
 
 ## ¿Cómo visualizo mis volúmenes de réplica en la lista de volúmenes?
 
 Puede visualizar los volúmenes de réplica desde la página de {{site.data.keyword.blockstorageshort}}, en **Almacenamiento > {{site.data.keyword.blockstorageshort}}**. El Nombre de LUN tendrá el nombre del volumen primario seguido por REP. El Tipo de Resistencia (Rendimiento) – Réplica, la dirección de destino no está disponible porque el volumen de réplica no está montado en el centro de datos de réplicas, y el estado es inactivo.
 
- 
+
 
 ## ¿Cómo visualizo los detalles de un volumen replicado en el centro de datos de réplicas?
 
 Puede visualizar los detalles de un volumen de réplica en el separador **Réplica**, en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}**. Otra opción es seleccionar el volumen de réplica desde la página de **{{site.data.keyword.blockstorageshort}}** y pulsar el separador **Réplica**.
 
- 
+
 
 ## ¿Cómo especifico autorizaciones de host antes de realizar la migración tras error a un centro de datos secundario?
 
@@ -170,7 +172,7 @@ Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. No p
 3. Desplácese hasta el marco **Autorizar hosts** y pulse el enlace **Autorizar hosts** en la parte derecha de la pantalla.
 4. Marque el host que se va a autorizar para las réplicas. Para seleccionar varios hosts, utilice la tecla CTRL y pulse los hosts aplicables.
 5. Pulse **Enviar**. Si no tiene ningún host, el recuadro de diálogo le ofrecerá la opción de comprar recursos de cálculo en el mismo centro de datos o puede pulsar **Cerrar**.
- 
+
 
 ## ¿Cómo aumento el espacio de instantáneas en el centro de datos de réplicas cuando aumento el espacio del centro de datos primario?
 
@@ -178,7 +180,7 @@ Los tamaños de volumen deben ser los mismos para sus volúmenes de almacenamien
 
 Pulse [aquí](snapshots.html) para obtener información sobre cómo aumentar el espacio de instantáneas.
 
- 
+
 
 ## ¿Cómo inicio una migración tras error desde un volumen a su réplica?
 
@@ -196,11 +198,11 @@ Las migraciones tras error se inician en **Almacenamiento**, **{{site.data.keywo
 4. Pulse el enlace **Ver todo el almacenamiento** (**{{site.data.keyword.blockstorageshort}}**) en la esquina superior derecha.
 5. Pulse sobre el LUN activo (anteriormente volumen de destino). Este volumen ahora tendrá un estado **Activo**.
 6. Monte y conecte el volumen de almacenamiento al host. Pulse [aquí](provisioning-block_storage.html) para obtener instrucciones.
- 
 
-## ¿Cómo inicio una recuperación de un volumen a su réplica?
 
-Una vez reparado el volumen de origen original, la acción **Recuperación** le permite iniciar una recuperación controlada a su volumen de origen original. En una recuperación controlada,
+## ¿Cómo inicio un restablecimiento de un volumen a su réplica?
+
+Una vez reparado el volumen de origen original, la acción **Restablecimiento** le permite iniciar un restablecimiento controlado a su volumen de origen original. En un restablecimiento controlado,
 
 - El volumen de origen activo se pone fuera de línea;
 - Se realiza una instantánea;
@@ -208,30 +210,30 @@ Una vez reparado el volumen de origen original, la acción **Recuperación** le 
 - La instantánea de datos recién realizada se activa;
 - Y el volumen de origen se activa para el montaje.
 
-Tenga en cuenta que una vez iniciada la recuperación, la **relación de réplica se vuelve a invertir**. El volumen de origen se restaura como el volumen de origen y el volumen de destino pasa a ser, una vez más, el volumen de destino, como indica el **Nombre de LUN** seguido de **REP**.
+Tenga en cuenta que una vez iniciado el restablecimiento, la **relación de réplica se vuelve a invertir**. El volumen de origen se restaura como el volumen de origen y el volumen de destino pasa a ser, una vez más, el volumen de destino, como indica el **Nombre de LUN** seguido de **REP**.
 
-Las recuperaciones se inician en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** desde el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Los restablecimientos se inician en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** desde el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. Pulse en el LUN de Resistencia activo (“destino”).
 2. Pulse el separador **Réplica** y pulse el enlace **Acciones** en la esquina superior derecha.
-3. Seleccione **Recuperación**.
-   Recibirá un mensaje en la parte superior de la página indicando que la migración está en curso. Además, aparecerá un icono junto al volumen en el **{{site.data.keyword.blockstorageshort}}** indicando que se está produciendo la transacción activa. Al pasar el ratón sobre el icono se abre un diálogo que indica la transacción. El icono desaparecerá una vez completada la transacción. Durante el proceso de recuperación, las acciones relacionadas con la configuración son de solo lectura, no podrá editar ninguna planificación de instantáneas, cambiar el espacio de instantáneas, etc. El suceso se registra en el historial de réplicas.
+3. Seleccione **Restablecimiento**.
+   Recibirá un mensaje en la parte superior de la página indicando que la migración está en curso. Además, aparecerá un icono junto al volumen en el **{{site.data.keyword.blockstorageshort}}** indicando que se está produciendo la transacción activa. Al pasar el ratón sobre el icono se abre un diálogo que indica la transacción. El icono desaparecerá una vez completada la transacción. Durante el proceso de restablecimiento, las acciones relacionadas con la configuración son de solo lectura, no podrá editar ninguna planificación de instantáneas, cambiar el espacio de instantáneas, etc. El suceso se registra en el historial de réplicas.
    Otro mensaje le informará cuando el volumen de origen esté activado. El volumen de destino ahora tendrá un estado Inactivo.
 4. Pulse el enlace **Ver todo el almacenamiento** (**{{site.data.keyword.blockstorageshort}}**) en la esquina superior derecha.
 5. Pulse en el LUN de Resistencia activo (origen). Este volumen ahora tendrá un estado **Activo**.
 6. Monte y conecte el volumen de almacenamiento al host. Pulse [aquí](provisioning-block_storage.html) para obtener instrucciones.
- 
+
 
 ## ¿Cómo consulto mi historial de réplicas?
 
 El historial de réplicas se visualiza en el **Registro de auditoría** a través del separador **Cuenta**, en **Gestionar**. Tanto el volumen primario como el de réplica mostrarán el mismo historial de réplica, que incluye:
 
-- Tipo de réplica (migración tras error o recuperación)
+- Tipo de réplica (migración tras error o restablecimiento)
 - Cuando se ha iniciado,
 - Instantánea utilizada para la réplica
 - Tamaño de la réplica
 - Cuando se ha completado
- 
+
 
 ## ¿Cómo cancelo una réplica existente?
 
@@ -242,7 +244,7 @@ La cancelación puede realizarse inmediatamente o en la fecha de aniversario, lo
 3. Seleccione **Cancelar réplica**.
 4. Seleccione cuándo cancelar, **Inmediatamente** o **Fecha de aniversario** y pulse **Continuar**.
 5. Marque el recuadro de selección **Reconozco que a causa de la cancelación, es posible que se pierdan datos** y pulse **Cancelar réplica**.
- 
+
 
 ## ¿Cómo cancelo la réplica cuando se cancela el volumen primario?
 

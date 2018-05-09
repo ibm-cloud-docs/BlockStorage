@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-04-23"
 
 ---
 {:new_window: target="_blank"}
@@ -17,7 +17,7 @@ lastupdated: "2018-02-12"
 La característica de cifrado en reposo gestionado por proveedor utiliza los siguientes protocolos estándar del sector:
 
 * Cifrado AES-256 estándar del sector
-* Las claves se gestionan internamente con el protocolo estándar del sector Key Management Improbability Protocol (KMIP)
+* Las claves se gestionan internamente con el protocolo estándar del sector Key Management Interoperability Protocol (KMIP)
 * El almacenamiento cumple con los estándares Federal Information Processing Standard (FIPS) Publication 140-2 validated for Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) y EU Data Protection Directive 95/46/EC
 
 ## Cifrado en reposo para instantáneas o almacenamiento replicado  

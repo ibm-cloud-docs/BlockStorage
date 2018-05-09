@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-03-16"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-02-12"
 
 Linux Unified Key Setup-on-disk-format (LUKS) le permite cifrar particiones en Red Hat Enterprise Linux 6 (servidor), lo que resulta especialmente importante cuando se trata de sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
 
-## Qué hace LUKS:
+## Qué hace LUKS
 
 - Cifrar dispositivos de bloque enteros y, por tanto, es ideal para proteger el contenido de dispositivos móviles, como soportes de almacenamiento extraíbles o unidades de disco de portátiles.
     - El contenido subyacente del dispositivo de bloque cifrado es arbitrario, por lo que resulta útil para cifrar dispositivos de intercambio. El cifrado también es útil con determinadas bases de datos que utilizan dispositivos de bloque con formato especial para el almacenamiento de datos.
@@ -24,7 +24,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) le permite cifrar particiones en R
 - Permitir a los usuarios añadir claves de copia de seguridad porque los dispositivos LUKS contienen múltiples ranuras de claves.
 
 
-## Qué no hace LUKS:
+## Qué no hace LUKS
 
 - Permitir que las aplicaciones que requieren muchos usuarios (más de ocho) tengan claves de acceso distintas al mismo dispositivo.
 - Trabajar con aplicaciones que requieren cifrado a nivel de archivos, [más información](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
@@ -47,20 +47,22 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
    {: pre}
 3. Localice el volumen en el listado.
 4. Cifre el dispositivo de bloque; 
-      1. este mandato inicializa el volumen y le permite establecer una contraseña: <br/>
+
+   1. este mandato inicializa el volumen y le permite establecer una contraseña: <br/>
+   
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
-      2. Responda con YES (todo en mayúsculas).
-      
-      3. El dispositivo ahora aparecerá como un volumen cifrado: 
+   2. Responda con YES (todo en mayúsculas).
+   
+   3. El dispositivo ahora aparecerá como un volumen cifrado: 
+   
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      {: pre}
       
 5. Abra el volumen y cree una correlación:   <br/>
    ```
