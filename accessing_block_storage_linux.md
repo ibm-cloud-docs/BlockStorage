@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-16"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # Connecting to MPIO iSCSI LUNs on Linux
 
-These instructions are for RHEL6/Centos6. If you are using another Linux operating systems, please refer to documentation of your specific distro for configuration and ensure that the multipath supports ALUA for path priority.
+These instructions are for RHEL6/Centos6. We have added notes for other OS, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority. For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
-Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}}  volume has been authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
+Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}} volume has been authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
 
-1. From the {{site.data.keyword.blockstorageshort}}  listing page, click the **Actions** associated with the newly provisioned volume
+1. From the {{site.data.keyword.blockstorageshort}} listing page, click **Actions** associated with the new volume.
 2. Click **Authorize Host**.
-3. Select the desired host(s) from the list and click **Submit**; this authorizes the host(s) to access the volume.
+3. From the list, select the host or hosts that should be able to access the volume and click **Submit**.
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 
 Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adjusted for other Linux distributions according to the operating system (OS) vendor documentation. We have added notes for other OS, but this documentation does **not** cover all Linux distributions. For example, in the case of Ubuntu, click [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} for iSCSI Initiator Configuration instructions and click [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} for more information regarding DM-Multipath setup.
+**Note:** The Host IQN, user name, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Note:** The Host IQN, username, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-
-**Note:** We recommend running storage traffic on a vlan which bypasses the firewall as a best practice. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
+**Note:** We recommend running storage traffic on a VLAN which bypasses the firewall. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
 
 1. Install the iSCSI and multipath utilities to your host:
    - RHEL/CentOS:
@@ -48,7 +46,7 @@ Our example is based on **Red Hat Enterprise Linux 6**. The steps should be adju
    {: pre}
 
 2. Create or edit your multipath configuration file.
-   - Edit **/etc/multipath.conf** with the minimum configuration provided in the following commands. <br /><br /> **Note:** Be aware that for RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. Ubuntu does not use multipath.conf since it is built into multipath-tools.
+   - Edit **/etc/multipath.conf** with the minimum configuration provided in the following commands. <br /><br /> **Note:** Be aware that for RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. Ubuntu doesn't use multipath.conf since it's built into multipath-tools.
 
    ```
    defaults {
