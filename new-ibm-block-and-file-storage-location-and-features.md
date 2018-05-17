@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-04-25"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-04-25"
 
 {{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}! 
 
-The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage provisioned in the select data centers will automatically be provisioned with the new version of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_full}}.
+The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage provisioned in the select data centers are automatically created with the new version.
 
 **Note:** The NFS mount point for new volumes has changed. See **New Mount Point for encrypted {{site.data.keyword.filestorage_short}} Volumes** below for details.
 
@@ -21,12 +21,12 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 	<caption>Data Center Availability</caption>
 	<tbody>
 		<tr>
-			<td><strong>US 2</strong></td>
-			<td><strong>EU</strong></td>
-			<td><strong>Australia</strong></td>
-			<td><strong>Canada</strong></td>
-			<td><strong>Latin America</strong></td>
-			<td><strong>Asia Pacific</strong></td>
+			<th><strong>US 2</strong></td>
+			<th><strong>EU</strong></td>
+			<th><strong>Australia</strong></td>
+			<th><strong>Canada</strong></td>
+			<th><strong>Latin America</strong></td>
+			<th><strong>Asia Pacific</strong></td>
 		</tr>
 		<tr>
 			<td>
@@ -78,18 +78,21 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 
 The new storage has the following features and capabilities:
 
-- [Provider Managed encryption for data-at-rest](block-file-storage-encryption-rest.html). All {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} will automatically be provisioned as encrypted at no additional charge.
-- 10 IOPS per GB tier option. A new tier has been added to the Endurance type {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} to support the most demanding workloads.
-- All flash-backed storage. {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with either Endurance or Performance at 2 IOPS per GB or higher with backed by all-flash storage.
-- Snapshot and Replication support with {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with either Endurance or Performance.
-- Hourly Billing option added for storage that is planned to be used for less than a full month. 
-- Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} provisioned with Performance.
-- IOPS rates are adjustable to improve performance in case of seasonal load changes. Read more about this feature [here](adjustable-iops.html).
-- Create a new clone of your data with the [{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html).
-- Storage is expandable in GB increments up to 12 TB on the fly, without the need to create a duplicate or manually migrate data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
+- **[Provider-managed encryption for data-at-rest](block-file-storage-encryption-rest.html)**. 
+  All {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} will automatically be provisioned as encrypted at no additional charge.
+- **10 IOPS per GB tier option**. 
+  A new tier has been added to the Endurance type {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} to support the most demanding workloads.
+- **All flash-backed storage.**
+  All {{site.data.keyword.blockstorageshort}} provisioned with either Endurance or Performance type at 2 IOPS per GB or higher are backed by all-flash storage.
+- **Snapshot and Replication** support with {{site.data.keyword.blockstorageshort}}
+- **Hourly Billing** option added for storage that's planned to be used for less than a full month. 
+- **Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}}** that is provisioned with Performance.
+- **IOPS rates are adjustable** to improve performance in case of seasonal load changes. Read more about this feature [here](adjustable-iops.html).
+- Create a new clone of your data with the **[{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html)**.
+- **Storage is expandable** in GB increments up to 12 TB, without the need to create a duplicate or manually migrate data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
 
-## New Mount Point for Encrypted Storage Volumes
+## New mount point for encrypted storage volumes
 
-All encrypted storage volumes provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you are using the correct mount point for both your encrypted and non-encrypted storage volumes you can view the mount point information in the Volume Details page in the UI as well as access the correct mountpoint via an API call:  `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+All encrypted storage volumes provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you are using the correct mount point for both your encrypted and non-encrypted storage volumes you can view the mount point information in the **Volume Details** page in the UI and you can access the correct mountpoint through an API call:  `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Check back here to see when additional data centers have been upgraded and for newly available features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.

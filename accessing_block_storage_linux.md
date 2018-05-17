@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -314,8 +314,8 @@ Following are the steps to create a file system on top of the newly mounted volu
 <table border="0" cellpadding="0" cellspacing="0">
  <tbody>
 	<tr>
-		<td style="width:40%;"><div>Command</div></td>
-		<td style="width:60%;">Result</td>
+		<th style="width:40%;"><div>Command</div></td>
+		<th style="width:60%;">Result</td>
 	</tr>
 	<tr>
 		<td><li>&#42; <code>Command: n</code></li>	</td>

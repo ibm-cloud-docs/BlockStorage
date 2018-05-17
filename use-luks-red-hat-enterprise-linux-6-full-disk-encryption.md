@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,23 @@ lastupdated: "2018-03-16"
 
 # Using LUKS in Red Hat Enterprise Linux for Full Disk Encryption
 
-Linux Unified Key Setup-on-disk-format (LUKS) allows you to encrypt partitions on your Red Hat Enterprise Linux 6 (server), which is particularly important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
+You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is particularly important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
 
 ## What LUKS does
 
 - Encrypts entire block devices and is therefore well-suited for protecting the contents of mobile devices such as removable storage media or laptop disk drives.
-    - The underlying contents of the encrypted block device are arbitrary, making it useful for encrypting swap devices. The encrypting can also be useful with certain databases that use specially formatted block devices for data storage.
+- The underlying contents of the encrypted block device are arbitrary, making it useful for encrypting swap devices. The encrypting can also be useful with certain databases that use specially formatted block devices for data storage.
 - Uses the existing device mapper kernel subsystem.
 - Provides passphrase strengthening, which protects against dictionary attaches.
 - Allows users to add backup keys or passphrases because LUKS devices contain multiple key slots.
 
 
-## What LUKS does not do
+## What LUKS doesn't do
 
 - Allow applications requiring many (more than eight) users to have distinct access keys to same devices.
 - Work with applications requiring file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## How to Set up New LUKS Encrypted Volume with Endurance {{site.data.keyword.blockstorageshort}}
+## How to set up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
 These steps assume the server already has access to a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that has not been formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access {{site.data.keyword.blockstorageshort}} with Linux.
 
@@ -46,9 +46,9 @@ Note that performing data encryption creates a load on the host that could poten
    ```
    {: pre}
 3. Locate your volume in the listing.
-4. Encrypt the block device; 
+4. Encrypt the block device;
 
-   1. this command initializes the volume and allows you to set a passphrase: <br/>
+   1. this command initializes the volume and you can to set a passphrase: <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -83,7 +83,7 @@ Note that performing data encryption creates a load on the host that could poten
      mode:    read/write
      Command successful
    ```
-8. Write random data to /dev/mapper/cryptData encrypted device. This ensures that outside world will see this as random data, which means it is protected against disclosure of usage patterns. Be aware that this step can take a while.<br/>
+8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This ensures that outside world will see this as random data, which means it's protected against disclosure of usage patterns. This step can take a while.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
@@ -129,8 +129,8 @@ Note that performing data encryption creates a load on the host that could poten
    └─xvda2                                    202:2    0 24.8G  0 part  /
    sda                                          8:0    0   20G  0 disk
    └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-   └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   └─cryptData (dm-1)                         253:1    0   20G  0 crypt /cryptData
    sdb                                          8:16   0   20G  0 disk
    └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-   └─cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   └─cryptData (dm-1)                         253:1    0   20G  0 crypt /cryptData
    ```
