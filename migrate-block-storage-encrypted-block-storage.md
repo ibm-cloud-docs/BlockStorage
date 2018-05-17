@@ -63,6 +63,7 @@ Use the following steps to create a LUN of the same size or larger than the orig
 
 Storage will be provisioned in less than a minute and will be visible on the {{site.data.keyword.blockstorageshort}} page of the {{site.data.keyword.slportal}}.
 
+**IMPORTANT**: When placing an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
  
 ## Connect new volume to host
 
