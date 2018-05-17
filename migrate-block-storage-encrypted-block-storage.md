@@ -8,9 +8,9 @@ lastupdated: "2018-05-17"
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Migrating {{site.data.keyword.blockstorageshort}} to Encrypted {{site.data.keyword.blockstorageshort}}
+# Upgrading existing {{site.data.keyword.blockstorageshort}} to encrypted {{site.data.keyword.blockstorageshort}} with updated features
 
-Encrypted {{site.data.keyword.blockstoragefull}} is now available in select data centers. For more information on provider-managed encrypted storage, read [{{site.data.keyword.blockstorageshort}} Encryption-At-Rest article](block-file-storage-encryption-rest.html). To see the list of upgraded data centers and available features click [here](new-ibm-block-and-file-storage-location-and-features.html).
+Encrypted {{site.data.keyword.blockstoragefull}} is now available in select data centers. For more information on provider-managed encrypted storage, read [{{site.data.keyword.blockstorageshort}} Encryption-At-Rest article](block-file-storage-encryption-rest.html). To see the list of upgraded data centers and available features such as adjustable IOPS rates or expandable volumes click [here](new-ibm-block-and-file-storage-location-and-features.html).
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation. The more common scenarios have been outlined for your convenience. There's an assumption that you already have your non-encrypted file LUN attached to your host. If not, follow the directions below that best fits the operating system you're running to accomplish this task.
 
@@ -19,11 +19,11 @@ The preferred migration path is to connect to both LUNs simultaneously and trans
 - [Accessing {{site.data.keyword.blockstorageshort}} on Windows](accessing-block-storage-windows.html)
 
  
-## Create an encrypted LUN
+## Create a new, encrypted LUN with updated features
 
 Use the following steps to create a LUN of the same size or larger than the original, that is encrypted to facilitate the migration process. 
 
-### Order an encrypted Endurance storage LUN
+### Order an Endurance storage LUN
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
 
@@ -43,7 +43,7 @@ Use the following steps to create a LUN of the same size or larger than the orig
 
 9. Submit the order.
 
-## Order an encrypted Performance storage LUN
+## Order a Performance storage LUN
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
 
@@ -77,25 +77,25 @@ Storage will be provisioned in less than a minute and will be visible on the {{s
  
 ## Snapshots and Replication
 
-Do you have snapshots and replication established for your original LUN? If yes, you'll need to set up replication, snapshot space and create snapshot schedules for the new encrypted LUN with the same settings as the original volume. 
+Do you have snapshots and replication established for your original LUN? If yes, you'll need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume. 
 
-Note that if your replication target data center hasn't been upgraded for encryption, you won't be able to establish replication for the encrypted volume until that data center is upgraded.
+Note that if your replication target data center hasn't been upgraded for encryption, you won't be able to establish replication for the new volume until that data center is upgraded.
 
  
 ## Migrate your data
 
-You should be connected to both your original and encrypted {{site.data.keyword.blockstorageshort}} LUNs. 
+You should be connected to both your original and new {{site.data.keyword.blockstorageshort}} LUNs. 
 - If you need assistance with connecting the two LUNs to your host, open a support ticket.
 
 ### Data Considerations
 
-At this point, you should consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your encrypted LUN. If you have backups, static content and things that aren't expected to change during the copy, there aren't any major considerations.
+At this point, you should consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN. If you have backups, static content and things that aren't expected to change during the copy, there aren't any major considerations.
 
 If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, you should perform the migration during off peak times. If you need assistance with these considerations, open a support ticket.
  
 ### Microsoft Windows
 
-To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to your encrypted LUN, format the new storage and copy the files over using Windows Explorer.
+To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN, format the new storage and copy the files over using Windows Explorer.
 
  
 ### Linux
@@ -103,11 +103,11 @@ To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to y
 You may consider using 'rsync' to copy over the data. Below is an example command:
 
 ```
-[root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/encrypted/block/storage
+[root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
 ```
 
 It's recommended that you use the above command with the `--dry-run` flag once to make sure the paths line up correctly. If this process is interrupted, you may want to delete the last destination file that was being copied to make sure that it`s copied to the new location from the beginning.
 
-When this command completes without the `--dry-run` flag, your data should be copied to the encrypted {{site.data.keyword.blockstorageshort}} LUN. Scroll up and run the command again to make sure nothing was missed. You may also manually review both locations to look for anything that might be missing.
+When this command completes without the `--dry-run` flag, your data should be copied to the new {{site.data.keyword.blockstorageshort}} LUN. Scroll up and run the command again to make sure nothing was missed. You may also manually review both locations to look for anything that might be missing.
 
-When your migration is complete, you`ll be able to move production to the encrypted LUN. Then, you can detach and delete your original LUN from your configuration. Note that the deletion will also remove any snapshot or replica on the target site that was associated with the original LUN.
+When your migration is complete, you`ll be able to move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. Note that the deletion will also remove any snapshot or replica on the target site that was associated with the original LUN.
