@@ -10,7 +10,7 @@ lastupdated: "2018-05-17"
 
 # Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
 
-Enhanced {{site.data.keyword.blockstoragefull}} is now available in select data centers. For more information on provider-managed encrypted storage, read the [{{site.data.keyword.blockstorageshort}} Encryption-At-Rest](block-file-storage-encryption-rest.html) article. To see the list of upgraded data centers and available features such as adjustable IOPS rates and expandable volumes click [here](new-ibm-block-and-file-storage-location-and-features.html).
+Enhanced {{site.data.keyword.blockstoragefull}} is now available in select data centers. To see the list of upgraded data centers and available features such as adjustable IOPS rates and expandable volumes, click [here](new-ibm-block-and-file-storage-location-and-features.html). For more information on provider-managed encrypted storage, read the [{{site.data.keyword.blockstorageshort}} Encryption-At-Rest](block-file-storage-encryption-rest.html) article.
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation. 
 
@@ -20,55 +20,46 @@ There's an assumption that you already have your non-encrypted LUN attached to y
 - [Accessing {{site.data.keyword.blockstorageshort}} on Windows](accessing-block-storage-windows.html)
 
  
-## Create a new, encrypted LUN with updated features
+## Create new {{site.data.keyword.blockstorageshort}}
 
 **IMPORTANT**: When placing an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
 
-The following instructions are for ordering an enhanced LAN through the UI. Your new LUN should be of the same size or greater than the original volume to facilitate the migration.
+The following instructions are for ordering an enhanced LUN through the UI. Your new LUN should be of the same size or greater than the original volume to facilitate the migration.
 
-### Order an Endurance storage LUN
+### Order an Endurance LUN
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
+1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+2. In the upper right corner, click **Order {{site.data.keyword.blockstorageshort}}**.
+3. Select **Endurance** from the **Select Storage Type** list.
+4. Select your deployment **Location** (data center).
+   - Ensure that the new Storage is added in the same location as the previous volume.
+5. Select your billing option. You can choose between hourly and monthly billing.
+6. Select the IOPS tier..
+7. Click *Select Storage Size** and select your storage size from the list.
+8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
+9. Choose your **OS Type** from the list.
+10. Click **Continue**. You’re shown the monthly and prorated charges with a final chance to review order details.
+11. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
 
-2. Click **Order {{site.data.keyword.blockstorageshort}}**.
+### Order a Performance LUN
 
-3. Select **Endurance**.
+1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+2. in the upper right corner, click **Order {{site.data.keyword.blockstorageshort}}**.
+3. Select **Performance** from the **Select Storage Type** drop-down list.
+4. Click the **Location** drop-down list and select your data center.
+   - Ensure that the new Storage is added in the same location as the previously ordered host(s).
+5. Select your billing option. You can choose between hourly and monthly billing.
+6. Select the radio button next to the appropriate **Storage Size**.
+7. Enter the IOPS in the **Specify IOPS** field.
+8. Click **Continue**. You are shown the monthly and prorated charges with a final chance to review order details. Click **Previous** if you want to change your order.
+9. Click the **I have read the Master Service Agreement** check box and click **Place Order Button.
 
-4. Select the data center where your original LUN is located. <br/> **Note**: Enhanced features are only available in data centers marked with an asterisk (`*`).
-
-5. Select the IOPS tier.
-
-6. Select the amount of storage space in GBs. For TB, 1 TB equals 1,000 GB, and 12 TB equals 12,000 GB.
-
-7. Enter the amount of storage space in GBs for snapshots.
-
-8. Select the VMware OS from the drop-down list.
-
-9. Submit the order.
-
-### Order a Performance storage LUN
-
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} home page OR Click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}** in the {{site.data.keyword.BluSoftlayer_full}} catalog.
-
-2. Click **Order {{site.data.keyword.blockstorageshort}}**.
-
-3. Select **Performance**.
-
-4. Select the data center where your original LUN is located. <br/> **Note**: Enhanced features are only available in data centers marked with an asterisk (`*`).
-
-5. Select the amount of storage space in GBs. For TB, 1 TB equals 1,000 GB, and 12 TB equals 12,000 GB.
-
-6. Enter the amount of IOPS in intervals of 100.
-
-7. Select the VMware OS from the drop-down list.
-
-8. Submit the order.
 
 Storage will be provisioned in less than a minute and will be visible on the {{site.data.keyword.blockstorageshort}} page of the {{site.data.keyword.slportal}}.
 
 
  
-## Connect new volume to host
+## Connect new {{site.data.keyword.blockstorageshort}} to host
 
 "Authorized" hosts are hosts that have been given access rights to a volume. Without host authorization, you won't be able to access or use the storage from your system. Authorizing a host to access your volume generates the user name, password and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 

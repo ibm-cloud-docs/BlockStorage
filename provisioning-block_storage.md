@@ -34,9 +34,9 @@ There are two different ways you can provision {{site.data.keyword.blockstorages
 6. Click *Select Storage Size** and select your storage size from the list.
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
 8. Choose your **OS Type** from the list.
-10. Click **Continue**. You’re shown the monthly and prorated charges with a final chance to review order details.
-11. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
-12. Your new storage allocation should be available in a few minutes.
+9. Click **Continue**. You’re shown the monthly and prorated charges with a final chance to review order details.
+10. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
+11. Your new storage allocation should be available in a few minutes.
 
 **Note**: By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. Contact your saler representative to increase the number of your volumes. Read about increasing limits [here](managing-storage-limits.html).
 
