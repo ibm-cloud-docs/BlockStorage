@@ -25,11 +25,10 @@ Before you can replicate, you must create a snapshot schedule. When you failover
 
 {{site.data.keyword.BluSoftlayer_full}}'s data centers have been paired into primary and remote combinations worldwide.
 See Table 1 for the complete list of data center availability and replication targets.
-Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam have multiple data centers.
 
 
 <table cellpadding="1" cellspacing="1">
-	<caption>Table 1</caption>
+	<caption>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</caption>
 	<tbody>
 		<tr>
 			<th>US 1<sup><img src="/images/numberone.png" alt="footnote" /></sup></th>
