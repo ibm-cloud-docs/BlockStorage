@@ -15,13 +15,13 @@ lastupdated: "2018-08-17"
 <table align="center">
 	<tbody>
 		<tr>
-			<th><strong>Performance tier</strong></td>
+			<th><strong>Performance tier</strong></th>
 			<td style="text-align: center; vertical-align: middle;">0.25 IOPS per GB</td>
 			<td style="text-align: center; vertical-align: middle;">2 IOPS per GB</td>
 			<td style="text-align: center; vertical-align: middle;">4 IOPS per GB</td>
 		</tr>
 		<tr>
-			<th><strong>Maximum host queue depth</strong></td>
+			<th><strong>Maximum host queue depth</strong></th>
 			<td style="text-align: center; vertical-align: middle;">8</td>
 			<td style="text-align: center; vertical-align: middle;">24</td>
 			<td style="text-align: center; vertical-align: middle;">56</td>

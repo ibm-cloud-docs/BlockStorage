@@ -10,7 +10,7 @@ lastupdated: "2018-05-17"
 
 # New Locations and Features of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}
 
-{{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}! 
+{{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}!
 
 The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage provisioned in the select data centers are automatically created with the new version.
 
@@ -21,12 +21,12 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 	<caption>Data Center Availability</caption>
 	<tbody>
 		<tr>
-			<th><strong>US 2</strong></td>
-			<th><strong>EU</strong></td>
-			<th><strong>Australia</strong></td>
-			<th><strong>Canada</strong></td>
-			<th><strong>Latin America</strong></td>
-			<th><strong>Asia Pacific</strong></td>
+			<th><strong>US 2</strong></th>
+			<th><strong>EU</strong></th>
+			<th><strong>Australia</strong></th>
+			<th><strong>Canada</strong></th>
+			<th><strong>Latin America</strong></th>
+			<th><strong>Asia Pacific</strong></th>
 		</tr>
 		<tr>
 			<td>
@@ -78,14 +78,14 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 
 The new storage has the following features and capabilities:
 
-- **[Provider-managed encryption for data-at-rest](block-file-storage-encryption-rest.html)**. 
+- **[Provider-managed encryption for data-at-rest](block-file-storage-encryption-rest.html)**.
   All {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} will automatically be provisioned as encrypted at no additional charge.
-- **10 IOPS per GB tier option**. 
+- **10 IOPS per GB tier option**.
   A new tier has been added to the Endurance type {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} to support the most demanding workloads.
 - **All flash-backed storage.**
   All {{site.data.keyword.blockstorageshort}} provisioned with either Endurance or Performance type at 2 IOPS per GB or higher are backed by all-flash storage.
 - **Snapshot and Replication** support with {{site.data.keyword.blockstorageshort}}
-- **Hourly Billing** option added for storage that's planned to be used for less than a full month. 
+- **Hourly Billing** option added for storage that's planned to be used for less than a full month.
 - **Up to 48,000 IOPS for {{site.data.keyword.blockstorageshort}}** that is provisioned with Performance.
 - **IOPS rates are adjustable** to improve performance in case of seasonal load changes. Read more about this feature [here](adjustable-iops.html).
 - Create a new clone of your data with the **[{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html)**.

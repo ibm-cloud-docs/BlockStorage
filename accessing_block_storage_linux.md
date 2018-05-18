@@ -98,8 +98,8 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
      chkconfig multipathd on
      ```
      {: pre}
-   
-   - CentOS 7: 
+
+   - CentOS 7:
      ```
      modprobe dm-multipath
      ```
@@ -114,13 +114,13 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
      systemctl enable multipathd
      ```
      {: pre}
-     
+
    - Ubuntu:
      ```
-     service multipath-tools start 
+     service multipath-tools start
      ```
      {: pre}
-    
+
    - For other distributions, please consult the OS vendor documentation.
 
 4. Verify multipath is working.
@@ -129,16 +129,16 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
      multipath -l
      ```
      {: pre}
-     
-     If it returns blank at this time it is working. 
-   
+
+     If it returns blank at this time it is working.
+
    - CentOS 7:
      ```
      multipath -ll
      ```
      {: pre}
-     
-     RHEL 7/CentOS 7 may return No fc_host device, which can be ignored. 
+
+     RHEL 7/CentOS 7 may return No fc_host device, which can be ignored.
 
 5. Update **/etc/iscsi/initiatorname.iscsi** file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lower case.
    ```
@@ -203,7 +203,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
       {: pre}
 
    - Other distributions: please consult the OS vendor documentation.
-   
+
 8. Discover the device using the Target IP address obtained from the {{site.data.keyword.slportal}}.
 
      a. Run the discovery against the iSCSI array:
@@ -314,11 +314,11 @@ Following are the steps to create a file system on top of the newly mounted volu
 <table border="0" cellpadding="0" cellspacing="0">
  <tbody>
 	<tr>
-		<th style="width:40%;"><div>Command</div></td>
-		<th style="width:60%;">Result</td>
+		<th style="width:40%;"><div>Command</div></th>
+		<th style="width:60%;">Result</th>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: n</code></li>	</td>
+		<td><li>&#42; <code>Command: n</code></li></td>
 		<td>Creates a new partition.</td>
 	</tr>
 	<tr>
@@ -400,8 +400,8 @@ To create a file system with **parted** follow these steps:
       ```
       {: pre}
 
-   3. Create a new GPT partition table 
-   
+   3. Create a new GPT partition table
+
       ```
       (parted) mklabel gpt
       ```
