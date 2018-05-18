@@ -26,8 +26,8 @@ Before you can replicate, you must create a snapshot schedule. When you failover
 {{site.data.keyword.BluSoftlayer_full}}'s data centers have been paired into primary and remote combinations worldwide.
 See Table 1 for the complete list of data center availability and replication targets.
 
-<table cellpadding="1" cellspacing="1">
-	<caption><p>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</p>
+<table style="width: 80.0%;">
+	<caption <caption style="text-align: left;">><p>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</p>
 		<p>Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities <strong>can't</strong> initiate replication with replica targets in US 1 data centers.</p>
 </caption>
 	<thead>
