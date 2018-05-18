@@ -311,16 +311,19 @@ Following are the steps to create a file system on top of the newly mounted volu
      {: pre}
 
 #### Fdisk command table
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
-  <caption>fdisk command table</caption>
+  <caption>fdisk command table contains commands on the left and expected results on the right.</caption>
     <tbody>
 	<tr>
 		<th style="width:40%;">Command</th>
 		<th style="width:60%;">Result</th>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: n</code></li></td>
-		<td>Creates a new partition.</td>
+		<td><li><code>Command: n</code></li></td>
+		<td>Creates a new partition. &#42;</td>
 	</tr>
 	<tr>
 		<td><li><code>Command action: p</code></li></td>
@@ -339,20 +342,20 @@ Following are the steps to create a file system on top of the newly mounted volu
 		<td>Hit Enter to go to the last cylinder.</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: t</code></li></td>
-		<td>Sets up the type of partition.</td>
+		<td><li> <code>Command: t</code></li></td>
+		<td>Sets up the type of partition. &#42;</td>
 	</tr>
 	<tr>
 		<td><li><code>Select partition 1.</code></li></td>
 		<td>Selects partition 1 to be set up as a specific type.</td>
 	</tr>
 	<tr>
-		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
-		<td>Selects Linux as the Type (83 is the hex code for Linux).</td>
+		<td><li><code>Hex code: 83</code></li></td>
+		<td>Selects Linux as the Type (83 is the hex code for Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>&#42; <code>Command: w</code></li></td>
-		<td>Writes the new partition information to the disk.</td>
+		<td><li><code>Command: w</code></li></td>
+		<td>Writes the new partition information to the disk. &#42;</td>
 	</tr>
    </tbody>
 </table>
