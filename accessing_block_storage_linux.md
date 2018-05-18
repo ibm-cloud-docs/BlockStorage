@@ -312,7 +312,8 @@ Following are the steps to create a file system on top of the newly mounted volu
 
 #### Fdisk command table
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>fdisk command table</caption>
+    <tbody>
 	<tr>
 		<th style="width:40%;">Command</th>
 		<th style="width:60%;">Result</th>
@@ -353,7 +354,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 		<td><li>&#42; <code>Command: w</code></li></td>
 		<td>Writes the new partition information to the disk.</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`)Type m for Help.
