@@ -13,6 +13,7 @@ lastupdated: "2018-08-17"
 {{site.data.keyword.BluSoftlayer_full}} recommends a maximum host and application input/output (I/O) queue depth for each performance tier. The host setting doesn’t affect disk and controller latency, only latency observed by the host and application.
 
 <table align="center">
+	<caption>Recommended queue depth per IOPS tier</caption>
 	<tbody>
 		<tr>
 			<th><strong>Performance tier</strong></th>
