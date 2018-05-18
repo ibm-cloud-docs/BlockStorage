@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -27,12 +27,12 @@ Before you can replicate, you must create a snapshot schedule. When you failover
 See Table 1 for the complete list of data center availability and replication targets.
 
 <table style="width: 80.0%;">
-	<caption <caption style="text-align: left;">><p>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</p>
-		<p>Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities <strong>can't</strong> initiate replication with replica targets in US 1 data centers.</p>
+	<caption style="text-align: left;"><p>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</p>
+		<p>&#42; Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities <strong>can't</strong> initiate replication with replica targets in US 1 data centers.</p>
 </caption>
 	<thead>
 		<tr>
-			<th>US 1*</th>
+			<th>US 1 &#42;</th>
 			<th>US 2</th>
 			<th>Latin America</th>
 			<th>Canada</th>
