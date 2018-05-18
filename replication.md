@@ -26,39 +26,44 @@ Before you can replicate, you must create a snapshot schedule. When you failover
 {{site.data.keyword.BluSoftlayer_full}}'s data centers have been paired into primary and remote combinations worldwide.
 See Table 1 for the complete list of data center availability and replication targets.
 
-
 <table cellpadding="1" cellspacing="1">
-	<caption>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</caption>
-	<tbody>
+	<caption><p>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</p>
+		<p>Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities <strong>can't</strong> initiate replication with replica targets in US 1 data centers.</p>
+</caption>
+	<thead>
 		<tr>
-			<th>US 1<sup><img src="/images/numberone.png" alt="footnote" /></sup></th>
+			<th>US 1*</th>
 			<th>US 2</th>
-			<th>South America</th>
+			<th>Latin America</th>
 			<th>Canada</th>
 			<th>Europe</th>
-			<th>Asia Pacific</th>
-			<th>Australia</th>
+			<th>Asia-Pacific</th>
+			<th>Australia</strong></t>
 		</tr>
+	</thead>
+	<tbody>
 		<tr>
-			<td>DAL01<br/>
-				DAL05<br/>
-				DAL06<br/>
-				HOU02<br/>
-				SJC01<br/>
-				WDC01<br/>
-				<br/>
-				<br/>
-				<br/><br/>
+			<td>DAL01<br />
+				DAL05<br />
+				DAL06<br />
+				HOU02<br />
+				SJC01<br />
+				WDC01<br />
+				<br />
+				<br />
+				<br />
+				<br />
 			</td>
 			<td>SJC03<br />
-				SJC04<br />
-				WDC04<br />
-				WDC06<br />
-				WDC07<br />
-				DAL09<br />
+			       SJC04<br />
+			       WDC04<br />
+			       WDC06<br />
+			       WDC07<br />
+			       DAL09<br />
 				DAL10<br />
 				DAL12<br />
-				DAL13<br /><br />
+				DAL13<br />
+				<br />
 			</td>
 			<td>MEX01<br />
 				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br />
@@ -96,15 +101,8 @@ See Table 1 for the complete list of data center availability and replication ta
 				<br /><br /><br /><br /><br /><br /><br />
 			</td>
 		</tr>
-		<tr>
-			<td colspan="7">
-				<p><sup><img src="/images/numberone.png" alt="footnote" /></sup>Data centers in this region do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>can't</strong> initiate replication with non-encrypted data centers as replica targets.
-				</p>
-			</td>
-		</tr>
 	</tbody>
 </table>
-
 
 ## How do I create an initial replication?
 
