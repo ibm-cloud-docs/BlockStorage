@@ -23,7 +23,7 @@ Before you can replicate, you must create a snapshot schedule. When you failover
 
 ## How do I determine the remote data center for my replicated storage volume?
 
-{{site.data.keyword.BluSoftlayer_full}}'s data centers have been paired into primary and remote combinations worldwide .
+{{site.data.keyword.BluSoftlayer_full}}'s data centers have been paired into primary and remote combinations worldwide.
 See Table 1 for the complete list of data center availability and replication targets.
 Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam have multiple data centers.
 
