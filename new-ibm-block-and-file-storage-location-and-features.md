@@ -21,12 +21,12 @@ The new {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestor
 	<caption>Data Center Availability</caption>
 	<tbody>
 		<tr>
-			<th><strong>US 2</strong></th>
-			<th><strong>EU</strong></th>
-			<th><strong>Australia</strong></th>
-			<th><strong>Canada</strong></th>
-			<th><strong>Latin America</strong></th>
-			<th><strong>Asia Pacific</strong></th>
+			<th>US 2</th>
+			<th>EU</th>
+			<th>Australia</th>
+			<th>Canada</th>
+			<th>Latin America</th>
+			<th>Asia Pacific</th>
 		</tr>
 		<tr>
 			<td>
