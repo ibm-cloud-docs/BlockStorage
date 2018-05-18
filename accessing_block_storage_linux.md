@@ -316,11 +316,13 @@ Following are the steps to create a file system on top of the newly mounted volu
 
 <table border="0" cellpadding="0" cellspacing="0">
   <caption>fdisk command table contains commands on the left and expected results on the right.</caption>
-    <tbody>
+    <thead>
 	<tr>
 		<th style="width:40%;">Command</th>
 		<th style="width:60%;">Result</th>
 	</tr>
+    </thead>
+    <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
 		<td>Creates a new partition. &#42;</td>
