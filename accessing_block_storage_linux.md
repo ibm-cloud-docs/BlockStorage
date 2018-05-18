@@ -322,39 +322,39 @@ Following are the steps to create a file system on top of the newly mounted volu
 		<th style="width:60%;">Result</th>
 	</tr>
 	<tr>
-		<td><li><code>Command: n</code></li></td>
+		<td><code>Command: n</code></td>
 		<td>Creates a new partition. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>Makes the partition the primary one.</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1-4): 1</code></li></td>
+		<td><code>Partition number (1-4): 1</code></td>
 		<td>Becomes partition 1 on the disk.</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1-8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1-8877): 1 (default)</code></td>
 		<td>Start at cylinder 1.</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>Hit Enter to go to the last cylinder.</td>
 	</tr>
 	<tr>
-		<td><li> <code>Command: t</code></li></td>
+		<td><code>Command: t</code></td>
 		<td>Sets up the type of partition. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>Selects partition 1 to be set up as a specific type.</td>
 	</tr>
 	<tr>
-		<td><li><code>Hex code: 83</code></li></td>
+		<td><code>Hex code: 83</code></td>
 		<td>Selects Linux as the Type (83 is the hex code for Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li><code>Command: w</code></li></td>
+		<td><code>Command: w</code></td>
 		<td>Writes the new partition information to the disk. &#42;</td>
 	</tr>
    </tbody>
