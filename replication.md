@@ -34,10 +34,10 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 		<tr>
 			<th>US 1<sup><img src="/images/numberone.png" alt="footnote" /></sup></th>
 			<th>US 2</th>
-			<th>Latin/South America</th>
+			<th>South America</th>
 			<th>Canada</th>
 			<th>Europe</th>
-			<th>Asia-Pacific</th>
+			<th>Asia Pacific</th>
 			<th>Australia</th>
 		</tr>
 		<tr>
@@ -98,7 +98,9 @@ Note that some cities, such as Dallas, San Jose, Washington, D.C., and Amsterdam
 			</td>
 		</tr>
 		<tr>
-			<td colspan="7"><p><sup><img src="/images/numberone.png" alt="footnote" /></sup>Data centers in this region do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>can't</strong> initiate replication with non-encrypted data centers as replica targets.</p>
+			<td colspan="7">
+				<p><sup><img src="/images/numberone.png" alt="footnote" /></sup>Data centers in this region do NOT have encrypted storage.<br /><strong>Note</strong>: Data centers with encrypted storage <strong>can't</strong> initiate replication with non-encrypted data centers as replica targets.
+				</p>
 			</td>
 		</tr>
 	</tbody>
