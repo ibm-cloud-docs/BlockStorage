@@ -219,7 +219,7 @@ Failbacks are initiated under **Storage**, **{{site.data.keyword.blockstoragesho
 3. Select **Failback**.
    Expect a message across the top of the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** indicating that an active transaction is occurring. Hovering over the icon produces a dialog box indicating the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read only. You can't edit any snapshot schedule, change snapshot space, and so on. The event is logged in replication history.
    Another message informs you when your source volume is live. Your target volume has an Inactive status.
-4. In the upper right corner, click **View All* {{site.data.keyword.blockstorageshort}}** link .
+4. In the upper right corner, click **View All {{site.data.keyword.blockstorageshort}}** link .
 5. Click your active Endurance LUN (source). This volume has an **Active** status now.
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
 
