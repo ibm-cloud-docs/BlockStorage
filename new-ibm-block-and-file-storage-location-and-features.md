@@ -46,7 +46,7 @@ The new {{site.data.keyword.blockstorageshort}} is currently available in follow
 				LON06<br />
 				FRA02<br />
 				FRA04<br />
-				FRA05<br />			   
+				FRA05<br />
 				AMS01<br />
 				AMS03<br />
 				OSLO1<br />
