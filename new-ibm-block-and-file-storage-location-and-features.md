@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-22"
+lastupdated: "2018-05-29"
 
 ---
 {:new_window: target="_blank"}
@@ -18,62 +18,54 @@ The new storage is available in select data centers, and is backed by flash stor
 
 The new {{site.data.keyword.blockstorageshort}} is currently available in following regions/data centers with more data center availability coming soon!
 <table style="width:100%;">
-	<caption>Data Center Availability</caption>
-	<tbody>
-		<tr>
-			<th>US 2</th>
-			<th>EU</th>
-			<th>Australia</th>
-			<th>Canada</th>
-			<th>Latin America</th>
-			<th>Asia Pacific</th>
-		</tr>
-		<tr>
-			<td>
-				<p>SJC03<br />
-				SJC04<br />
-				WDC04<br />
-				WDC06<br />
-				WDC07<br />
-				DAL09<br />
-				DAL10<br />
-				DAL12<br />
-				DAL13<br /><br /><br /></p>
-			</td>
-			<td>
-				<p>LON02<br />
-				LON04<br />
-				LON06<br />
-				FRA02<br />
-				FRA04<br />
-				FRA05<br />
-				AMS01<br />
-				AMS03<br />
-				OSLO1<br />
-				PAR01<br />
-				MIL01</p>
-			</td>
-			<td>
-				<p>SYD01<br />
-				SYD04<br />
-				MEL01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-			</td>
-			<td>
-				<p>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-			</td>
-			<td>
-				<p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-			</td>
-						<td>
-				<p>TOK02<br />
-				HKG02<br />
-			        SEO01<br />
-				SNG01<br />
-				CHE01<br /><br /><br /><br /><br /><br /><br /></p>
-			</td>
-			</tr>
-	</tbody>
+ <caption>Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</caption>
+	 <tr>
+	   <td><strong>US 2</strong></td>
+	   <td><strong>EU</strong></td>
+	   <td><strong>Australia</strong></td>
+	   <td><strong>Canada</strong></td>
+	   <td><strong>Latin America</strong></td>
+	   <td><strong>Asia Pacific</strong></td>
+	</tr>
+	<tr>
+	   <td><p>SJC03<br />
+		SJC04<br />
+		WDC04<br />
+		WDC06<br />
+		WDC07<br />
+		DAL09<br />
+		DAL10<br />
+		DAL12<br />
+		DAL13<br /><br /><br /></p>
+	   </td>
+	   <td><p>LON02<br />
+		LON04<br />
+		LON06<br />
+		FRA02<br />
+		FRA04<br />
+		FRA05<br />
+		AMS01<br />
+		AMS03<br />
+		OSLO1<br />
+		PAR01<br />
+		MIL01</p>
+            </td>
+	    <td><p>SYD01<br />
+		SYD04<br />
+		MEL01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+	    </td>
+	    <td><p>TOR01<br />
+		MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+	    </td>
+	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+	    </td>
+	    <td><p>TOK02<br />
+		HKG02<br />
+		SEO01<br />
+		SNG01<br />
+		CHE01<br /><br /><br /><br /><br /><br /><br /></p>
+	   </td>
+	</tr>
 </table>
 
 
