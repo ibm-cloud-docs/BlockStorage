@@ -19,6 +19,7 @@ IBM Cloud Storage - ブロック・ストレージ
         provisioning-block_storage.md
         ordering-snapshots.md
         managing-storage-limits.md
+        migrate-block-storage-encrypted-block-storage.md
 
     {: .topicgroup}
     構成
@@ -31,13 +32,11 @@ IBM Cloud Storage - ブロック・ストレージ
     {: .topicgroup}
     セキュリティー
         block-file-storage-encryption-rest.md
-        migrate-block-storage-encrypted-block-storage.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
 
     managing-block-storage.md
     how-to-create-duplicate-volume.md
     working-with-snapshots.md
-    brocade-vrouter-vyatta-set-guide-vmware-environments-endurance-or-performance-storage.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

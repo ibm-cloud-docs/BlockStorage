@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-06"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -30,9 +30,9 @@ Geben Sie in dem Ticket die folgenden Informationen an:
 *Ihre Antwort könnte beispielsweise "25x Performance 20GB @ 10 IOPS in DAL09" oder "50x Endurance 2TB @ 0,25 IOPS in SJC03" sein.*
  
 - **Geben Sie eine Schätzung dazu ab, wann Sie erwarten, dass die gesamte angeforderte Datenträgererhöhung bereitgestellt sein wird.** <br />
- *Ihre Antwort könnte beispielsweise "90 Tage" sein.*
+ "*Ihre Antwort könnte beispielsweise "90 Tage" sein.*
 
 - **Treffen Sie eine Prognose über die erwartete durchschnittliche Kapazitätsnutzung dieser Datenträger in den nächsten 90 Tagen.** <br />
-*Ihre Antwort könnte beispielsweise sein: "Nutzung von 25% in 30 Tagen, von 50% in 60 Tagen und von 75% in 90 Tagen".*
+*Ihre Antwort könnte beispielsweise sein: "Nutzung von 25 Prozent in 30 Tagen, von 50 Prozent in 60 Tagen und von 75 Prozent in 90 Tagen".*
 
 Sie müssen auf alle aufgeführten Fragen antworten. Sie werden über die Ticketverarbeitung über die Aktualisierung Ihrer Grenzwerte benachrichtigt. 

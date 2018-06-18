@@ -15,13 +15,14 @@ IBM Cloud Storage - Block Storage
 
     {: .navgroup id="howto"}
     {: .topicgroup}
-    Provisioning
+    Bereitstellung
         provisioning-block_storage.md
         ordering-snapshots.md
         managing-storage-limits.md
+        migrate-block-storage-encrypted-block-storage.md
 
     {: .topicgroup}
-    Configuration
+    Konfiguration
         accessing_block_storage_linux.md
         accessing-block-storage-windows.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
@@ -29,9 +30,8 @@ IBM Cloud Storage - Block Storage
         configure-backup-plesk.md
 
     {: .topicgroup}
-    Security
+    Sicherheit
         block-file-storage-encryption-rest.md
-        migrate-block-storage-encrypted-block-storage.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
 
     managing-block-storage.md
@@ -41,5 +41,5 @@ IBM Cloud Storage - Block Storage
 
     {: .navgroup id="help"}
     BlockStorageFAQ.md
-    [Python API Client Information](https://github.com/softlayer/softlayer-python)
+    [Informationen zum Python-API-Client](https://github.com/softlayer/softlayer-python)
     {: .navgroup-end}

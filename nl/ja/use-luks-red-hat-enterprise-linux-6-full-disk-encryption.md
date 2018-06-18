@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,12 @@ lastupdated: "2018-03-16"
 
 # Red Hat Enterprise Linux でのフルディスク暗号化のための LUKS の使用
 
-Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enterprise Linux 6 (サーバー) 上のパーティションを暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは特に重要です。 LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
+Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは特に重要です。LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
 
 ## LUKS にある機能
 
 - ブロック・デバイス全体を暗号化するので、取り外し可能ストレージ・メディアやラップトップ・ディスク・ドライブなどのモバイル・デバイスの内容を保護するのに適している。
-    - 暗号化ブロック・デバイスは、基礎となる内容が任意なので、スワップ・デバイスの暗号化に役立ちます。 暗号化は、データ・ストレージ用の特殊なフォーマットのブロック・デバイスを使用する特定のデータベースにも役立ちます。
+- 暗号化ブロック・デバイスは、基礎となる内容が任意なので、スワップ・デバイスの暗号化に役立ちます。 暗号化は、データ・ストレージ用の特殊なフォーマットのブロック・デバイスを使用する特定のデータベースにも役立ちます。
 - 既存のデバイス・マッパー・カーネル・サブシステムを使用する。
 - パスフレーズを強化して、辞書攻撃から保護する。
 - LUKS デバイスは複数の鍵スロットを含んでいるため、ユーザーはバックアップ鍵やパスフレーズを追加できる。
@@ -29,7 +29,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enter
 - 多数 (8 人を超える) のユーザーが同じデバイスに対して異なるアクセス・キーを持つことを必要とするアプリケーションを許可する。
 - ファイル・レベルの暗号化を必要とするアプリケーションを処理する ([詳細情報](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window})。
 
-## Endurance {{site.data.keyword.blockstorageshort}}を使用した新規の LUKS 暗号化ボリュームをセットアップする方法
+## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームをセットアップする方法
 
 以下のステップでは、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームに対し、サーバーが既にアクセス権限を持っていることを想定しています。 Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
 
@@ -46,9 +46,9 @@ Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enter
    ```
    {: pre}
 3. リスト内で該当するボリュームを見つけます。
-4. ブロック・デバイスを暗号化します。 
+4. ブロック・デバイスを暗号化します。
 
-   1. 次のコマンドは、ボリュームを初期化し、パスフレーズを設定できるようにします。 <br/>
+   1. 次のコマンドによってボリュームが初期化され、パスフレーズを設定できるようになります。<br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -83,7 +83,7 @@ Linux Unified Key Setup-on-disk-format (LUKS) を使用すると、Red Hat Enter
      mode:    read/write
      Command successful
    ```
-8. /dev/mapper/cryptData 暗号化デバイスにランダム・データを書き込みます。 これにより、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。 このステップには少し時間がかかる場合があることに注意してください。<br/>
+8. 暗号化されたデバイス上の `/dev/mapper/cryptData` にランダム・データを書き込みます。これにより、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。 このステップには少し時間がかかる場合があります。<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

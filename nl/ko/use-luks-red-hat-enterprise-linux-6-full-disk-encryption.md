@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,12 @@ lastupdated: "2018-03-16"
 
 # 전체 디스크 암호화에 Red Hat Enterprise Linux의 LUKS 사용
 
-LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise Linux 6(서버)에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 특별히 더 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
+LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise Linux 6 서버에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 특별히 더 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
 
 ## LUKS가 수행하는 작업
 
 - 전체 블록 디바이스를 암호화하기 때문에 모바일 디바이스(예: 이동식 스토리지 매체 또는 랩탑 디스크 드라이브)의 컨텐츠 보호에 매우 적합합니다.
-    - 암호화된 블록 디바이스의 기본 컨텐츠는 스왑 디바이스 암호화에 유용한 임의의 컨텐츠입니다. 암호화는 데이터 스토리지에 대해 특수하게 형식화된 블록 디바이스를 사용하는 특정 데이터베이스에도 유용할 수 있습니다.
+- 암호화된 블록 디바이스의 기본 컨텐츠는 스왑 디바이스 암호화에 유용한 임의의 컨텐츠입니다. 암호화는 데이터 스토리지에 대해 특수하게 형식화된 블록 디바이스를 사용하는 특정 데이터베이스에도 유용할 수 있습니다.
 - 기존 디바이스 맵퍼 커널 서브시스템을 사용합니다.
 - 사전 첨부(dictionary attach)에 대해 보호하는 비밀번호 문구 강화를 제공합니다.
 - LUKS 디바이스가 다중 키 슬롯을 포함하기 때문에 사용자는 백업 키 또는 비밀번호 문구를 추가할 수 있습니다.
@@ -29,7 +29,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 - 다수의(9명 이상) 사용자가 동일한 디바이스에 대해 개별 액세스 키를 가져야 하는 애플리케이션을 허용합니다.
 - 파일 레벨 암호화가 필요한 애플리케이션에 대해 작업합니다([자세한 정보](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
 
-## 내구성(Endurance) {{site.data.keyword.blockstorageshort}}를 사용하여 새 LUKS 암호화 볼륨 설정 방법
+## 내구성(Endurance) {{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정 방법
 
 이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않은, 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 이미 액세스한 것으로 가정합니다. Linux에서 {{site.data.keyword.blockstorageshort}}에 액세스하는 방법을 보려면 [여기](accessing_block_storage_linux.html)를 클릭하십시오.
 
@@ -46,7 +46,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
    ```
    {: pre}
 3. 목록에서 볼륨을 찾으십시오.
-4. 블록 디바이스를 암호화하십시오. 
+4. 블록 디바이스를 암호화하십시오.
 
    1. 이 명령으로 볼륨을 초기화하고 비밀번호 문구를 설정할 수 있습니다. <br/>
    
@@ -83,7 +83,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
      mode:    read/write
      Command successful
    ```
-8. /dev/mapper/cryptData 암호화된 디바이스에 랜덤 데이터를 기록하십시오. 그러면 외부에서 해당 데이터는 랜덤 데이터로 표시됩니다. 즉, 사용 패턴을 표시할 때 보호됩니다. 이 단계는 시간이 다소 걸릴 수 있습니다.<br/>
+8. 암호화된 디바이스의 `/dev/mapper/cryptData`에 랜덤 데이터를 기록하십시오. 그러면 외부에서 해당 데이터는 랜덤 데이터로 표시됩니다. 즉, 사용 패턴을 표시할 때 보호됩니다. 이 단계는 시간이 다소 걸릴 수 있습니다.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

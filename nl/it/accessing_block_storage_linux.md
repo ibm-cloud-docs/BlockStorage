@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # Connessione ai LUN iSCSI MPIO su Linux
 
-Queste istruzioni sono relative a RHEL6/Centos6. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione del tuo specifico distro per la configurazione e assicurati che il multipath supporti ALUA per la priorità di percorso.
+Queste istruzioni sono relative a RHEL6/Centos6. Abbiamo aggiunto delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione della tua specifica distribuzione e assicurati che il multipath supporti ALUA per la priorità di percorso. Ad esempio, puoi trovare le istruzioni di Ubuntu per la configurazione dell'iniziatore iSCSI [qui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e per la configurazione di DM-Multipath [qui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
 Prima di iniziare, assicurati che l'host che accede al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
 
-1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, fai clic su **Actions** per le azioni associate al volume di cui è appena stato eseguito il provisioning
+1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, fai clic su **Actions** associato al nuovo volume.
 2. Fai clic su **Authorize Host**.
-3. Seleziona l'host o gli host desiderati dall'elenco e fai clic su **Submit**; ciò autorizza l'host o gli host ad accedere al volume.
+3. Dall'elenco, seleziona l'host o gli host che devono poter accedere al volume e fai clic su **Submit**.
 
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
 
 Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.BluSoftlayer_full}} basata su Linux a un LUN (logical unit number) iCSCI (Internet Small Computer System Interface) MPIO (multipath input/output).
 
-Il nostro esempio è basato su **Red Hat Enterprise Linux 6**. La procedura deve essere regolata per altre distribuzioni di Linux, in base alla documentazione del fornitore del sistema operativo. Abbiamo aggiunto delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Ad esempio, nel caso di Ubuntu, fai clic [qui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} per le istruzioni di configurazione dell'iniziatore iSCSI e fai clic [qui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} per ulteriori informazioni sulla configurazione DM-Multipath.
-
 **Nota:** l'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}}** Details nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Nota:** come prassi ottimale, consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenterà la latenza e avrà un impatto negativo sulle prestazioni dell'archiviazione.
+**Nota:** consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenterà la latenza e avrà un impatto negativo sulle prestazioni dell'archiviazione.
 
 1. Installa iSCSI e i programmi di utilità multipath sul tuo host:
    - RHEL/CentOS:
@@ -48,7 +46,7 @@ Il nostro esempio è basato su **Red Hat Enterprise Linux 6**. La procedura deve
    {: pre}
 
 2. Crea o modifica il file di configurazione multipath.
-   - Modifica **/etc/multipath.conf** con la configurazione minima fornita nei seguenti comandi. <br /><br /> **Nota:** tieni presente che, per RHEL7/CentOS7, `multipath.conf` può essere vuoto perché il sistema operativo ha delle configurazioni integrate. Ubuntu non utilizza multipath.conf poiché è integrato in multipath-tools.
+   - Modifica **/etc/multipath.conf** con la configurazione minima fornita nei seguenti comandi. <br /><br /> **Nota:** tieni presente che, per RHEL7/CentOS7, `multipath.conf` può essere vuoto perché il sistema operativo ha delle configurazioni integrate. Ubuntu non usa multipath.conf poiché è integrato in multipath-tools.
 
    ```
    defaults {
@@ -233,12 +231,12 @@ Il nostro esempio è basato su **Red Hat Enterprise Linux 6**. La procedura deve
 
    In questo modo, dovrebbero ora essere riportati i percorsi.
 
-10. Verifica che il dispositivo sia connesso. Per impostazione predefinita, il dispositivo si collegherà a /dev/mapper/mpathX, dove X è l'ID generato del dispositivo connesso.
+10. Verifica che il dispositivo sia connesso.  Per impostazione predefinito, il dispositivo si collegherà a /dev/mapper/mpathX, dove X è l'ID generato del dispositivo connesso.
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  Dovrebbe riportare qualcosa simile a quanto segue,
+  Dovrebbe riportare qualcosa di simile a quanto segue,
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte
     ```
@@ -264,7 +262,7 @@ Viene di seguito riportata la procedura per creare un file system sul volume app
    ```
    {: pre}
 
-   XXX rappresenta il nome del disco restituito nel passo 1.<br />
+   XXX rappresenta il nome del disco restituito nel passo 1. <br />
 
    **Nota**: scorri ancora più in basso per i codici dei comandi elencati nella Tabella dei comandi fdisk sotto questa sezione.
 
@@ -305,7 +303,7 @@ Viene di seguito riportata la procedura per creare un file system sul volume app
      {: pre}
 
 5. Aggiungi il nuovo filesystem al file **/etc/fstab** del sistema per abilitare il montaggio automatico all'avvio del computer.
-   - Accoda la seguente riga in fondo a **/etc/fstab** (utilizzando il nome partizione dal passo 3).<br />
+   - Accoda la seguente riga in fondo a **/etc/fstab** (utilizzando il nome partizione dal passo 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
@@ -313,49 +311,55 @@ Viene di seguito riportata la procedura per creare un file system sul volume app
      {: pre}
 
 #### Tabella dei comandi fdisk
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>La tabella comandi fdisk contiene i comandi sulla sinistra e i risultati previsti sulla destra.</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>Comando</div></td>
-		<td style="width:60%;">Risultato</td>
+		<th style="width:40%;">Comando</th>
+		<th style="width:60%;">Risultato</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Command: n</code></td>
+		<td>Crea una nuova partizione. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Command: n</code></li>	</td>
-		<td>Crea una nuova partizione.</td>
-	</tr>
-	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>Rende primaria la partizione.</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1-4): 1</code></li></td>
+		<td><code>Partition number (1-4): 1</code></td>
 		<td>Diventa la partizione 1 sul disco.</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1-8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1-8877): 1 (default)</code></td>
 		<td>Inizia al cilindro 1.</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>Premere Invio per andare all'ultimo cilindro.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Command: t</code></li></td>
-		<td>Configura il tipo di partizione.</td>
+		<td><code>Comando: t</code></td>
+		<td>Configura il tipo di partizione. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>Seleziona la partizione 1 da configurare come un tipo specifico.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Hex code: 83</code></li></td>
-		<td>Seleziona Linux come tipo (Type) (83 è il codice esadecimale per Linux).</td>
+		<td><code>Codice esadecimale: 83</code></td>
+		<td>Seleziona Linux come tipo (Type) (83 è il codice esadecimale per Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>*<code>Command: w</code></li></td>
-		<td>Scrive le informazioni sulla nuova partizione sul disco.</td>
+		<td><code>Comando: w</code></td>
+		<td>Scrive le informazioni sulla nuova partizione sul disco. &#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`)Type m for Help.
@@ -367,13 +371,13 @@ Viene di seguito riportata la procedura per creare un file system sul volume app
 Per molte distribuzioni Linux, **parted** è preinstallato. Se non è incluso nel tuo distro, puoi installarlo con:
 - Debian/Ubuntu
   ```
-  sudo apt-get install parted
+  sudo apt-get install parted  
   ```
   {: pre}
 
 - RHEL/CentOS:
   ```
-  yum install parted
+  yum install parted  
   ```
   {: pre}
 
@@ -431,7 +435,7 @@ Per creare un file system con **parted** attieniti alla seguente procedura:
    ```
    {: pre}
 
-   **Nota**: è importante selezionare il disco e la partizione corretti quando esegui il comando sopra indicato.
+   **Nota**: è importante selezionare il disco e la partizione corretti quando esegui il comando sopra indicato!
    Verifica il risultato stampando la tabella partizioni. Nella colonna del file system, dovresti vedere ext3.
 
 4. Crea un punto di montaggio per il file system e montalo.
@@ -457,7 +461,7 @@ Per creare un file system con **parted** attieniti alla seguente procedura:
      {: pre}
 
 5. Aggiungi il nuovo filesystem al file **/etc/fstab** del sistema per abilitare il montaggio automatico all'avvio del computer.
-   - Accoda la seguente riga in fondo a **/etc/fstab** (utilizzando il nome partizione dal passo 3).<br />
+   - Accoda la seguente riga in fondo a **/etc/fstab** (utilizzando il nome partizione dal passo 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
@@ -499,7 +503,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-Se non è configurato correttamente, si presenterà così:
+Se non è configurato correttamente, apparirà in questo modo:
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```

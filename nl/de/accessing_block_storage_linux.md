@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,21 +13,19 @@ lastupdated: "2018-03-09"
 
 # Verbindung zu MPIO iSCSI LUNs unter Linux herstellen
 
-Die folgenden Anweisungen gelten für RHEL6/Centos6. Wenn Sie ein anderes Linux-Betriebssystem verwenden, finden Sie die Konfigurationsinformationen in der Dokumentation zu Ihrer speziellen Distribution und müssen sicherstellen, dass Multipath bei der Pfadpriorität ALUA unterstützt.
+Die folgenden Anweisungen gelten für RHEL6/Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird. Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
 Stellen Sie vor dem Start sicher, dass der Host, der auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugreift, über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde:
 
-1. Klicken Sie auf der Listenseite von {{site.data.keyword.blockstorageshort}} auf die **Aktionen**, die dem neu bereitgestellten Datenträger zugeordnet sind.
+1. Klicken Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste auf die Schaltfläche **Aktionen**, die dem neuen Datenträger zugeordnet ist.
 2. Klicken Sie auf **Host autorisieren**.
-3. Wählen Sie den bzw. die gewünschten Hosts in der Liste aus und klicken Sie auf **Übergeben**. Damit werden die Hosts zum Zugriff auf den Datenträger autorisiert.
+3. Wählen Sie in der Liste den Host oder die Hosts aus, von dem bzw. denen auf den Datenträger zugegriffen werden soll, und klicken Sie auf **Abschicken**.
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 
-Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = multipath input/output; iSCSI = Internet Small Computer System Interface; LUN = logical unit number).
+Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = Internet Small Computer System Interface; LUN = logical unit number).
 
-Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen Linux-Distributionen sollten die Schritte entsprechend der Dokumentation des Anbieters des Betriebssystems angepasst werden. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Klicken Sie beispielsweise bei Ubuntu [hier](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}, um Konfigurationsanweisungen zum iSCSI-Initiator zu erhalten, und [hier](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}, um weitere Informationen zum Device-Mapper Multipathing zu erhalten.
-
-**Hinweis:** Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen werden, können im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} in der Anzeige **{{site.data.keyword.blockstorageshort}} - Details** abgerufen werden.
+**Hinweis:** Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}} - Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} abgerufen werden. 
 
 **Hinweis:** Es empfiehlt sich, Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
 
@@ -100,8 +98,8 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
      chkconfig multipathd on
      ```
      {: pre}
-   
-   - CentOS 7: 
+
+   - CentOS 7:
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +114,13 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
      systemctl enable multipathd
      ```
      {: pre}
-     
+
    - Ubuntu:
      ```
-     service multipath-tools start 
+     service multipath-tools start
      ```
      {: pre}
-    
+
    - Lesen Sie bei anderen Distributionen die Dokumentation des Anbieters des Betriebssystems.
 
 4. Überprüfen Sie, ob Multipath funktioniert.
@@ -131,16 +129,16 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
      multipath -l
      ```
      {: pre}
-     
-     Eine leere Rückgabe zeigt an, dass es funktioniert. 
-   
+
+     Eine leere Rückgabe zeigt an, dass es funktioniert.
+
    - CentOS 7:
      ```
      multipath -ll
      ```
      {: pre}
-     
-     Möglicherweise gibt RHEL 7/CentOS 7 kein fc_host-Gerät zurück. Dies kann ignoriert werden. 
+
+     Möglicherweise gibt RHEL 7/CentOS 7 kein fc_host-Gerät zurück. Dies kann ignoriert werden.
 
 5. Aktualisieren Sie die Datei **/etc/iscsi/initiatorname.iscsi** mit dem IQN aus dem {{site.data.keyword.slportal}}. Geben Sie den Wert in Kleinbuchstaben ein.
    ```
@@ -205,7 +203,7 @@ Das vorliegende Beispiel basiert auf **Red Hat Enterprise Linux 6**. Bei anderen
       {: pre}
 
    - Lesen Sie bei anderen Distributionen die Dokumentation des Anbieters des Betriebssystems.
-   
+
 8. Führen Sie die Erkennung des Geräts mithilfe der aus dem {{site.data.keyword.slportal}} abgerufenen Ziel-IP-Adresse aus.
 
      a. Führen Sie die Erkennung für das iSCSI-Array aus:
@@ -313,49 +311,55 @@ Nachfolgend finden Sie die Schritte zum Erstellen eines Dateisystems auf einem n
      {: pre}
 
 #### Fdisk-Befehlstabelle
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>Die Fdisk-Befehlstabelle enthält die Befehle auf der linken und die erwarteten Ergebnisse auf der rechten Seite.</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>Befehl</div></td>
-		<td style="width:60%;">Ergebnis</td>
+		<th style="width:40%;">Befehl</th>
+		<th style="width:60%;">Ergebnis</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Befehl: n</code></td>
+		<td>Erstellt eine neue Partition. &#42;</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Befehl: n</code></li>	</td>
-		<td>Erstellt eine neue Partition.</td>
-	</tr>
-	<tr>
-		<td><li><code>Befehlsaktion: p</code></li></td>
+		<td><code>Befehlsaktion: p</code></td>
 		<td>Macht die Partition zur Primärpartition.</td>
 	</tr>
 	<tr>
-		<td><li><code>Partitionsnummer (1-4): 1</code></li></td>
+		<td><code>Partitionsnummer (1-4): 1</code></td>
 		<td>Wird Partition 1 auf dem Datenträger.</td>
 	</tr>
 	<tr>
-		<td><li><code>Erster Zylinder (1-8877): 1 (Standardwert)</code></li></td>
+		<td><code>Erster Zylinder (1-8877): 1 (Standardwert)</code></td>
 		<td>Start bei Zylinder 1.</td>
 	</tr>
 	<tr>
-		<td><li><code>Letzter Zylinder, + Zylinder oder + Größe {K, M, G}: 8877 (Standardwert)</code></li></td>
+		<td><code>Letzter Zylinder, + Zylinder oder + Größe {K, M, G}: 8877 (Standardwert)</code></td>
 		<td>Drücken Sie die Eingabetaste, um zum letzten Zylinder zu wechseln.</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Befehl: t</code></li></td>
-		<td>Legt den Partitionstyp fest.</td>
+		<td><code>Befehl: t</code></td>
+		<td>Legt den Partitionstyp fest. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition 1 auswählen.</code></li></td>
+		<td><code>Partition 1 auswählen.</code></td>
 		<td>Wählt Partition 1 für die Einrichtung als spezieller Typ aus.</td>
 	</tr>
 	<tr>
-		<td><li>&#42;&#42; <code>Hexadezimaler Code: 83</code></li></td>
-		<td>Wählt Linux als Typ aus (83 ist der hexadezimale Code für Linux).</td>
+		<td><code>Hexadezimaler Code: 83</code></td>
+		<td>Wählt Linux als Typ aus (83 ist der hexadezimale Code für Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>&#42; <code>Befehl: w</code></li></td>
-		<td>Schreibt die Informationen zur neuen Partition auf den Datenträger.</td>
+		<td><code>Befehl: w</code></td>
+		<td>Schreibt die Informationen zur neuen Partition auf den Datenträger. &#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`)Geben Sie m für Hilfe ein.
@@ -402,8 +406,8 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit **parted** zu ers
       ```
       {: pre}
 
-   3. Erstellen Sie eine neue GPT-Partitionstabelle. 
-   
+   3. Erstellen Sie eine neue GPT-Partitionstabelle.
+
       ```
       (parted) mklabel gpt
       ```

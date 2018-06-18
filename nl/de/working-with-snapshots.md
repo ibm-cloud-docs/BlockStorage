@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -12,15 +12,15 @@ lastupdated: "2018-03-16"
 
 ## Wie erstelle ich einen Snapshotplan?
 
-Mithilfe von Snapshotplänen können Sie entscheiden, wie oft und wann Sie einen zeitpunktgesteuerten Verweis auf Ihren Speicherdatenträger erstellen wollen. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Die Verwaltung der Pläne erfolgt über **Speicher**, Registerkarte **{{site.data.keyword.blockstorageshort}}** des [{{site.data.keyword.slportal}}s](https://control.softlayer.com/){:new_window}.
+Sie entscheiden, wie oft und wann eine Referenz mit Zeitangabe Ihres Speicherdatenträgers mit Snapshotplänen erstellt werden soll. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Die Pläne werden über **Speicher** in der Registerkarte **{{site.data.keyword.blockstorageshort}}** des [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}s verwaltet. 
 
-Damit Sie Ihren ersten Plan einrichten können, müssen Sie zuerst Snapshotbereich kaufen, falls Sie dies nicht bereits bei der Erstbereitstellung des Speicherdatenträgers getan haben.
+Damit Sie einen ersten Plan konfigurieren können, müssen Sie vorher einen Snapshotbereich kaufen, sofern Sie noch keinen während der Ersteinrichtung des Speicherdatenträgers gekauft haben.
 
 ### Wie füge ich einen Snapshotplan hinzu?
 
 Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle und einen bestimmten Aufbewahrungszyklus eingerichtet werden. Es können maximal 50 geplante Snapshots (eine Mischung aus stündlichen, täglichen und wöchentlichen Plänen) und manuelle Snapshots gemacht werden.
 
-1. Klicken Sie auf Ihren Speicherdatenträger, klicken Sie auf die Dropdown-Liste **Aktionen** und klicken Sie auf **Snapshot planen**.
+1. Klicken Sie auf den Speicherdatenträger, klicken Sie auf **Aktionen** und klicken Sie auf **Snapshot planen**.
 2. Im Dialogfeld 'Neuer Snapshotplan' können Sie aus drei verschiedenen Snapshothäufigkeiten auswählen. Verwenden Sie eine beliebige Kombination dieser drei Optionen, um einen umfassenden Snapshotplan zu erstellen
    - Stündlich
       - Geben Sie die Minute jeder Stunde an, zu der der Snapshot durchgeführt werden soll. Der Standardwert ist die aktuelle Minute.
@@ -31,86 +31,86 @@ Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle 
    - Wöchentlich
       - Geben Sie den Tag der Woche, die Stunde und Minute an, zu der der Snapshot durchgeführt werden soll. Der Standardwert ist der aktuelle Tag, die aktuelle Stunde und die aktuelle Minute.
       - Wählen Sie die Anzahl der wöchentlichen Snapshots aus, die aufbewahrt werden sollen, bevor der älteste gelöscht wird.
-3. Klicken Sie auf **Speichern** und erstellen Sie einen anderen Plan mit einer anderen Häufigkeit. Beachten Sie, dass Sie eine Warnung erhalten und nicht speichern können, wenn die Gesamtzahl der geplanten Snapshots 50 überschreitet.
+3. Klicken Sie auf **Speichern** und erstellen Sie einen anderen Plan mit einer anderen Häufigkeit. Falls die Gesamtzahl der geplanten Snapshots 50 übersteigt, wird eine Warnung angezeigt und Sie können keine Speicherung durchführen.
 
-Im Bereich 'Snapshots' der Seite 'Details' wird eine Liste der ausgeführten Snapshots angezeigt.
+Die Liste der Snapshots wird so angezeigt, wie sie im Abschnitt **Snapshots** der Seite **Details** dargestellt werden.
 
-## Wie mache ich einen manuellen Snapshot?
+## Wie erstelle ich einen manuellen Snapshot?
 
-Manuelle Snapshots können an verschiedenen Punkten während der Aktualisierung oder Wartung einer Anwendung gemacht werden. Sie können auf Anwendungsebene auch Snapshots auf mehreren Maschinen machen, die vorübergehend inaktiviert wurden.
+Manuelle Snapshots können an verschiedenen Punkten während der Aktualisierung oder Wartung einer Anwendung gemacht werden. Sie können auch Snapshots für mehrere Maschinen erstellen, die temporär auf der Anwendungsebene inaktiviert wurden.
 
-Auf einem Speicherdatenträger können maximal 50 manuelle Snapshots vorhanden sein.
+Auf einem Speicherdatenträger sind maximal 50 Snapshots möglich.
 
 1. Klicken Sie auf Ihren Speicherdatenträger.
-2. Klicken Sie auf die Dropdown-Liste 'Aktionen'.
+2. Klicken Sie auf **Aktionen**.
 3. Klicken Sie auf **Manuellen Snapshot machen**.
-Der Snapshot wird gemacht und im Bereich 'Snapshots' der Seite 'Details' angezeigt. Für seinen Plan ist 'Manuell' festgelegt.
+Der Snapshot wird erstellt und im Abschnitt **Snapshots** der Seite **Details** angezeigt. Für seinen Plan ist 'Manuell' festgelegt.
 
-## Wie zeige ich eine Liste der Snapshots mit Speicherverbrauch und Managementfunktionen an?
+## Wie zeige ich eine Liste der Snapshots mit verwendetem Bereich und Verwaltungsfunktionen an?
 
-Eine Liste mit den aufbewahrten Snapshots und dem verbrauchten Speicherplatz können Sie auf der Seite **Detail** (Speicher, {{site.data.keyword.blockstorageshort}}) anzeigen. Die Managementfunktionen (Pläne bearbeiten und mehr Speicherplatz hinzufügen) werden auf der Seite 'Details' mithilfe des Dropdown-Menüs **Aktionen** oder mit Links in den verschiedenen Seitenbereichen gesteuert.
+Eine Liste mit den aufbewahrten Snapshots und dem verbrauchten Speicherplatz können Sie auf der Seite **Detail** (Speicher, {{site.data.keyword.blockstorageshort}}) anzeigen. Verwaltungsfunktionen (Bearbeiten von Plänen und Hinzufügen von zusätzlichem Speicherplatz) können auf der Seite 'Details' mithilfe des Menüs **Aktionen** oder Links im unterschiedlichen Abschnitten auf der Seite ausgeführt werden.
 
 ## Wie zeige ich eine Liste der aufbewahrten Snapshots an?
 
-Die aufbewahrten Snapshots basieren auf der Zahl, die Sie beim Einrichten Ihrer Pläne im Feld 'Letzten aufbewahren' eingegeben haben. Im Bereich 'Snapshots' können Sie die ausgeführten Snapshots anzeigen. Die Snapshots werden entsprechend dem Plan aufgelistet.
+Aufbewahrte Snapshot basieren auf der Nummer, die Sie in das Feld **Letzte aufbewahren** beim Konfigurieren der Pläne eingegeben haben. Sie können die Snapshots anzeigen, die im Abschnitt **Snapshot** erstellt wurden. Die Snapshots werden entsprechend dem Plan aufgelistet.
 
-## Wie kann ich sehen, wie viel Snapshotbereich verwendet wurde?
+## Wie kann ich erkennen, wie viel Snapshotbereich belegt ist?
 
-Das Kreisdiagramm oben auf der Seite 'Details' zeigt an, wie viel Speicherplatz verwendet wurde und wie viel Speicherplatz übrig ist. Sie erhalten Benachrichtigungen, wenn Sie sich Schwellenwerten für den Speicherplatz nähern – 75%, 90% und 95%.
+Im Kreisdiagramm oben auf der Seite **Details** wird angezeigt, wie viel Speicherplatz belegt ist und wie viel Speicherplatz frei ist. Sie erhalten Benachrichtigungen, wenn die Schwellenwerte für den Speicherplatz erreicht werden - 75 Prozent, 90 Prozent und 95 Prozent.
 
 ## Wie ändere ich die Menge des Snapshotbereichs für meinen Datenträger?
 
-Möglicherweise müssen Sie einen Snapshotbereich zu einem Datenträger hinzufügen, der zuvor keinen hatte oder der zusätzlichen Snapshotbereich benötigt. Je nach Ihren Anforderungen können Sie zwischen 5 GB und 4.000 GB hinzufügen. 
+Es kann vorkommen, dass Sie Snapshotbereich zu einem Datenträger hinzufügen möchten, auf dem vorher keiner vorhanden war oder dass Sie zusätzlichen Snapshotbereich benötigen. Sie können je nach Bedarf zwischen 5 GB und 4.000 GB hinzufügen. 
 
-**Hinweis**: Der Snapshotbereich kann nur erhöht und nicht verringert werden. Es empfiehlt sich, eine geringere Speichermenge auszuwählen, bis Sie ermittelt haben, wie viel Speicherplatz Sie tatsächlich brauchen. Denken Sie daran, dass automatisierte und manuelle Snapshots denselben Speicherplatz gemeinsam nutzen.
+**Hinweis**: Der Snapshotbereich kann nur erhöht und nicht verringert werden. Es empfiehlt sich, eine geringere Speichermenge auszuwählen, bis Sie ermittelt haben, wie viel Speicherplatz Sie tatsächlich brauchen. Bedenken Sie dabei, dass der Speicherplatz gemeinsam von automatisierten und manuellen Snapshots verwendet wird.
 
-Der Snapshotbereich wird über **Speicher, {{site.data.keyword.blockstorageshort}}** geändert.
+Der Snapshotbereich kann über **Speicher** > **{{site.data.keyword.blockstorageshort}}** geändert werden.
 
-1. Klicken Sie auf Ihre Speicherdatenträger, klicken Sie auf die Dropdown-Liste **Aktionen** und klicken Sie auf **Mehr Snapshotbereich hinzufügen**.
+1. Klicken Sie auf die Speicherdatenträger, klicken Sie auf **Aktionen** und klicken Sie auf **Mehr Snapshotbereich hinzufügen**.
 2. Wählen Sie an der Eingabeaufforderung einen Wert aus einem Größenbereich aus. In der Regel reichen die Größen von 0 bis zur Größe Ihres Datenträgers.
-3. Klicken Sie auf **Weiter**, um den zusätzlichen Speicherplatz bereitzustellen.
+3. Klicken Sie auf **Weiter**.
 4. Geben Sie gegebenenfalls den Werbeaktionscode ein und klicken Sie auf **Neu berechnen**. In den Feldern für die Gebühren dieser Bestellung und für die Bestellungsprüfung stehen die Standardwerte.
 5. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen…** und klicken Sie auf **Auftrag erteilen**. Ihr zusätzlicher Snapshotbereich wird in wenigen Minuten bereitgestellt.
 
-## Wie erhalte ich Benachrichtigungen, wenn ich mich dem Grenzwert meines Snapshotbereichs nähere und Snapshots gelöscht werden?
+## Wie empfange ich Benachrichtigungen, wenn der Grenzwert für den Snapshotbereich fast erreicht ist und Snapshots gelöscht werden?
 
-Benachrichtigungen werden mithilfe von Support-Tickets vom Support an den Masterbenutzer Ihres Kontos gesendet, wenn Sie drei verschiedene Schwellenwerte für den Speicherplatz erreichen – 75%, 90% und 95%.
+Benachrichtigungen werden über Support-Tickets an den Masterbenutzer eines Kontos gesendet, wenn Sie drei unterschiedliche Schwellenwerte für den Speicherplatz erreichen - 75 Prozent, 90 Prozent und 95 Prozent.
 
-- **75% Kapazität**: Es wird eine Warnung gesendet, dass die Belegung des Snapshotbereichs 75% überschritten hat. Wenn Sie die Warnung beachten und manuell Speicherplatz hinzufügen oder aufbewahrte und überflüssige Snapshots löschen, wird die Aktion registriert und das Ticket geschlossen. Wenn Sie nichts tun, müssen Sie das Ticket manuell bestätigen, damit es geschlossen wird.
-- **90% Kapazität**: Es wird eine zweite Warnung gesendet, wenn die Belegung des Snapshotbereichs 90% überschritten hat. Wie beim Erreichen der Kapazität von 75%, wird die Aktion registriert und das Ticket geschlossen, wenn Sie die notwendigen Aktionen zur Verringerung des belegten Speicherplatzes ausführen. Wenn Sie nichts tun, müssen Sie das Ticket manuell bestätigen, damit es geschlossen wird.
-- **95% Kapazität**: Es wird eine letzte Warnung gesendet. Wenn Sie nichts unternehmen, um Ihren Speicherplatz unter den Schwellenwert zu senken, wird eine Benachrichtigung generiert und eine automatische Löschung durchgeführt, damit künftige Snapshots erstellt werden können. Geplante Snapshots werden gelöscht, beginnend mit dem ältesten, bis die Belegung unter 95% fällt, und die Löschung wird jedes Mal fortgesetzt, wenn die Belegung 95% übersteigt, bis sie unter den Schwellenwert fällt. Der der Speicherplatz manuell erhöht wird oder Snapshots gelöscht werden, wird die Warnung zurückgesetzt und erneut abgesetzt, sobald der Schwellenwert wieder überschritten wird. Wenn Sie nichts unternehmen, ist dies die einzige Warnung, die Sie erhalten.
+- **75 Prozent der Kapazität**: Eine Warnung wird gesendet, die besagt, dass 75 Prozent Speicherbelegung überschritten wurden. Wenn Sie auf die Warnung reagieren und Speicherbereich manuell hinzufügen oder aufbewahrte und unnötige Snapshots löschen, wird die Aktion notiert und das Ticket geschlossen. Wenn Sie nichts tun, müssen Sie das Ticket manuell bestätigen, damit es geschlossen wird.
+- **90 Prozent der Kapazität**: Eine Warnung wird gesendet, wenn die Verwendung durch den Snapshotbereich 90 Prozent überschreitet. Wie bei Erreichen von 75 Prozent der Kapazität gilt, dass die Aktion notiert und das Ticket geschlossen wird, wenn Sie auf die Warnung reagieren und Speicherbereich manuell hinzufügen oder aufbewahrte und unnötige Snapshots löschen. Wenn Sie nichts tun, müssen Sie das Ticket manuell bestätigen, damit es geschlossen wird.
+- **95 Prozent der Kapazität**: Eine letzte Warnung wird gesendet. Wenn Sie nichts unternehmen, um Ihren Speicherplatz unter den Schwellenwert zu senken, wird eine Benachrichtigung generiert und eine automatische Löschung durchgeführt, damit künftige Snapshots erstellt werden können. Geplante Snapshots werden gelöscht, beginnend mit dem ältesten, bis die Belegung unter 95 Prozent liegt. Snapshots werden weiterhin jedes mal gelöscht, wenn die Belegung 95 Prozent überschreitet, bis die Belegung unter dem Schwellenwert liegt. Wenn der Speicherbereich manuell vergrößert oder Snapshots gelöscht werden, wird die Warnung zurückgesetzt und erneut ausgegeben, wenn der Schwellenwert wieder überschritten wird. Wenn Sie nichts unternehmen, ist dies die einzige Warnung, die Sie erhalten.
 
 ## Wie lösche ich einen Snapshotplan?
 
-Snapshotpläne können über **Speicher, {{site.data.keyword.blockstorageshort}}** abgebrochen werden.
+Snapshotpläne können über **Speicher** > **{{site.data.keyword.blockstorageshort}}** gelöscht werden.
 
-1. Klicken Sie auf der Seite **Details** im Rahmen **Snapshotpläne** auf den Plan, der gelöscht werden soll.
-2. Aktivieren Sie das Kontrollkästchen neben dem Plan, der gelöscht werden soll, und klicken Sie auf **Speichern**.<br />
-**Vorsicht**: Achten Sie bei Verwendung der Replikationsfunktion darauf, dass der Plan, den Sie gerade löschen, nicht der von der Replikation verwendete Plan ist. Weitere Informationen zum Löschen eines Replikationsplans finden Sie [hier](replication.html).
+1. Klicken Sie im Rahmen **Snapshotpläne** auf der Seite **Details** auf den Plan, der gelöscht werden soll.
+2. Klicken Sie auf das Kontrollkästchen neben dem zu löschenden Plan und klicken Sie auf **Speichern**.<br />
+**Achtung**: Wenn Sie die Replikationsfunktion verwenden, stellen Sie sicher, dass der Zeitplan, den Sie löschen, nicht der von der Replikation verwendete Zeitplan ist. Weitere Informationen zum Löschen eines Replikationsplans finden Sie [hier](replication.html).
 
-## Wie lösche ich einen Snapshot?
+## Wie wird ein Snapshot gelöscht?
 
-Snapshots, die nicht mehr benötigt werden, können manuell entfernt werden, um Speicherplatz für künftige Snapshots freizugeben. Die Löschung erfolgt über **Speicher, {{site.data.keyword.blockstorageshort}}**.
+Snapshots, die nicht mehr benötigt werden, können manuell entfernt werden, um Speicherplatz für künftige Snapshots freizugeben. Das Löschen erfolgt über **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Klicken Sie auf Ihren Speicherdatenträger und blättern Sie abwärts zum Bereich 'Snapshot', um eine Liste der vorhandenen Snapshots anzuzeigen.
-2. Klicken Sie neben einem bestimmten Snapshot auf die Dropdown-Liste **Aktionen** und klicken Sie auf **Löschen**, um den Snapshot zu löschen. Diese Aktion hat keine Auswirkungen auf künftige oder frühere Snapshot in demselben Plan, weil es keine Abhängigkeit zwischen Snapshots gibt.
+1. Klicken Sie auf den Speicherdatenträger und blättern Sie bis zum Abschnitt **Snapshot**, um die Liste der vorhandenen Snapshots anzuzeigen.
+2. Klicken Sie auf **Aktionen** neben dem gewünschten Snapshot und klicken Sie auf **Löschen**, um den Snapshot zu löschen. Diese Aktion hat keine Auswirkung auf zukünftige oder frühere Snapshots im selben Zeitplan, da zwischen Snapshots keine Abhängigkeit besteht.
 
-Manuelle Snapshots, die nicht in der oben beschriebenen Weise gelöscht werden, werden automatisch gelöscht (der älteste zuerst), wenn Sie die Speichergrenzen erreichen.
+Manuelle Snapshots, die nicht mit der oben beschriebenen Methode gelöscht werden, werden automatisch (älteste zuerst) gelöscht, wenn Sie die Speicherbereichsbegrenzung erreichen.
 
-## Wenn kann ich meinen Speicherdatenträger mit einem Snapshot auf einen bestimmten Zeitpunkt wiederherstellen?
+## Wie wird ein Speicherdatenträger mit einem Snapshot auf dem Stand eines bestimmten Zeitpunkts wiederhergestellt?
 
-Möglicherweise müssen Sie Ihren Speicherdatenträger aufgrund eines Benutzerfehlers oder von Datenverlust auf einen bestimmten Zeitpunkt zurücksetzen.
+Es kann vorkommen, dass Sie Ihren Speicherdatenträger aufgrund eines Benutzerfehlers oder einer Datenbeschädigung auf einen bestimmten Zeitpunkt zurücksetzen müssen.
 
 1. Hängen Sie Ihren Speicherdatenträger vom Host ab.
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Linux finden Sie [hier](accessing_block_storage_linux.html).
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Microsoft Windows finden Sie [hier](accessing-block-storage-windows.html).
 2. Klicken Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
-3. Blättern Sie abwärts und klicken Sie auf Ihren wiederherzustellenden Datenträger. Im Bereich **Snapshots** der Seite **Detail** wird eine Liste aller gespeicherten Snapshots mit ihrer Größe und dem Erstellungsdatum angezeigt.
-4. Klicken Sie auf die Schaltfläche **Aktionen** des Snapshots, den Sie verwenden wollen, und klicken Sie auf **Wiederherstellen**. <br/>
-  **Hinweis**: Bei einer Wiederherstellung gehen die Daten verloren, die seit dem Moment, an dem der betreffende Snapshot gemacht wurde, erstellt oder geändert wurden. Sobald die Aktion abgeschlossen ist, wird Ihr Speicherdatenträger in denselben Zustand versetzt, in dem er zum Zeitpunkt seiner Erstellung war. An einer Eingabeaufforderung wird eine entsprechende Benachrichtigung darüber angezeigt.
-5. Klicken Sie auf **Ja**, um die Wiederherstellung einzuleiten. Oben auf der Seite wird eine Nachricht angezeigt, dass der Datenträger mithilfe des ausgewählten Snapshots wiederhergestellt wurde. Außerdem wird neben Ihrem Datenträger auf dem {{site.data.keyword.blockstorageshort}} ein Symbol angezeigt, das angibt, dass eine aktive Transaktion läuft. Wenn Sie die Maus über das Symbol bewegen, wird ein Dialogfeld mit Angaben zu der Transaktion angezeigt. Sobald die Transaktion abgeschlossen ist, wird das Symbol ausgeblendet.
-6. Hängen Sie Ihren Speicherdatenträger wieder an den Host an.
+3. Blättern Sie nach unten und klicken Sie auf den Datenträger, der wiederhergestellt werden soll. Im Abschnitt **Snapshots** der Seite **Details** wird die Liste aller gespeicherten Snapshots mit Angabe ihrer Größe und ihres Erstellungsdatums angezeigt.
+4. Klicken Sie auf **Aktionen** neben dem Snapshot, der verwendet werden soll, und klicken Sie auf **Wiederherstellen**. <br/>
+  **Hinweis**: Bei einer Wiederherstellung gehen die Daten verloren, die seit dem Moment, an dem der betreffende Snapshot gemacht wurde, erstellt oder geändert wurden. Nach Abschluss der Wiederherstellung befindet sich Ihr Speicherdatenträger in dem Status des Zeitpunkts, zu dem der Snapshot erfasst wurde. 
+5. Klicken Sie auf **Ja**, um die Wiederherstellung einzuleiten. Sie empfangen eine Nachricht im oberen Bereich der Seite, die besagt, dass der Datenträger mit dem ausgewählten Snapshot wiederhergestellt wurde. Außerdem wird neben Ihrem Datenträger auf dem {{site.data.keyword.blockstorageshort}} ein Symbol angezeigt, das angibt, dass eine aktive Transaktion läuft. Wenn Sie die Maus über das Symbol bewegen, wird ein Dialogfeld mit Angaben zu der Transaktion angezeigt. Sobald die Transaktion abgeschlossen ist, wird das Symbol ausgeblendet. 
+6. Hängen Sie Ihren Speicherdatenträger wieder an den Host an und verbinden Sie ihn erneut. 
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Linux finden Sie [hier](accessing_block_storage_linux.html).
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Microsoft Windows finden Sie [hier](accessing-block-storage-windows.html).
    
-**Hinweis**: Bei der Wiederherstellung eines Datenträgers werden alle Snapshots gelöscht, die vor dem wiederhergestellten Snapshot gemacht wurden.
+**Hinweis**: Die Wiederherstellung eines Datenträgers hat zur Folge, dass alle Snapshots vor dem wiederhergestellten Snapshot gelöscht werden.

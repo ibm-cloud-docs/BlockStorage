@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # Linux での MPIO iSCSI LUN への接続
 
-以下の説明は、RHEL6/Centos6 向けのものです。 別の Linux オペレーティング・システムを使用している場合、構成については、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
+以下の説明は、RHEL6/Centos6 向けのものです。 その他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
 
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} を介して許可されていることを確認してください。
 
-1. {{site.data.keyword.blockstorageshort}} リスト表示ページで、新たにプロビジョンされたボリュームに関連付けられている**「アクション」**をクリックします。
+1. {{site.data.keyword.blockstorageshort}} リスト表示ページで、新規ボリュームに関連付けられている**「アクション」**をクリックします。
 2. **「ホストの許可」**をクリックします。
-3. リストから目的のホスト (複数可) を選択し、**「送信」**をクリックします。これにより、ホストはボリュームへのアクセスを許可されます。
+3. リストから、ボリュームへのアクセスを可能にする必要があるホストを選択し、**「送信」**をクリックします。
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 
 以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) Internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
-この例は、**Red Hat Enterprise Linux 6** に基づいています。その他の Linux ディストリビューションの場合、オペレーティング・システム (OS) ベンダーの資料に従って、ステップを調整する必要があります。 その他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 例えば、Ubuntu の場合、iSCSI イニシエーター構成の説明については、[ここ](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}をクリックしてください。また、DM-Multipath のセットアップの詳細については、[ここ](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}をクリックしてください。
-
 **注:** 手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
 
-**注:** ベスト・プラクティスとして、ファイアウォールをバイパスする VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
+**注:** ファイアウォールをバイパスする VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
 
 1. iSCSI とマルチパスのユーティリティーをホストにインストールします。
    - RHEL/CentOS:
@@ -48,7 +46,7 @@ lastupdated: "2018-03-09"
    {: pre}
 
 2. マルチパス構成ファイルを作成または編集します。
-   - 以下のコマンドに指定されている最小限の構成で **/etc/multipath.conf** を編集します。 <br /><br /> **注:** RHEL7/CentOS7 の場合、OS に組み込みの構成があるため、`multipath.conf` はブランクにできます。 multipath-tools に multipath.conf が組み込まれているため、Ubuntu は multipath.conf を使用しません。
+   - 以下のコマンドに指定されている最小限の構成で **/etc/multipath.conf** を編集します。 <br /><br /> **注:** RHEL7/CentOS7 の場合、OS に組み込みの構成があるため、`multipath.conf` はブランクにできます。 multipath.conf は multipath-tools に組み込まれているため、Ubuntu では使用されません。
 
    ```
    defaults {
@@ -100,8 +98,8 @@ lastupdated: "2018-03-09"
      chkconfig multipathd on
      ```
      {: pre}
-   
-   - CentOS 7: 
+
+   - CentOS 7:
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +114,13 @@ lastupdated: "2018-03-09"
      systemctl enable multipathd
      ```
      {: pre}
-     
+
    - Ubuntu:
      ```
      service multipath-tools start
      ```
      {: pre}
-    
+
    - その他のディストリビューションについては、OS ベンダーの資料を参照してください。
 
 4. マルチパスが機能していることを確認します。
@@ -131,16 +129,16 @@ lastupdated: "2018-03-09"
      multipath -l
      ```
      {: pre}
-     
-     この時点でブランクが返された場合は、機能しています。 
-   
+
+     この時点でブランクが返された場合は、機能しています。
+
    - CentOS 7:
      ```
      multipath -ll
      ```
      {: pre}
-     
-     RHEL 7/CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。 
+
+     RHEL 7/CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。
 
 5. {{site.data.keyword.slportal}} から取得した IQN で **/etc/iscsi/initiatorname.iscsi** ファイルを更新します。 値を小文字で入力します。
    ```
@@ -205,7 +203,7 @@ lastupdated: "2018-03-09"
       {: pre}
 
    - その他のディストリビューション: OS ベンダーの資料を参照してください。
-   
+
 8. {{site.data.keyword.slportal}} から取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
 
      a. iSCSI アレイに対してディスカバリーを実行します。
@@ -313,49 +311,55 @@ lastupdated: "2018-03-09"
      {: pre}
 
 #### Fdisk コマンド表
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>左側にコマンド、右側に予期される結果が示されている fdisk コマンドの表</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>コマンド</div></td>
-		<td style="width:60%;">結果</td>
+		<th style="width:40%;">コマンド</th>
+		<th style="width:60%;">結果</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Command: n</code></td>
+		<td>新規パーティションを作成します。 &#42;</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: n</code></li>	</td>
-		<td>新規パーティションを作成します。</td>
-	</tr>
-	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>パーティションを 1 次パーティションにします。</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1 から 4): 1</code></li></td>
+		<td><code>Partition number (1 から 4): 1</code></td>
 		<td>ディスク上のパーティション 1 になります。</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1 から 8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1 から 8877): 1 (default)</code></td>
 		<td>シリンダー 1 から開始します。</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>「Enter」を押して最後のシリンダーに移動します。</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: t</code></li></td>
-		<td>パーティションのタイプをセットアップします。</td>
+		<td><code>Command: t</code></td>
+		<td>パーティションのタイプをセットアップします。 &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>特定のタイプとしてセットアップするためにパーティション 1 を選択します。</td>
 	</tr>
 	<tr>
-		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
-		<td>タイプとして Linux を選択します (83 は Linux の 16 進コードです)。</td>
+		<td><code>Hex code: 83</code></td>
+		<td>タイプとして Linux を選択します (83 は Linux の 16 進コードです)。&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>&#42; <code>Command: w</code></li></td>
-		<td>新しいパーティション情報をディスクに書き込みます。</td>
+		<td><code>Command: w</code></td>
+		<td>新しいパーティション情報をディスクに書き込みます。 &#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`) ヘルプが必要な場合、m を入力します。
@@ -402,8 +406,8 @@ lastupdated: "2018-03-09"
       ```
       {: pre}
 
-   3. 新規 GPT パーティション表を作成します。 
-   
+   3. 新規 GPT パーティション表を作成します。
+
       ```
       (parted) mklabel gpt
       ```
