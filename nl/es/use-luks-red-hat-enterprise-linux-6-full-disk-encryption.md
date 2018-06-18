@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,23 @@ lastupdated: "2018-03-16"
 
 # Uso de LUKS en Red Hat Enterprise Linux para el cifrado de disco completo
 
-Linux Unified Key Setup-on-disk-format (LUKS) le permite cifrar particiones en Red Hat Enterprise Linux 6 (servidor), lo que resulta especialmente importante cuando se trata de sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
+Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el formato denominado Linux Unified Key Setup-on-disk (LUKS), que es particularmente importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
 
 ## Qué hace LUKS
 
 - Cifrar dispositivos de bloque enteros y, por tanto, es ideal para proteger el contenido de dispositivos móviles, como soportes de almacenamiento extraíbles o unidades de disco de portátiles.
-    - El contenido subyacente del dispositivo de bloque cifrado es arbitrario, por lo que resulta útil para cifrar dispositivos de intercambio. El cifrado también es útil con determinadas bases de datos que utilizan dispositivos de bloque con formato especial para el almacenamiento de datos.
+- El contenido subyacente del dispositivo de bloque cifrado es arbitrario, por lo que resulta útil para cifrar dispositivos de intercambio. El cifrado también es útil con determinadas bases de datos que utilizan dispositivos de bloque con formato especial para el almacenamiento de datos.
 - Utilizar el subsistema correlacionador de dispositivos de correlacionador de dispositivos existente.
 - Proporcionar refuerzo de contraseña para proteger frente a conexiones de diccionario.
 - Permitir a los usuarios añadir claves de copia de seguridad porque los dispositivos LUKS contienen múltiples ranuras de claves.
 
 
-## Qué no hace LUKS
+## Lo que LUKS no hace
 
 - Permitir que las aplicaciones que requieren muchos usuarios (más de ocho) tengan claves de acceso distintas al mismo dispositivo.
 - Trabajar con aplicaciones que requieren cifrado a nivel de archivos, [más información](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## Cómo configurar un nuevo volumen cifrado de LUKS con {{site.data.keyword.blockstorageshort}} de Resistencia
+## Cómo configurar un volumen cifrado con LUKS con {{site.data.keyword.blockstorageshort}} de Resistencia
 
 En estos pasos se supone que el servidor ya tiene acceso a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Pulse [aquí](accessing_block_storage_linux.html) para consultar cómo acceder a {{site.data.keyword.blockstorageshort}} con Linux.
 
@@ -46,7 +46,7 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
    ```
    {: pre}
 3. Localice el volumen en el listado.
-4. Cifre el dispositivo de bloque; 
+4. Cifre el dispositivo de bloque;
 
    1. este mandato inicializa el volumen y le permite establecer una contraseña: <br/>
    
@@ -83,12 +83,12 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
      mode:    read/write
      Command successful
    ```
-8. Escriba datos aleatorios en el dispositivo cifrado /dev/mapper/cryptData¡. Esto garantiza que el mundo exterior verá esto como datos aleatorios, lo que significa que está protegido contra la divulgación de patrones de uso. Tenga en cuenta que este paso puede tardar un tiempo.<br/>
+8. Escriba datos aleatorios en `/dev/mapper/cryptData` en el dispositivo cifrado. Esto garantiza que el mundo exterior verá esto como datos aleatorios, lo que significa que está protegido contra la divulgación de patrones de uso. Este paso puede tardar un rato.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. De formato al volumen:<br/>
+9. Dé formato al volumen:<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```

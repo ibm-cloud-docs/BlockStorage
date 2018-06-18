@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # Conexión a los LUN iSCSI de MPIO en Linux
 
-Estas instrucciones son para RHEL6/Centos6. Si está utilizando otros sistemas operativos Linux, consulte la documentación específica para ver la configuración y asegúrese de que la multivía de soporte a ALUA para la prioridad de vía de acceso.
+Estas instrucciones son para RHEL6/Centos6. Hemos añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso. Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} y para configurar la multivía de acceso de DM [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
 Antes de empezar, asegúrese de que el host que accede al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
 
-1. Desde la página de listado de {{site.data.keyword.blockstorageshort}}, pulse las **Acciones** asociadas al volumen recién suministrado.
+1. Desde la página de listado de {{site.data.keyword.blockstorageshort}}, pulse la opción **Acciones** asociada al nuevo volumen.
 2. Pulse **Autorizar host**.
-3. Seleccione el host(s) deseado de la lista y pulse **Enviar**; esta acción autoriza al host(s) el acceso al volumen.
+3. En la lista, seleccione el host o los hosts que deberían tener acceso al volumen y pulse **Enviar**.
 
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 
 A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.BluSoftlayer_full}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
-El ejemplo se basa en **Red Hat Enterprise Linux 6**. Los pasos deben ajustarse para otras distribuciones Linux de acuerdo con la documentación del proveedor del sistema operativo. Hemos añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Por ejemplo, en el caso de Ubuntu, pulse [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} para obtener instrucciones sobre la configuración del iniciador iSCSI y pulse [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} para obtener más información sobre la configuración de DM-Multipath.
-
 **Nota:** El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino de referencia en las instrucciones pueden obtenerse en la pantalla **{{site.data.keyword.blockstorageshort}} Detalles** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Nota:** Recomendamos que ejecute el tráfico de almacenamiento en una red de área local virtual que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software incrementará la latencia e incidirá negativamente sobre el rendimiento del almacenamiento.
+**Nota:** recomendamos ejecutar el tráfico de almacenamiento en una VLAN que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software incrementará la latencia e incidirá negativamente sobre el rendimiento del almacenamiento.
 
 1. Instale los programas de utilidad multivía de multivía e iSCSI en el host:
    - RHEL/CentOS:
@@ -48,7 +46,7 @@ El ejemplo se basa en **Red Hat Enterprise Linux 6**. Los pasos deben ajustarse 
    {: pre}
 
 2. Cree o edite el archivo de configuración multivía.
-   - Edite **/etc/multipath.conf** con la configuración mínima proporcionada en los siguientes mandatos. <br /><br /> **Nota:** tenga en cuenta que para RHEL7/CentOS7, `multipath.conf` puede estar en blanco porque el sistema operativo tiene configuraciones integradas. Ubuntu no utiliza multipath.conf ya que se basa en multipath-tools.
+   - Edite **/etc/multipath.conf** con la configuración mínima proporcionada en los siguientes mandatos. <br /><br /> **Nota:** tenga en cuenta que para RHEL7/CentOS7, `multipath.conf` puede estar en blanco porque el sistema operativo tiene configuraciones integradas. Ubuntu no utiliza multipath.conf ya que está integrado en las herramientas de multivía de acceso.
 
    ```
    defaults {
@@ -313,49 +311,55 @@ A continuación se describen los pasos para crear un sistema de archivos sobre e
      {: pre}
 
 #### Tabla de mandatos Fdisk
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>La tabla de mandatos fdisk muestra los mandatos a la izquierda y los resultados esperados a la derecha.</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>Mandato</div></td>
-		<td style="width:60%;">Resultado</td>
+		<th style="width:40%;">Mandato</th>
+		<th style="width:60%;">Resultado</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Command: n</code></td>
+		<td>Crea una nueva partición. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Command: n</code></li>	</td>
-		<td>Crea una nueva partición.</td>
-	</tr>
-	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>Hace que la partición sea la primaria.</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1-4): 1</code></li></td>
+		<td><code>Partition number (1-4): 1</code></td>
 		<td>Se convierte en la partición 1 del disco.</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1-8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1-8877): 1 (default)</code></td>
 		<td>Inicia en el cilindro 1.</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>Pulse Intro para ir al último cilindro.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Command: t</code></li></td>
-		<td>Configura el tipo de partición.</td>
+		<td><code>Command: t</code></td>
+		<td>Configura el tipo de partición. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>Selecciona la partición 1 para configurarla como un tipo específico.</td>
 	</tr>
 	<tr>
-		<td><li>*<code>Hex code: 83</code></li></td>
-		<td>Selecciona Linux como el Tipo (83 es el código hexadecimal para Linux).</td>
+		<td><code>Hex code: 83</code></td>
+		<td>Selecciona Linux como el Tipo (83 es el código hexadecimal para Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>*<code>Command: w</code></li></td>
-		<td>Escribe la información de la nueva partición en el disco.</td>
+		<td><code>Command: w</code></td>
+		<td>Escribe la información de la nueva partición en el disco. &#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`)Escriba m para obtener ayuda.

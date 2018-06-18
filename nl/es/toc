@@ -19,6 +19,7 @@ IBM Cloud Storage - Block Storage
         provisioning-block_storage.md
         ordering-snapshots.md
         managing-storage-limits.md
+        migrate-block-storage-encrypted-block-storage.md
 
     {: .topicgroup}
     Configuración
@@ -31,7 +32,6 @@ IBM Cloud Storage - Block Storage
     {: .topicgroup}
     Seguridad
         block-file-storage-encryption-rest.md
-        migrate-block-storage-encrypted-block-storage.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
 
     managing-block-storage.md

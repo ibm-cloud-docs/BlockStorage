@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-23"
+lastupdated: "2018-05-16"
 
 ---
 {:new_window: target="_blank"}
@@ -10,9 +10,9 @@ lastupdated: "2018-02-23"
 
 # Ajustement des opérations d'entrée-sortie par seconde
 
-Grâce à cette nouvelle fonction, les utilisateurs de notre stockage {{site.data.keyword.blockstoragefull}} pourront ajuster instantanément les opérations d'entrée-sortie par seconde (E-S/s) de leur service {{site.data.keyword.blockstorageshort}} existant, sans avoir besoin de créer un doublon ni de migrer manuellement les données vers un nouveau stockage. L'utilisateur ne connaîtra pas d'indisponibilité ou de refus d'accès au stockage d'aucune sorte lors de l'ajustement. 
+Grâce à cette nouvelle fonction, les utilisateurs de notre stockage {{site.data.keyword.blockstoragefull}} peuvent ajuster immédiatement les opérations d'entrée-sortie par seconde (E-S/s) de leur service {{site.data.keyword.blockstorageshort}} existant, sans avoir besoin de créer un doublon ni de migrer manuellement les données vers un nouveau stockage. Les utilisateurs ne connaîtront pas d'indisponibilité ou de refus d'accès au stockage d'aucune sorte lors de l'ajustement. 
 
-La facturation du stockage sera mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total sera ensuite facturé dans le cycle de facturation suivant.
+La facturation du stockage sera mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est facturé dans le cycle de facturation suivant. 
 
 Cette fonction est disponible uniquement dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html). 
 
