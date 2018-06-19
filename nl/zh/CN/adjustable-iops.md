@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-02-23"
+lastupdated: "2018-05-16"
 
 ---
 {:new_window: target="_blank"}
@@ -10,15 +10,15 @@ lastupdated: "2018-02-23"
 
 # 调整 IOPS
 
-利用此新功能，{{site.data.keyword.blockstoragefull}} 存储器用户能够动态调整其现有 {{site.data.keyword.blockstorageshort}} 的 IOPS，而无需创建复制项或将数据手动迁移到新存储器。在进行调整时，用户不会遇到针对存储器的任何类型的中断或访问权缺乏问题。 
+利用此新功能，{{site.data.keyword.blockstoragefull}} 存储器用户可以立即调整其现有 {{site.data.keyword.blockstorageshort}} 的 IOPS，而无需创建复制项或将数据手动迁移到新存储器。在进行调整时，用户不会遇到针对存储器的任何类型的中断或访问权缺乏问题。 
 
-对存储器的记帐会进行更新，以将新价格的按比例差值添加到当前计费周期，然后在下一个计费周期中采用整个新金额记帐。
+对存储器的记帐会进行更新，以将新价格的按比例差值添加到当前计费周期。在下一个计费周期中将采用全新金额记帐。
 
 该功能仅在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内可用。 
 
 ## 为何要利用可调整的 IOPS？
 
-- 成本管理 - 某些客户可能只在峰值使用时间内需要高 IOPS。例如，大型零售店在假期使用量达到峰值，因此相比仲夏时节，假期在存储器上可能需要更高的 IOPS。通过此功能，零售店可以管理其成本，并仅在实际需要时为更高的 IOPS 付费。
+- 成本管理 - 某些客户可能只在峰值使用时间内需要高 IOPS。例如，大型零售店在假期使用量达到峰值，因此相比仲夏时节，假期在存储器上可能需要更高的 IOPS 速率。通过此功能，零售店可以管理其成本，并仅在实际需要时为更高的 IOPS 付费。
 
 ## 是否存在任何限制？
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # 在 Linux 上連接至 MPIO iSCSI LUN
 
-這些指示適用於 RHEL6/Centos6。如果您是使用其他 Linux 作業系統，請參閱特定發行套件的文件以取得配置資訊，並確保多路徑針對路徑優先順序支援 ALUA。
+這些指示適用於 RHEL6/Centos6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
 
 開始之前，請確定已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 授權正在存取 {{site.data.keyword.blockstoragefull}} 磁區的主機：
 
-1. 從 {{site.data.keyword.blockstorageshort}} 清單頁面中，按一下與剛佈建的磁區相關聯的**動作**。
+1. 從 {{site.data.keyword.blockstorageshort}} 清單頁面中，按一下與新磁區相關聯的**動作**。
 2. 按一下**授權主機**。
-3. 從清單中選取所需的主機，然後按一下**提交**；這會授權主機存取磁區。
+3. 從清單中，選取應該可存取磁區的主機，然後按一下**提交**。
 
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 
 以下是將 Linux 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
-我們的範例是以 **Red Hat Enterprise Linux 6** 為基礎。您應該根據作業系統 (OS) 供應商文件來調整其他 Linux 發行套件的步驟。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。例如，若為 Ubuntu，請按一下[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}，以取得「iSCSI 起始器配置」指示，並按一下[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}，以取得 DM-Multipath 設定的相關資訊。
-
 **附註：**指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
 
-**附註：**我們建議的最佳作法是在略過防火牆的 VLAN 上執行儲存空間資料流量。透過軟體防火牆執行儲存空間資料流量，將會增加延遲，而且對儲存空間效能有不利的影響。
+**附註：**我們建議在略過防火牆的 VLAN 上執行儲存空間資料流量。透過軟體防火牆執行儲存空間資料流量，將會增加延遲，而且對儲存空間效能有不利的影響。
 
 1. 將 iSCSI 及多路徑公用程式安裝至主機：
    - RHEL/CentOS：
@@ -48,7 +46,7 @@ lastupdated: "2018-03-09"
    {: pre}
 
 2. 建立或編輯您的多路徑配置檔。
-   - 使用下列指令中所提供的最小配置，編輯 **/etc/multipath.conf**。<br /><br /> **附註：**請注意，對於 RHEL7/CentOS7，`multipath.conf` 可以是空白，因為 OS 具有內建配置。Ubuntu 不會使用 multipath.conf，因為它是內建在多路徑工具中。
+   - 使用下列指令中所提供的最小配置，編輯 **/etc/multipath.conf**。<br /><br /> **附註：**請注意，對於 RHEL7/CentOS7，`multipath.conf` 可以是空白，因為 OS 具有內建配置。Ubuntu 未使用 multipath.conf，因為它已內建到 multipath-tools。
 
    ```
    defaults {
@@ -100,8 +98,8 @@ lastupdated: "2018-03-09"
      chkconfig multipathd on
      ```
      {: pre}
-   
-   - CentOS 7： 
+
+   - CentOS 7：
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +114,13 @@ lastupdated: "2018-03-09"
      systemctl enable multipathd
      ```
      {: pre}
-     
+
    - Ubuntu：
      ```
      service multipath-tools start
      ```
      {: pre}
-    
+
    - 若為其他發行套件，請參閱 OS 供應商文件。
 
 4. 驗證多路徑正在運作中。
@@ -131,16 +129,16 @@ lastupdated: "2018-03-09"
      multipath -l
      ```
      {: pre}
-     
-     如果此時傳回空白，則表示它正在運作中。 
-   
+
+     如果此時傳回空白，則表示它正在運作中。
+
    - CentOS 7：
      ```
      multipath -ll
      ```
      {: pre}
-     
-     RHEL 7/CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。 
+
+     RHEL 7/CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。
 
 5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 **/etc/iscsi/initiatorname.iscsi** 檔案。請以小寫字體輸入此值。
    ```
@@ -205,7 +203,7 @@ lastupdated: "2018-03-09"
       {: pre}
 
    - 其他發行套件：請參閱 OS 供應商文件。
-   
+
 8. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
 
      a. 針對 iSCSI 陣列執行探索：
@@ -313,49 +311,55 @@ lastupdated: "2018-03-09"
      {: pre}
 
 #### Fdisk 指令表格
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>fdisk 指令表格包含左側的指令以及右側的預期結果。</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>指令</div></td>
-		<td style="width:60%;">結果</td>
+		<th style="width:40%;">指令</th>
+		<th style="width:60%;">結果</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Command: n</code></td>
+		<td>建立新的分割區。&#42;</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: n</code></li>	</td>
-		<td>建立新的分割區。</td>
-	</tr>
-	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>使分割區成為主要分割區。</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1-4): 1</code></li></td>
+		<td><code>Partition number (1-4): 1</code></td>
 		<td>變成磁碟上的分割區 1。</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1-8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1-8877): 1 (default)</code></td>
 		<td>從磁柱 1 開始。</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>按 Enter 鍵以移至最後一個磁柱。</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: t</code></li></td>
-		<td>設定分割區的類型。</td>
+		<td><code>Command: t</code></td>
+		<td>設定分割區的類型。&#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>選取要設為特定類型的分割區 1。</td>
 	</tr>
 	<tr>
-		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
-		<td>選取 Linux 作為「類型」（83 是適用於 Linux 的十六進位碼）。</td>
+		<td><code>Hex code: 83</code></td>
+		<td>選取 Linux 作為「類型」（83 是適用於 Linux 的十六進位碼）。&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>&#42; <code>Command: w</code></li></td>
-		<td>將新的分割區資訊寫入磁碟中。</td>
+		<td><code>Command: w</code></td>
+		<td>將新的分割區資訊寫入磁碟中。&#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`) 鍵入 m 以取得「說明」。
@@ -402,8 +406,8 @@ lastupdated: "2018-03-09"
       ```
       {: pre}
 
-   3. 建立新的 GPT 分割區表格。 
-   
+   3. 建立新的 GPT 分割區表格。
+
       ```
       (parted) mklabel gpt
       ```

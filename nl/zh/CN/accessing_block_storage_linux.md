@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # 在 Linux 上连接到 MPIO iSCSI LUN
 
-以下指示信息适用于 RHEL6/Centos6。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档以了解配置，并确保多路径支持 ALUA 以划分路径优先级。
+以下指示信息适用于 RHEL6/Centos6。我们已经添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到有关 DM-Multipath 设置的指示信息。
 
 开始之前，请确保已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}对访问 {{site.data.keyword.blockstoragefull}} 卷的主机授权：
 
-1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，单击与新供应的卷关联的**操作**
+1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，单击与新卷关联的**操作**。
 2. 单击**授权主机**。
-3. 从列表中选择所需的一个或多个主机，然后单击**提交**；这将授权所选主机访问卷。
+3. 从列表中选择应该能够访问该卷的一个或多个主机，然后单击**提交**。
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 
 下面是将基于 Linux 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
 
-示例基于 **Red Hat Enterprise Linux 6**。对于其他 Linux 分发版，应该根据相应操作系统 (OS) 供应商文档来调整这些步骤。我们已经添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。例如，对于 Ubuntu，请单击[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}以获取 iSCSI 启动器配置指示信息，然后单击[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}以获取有关 DM-Multipath 设置的更多信息。
+**注**：指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
 
-**注**：指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
-
-**注**：建议的最佳做法是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
+**注**：建议在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
 
 1. 将 iSCSI 和多路径实用程序安装到主机：
    - RHEL/CentOS：
@@ -48,7 +46,7 @@ lastupdated: "2018-03-09"
    {: pre}
 
 2. 创建或编辑多路径配置文件。
-   - 使用以下命令中提供的最低配置来编辑 **/etc/multipath.conf**。<br /><br /> **注**：请注意，对于 RHEL7/CentOS7，`multipath.conf` 可能为空白，因为该操作系统具有内置配置。Ubuntu 内置于多路径工具中，因此不会使用 multipath.conf。
+   - 使用以下命令中提供的最低配置来编辑 **/etc/multipath.conf**。<br /><br /> **注**：请注意，对于 RHEL7/CentOS7，`multipath.conf` 可能为空白，因为该操作系统具有内置配置。由于 Ubuntu 是构建到 multipath-tools 中的，因此 Ubuntu 未使用 multipath.conf。
 
    ```
    defaults {
@@ -92,37 +90,37 @@ lastupdated: "2018-03-09"
      {: pre}
 
      ```
-     service multipathd start
+          service multipathd start
      ```
      {: pre}
 
      ```
-     chkconfig multipathd on
+          chkconfig multipathd on
      ```
      {: pre}
-   
-   - CentOS 7： 
+
+   - CentOS 7：
      ```
      modprobe dm-multipath
      ```
      {: pre}
 
      ```
-     systemctl start multipathd
+          systemctl start multipathd
      ```
      {: pre}
 
      ```
-     systemctl enable multipathd
+          systemctl enable multipathd
      ```
      {: pre}
-     
+
    - Ubuntu：
      ```
      service multipath-tools start
      ```
      {: pre}
-    
+
    - 对于其他分发版，请查阅相应的操作系统供应商文档。
 
 4. 验证多路径是否生效。
@@ -131,16 +129,16 @@ lastupdated: "2018-03-09"
      multipath -l
      ```
      {: pre}
-     
-     如果此时返回空白，说明多路径生效。 
-   
+
+     如果此时返回空白，说明多路径生效。
+
    - CentOS 7：
      ```
      multipath -ll
      ```
      {: pre}
-     
-     RHEL 7/CentOS 7 可能会返回“无 fc_host 设备”，可以忽略此消息。 
+
+     RHEL 7/CentOS 7 可能会返回“无 fc_host 设备”，可以忽略此消息。
 
 5. 使用 {{site.data.keyword.slportal}}中的 IQN 更新 **/etc/iscsi/initiatorname.iscsi** 文件。请以小写输入值。
    ```
@@ -205,7 +203,7 @@ lastupdated: "2018-03-09"
       {: pre}
 
    - 其他分发版：请查阅相应的操作系统供应商文档。
-   
+
 8. 使用从 {{site.data.keyword.slportal}}中获取的目标 IP 地址来发现该设备。
 
      a. 针对 iSCSI 阵列运行发现：
@@ -280,15 +278,15 @@ lastupdated: "2018-03-09"
    - 创建文件系统：
 
      ```
-     mkfs.ext3 /dev/mapper/XXXlp1
-     ```
+        mkfs.ext3 /dev/mapper/XXXlp1
+   ```
      {: pre}
 
 4. 为文件系统创建安装点并安装文件系统。
    - 创建分区名称 PerfDisk 或要在其中安装文件系统的分区的名称：
 
      ```
-     mkdir /PerfDisk
+          mkdir /PerfDisk
      ```
      {: pre}
 
@@ -313,49 +311,55 @@ lastupdated: "2018-03-09"
      {: pre}
 
 #### Fdisk 命令表
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>fdisk 命令表的左侧包含命令，右侧包含预期结果。</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>命令</div></td>
-		<td style="width:60%;">结果</td>
+		<th style="width:40%;">命令</th>
+		<th style="width:60%;">结果</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Command: n</code></td>
+		<td>创建新分区。&#42;</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: n</code></li>	</td>
-		<td>创建新分区。</td>
-	</tr>
-	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>使分区成为主分区。</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1-4): 1</code></li></td>
+		<td><code>Partition number (1-4): 1</code></td>
 		<td>成为磁盘上的分区 1。</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1-8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1-8877): 1 (default)</code></td>
 		<td>从柱面 1 开始。</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>点击 Enter 键以转至最后一个柱面。</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: t</code></li></td>
-		<td>设置分区的类型。</td>
+		<td><code>Command: t</code></td>
+		<td>设置分区的类型。&#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>选择分区 1 以设置为特定类型。</td>
 	</tr>
 	<tr>
-		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
-		<td>选择 Linux 作为类型（83 是表示 Linux 的十六进制代码）。</td>
+		<td><code>Hex code: 83</code></td>
+		<td>选择 Linux 作为类型（83 是表示 Linux 的十六进制代码）。&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>&#42; <code>Command: w</code></li></td>
-		<td>将新的分区信息写入磁盘。</td>
+		<td><code>Command: w</code></td>
+		<td>将新的分区信息写入磁盘。&#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`) 输入 m 可获取帮助。
@@ -391,21 +395,21 @@ lastupdated: "2018-03-09"
    1. 除非另行指定，否则 parted 会使用主驱动器，在大多数情况下为 **/dev/sda**。使用 **select** 命令切换到要分区的磁盘。将 **XXX** 替换为新设备名称。
 
       ```
-      (parted) select /dev/mapper/XXX
+            (parted) select /dev/mapper/XXX
       ```
       {: pre}
 
    2. 运行 **print** 以确认您位于正确的磁盘上。
 
       ```
-      (parted) print
+            (parted) print
       ```
       {: pre}
 
-   3. 创建新的 GPT 分区表 
-   
+   3. 创建新的 GPT 分区表
+
       ```
-      (parted) mklabel gpt
+            (parted) mklabel gpt
       ```
       {: pre}
 
@@ -413,14 +417,14 @@ lastupdated: "2018-03-09"
    <br /> **注**：列出的单位缺省为兆字节 (MB)；要创建 10 GB 的分区，应该从 1 开始，到 10000 结束。如果需要，还可以通过输入 `(parted) unit TB` 将大小单位更改为太字节。
 
       ```
-      (parted) mkpart
+            (parted) mkpart
       ```
       {: pre}
 
    5. 使用 **quit** 退出 parted。
 
       ```
-      (parted) quit
+            (parted) quit
       ```
       {: pre}
 
@@ -437,21 +441,21 @@ lastupdated: "2018-03-09"
    - 创建分区名称 PerfDisk 或要在其中安装文件系统的分区的名称：
 
      ```
-     mkdir /PerfDisk
+          mkdir /PerfDisk
      ```
      {: pre}
 
    - 使用该分区名称安装存储器：
 
      ```
-     mount /dev/mapper/XXXlp1 /PerfDisk
+          mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
    - 检查是否看到新的文件系统列出：
 
      ```
-     df -h
+          df -h
      ```
      {: pre}
 
@@ -459,7 +463,7 @@ lastupdated: "2018-03-09"
    - 将以下行附加到 **/etc/fstab** 的底部（使用步骤 3 中的分区名称）。<br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+          /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
      ```
      {: pre}
 
