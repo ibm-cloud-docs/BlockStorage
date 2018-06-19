@@ -12,7 +12,7 @@ lastupdated: "2018-05-17"
 
 {{site.data.keyword.blockstoragefull}} is persistent, high performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi- path I/O (MPIO) connections.
 
-{{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It's built using industry standards and best practices. {{site.data.keyword.blockstorageshort} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures while providing a consistent performance baseline.
+{{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It's built by using industry standards and best practices. {{site.data.keyword.blockstorageshort} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures while providing a consistent performance baseline.
 
 ## Core Features
 
@@ -25,7 +25,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - **Data-At-Rest Encryption** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html).)
    - Provider-managed encryption for data-at-rest at no additional cost
 - **All Flash Backed Storage** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html).)
-   - All flash storage for volumes provisioned with Endurance or Performance at 2 IOPS/GB or higher.
+   - All flash storage for volumes that are provisioned with Endurance or Performance at 2 IOPS/GB or higher.
 - **Snapshots** (in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
    - Captures point-in-time data snapshots non-disruptively.
 - **Replication** (in [select data centers](/new-ibm-block-and-file-storage-location-and-features.html).
