@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-06-19"
 
 ---
 {:new_window: target="_blank"}
@@ -17,7 +17,7 @@ The new storage is available in select data centers, and is backed by flash stor
 **Note:** The NFS mount point for new volumes has changed. See **New Mount Point for encrypted {{site.data.keyword.filestorage_short}} Volumes** below for details.
 
 The new {{site.data.keyword.blockstorageshort}} is currently available in following regions/data centers with more data center availability coming soon!
-<table style="width:100%;">
+<table role="presentation" style="width:100%;">
  <caption>Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.</caption>
 	 <tr>
 	   <td><strong>US 2</strong></td>
