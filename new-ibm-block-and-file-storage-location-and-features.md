@@ -67,6 +67,7 @@ The new {{site.data.keyword.blockstorageshort}} is currently available in follow
 	</tr>
 </table>
 
+*Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.*
 
 The new storage has the following features and capabilities:
 
