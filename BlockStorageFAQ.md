@@ -19,8 +19,8 @@ IOPS is enforced at the volume level. Said differently, two hosts connected to a
 ## How is IOPS measured?
 IOPS is measured based on a load profile of 16 KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile may experience lower performance.
 
-## What happens if I use a smaller block size when measuring performance?
-Maximum IOPS can still be obtained when using smaller block sizes, however throughput will be lower. For example; a volume with 6000 IOPS would have the following throughput at various block sizes:
+## What happens when I use a smaller block size when measuring performance?
+Maximum IOPS can still be obtained when using smaller block sizes. However, throughput will be lower. For example; a volume with 6000 IOPS would have the following throughput at various block sizes:
 
 - 16 KB * 6000 IOPS == ~93.75 MB/sec 
 - 8 KB * 6000 IOPS == ~46.88 MB/sec
@@ -35,13 +35,13 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 ## How can I tell which of my {{site.data.keyword.blockstorageshort}} LUNs/volumes are encrypted?
 When viewing your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, you'll see a lock icon to the right of LUN/volume name for those that are encrypted.
 
-## How do I know if I am provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
+## How do I know when I am provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 When provisioning {{site.data.keyword.blockstorageshort}}, all upgraded data centers will be denoted with an asterisk (`*`) in the order form and an indication that you'll be provisioning storage with encryption. When the storage is provisioned, you'll see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
 
 ## Why can I provision {{site.data.keyword.blockstorageshort}} with an Endurance 10 IOPS tier in some data centers and not in others?
 The Endurance type 10 IOPS/GB tier is only available in select data centers, with new data centers being added soon. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
 
-## Can I encrypt my {{site.data.keyword.blockstorageshort}} if I have non-encrypted {{site.data.keyword.blockstorageshort}} provisioned in a data center that has been upgraded?
+## If I have non-encrypted {{site.data.keyword.blockstorageshort}} provisioned in a data center that has been upgraded, can I encrypt my {{site.data.keyword.blockstorageshort}}?
 
 {{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted. 
 New {{site.data.keyword.blockstorageshort}} provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic. 
@@ -51,7 +51,7 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume, contact your sales representative to increase your volumes.
 
-## Will I be able to achieve more throughput if I used a faster Ethernet connection?
+## If I use a faster Ethernet connection, can I achieve more throughput?
 
 Throughput limits are set at a per-volume/LUN level so using a faster Ethernet connection won't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
