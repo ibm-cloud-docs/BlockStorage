@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,16 +13,14 @@ lastupdated: "2018-03-16"
 
 # Usando o LUKS no Red Hat Enterprise Linux para criptografia total de disco
 
-O Linux Unified Key Setup-on-disk-format (LUKS) permite criptografar partições em seu Red Hat Enterprise
-Linux 6 (servidor), que é particularmente importante quando se trata de computadores móveis e de mídia
-removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
+É possível criptografar partições em seu servidor Red Hat Enterprise Linux 6 com Linux Unified Key Setup-on-disk-format (LUKS), que é particularmente importante quando se trata de computadores móveis e de mídia removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
 que é usada para a criptografia em massa da partição.
 
 ## O que o LUKS faz
 
 - Criptografa dispositivos de bloco inteiros sendo, portanto, adequado para proteção do conteúdo de
 dispositivos móveis, como mídia de armazenamento removível ou unidades de disco laptop.
-    - O conteúdo subjacente do dispositivo de bloco criptografado é arbitrário, tornando útil para
+- O conteúdo subjacente do dispositivo de bloco criptografado é arbitrário, tornando útil para
 criptografia de dispositivos de troca. A criptografia também pode ser útil com determinados bancos de dados
 que usam dispositivos de bloco especialmente formatados para armazenamento de dados.
 - Usa o subsistema de kernel do mapeador de dispositivo existente.
@@ -39,8 +37,7 @@ distintas para os mesmos dispositivos.
 [mais
 informações](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## Como configurar o novo volume LUKS criptografado com
-{{site.data.keyword.blockstorageshort}} de resistência
+## Como configurar um volume criptografado LUKS com o Endurance {{site.data.keyword.blockstorageshort}}
 
 Estas etapas supõem que o servidor já tem acesso a um novo volume
 do {{site.data.keyword.blockstoragefull}} não criptografado que não tenha sido formatado ou montado. Clique [aqui](accessing_block_storage_linux.html) para saber como acessar
@@ -60,9 +57,9 @@ impactar o desempenho.
    ```
    {: pre}
 3. Localize seu volume na listagem.
-4. Criptografe o dispositivo de bloco; 
+4. Criptografe o dispositivo de bloco;
 
-   1. Este comando inicializa o volume e permite configurar um passphrase: <br/>
+   1. Este comando inicializa o volume e é possível configurar uma passphrase: <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -97,9 +94,7 @@ impactar o desempenho.
      mode:    read/write
      Command successful
    ```
-8. Gravar dados aleatórios em dispositivos criptografados /dev/mapper/cryptData. Isso assegura que o
-mundo exterior veja isso como dados aleatórios, o que significa que eles estão protegidos contra divulgação de
-padrões de uso. Lembre-se de que esta etapa pode levar algum tempo.<br/>
+8. Grave dados aleatórios em `/dev/mapper/cryptData` no dispositivo criptografado. Isso assegura que o mundo exterior veja isso como dados aleatórios, o que significa que eles estão protegidos contra divulgação de padrões de uso. Esta etapa pode demorar um pouco.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

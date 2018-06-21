@@ -2,23 +2,23 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-04-23"
+lastupdated: "2018-05-16"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Protegendo seus dados - Criptografia de dados em repouso gerenciada por provedor
+# Protegendo seus dados - Criptografia em repouso gerenciada por provedor
 
-## Criptografia de dados em repouso do {{site.data.keyword.blockstorageshort}} e do {{site.data.keyword.filestorage_full_notm}} 
+## Criptografia em repouso do {{site.data.keyword.blockstorageshort}} 
 
-O {{site.data.keyword.BluSoftlayer_full}} leva muito a sério a necessidade de segurança e entende a importância da capacidade de criptografia de dados para mantê-los seguros. Com a criptografia gerenciada por provedor, o {{site.data.keyword.blockstoragefull}} e o {{site.data.keyword.filestorage_full}} provisionados com Resistência ou Desempenho são criptografados por padrão sem nenhum custo adicional e sem nenhum impacto no desempenho.
+O {{site.data.keyword.BluSoftlayer_full}} leva a necessidade de segurança a sério e entende a importância de ser capaz de criptografar dados para mantê-los seguros. Com a criptografia gerenciada por provedor, o {{site.data.keyword.blockstoragefull}} provisionado com as opções Endurance ou Performance é criptografado por padrão sem nenhum custo extra e nenhum impacto no desempenho.
 
-O recurso Criptografia de dados em repouso gerenciada por provedor usa os protocolos padrão de mercado a seguir:
+O recurso de criptografia em repouso gerenciada por provedor usa os protocolos padrão de mercado a seguir:
 
 * Criptografia AES-256 padrão de mercado
 * As chaves são gerenciadas internamente com o padrão de mercado Key Management Interoperability Protocol (KMIP)
-* O armazenamento é o Federal Information Processing Standard (FIPS) Publication 140-2 validado para conformidade com o Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) e UE Data Protection Directive 95/46/EC
+* O armazenamento é validado para o Federal Information Processing Standard (FIPS) Publication 140-2, o Federal Information Security Management Act (FISMA) e o Health Insurance Portability and Accountability Act (HIPAA). O armazenamento também é validado para a conformidade com o Payment Card Industry (PCI), o Basel II, o California Security Breach Information Act (SB 1386) e o EU Data Protection Directive 95/46/EC.
 
 ## Criptografia de dados em repouso para armazenamento Capturas instantâneas ou Replicado  
 
@@ -26,15 +26,15 @@ Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorages
 
 ## Fornecimento de armazenamento com criptografia
 
-O recurso Criptografia de dados em repouso gerenciada por provedor está disponível apenas para o {{site.data.keyword.blockstorageshort}} que é provisionado em data centers de seleção com nova disponibilidade do data center sendo incluída regularmente. Todo o armazenamento provisionado nestes data centers é provisionado automaticamente com criptografia para dados em repouso. Clique [aqui](new-ibm-block-and-file-storage-location-and-features.html) para ver a lista atual de data centers nos quais a criptografia do {{site.data.keyword.blockstorageshort}} para dados em repouso está disponível.
+O recurso de criptografia em repouso gerenciada por provedor está disponível somente para o {{site.data.keyword.blockstorageshort}} provisionado em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). Todo o armazenamento provisionado nestes data centers é provisionado automaticamente com criptografia para dados em repouso.
 
-Ao solicitar seu {{site.data.keyword.blockstorageshort}}, selecione um data center anotado com um * e com uma mensagem informando que a criptografia está disponível. Será exibido um ícone de bloqueio à direita do campo Nome do LUN/volume indicando que ele está criptografado. Consulte a Figura 1.
+Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center marcado com um asterisco (`*`). Você verá um ícone de bloqueio à direita do campo Nome do LUN/volume indicando que ele está criptografado.
 
 ![O ícone de bloqueio indica que o LUN está criptografado](/images/encryptedstorage.png)
 <caption>Figura 1. Exemplo do ícone de bloqueio indicando que o LUN está criptografado.</caption>
 
 
 
-**Observe** que um armazenamento não criptografado provisionado antes de um upgrade do data center **não** é criptografado automaticamente. Se você tiver um armazenamento não criptografado em um data center submetido a upgrade, será necessário criar um novo LUN ou volume e executar uma migração de dados. Os artigos a seguir podem fornecer orientação.
+**Nota**: o armazenamento não criptografado provisionado antes de o data center ser submetido a upgrade **não** será criptografado automaticamente. Se você tiver um armazenamento não criptografado em um data center submetido a upgrade, será necessário criar um novo LUN ou volume e executar uma migração de dados. O artigo a seguir pode fornecer orientação:
 
 * [Migração do {{site.data.keyword.blockstorageshort}} em data centers submetidos a upgrade](migrate-block-storage-encrypted-block-storage.html)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-05-17"
 
 ---
 {:new_window: target="_blank"}
@@ -13,23 +13,21 @@ lastupdated: "2018-03-09"
 
 # Conectando-se a LUNs iSCSI de MPIO no Linux
 
-Essas instruções são para o RHEL6/Centos6. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica para configuração e assegure-se de que os caminhos múltiplos suportam ALUA para prioridade de caminho.
+Essas instruções são para o RHEL6/Centos6. Incluímos notas para outro S.O., mas esta documentação **não** cobre todas as distribuições do Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho. Por exemplo, é possível localizar instruções do Ubuntu para a Configuração do inicializador iSCSI [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e configuração de DM-Multipath [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
 Antes de iniciar, verifique se o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} foi autorizado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
 
-1. Na pasta de listagem do {{site.data.keyword.blockstorageshort}}, clique nas **Ações** associadas ao volume recém-provisionado
+1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, clique em **Ações** associadas ao novo volume.
 2. Clique em **Autorizar host**.
-3. Selecione os hosts desejados na lista e clique em **Enviar**. Isso autoriza que eles acessem o volume.
+3. Na lista, selecione o host ou hosts que devem estar aptos a acessar o volume e clique em **Enviar**.
 
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
 
 A seguir estão as etapas necessárias para conectar uma instância do {{site.data.keyword.BluSoftlayer_full}} Compute baseada em Linux a um número da unidade lógica (LUN) Internet Small Computer System Interface (iSCSI) para E/S de caminhos múltiplos (MPIO).
 
-O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajustadas para outras distribuições do Linux de acordo com a documentação do fornecedor do sistema operacional (S.O.). Incluímos notas para outro S.O., mas esta documentação **não** cobre todas as distribuições do Linux. Por exemplo, no caso de Ubuntu, clique [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} para obter instruções de configuração do Inicializador iSCSI e clique [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} para obter mais informações sobre a configuração de DM-Multipath.
+**Nota:** o IQN do host, o nome do usuário, a senha e o endereço de destino referenciados nas instruções podem ser obtidos na tela **Detalhes do {{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Nota:** o IQN do host, o nome do usuário e o endereço de destino referenciados nas instruções podem ser obtidos na tela **Detalhes do {{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-
-**Nota:** é recomendável executar o tráfego de armazenamento em uma VLAN que ignora o firewall como uma boa prática. Executar o tráfego de armazenamento através de firewalls de software aumentará a latência e afetará adversamente o desempenho de armazenamento.
+**Nota:** é recomendável executar o tráfego de armazenamento em uma VLAN que efetua bypass do firewall. Executar o tráfego de armazenamento através de firewalls de software aumentará a latência e afetará adversamente o desempenho de armazenamento.
 
 1. Instale os utilitários iSCSI e de caminhos múltiplos no seu host:
    - RHEL/CentOS:
@@ -48,7 +46,7 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
    {: pre}
 
 2. Crie ou edite o arquivo de configuração de caminhos múltiplos.
-   - Edite **/etc/multipath.conf** com a configuração mínima fornecida nos seguintes comandos. <br /><br /> **Nota:** lembre-se de que para RHEL7/CentOS7, `multipath.conf` pode ficar em branco, já que o S.O. possui configurações integradas. O Ubuntu não usa multipath.conf, já que ele é integrado em ferramentas de caminhos múltiplos.
+   - Edite **/etc/multipath.conf** com a configuração mínima fornecida nos seguintes comandos. <br /><br /> **Nota:** lembre-se de que para RHEL7/CentOS7, `multipath.conf` pode ficar em branco, já que o S.O. possui configurações integradas. O Ubuntu não usa o multipath.conf porque ele é construído em multipath-tools.
 
    ```
    defaults {
@@ -100,8 +98,8 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
      chkconfig multipathd on
      ```
      {: pre}
-   
-   - CentOS 7: 
+
+   - CentOS 7:
      ```
      modprobe dm-multipath
      ```
@@ -116,13 +114,13 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
      systemctl enable multipathd
      ```
      {: pre}
-     
+
    - Ubuntu:
      ```
-     service multipath-tools start 
+     service multipath-tools start
      ```
      {: pre}
-    
+
    - Para outras distribuições, consulte a documentação do fornecedor do S.O.
 
 4. Verifique se os caminhos múltiplos estão funcionando.
@@ -131,16 +129,16 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
      multipath -l
      ```
      {: pre}
-     
-     Se ele retorna em branco neste momento, ele está funcionando. 
-   
+
+     Se ele retorna em branco neste momento, ele está funcionando.
+
    - CentOS 7:
      ```
      multipath -ll
      ```
      {: pre}
-     
-     O RHEL 7/CentOS 7 pode retornar Nenhum dispositivo fc_host, que pode ser ignorado. 
+
+     O RHEL 7/CentOS 7 pode retornar Nenhum dispositivo fc_host, que pode ser ignorado.
 
 5. Atualize o arquivo **/etc/iscsi/initiatorname.iscsi** com o IQN do {{site.data.keyword.slportal}}. Digite o valor em minúsculas.
    ```
@@ -205,7 +203,7 @@ O exemplo é baseado no **Red Hat Enterprise Linux 6**. As etapas devem ser ajus
       {: pre}
 
    - Outras distribuições: consulte a documentação do fornecedor do S.O.
-   
+
 8. Descubra o dispositivo usando o endereço IP de destino obtido do {{site.data.keyword.slportal}}.
 
      a. Execute a descoberta com relação à matriz iSCSI:
@@ -313,49 +311,55 @@ A seguir estão as etapas para criar um sistema de arquivos sobre o volume recé
      {: pre}
 
 #### Tabela de comandos Fdisk
+
+
+
 <table border="0" cellpadding="0" cellspacing="0">
- <tbody>
+  <caption>A tabela de comandos fdisk contém comandos à esquerda e resultados esperados à direita.</caption>
+    <thead>
 	<tr>
-		<td style="width:40%;"><div>Comando</div></td>
-		<td style="width:60%;">Resultado</td>
+		<th style="width:40%;">Comando</th>
+		<th style="width:60%;">Resultado</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr>
+		<td><code>Command: n</code></td>
+		<td>Cria uma nova partição. &#42;</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: n</code></li>	</td>
-		<td>Cria uma nova partição.</td>
-	</tr>
-	<tr>
-		<td><li><code>Command action: p</code></li></td>
+		<td><code>Command action: p</code></td>
 		<td>Torna a partição a primária.</td>
 	</tr>
 	<tr>
-		<td><li><code>Partition number (1-4): 1</code></li></td>
+		<td><code>Partition number (1-4): 1</code></td>
 		<td>Torna-se a partição 1 no disco.</td>
 	</tr>
 	<tr>
-		<td><li><code>First cylinder (1-8877): 1 (default)</code></li></td>
+		<td><code>First cylinder (1-8877): 1 (default)</code></td>
 		<td>Inicia com o cilindro 1.</td>
 	</tr>
 	<tr>
-		<td><li><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></li></td>
+		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
 		<td>Pressione Enter para acessar o último cilindro.</td>
 	</tr>
 	<tr>
-		<td><li>&#42; <code>Command: t</code></li></td>
-		<td>Configura o tipo de partição.</td>
+		<td><code>Command: t</code></td>
+		<td>Configura o tipo de partição. &#42;</td>
 	</tr>
 	<tr>
-		<td><li><code>Select partition 1.</code></li></td>
+		<td><code>Select partition 1.</code></td>
 		<td>Seleciona a partição 1 para ser configurada como um tipo específico.</td>
 	</tr>
 	<tr>
-		<td><li>&#42;&#42; <code>Hex code: 83</code></li></td>
-		<td>Seleciona Linux como o Tipo (83 é o código hexadecimal para Linux).</td>
+		<td><code>Hex code: 83</code></td>
+		<td>Seleciona Linux como o Tipo (83 é o código hexadecimal para Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><li>&#42; <code>Command: w</code></li></td>
-		<td>Grava as informações da nova partição no disco.</td>
+		<td><code>Command: w</code></td>
+		<td>Grava as informações da nova partição no disco. &#42;</td>
 	</tr>
- </tbody>
+   </tbody>
 </table>
 
   (`*`) Digite m para Ajuda.
@@ -402,8 +406,8 @@ Para criar um sistema de arquivos com **parted**, siga estas etapas:
       ```
       {: pre}
 
-   3. Crie uma nova tabela de partição GPT 
-   
+   3. Crie uma nova tabela de partição GPT
+
       ```
       (parted) mklabel gpt
       ```

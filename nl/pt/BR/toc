@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="BlockStorage" audience="services" href="/docs/infrastructure/BlockStorage/index.html"}
-IBM Cloud Storage - Armazenamento de bloco
+IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
     index.md
@@ -19,6 +19,7 @@ IBM Cloud Storage - Armazenamento de bloco
         provisioning-block_storage.md
         ordering-snapshots.md
         managing-storage-limits.md
+        migrate-block-storage-encrypted-block-storage.md
 
     {: .topicgroup}
     Configuração
@@ -31,7 +32,6 @@ IBM Cloud Storage - Armazenamento de bloco
     {: .topicgroup}
     Segurança
         block-file-storage-encryption-rest.md
-        migrate-block-storage-encrypted-block-storage.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
 
     managing-block-storage.md
