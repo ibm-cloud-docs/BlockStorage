@@ -111,6 +111,6 @@ You might need to take your storage volume back to a specific point-in-time beca
 5. Click **Yes** to start the restore. Expect a message across the top of the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
 6. Mount and reattach your storage volume to the host.
    - Click [here](accessing_block_storage_linux.html) for {{site.data.keyword.blockstorageshort}} on Linux instructions.
-   - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}}on Microsoft Windows instructions.
+   - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}} on Microsoft Windows instructions.
    
 **Note**: Restoring a volume results in deleting all snapshots that were taken before the restored snapshot.
