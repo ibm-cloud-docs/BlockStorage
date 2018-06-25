@@ -2,11 +2,10 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # Expandable Block Storage Capacity
 
@@ -36,7 +35,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} provisione
 
 ## How can I tell if my storage is encrypted?
 
-Storage provisioned with enhanced capabilities is always encryped-at-rest. You can easily tell that your storage is eligible if it has a "lock" icon next to it in the portal UI. 
+Storage provisioned with enhanced capabilities is always encrypted-at-rest. You can easily tell that your storage is eligible if it has a "lock" icon next to it in the portal UI. 
 
 ## How can I resize my storage?
 
