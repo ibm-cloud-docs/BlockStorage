@@ -60,7 +60,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
  
 ### Endurance:
 <table>
-  <caption>Table 2 is showing the prices for Endurance Storage with monthly and hourly billing.</caption>
+  <caption>Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options.</caption>
   <tr>
    <th>IOPS Tier</th>
    <th>0.25 IOPS/GB</th>
@@ -117,7 +117,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Table 3 is showing size and IOPS combinations.<br/><sup><img src="/images/numberone.png" alt="footnote" /></sup> IOPS limit above 6,000 is available in select data centers.</caption>
+ <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="footnote" /></sup> IOPS limit above 6,000 is available in select data centers.</caption>
         <colgroup>
           <col/>
           <col/>
