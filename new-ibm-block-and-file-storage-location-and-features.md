@@ -2,21 +2,20 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # New Locations and Features of {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}!
 
-The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest.  All storage that are provisioned in the select data centers are automatically created with the new version.
+The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest. All storage that is provisioned in the upgraded data centers is automatically created with the new version.
 
-**Note:** The NFS mount point for new volumes has changed. See **New Mount Point for encrypted {{site.data.keyword.filestorage_short}} Volumes** below for details.
+**Note:** The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. See **New mount point for encrypted {{site.data.keyword.filestorage_short}} Volumes** section for details.
 
-The new {{site.data.keyword.blockstorageshort}} is currently available in following regions/data centers with more data center availability coming soon!
+The new {{site.data.keyword.blockstorageshort}} is available in the following regions/data centers.
 <table role="presentation">
 	 <tr>
 	   <td><strong>US 2</strong></td>
@@ -67,7 +66,7 @@ The new {{site.data.keyword.blockstorageshort}} is currently available in follow
 	</tr>
 </table>
 
-*Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London and Sydney have multiple data centers.*
+*Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers.*
 
 The new storage has the following features and capabilities:
 
@@ -84,8 +83,8 @@ The new storage has the following features and capabilities:
 - Create a clone of your data with the **[{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html)**.
 - **Storage is expandable** in GB increments up to 12 TB, without the need to create a duplicate or manually moving data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
 
-## New mount point for encrypted storage volumes
+## New Mount Point for encrypted storage volumes
 
-All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure that you're using the correct mount point for your storage volumes you can view the mount point information on the **Volume Details** page in the UI. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure that you're using the correct mount point for your storage volumes, you can view the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Check back here to see when more data centers are upgraded and for newly available features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.
+Check back here to see when more data centers are upgraded and for new features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.
