@@ -25,7 +25,7 @@ There's an assumption that you already have your non-encrypted LUN attached to y
 
 The following instructions are for ordering an enhanced LUN through the {{site.data.keyword.slportal}}. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
-### Order an Endurance LUN
+### Ordering an Endurance LUN
 
 1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. In the upper right corner, click **Order {{site.data.keyword.blockstorageshort}}**.
@@ -40,7 +40,7 @@ The following instructions are for ordering an enhanced LUN through the {{site.d
 10. Click **Continue**. You’re shown the monthly and prorated charges with a final chance to review order details.
 11. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
 
-### Order a Performance LUN
+### Ordering a Performance LUN
 
 1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. In the upper right corner, click **Order {{site.data.keyword.blockstorageshort}}**.
@@ -77,28 +77,19 @@ Note that if your replication target data center is not upgraded yet, you won't 
  
 ## Migrating your data
 
-First, connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs. 
-- If you need assistance with connecting the two LUNs to your host, open a support ticket.
+1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs. 
+  - If you need assistance with connecting the two LUNs to your host, open a support ticket.
 
-Then, consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN. 
-- If you have backups, static content, and things that aren't expected to change during the copy, there aren't any major concerns.
-- If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, do the migration during off peak times. If you need assistance with these considerations, open a support ticket.
+2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN. 
+  - If you have backups, static content, and things that aren't expected to change during the copy, there aren't any major concerns.
+  - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, do the migration during off peak times. If you need assistance with these considerations, open a support ticket.
  
-### Copying data - Microsoft Windows
-
-To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN, format the new storage, and copy the files over by using Windows Explorer.
-
- 
-### Copying data - Linux
-
-You might consider using 'rsync' to copy over the data. Below is an example command:
-
-```
-[root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
-```
-
-It is recommended that you use the above command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.
-
-When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} LUN. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.
-
-When your migration is complete, you'll be able to move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. Note that the deletion also removes any snapshot or replica on the target site that was associated with the original LUN.
+3. Copy your data across.
+   - **Microsoft Windows**: To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN, format the new storage, and copy the files over by using Windows Explorer.
+   - **Linux**: You might consider using 'rsync' to copy over the data. Here is an example command:
+   ```
+   [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
+   ```
+   It is recommended that you use the above command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.<br/>
+   When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} LUN. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.<br/>
+   When your migration is complete, you'll be able to move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. Note that the deletion also removes any snapshot or replica on the target site that was associated with the original LUN.
