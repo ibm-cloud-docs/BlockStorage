@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
@@ -17,11 +17,11 @@ This article helps you configure {{site.data.keyword.blockstoragefull}} for your
 1. Connect to the host through SSH.
 
 2. Ensure that a mount point target exists. <br />
-   **Note**: Plesk has two options for storing backups. One option is the internal Plesk storage (backup storage on your Plesk server), the other is an external FTP storage (backup storage on some external server in the web or your local network). Commonly on Plesk boxes, internal backups are stored in `/var/lib/psa/dumps` and use `/tmp` as a temporary directory. In this example, we keep the temporary directory local, but move the dumps directory to the STaaS target (`/backup/psa/dumps`). No FTP user credentials are required.
+   **Note**: Plesk has two options for storing backups. One option is the internal Plesk storage (backup storage on your Plesk server). The other option is an external FTP storage (backup storage on some external server in the web or your local network). Commonly on Plesk boxes, internal backups are stored in `/var/lib/psa/dumps` and use `/tmp` as a temporary directory. In this example, the temporary directory is kept local, but the dumps directory is moved to the STaaS target (`/backup/psa/dumps`). No FTP user credentials are required.
    
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html). Mount {{site.data.keyword.blockstorageshort}} to `/backup` and configure `/etc/fstab` to enable mounting on start.
 
-4. **Optional**: Copy existing backups to the new storage. You can use `rsync`:
+4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps
    ```
