@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
@@ -80,16 +80,16 @@ Note that if your replication target data center is not upgraded yet, you won't 
 First, connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs. 
 - If you need assistance with connecting the two LUNs to your host, open a support ticket.
 
-Then, consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN. If you have backups, static content, and things that aren't expected to change during the copy, there aren't any major concerns.
-
-If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, do the migration during off peak times. If you need assistance with these considerations, open a support ticket.
+Then, consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN. 
+- If you have backups, static content, and things that aren't expected to change during the copy, there aren't any major concerns.
+- If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, do the migration during off peak times. If you need assistance with these considerations, open a support ticket.
  
-### Microsoft Windows
+### Copying data - Microsoft Windows
 
 To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN, format the new storage, and copy the files over by using Windows Explorer.
 
  
-### Linux
+### Copying data - Linux
 
 You might consider using 'rsync' to copy over the data. Below is an example command:
 
