@@ -2,17 +2,16 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-19"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # About {{site.data.keyword.blockstorageshort}}
 
-{{site.data.keyword.blockstoragefull}} is persistent, high performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi- path I/O (MPIO) connections.
+{{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi- path I/O (MPIO) connections.
 
-{{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It's built by using industry standards and best practices. {{site.data.keyword.blockstorageshort} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures while providing a consistent performance baseline.
+{{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It is built by using industry standards and best practices. {{site.data.keyword.blockstorageshort} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures, and provide a consistent performance baseline.
 
 ## Core Features
 
@@ -42,13 +41,12 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 
 You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees will be billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees will be billed monthly. 
 
-With **hourly billing**, the calculation of the number of hours the block LUN existed on the account is performed at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
+With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
 
-With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund If a LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer). 
+With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund If a LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer). 
 
 ### Performance:
 <table>
- <tbody>
   <tr>
    <th>Monthly Price</th>
    <td>$0.10/GB + $0.07/IOP</td>
@@ -57,12 +55,10 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
    <th>Hourly Price</th>
    <td>$0.0001/GB + $0.0002/IOP</td>
   </tr>
-  </tbody>
 </table>
  
 ### Endurance:
 <table>
- <tbody>
   <tr>
    <th>IOPS Tier</th>
    <th>0.25 IOPS/GB</th>
@@ -84,7 +80,6 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
    <td>$0.0005/GB</td>
    <td>$0.0009/GB</td>
   </tr>
-  </tbody>
 </table>
 
 
@@ -92,7 +87,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 ## Provisioning
 
 {{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options for provisioning: <br/>
-- Provision **Endurance** tiers featuring pre-defined performance levels and features like snapshots and replication.
+- Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS). 
 
 ### Endurance Tiers
@@ -101,31 +96,31 @@ Endurance is available in three IOPS performance tiers to support varying applic
 
 - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at any time. Example applications include storing mailboxes or departmental level file shares.
 
-- **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases backing web applications or virtual machine disk images for a hypervisor.
+- **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or VM disk images for a hypervisor.
 
 - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at any time. Example applications include transactional and other performance-sensitive databases.
 
-- **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL Databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
+- **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
 
 Up to 48,000 IOPS are available with a 12 TB Endurance volume.
  
-While choosing the right tier of Endurance {{site.data.keyword.blockstorageshort}} for your workload is key, it's equally important to use the block size, Ethernet connection speed, and the number of hosts necessary to achieve maximum performance. If any of these parts don't align with the other, it can have a significant impact on the resulting throughput.
+Choosing the right Endurance tier for your workload is key. It's equally important to use the right block size, Ethernet connection speed, and the number of hosts necessary to achieve maximum performance. If any of these parts don't align with the other, it can have a significant impact on the resulting throughput.
 
  
 ### Performance
 
-Performance is a class of {{site.data.keyword.blockstorageshort}} that's designed to support high I/O applications with well understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. IOPS rates ranging 100 - 48,000 can be provisioned with storage sizes that range from 20 GB to 12 TB. 
+Performance is a class of {{site.data.keyword.blockstorageshort}} that is designed to support high I/O applications with well understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. IOPS rates ranging 100 - 48,000 can be provisioned with storage sizes that range from 20 GB to 12 TB. 
 
-Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted through a Multipath I/O (MPIO) Internet Small Computer System Interface (iSCSI) connection. {{site.data.keyword.blockstorageshort}} is typically used when the volume is accessed by a single machine. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS in Table 1 for Linux, XEN, VMware, and Windows operating systems.
+Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted through a Multipath I/O (MPIO) internet Small Computer System Interface (iSCSI) connection. {{site.data.keyword.blockstorageshort}} is typically used when the volume is accessed by a single machine. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS in Table 1 for Linux, XEN, VMware, and Windows operating systems.
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
+ <caption><sup>![footnote](/images/numberone.png)</sup> IOPS limit above 6,000 is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html)</caption>
         <colgroup>
           <col/>
           <col/>
           <col/>
         </colgroup>
-        <tbody>
           <tr>
             <th>Size (GB)</th>
             <th>Min IOPS</th>
@@ -186,10 +181,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
             <td>1,000</td>
             <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
           </tr>
-        </tbody>
 </table>
-
-<sup>![footnote](/images/numberone.png)</sup> IOPS limit above 6,000 is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
 
 
 Performance volumes are designed to perform consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a given level of performance. Additionally, given the range of volume sizes and IOPS counts, it becomes possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
@@ -198,22 +190,23 @@ Performance volumes are designed to perform consistently close to the provisione
 
 IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50 percent random workload. A 16 KB block is the equivalent of one write to the volume.
 
-The block size used by your application will directly impact storage performance. If the block size used by your application is smaller than 16 KB, the IOPS limit will be realized before the throughput limit. Conversely, if the block size used by your application is larger than 16 KB, the throughput limit will be realized before to the IOPS limit.
-
-Changing the block size will affect the performance as follows:
+The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
 
 <table>
+  <caption></caption>
         <colgroup>
           <col/>
           <col/>
           <col/>
         </colgroup>
-        <tbody>
+        <thead>
           <tr>
             <th>Block Size (KB)</th>
             <th>IOPS</th>
             <th>Throughput (MB/s)</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>4 (typical for Linux)</td>
             <td>1,000</td>
