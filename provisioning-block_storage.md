@@ -62,6 +62,6 @@ For the limit on simultaneous authorizations, see our [FAQs](BlockStorageFAQ.htm
 
 For the limit on simultaneous authorizations, see our [FAQs](BlockStorageFAQ.html)
 
-## How to identify my {{site.data.keyword.blockstorageshort}} on my invoice
+## Identifing my {{site.data.keyword.blockstorageshort}} on my invoice
 
 All LUNs appear on your invoice as a line item. Endurance appears as “Endurance Storage Service” and Performance appears as "Performance Storage Service" The rate varies based on your storage level. You can expand on Endurance or Performance to see that it's {{site.data.keyword.blockstorageshort}}.
