@@ -41,12 +41,13 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 
 You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees will be billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees will be billed monthly. 
 
-With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
+With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only. 
 
 With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund If a LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer). 
 
 ### Performance:
 <table>
+  <caption>Table 1 is showing the prices for Performance Storage with monthly and hourly billing.</caption>
   <tr>
    <th>Monthly Price</th>
    <td>$0.10/GB + $0.07/IOP</td>
@@ -59,6 +60,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
  
 ### Endurance:
 <table>
+  <caption>Table 2 is showing the prices for Endurance Storage with monthly and hourly billing.</caption>
   <tr>
    <th>IOPS Tier</th>
    <th>0.25 IOPS/GB</th>
@@ -100,7 +102,7 @@ Endurance is available in three IOPS performance tiers to support varying applic
 
 - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at any time. Example applications include transactional and other performance-sensitive databases.
 
-- **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
+- **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only.
 
 Up to 48,000 IOPS are available with a 12 TB Endurance volume.
  
@@ -109,13 +111,13 @@ Choosing the right Endurance tier for your workload is key. It's equally importa
  
 ### Performance
 
-Performance is a class of {{site.data.keyword.blockstorageshort}} that is designed to support high I/O applications with well understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. IOPS rates ranging 100 - 48,000 can be provisioned with storage sizes that range from 20 GB to 12 TB. 
+Performance is a class of {{site.data.keyword.blockstorageshort}} that is designed to support high I/O applications with well understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. Various IOPS rates (100 - 48,000) can be provisioned with storage sizes that range from 20 GB to 12 TB. 
 
-Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted through a Multipath I/O (MPIO) internet Small Computer System Interface (iSCSI) connection. {{site.data.keyword.blockstorageshort}} is typically used when the volume is accessed by a single machine. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS in Table 1 for Linux, XEN, VMware, and Windows operating systems.
+Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted through a Multipath I/O (MPIO) internet Small Computer System Interface (iSCSI) connection. {{site.data.keyword.blockstorageshort}} is typically used when the volume is accessed by a single server. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS rates in Table 3 for Linux, XEN, and Windows operating systems.
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption><sup>![footnote](/images/numberone.png)</sup> IOPS limit above 6,000 is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html)</caption>
+ <caption>Table 3 is showing size and IOPS combinations.<br/><sup><img src="/images/numberone.png" alt="footnote" /></sup> IOPS limit above 6,000 is available in select data centers.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -184,16 +186,18 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 </table>
 
 
-Performance volumes are designed to perform consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a given level of performance. Additionally, given the range of volume sizes and IOPS counts, it becomes possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
+Performance volumes are designed to operate consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a specific level of performance. Additionally, it's possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
 
 ### Tips for Provisioning IOPS for {{site.data.keyword.blockstorageshort}}
+
+**Block size**
 
 IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50 percent random workload. A 16 KB block is the equivalent of one write to the volume.
 
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
 
 <table>
-  <caption></caption>
+  <caption>Table 4 shows examples of how block size and IOPS affect the throughput.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -245,10 +249,12 @@ The block size that is used by your application directly impacts the storage per
         </tbody>
 </table>
 
-Choosing the {{site.data.keyword.blockstorageshort}} that is right for your workload is important, and equally important is how to avoid bottlenecks. The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, you shouldn't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16 KB block size, the volume is capable of approximately 94 MB per second. If you have a 1 Gbps Ethernet connection to your LUN, it will become a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1 Gbps Ethernet connection (125 MB per second) would only allow for 88 MB per second.
+**Authorized hosts**
 
+Another factor to consider is the number of hosts that are using your volume. If there's a single host that is accessing the volume, it can be difficult to realize the maximum IOPS available, especially at extreme IOPS counts (10,000s). If your workload requires high throughput, it would be best to configure at least a couple servers to access your volume to avoid a single-server bottleneck.
 
-Another factor to consider is the number of hosts that are using your volume. If there's a single host that is accessing the volume it may be difficult to realize the maximum IOPS available, especially at extreme IOPS counts (10,000s). If your workload requires high throughput, it would be best to configure at least two or three servers to access your volume to avoid a single-server bottleneck.
+**Network connection**
 
+The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16 KB block size, the volume can handle approximately 94 MBps throughput. If you have a 1 Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1 Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
-To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage and host side and application-specific tunings (IP stack, queue depths, and so on).
+To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage and host side and application-specific tunings (IP stack or queue depths, and other settings).
