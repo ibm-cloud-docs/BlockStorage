@@ -2,22 +2,20 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Using LUKS in Red Hat Enterprise Linux for Full Disk Encryption
 
-You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is particularly important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
+You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
 
 ## What LUKS does
 
-- Encrypts entire block devices and is therefore well-suited for protecting the contents of mobile devices such as removable storage media or laptop disk drives.
+- Encrypts entire block devices and is therefore well-suited for protecting the contents of mobile devices such as removable storage media or notebook disk drives.
 - The underlying contents of the encrypted block device are arbitrary, making it useful for encrypting swap devices. The encrypting can also be useful with certain databases that use specially formatted block devices for data storage.
 - Uses the existing device mapper kernel subsystem.
 - Provides passphrase strengthening, which protects against dictionary attaches.
@@ -26,14 +24,14 @@ You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux 
 
 ## What LUKS doesn't do
 
-- Allow applications requiring many (more than eight) users to have distinct access keys to same devices.
-- Work with applications requiring file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Allow applications that require many (more than eight) users to have distinct access keys to same devices.
+- Work with applications that require file-level encryption, [more information](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## How to set up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
+## Setting up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
-These steps assume the server already has access to a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that has not been formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access {{site.data.keyword.blockstorageshort}} with Linux.
+These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access {{site.data.keyword.blockstorageshort}} with Linux.
 
-Note that performing data encryption creates a load on the host that could potentially impact performance.
+**Note**: The process of data encryption creates a load on the host that might potentially impact performance.
 
 1. Type the following at a shell prompt as root to install the required package:   <br/>
    ```
@@ -48,7 +46,7 @@ Note that performing data encryption creates a load on the host that could poten
 3. Locate your volume in the listing.
 4. Encrypt the block device;
 
-   1. this command initializes the volume and you can to set a passphrase: <br/>
+   1. This command initializes the volume, and you can set a passphrase. <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -57,20 +55,20 @@ Note that performing data encryption creates a load on the host that could poten
       
    2. Respond with YES (all uppercase letters.)
    
-   3. The device will now appear as an encrypted volume: 
+   3. The device now appears as an encrypted volume: 
    
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Open the volume and create a mapping:   <br/>
+5. Open the volume, and create a mapping.   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. Enter the password previously provided.
-7. Verify the mapping and view status of the encrypted volume:   <br/>
+6. Enter the passphrase.
+7. Verify the mapping, and view status of the encrypted volume.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,17 +81,17 @@ Note that performing data encryption creates a load on the host that could poten
      mode:    read/write
      Command successful
    ```
-8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This ensures that outside world will see this as random data, which means it's protected against disclosure of usage patterns. This step can take a while.<br/>
+8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action ensures that outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Format the volume:<br/>
+9. Format the volume.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Mount the volume:<br/>
+10. Mount the volume.<br/>
    ```
    # mkdir /cryptData
    ```
@@ -107,14 +105,14 @@ Note that performing data encryption creates a load on the host that could poten
    ```
    {: pre}
 
-### How to unmount and close the encrypted volume securely
+### Unmounting and closing the encrypted volume securely
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### How to remount and mount an existing LUKS encrypted partition
+### Remounting and Mounting an existing LUKS encrypted partition
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.
