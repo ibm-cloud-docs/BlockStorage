@@ -27,7 +27,7 @@ Some common uses for a duplicate volume:
 - **Golden Copy**: Use a storage volume as golden copy that you can create multiple instances from for various uses. 
 - **Data refreshes**: Create a copy of your production data to mount to your non-production environment for testing. 
 - **Restore from Snapshot**: Restore data on the original volume with specific files/date from a snapshot without overwriting the entire original volume with the snapshot restore function. 
-- **Dev/Test**: Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing. 
+- **Development and Testing (dev/test)**: Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing. 
 - **Storage Resize**: Create a volume with new size, IOPS rate or both without needing to move your data.  
 	
 
