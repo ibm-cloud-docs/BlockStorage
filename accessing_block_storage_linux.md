@@ -2,32 +2,32 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Connecting to MPIO iSCSI LUNs on Linux
 
-These instructions are for RHEL6/Centos6. We have added notes for other OS, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority. For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+These instructions are for RHEL6/Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority. 
 
-Before starting, make sure the host accessing the {{site.data.keyword.blockstoragefull}} volume has been authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
+For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
-1. From the {{site.data.keyword.blockstorageshort}} listing page, click **Actions** associated with the new volume.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
+
+1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 2. Click **Authorize Host**.
-3. From the list, select the host or hosts that should be able to access the volume and click **Submit**.
+3. From the list, select the host or hosts that can access the volume and click **Submit**.
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 
-Following are the steps required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) Internet Small Computer System Interface (iSCSI) logical unit number (LUN).
+Following are the steps that are required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-**Note:** The Host IQN, user name, password, and target address referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+**Note:** The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Note:** We recommend running storage traffic on a VLAN which bypasses the firewall. Running storage traffic through software firewalls will increase latency and adversely affect storage performance.
+**Note:** We recommend running storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
 1. Install the iSCSI and multipath utilities to your host:
    - RHEL/CentOS:
@@ -46,7 +46,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    {: pre}
 
 2. Create or edit your multipath configuration file.
-   - Edit **/etc/multipath.conf** with the minimum configuration provided in the following commands. <br /><br /> **Note:** Be aware that for RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. Ubuntu doesn't use multipath.conf since it's built into multipath-tools.
+   - Edit **/etc/multipath.conf** with the minimum configuration that is provided in the following commands. <br /><br /> **Note:** For RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. Ubuntu doesn't use multipath.conf because it is built into multipath-tools.
 
    ```
    defaults {
@@ -82,7 +82,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    ```
    {: codeblock}
 
-3. Load the multipath module, start multipath services and set it start on boot.
+3. Load the multipath module, start multipath services, and set it start on boot.
    - RHEL 6:
      ```
      modprobe dm-multipath
@@ -121,16 +121,16 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
      ```
      {: pre}
 
-   - For other distributions, please consult the OS vendor documentation.
+   - For other distributions, consult the OS vendor documentation.
 
-4. Verify multipath is working.
+4. Verify that multipath is working.
    - RHEL 6:
      ```
      multipath -l
      ```
      {: pre}
 
-     If it returns blank at this time it is working.
+     If it returns blank, it's working.
 
    - CentOS 7:
      ```
@@ -140,12 +140,12 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
 
      RHEL 7/CentOS 7 may return No fc_host device, which can be ignored.
 
-5. Update **/etc/iscsi/initiatorname.iscsi** file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lower case.
+5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lowercase.
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. Edit the CHAP settings in **/etc/iscsi/iscsid.conf** using the username and password from the {{site.data.keyword.slportal}}. Use upper case for CHAP names.
+6. Edit the CHAP settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.slportal}}. Use uppercase for CHAP names.
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -158,7 +158,7 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
 
    **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
 
-7. Set iSCSI to start at boot and start it at this time.
+7. Set iSCSI to start at boot and start it now.
    - RHEL 6:
 
       ```
@@ -202,9 +202,9 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
       ```
       {: pre}
 
-   - Other distributions: please consult the OS vendor documentation.
+   - Other distributions: consult the OS vendor documentation.
 
-8. Discover the device using the Target IP address obtained from the {{site.data.keyword.slportal}}.
+8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
      a. Run the discovery against the iSCSI array:
      ```
@@ -212,13 +212,13 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
      ```
      {: pre}
 
-     b. Set the host to automatically log into the iSCSI array:
+     b. Set the host to automatically log in to the iSCSI array:
      ```
      iscsiadm -m node -L automatic
      ```
      {: pre}
 
-9. Verify that the host has logged into the iSCSI array and maintained its sessions.
+9. Verify that the host is logged in to the iSCSI array and maintained its sessions.
    ```
    iscsiadm -m session
    ```
@@ -229,22 +229,22 @@ Following are the steps required to connect a Linux-based {{site.data.keyword.Bl
    ```
    {: pre}
 
-   This should report the paths at this time.
+   This command reports the paths.
 
-10. Verify the device is connected.  By default the device will attach to /dev/mapper/mpathX where X is the generated ID of the connected device.
+10. Verify that the device is connected. By default the device attaches to `/dev/mapper/mpathX` where X is the generated ID of the connected device.
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  Should report something similar to the following,
+  This command reports something similar to the following:
     ```
-    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte
+    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
   The volume is now mounted and accessible on the host.
 
-## Create a file system (optional)
+## Creating a File System (optional)
 
-Following are the steps to create a file system on top of the newly mounted volume. A file system is necessary for most applications to utilize the volume. Use **fdisk** for drives that are less than 2 TB and **parted** for a disk bigger than 2 TB.
+Follow these steps to create a file system on top of the newly mounted volume. A file system is necessary for most applications to use the volume. Use `fdisk` for drives that are less than 2 TB and `parted` for a disk bigger than 2 TB.
 
 ### fdisk
 
@@ -253,9 +253,9 @@ Following are the steps to create a file system on top of the newly mounted volu
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   The disk name returned should be similar to /dev/mapper/XXX.
+   The disk name that is returned looks similar to `/dev/mapper/XXX`.
 
-2. Create a partition on the disk using fdisk.
+2. Create a partition on the disk.
 
    ```
    fdisk /dev/mapper/XXX
@@ -264,7 +264,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 
    The XXX represents the disk name returned in Step 1. <br />
 
-   **Note**: Scroll further down for the commands codes listed in the Fdisk command table under this section.
+   **Note**: Scroll further down for the commands codes that are listed in the Fdisk command table.
 
 3. Create a file system on the new partition.
 
@@ -273,8 +273,8 @@ Following are the steps to create a file system on top of the newly mounted volu
    ```
    {: pre}
 
-   - The new partition should be listed with the disk, similar to XXXlp1, followed by the size, Type (83), and Linux.
-   - Take a note of the partition name, you will need it in the next step. (The XXXlp1 represents the partition name.)
+   - The new partition is listed with the disk, similar to `XXXlp1`, followed by the size, Type (83), and Linux.
+   - Take a note of the partition name, you need it in the next step. (The XXXlp1 represents the partition name.)
    - Create the file system:
 
      ```
@@ -282,8 +282,8 @@ Following are the steps to create a file system on top of the newly mounted volu
      ```
      {: pre}
 
-4. Create a mount point for the file system and mount it.
-   - create a partition name PerfDisk or where you want to mount the file system:
+4. Create a mount point for the file system, and mount it.
+   - Create a partition name `PerfDisk` or where you want to mount the file system:
 
      ```
      mkdir /PerfDisk
@@ -302,8 +302,8 @@ Following are the steps to create a file system on top of the newly mounted volu
      ```
      {: pre}
 
-5. Add the new filesystem to the system's **/etc/fstab** file to enable automatic mounting on boot.
-   - Append the following line to the bottom of **/etc/fstab** (using the partition name from Step 3). <br />
+5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
+   - Append the following line to the end of `/etc/fstab` (using the partition name from Step 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
@@ -311,8 +311,6 @@ Following are the steps to create a file system on top of the newly mounted volu
      {: pre}
 
 #### Fdisk command table
-
-
 
 <table border="0" cellpadding="0" cellspacing="0">
   <caption>fdisk command table contains commands on the left and expected results on the right.</caption>
@@ -341,7 +339,7 @@ Following are the steps to create a file system on top of the newly mounted volu
 	</tr>
 	<tr>
 		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Hit Enter to go to the last cylinder.</td>
+		<td>Press Enter to go to the last cylinder.</td>
 	</tr>
 	<tr>
 		<td><code>Command: t</code></td>
@@ -362,13 +360,13 @@ Following are the steps to create a file system on top of the newly mounted volu
    </tbody>
 </table>
 
-  (`*`)Type m for Help.
+  (`*`) Type m for Help.
 
-  (`**`)Type L to list the hex codes
+  (`**`) Type L to list the hex codes
 
 ### parted
 
-On many Linux distributions, **parted** comes pre-installed. If it is not included in your distro, you can install it with:
+On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian/Ubuntu
   ```
   sudo apt-get install parted  
@@ -382,9 +380,9 @@ On many Linux distributions, **parted** comes pre-installed. If it is not includ
   {: pre}
 
 
-To create a file system with **parted** follow these steps:
+To create a file system with `parted` follow these steps:
 
-1. Run parted.
+1. Run `parted`.
 
    ```
    parted
@@ -392,29 +390,29 @@ To create a file system with **parted** follow these steps:
    {: pre}
 
 2. Create a partition on the disk.
-   1. Unless specified otherwise, parted will use your primary drive, which in most cases is **/dev/sda**. Switch to the disk you want to partition using the command **select**. Replace **XXX** with your new device name.
+   1. Unless it is specified otherwise, parted uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
 
       ```
       (parted) select /dev/mapper/XXX
       ```
       {: pre}
 
-   2. Run **print** to confirm you are on the right disk.
+   2. Run **print** to confirm that you are on the right disk.
 
       ```
       (parted) print
       ```
       {: pre}
 
-   3. Create a new GPT partition table
+   3. Create a GPT partition table
 
       ```
       (parted) mklabel gpt
       ```
       {: pre}
 
-   4. Parted can be used to create primary and logical disk partitions, the steps involved are the same. To create new partition, parted uses **mkpart**. You can give it additional parameters like **primary** or **logical** depending on the partition type that you wish to create.
-   <br /> **Note**: The listed units default to megabytes (MB), to create a 10 GB partition you should start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
+   4. Parted can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, parted uses **mkpart**. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
+   <br /> **Note**: The listed units default to megabytes (MB), to create a 10 GB partition you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
 
       ```
       (parted) mkpart
@@ -435,18 +433,18 @@ To create a file system with **parted** follow these steps:
    ```
    {: pre}
 
-   **Note**: It’s important to select the right disk and partition when executing the above command!
-   Verify the result by printing the partition table. Under file system column, you should see ext3.
+   **Note**: It's important to select the right disk and partition when you run this command!
+   Verify the result by printing the partition table. Under file system column, you can see ext3.
 
 4. Create a mount point for the file system and mount it.
-   - create a partition name PerfDisk or where you want to mount the file system:
+   - Create a partition name `PerfDisk` or where you want to mount the file system:
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - Using the partition name mount the storage:
+   - Mount the storage by using the partition name:
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
@@ -460,8 +458,8 @@ To create a file system with **parted** follow these steps:
      ```
      {: pre}
 
-5. Add the new filesystem to the system's **/etc/fstab** file to enable automatic mounting on boot.
-   - Append the following line to the bottom of **/etc/fstab** (using the partition name from Step 3). <br />
+5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
+   - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
@@ -471,9 +469,9 @@ To create a file system with **parted** follow these steps:
 
 
 
-## How to Verify if MPIO is Configured Correctly in *NIX OSes
+## Verifying Whether MPIO is Configured Correctly in `*NIX` OSes
 
-To check if multipath is picking up the devices, only the NETAPP devices should show up and there should be two of them.
+To check whether multipath is picking up the devices, list the devices. If it's configured correct, only two NETAPP devices show up.
 
 ```
 # multipath -l
@@ -488,7 +486,7 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-Check that the disks are present, and there should be two disks with the same identifier, and a /dev/mapper listing of the same size with the same identifier. The /dev/mapper device is the one that multipath sets up:
+Check that the disks are present. Confirm that there are two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up:
 
 ```
 # fdisk -l | grep Disk
@@ -503,12 +501,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-If it is not correctly setup, it will look like this:
+If it isn't correctly setup, it looks like this:
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
 
-This will show the devices blacklisted:
+This command shows the devices that are blacklisted:
 ```
 # multipath -l -v 3 | grep sd <date and time>
 ```
@@ -523,7 +521,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-fdisk shows only the `sd*` devices, and no `/dev/mapper`
+`fdisk` shows only the `sd*` devices, and no `/dev/mapper`
 
 ```
 # fdisk -l | grep Disk
