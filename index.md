@@ -2,12 +2,12 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-06-26"
 
 ---
 {:new_window: target="_blank"}
 
-# About {{site.data.keyword.blockstorageshort}}
+# Getting started with {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi- path I/O (MPIO) connections.
 
@@ -39,13 +39,13 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
      
 ## Hourly/Monthly Billing
 
-You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees will be billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees will be billed monthly. 
+You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees are billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees are billed monthly. 
 
 With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only. 
 
 With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund If a LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer). 
 
-### Performance:
+### Performance
 <table>
   <caption>Table 1 is showing the prices for Performance Storage with monthly and hourly billing.</caption>
   <tr>
@@ -58,7 +58,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
   </tr>
 </table>
  
-### Endurance:
+### Endurance
 <table>
   <caption>Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options.</caption>
   <tr>
@@ -94,7 +94,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 
 ### Endurance Tiers
 
-Endurance is available in three IOPS performance tiers to support varying application needs. <br />
+Endurance {{site.data.keyword.blockstorageshort}} is available in three IOPS performance tiers to support varying application needs. <br />
 
 - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at any time. Example applications include storing mailboxes or departmental level file shares.
 
@@ -109,9 +109,9 @@ Up to 48,000 IOPS are available with a 12 TB Endurance volume.
 Choosing the right Endurance tier for your workload is key. It's equally important to use the right block size, Ethernet connection speed, and the number of hosts necessary to achieve maximum performance. If any of these parts don't align with the other, it can have a significant impact on the resulting throughput.
 
  
-### Performance
+### Performance {{site.data.keyword.blockstorageshort}}
 
-Performance is a class of {{site.data.keyword.blockstorageshort}} that is designed to support high I/O applications with well understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. Various IOPS rates (100 - 48,000) can be provisioned with storage sizes that range from 20 GB to 12 TB. 
+Performance is a class of {{site.data.keyword.blockstorageshort}} that is designed to support high I/O applications with understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. Various IOPS rates (100 - 48,000) can be provisioned with storage sizes that range from 20 GB to 12 TB. 
 
 Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted through a Multipath I/O (MPIO) internet Small Computer System Interface (iSCSI) connection. {{site.data.keyword.blockstorageshort}} is typically used when the volume is accessed by a single server. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS rates in Table 3 for Linux, XEN, and Windows operating systems.
 
@@ -188,7 +188,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 Performance volumes are designed to operate consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a specific level of performance. Additionally, it's possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
 
-### Tips for Provisioning IOPS for {{site.data.keyword.blockstorageshort}}
+### Provisioning considerations
 
 **Block size**
 
