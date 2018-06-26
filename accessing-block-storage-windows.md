@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-06-26"
 
 ---
 {:new_window: target="_blank"}
@@ -75,7 +75,7 @@ Following are the steps that are required to connect a Windows-based {{site.data
 3. Select **Enable multi-path** check box and click **Advanced...**.
   ![Target](/images/Target.png) 
   
-4. In the Advanced Settings window:
+4. In the Advanced Settings window
    - Leave Default as the value for the Local Adapter and Initiator IP fields. For host servers with multiple interfaces into iSCSI, you need to choose the appropriate value for the Initiator IP field.
    - Select the IP of your iSCSI storage from the **Target portal IP** drop–down list.
    - Click **Enable CHAP log on** check box
@@ -95,7 +95,7 @@ Following are the steps that are required to connect a Windows-based {{site.data
 
 ## Verifying whether MPIO is configured correctly in Windows Operating systems
 
-To verify if Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and restart the server.
+To verify whether Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and restart the server.
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
@@ -113,7 +113,8 @@ Following are the steps that are required to disconnect a Windows-based {{site.d
 1. Click the **Targets** tab.
 2. Select the targets that you want to remove and click **Disconnect**.
 
-### Removing targets (Optional, if you no longer need to access the iSCSI targets)
+### Removing targets
+This is optional, for when you no longer need to access the iSCSI targets.
 
 1. Click **Discovery** in the iSCSI Initiator.
 2. Highlight the target portal that is associated with your storage volume and click **Remove**.
