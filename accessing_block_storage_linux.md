@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-06-26"
 
 ---
 {:new_window: target="_blank"}
@@ -27,17 +27,17 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
 **Note:** The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Note:** We recommend running storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+**Note:** It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
-1. Install the iSCSI and multipath utilities to your host:
-   - RHEL/CentOS:
+1. Install the iSCSI and multipath utilities to your host.
+   - RHEL/CentOS
 
    ```
    yum install iscsi-initiator-utils device-mapper-multipath
    ```
    {: pre}
 
-   - Ubuntu/Debian:
+   - Ubuntu/Debian
 
    ```
    sudo apt-get update
@@ -83,7 +83,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
    {: codeblock}
 
 3. Load the multipath module, start multipath services, and set it start on boot.
-   - RHEL 6:
+   - RHEL 6
      ```
      modprobe dm-multipath
      ```
@@ -99,7 +99,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
      ```
      {: pre}
 
-   - CentOS 7:
+   - CentOS 7
      ```
      modprobe dm-multipath
      ```
@@ -115,7 +115,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
      ```
      {: pre}
 
-   - Ubuntu:
+   - Ubuntu
      ```
      service multipath-tools start
      ```
@@ -124,7 +124,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
    - For other distributions, consult the OS vendor documentation.
 
 4. Verify that multipath is working.
-   - RHEL 6:
+   - RHEL 6
      ```
      multipath -l
      ```
@@ -132,7 +132,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
      If it returns blank, it's working.
 
-   - CentOS 7:
+   - CentOS 7
      ```
      multipath -ll
      ```
@@ -159,7 +159,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
    **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
 
 7. Set iSCSI to start at boot and start it now.
-   - RHEL 6:
+   - RHEL 6
 
       ```
       chkconfig iscsi on
@@ -180,7 +180,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
       ```
       {: pre}
 
-   - CentOS 7:
+   - CentOS 7
 
       ```
       systemctl enable iscsi
@@ -206,13 +206,13 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
 8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
-     a. Run the discovery against the iSCSI array:
+     A. Run the discovery against the iSCSI array.
      ```
      iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
      ```
      {: pre}
 
-     b. Set the host to automatically log in to the iSCSI array:
+     B. Set the host to automatically log in to the iSCSI array.
      ```
      iscsiadm -m node -L automatic
      ```
@@ -236,7 +236,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  This command reports something similar to the following:
+  This command reports something similar to the following example.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
@@ -246,7 +246,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
 Follow these steps to create a file system on top of the newly mounted volume. A file system is necessary for most applications to use the volume. Use `fdisk` for drives that are less than 2 TB and `parted` for a disk bigger than 2 TB.
 
-### fdisk
+### Using `fdisk`
 
 1. Get the disk name.
    ```
@@ -264,7 +264,7 @@ Follow these steps to create a file system on top of the newly mounted volume. A
 
    The XXX represents the disk name returned in Step 1. <br />
 
-   **Note**: Scroll further down for the commands codes that are listed in the Fdisk command table.
+   **Note**: Scroll further down for the commands codes that are listed in the fdisk command table.
 
 3. Create a file system on the new partition.
 
@@ -283,34 +283,34 @@ Follow these steps to create a file system on top of the newly mounted volume. A
      {: pre}
 
 4. Create a mount point for the file system, and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system:
+   - Create a partition name `PerfDisk` or where you want to mount the file system.
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - Using the partition name mount the storage:
+   - Mount the storage with the partition name.
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - Check that you see your new file system listed:
+   - Check that you see your new file system listed.
      ```
      df -h
      ```
      {: pre}
 
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (using the partition name from Step 3). <br />
+   - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
-#### Fdisk command table
+#### fdisk command table
 
 <table border="0" cellpadding="0" cellspacing="0">
   <caption>fdisk command table contains commands on the left and expected results on the right.</caption>
@@ -364,7 +364,7 @@ Follow these steps to create a file system on top of the newly mounted volume. A
 
   (`**`) Type L to list the hex codes
 
-### parted
+### Using `parted`
 
 On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian/Ubuntu
@@ -373,14 +373,14 @@ On many Linux distributions, `parted` comes preinstalled. If it isn't included i
   ```
   {: pre}
 
-- RHEL/CentOS:
+- RHEL/CentOS
   ```
   yum install parted  
   ```
   {: pre}
 
 
-To create a file system with `parted` follow these steps:
+To create a file system with `parted` follow these steps.
 
 1. Run `parted`.
 
@@ -404,14 +404,14 @@ To create a file system with `parted` follow these steps:
       ```
       {: pre}
 
-   3. Create a GPT partition table
+   3. Create a GPT partition table.
 
       ```
       (parted) mklabel gpt
       ```
       {: pre}
 
-   4. Parted can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, parted uses **mkpart**. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
+   4. Parted can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, parted uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
    <br /> **Note**: The listed units default to megabytes (MB), to create a 10 GB partition you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
 
       ```
@@ -437,21 +437,21 @@ To create a file system with `parted` follow these steps:
    Verify the result by printing the partition table. Under file system column, you can see ext3.
 
 4. Create a mount point for the file system and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system:
+   - Create a partition name `PerfDisk` or where you want to mount the file system.
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - Mount the storage by using the partition name:
+   - Mount the storage by using the partition name.
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - Check that you see your new file system listed:
+   - Check that you see your new file system listed.
 
      ```
      df -h
@@ -501,12 +501,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-If it isn't correctly setup, it looks like this:
+If it isn't correctly setup, it looks like this example.
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
 
-This command shows the devices that are blacklisted:
+This command shows the devices that are blacklisted.
 ```
 # multipath -l -v 3 | grep sd <date and time>
 ```
@@ -521,7 +521,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-`fdisk` shows only the `sd*` devices, and no `/dev/mapper`
+`fdisk` shows only the `sd*` devices, and no `/dev/mapper`.
 
 ```
 # fdisk -l | grep Disk
