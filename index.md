@@ -9,7 +9,7 @@ lastupdated: "2018-06-26"
 
 # Getting started with {{site.data.keyword.blockstorageshort}}
 
-{{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi- path I/O (MPIO) connections.
+{{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi-path I/O (MPIO) connections.
 
 {{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It is built by using industry standards and best practices. {{site.data.keyword.blockstorageshort} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures, and provide a consistent performance baseline.
 
@@ -117,7 +117,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="footnote" /></sup> IOPS limit above 6,000 is available in select data centers.</caption>
+ <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="footnote" /></sup> IOPS limit greater than 6,000 is available in select data centers.</caption>
         <colgroup>
           <col/>
           <col/>
