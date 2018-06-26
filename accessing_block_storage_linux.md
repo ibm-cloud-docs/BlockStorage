@@ -264,7 +264,7 @@ Follow these steps to create a file system on top of the newly mounted volume. A
 
    The XXX represents the disk name returned in Step 1. <br />
 
-   **Note**: Scroll further down for the commands codes that are listed in the fdisk command table.
+   **Note**: Scroll further down for the commands codes that are listed in the `fdisk` command table.
 
 3. Create a file system on the new partition.
 
@@ -310,10 +310,10 @@ Follow these steps to create a file system on top of the newly mounted volume. A
      ```
      {: pre}
 
-#### The fdisk command table
+#### The `fdisk` command table
 
 <table border="0" cellpadding="0" cellspacing="0">
-  <caption>The fdisk command table contains commands on the left and expected results on the right.</caption>
+	<caption>The <code>fdisk</code> command table contains commands on the left and expected results on the right.</caption>
     <thead>
 	<tr>
 		<th style="width:40%;">Command</th>
