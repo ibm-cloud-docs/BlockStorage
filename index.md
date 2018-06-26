@@ -117,7 +117,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="footnote" /></sup> IOPS limit greater than 6,000 is available in select data centers.</caption>
+ <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS limit greater than 6,000 is available in select data centers.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -161,27 +161,27 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
           <tr>
             <td>1,000</td>
             <td>100</td>
-            <td>6,000 or 20,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 20,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>2,000-3,000</td>
             <td>200</td>
-            <td>6,000 or 40,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 40,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>4,000-7,000</td>
             <td>300</td>
-            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>8,000-9,000</td>
             <td>500</td>
-            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>10,000-12,000</td>
             <td>1,000</td>
-            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
 </table>
 
