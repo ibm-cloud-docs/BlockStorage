@@ -10,7 +10,7 @@ lastupdated: "2018-06-26"
 
 # Connecting to MPIO iSCSI LUNS on Microsoft Windows
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**. Click **Authorize Host**.
 2. From the list, select the host or hosts that are to access the volume and click **Submit**.
