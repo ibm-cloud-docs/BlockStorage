@@ -9,10 +9,10 @@ lastupdated: "2018-06-26"
 
 # Ordering {{site.data.keyword.blockstorageshort}}
 
-There are two different ways you can provision {{site.data.keyword.blockstorageshort}} based on your needs and preferences. The two options are: 
+You can provision {{site.data.keyword.blockstorageshort}} based on your needs and preferences in two ways. The two options are Endurance and Performance
 
-- **Endurance**: provision Endurance tiers that feature pre-defined performance levels and features like snapshots and replication. 
-- **Performance**: build a high powered Performance environment where you can allocate the specific input/output operations per second (IOPS) rate you want.
+- You can provision **Endurance** tiers that feature pre-defined performance levels and features like snapshots and replication. 
+- You can build a high powered **Performance** environment where you can allocate the specific input/output operations per second (IOPS) rate that you want.
 
 ## Ordering Endurance for {{site.data.keyword.blockstorageshort}}
 
