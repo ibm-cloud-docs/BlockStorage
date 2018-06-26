@@ -310,10 +310,10 @@ Follow these steps to create a file system on top of the newly mounted volume. A
      ```
      {: pre}
 
-#### fdisk command table
+#### The fdisk command table
 
 <table border="0" cellpadding="0" cellspacing="0">
-  <caption>fdisk command table contains commands on the left and expected results on the right.</caption>
+  <caption>The fdisk command table contains commands on the left and expected results on the right.</caption>
     <thead>
 	<tr>
 		<th style="width:40%;">Command</th>
@@ -390,14 +390,14 @@ To create a file system with `parted` follow these steps.
    {: pre}
 
 2. Create a partition on the disk.
-   1. Unless it is specified otherwise, parted uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
+   1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
 
       ```
       (parted) select /dev/mapper/XXX
       ```
       {: pre}
 
-   2. Run **print** to confirm that you are on the right disk.
+   2. Run `print` to confirm that you are on the right disk.
 
       ```
       (parted) print
@@ -411,7 +411,7 @@ To create a file system with `parted` follow these steps.
       ```
       {: pre}
 
-   4. Parted can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, parted uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
+   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
    <br /> **Note**: The listed units default to megabytes (MB), to create a 10 GB partition you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
 
       ```
@@ -419,7 +419,7 @@ To create a file system with `parted` follow these steps.
       ```
       {: pre}
 
-   5. Exit parted with **quit**.
+   5. Exit `parted` with `quit`.
 
       ```
       (parted) quit
@@ -444,7 +444,7 @@ To create a file system with `parted` follow these steps.
      ```
      {: pre}
 
-   - Mount the storage by using the partition name.
+   - Mount the storage with the partition name.
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
@@ -501,7 +501,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-If it isn't correctly setup, it looks like this example.
+If it isn't correctly set up, it looks like this example.
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
