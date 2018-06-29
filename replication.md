@@ -11,7 +11,7 @@ lastupdated: "2018-06-29"
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
 
-With replicas you can
+With replicas, you can
 
 - Recover from site failures and other disasters quickly by failing over to the destination volume,
 - Fail over to a specific point-in-time in the DR copy.
