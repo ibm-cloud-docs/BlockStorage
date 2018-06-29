@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
@@ -126,7 +126,7 @@ You can edit your replication schedule and change your replication space from ei
 
 
 
-## Editing a replication schedule
+## Editing the replication schedule
 
 The replication schedule is based on an existing snapshot schedule. To change the replica schedule, for example from Hourly to Weekly, you must cancel the replication schedule and set up a new one.
 
@@ -222,7 +222,7 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
 
 
-## Viewing replication history?
+## Viewing replication history
 
 Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication history. The history includes:
 
@@ -244,7 +244,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 5. Click the **I acknowledge that due to cancellation, data loss may occur** check box and click **Cancel Replica**.
 
 
-## Cancelling replication when the primary volume is canceled?
+## Cancelling replication when the primary volume is canceled
 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
