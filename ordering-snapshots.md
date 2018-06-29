@@ -20,12 +20,12 @@ To create snapshots of your storage volume, either automated or manually, you ne
 
 ## Determining how much snapshot space to order
 
-Generically speaking, snapshot space is used by snapshots based on two key factors:
+Generically speaking, snapshot space is used by snapshots based on two key factors
 - How much your active file system changes over time,
 - How long you plan to retain snapshots.  
 
 The way to calculate the amount of space that you need is **(Rate of Change)** x **(number of hours/days/weeks/months data is retained)**.  
-**Note**: The first snapshot uses a negligible amount of space as it's just a copy of the metadata (pointers) that indicates the active file system blocks. 
+>**Note** - The first snapshot uses a negligible amount of space as it's just a copy of the metadata (pointers) that indicates the active file system blocks. 
 
 A volume with numerous changes and a lengthy retention period needs more space than a volume with moderate change and a moderate retention schedule. An example for the first type is a high change rate database. An example for the second type is a VMware datastore.
 
