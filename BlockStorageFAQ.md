@@ -36,7 +36,7 @@ There's no need for pre-warming. You can observe specified throughput immediatel
 Throughput limits are set at a per-volume/LUN level so using a faster Ethernet connection doesn't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
 ## Do firewalls/security groups impact performance?
-We suggest running storage traffic on a VLAN, which bypasses the firewall as a best practice. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
