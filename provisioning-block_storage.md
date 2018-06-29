@@ -2,14 +2,14 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
 
 # Ordering {{site.data.keyword.blockstorageshort}}
 
-You can provision {{site.data.keyword.blockstorageshort}} based on your needs and preferences in two ways. The two options are Endurance and Performance
+You can provision {{site.data.keyword.blockstorageshort}} based on your needs and preferences in two ways. The two options are Endurance and Performance.
 
 - You can provision **Endurance** tiers that feature pre-defined performance levels and features like snapshots and replication. 
 - You can build a high powered **Performance** environment where you can allocate the specific input/output operations per second (IOPS) rate that you want.
@@ -24,7 +24,7 @@ You can provision {{site.data.keyword.blockstorageshort}} based on your needs an
    - If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing. 
      1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
-     **NOTE**: Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
+        >**NOTE** - Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
 5. Select the IOPS tier that your application needs.
     - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
     - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
@@ -37,7 +37,7 @@ You can provision {{site.data.keyword.blockstorageshort}} based on your needs an
 10. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
 11. Your new storage allocation is available in a few minutes.
 
-**Note**: By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. Contact your sales representative to increase the number of your volumes. Read about increasing limits [here](managing-storage-limits.html).
+>**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. Contact your sales representative to increase the number of your volumes. Read about increasing limits [here](managing-storage-limits.html).
 
 For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
  
@@ -51,14 +51,14 @@ For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.htm
    - If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing. 
      1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
-     **NOTE**: Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
+        >**NOTE** - Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
 5. Select the appropriate **Storage Size**.
 6. Enter the IOPS in the **Specify IOPS** field.
 7. Click **Continue**. You are shown the monthly and prorated charges with a final chance to review order details. Click **Previous** if you want to change your order.
 8. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
 9. Your new storage allocation is available in a few minutes.
 
-**Note**: By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).
+>**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).
 
 For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
 
