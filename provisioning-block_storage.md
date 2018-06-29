@@ -37,9 +37,7 @@ You can provision {{site.data.keyword.blockstorageshort}} based on your needs an
 10. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
 11. Your new storage allocation is available in a few minutes.
 
->**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. Contact your sales representative to increase the number of your volumes. Read about increasing limits [here](managing-storage-limits.html).
-
-For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
+>**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
  
 ## Ordering Performance for Block Storage
 
@@ -58,9 +56,7 @@ For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.htm
 8. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
 9. Your new storage allocation is available in a few minutes.
 
->**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).
-
-For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
+>**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 
