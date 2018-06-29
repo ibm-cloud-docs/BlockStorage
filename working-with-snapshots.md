@@ -86,7 +86,8 @@ Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.b
 
 1. Click the schedule to be deleted in the **Snapshot Schedules** frame on the **Details** page.
 2. Click the check box next to the schedule to be deleted and click **Save**.<br />
-**Caution**: If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. Click [here](replication.html) for more information on deleting a replication schedule.
+
+>**Caution** - If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. Click [here](replication.html) for more information on deleting a replication schedule.
 
 ## Deleting a snapshot
 
@@ -107,10 +108,10 @@ You might need to take your storage volume back to a specific point-in-time beca
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
-  **Note**: Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot. 
+   >**Note** - Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot. 
 5. Click **Yes** to start the restore. Expect a message across the top of the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
 6. Mount and reattach your storage volume to the host.
    - Click [here](accessing_block_storage_linux.html) for {{site.data.keyword.blockstorageshort}} on Linux instructions.
    - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}} on Microsoft Windows instructions.
    
-**Note**: Restoring a volume results in deleting all snapshots that were taken before the restored snapshot.
+>**Note** - Restoring a volume results in deleting all snapshots that were taken before the restored snapshot.
