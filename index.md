@@ -88,13 +88,13 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 
 ## Provisioning
 
-{{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options for provisioning: <br/>
+{{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options: <br/>
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS). 
 
 ### Provisioning with Endurance Tiers
 
-Endurance {{site.data.keyword.blockstorageshort}} is available in three IOPS performance tiers to support varying application needs. <br />
+Endurance {{site.data.keyword.blockstorageshort}} is available in four IOPS performance tiers to support varying application needs. <br />
 
 - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at any time. Example applications include storing mailboxes or departmental level file shares.
 
