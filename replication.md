@@ -111,9 +111,8 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
 1. Click your storage volume.
 2. Click **Replica** and click **Purchase a replication**.
-Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
-  **Note:** You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />
-  **Note:** If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](snapshots.html) for more details.
+3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
+   >**Note** - You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](snapshots.html) for more details.
 3. Click **Location**, and select the data center that is your DR site.
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
@@ -122,7 +121,7 @@ Select the existing snapshot schedule that you want your replication to follow. 
 
 ## Editing an existing replication
 
-You can edit your replication schedule and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+You can edit your replication schedule, and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 
 
@@ -140,7 +139,7 @@ Changing the schedule can be done on the Primary or Replica tab.
 
 ## Changing the Replication space
 
-Your primary snapshot space and your replica space must be the same. If you change the space on the **Primary** or **Replica** tab, automatically adds space to both your source and destination data centers. Increasing snapshot space triggers an immediate replication update also.
+Your primary snapshot space and your replica space must be the same. If you change the space on the **Primary** or **Replica** tab, it automatically adds space to both your source and destination data centers. Increasing snapshot space triggers an immediate replication update also.
 
 1. Click **Actions** on either the **Primary** or **Replica** tab.
 2. Select **Add More Snapshot Space**.
@@ -152,7 +151,6 @@ Your primary snapshot space and your replica space must be the same. If you chan
 ## Viewing the replica volumes in the Volume List
 
 You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. The **LUN Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica. The **Target Address** is N/A because the replica volume isn't mounted at the replica data center, and the **Status** shows Inactive.
-
 
 
 ## Viewing a replicated volume's details at the replica data center
@@ -174,15 +172,14 @@ Authorized hosts and volumes must be in the same data center. You can't have a r
 
 ## Increasing the Snapshot space in the replica data center when Snapshot space is increased in the primary data center
 
-Your volume sizes must be the same for your primary and replica storage volumes. One can't be larger than the other. When you increase your snapshot space for your primary volume, the replica space is automatically increased. Be aware that increasing snapshot space triggers an immediate replication update. The increase to both volumes shows as line items on your invoice and is prorated as necessary.
+Your volume sizes must be the same for your primary and replica storage volumes. One can't be larger than the other. When you increase your snapshot space for your primary volume, the replica space is automatically increased. Increasing snapshot space triggers an immediate replication update. The increase to both volumes shows as line items on your invoice and is prorated as necessary.
 
 Click [here](snapshots.html) to learn how to increase your snapshot space.
 
 
-
 ## Starting a failover from a volume to its replica
 
-If a failure event occurs, you can start a **failover** to your destination, or target, volume. The target volume becomes active. The last successfully replicated snapshot is activated, and the volume is made available for mounting. Any data that was written to the source volume since the previous replication cycle is lost. Be aware that when a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
+If a failure event occurs, you can start a **failover** to your destination, or target, volume. The target volume becomes active. The last successfully replicated snapshot is activated, and the volume is made available for mounting. Any data that was written to the source volume since the previous replication cycle is lost. When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
 
 Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
@@ -190,11 +187,10 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 1. Click your active LUN (“source”).
 2. Click **Replica** and click the **Actions** link in the upper-right corner.
-3. Select Failover.
-   Expect a message across the top of the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
-   When your target volume is live you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
+3. Select **Failover**.
+   >Expect a message across the top of the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.<br/> When your target volume is live you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
 4. Click **View All ({{site.data.keyword.blockstorageshort}})**.
-5. Click your active LUN (formerly your target volume). This volume now has an **Active** status.
+5. Click your active LUN (formerly your target volume).
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
 
 
@@ -203,22 +199,21 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 When your original source volume is repaired, you can start a controlled Failback to your original source volume. In a controlled Failback,
 
 - The acting source volume is taken offline,
-- A snapshot is taken
+- A snapshot is taken,
 - The replication cycle is completed,
 - The just-taken data snapshot is activated,
 - And the source volume becomes active for mounting.
 
-Be aware that when a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
+When a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
 
 Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-1. Click your active Endurance LUN ("target").
-2. Click **Replica** and click **Actions** in the upper-right corner.
+1. Click your active LUN ("target").
+2. In the upper right, click **Replica** and click **Actions**.
 3. Select **Failback**.
-   Expect a message across the top of the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** indicating that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
-   Another message informs you when your source volume is live. Your target volume has an Inactive status.
-4. In the upper right corner, click **View All {{site.data.keyword.blockstorageshort}}** link.
-5. Click your active Endurance LUN (source). This volume has an **Active** status now.
+   >Expect a message across the top of the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
+4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}** link.
+5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
 
 
@@ -233,7 +228,7 @@ Replication history can be viewed in the **Audit Log** on the **Account** tab un
 - When it completed
 
 
-## Cancelling an existing replication
+## Canceling an existing replication
 
 You can cancel replication either immediately or on the anniversary date, which causes billing to end. Replication can be canceled from either the **Primary** or the **Replica** tabs.
 
@@ -244,7 +239,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 5. Click the **I acknowledge that due to cancellation, data loss may occur** check box and click **Cancel Replica**.
 
 
-## Cancelling replication when the primary volume is canceled
+## Canceling replication when the primary volume is canceled
 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
