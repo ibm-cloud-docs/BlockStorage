@@ -172,7 +172,7 @@ Authorized hosts and volumes must be in the same data center. You can't have a r
 5. Click **Submit**. If you have no hosts, you are prompted to purchase compute resources in the same data center.
 
 
-## Increasing the Snapshot space in the replica data center when Snapshot space is increased in the my primary data center
+## Increasing the Snapshot space in the replica data center when Snapshot space is increased in the primary data center
 
 Your volume sizes must be the same for your primary and replica storage volumes. One can't be larger than the other. When you increase your snapshot space for your primary volume, the replica space is automatically increased. Be aware that increasing snapshot space triggers an immediate replication update. The increase to both volumes shows as line items on your invoice and is prorated as necessary.
 
@@ -222,7 +222,7 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
 
 
-## How do I see my replication history?
+## Viewing replication history?
 
 Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication history. The history includes:
 
@@ -233,7 +233,7 @@ Replication history can be viewed in the **Audit Log** on the **Account** tab un
 - When it completed
 
 
-## How do I cancel an existing replication?
+## Cancelling an existing replication
 
 You can cancel replication either immediately or on the anniversary date, which causes billing to end. Replication can be canceled from either the **Primary** or the **Replica** tabs.
 
@@ -244,7 +244,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 5. Click the **I acknowledge that due to cancellation, data loss may occur** check box and click **Cancel Replica**.
 
 
-## How do I cancel replication when the primary volume is canceled?
+## Cancelling replication when the primary volume is canceled?
 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
