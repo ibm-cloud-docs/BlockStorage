@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
@@ -24,7 +24,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - **Data-At-Rest Encryption** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html).)
    - Provider-managed encryption for data-at-rest at no additional cost.
 - **All Flash Backed Storage** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html).)
-   - All flash storage for volumes that are provisioned with Endurance or Performance at 2 IOPS/GB or higher.
+   - All flash storage for volumes that are provisioned with Endurance or Performance at 2 IOPS/GB or higher levels.
 - **Snapshots** (in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
    - Captures point-in-time data snapshots non-disruptively.
 - **Replication** (in [select data centers](/new-ibm-block-and-file-storage-location-and-features.html).
@@ -45,7 +45,7 @@ With **hourly billing**, the number of hours the block LUN existed on the accoun
 
 With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a LUN is deleted before the end of the billing cycle, there's no refund. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer). 
 
-### Performance
+**Performance**
 <table>
   <caption>Table 1 is showing the prices for Performance Storage with monthly and hourly billing.</caption>
   <tr>
@@ -58,7 +58,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
   </tr>
 </table>
  
-### Endurance
+**Endurance**
 <table>
   <caption>Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options.</caption>
   <tr>
@@ -92,7 +92,7 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS). 
 
-### Endurance Tiers
+### Provisioning with Endurance Tiers
 
 Endurance {{site.data.keyword.blockstorageshort}} is available in three IOPS performance tiers to support varying application needs. <br />
 
@@ -109,7 +109,7 @@ Up to 48,000 IOPS are available with a 12 TB Endurance volume.
 Choosing the right Endurance tier for your workload is key. It's equally important to use the right block size, Ethernet connection speed, and the number of hosts necessary to achieve maximum performance. If any of these parts don't align with the other, it can have a significant impact on the resulting throughput.
 
  
-### Performance {{site.data.keyword.blockstorageshort}}
+### Provisioning with Performance
 
 Performance is a class of {{site.data.keyword.blockstorageshort}} that is designed to support high I/O applications with understood performance requirements that don't fit well within an Endurance tier. Predictable performance is achieved through the allocation of protocol-level IOPS to individual volumes. Various IOPS rates (100 - 48,000) can be provisioned with storage sizes that range from 20 GB to 12 TB. 
 
