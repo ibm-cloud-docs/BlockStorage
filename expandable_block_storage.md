@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
@@ -45,4 +45,3 @@ Storage that was provisioned with enhanced capabilities is always encrypted-at-r
 4. Review your selection and the new pricing.
 5. Click the **I have read the Master Service Agreement...** check box and click **Place Order**.
 6. Your new storage allocation is available in a few minutes.
-  
