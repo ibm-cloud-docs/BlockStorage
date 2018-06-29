@@ -21,7 +21,7 @@ This feature is available in [select data centers](new-ibm-block-and-file-storag
 
 - **Growing Storage needs** - Customers who experience rapid data growth need a way to quickly and easily increase the size of their storage to manage it.
 
-## Affects of expanding storage capacity on Replication
+## Effects of expanding storage capacity on Replication
 
 The expand action on the primary storage results in automatic resizing of the replica. 
 
@@ -33,7 +33,7 @@ Storage that was provisioned in these data centers before the release of this fe
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
 
-## Identifying encrypted storage
+## Identifying eligible storage
 
 Storage that was provisioned with enhanced capabilities is always encrypted-at-rest. You can easily tell that your storage is eligible if it has a "lock" icon next to it in the {{site.data.keyword.slportal}}. 
 
