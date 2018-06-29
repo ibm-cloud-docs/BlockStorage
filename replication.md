@@ -235,8 +235,8 @@ You can cancel replication either immediately or on the anniversary date, which 
 1. Click the volume on the **{{site.data.keyword.blockstorageshort}}** page.
 2. Click **Actions** on either the **Primary** or **Replica** tab.
 3. Select **Cancel Replica**.
-4. Select when to cancel. – **Immediately** or **Anniversary Date** and click **Continue**.
-5. Click the **I acknowledge that due to cancellation, data loss may occur** check box and click **Cancel Replica**.
+4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
+5. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel Replica**.
 
 
 ## Canceling replication when the primary volume is canceled
@@ -245,5 +245,5 @@ When a primary volume is canceled, the replication schedule and the volume in th
 
  1. Highlight your volume on the **{{site.data.keyword.blockstorageshort}}** page.
  2. Click **Actions** and select **Cancel {{site.data.keyword.blockstorageshort}}**.
- 3. Select when to cancel. Choose **Immediately** or **Anniversary Date** and click **Continue**.
- 4. Click the **I acknowledge that due to cancellation, data loss may occur** check box and click **Cancel**.
+ 3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
+ 4. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel**.
