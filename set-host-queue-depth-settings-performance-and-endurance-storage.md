@@ -9,7 +9,7 @@ lastupdated: "2018-08-26"
 
 # Adjusting host queue depth settings
 
-{{site.data.keyword.BluSoftlayer_full}} recommends a maximum host and application input/output (I/O) queue depth for each performance tier. The host setting doesn’t affect disk and controller latency. It affects only the latency that is observed by the host and application.
+{{site.data.keyword.BluSoftlayer_full}} suggests a maximum host and application input/output (I/O) queue depth for each performance tier. 
 
 <table align="center">
   <caption>Recommended queue depth for each IOPS tier</caption>
@@ -34,6 +34,8 @@ lastupdated: "2018-08-26"
             </tr>
          </tbody>
 </table>
+
+The host setting doesn’t affect disk and controller latency. It affects only the latency that is observed by the host and application.
 
 Queue depth that exceeds the listed numbers can increase host I/O latency; while queue depth less than the listed number can reduce host I/O performance. Because each application is different, adjustment and observation are required to achieve maximum storage performance.
 
