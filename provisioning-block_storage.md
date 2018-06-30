@@ -58,6 +58,14 @@ You can provision {{site.data.keyword.blockstorageshort}} based on your needs an
 
 >**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html)
 
+## Connecting your new storage
+
+When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
+- [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
+- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html_
+- [Configuring Block Storage for Backup with cPanel](configure-backup-cpanel.html)
+- [Configuring Block Storage for Backup with Plesk](configure-backup-plesk.html)
+
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 
 All LUNs appear on your invoice as a line item. Endurance appears as “Endurance Storage Service” and Performance appears as "Performance Storage Service" The rate varies based on your storage level. You can expand on Endurance or Performance to see that it's {{site.data.keyword.blockstorageshort}}.
