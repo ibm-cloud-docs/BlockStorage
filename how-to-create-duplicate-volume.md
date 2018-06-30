@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
@@ -30,25 +30,23 @@ Some common uses for a duplicate volume:
 - **Development and Testing (dev/test)**: Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing. 
 - **Storage Resize**: Create a volume with new size, IOPS rate or both without needing to move your data.  
 	
+You can create a duplicate volume through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} in a couple of ways.
 
-There are a couple of ways to create a duplicate volume through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}: 
 
 ## Creating a duplicate from a specific volume in the Storage List
 
-Go to your list of {{site.data.keyword.blockstorageshort}}:
-
-1. From the customer portal, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**. 
-2. Select a LUN from the list and click **Actions** > **Duplicate LUN (Volume)** 
+1. Go to your list of {{site.data.keyword.blockstorageshort}}
+    - From the customer portal, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR
+    - From the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**. 
+2. Select a volume from the list and click **Actions** > **Duplicate LUN (Volume)** 
 3. Choose your snapshot option: 
-    - If you order from a non-replica volume:
-      - Select **Create from new snapshot** – this action creates a snapshot to be used for the duplicate. Use this option if there are currently no snapshots for your volume or if you want to create a duplicate right then.
-    
-      OR 
+    - If you order from a non-replica volume,
+      - Select **Create from new snapshot** – this action creates a snapshot to be used for the duplicate. Use this option if your volume doesn't have current snapshots or if you want to create a duplicate right then.<br/>
       - Select **Create from latest snapshot** – this action creates a duplicate from the most recent snapshot that exists for this volume. 
-    - If you order from a replica volume – the only option for snapshot is to use the most recent snapshot available. 
-4. Storage Type (Endurance or Performance) and Location remains the same as the original volume.
+    - If you order from a replica volume the only option for snapshot is to use the most recent snapshot available. 
+4. Storage Type and Location remains the same as the original volume.
 5. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here. 
-5. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations will be displayed.
+5. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection. 
     - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume. 
 6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default. 
@@ -60,20 +58,19 @@ Go to your list of {{site.data.keyword.blockstorageshort}}:
 
 ## Creating a duplicate from a specific Snapshot
 
-Browse to your list of {{site.data.keyword.blockstorageshort}}:
-
-1. Click a **LUN/volume** from the list to view the details page. (It can either be a replica or non-replica volume.) 
-2. Scroll down and select an existing snapshot from the list on the details page and click **Actions** > **Duplicate**.   
-3. Storage Type (Endurance or Performance) and Location remain the same as the original volume. 
-4. Available Performance and size combinations are displayed. The IOPs designation of the original volume is set by default. You can specify IOPS or IOPS Tier for the new volume. 
-    - If your original volume is 0.25 IOPS Endurance tier, you won't be able to make a new selection. 
+1. Go to your list of {{site.data.keyword.blockstorageshort}}
+2. Click a **LUN/volume** from the list to view the details page. (It can either be a replica or non-replica volume.) 
+3. Scroll down and select an existing snapshot from the list on the details page and click **Actions** > **Duplicate**.   
+4. Storage Type (Endurance or Performance) and Location remain the same as the original volume. 
+5. Available Performance and size combinations are displayed. The IOPs designation of the original volume is set by default. You can specify IOPS or IOPS Tier for the new volume. 
+    - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection. 
     - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume. 
-5. You can update the size of the new volume so that it is larger than the original. The size of the original volume is set by default. 
+6. You can update the size of the new volume so that it is larger than the original. The size of the original volume is set by default. 
     - **Note**: {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume. 
-6. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default. 
-7. Click **Continue** to place your order for the duplicate. 
+7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default. 
+8. Click **Continue** to place your order for the duplicate. 
 
 
 ## Managing your duplicate volume
 
-While data is being copied from the original volume to the duplicate, you'll see a status on the details page that states the duplication is in progress. During this time, you can attach to a host and read/write to the volume, but you can't create snapshot schedules. When the duplication process is complete, the new volume will be completely independent and can be managed with snapshots and replication as normal. 
+While data is being copied from the original volume to the duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host and read/write to the volume, but you can't create snapshot schedules. When the duplication process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. 
