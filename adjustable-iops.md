@@ -24,9 +24,9 @@ This feature is available in [select data centers](new-ibm-block-and-file-storag
 
 Clients can't switch between Endurance and Performance when they adjust their IOPS. However, they can specify a new IOPS tier or IOPS level for their storage based on the following criteria/restrictions: 
 
-- If original volume is Endurance 0.25 tier, IOPS tier cannot be updated.
-- If original volume is Performance with < 0.30 IOPS/GB, options available include size and IOPS combinations that result in < 0.30 IOPS/GB only. 
-- If original volume is Performance with >= 0.30 IOPS/GB, options available include size and iops combinations that result in >= 0.30 IOPS/GB only. Size (greater than or equal to original volume)
+- If original volume is Endurance 0.25 tier, IOPS tier can’t be updated.
+- If original volume is Performance with less than 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in less than 0.30 IOPS/GB.
+- If original volume is Performance with more than or equal to 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in more than or equal to 0.30 IOPS/GB.
 
 ## Effect of IOPS adjustment on replication
 
