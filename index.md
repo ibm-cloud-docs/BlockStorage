@@ -267,7 +267,7 @@ When you're ready to submit your order, follow the instructions [here](provision
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
 - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html_
+- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuring Block Storage for Backup with cPanel](configure-backup-cpanel.html)
 - [Configuring Block Storage for Backup with Plesk](configure-backup-plesk.html)
 
