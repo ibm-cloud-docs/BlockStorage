@@ -16,7 +16,7 @@ Billing for the storage is updated to add the pro-rated difference of the new pr
 
 ## Advantages of Adjustable IOPS
 
-- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need higher IOPS rate on their storage then. However, they don't need higher IOPS in the middle of the summer. This feature allows them to manage their costs and pay for higher IOPS when they really need it.
+- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need higher IOPS rate on their storage then. However, they don't need higher IOPS in the middle of the summer. This feature allows them to manage their costs and pay for higher IOPS when they need it.
 
 ## Limitations
 
