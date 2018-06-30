@@ -21,13 +21,13 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
    - Provided through the allocation of protocol-level IOPS to individual volumes.
 - **Highly durable and resilient**
    - Protects the integrity of the data and maintains availability through maintenance events and unplanned failures without the need to create and manage operating system-level redundant array of independent disk (RAID) arrays.
-- **Data-At-Rest Encryption** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html).)
+- **Data-At-Rest Encryption** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html))
    - Provider-managed encryption for data-at-rest at no additional cost.
-- **All Flash Backed Storage** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html).)
+- **All Flash Backed Storage** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html))
    - All flash storage for volumes that are provisioned with Endurance or Performance at 2 IOPS/GB or higher levels.
-- **Snapshots** (in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
+- **Snapshots** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html))
    - Captures point-in-time data snapshots non-disruptively.
-- **Replication** (in [select data centers](/new-ibm-block-and-file-storage-location-and-features.html).
+- **Replication** ([Available in select data centers](new-ibm-block-and-file-storage-location-and-features.html))
    - Automatically copies snapshots to a partner {{site.data.keyword.BluSoftlayer_full}} data center.
 - **Highly available connectivity**
    - Uses redundant networking connections to maximize availability 
