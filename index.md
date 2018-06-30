@@ -37,7 +37,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - **Clustered databases**
    - Supports advanced use cases, such as clustered databases.
      
-## Hourly/Monthly Billing
+## Billing
 
 You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees are billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees are billed monthly. 
 
