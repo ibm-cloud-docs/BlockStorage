@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-07-03"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ These instructions are for RHEL6/Centos6. Notes for other OS were added, but thi
 
 For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 2. Click **Authorize Host**.
