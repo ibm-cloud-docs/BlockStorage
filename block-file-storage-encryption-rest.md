@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-07-18"
 
 ---
 {:new_window: target="_blank"}
@@ -19,7 +19,7 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 * Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP)
 * Storage is validated for Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
 
-## Encryption-at-Rest for Snapshots or Replicated storage  
+## Providing Encryption-at-Rest for Snapshots or Replicated storage  
 
 All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis.
 
@@ -34,6 +34,4 @@ When you order {{site.data.keyword.blockstorageshort}}, select a data center not
 
 
 
-**Note**: non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new LUN/volume and migrate your data. The following article can provide guidance:
-
-* [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](migrate-block-storage-encrypted-block-storage.html)
+**Note** - Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new LUN/volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](migrate-block-storage-encrypted-block-storage.html).
