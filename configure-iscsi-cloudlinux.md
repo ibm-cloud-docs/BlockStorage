@@ -130,7 +130,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
      **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
 
 
-3. Restart `iscsi` and `multipath` services.
+3. Restart `iscsi` and `multipathd` services.
    ```
    /etc/init.d/iscsi restart   
    ```
@@ -144,16 +144,16 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
      A. Run the discovery against the iSCSI array.
-        ```
-        iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-        ```
-        {: pre}
+     ```
+     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+     ```
+     {: pre}
 
      B. Set the host to automatically log in to the iSCSI array.
-        ```
-        iscsiadm -m node -L automatic
-        ```
-        {: pre}
+     ```
+     iscsiadm -m node -L automatic
+     ```
+     {: pre}
 
 5. Verify that the host is logged in to the iSCSI array and maintained its sessions.
    ```
