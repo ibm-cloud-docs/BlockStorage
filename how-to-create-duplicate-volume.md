@@ -14,13 +14,13 @@ You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}
 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](snapshots.html).  
 
-Duplicates can be created from both **primary** and **replica** volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.    
+Duplicates can be created from both **primary** and **replica** volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
 
 Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete. 
 
 When the data copy is complete, the duplicate can be managed and used as a completely independent volume. 
 
-This feature is only available for storage in most locations. Click [here](new-ibm-block-and-file-storage-location-and-features.html) for the list of available data centers.
+This feature is available in most locations. Click [here](new-ibm-block-and-file-storage-location-and-features.html) for the list of available data centers.
 
 Some common uses for a duplicate volume:
 - **Disaster Recovery Testing**: Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication. 
