@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-08-01"
 
 ---
 {:new_window: target="_blank"}
@@ -48,9 +48,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    {: pre}
 
 2. Create or edit your configuration files.
-   - Update your '/etc/multipath.conf'
+   - Update your '/etc/multipath.conf'. <br/>**Note** - All data under blacklist must be specific to your system.
      ```
-     [root@acs-mvries-cloudlinux multipath]# cat /etc/multipath.conf | grep -v \# | grep -v ^$
      defaults {
         user_friendly_names no
         flush_on_last_del       yes
@@ -82,52 +81,22 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
      ```
      {: codeblock}
 
-   - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the user name, password
+   - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the user name, password.
    
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
-     node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <Username-value-from-Portal>
-     node.session.auth.password = <Password-value-from-Portal>
-     discovery.sendtargets.auth.username = <Username-value-from-Portal>
-     discovery.sendtargets.auth.password = <Password-value-from-Portal>
+     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
+     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
      discovery.sendtargets.auth.authmethod = CHAP
-     node.session.timeo.replacement_timeout = 120
-     node.conn[0].timeo.login_timeout = 15
-     node.conn[0].timeo.logout_timeout = 15
-     node.conn[0].timeo.noop_out_interval = 5
-     node.conn[0].timeo.noop_out_timeout = 5
-     node.session.err_timeo.abort_timeout = 15
-     node.session.err_timeo.lu_reset_timeout = 30
-     node.session.err_timeo.tgt_reset_timeout = 30
-     node.session.initial_login_retry_max = 8
-     node.session.cmds_max = 128
-     node.session.queue_depth = 32
-     node.session.xmit_thread_priority = -20
-     node.session.iscsi.InitialR2T = No
-     node.session.iscsi.InitialR2T = No
-     node.session.iscsi.ImmediateData = Yes
-     node.session.iscsi.ImmediateData = Yes
-     node.session.iscsi.FirstBurstLength = 262144
-     node.session.iscsi.MaxBurstLength = 16776192
-     node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
-     node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
-     discovery.sendtargets.iscsi.MaxRecvDataSegmentLength = 32768
-     node.conn[0].iscsi.HeaderDigest = None
-     node.session.nr_sessions = 1
-     node.session.iscsi.FastAbort = Yes
-     node.conn[0].timeo.login_timeout = 15
-     node.conn[0].timeo.logout_timeout = 15
-     node.conn[0].timeo.noop_out_interval = 10
-     node.conn[0].timeo.noop_out_timeout = 15
-     node.conn[0].iscsi.MaxRecvDataSegmentLength = 65536
+     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
+     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
    
-     **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
+     **Note** - Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
 
 
 3. Restart `iscsi` and `multipathd` services.
@@ -144,22 +113,35 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
      A. Run the discovery against the iSCSI array.
-     ```
-     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
-     {: pre}
+       ```
+       iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+       ```
+       {: pre}
+     
+        Example output
+       ```
+       # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
+       161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002
+       161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002
+       ```
 
      B. Set the host to automatically log in to the iSCSI array.
-     ```
-     iscsiadm -m node -L automatic
-     ```
-     {: pre}
+       ```
+       iscsiadm -m node -L automatic
+       ```
+       {: pre}
 
 5. Verify that the host is logged in to the iSCSI array and maintained its sessions.
    ```
    iscsiadm -m session
    ```
    {: pre}
+   
+   Example output
+   ```
+   tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
+   tcp: [2] 161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
+   ```
 
 
 6. Verify that the device is connected.
@@ -168,8 +150,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    ```
    {: pre}
     
-   This command reports something similar to the following example.
-   
+   Example output
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
    255 heads, 63 sectors/track, 121534 cylinders
@@ -199,7 +180,6 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-   {: codeblock}
     
    The volume is now mounted and accessible on the host.
 
@@ -209,7 +189,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    # multipath -l
    ```
    {: pre}
-
+   
+   Example output
    ```
    root@server:~# multipath -l
    3600a098038304454515d4b6a5a444e35 dm-0 NETAPP,LUN C-Mode
@@ -219,4 +200,3 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    `-+- policy='round-robin 0' prio=10 status=enabled
    `- 2:0:0:1 sdc 8:32 active ready running
    ```
-   {: codeblock}
