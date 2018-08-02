@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-02"
 
 ---
 {:new_window: target="_blank"}
@@ -96,7 +96,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
      ```
      {: codeblock}
    
-     **Note** - Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
+     **Note** - Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
 
 
 3. Restart `iscsi` and `multipathd` services.
