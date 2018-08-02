@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 {:new_window: target="_blank"}
@@ -156,7 +156,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
    ```
    {: codeblock}
 
-   **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication.
+   **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP
 
 7. Set iSCSI to start at boot and start it now.
    - RHEL 6
