@@ -2,13 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-08-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# {{site.data.keyword.blockstorageshort}} Frequently Asked Questions
+# FAQs
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 The default limit for number of authorizations per block volume is 8. To increase the limit, contact your sales representative.
