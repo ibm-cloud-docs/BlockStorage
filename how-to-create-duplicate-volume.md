@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-09"
 
 ---
 {:new_window: target="_blank"}
@@ -48,7 +48,7 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}}](h
 5. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here. 
 5. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection. 
-    - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume. 
+    - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume. 
 6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default. 
     - **Note**: {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume. 
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default. 
