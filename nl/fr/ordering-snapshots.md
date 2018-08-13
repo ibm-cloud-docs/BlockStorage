@@ -2,45 +2,41 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # Commande d'instantanés
 
-Pour créer des instantanés de votre volume de stockage, de façon automatisée ou manuelle, vous devez acheter de l'espace destiné à les accueillir. Vous pouvez acheter de la capacité pour atteindre la quantité de votre volume de stockage (lors de l'achat initial de volume ou ultérieurement en suivant les étapes décrites dans cet article).
+Pour créer des instantanés de votre volume de stockage, que ce soit de manière automatisée ou manuelle, vous devez acheter de l'espace dans lequel les conserver. Vous pouvez acheter de la capacité pour atteindre la quantité de votre volume de stockage (lors de l'achat initial de volume ou ultérieurement en suivant les étapes décrites ici).
 
 1. Accédez à votre LUN de stockage via **Stockage**, onglet **{{site.data.keyword.blockstorageshort}}** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. Cliquez sur **Ajouter de l'espace d'instantané** dans le cadre Instantanés.
 3. Sélectionnez la quantité d'espace dont vous avez besoin.
 4. Cliquez sur **Continuer**.
-5. Saisissez éventuellement un **code promotionnel** et cliquez sur **Recalculer**. Les zones Prix pour cette commande et Vérification de la commande sont renseignées par défaut.
-6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**. Votre espace d'instantané sera mis à disposition dans quelques minutes.
+5. Entrez un **code promo** le cas échéant et cliquez sur **Recalculer**. Les zones Prix pour cette commande et Vérification de la commande sont renseignées par défaut.
+6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**. Votre espace d'image instantanée est mis à disposition en quelques minutes. 
 
-## Calcul de la quantité d'espace d'instantané à commander
+## Calcul de la quantité d'espace d'image instantanée à commander
 
-En général, l'espace d'instantané est utilisé par les instantanés en fonction de deux critères :
-- le nombre de modifications de votre système de fichiers actif,
-- la durée pendant laquelle vous prévoyez de conserver les instantanés.  
+En règle générale, l'espace d'image instantanée est utilisé par les instantanés en fonction de deux critères essentiels :
+- la quantité de modifications apportées à votre système de fichiers actif ;
+- la durée de conservation envisagée des instantanés.  
 
-La méthode de calcul de la quantité d'espace nécessaire est essentiellement **(Taux de modification)** x **(nombre d'heures/jours/semaines/mois de conservation des données)**.  
-**Remarque** : Le premier instantané utilise une très faible quantité d'espace lorsqu'il s'agit simplement d'une copie des métadonnées (pointeurs) indiquant les blocs du système de fichiers actif. 
+La méthode de calcul de la quantité d'espace nécessaire est la suivante : **(taux de modification)** x **(nombre d'heures/de jours/de semaines/de mois de conservation)**.  
+>**Remarque** : le premier instantané utilise une quantité négligeable d'espace car il s'agit uniquement d'une copie des métadonnées (pointeurs) indiquant les blocs du système de fichiers actif. 
 
-Un volume avec beaucoup de modifications de données (comme une base de données avec un fort taux de modification) et une longue durée de conservation des instantanés nécessiteront plus d'espace pour les instantanés qu'un volume avec un nombre modéré de modifications (comme un magasin de données de machine virtuelle) et une période de conservation des instantanés relativement brève. 
+Un volume comportant un nombre important de modifications et une longue période de conservation a besoin de davantage d'espace qu'un volume doté d'un taux moyen de modifications et d'un planning de conservation des instantanés modéré. Une base de données avec un nombre élevé de modifications illustre le premier type et un magasin de données VMware illustre le second type.
 
-Si vous prévoyez de prendre 12 instantanés par heure d'un volume comportant 500 Go de données réelles et que vous avez observé 1 % de modifications entre chaque instantané, vous obtiendrez 60 Go pour les instantanés.
+Si vous prenez 12 instantanés par heure de 500 Go de données réelles et qu'il existe 1 % de modification entre chaque instantané, vous obtenez 60 Go pour les instantanés.
 
-*(Taux de modification de 5 Go) x (12 instantanés par heure) = (60 Go d'espace utilisé)*
+*(5 Go de taux de modification) x (12 instantanés par heure) = 60 Go d'espace utilisé*
 
-A l'inverse, si pour ces 500 Go de données réelles, avec 12 instantanés par heure, vous avez observé 10 % de modifications par heure, vous obtiendrez 600 Go.
+A l'inverse, si ces 500 Go de données réelles, avec 12 instantanés par heure, connaissent 10 % de modification toutes les heures, l'espace d'image instantanée qui est utilisé est 600 Go.
 
-*(Taux de modification de 50 Go) x (12 instantanés par heure) = (600 Go d'espace utilisé)*
+*(50 Go de taux de modification) x (12 instantanés par heure) = 600 Go d'espace utilisé*
 
-Par conséquent, lorsque vous déterminez la quantité d'espace d'instantané dont vous avez besoin, faites attention au taux de modification car il influe considérablement sur l'espace d'instantané nécessaire. Alors que la taille d'un volume correspondra vraisemblablement à un plus grand nombre de modifications, un volume de 500 Go avec 5 Go de modifications et un volume de 10 To avec 5 Go de modifications généreront la même utilisation de l'espace d'instantané.
+Vous devez donc tenir compte du taux de modification lorsque vous déterminez la quantité d'espace d'image instantanée dont vous avez besoin. Il influe en effet considérablement sur la quantité d'espace d'instantané dont vous avez besoin. Un plus grand volume est davantage susceptible de changer plus souvent. Toutefois, un volume de 500 Go avec 5 Go de modification et un volume de 10 To avec 5 Go de modification utilisent la même quantité d'espace d'instantané.
 
-En outre, pour la plupart des charges de travail, plus un volume est important, plus l'espace à conserver initialement pour les instantanés est réduit. Cela est principalement dû à l'efficacité des données sous-jacentes de notre plateforme, ainsi qu'à la nature du fonctionnement des instantanés dans notre environnement.
-
-
-
+De plus, pour la plupart des charges de travail, plus le volume est grand, plus l'espace à prévoir initialement est réduit. Cela est principalement dû aux efficiences des données sous-jacentes et à la nature du fonctionnement des instantanés dans l'environnement.

@@ -2,48 +2,46 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Capacité de stockage par blocs extensible
+# Extension de la capacité de stockage par blocs
 
-Grâce à cette nouvelle fonction, nos utilisateurs {{site.data.keyword.blockstoragefull}} actuels peuvent augmenter immédiatement la taille de leur service {{site.data.keyword.blockstorageshort}} existant par incréments en Go jusqu'à 12 To, sans avoir besoin de créer un doublon ni de migrer manuellement les données vers un volume plus grand. Il n'y aura aucune indisponibilité ni refus d'accès au stockage lors du redimensionnement. 
+Cette nouvelle fonctionnalité permet aux utilisateurs d'{{site.data.keyword.blockstoragefull}} d'étendre immédiatement la taille de leur stockage {{site.data.keyword.blockstorageshort}} en incréments de Go jusqu'à 12 To. Ils n'ont pas besoin de créer un doublon ou de faire migrer manuellement les données vers un volume plus grand. Il n'y aura aucune indisponibilité ni refus d'accès au stockage lors du redimensionnement. 
 
-La facturation du volume est automatiquement mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est ensuite facturé dans le cycle de facturation suivant. 
+La facturation du volume est automatiquement mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est ensuite facturé dans le cycle de facturation suivant.
 
-Cette fonction est disponible uniquement dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html). 
+Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html). 
 
 ## Avantages du stockage extensible
 
-- **Gestion des coûts** – Vous savez peut-être que vos données risquent d'augmenter, mais vous avez besoin d'une quantité de stockage réduite pour commencer. L'extensibilité permet à nos clients de réaliser des économies en matière de coûts de stockage, puis d'accroître la capacité de stockage en fonction de leurs besoins.  
+- **Gestion des coûts** : vous savez que vos données sont susceptibles de croître, mais vous avez besoin d'une quantité de stockage plus petite pour commencer. L'extensibilité permet à nos clients de réaliser des économies en matière de coûts de stockage, puis d'accroître la capacité de stockage en fonction de leurs besoins.  
 
-- **Augmentation des besoins de stockage** - Les clients qui connaissent une croissance accélérée des données doivent trouver un moyen d'augmenter rapidement et facilement la taille de leur stockage pour le gérer au mieux. 
+- **Augmentation des besoins de stockage** - Les clients qui connaissent une croissance accélérée des données doivent trouver un moyen d'augmenter rapidement et facilement la taille de leur stockage pour le gérer au mieux.
 
-## Comment l'augmentation de la capacité de stockage affecte-t-elle la réplication ?
+## Effets de l'extension de la capacité de stockage sur la réplication
 
-L'extension de l'espace de stockage principal entraînera un redimensionnement automatique de la réplique. 
+L'extension de l'espace de stockage principal entraîne un redimensionnement automatique de la réplique. 
 
-## Existe-t-il des limitations ?
+## Limitations
 
 Cette fonction est uniquement disponible pour le stockage mis à disposition dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html).  
 
 Le stockage qui a été mis à disposition dans ces centres de données avant la mise sur le marché de cette fonction (le 14 décembre 2017) ne peut être augmenté que d'une taille équivalente à 10 fois sa taille d'origine. Le stockage mis à disposition après cette date peut être augmenté jusqu'à 12 To.  
 
-Les limitations de taille existantes pour un service {{site.data.keyword.blockstorageshort}} mis à disposition avec Endurance s'appliquent encore (jusqu'à 4 To pour le niveau de 10 E-S/s et 12 To pour tous les autres).
+Les limitations de taille existantes pour le stockage {{site.data.keyword.blockstorageshort}} qui a été mis à disposition avec l'option Endurance sont toujours applicables (jusqu'à 4 To pour un niveau de 10 IOPS et jusqu'à 12 To pour tous les autres niveaux).
 
-## Comment savoir si mon stockage est chiffré ?
+## Identification du stockage éligible
 
-Le stockage mis à disposition avec des fonctions améliorées est toujours chiffré au repos. Vous pouvez facilement déterminer que votre stockage est éligible si l'icône de verrouillage apparaît en regard de ce dernier dans l'interface utilisateur du portail. 
+Un stockage qui est mis à disposition avec des capacités améliorées est toujours chiffré au repos. Si votre stockage est marqué par une icône en forme de verrou dans le portail {{site.data.keyword.slportal}}, cela signifie qu'il est éligible pour l'extension. 
 
-## Comment puis-je redimensionner mon stockage ?
+## Redimensionnement du stockage
 
 1. Dans le portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU à partir du catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
 3. Saisissez la nouvelle taille du stockage en Go.
 4. Passez en revue votre sélection et la nouvelle tarification.
 5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
-6. Votre nouvelle allocation de stockage devrait être disponible dans quelques minutes.
-  
+6. Votre nouvelle allocation de stockage est disponible en quelques minutes.

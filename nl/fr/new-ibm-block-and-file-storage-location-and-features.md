@@ -2,30 +2,28 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # Nouveaux emplacements et fonctions de {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} présente une nouvelle version d'{{site.data.keyword.blockstoragefull}} !
 
-Le nouveau stockage est disponible dans certains centres de données et sécurisé par mémoire flash à des niveaux d'E-S/s supérieurs avec chiffrement des données au repos au niveau du disque. La totalité du stockage mis à disposition dans les centres de données sélectionnés est automatiquement créée avec la nouvelle version. 
+Le nouveau stockage est disponible dans certains centres de données et sécurisé par mémoire flash à des niveaux d'E-S/s supérieurs avec chiffrement des données au repos au niveau du disque. La totalité du stockage mis à disposition dans les centres de données mis à niveau est automatiquement créée avec la nouvelle version. 
 
-**Remarque :** Le point de montage NFS pour les nouveaux volumes a changé. Consultez la section **Nouveau point de montage pour les volumes {{site.data.keyword.filestorage_short}} chiffrés** ci-dessous pour plus de détails.
+**Remarque :** le point de montage NFS des nouveaux volumes est différent du point de montage des volumes non chiffrés. Pour plus de détails, voir **Nouveau point de montage des volumes {{site.data.keyword.filestorage_short}} chiffrés**.
 
-La nouvelle version de {{site.data.keyword.blockstorageshort}} est actuellement disponible dans les régions/centres de données suivants, mais cette liste va bientôt être enrichie !
-<table style="width:100%;">
- <caption>Le Tableau 1 répertorie la disponibilité de nos centres de données. Chaque région dispose de sa propre colonne. Certaines villes, comme Dallas, San José, Washington, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données.</caption>
+La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans les régions/centres de données ci-dessous :
+<table role="presentation">
 	 <tr>
-	   <td><strong>Etats-Unis 2</strong></td>
+	   <td><strong>EU 2</strong></td>
 	   <td><strong>UE</strong></td>
 	   <td><strong>Australie</strong></td>
 	   <td><strong>Canada</strong></td>
 	   <td><strong>Amérique latine</strong></td>
-	   <td><strong>Asie-Pacifique</strong></td>
+	   <td><strong>Asie Pacifique</strong></td>
 	</tr>
 	<tr>
 	   <td><p>SJC03<br />
@@ -68,10 +66,12 @@ La nouvelle version de {{site.data.keyword.blockstorageshort}} est actuellement 
 	</tr>
 </table>
 
+Le tableau 1 répertorie la disponibilité de nos centres de données. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San José, Washington DC, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données.*
 
-Le nouveau stockage comporte les fonctionnalités suivantes :
+Le nouveau stockage inclut les nouvelles fonctions et capacités suivantes :
 
-- **[Chiffrement géré par le fournisseur pour les données au repos](block-file-storage-encryption-rest.html)**. La totalité du service {{site.data.keyword.blockstorageshort}} est automatiquement mise à disposition sous forme chiffrée sans frais supplémentaires.
+- **[Chiffrement géré par le fournisseur pour les données au repos](block-file-storage-encryption-rest.html)**.
+  La totalité du service {{site.data.keyword.blockstorageshort}} est automatiquement mise à disposition sous forme chiffrée sans frais supplémentaires.
 - **Option de niveau 10 E-S/s par Go**.
   Un nouveau niveau est disponible avec le type {{site.data.keyword.blockstorageshort}} Endurance pour prendre en charge les charges de travail les plus exigeantes.
 - **Stockage entièrement sécurisé par mémoire flash.**
@@ -83,8 +83,8 @@ Le nouveau stockage comporte les fonctionnalités suivantes :
 - Créez un clone de vos données avec la fonction de duplication de volume de **[{{site.data.keyword.blockstorageshort}}](how-to-create-duplicate-volume.html)**.
 - **Le stockage est extensible** par incréments en Go jusqu'à 12 To, sans avoir besoin de créer un doublon ni de déplacer manuellement les données vers un volume plus grand. Découvrez plus de détails sur cette fonctionnalité [ici](expandable_block_storage.html).
 
-## Nouveau point de montage pour les volumes de stockage chiffrés
+## Nouveau Point de montage des volumes de stockage chiffrés
 
-Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Pour vous assurer que vous utilisez le point de montage correct pour vos volumes de stockage, vous pouvez afficher les informations relatives au point de montage sur la page **Détails du volume** dans l'interface utilisateur. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Pour vous assurer que vous utilisez le point de montage correct pour vos volumes de stockage, vous pouvez afficher les informations relatives au point de montage sur la page **Détails du volume** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Vérifiez à nouveau ici la date à laquelle des centres de données supplémentaires ont été mis à niveau et recherchez les fonctionnalités qui ont été ajoutées récemment pour {{site.data.keyword.blockstorageshort}}.
+Revenez ici pour savoir si d'autres centres de données ont été mis à niveau et si de nouvelles fonctions et capacités ont été ajoutées pour  {{site.data.keyword.blockstorageshort}}.

@@ -2,47 +2,45 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Ajustement des opérations d'entrée-sortie par seconde
+# Ajustement des IOPS (opérations d'entrée-sortie par seconde)
 
-Grâce à cette nouvelle fonction, les utilisateurs de notre stockage {{site.data.keyword.blockstoragefull}} peuvent ajuster immédiatement les opérations d'entrée-sortie par seconde (E-S/s) de leur service {{site.data.keyword.blockstorageshort}} existant, sans avoir besoin de créer un doublon ni de migrer manuellement les données vers un nouveau stockage. Les utilisateurs ne connaîtront pas d'indisponibilité ou de refus d'accès au stockage d'aucune sorte lors de l'ajustement. 
+Cette nouvelle fonctionnalité permet aux utilisateurs du stockage {{site.data.keyword.blockstoragefull}} d'ajuster immédiatement les IOPS de leur {{site.data.keyword.blockstorageshort}} existant. Ils n'ont pas besoin de créer un doublon ou de copier manuellement les données vers un nouveau stockage. Les utilisateurs ne sont confrontés à aucune indisponibilité, ni manque d'accès au stockage lorsque l'ajustement a lieu. 
 
-La facturation du stockage sera mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est facturé dans le cycle de facturation suivant. 
-
-Cette fonction est disponible uniquement dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html). 
-
-## Avantages des opérations d'entrée-sortie par seconde ajustables
-
-- Gestion des coûts – Certains de nos clients peuvent avoir besoin d'un nombre élevé d'opérations d'entrée-sortie par seconde lors de pics d'utilisation. Par exemple, un grand magasin de détail connaît un pic d'utilisation pendant les vacances et risque donc d'avoir besoin d'un plus grand nombre d'opérations d'entrée-sortie par seconde sur son stockage qu'au milieu de l'été. Cette fonction permet au magasin de gérer ses coûts et de payer davantage d'opérations d'entrée-sortie par seconde uniquement lorsqu'il en a réellement besoin.
-
-## Existe-t-il des limitations ?
-
-Cette fonction est uniquement disponible pour le stockage mis à disposition dans des [centres de données](new-ibm-block-and-file-storage-location-and-features.html) dotés de fonctionnalités avancées. 
-
-Les clients ne peuvent pas basculer entre l'endurance et les performances lorsqu'ils ajustent leurs opérations d'entrée-sortie par seconde. Les utilisateurs peuvent spécifier un nouveau niveau d'E-S/s pour leur stockage en fonction des restrictions/critères suivants : 
-
-- Si le niveau d'endurance du volume d'origine est de 0,25, le niveau d'E-S/s ne peut pas être mis à jour.
-- Si les performances du volume d'origine sont < à 0,30 E-S/s/Go, les options disponibles ne doivent inclure que des combinaisons de taille et d'E-S/s < à 0,30 E-S/s/Go. 
-- Si les performances du volume d'origine sont >= à 0,30 E-S/s/Go, les options disponibles ne doivent inclure que des combinaisons de taille et d'E-S/s >= à 0,30 E-S/s/Go (taille supérieure ou égale au volume d'origine).
+La facturation du stockage est mise à jour : la différence calculée au prorata du nouveau prix est ajoutée au cycle de facturation en cours. Le nouveau montant total est facturé dans le cycle de facturation suivant.
 
 
+## Avantages des IOPS ajustables
 
-## Dans quelle mesure l'ajustement des opérations d'E-S/s affecte-t-elle la réplication ?
+- Gestion des coûts : certains clients peuvent avoir besoin d'un nombre élevé d'IOPS uniquement pendant les pics d'utilisation. Par exemple, un grand magasin de détail connaît un pic d'utilisation pendant les vacances et risque donc d'avoir besoin d'un plus grand nombre d'IOPS sur son stockage. Or, il n'a pas besoin d'un plus grand nombre d'IOPS au milieu de l'été. Cette fonction permet au magasin de gérer ses coûts et de payer pour un nombre plus élevé d'IOPS uniquement lorsqu'il en a réellement besoin.
 
-Si la réplication est en place sur le volume, la réplique sera automatiquement mise à jour pour correspondre à la sélection d'E-S/s du volume principal. 
+## Limitations
 
-## Comment ajuster les opérations d'E-S/s sur mon stockage ?
+Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
 
-1. Dans le portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU à partir du catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+Les clients ne peuvent pas basculer entre Endurance et Performance lorsqu'ils ajustent leurs IOPS. En revanche, ils peuvent spécifier un nouveau niveau d'IOPS pour leur stockage en fonction des restrictions/critères suivants : 
+
+- Si le volume d'origine est de type Endurance avec un niveau de 0,25, il n'est pas possible de le mettre à jour.
+- Si le volume d'origine est de type Performance avec un niveau inférieur à 0,30 IOPS/Go, les options disponibles incluent uniquement les combinaisons de taille et d'IOPS qui génèrent un niveau inférieur à 0,30 IOPS/Go.
+- Si le volume d'origine est de type Performance avec un niveau inférieur ou égal à 0,30 IOPS/Go, les options disponibles incluent uniquement les combinaisons de taille et d'IOPS qui génèrent un niveau inférieur ou égal à 0,30 IOPS/Go.
+
+## Effet de l'ajustement des IOPS sur la réplication
+
+Si la réplication est activée sur le volume, la réplique est automatiquement mise à jour afin de correspondre à la sélection des IOPS du volume principal. 
+
+## Ajustement des IOPS sur votre stockage
+
+1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
+   - A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**
+   - A partir du catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
-3. Sous les options d'E-S/s de stockage, effectuez une nouvelle sélection :
-    - Endurance (E-S/s échelonnées) : sélectionnez un niveau d'E-S/s supérieur à 0,25 E-S/s/Go pour votre stockage. Vous pouvez augmenter ce niveau à tout moment. Toutefois, il ne peut être diminué qu'une fois par mois.
-    - Performances (E-S/s allouées) : indiquez une nouvelle option d'E-S/s pour votre stockage en saisissant une valeur comprise entre 100 et 48 000 E-S/s. (N'oubliez pas de prendre en compte les limites spécifiques requises par la taille dans le formulaire de commande.)
-4. Passez en revue votre sélection et la nouvelle tarification.
-5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
-6. Votre nouvelle allocation de stockage devrait être disponible dans quelques minutes.
+3. Sous les options d'IOPS de stockage, effectuez une nouvelle sélection :
+    - Endurance (IOPS hiérarchisées) : sélectionnez un niveau d'IOPS supérieur à 0,25 IOPS/Go de votre stockage. Vous pouvez augmenter le niveau d'IOPS à tout moment. Toutefois, vous ne pouvez le diminuer qu'une seule fois par mois.
+    - Performance (IOPS allouées) : indiquez la nouvelle option d'IOPS pour votre stockage en saisissant une valeur comprise entre 100 et 48 000 IOPS. (Prenez soin de tenir compte des limites spécifiques requises par la taille dans le formulaire de commande.)
+4. Vérifiez votre sélection et la nouvelle tarification.
+5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
+6. Votre nouvelle allocation de stockage est disponible en quelques minutes.

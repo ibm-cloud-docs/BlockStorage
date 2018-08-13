@@ -2,18 +2,16 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Utilisation de LUKS dans Red Hat Enterprise Linux 6 pour un chiffrement de disque complet
 
-Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6 avec Linux Unified Key Setup-on-disk-format (LUKS), ce qui est particulièrement important lorsqu'il s'agit d'ordinateurs portables et de support amovible. LUKS permet à plusieurs clés d'utilisateur de déchiffrer une clé principale utilisée pour le chiffrement en bloc de la partition.
+Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6 avec Linux Unified Key Setup-on-disk-format (LUKS), ce qui est important lorsqu'il s'agit d'ordinateurs portables et de support amovible. LUKS permet à plusieurs clés d'utilisateur de déchiffrer une clé principale utilisée pour le chiffrement en bloc de la partition.
 
 ## Opérations possibles avec LUKS
 
@@ -29,11 +27,11 @@ Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6
 - Possibilité pour les applications nécessitant un grand nombre d'utilisateurs (plus de huit) d'avoir des clés distinctes pour accéder aux mêmes unités.
 - Utilisation d'applications nécessitant un chiffrement au niveau fichier ([en savoir plus](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
 
-## Configuration d'un volume chiffré LUKS avec Endurance {{site.data.keyword.blockstorageshort}}
+## Configuration d'un volume chiffré LUKS avec {{site.data.keyword.blockstorageshort}} Endurance
 
-Cette procédure suppose que le serveur dispose déjà d'un accès à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Cliquez [ici](accessing_block_storage_linux.html) pour savoir comment accéder à {{site.data.keyword.blockstorageshort}} avec Linux.
+Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Cliquez [ici](accessing_block_storage_linux.html) pour savoir comment accéder à {{site.data.keyword.blockstorageshort}} avec Linux.
 
-Notez qu'un chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances.
+**Remarque** : le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances. 
 
 1. Saisissez la commande suivante à une invite shell en tant que root pour installer le package requis :   <br/>
    ```
@@ -48,7 +46,7 @@ Notez qu'un chiffrement de données crée une charge sur l'hôte, qui risque d'i
 3. Localisez votre volume dans la liste.
 4. Chiffrez l'unité par bloc :
 
-   1. Cette commande initialise le volume et vous permet de définir une phrase passe : <br/>
+   1. Cette commande initialise le volume et vous permet de définir une phrase passe. <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -57,20 +55,20 @@ Notez qu'un chiffrement de données crée une charge sur l'hôte, qui risque d'i
       
    2. Répondez par YES (tout en majuscules).
    
-   3. L'unité apparaît maintenant sous forme de volume chiffré : 
+   3. Le périphérique apparaît maintenant sous forme de volume chiffré : 
    
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Ouvrez le volume et créez un mappage :   <br/>
+5. Ouvrez le volume et créez un mappage. <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. Saisissez le mot de passe fourni précédemment.
-7. Vérifiez le mappage et affichez le statut du volume chiffré :   <br/>
+6. Entrez la phrase de passe. 
+7. Vérifiez le mappage et affichez le statut du volume chiffré. <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,17 +81,17 @@ Notez qu'un chiffrement de données crée une charge sur l'hôte, qui risque d'i
      mode:    read/write
      Command successful
    ```
-8. Ecrivez des données aléatoires sur l'unité chiffrée `/dev/mapper/cryptData`. Le monde extérieur les considérera ainsi comme des données aléatoires, ce qui signifie qu'elles seront protégées contre la divulgation des modèles d'utilisation. Cette étape peut prendre un certain temps.<br/>
+8. Ecrivez des données aléatoires sur l'unité chiffrée `/dev/mapper/cryptData`. Ainsi, le monde extérieur les considérera comme des données aléatoires, ce qui signifie qu'elles seront protégées contre la divulgation des modèles d'utilisation. Cette étape peut prendre un certain temps.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Formatez le volume :<br/>
+9. Formatez le volume.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Montez le volume :<br/>
+10. Montez le volume.<br/>
    ```
    # mkdir /cryptData
    ```

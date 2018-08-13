@@ -2,33 +2,31 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-22"
+lastupdated: "2018-07-30"
 
 ---
-
-{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 
-# Utilisation de la réplication
+# Réplication de données
 
 La réplication utilise l'un de vos plannings d'instantané pour copier automatiquement les instantanés vers un volume de destination dans un centre de données distant. Les copies peuvent être récupérées sur le site distant en cas de données endommagées ou de catastrophe.
 
 Les répliques vous permettent :
 
 - d'effectuer une restauration rapide après des échecs sur site et d'autres incidents en basculant vers le volume de destination,
-- de basculer vers un point de cohérence spécifique dans la copie de réplication de données.
+- d'effectuer un basculement vers un point de cohérence précis dans la copie de reprise après incident.
 
 Avant de pouvoir exécuter une réplication, vous devez créer un planning d'instantané. Lors du basculement, vous "actionnez le commutateur" à partir du volume de stockage de votre centre de données principal vers le volume de destination de votre centre de données distant. Par exemple, votre centre de données principal est Londres et votre centre de données secondaire est Amsterdam. Dans le cas d'un événement d'échec, vous basculez vers Amsterdam, en vous connectant au volume qui est désormais devenu principal à partir d'une instance de calcul à Amsterdam. Une fois que votre volume à Londres est réparé, un instantané est pris du volume à Amsterdam afin d'effectuer une reprise par restauration à Londres et de revenir au volume principal restauré à partir d'une instance de calcul à Londres.
 
 
-## Comment puis-je déterminer le centre de données distant pour mon volume de stockage répliqué ?
+## Comment déterminer le centre de données distant de mon volume de stockage répliqué ?
 
-Les centres de données d'{{site.data.keyword.BluSoftlayer_full}} ont été associés par paires sous forme de combinaisons principales et distantes au niveau mondial.
-Consultez le Tableau 1 pour obtenir la liste complète de la disponibilité et des cibles de réplication des centres de données. 
+Les centres de données d'{{site.data.keyword.BluSoftlayer_full}} sont appariés en combinaisons principal-distant dans le monde entier.
+Consultez le Tableau 1 pour obtenir la liste complète de la disponibilité et des cibles de réplication des centres de données.
 
-<table style="width: 80.0%;">
-	<caption style="text-align: left;"><p>Tableau 1 - Ce tableau présente la liste complète des centres de données avec des fonctionnalités améliorées dans chaque région. Chaque région est une colonne distincte. Certaines villes, comme Dallas, San José, Washington, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données.</p>
-		<p>&#42; Les centres de données dans la région US 1 NE disposent PAS d'un stockage amélioré. Les hôtes dans les centres de données avec des fonctionnalités de stockage amélioré <strong>ne peuvent pas</strong> lancer de réplication avec des cibles de réplique dans les centres de données US 1.</p>
+<table>
+	<caption style="text-align: left;"><p>Tableau 1 - Ce tableau présente la liste complète des centres de données avec des fonctionnalités améliorées dans chaque région. Chaque région est une colonne distincte. Certaines villes, comme Dallas, San Jose, Washington DC, Amsterdam, Francfort, Londres et Sydney disposent de plusieurs centres de données.</p>
+		<p>&#42; Les centres de données dans la région US 1 NE disposent PAS d'un stockage amélioré. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées <strong>ne peuvent pas</strong> démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1.</p>
 </caption>
 	<thead>
 		<tr>
@@ -107,124 +105,119 @@ Consultez le Tableau 1 pour obtenir la liste complète de la disponibilité et d
 	</tbody>
 </table>
 
-## Comment puis-je créer une réplication initiale ?
+## Création de la réplique initiale
 
-Les réplications fonctionnent selon un planning d'instantané. Un espace d'instantané et un planning d'instantané doivent d'abord être définis pour le volume source avant que la réplication puisse avoir lieu. Vous recevrez des invites vous informant que vous devez acheter de l'espace ou qu'un planning doit être défini, si vous essayez de configurer la réplication et que l'une ou l'autre de ces conditions n'est pas remplie au préalable. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abord configurer un espace d'instantané et un planning d'instantané pour le volume source avant de pouvoir répliquer. Si vous tentez de configurer la réplication alors que l'espace d'instantané ou le planning d'instantané n'existe pas, vous serez invité à acheter davantage d'espace ou à configurer un planning. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 1. Cliquez sur votre volume de stockage.
 2. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
-Sélectionnez le planning d'instantané existant que vous souhaitez que votre réplication suive. La liste contient tous vos plannings d'instantané actifs. <br />
-  **Remarque :** Vous ne pouvez sélectionner qu'un planning, même si vous disposez d'un mélange d'heures, de jours et de semaines. Tous les instantanés capturés depuis le dernier cycle de réplication seront répliqués, quel que soit leur planning d'origine.<br />
-  **Remarque :** Si aucun instantané n'est configuré, vous serez invité à effectuer cette opération avant de commander une réplication. Pour plus de détails, voir [Utilisation d'instantanés](snapshots.html).
-3. Cliquez sur la flèche déroulante **Emplacement** et sélectionnez le centre de données qui sera votre site de réplication des données.
+3. Sélectionnez le planning d'instantané existant que vous souhaitez que votre réplication suive. La liste contient tous vos plannings d'instantané actifs. <br />
+   >**Remarque :** vous ne pouvez sélectionner qu'une seul planning, même si vous combinez des réplications horaires, quotidiennes et hebdomadaires. Tous les instantanés qui ont été capturés depuis le cycle de réplication précédent sont répliqués quel que soit leur planning d'origine.<br />Si vous n'avez pas configuré d'instantanés, vous êtes invité à le faire avant de pouvoir commander la réplication. Pour plus de détails, voir [Utilisation d'instantanés](snapshots.html).
+3. Cliquez sur **Emplacement** et sélectionnez le centre de données qui est votre site de reprise après incident.
 4. Cliquez sur **Continuer**.
-5. Saisissez un **code promotionnel** le cas échéant, puis cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
-6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
+5. Entrez un **Code promo** le cas échéant et cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
+6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
 
 
-## Comment puis-je éditer une réplication existante ?
+## Edition d'une réplication existante
 
 Vous pouvez éditer votre planning de réplication et modifier votre espace de réplication à partir de l'onglet **Principal** ou **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 
 
-## Comment puis-je éditer un planning de réplication ?
+## Edition du planning de réplication
 
-En fait, vous modifiez un planning d'instantané car votre planning de réplication se fonde sur un planning d'instantané existant. Pour modifier le planning de réplication, par exemple d'Horaire en Hebdomadaire, vous devez annuler le planning de réplication et en configurer un nouveau.
+Le planning de réplication est basé sur un planning d'instantané existant. Pour modifier le planning de réplication, par exemple d'Horaire en Hebdomadaire, vous devez annuler le planning de réplication et en configurer un nouveau.
 
 La modification du planning peut s'effectuer sur l'onglet Principal ou Réplique.
 
-1. Cliquez sur **Actions** à partir de l'onglet **Principal** ou **Réplique**.
+1. Cliquez sur **Actions** sur l'onglet **Principal** ou **Réplique**.
 2. Sélectionnez **Modifier le planning d'instantané**.
-3. Regardez dans le cadre **Instantané** sous **Planning** pour déterminer le planning que vous utilisez pour la réplication. Modifiez le planning utilisé pour la réplication. Par exemple, si votre planning de réplication est **Quotidien**, vous pouvez modifier l'heure de la journée à laquelle la réplication doit avoir lieu.
+3. Regardez dans le cadre **Instantané** sous **Planning** pour déterminer le planning que vous utilisez pour la réplication. Modifiez le planning de votre choix. Par exemple, si votre planning de réplication est **Quotidien**, vous pouvez modifier l'heure de la journée à laquelle la réplication doit avoir lieu.
 4. Cliquez sur **Enregistrer**.
 
 
-## Comment puis-je modifier l'espace de réplication ?
+## Modification de l'espace de réplication
 
-Votre espace d'instantané principal et votre espace de réplication doivent être identiques. Si vous modifiez l'espace sur l'onglet **Principal** ou **Réplique**, un espace est automatiquement ajouté à vos centres de données source et cible. N'oubliez pas que l'augmentation de l'espace d'instantané déclenchera une mise à jour immédiate de la réplication.
+Votre espace d'image instantanée principal et votre espace de réplique doivent être identiques. Si vous modifiez l'espace sur l'onglet **Principal** ou **Réplique**, l'espace est automatiquement ajouté à vos centres de données source et de destination. L'augmentation de l'espace d'image instantanée déclenche également une mise à jour immédiate de la réplication.
 
-1. Cliquez sur **Actions** à partir de l'onglet **Principal** ou **Réplique**.
-2. Sélectionnez **Ajouter de l'espace d'instantané supplémentaire**.
-3. Sélectionnez la taille de stockage dans la liste et cliquez sur **Continuer**.
-4. Saisissez un **code promotionnel** le cas échéant, puis cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
-5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
+1. Cliquez sur **Actions** sur l'onglet **Principal** ou **Réplique**.
+2. Sélectionnez **Ajouter de l'espace d'image instantanée supplémentaire**.
+3. Sélectionnez la taille de stockage dans la liste, puis cliquez sur **Continuer**.
+4. Entrez un **Code Promo** le cas échéant et cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
+5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
 
 
-## Comment puis-je voir mes volumes de réplique dans la liste de volumes ?
+## Affichage des volumes de réplique dans la liste de volumes
 
 Vous pouvez afficher vos volumes de réplication sur la page {{site.data.keyword.blockstorageshort}} sous **Stockage > {{site.data.keyword.blockstorageshort}}**. Le **Nom LUN** contient le nom du volume principal suivi de REP. Le **Type** est Endurance ou Performance – Réplique. L'**Adresse cible** est Sans objet car le volume de réplique n'est pas monté sur le centre de données de réplique, et le **Statut** indique Inactif.
 
 
-
-## Comment puis-je afficher les détails d'un volume répliqué sur le centre de données de réplique ?
+## Affichage des détails d'un volume répliqué dans le centre de données de la réplique
 
 Vous pouvez afficher les détails du volume de réplique sur l'onglet **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}**. Une autre option consiste à sélectionner le volume de réplique à partir de la page **{{site.data.keyword.blockstorageshort}}** et à cliquer sur l'onglet **Réplique**.
 
 
+## Spécification des autorisations de l'hôte avant le basculement du serveur vers le centre de données secondaire
 
-## Comment puis-je spécifier les autorisations de l'hôte avant de basculer vers le centre de données secondaire ?
-
-Les hôtes autorisés et les volumes doivent se trouver dans le même centre de données. Vous ne pouvez pas avoir un volume de réplique à Londres et l'hôte à Amsterdam ; ils doivent se trouver tous les deux à Londres ou à Amsterdam.
+Les hôtes et les volumes autorisés doivent figurer dans le même centre de données. Vous ne pouvez pas avoir un volume de réplique à Londres et un hôte à Amsterdam. ils doivent se trouver tous les deux à Londres ou à Amsterdam.
 
 1. Cliquez sur votre volume source ou cible à partir de la page **{{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur **Réplique**.
-3. Faites défiler l'écran vers le bas jusqu'au cadre **Autoriser les hôtes** et cliquez sur **Autoriser les hôtes** à droite. 
-4. Mettez en évidence l'hôte qui doit être autorisé pour les réplications. Pour sélectionner plusieurs hôtes, utilisez la touche CTRL et cliquez sur les hôtes applicables.
-5. Cliquez sur **Soumettre**. Si vous n'avez pas d'hôtes, la boîte de dialogue vous donne la possibilité d'acheter des ressources de calcul dans le même centre de données. 
+3. Faites défiler l'écran vers le bas jusqu'au cadre **Autoriser les hôtes** et cliquez sur **Autoriser les hôtes** à droite.
+4. Mettez en évidence l'hôte qui doit être autorisé pour les réplications. Pour sélectionner plusieurs hôtes, utilisez la touche ctrl et cliquez sur les hôtes concernés.
+5. Cliquez sur **Soumettre**. En l'absence d'hôte, vous êtes invité à acheter des ressources de traitement dans le même centre de données.
 
 
-## Comment puis-je accroître mon espace d'instantané dans mon centre de données de réplique lorsque j'augmente l'espace dans mon centre de données principal ?
+## Augmentation de l'espace d'image instantanée dans le centre de données de réplique lorsque l'espace d'image instantanée est augmenté dans le centre de données principal.
 
-Les tailles des volumes de stockage principal et de réplique doivent être identiques. Il n'est pas possible que l'un soit plus grand que l'autre. Lorsque vous augmentez l'espace d'instantané pour votre volume principal, l'espace de réplique augmente automatiquement. N'oubliez pas que l'augmentation de l'espace d'instantané déclenchera une mise à jour immédiate de la réplication. L'augmentation des deux volumes s'affichera sous forme de lignes d'article sur votre facture et sera calculée au prorata, si nécessaire.
+Les tailles des volumes de stockage principal et de réplique doivent être identiques. Il n'est pas possible que l'un soit plus grand que l'autre. Lorsque vous augmentez votre espace d'image instantanée dans le volume principal, l'espace de réplique est automatiquement augmenté. L'augmentation de l'espace d'image instantanée déclenche une mise à jour immédiate de la réplication. L'augmentation des deux volumes apparaît sous forme de lignes d'article dans votre facture et est calculée au prorata si nécessaire.
 
 Cliquez [ici](snapshots.html) pour savoir comment augmenter votre espace d'instantané.
 
 
+## Démarrage d'un basculement depuis un volume vers sa réplique
 
-## Comment puis-je lancer un basculement à partir d'un volume vers sa réplique ?
-
-Dans le cas d'un événement d'échec, vous pouvez lancer un **basculement** vers votre volume cible. Le volume cible devient actif. Le dernier instantané répliqué avec succès est activé et le volume est alors disponible pour le montage. Toutes les données écrites sur le volume source depuis le dernier cycle de réplication seront perdues. N'oubliez pas que lorsqu'un basculement a démarré, la relation de réplication est actionnée. Votre volume cible devient votre volume source, et le volume source précédent devient votre cible, comme indiqué par le **Nom LUN** suivi de **REP**.
+Dans le cas d'un événement d'échec, vous pouvez initier un **basculement** vers votre volume de destination, ou volume cible. Le volume cible devient actif. Le dernier instantané répliqué avec succès est activé et le volume est alors disponible pour le montage. Toutes les données écrites sur le volume source depuis le cycle de réplication précédent sont perdues. Une fois le basculement démarré, la relation de réplication est inversée. Votre volume cible devient votre volume source, et le volume source précédent devient votre cible, comme indiqué par le **Nom LUN** suivi de **REP**.
 
 Les basculements sont lancés sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Avant d'exécuter cette procédure, il est recommandé de déconnecter le volume. Sinon, vous risquez une altération et une perte des données.**
+**Avant d'exécuter ces étapes, déconnectez le volume. Si vous omettez cette étape, des données seront endommagées et perdues.**
 
 1. Cliquez sur votre numéro d'unité logique actif ("source").
 2. Cliquez sur **Réplique**, puis sur le lien **Actions** dans l'angle supérieur droit.
-3. Sélectionnez Basculement.
-   Vous devez voir s'afficher un message dans la partie supérieure de la page, indiquant que le basculement est en cours. En outre, une icône apparaît en regard de votre volume sur le service **{{site.data.keyword.blockstorageshort}}**, indiquant qu'une transaction est active. Survolez l'icône pour afficher une boîte de dialogue présentant la transaction. L'icône disparaîtra une fois la transaction terminée. Pendant le processus de basculement, les actions liées à la configuration sont en lecture seule. Vous ne pouvez pas modifier de planning d'instantané, d'espace d'instantané, etc. L'événement est consigné dans l'historique des réplications.
-   Un autre message vous informe lorsque votre volume cible est opérationnel. Le nom LUN de votre volume source d'origine sera suivi de REP et son statut sera Inactif.
+3. Sélectionnez **Basculement**.
+   >Vous devez voir s'afficher un message dans la partie supérieure de la page, indiquant le basculement est en cours. En outre, une icône apparaît en regard de votre volume sur **{{site.data.keyword.blockstorageshort}}** pour indiquer qu'une transaction active est en cours. Survolez cette icône pour ouvrir une boîte de dialogue affichant la transaction. L'icône disparaît une fois la transaction terminée. Durant le processus de basculement, les actions liées à la configuration sont accessibles en lecture seule. Vous ne pouvez pas éditer de planning d'instantané, ni modifier l'espace d'image instantanée. L'événement est consigné dans l'historique des réplications.<br/> Lorsque le volume cible est opérationnel, vous obtenez un autre message. Le nom LUN de votre volume source d'origine est mis à jour afin de se terminer par "REP" et il devient inactif.
 4. Cliquez sur **Tout afficher ({{site.data.keyword.blockstorageshort}})**.
-5. Cliquez sur votre numéro d'unité logique actif (anciennement votre volume cible). Ce volume a désormais le statut **Actif**.
-6. Montez et connectez votre volume de stockage à l'hôte. Cliquez [ici](provisioning-block_storage.html) pour obtenir des instructions.
+5. Cliquez sur votre numéro d'unité logique actif (anciennement votre volume cible).
+6. Montez votre volume de stockage sur l'hôte et associez-les. Cliquez [ici](provisioning-block_storage.html) pour obtenir des instructions.
 
 
-## Comment puis-je lancer une reprise par restauration à partir d'un volume vers sa réplique ?
+## Démarrage d'une reprise par restauration depuis un volume vers sa réplique
 
-Lorsque votre volume source d'origine a été réparé, vous pouvez lancer une reprise par restauration contrôlée vers votre volume source d'origine. Dans une reprise par restauration contrôlée,
+Une fois votre volume source d'origine réparé, vous pouvez démarrer une reprise par restauration contrôlée vers le volume source d'origine. Dans une reprise par restauration contrôlée,
 
 - le volume source actif est mis hors ligne ;
 - un instantané est pris ;
-- le cycle de réplication prend fin ;
-- l'instantané de données qui vient d'être pris est activé ;
+- le cycle de réplication est mené à bien ;
+- l'instantané de données tout juste pris est activé ;
 - et le volume source est activé pour le montage.
 
-N'oubliez pas que lorsqu'une reprise par restauration a démarré, la relation de réplication est à nouveau actionnée. Votre volume source est restauré en tant que volume source, et votre volume cible redevient le volume cible, comme indiqué par le **Nom LUN** suivi de **REP**.
+Une fois la reprise par restauration démarrée, la relation de réplication est inversée. Votre volume source est restauré en tant que volume source, et votre volume cible redevient le volume cible, comme indiqué par le **Nom LUN** suivi de **REP**.
 
 Les reprises par restauration sont lancées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-1. Cliquez sur votre numéro d'unité logique Endurance actif ("cible").
-2. Cliquez sur **Réplique**, puis sur **Actions** dans l'angle supérieur droit.
-3. Sélectionnez **Reprise par restauration**. Vous devez voir s'afficher un message dans la partie supérieure de la page, indiquant le basculement est en cours. En outre, une icône apparaît en regard de votre volume sur le service **{{site.data.keyword.blockstorageshort}}**, indiquant qu'une transaction est active. Survolez l'icône pour afficher une boîte de dialogue présentant la transaction. L'icône disparaît une fois la transaction terminée. Pendant le processus de basculement, les actions liées à la configuration sont en lecture seule. Vous ne pouvez pas modifier de planning d'instantané, d'espace d'instantané, etc. L'événement est consigné dans l'historique des réplications. Un autre message vous informe lorsque votre volume source est opérationnel. Votre volume cible a le statut Inactif.
-4. Dans l'angle supérieur droit, cliquez sur le lien **Afficher tous les stockages par blocs**.
-5. Cliquez sur votre numéro d'unité logique Endurance actif (source). Ce volume a le statut **Actif**.
-6. Montez et connectez votre volume de stockage à l'hôte. Cliquez [ici](provisioning-block_storage.html) pour obtenir des instructions.
+1. Cliquez sur votre numéro d'unité logique actif ("cible").
+2. Dans l'angle supérieur droit, cliquez sur **Réplique**, puis sur **Actions**.
+3. Sélectionnez **Reprise par restauration**. Vous devez voir s'afficher un message dans la partie supérieure de la page, indiquant le basculement est en cours. En outre, une icône apparaît en regard de votre volume sur **{{site.data.keyword.blockstorageshort}}** pour indiquer qu'une transaction active est en cours. Survolez cette icône pour ouvrir une boîte de dialogue affichant la transaction. L'icône disparaît une fois la transaction terminée. Durant le processus de reprise par restauration, les actions liées à la configuration sont accessibles en lecture seule. Vous ne pouvez pas éditer de planning d'instantané, ni modifier l'espace d'image instantanée. L'événement est consigné dans l'historique des réplications.
+4. Dans l'angle supérieur droit, cliquez sur le lien **Afficher tout {{site.data.keyword.blockstorageshort}}**.
+5. Cliquez sur votre numéro d'unité logique actif ("source").
+6. Montez votre volume de stockage sur l'hôte et associez-les. Cliquez [ici](provisioning-block_storage.html) pour obtenir des instructions.
 
 
-## Comment puis-je afficher l'historique de mes réplications ?
+## Affichage de l'historique des réplications
 
-L'historique des réplications s'affiche dans le **Journal d'audit** sur l'onglet **Compte** sous **Gérer**. Les volumes principal et de réplique affichent un historique des réplications identique, qui inclut les éléments suivants :
+L'historique des réplications s'affiche dans le **journal d'audit** sur l'onglet **Compte** sous **Gérer**. L'historique des réplications est le même pour le volume principal et le volume de réplique. Il comprend les informations suivantes :
 
 - Type de réplication (basculement ou reprise par restauration)
 - Date/heure de début
@@ -233,22 +226,33 @@ L'historique des réplications s'affiche dans le **Journal d'audit** sur l'ongle
 - Date/heure de fin
 
 
-## Comment puis-je annuler une réplication existante ?
+## Création d'un doublon d'un volume de réplique
+
+Vous pouvez créer un doublon d'un {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} existant. Le volume en double hérite par défaut des options de capacité et de performance du numéro d'unité logique/volume d'origine et contient une copie des données jusqu'au moment de la prise d'un instantané.
+
+Vous pouvez créer des doublons à partir de volumes principaux et de volumes de réplique. Le nouveau doublon est créé dans le même centre de données que le volume d'origine. Si vous créez un doublon à partir d'un volume de réplique, le nouveau volume est créé dans le même centre de données que le volume de réplique.
+
+Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès la mise à disposition du stockage. Toutefois, les instantanés et la réplication ne sont pas autorisés tant que la copie des données depuis le volume d'origine vers le doublon n'est pas terminée.
+
+Pour plus d'informations, voir [Création d'un volume de blocs en double](how-to-create-duplicate-volume.html)
+
+
+## Annulation d'une réplication existante
 
 Vous pouvez annuler la réplication immédiatement ou à la date anniversaire, ce qui met fin à la facturation. La réplication peut être annulée à partir de l'onglet **Principal** ou **Réplique**.
 
 1. Cliquez sur le volume dans la page **{{site.data.keyword.blockstorageshort}}**.
-2. Cliquez sur **Actions** à partir de l'onglet **Principal** ou **Réplique**.
+2. Cliquez sur **Actions** sur l'onglet **Principal** ou **Réplique**.
 3. Sélectionnez **Annuler la réplique**.
-4. Sélectionnez le moment choisi pour l'annulation, à savoir **Immédiatement** ou **Date anniversaire**, puis cliquez sur **Continuer**.
-5. Cochez la case **Je comprends les risques de perte de données liés à cette annulation** et cliquez sur **Annuler la réplique**.
+4. Choisissez le moment de l'annulation du volume, Choisissez **Immédiatement** ou **Date anniversaire**, puis cliquez sur **Continuer**.
+5. Cliquez sur **Je comprends les risques de perte de données liés à cette annulation** puis sur **Annuler la réplique**.
 
 
-## Comment puis-je annuler la réplication lorsque le volume principal est annulé ?
+## Annulation de la réplication lorsque le volume principal est annulé
 
-Lorsqu'un volume principal est annulé, le planning de réplication et le volume dans le centre de données de réplique sont supprimés. Les répliques sont annulées à partir de la page {{site.data.keyword.blockstorageshort}}.
+Lorsqu'un volume principal est annulé, le planning de réplication et le volume figurant dans le centre de données de réplique sont supprimés. Les répliques sont annulées à partir de la page {{site.data.keyword.blockstorageshort}}.
 
  1. Mettez en évidence votre volume sur la page **{{site.data.keyword.blockstorageshort}}**.
  2. Cliquez sur **Actions** et sélectionnez **Annuler stockage par bloc**.
- 3. Sélectionnez le moment choisi pour l'annulation, à savoir **Immédiatement** ou **Date anniversaire**, puis cliquez sur **Continuer**.
- 4. Cochez la case **Je comprends les risques de perte de données liés à cette annulation** et cliquez sur **Annuler**.
+ 3. Choisissez le moment de l'annulation du volume, Choisissez **Immédiatement** ou **Date anniversaire**, puis cliquez sur **Continuer**.
+ 4. Cliquez sur **Je comprends les risques de perte de données liés à cette annulation** puis sur **Annuler**.
