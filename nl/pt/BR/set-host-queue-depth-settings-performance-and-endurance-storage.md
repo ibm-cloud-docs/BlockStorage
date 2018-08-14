@@ -2,16 +2,14 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-17"
+lastupdated: "2018-08-29"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Recomendação para configurações de profundidade da fila do host
+# Ajustando as configurações de profundidade da fila do host
 
-O {{site.data.keyword.BluSoftlayer_full}} recomenda uma profundidade máxima da fila de entrada/saída (E/S) do aplicativo e do host para cada camada de desempenho. A configuração do host não afeta a latência
-de disco e do controlador, apenas a latência observada pelo host e pelo aplicativo.
+O {{site.data.keyword.BluSoftlayer_full}} sugere uma profundidade máxima de fila de entrada/saída (E/S) do host e do aplicativo para cada camada de desempenho. 
 
 <table align="center">
   <caption>Profundidade da fila recomendada para cada camada de IOPS</caption>
@@ -37,11 +35,13 @@ de disco e do controlador, apenas a latência observada pelo host e pelo aplicat
          </tbody>
 </table>
 
-A profundidade da fila acima do número recomendado pode aumentar a latência de E/S do host; enquanto
-que a profundidade da fila abaixo do número recomendado pode reduzir o desempenho de E/S do host. Como cada aplicativo é diferente, o ajuste e a observação são necessários para alcançar o desempenho máximo de armazenamento.
+A configuração do host não afeta a latência do disco e do controlador. Ela afeta somente a latência observada pelo host e pelo aplicativo.
 
-A profundidade da fila do host é geralmente ajustada no driver adaptador de barramento de host ou no hypervisor e, às vezes, no aplicativo. Os padrões, como 32 ou 64, podem causar latência excessiva do host ou
-do aplicativo.
+A profundidade da fila que excede os números listados pode aumentar a latência de E/S do host; enquanto a profundidade da fila menor que o número listado pode reduzir o desempenho de E/S do host. Como cada aplicativo é diferente, o ajuste e a observação são necessários para alcançar o desempenho máximo de armazenamento.
+
+A profundidade da fila do host é geralmente ajustada no driver adaptador de barramento de host ou no hypervisor e, às vezes, no aplicativo. Padrões, como 32 ou 64, podem causar latência excessiva de host ou aplicativo.
 
 Se um host ou hypervisor estiver usando múltiplas camadas de desempenho, use a profundidade da fila para
-a camada mais rápida e observe a latência na camada de desempenho mais lenta. Se a latência na camada mais baixa for inaceitável, ajuste a profundidade da fila até que o balanceamento da latência e do desempenho seja alcançado em todas as camadas.
+a camada mais rápida e observe a latência na camada de desempenho mais lenta. 
+
+Se a latência na camada mais baixa for inaceitável, ajuste a profundidade da fila até que o balanceamento da latência e do desempenho seja alcançado em todas as camadas.

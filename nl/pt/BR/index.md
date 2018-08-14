@@ -2,17 +2,16 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Sobre {{site.data.keyword.blockstorageshort}}
+# Introdução ao {{site.data.keyword.blockstorageshort}}
 
-O {{site.data.keyword.blockstoragefull}} é um armazenamento iSCSI persistente de alto desempenho que é provisionado e gerenciado, independentemente das instâncias de cálculo. Os LUNs do {{site.data.keyword.blockstorageshort}} baseados em iSCSI são conectados a dispositivos autorizados por meio de conexões de multipath I/O (MPIO) redundantes.
+O {{site.data.keyword.blockstoragefull}} é um armazenamento iSCSI persistente e de alto desempenho provisionado e gerenciado independentemente de instâncias de cálculo. Os LUNs do {{site.data.keyword.blockstorageshort}} baseados em iSCSI são conectados a dispositivos autorizados por meio de conexões Multi-path I/O (MPIO).
 
-O {{site.data.keyword.blockstorageshort}} traz os melhores níveis de durabilidade e disponibilidade com um conjunto de recursos incomparável. Ele foi construído usando os padrões de mercado e as melhores práticas. O {{site.data.keyword.blockstorageshort} foi projetado para proteger a integridade dos dados e manter a disponibilidade por meio dos eventos de manutenção e de falhas não planejadas ao mesmo tempo em que fornece uma linha de base de desempenho consistente.
+O {{site.data.keyword.blockstorageshort}} traz os melhores níveis de durabilidade e disponibilidade com um conjunto de recursos incomparável. Ele é construído usando padrões de mercado e melhores práticas. O {{site.data.keyword.blockstorageshort}} foi projetado para proteger a integridade dos dados e manter a disponibilidade por meio de eventos de manutenção e falhas não planejadas, além de fornecer uma linha de base de desempenho consistente.
 
 ## Recursos principais
 
@@ -22,45 +21,34 @@ Aproveite os recursos do {{site.data.keyword.blockstorageshort}} a seguir:
    - Fornecido por meio da alocação de IOPS de nível de protocolo para volumes individuais.
 - **Altamente durável e resiliente**
    - Protege a integridade dos dados e mantém a disponibilidade por meio dos eventos de manutenção e de falhas não planejadas sem a necessidade de criar e gerenciar matrizes Redundant Array of Independent Disks (RAID) no nível do sistema operacional.
-- **Criptografia de dados em repouso**
-([Disponível em data centers de
-seleção](new-ibm-block-and-file-storage-location-and-features.html)).
-   - Criptografia gerenciada por provedor para dados em repouso sem custo adicional
-- **Armazenamento totalmente suportado para flash**
-([Disponível em data centers
-selecionados](new-ibm-block-and-file-storage-location-and-features.html)).
-   - Todo o armazenamento flash para volumes provisionados com Endurance ou Performance a 2 IOPS/GB ou superior.
-- **Capturas instantâneas** (em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html).
+- **Criptografia de dados em repouso** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
+   - Criptografia gerenciada por provedor para dados em repouso sem custo adicional.
+- **Todo armazenamento suportado em flash** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
+   - Armazenamento totalmente em flash para volumes provisionados com o Endurance ou o Performance em níveis de 2 IOPS/GB ou mais altos.
+- **Capturas instantâneas** ([Disponíveis em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
    - Obtém capturas instantâneas de dados de um momento de modo ininterrupto.
-- **Replicação** (em [data centers selecionados](/new-ibm-block-and-file-storage-location-and-features.html).
+- **Replicação** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
    - Copia capturas instantâneas automaticamente para um data center parceiro do {{site.data.keyword.BluSoftlayer_full}}.
 - **Conectividade altamente disponível**
-   - Usa conexões de rede redundantes para maximizar a disponibilidade - o {{site.data.keyword.blockstorageshort}} baseado em iSCSI usa Multipath I/O (MPIO).
+   - Usa conexões de rede redundantes para maximizar a disponibilidade 
+   - O {{site.data.keyword.blockstorageshort}} baseado em iSCSI usa Multipath I/O (MPIO).
 - **Acesso simultâneo**
-   - Permite que múltiplos hosts acessem simultaneamente volumes de bloco (até oito) para configurações em cluster.
+   - Permite que múltiplos hosts acessem simultaneamente volumes de bloco de acesso (até oito) para configurações em cluster.
 - **Bancos de dados em cluster**
    - Suporta casos de uso avançados, como bancos de dados em cluster.
      
-## Faturamento por hora/mensal
+## Faturamento
 
-É possível selecionar o faturamento por hora ou mensal para um LUN de bloco. O tipo de faturamento selecionado para um LUN aplica-se ao seu espaço e às suas réplicas de captura instantânea. Por
-exemplo, se você provisionar um LUN com um faturamento por hora, quaisquer taxas de capturas instantâneas ou
-de réplica serão cobradas por hora. Se você provisionar um LUN com faturamento mensal, quaisquer taxas
-de capturas instantâneas ou de réplicas serão cobradas mensalmente. 
+É possível selecionar o faturamento por hora ou mensal para um LUN de bloco. O tipo de faturamento selecionado para um LUN aplica-se a seu espaço de captura instantânea e réplicas. Por exemplo, se você provisionar um LUN com o faturamento por hora, quaisquer taxas de capturas instantâneas ou de réplica serão faturadas por hora. Se você provisionar um LUN com faturamento mensal, quaisquer taxas de capturas instantâneas ou de réplicas serão faturadas mensalmente. 
 
-Com o **faturamento por hora**, o cálculo do número de horas em que o LUN de bloco
-existiu na conta é feito no momento em que o LUN é excluído ou no término do ciclo de faturamento, que nunca
-vem antes.  O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível apenas para armazenamento provisionado em
-[data centers de seleção](new-ibm-block-and-file-storage-location-and-features.html). 
+Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível para o armazenamento provisionado somente em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). 
 
 Com o **faturamento mensal**, o cálculo do preço é rateado a partir da data
-de criação até o término do ciclo de faturamento e é cobrado imediatamente. Não haverá reembolso se um LUN for excluído antes do término do ciclo de faturamento. O faturamento mensal é uma boa opção para armazenamento
-usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos
-períodos de tempo (um mês ou mais). 
+de criação até o término do ciclo de faturamento e é cobrado imediatamente. Se um LUN for excluído antes do término do ciclo de faturamento, não haverá reembolso. O faturamento mensal é uma boa opção para o armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais). 
 
-### Desempenho:
+**Performance**
 <table>
- <tbody>
+  <caption>A Tabela 1 está mostrando os preços para o armazenamento do Performance com faturamento mensal e por hora.</caption>
   <tr>
    <th>Preço Mensal</th>
    <td>$0,10/GB + $0,07/IOP</td>
@@ -69,12 +57,11 @@ períodos de tempo (um mês ou mais).
    <th>Preço por hora</th>
    <td>$0,0001/GB + $0,0002/IOP</td>
   </tr>
-  </tbody>
 </table>
  
-### Resistência:
+** Endurance **
 <table>
- <tbody>
+  <caption>A Tabela 2 está mostrando os preços para o armazenamento do Endurance para cada camada com opções de faturamento mensais e por hora.</caption>
   <tr>
    <th>Camada de IOPS</th>
    <th>0,25 IOPS/GB</th>
@@ -96,60 +83,51 @@ períodos de tempo (um mês ou mais).
    <td>$0,0005/GB</td>
    <td>$0,0009/GB</td>
   </tr>
-  </tbody>
 </table>
 
 
 
 ## Fornecimento
 
-Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser provisionados de 20 GB até 12 TB com
-duas opções para fornecimento: <br/>
-- Provisione camadas de **Resistência** com níveis de
-desempenho e recursos predefinidos, como capturas instantâneas e replicação.
+Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser provisionados de 20 GB a 12 TB com duas opções: <br/>
+- Provisiona camadas do **Endurance** que apresentam níveis de desempenho predefinidos e outros recursos, como capturas instantâneas e replicação.
 - Construa um ambiente de **Desempenho** poderoso com operações de
 entrada/saída por segundo (IOPS) alocadas. 
 
-### Camadas de resistência
+### Fornecimento com Camadas de Endurance
 
-A Resistência está disponível em três camadas de desempenho de IOPS para suportar diferentes necessidades
-do aplicativo. <br />
+O {{site.data.keyword.blockstorageshort}} Endurance está disponível em quatro camadas de desempenho do IOPS para suportar necessidades de aplicativo variadas. <br />
 
 - **0,25 IOPS por GB** é projetado para cargas de trabalho com baixa intensidade de
-E/S. Essas cargas de trabalho são tipicamente caracterizadas por terem uma alta porcentagem de dados inativos em um determinado momento. Aplicativos de exemplo incluem o armazenamento de caixas postais ou compartilhamentos de arquivo de nível departamental.
+E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande porcentagem de dados inativos a qualquer momento. Aplicativos de exemplo incluem o armazenamento de caixas postais ou compartilhamentos de arquivo de nível departamental.
 
-- **2 IOPS por GB** é projetado para uso de propósito geral. Aplicativos de exemplo incluem a hospedagem de pequenos bancos de dados que auxiliam os aplicativos da web ou imagens de disco de máquina virtual para um hypervisor.
+- **2 IOPS por GB** é projetado para uso de propósito geral. Os aplicativos de exemplo incluem a hospedagem de bancos de dados pequenos que estão suportando aplicativos da web ou imagens de disco da VM para um hypervisor.
 
-- **4 IOPS por GB** é projetado para cargas de trabalho com maior intensidade. Essas cargas de trabalho são tipicamente caracterizadas por terem uma alta porcentagem de dados ativos em um determinado momento. Aplicativos de exemplo incluem bancos de dados transacionais e outros sensíveis a desempenho.
+- **4 IOPS por GB** é projetado para cargas de trabalho com maior intensidade. Essas cargas de trabalho geralmente são caracterizadas por ter uma alta porcentagem de dados ativos a qualquer momento. Aplicativos de exemplo incluem bancos de dados transacionais e outros sensíveis a desempenho.
 
-- **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como
-aquelas criadas por bancos de dados NoSQL e para processamento de dados para análise de dados.  Esta camada está
-disponível para um armazenamento provisionado até 4 TB de tamanho nos
-[data centers de seleção](new-ibm-block-and-file-storage-location-and-features.html).
+- **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento provisionado até 4 TB em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html) apenas.
 
 Até 48.000 IOPS estão disponíveis com um volume de Resistência de 12 TB.
  
-Embora a escolha da camada certa de {{site.data.keyword.blockstorageshort}} do Endurance para sua carga de trabalho seja essencial, é igualmente importante usar o tamanho do bloco, a velocidade de conexão Ethernet e o número de hosts necessários para atingir o máximo desempenho. Se alguma dessas partes não se alinhar, poderá haver um impacto significativo no rendimento resultante.
+A escolha da camada correta do Endurance é essencial para sua carga de trabalho. É igualmente importante usar o tamanho de bloco, a velocidade de conexão Ethernet e o número de hosts corretos necessários para alcançar o máximo desempenho. Se alguma dessas partes não se alinhar, poderá haver um impacto significativo no rendimento resultante.
 
  
-### Performance
+### Provisionando com Desempenho
 
-Performance é uma classe do {{site.data.keyword.blockstorageshort}} projetada para suportar aplicativos de alta taxa de E/S com requisitos de desempenho bem entendidos que não se ajustam adequadamente em uma camada do Endurance. Um desempenho previsível é atingido por meio da alocação
-de IOPS de nível de protocolo para volumes individuais. As taxas de IOPS que variam de 100 a 48.000 podem ser provisionadas com tamanhos de armazenamento que variam de 20 GB a 12 TB. 
+Performance é uma classe do {{site.data.keyword.blockstorageshort}} projetada para suportar aplicativos de alta E/S com requisitos de desempenho entendidos que não se ajustam bem em uma camada do Endurance. Um desempenho previsível é atingido por meio da alocação
+de IOPS de nível de protocolo para volumes individuais. Várias taxas de IOPS (100 - 48.000) podem ser provisionadas com tamanhos de armazenamento que variam de 20 GB a 12 TB. 
 
-O Desempenho para {{site.data.keyword.blockstorageshort}} é acessado e montado por meio de uma
-conexão Small Computer System Interface (iSCSI) de E/S de caminhos múltiplos (MPIO). O {{site.data.keyword.blockstorageshort}} é geralmente usado quando o volume é acessado por uma única máquina. Múltiplos volumes podem ser montados em um host e divididos juntos para atingir volumes
-e contagens de IOPS maiores. Os volumes de desempenho podem ser solicitados de acordo com o tamanho e com as
-IOPS na Tabela 1 para sistemas operacionais Linux, XEN, VMware e Windows.
+O Performance para o {{site.data.keyword.blockstorageshort}} é acessado e montado por meio de uma conexão Small Computer System Interface (iSCSI) da internet de Multipath I/O (MPIO). O {{site.data.keyword.blockstorageshort}} é usado geralmente quando o volume é acessado por um único servidor. Múltiplos volumes podem ser montados em um host e divididos juntos para atingir volumes
+e contagens de IOPS maiores. Os volumes do Performance podem ser pedidos de acordo com os tamanhos e as taxas de IOPS na Tabela 3 para os sistemas operacionais Linux, XEN e Windows.
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
+ <caption>A Tabela 3 está mostrando combinações de tamanho e de IOPS para armazenamento do Performance.<br/><sup><img src="/images/numberone.png" alt="Nota de rodapé" /></sup> O limite de IOPS maior que 6.000 está disponível nos data centers selecionados.</caption>
         <colgroup>
           <col/>
           <col/>
           <col/>
         </colgroup>
-        <tbody>
           <tr>
             <th>Tamanho (GB)</th>
             <th>Mínimo de IOPS</th>
@@ -188,62 +166,57 @@ IOPS na Tabela 1 para sistemas operacionais Linux, XEN, VMware e Windows.
           <tr>
             <td>1.000</td>
             <td>100</td>
-            <td>6.000 ou 20.000<sup><img src="/images/numberone.png" alt="nota de rodapé" /></sup></td>
+            <td>6.000 ou 20.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
           <tr>
             <td>2.000 a 3.000</td>
             <td>200</td>
-            <td>6.000 ou 40.000<sup><img src="/images/numberone.png" alt="nota de rodapé" /></sup></td>
+            <td>6.000 ou 40.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
           <tr>
             <td>4.000 a 7.000</td>
             <td>300</td>
-            <td>6.000 ou 48.000<sup><img src="/images/numberone.png" alt="nota de rodapé" /></sup></td>
+            <td>6.000 ou 48.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
           <tr>
             <td>8.000 a 9.000</td>
             <td>500</td>
-            <td>6.000 ou 48.000<sup><img src="/images/numberone.png" alt="nota de rodapé" /></sup></td>
+            <td>6.000 ou 48.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
           <tr>
             <td>10.000 a 12.000</td>
             <td>1.000</td>
-            <td>6.000 ou 48.000<sup><img src="/images/numberone.png" alt="nota de rodapé" /></sup></td>
+            <td>6.000 ou 48.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
-        </tbody>
 </table>
 
-O limite de IOPS <sup>![nota de rodapé](/images/numberone.png)</sup>
-acima de 6.000 está disponível nos
-[data centers de seleção](new-ibm-block-and-file-storage-location-and-features.html).
 
+Os volumes do Performance foram projetados para operar consistentemente próximo ao nível de IOPS provisionado. A consistência facilita dimensionar e escalar ambientes de aplicativos com um nível específico de desempenho. Além disso, é possível otimizar um ambiente construindo um volume com a proporção preço/desempenho ideal.
 
-Os volumes de desempenho são projetados para executar consistentemente próximo ao nível de IOPS
-provisionado. A consistência facilita o dimensionamento e o ajuste de escala de ambientes de aplicativos
-com um determinado nível de desempenho. Além disso, dado o intervalo de tamanhos de volumes e de contagens de
-IOPS, é possível otimizar um ambiente construindo um volume com a razão ideal entre preço e desempenho.
+### Considerações de Fornecimento
 
-### Dicas para fornecimento de IOPS para o {{site.data.keyword.blockstorageshort}}
+** Tamanho do bloco **
 
 A IOPS para Endurance e Performance tem como base um tamanho de bloco de 16 KB com leitura/gravação de 50/50 e 50 por cento de carga de trabalho aleatória. Um bloco de 16 KB equivale a uma gravação no
 volume.
 
-O tamanho de bloco usado pelo seu aplicativo impacta diretamente o desempenho de armazenamento. Se o tamanho de bloco usado por seu aplicativo for menor que 16 KB, o limite de IOPS será percebido antes do limite de rendimento. Por outro lado, se o tamanho de bloco usado por seu aplicativo for maior que 16 KB, o limite de rendimento será percebido antes do limite de IOPS.
+O tamanho do bloco usado por seu aplicativo afetará diretamente o desempenho do armazenamento. Se o tamanho do bloco usado por seu aplicativo for menor que 16 KB, o limite do IOPS será realizado antes do limite do rendimento. Por outro lado, se o tamanho do bloco usado por seu aplicativo for maior que 16 KB, o limite de rendimento será realizado antes do limite do IOPS.
 
-A mudança do tamanho de bloco afetará o desempenho conforme a seguir:
-
-<table cellpadding="1" cellspacing="1" style="width: 99%;">
+<table>
+  <caption>A Tabela 4 mostra exemplos de como o tamanho do bloco e o IOPS afetam o rendimento.</caption>
         <colgroup>
           <col/>
           <col/>
           <col/>
         </colgroup>
-        <tbody>
+        <thead>
           <tr>
             <th>Tamanho de bloco (KB)</th>
             <th>IOPS</th>
             <th>Rendimento (MB/s)</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>4 (típico para Linux)</td>
             <td>1.000</td>
@@ -282,13 +255,26 @@ A mudança do tamanho de bloco afetará o desempenho conforme a seguir:
         </tbody>
 </table>
 
-É importante escolher o {{site.data.keyword.blockstorageshort}} certo para sua carga de
-trabalho e também saber como evitar gargalos. A velocidade da sua conexão de Ethernet deve ser mais rápida do
-que o rendimento máximo esperado de seu volume. Geralmente, não se espera saturar sua conexão Ethernet além de 70% da largura de banda disponível. Por exemplo, se você tiver 6.000 IOPS e estiver usando um
-tamanho de bloco de 16 KB, o volume terá uma capacidade aproximada de 94 MB por segundo. Se você tiver uma conexão Ethernet de 1 Gbps para o LUN, ela se tornará um gargalo quando seus servidores tentarem usar o rendimento máximo disponível. Isso é porque 70 por cento do limite teórico de uma conexão Ethernet de 1 Gbps (125 MB por segundo) permitiria apenas 88 MB por segundo.
+** Hosts autorizados **
 
+Outro fator a ser considerado é o número de hosts que estão usando seu volume. Se houver um único host acessando o volume, poderá ser difícil realizar o IOPS máximo disponível, especialmente em contagens extremas de IOPS (10.000s). Se a sua carga de trabalho requerer alto rendimento, será melhor configurar pelo menos alguns servidores para acessar seu volume para evitar um gargalo de servidor único.
 
-Outro fator a ser considerado é o número de hosts que estão utilizando o volume. Se apenas um único host estiver acessando o volume, poderá ser difícil perceber o máximo de IOPS disponível, especialmente em contagens extremas de IOPS (10.000s). Se a sua carga de trabalho requerer alto rendimento, será melhor configurar pelo menos dois ou três servidores para acessar seu volume, para evitar gargalo em um único servidor.
+** Conexão de rede **
 
+A velocidade da sua conexão de Ethernet deve ser mais rápida do
+que o rendimento máximo esperado de seu volume. Em geral, não espere saturar sua conexão Ethernet além de 70% da largura de banda disponível. Por exemplo, se você tiver 6.000 IOPS e estiver usando um tamanho de bloco de 16 KB, o volume poderá manipular aproximadamente o rendimento de 94 MBps. Se você tiver uma conexão Ethernet de 1 Gbps para seu LUN, ela se tornará um gargalo quando seus servidores tentarem usar o rendimento máximo disponível. Isso é porque 70 por cento do limite teórico de uma conexão Ethernet de 1 Gbps (125 MB por segundo) permitiria 88 MB por segundo apenas.
 
-Para obter o máximo de IOPS, recursos de rede adequados precisam estar em vigor. Outras considerações incluem o uso de rede privada fora do lado de armazenamento e de host e os ajustes específicos do aplicativo (pilha de IP, profundidades da fila e assim por diante).
+Para obter o máximo de IOPS, recursos de rede adequados precisam estar em vigor. Outras considerações incluem o uso de rede privada fora do armazenamento e do lado do host e de ajustes específicos do aplicativo (pilha IP ou profundidades da fila e outras configurações).
+
+## Enviando sua Ordem
+
+Quando você estiver pronto para enviar seu pedido, siga as instruções indicadas [aqui](provisioning-block_storage.html). 
+
+## Conectando seu novo armazenamento
+
+Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts a acessar o novo armazenamento e configurar sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
+- [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
+- [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
+- [Configurando o Block Storage para backup com o cPanel](configure-backup-cpanel.html)
+- [Configurando o Block Storage para backup com o Plesk](configure-backup-plesk.html)
+
