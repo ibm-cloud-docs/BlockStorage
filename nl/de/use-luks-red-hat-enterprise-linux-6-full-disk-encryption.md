@@ -2,38 +2,36 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # LUKS in Red Hat Enterprise Linux für die vollständige Plattenverschlüsselung verwenden
 
-Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Plattenformat (Linux Unified Key Setup-on-disk-format) verschlüsseln, was besonders für tragbare Computer und und Wechseldatenträger von Bedeutung ist. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
+Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Plattenformat (LUKS - Linux Unified Key Setup-on-disk-format) verschlüsseln, was für tragbare Computer und und Wechseldatenträger von Bedeutung ist. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
 
-## LUKS bietet folgende Möglichkeiten
+## Möglichkeiten bei Verwendung von LUKS
 
-- Es verschlüsselt ganze Blockeinheiten und eignet sich daher gut für den Schutz der Inhalte von mobilen Geräten wie Wechselspeichermedien oder Plattenlaufwerken von Laptops.
+- Es verschlüsselt ganze Blockeinheiten und eignet sich daher gut für den Schutz der Inhalte von mobilen Geräten wie Wechselspeichermedien oder Plattenlaufwerken von Notebooks.
 - Der zugrunde liegende Inhalt des verschlüsselten Blockgeräts ist beliebig. Daher ist es hilfreich beim Verschlüsseln von Auslagerungseinheiten. Die Verschlüsselung kann auch bei bestimmten Datenbanken hilfreich sein, die zur Datenspeicherung speziell formatierte Blockgeräte verwenden.
-- Es nutzt das vorhandene Gerätemapperkernel-Subsystem.
+- Es nutzt das vorhandene Subsystem des Geräte-Mapper-Kernels.
 - Es stellt eine Kennphrasenstärkung bereit, die Schutz vor dem Anhängen von Wörterbüchern bietet.
 - Es ermöglicht Benutzern, Sicherungsschlüssel oder Kennphrasen hinzuzufügen, da LUKS-Geräte mehrere Schlüsselslots enthalten.
 
 
 ## Was LUKS nicht bietet
 
-- Es stellt für Anwendungen, die viele Benutzer (mehr als acht) erfordern, keine unterschiedlichen Zugriffsschlüssel auf dieselben Geräte bereit.
-- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist [weitere Informationen](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Bereitstellung unterschiedlicher Zugriffsschlüssel für dieselben Geräte in Anwendungen, in denen dies für viele Benutzer (mehr als acht) erforderlich ist
+- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist ([weitere Informationen](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
 
-## Verwendungshinweise zum Konfigurieren eines mit LUKS verschlüsselten Datenträgers mit Endurance für {{site.data.keyword.blockstorageshort}}
+## Mit LUKS verschlüsselten Datenträger mit Endurance für {{site.data.keyword.blockstorageshort}} konfigurieren
 
-Bei diesen Schritten wird angenommen, dass der Server bereits Zugriff auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger hat, der nicht formatiert oder angehängt wurde. Klicken Sie [hier](accessing_block_storage_linux.html), um Informationen zum Zugriff auf {{site.data.keyword.blockstorageshort}} mit Linux zu erhalten.
+Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Klicken Sie [hier](accessing_block_storage_linux.html), um Informationen zum Zugriff auf {{site.data.keyword.blockstorageshort}} mit Linux zu erhalten.
 
-Beachten Sie, dass bei der Durchführung von Datenverschlüsselung eine Belastung auf dem Host erzeugt wird, die zu Leistungseinbußen führen kann.
+**Hinweis:** Im Verlauf einer Datenverschlüsselung wird auf dem Host eine Arbeitslast generiert, die zu Leistungseinbußen führen kann.
 
 1. Machen Sie an einer Shelleingabeaufforderung als Root die folgenden Eingaben, um das erforderliche Paket zu installieren:   <br/>
    ```
@@ -48,7 +46,7 @@ Beachten Sie, dass bei der Durchführung von Datenverschlüsselung eine Belastun
 3. Suchen Sie Ihren Datenträger in der Liste.
 4. Verschlüsseln Sie das Blockgerät.
 
-   1. Dieser Befehl initialisiert den Datenträger und Sie können eine Kennphrase festlegen: <br/>
+   1. Dieser Befehl initialisiert den Datenträger und Sie können eine Kennphrase festlegen.<br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -57,20 +55,20 @@ Beachten Sie, dass bei der Durchführung von Datenverschlüsselung eine Belastun
       
    2. Antworten Sie mit YES (in Großbuchstaben).
    
-   3. Nun wird das Gerät als verschlüsselter Datenträger angezeigt: 
+   3. Das Gerät wird jetzt als verschlüsselter Datenträger angezeigt: 
    
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung:   <br/>
+5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. Geben Sie das zuvor bereitgestellte Kennwort ein.
-7. Überprüfen Sie die Zuordnung und zeigen Sie den Status des verschlüsselten Datenträgers an:   <br/>
+6. Geben Sie die Kennphrase ein.
+7. Überprüfen Sie die Zuordnung und zeigen Sie den Status des verschlüsselten Datenträgers an.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,17 +81,17 @@ Beachten Sie, dass bei der Durchführung von Datenverschlüsselung eine Belastun
      mode:    read/write
      Command successful
    ```
-8. Schreiben Sie Zufallsdaten auf das verschlüsselt Gerät in `/dev/mapper/cryptData`. So wird sichergestellt, dass diese Daten als Zufallsdaten angesehen werden, was bedeutet, dass sie gegen die Weitergabe von Verwendungsmustern geschützt sind. Dieser Schritt kann eine Weile dauern.<br/>
+8. Schreiben Sie Zufallsdaten auf das verschlüsselt Gerät in `/dev/mapper/cryptData`. Durch diese Aktion wird sichergestellt, dass diese Daten als Zufallsdaten angesehen werden, was bedeutet, dass sie gegen die Weitergabe von Verwendungsmustern geschützt sind. Dieser Schritt kann eine Weile dauern.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Formatieren Sie den Datenträger:<br/>
+9. Formatieren Sie den Datenträger.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Hängen Sie den Datenträger an:<br/>
+10. Hängen Sie den Datenträger an.<br/>
    ```
    # mkdir /cryptData
    ```
@@ -107,14 +105,14 @@ Beachten Sie, dass bei der Durchführung von Datenverschlüsselung eine Belastun
    ```
    {: pre}
 
-### Vorgehensweise zum sicheren Abhängen und Schließen des verschlüsselten Datenträgers
+### Verschlüsselten Datenträger sicher abhängen und schließen
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### Vorgehensweise zum erneuten Anhängen und Anhängen einer vorhandenen mit LUKS verschlüsselten Partition
+### Vorhandene verschlüsselte LUKS-Partition erneut anhängen und anhängen
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Geben Sie das zuvor bereitgestellte Kennwort ein.

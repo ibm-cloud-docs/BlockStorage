@@ -2,11 +2,10 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # 將現有的 {{site.data.keyword.blockstorageshort}} 升級至加強型 {{site.data.keyword.blockstorageshort}}
 
@@ -22,9 +21,9 @@ lastupdated: "2018-05-17"
  
 ## 建立新的 {{site.data.keyword.blockstorageshort}}
 
-**重要事項**：使用 API 來下訂單時，請指定「儲存空間即服務」套件，以確保使用新的儲存空間來取得已更新的特性。
+**重要事項**！使用 API 來下訂單時，請指定「儲存空間即服務」套件，以確保使用新的儲存空間來取得已更新的特性。
 
-下列指示適用於透過使用者介面訂購加強型 LUN。新 LUN 的大小應該等於或大於原始磁區，以促進移轉。
+下列指示適用於透過 {{site.data.keyword.slportal}} 訂購加強型 LUN。新 LUN 的大小必須等於或大於原始磁區，以促進移轉。
 
 ### 訂購耐久性 LUN
 
@@ -33,27 +32,26 @@ lastupdated: "2018-05-17"
 3. 從**選取儲存空間類型**清單中，選取**耐久性**。
 4. 選取您的部署**位置**（資料中心）。
    - 確定將新的「儲存空間」新增至與先前磁區相同的位置。
-5. 選取計費選項。您可以選擇每小時與每月計費。
+5. 選取計費選項。您可以選擇按小時與按月計費。
 6. 選取 IOPS 層級。
-7. 按一下*選取儲存空間大小**，然後從清單中選取您的儲存空間大小。
-8. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](ordering-snapshots.html)。
+7. 按一下**選取儲存空間大小**，然後從清單中選取您的儲存空間大小。
+8. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的額外空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](ordering-snapshots.html)。
 9. 從清單中，選擇您的 **OS 類型**。
-10. 按一下**繼續**。您會看到每月及按比例分配的費用，並且會有最後一次機會可檢閱訂單詳細資料。
+10. 按一下**繼續**。您會看到按月及按比例分配的費用，並且會有最後一次機會可檢閱訂單詳細資料。
 11. 按一下**我已閱讀主要服務合約**勾選框，然後按一下**下訂單**。
 
 ### 訂購效能 LUN
 
 1. 從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中，按一下**儲存空間**、**{{site.data.keyword.blockstorageshort}}**，或從 {{site.data.keyword.BluSoftlayer_full}} 型錄中，按一下**基礎架構 > 儲存空間 > {{site.data.keyword.blockstorageshort}}**。
-2. 在右上角按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
-3. 從**選取儲存空間類型**下拉清單中，選取**效能**。
-4. 按一下**位置**下拉清單，然後選取資料中心。
-   - 確定將新的「儲存空間」新增至與先前訂購的主機相同的位置。
-5. 選取計費選項。您可以選擇每小時與每月計費。
-6. 選取適當**儲存空間大小**旁的圓鈕。
+2. 在右側，按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
+3. 從**選取儲存空間類型**清單中，選取**效能**。
+4. 按一下**位置**，然後選取資料中心。
+   - 確定將新的「儲存空間」新增至與先前訂購主機相同的位置。
+5. 選取計費選項。您可以選擇按小時與按月計費。
+6. 選取適當的**儲存空間大小**。
 7. 在**指定 IOPS** 欄位中，輸入 IOPS。
-8. 按一下**繼續**。您會看到每月及按比例分配的費用，並且會有最後一次機會可檢閱訂單詳細資料。如果您要變更訂單，請按**上一步**。
-9. 按一下**我已閱讀主要服務合約**勾選框，然後按一下**「下訂單」按鈕。
-
+8. 按一下**繼續**。您會看到按月及按比例分配的費用，並且會有最後一次機會可檢閱訂單詳細資料。如果您要變更訂單，請按**上一步**。
+9. 按一下**我已閱讀主要服務合約**勾選框，然後按一下**下訂單**。
 
 在一分鐘以內即會佈建儲存空間，並且它會顯示在 {{site.data.keyword.slportal}} 的 {{site.data.keyword.blockstorageshort}} 頁面上。
 
@@ -61,7 +59,7 @@ lastupdated: "2018-05-17"
  
 ## 將新 {{site.data.keyword.blockstorageshort}} 連接至主機
 
-「授權」主機是已獲得磁區存取權的主機。如果沒有主機授權，就無法從系統中存取或使用儲存空間。授權主機存取磁區會產生使用者名稱、密碼及 iSCSI 完整名稱 (IQN)（這是裝載多路徑 I/O (MPIO) iSCSI 連線所需要的項目）。
+「授權的」主機是已獲得磁區存取權的主機。如果沒有主機授權，就無法從系統中存取或使用儲存空間。授權主機存取磁區會產生使用者名稱、密碼及 iSCSI 完整名稱 (IQN)（這是裝載多路徑 I/O (MPIO) iSCSI 連線所需要的項目）。
 
 1. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，然後按一下「LUN 名稱」。
 
@@ -74,35 +72,25 @@ lastupdated: "2018-05-17"
 
 您是否已為原始 LUN 建立 Snapshot 及抄寫？如果是，您需要為新的 LUN 使用與原始磁區相同的設定，設定抄寫、Snapshot 空間，以及建立 Snapshot 排程。 
 
-請注意，如果未升級您的抄寫目標資料中心來進行加密，則除非升級該資料中心，否則無法建立新磁區的抄寫。
+如果尚未升級您的抄寫目標資料中心，則在升級該資料中心之前，無法建立新磁區的抄寫。
 
  
 ## 移轉資料
 
-您應該同時連接至原始及新的 {{site.data.keyword.blockstorageshort}} LUN。 
-- 如果您需要將兩個 LUN 連接至主機的協助，請開立支援問題單。
+1. 同時連接至原始及新的 {{site.data.keyword.blockstorageshort}} LUN。 
+  - 如果您需要將兩個 LUN 連接至主機的協助，請開立支援問題單。
 
-### 資料考量
-
-此時，您應該考量您在原始 {{site.data.keyword.blockstorageshort}} LUN 上具有的資料類型，以及如何最適當地將資料複製到新的 LUN。如果您有備份、靜態內容，以及在複製期間預期不會變更的事物，則沒有任何主要考量。
-
-如果您正在 {{site.data.keyword.blockstorageshort}} 上執行資料庫或虛擬機器，請確定在複製期間未變更資料，以避免資料毀損。如果您有任何頻寬考量，則應該在離峰時間執行移轉。如果您需要這些考量的協助，請開立支援問題單。
+2. 考量您在原始 {{site.data.keyword.blockstorageshort}} LUN 上具有的資料類型，以及如何最適當地將資料複製到新的 LUN。 
+  - 如果您有備份、靜態內容，以及在複製期間預期不會變更的事物，則沒有任何主要考量。
+  - 如果您正在 {{site.data.keyword.blockstorageshort}} 上執行資料庫或虛擬機器，請確定在複製期間未變更資料，以避免資料毀損。如果您有任何頻寬考量，請在離峰時間執行移轉。如果您需要這些考量的協助，請開立支援問題單。
  
-### Microsoft Windows
-
-若要將資料從原始 {{site.data.keyword.blockstorageshort}} LUN 複製到新的 LUN，請使用「Windows 檔案總管」格式化新的儲存空間，並將檔案複製到其中。
-
- 
-### Linux
-
-您可以考慮使用 'rsync' 來複製資料。以下是範例指令：
-
-```
+3. 複製您的資料。
+   - **Microsoft Windows** - 若要將資料從原始 {{site.data.keyword.blockstorageshort}} LUN 複製到新的 LUN，請使用「Windows 檔案總管」格式化新的儲存空間，並將檔案複製到其中。
+   - **Linux** - 您可以使用 `rsync` 來複製資料。範例如下：
+   ```
 [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
 ```
-
-建議您搭配使用上述指令與 `--dry-run` 旗標一次，以確定正確地排列路徑。如果岔斷此處理程序，建議您刪除最後一個正在複製的目的地檔案，以確定從頭將它複製到新位置。
-
-此指令在沒有 `--dry-run` 旗標的情況下完成時，資料應該已複製到新的 {{site.data.keyword.blockstorageshort}} LUN。向上捲動，並重新執行指令，確定未遺漏任何項目。您也可以手動檢閱這兩個位置，以尋找任何可能遺漏的項目。
-
-移轉完成後，您就可以將正式作業移至新的 LUN。然後，您可以分離並刪除配置中的原始 LUN。請注意，刪除作業也會移除目標網站上與原始 LUN 相關聯的任何 Snapshot 或抄本。
+   
+   建議您搭配使用先前的指令與 `--dry-run` 旗標一次，以確定正確地排列路徑。如果此處理程序遭到岔斷，您可以刪除最後一個正在複製的目的地檔案，以確定從頭將它複製到新位置。<br/>
+此指令在沒有 `--dry-run` 旗標的情況下完成時，資料會複製到新的 {{site.data.keyword.blockstorageshort}} LUN。重新執行指令，確定未遺漏任何項目。您也可以手動檢閱這兩個位置，以尋找任何可能遺漏的項目。<br/>
+移轉完成後，您就可以將正式作業移至新的 LUN。然後，您可以分離並刪除配置中的原始 LUN。刪除作業也會移除目標網站上與原始 LUN 相關聯的任何 Snapshot 或抄本。

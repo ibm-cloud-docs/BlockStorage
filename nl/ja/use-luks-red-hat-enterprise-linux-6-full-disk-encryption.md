@@ -2,22 +2,20 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Red Hat Enterprise Linux でのフルディスク暗号化のための LUKS の使用
 
-Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは特に重要です。LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
+Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは重要です。 LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
 
 ## LUKS にある機能
 
-- ブロック・デバイス全体を暗号化するので、取り外し可能ストレージ・メディアやラップトップ・ディスク・ドライブなどのモバイル・デバイスの内容を保護するのに適している。
+- ブロック・デバイス全体を暗号化するので、取り外し可能ストレージ・メディアやノートブック・ディスク・ドライブなどのモバイル・デバイスの内容を保護するのに適している。
 - 暗号化ブロック・デバイスは、基礎となる内容が任意なので、スワップ・デバイスの暗号化に役立ちます。 暗号化は、データ・ストレージ用の特殊なフォーマットのブロック・デバイスを使用する特定のデータベースにも役立ちます。
 - 既存のデバイス・マッパー・カーネル・サブシステムを使用する。
 - パスフレーズを強化して、辞書攻撃から保護する。
@@ -29,11 +27,11 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 - 多数 (8 人を超える) のユーザーが同じデバイスに対して異なるアクセス・キーを持つことを必要とするアプリケーションを許可する。
 - ファイル・レベルの暗号化を必要とするアプリケーションを処理する ([詳細情報](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window})。
 
-## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームをセットアップする方法
+## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームのセットアップ
 
-以下のステップでは、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームに対し、サーバーが既にアクセス権限を持っていることを想定しています。 Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
+以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
 
-データ暗号化を実行すると、ホストに負荷がかかり、パフォーマンスに影響する可能性があることに注意してください。
+**注**: データ暗号化のプロセスにより、パフォーマンスに影響を与える可能性のあるホストへの負荷が発生します。
 
 1. root としてシェル・プロンプトに以下を入力し、必要なパッケージをインストールします。   <br/>
    ```
@@ -48,7 +46,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 3. リスト内で該当するボリュームを見つけます。
 4. ブロック・デバイスを暗号化します。
 
-   1. 次のコマンドによってボリュームが初期化され、パスフレーズを設定できるようになります。<br/>
+   1. このコマンドはボリュームを初期化します。パスフレーズを設定することができます。<br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -69,8 +67,8 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. 前に指定したパスワードを入力します。
-7. 以下のようにして、マッピングを検証し、暗号化されたボリュームの状況を表示します。   <br/>
+6. パスフレーズを入力します。
+7. マッピングを検証し暗号化されたボリュームの状況を表示します。<br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,12 +81,12 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
      mode:    read/write
      Command successful
    ```
-8. 暗号化されたデバイス上の `/dev/mapper/cryptData` にランダム・データを書き込みます。これにより、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。 このステップには少し時間がかかる場合があります。<br/>
+8. 暗号化されたデバイス上の `/dev/mapper/cryptData` にランダム・データを書き込みます。 この操作により、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。このステップには少し時間がかかる場合があります。<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. ボリュームをフォーマット設定します。<br/>
+9. ボリュームをフォーマットします。<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
@@ -107,14 +105,14 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
    ```
    {: pre}
 
-### 暗号化されたボリュームを安全にアンマウントし、クローズする方法
+### 暗号化されたボリュームの安全なアンマウントおよびクローズ
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### 既存の LUKS 暗号化パーティションを再マウントおよびマウントする方法
+### 既存の LUKS 暗号化区画の再マウントおよびマウント
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       前に指定したパスワードを入力します。

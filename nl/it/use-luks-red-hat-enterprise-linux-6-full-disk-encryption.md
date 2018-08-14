@@ -2,22 +2,20 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Utilizzo di LUKS in Red Hat Enterprise Linux per la crittografia totale del disco
 
-Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con il formato su disco LUKS (Linux Unified Key Setup), cosa particolarmente importante nel caso di computer mobili e supporti rimovibili. LUKS consente a più chiavi utente di decrittografare una chiave master che viene utilizzata per la crittografia di massa della partizione.
+Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con il formato su disco LUKS (Linux Unified Key Setup), cosa importante nel caso di computer mobili e supporti rimovibili. LUKS consente a più chiavi utente di decrittografare una chiave master che viene utilizzata per la crittografia di massa della partizione.
 
 ## Cosa fa LUKS
 
-- Crittografa interi dispositivi a blocchi ed è pertanto adatto per proteggere i contenuti di dispositivi mobili quali i supporti di archiviazione rimovibili o le unità disco dei laptop.
+- Crittografa interi dispositivi a blocchi ed è pertanto adatto per proteggere i contenuti di dispositivi mobili quali i supporti di archiviazione rimovibili o le unità disco dei notebook.
 - I contenuti sottostanti del dispositivo a blocchi crittografato sono arbitrari, rendendolo utile per la crittografia di dispositivi di swap. La crittografia può anche essere utile con specifici database che usano dispositivi a blocchi con una formattazione speciale per l'archiviazione di dati.
 - Utilizza il sottosistema kernel di device mapper esistente.
 - Fornisce il rafforzamento delle passphrase, che protegge dagli attacchi di dizionario.
@@ -29,11 +27,11 @@ Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con i
 - Consente alle applicazioni che richiedono molti utenti (più di otto) di avere delle chiavi di accesso distinte agli stessi dispositivi.
 - Opera con le applicazioni che richiedono la crittografia a livello di file, [ulteriori informazioni](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## Come configurare un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
+## Configurazione di un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
 
-Questa procedura presuppone che il server abbia già accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Fai clic [qui](accessing_block_storage_linux.html) per informazioni su come accedere a {{site.data.keyword.blockstorageshort}} con Linux.
+Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Fai clic [qui](accessing_block_storage_linux.html) per informazioni su come accedere a {{site.data.keyword.blockstorageshort}} con Linux.
 
-Nota: l'esecuzione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
+**Nota**: l'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
 
 1. Immetti quanto segue a un prompt della shell come root per installare il pacchetto richiesto:   <br/>
    ```
@@ -48,7 +46,7 @@ Nota: l'esecuzione della crittografia dei dati crea un carico sull'host che potr
 3. Individua il tuo volume nell'elenco.
 4. Crittografa il dispositivo a blocchi:
 
-   1. Questo comando inizializza il volume e puoi impostare una passphrase:<br/>
+   1. Questo comando inizializza il volume e puoi impostare una passphrase.<br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -57,20 +55,20 @@ Nota: l'esecuzione della crittografia dei dati crea un carico sull'host che potr
       
    2. Rispondi con YES (tutto in lettere maiuscole).
    
-   3. Il dispositivo sarà ora visualizzato come un volume crittografato: 
+   3. Il dispositivo viene ora visualizzato come un volume crittografato: 
    
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Apri il volume e crea un'associazione:   <br/>
+5. Apri il volume e crea un'associazione.   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. Immetti la password fornita precedentemente.
-7. Verificare l'associazione e lo stato delle vista del volume crittografato:   <br/>
+6. Immetti la passphrase.
+7. Verificare l'associazione e lo stato della vista del volume crittografato. <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,17 +81,17 @@ Nota: l'esecuzione della crittografia dei dati crea un carico sull'host che potr
      mode:    read/write
      Command successful
    ```
-8. Scrivi dati casuali in `/dev/mapper/cryptData` sul dispositivo crittografato. Ciò garantisce che il mondo esterno li vedrà come dati casuali; questo significa che sono protetti dalla diffusione di modelli di utilizzo. Questo passo può richiedere del tempo.<br/>
+8. Scrivi dati casuali in `/dev/mapper/cryptData` sul dispositivo crittografato. Questa azione garantisce che il mondo esterno li vede come dati casuali; questo significa che sono protetti dalla diffusione di modelli di utilizzo. Questo passo può richiedere del tempo.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Formatta il volume:<br/>
+9. Formatta il volume.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Monta il volume:<br/>
+10. Monta il volume.<br/>
    ```
    # mkdir /cryptData
    ```
@@ -107,14 +105,14 @@ Nota: l'esecuzione della crittografia dei dati crea un carico sull'host che potr
    ```
    {: pre}
 
-### Come smontare e chiudere il volume crittografato in modo sicuro
+### Smontaggio e chiusura del volume crittografato in modo sicuro
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### Come rimontare e montare una partizione con crittografia LUKS esistente
+### Rimontaggio e montaggio di una partizione con crittografia LUKS esistente
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.

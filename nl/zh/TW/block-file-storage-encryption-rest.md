@@ -2,11 +2,10 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-07-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # 保護資料安全 - 提供者管理的靜態加密 (Encryption-At-Rest)
 
@@ -20,21 +19,19 @@ lastupdated: "2018-05-16"
 * 使用業界標準「金鑰管理交互作業通訊協定 (KMIP)」在內部管理金鑰
 * 儲存空間已經過「美國聯邦資訊處理標準 (FIPS) 出版品 140-2」、「聯邦資訊安全管理法 (FISMA)」、「醫療保險轉移和責任法 (HIPAA)」驗證。儲存空間已經過驗證，符合「支付卡產業 (PCI)」、Basel II、「加州安全違反資訊行為法案 (SB 1386)」及「歐盟資料保護指令 95/46/EC」規範。
 
-## Snapshot 或已抄寫儲存空間的靜態加密  
+## 提供 Snapshot 或已抄寫儲存空間的靜態加密  
 
 依預設，已加密 {{site.data.keyword.blockstorageshort}} 的所有 Snapshot 及抄本也會加密。無法根據磁區來關閉此特性。
 
 ## 佈建具有加密的儲存空間
 
-提供者管理的靜態加密特性只適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內佈建的所有儲存空間，佈建時都會自動具有靜態資料的加密。
+提供者管理的靜態加密特性適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內訂購的所有儲存空間，佈建時都會自動具有加密。
 
-訂購 {{site.data.keyword.blockstorageshort}} 時，請選取已註記星號 (`*`) 的資料中心。您會在「LUN/磁區名稱」欄位右側看到一個鎖定圖示，指出已加密。
+訂購 {{site.data.keyword.blockstorageshort}} 時，請選取已註記星號 (`*`) 的資料中心。您可以在「LUN/磁區名稱」欄位右側看到一個鎖定圖示，表示磁區已加密。
 
 ![鎖定圖示表示 LUN 已加密](/images/encryptedstorage.png)
-<caption>圖 1. 指出 LUN 已加密的鎖定圖示範例。</caption>
+<caption>圖 1. 顯示 LUN 已加密的鎖定圖示範例。</caption>
 
 
 
-**附註**：**不**會自動加密在資料中心升級之前佈建的未加密儲存空間。如果已升級的資料中心內有未加密的儲存空間，則需要建立新的 LUN 或磁區，並執行資料移轉。下列文章可以提供指引：
-
-* [已升級資料中心內的 {{site.data.keyword.blockstorageshort}} 移轉](migrate-block-storage-encrypted-block-storage.html)
+**附註**：**不**會自動加密在資料中心升級之前佈建的未加密儲存空間。如果您在已升級的資料中心內擁有未加密的儲存空間，並且想要加密的儲存空間，則需要建立新的 LUN/磁區並移轉資料。如需相關資訊，請參閱[已升級資料中心內的 {{site.data.keyword.blockstorageshort}} 移轉](migrate-block-storage-encrypted-block-storage.html)。

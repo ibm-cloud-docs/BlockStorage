@@ -2,18 +2,16 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # 在 Red Hat Enterprise Linux 中使用 LUKS 进行全磁盘加密
 
-可以通过 Linux Unified Key Setup-on-disk-format (LUKS) 在 Red Hat Enterprise Linux 6 服务器上加密分区，这对于移动计算机和可移动介质尤其重要。LUKS 支持使用多个用户密钥对用于分区批量加密的主密钥进行解密。
+可以通过 Linux Unified Key Setup-on-disk-format (LUKS) 在 Red Hat Enterprise Linux 6 服务器上加密分区，这对于移动计算机和可移动介质非常重要。LUKS 支持使用多个用户密钥对用于分区批量加密的主密钥进行解密。
 
 ## LUKS 可执行以下操作
 
@@ -29,11 +27,11 @@ lastupdated: "2018-05-17"
 - 允许需要多个（超过 8 个）用户的应用程序对相同设备具有不同的访问密钥。
 - 使用需要文件级别加密的应用程序；请参阅[更多信息](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}。
 
-## 如何使用耐久性 {{site.data.keyword.blockstorageshort}} 设置 LUKS 加密卷
+## 使用耐久性 {{site.data.keyword.blockstorageshort}} 设置 LUKS 加密卷
 
-以下步骤假定服务器已有权访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。单击[此处](accessing_block_storage_linux.html)以获取有关如何在 Linux 上访问 {{site.data.keyword.blockstorageshort}} 的信息。
+以下步骤假定服务器可以访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。单击[此处](accessing_block_storage_linux.html)以获取有关如何在 Linux 上访问 {{site.data.keyword.blockstorageshort}} 的信息。
 
-请注意，执行数据加密会在主机上创建负载，这可能会影响性能。
+**注**：数据加密过程会在主机上创建负载，这可能会影响性能。
 
 1. 在 shell 提示符处以 root 用户身份输入以下命令来安装必需的包：<br/>
    ```
@@ -48,10 +46,10 @@ lastupdated: "2018-05-17"
 3. 在列表中找到您的卷。
 4. 加密块设备：
 
-   1. 此命令会初始化卷，并且您可以设置口令：<br/>
+   1. 此命令会初始化卷，并且您可以设置口令。<br/>
    
       ```
-            # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
+      # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
       
@@ -60,17 +58,17 @@ lastupdated: "2018-05-17"
    3. 现在设备将显示为加密卷： 
    
       ```
-            # blkid | grep LUKS
+      # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. 打开该卷并创建映射：<br/>
+5. 打开该卷并创建映射。<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. 输入先前提供的密码。
-7. 验证映射并查看加密卷的状态：<br/>
+6. 输入口令。
+7. 验证映射并查看加密卷的状态。<br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -88,12 +86,12 @@ lastupdated: "2018-05-17"
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. 格式化卷：<br/>
+9. 对卷进行格式化。<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. 安装卷：<br/>
+10. 安装卷。<br/>
    ```
    # mkdir /cryptData
    ```
@@ -107,14 +105,14 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-### 如何安全地卸装和关闭加密卷
+### 安全地卸装和关闭加密卷
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### 如何重新安装现有 LUKS 加密分区
+### 重新安装现有 LUKS 加密分区
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.

@@ -2,48 +2,46 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-29"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Erweiterbare Block Storage-Kapazität
+# Block Storage-Kapazität erweitern
 
-Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen, ohne ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren zu müssen. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung. 
+Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung. 
 
 Die Abrechnung für den Datenträger wird so aktualisiert, dass die anteilige Differenz des neuen Preises zum aktuellen Abrechnungszyklus hinzugefügt wird. Der gesamte neue Betrag wird dann beim nächsten Abrechnungszyklus abgerechnet.
 
-Diese Funktion ist nur in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) verfügbar. 
+Diese Funktion ist in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) verfügbar. 
 
-## Warum sollte erweiterbarer Speicher genutzt werden?
+## Vorteile des erweiterbaren Speichers
 
 - **Kostenmanagement** - Sie können erkennen, dass es ein Potenzial für eine Zunahme Ihrer Daten gibt, aber Sie benötigen eine kleinere Speichermenge, um zu beginnen. Die Möglichkeit zur Erweiterung ermöglicht es den Kunden, Kosten für den Speicher zu sparen und ihn anschließend zu erhöhen, um ihn an ihre Anforderungen anzupassen.  
 
 - **Steigender Speicherbedarf** - Kunden mit einem hohen Datenzuwachs benötigen eine Möglichkeit, die Größe Ihres Speichers für die Verwaltung schnell und problemlos zu erhöhen.
 
-## Wie beeinflusst die Erweiterung der Speicherkapazität die Replikation?
+## Auswirkungen einer Erweiterung der Speicherkapazität auf die Replikation
 
 Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenänderung des Replikats zur Folge. 
 
-## Gibt es Einschränkungen?
+## Einschränkungen
 
 Diese Funktion ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
 
-Speicher, der vor der Freigabe dieser Funktion (14. Dezember 2017) in diesen Rechenzentren bereitgestellt wird, kann nur auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach diesem Datum bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
+Speicher, der vor der Freigabe dieser Funktion (14. Dezember 2017) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach diesem Datum bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
 
 Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.data.keyword.blockstorageshort}} gelten weiterhin (bis zu 4 TB für das 10-IOPS-Tier und bis zu 12 TB für alle anderen Tiers).
 
-## Wie kann ich erkennen, ob mein Speicher verschlüsselt ist?
+## Infrage kommenden Speicher ermitteln
 
-Speicher, der mit erweiterten Leistungsmerkmalen bereitgestellt wird, wird stets ruhend verschlüsselt. Sie können leicht erkennen, dass Ihr Speicher infrage kommt, wenn in der Portalbenutzerschnittstelle ein 'Schlosssymbol' neben seinem Eintrag angezeigt wird. 
+Speicher, der mit erweiterten Leistungsmerkmalen bereitgestellt wird, wird stets ruhend verschlüsselt. Infrage kommenden Speicher können Sie im {{site.data.keyword.slportal}} an dem 'Schlosssymbol' neben seinem Eintrag erkennen. 
 
-## Wie kann ich die Größe meines Speichers ändern?
+## Größe des Speichers ändern
 
 1. Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Geben Sie die neue Speichergröße in GB ein.
 4. Prüfen Sie Ihre Auswahl und die neue Preisstruktur.
 5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
-6. Ihre neue Speicherzuordnung sollte in wenigen Minuten verfügbar sein.
-  
+6. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.

@@ -2,22 +2,20 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # 전체 디스크 암호화에 Red Hat Enterprise Linux의 LUKS 사용
 
-LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise Linux 6 서버에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 특별히 더 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
+LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise Linux 6 서버에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
 
 ## LUKS가 수행하는 작업
 
-- 전체 블록 디바이스를 암호화하기 때문에 모바일 디바이스(예: 이동식 스토리지 매체 또는 랩탑 디스크 드라이브)의 컨텐츠 보호에 매우 적합합니다.
+- 전체 블록 디바이스를 암호화하기 때문에 모바일 디바이스(예: 이동식 스토리지 매체 또는 노트북 디스크 드라이브)의 컨텐츠 보호에 매우 적합합니다.
 - 암호화된 블록 디바이스의 기본 컨텐츠는 스왑 디바이스 암호화에 유용한 임의의 컨텐츠입니다. 암호화는 데이터 스토리지에 대해 특수하게 형식화된 블록 디바이스를 사용하는 특정 데이터베이스에도 유용할 수 있습니다.
 - 기존 디바이스 맵퍼 커널 서브시스템을 사용합니다.
 - 사전 첨부(dictionary attach)에 대해 보호하는 비밀번호 문구 강화를 제공합니다.
@@ -29,11 +27,11 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 - 다수의(9명 이상) 사용자가 동일한 디바이스에 대해 개별 액세스 키를 가져야 하는 애플리케이션을 허용합니다.
 - 파일 레벨 암호화가 필요한 애플리케이션에 대해 작업합니다([자세한 정보](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
 
-## 내구성(Endurance) {{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정 방법
+## Endurance{{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정
 
-이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않은, 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 이미 액세스한 것으로 가정합니다. Linux에서 {{site.data.keyword.blockstorageshort}}에 액세스하는 방법을 보려면 [여기](accessing_block_storage_linux.html)를 클릭하십시오.
+이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않았으며 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 수 있는 것으로 가정합니다. Linux에서 {{site.data.keyword.blockstorageshort}}에 액세스하는 방법을 보려면 [여기](accessing_block_storage_linux.html)를 클릭하십시오.
 
-데이터 암호화를 수행하면 잠재적으로 성능에 영향을 줄 수도 있는 호스트에서 로드가 작성됩니다.
+**참고**: 데이터 암호화 프로세스를 통해 잠재적으로 성능에 영향을 미칠 수 있는 호스트에 로드를 작성합니다.
 
 1. 쉘 프롬프트에서 루트로 다음을 입력하여 필요한 패키지를 설치하십시오.   <br/>
    ```
@@ -48,7 +46,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 3. 목록에서 볼륨을 찾으십시오.
 4. 블록 디바이스를 암호화하십시오.
 
-   1. 이 명령으로 볼륨을 초기화하고 비밀번호 문구를 설정할 수 있습니다. <br/>
+   1. 이 명령을 통해 볼륨을 초기화하고 비밀번호 문구를 설정할 수 있습니다. <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -64,13 +62,13 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. 볼륨을 열고 맵핑을 작성하십시오.   <br/>
+5. 볼륨을 열고 맵핑을 작성하십시오. <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. 이전에 제공된 비밀번호를 입력하십시오.
-7. 맵핑을 확인하고 암호화된 볼륨의 상태를 보십시오.   <br/>
+6. 비밀번호 문구를 입력하십시오.
+7. 맵핑을 확인하고 암호화된 볼륨의 상태를 보십시오.<br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,7 +81,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
      mode:    read/write
      Command successful
    ```
-8. 암호화된 디바이스의 `/dev/mapper/cryptData`에 랜덤 데이터를 기록하십시오. 그러면 외부에서 해당 데이터는 랜덤 데이터로 표시됩니다. 즉, 사용 패턴을 표시할 때 보호됩니다. 이 단계는 시간이 다소 걸릴 수 있습니다.<br/>
+8. 암호화된 디바이스의 `/dev/mapper/cryptData`에 랜덤 데이터를 기록하십시오. 이 조치를 수행하면 외부에서 해당 데이터는 랜덤 데이터로 표시됩니다. 즉, 사용 패턴을 공개하지 않도록 보호됩니다. 이 단계는 시간이 다소 걸릴 수 있습니다.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
@@ -107,14 +105,14 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
    ```
    {: pre}
 
-### 암호화된 볼륨을 안전하게 마운트 해제 및 닫는 방법
+### 암호화된 볼륨을 안전하게 마운트 해제 및 종료
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### 기존 LUKS 암호화 파티션을 다시 마운트 및 마운트하는 방법
+### 기존 LUKS 암호화된 패턴을 다시 마운트 및 마운트
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.

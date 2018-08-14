@@ -2,24 +2,24 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-08-02"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # 在 Linux 上連接至 MPIO iSCSI LUN
 
-這些指示適用於 RHEL6/Centos6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
+這些指示適用於 RHEL6/Centos6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。 
 
-開始之前，請確定已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 授權正在存取 {{site.data.keyword.blockstoragefull}} 磁區的主機：
+例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
 
-1. 從 {{site.data.keyword.blockstorageshort}} 清單頁面中，按一下與新磁區相關聯的**動作**。
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 獲得授權。
+
+1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
 2. 按一下**授權主機**。
-3. 從清單中，選取應該可存取磁區的主機，然後按一下**提交**。
+3. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
 
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 
@@ -27,17 +27,17 @@ lastupdated: "2018-05-17"
 
 **附註：**指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
 
-**附註：**我們建議在略過防火牆的 VLAN 上執行儲存空間資料流量。透過軟體防火牆執行儲存空間資料流量，將會增加延遲，而且對儲存空間效能有不利的影響。
+**附註：**最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且對儲存空間效能有不利的影響。
 
-1. 將 iSCSI 及多路徑公用程式安裝至主機：
-   - RHEL/CentOS：
+1. 將 iSCSI 及多路徑公用程式安裝至主機。
+   - RHEL/CentOS
 
    ```
    yum install iscsi-initiator-utils device-mapper-multipath
    ```
    {: pre}
 
-   - Ubuntu/Debian：
+   - Ubuntu/Debian
 
    ```
    sudo apt-get update
@@ -46,7 +46,7 @@ lastupdated: "2018-05-17"
    {: pre}
 
 2. 建立或編輯您的多路徑配置檔。
-   - 使用下列指令中所提供的最小配置，編輯 **/etc/multipath.conf**。<br /><br /> **附註：**請注意，對於 RHEL7/CentOS7，`multipath.conf` 可以是空白，因為 OS 具有內建配置。Ubuntu 未使用 multipath.conf，因為它已內建到 multipath-tools。
+   - 使用下列指令中所提供的最小配置，編輯 **/etc/multipath.conf**。<br /><br /> **附註：**對於 RHEL7/CentOS7，`multipath.conf` 可以是空白，因為 OS 具有內建配置。Ubuntu 未使用 multipath.conf，因為它已內建到 multipath-tools。
 
    ```
    defaults {
@@ -83,7 +83,7 @@ lastupdated: "2018-05-17"
    {: codeblock}
 
 3. 載入多路徑模組、啟動多路徑服務，並將其設為在開機時啟動。
-   - RHEL 6：
+   - RHEL 6
      ```
      modprobe dm-multipath
      ```
@@ -99,7 +99,7 @@ lastupdated: "2018-05-17"
      ```
      {: pre}
 
-   - CentOS 7：
+   - CentOS 7
      ```
      modprobe dm-multipath
      ```
@@ -115,7 +115,7 @@ lastupdated: "2018-05-17"
      ```
      {: pre}
 
-   - Ubuntu：
+   - Ubuntu
      ```
      service multipath-tools start
      ```
@@ -124,15 +124,15 @@ lastupdated: "2018-05-17"
    - 若為其他發行套件，請參閱 OS 供應商文件。
 
 4. 驗證多路徑正在運作中。
-   - RHEL 6：
+   - RHEL 6
      ```
      multipath -l
      ```
      {: pre}
 
-     如果此時傳回空白，則表示它正在運作中。
+     如果傳回空白，表示它正在運作中。
 
-   - CentOS 7：
+   - CentOS 7
      ```
      multipath -ll
      ```
@@ -140,12 +140,12 @@ lastupdated: "2018-05-17"
 
      RHEL 7/CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。
 
-5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 **/etc/iscsi/initiatorname.iscsi** 檔案。請以小寫字體輸入此值。
+5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 檔案。請以小寫字體輸入此值。
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. 使用來自 {{site.data.keyword.slportal}} 的使用者名稱及密碼，編輯 **/etc/iscsi/iscsid.conf** 中的 CHAP 設定。請對 CHAP 名稱使用大寫字體。
+6. 使用來自 {{site.data.keyword.slportal}} 的使用者名稱及密碼，編輯 `/etc/iscsi/iscsid.conf` 中的 CHAP 設定。請對 CHAP 名稱使用大寫字體。
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -156,10 +156,10 @@ lastupdated: "2018-05-17"
    ```
    {: codeblock}
 
-   **附註：**請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。
+   **附註：**請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
 
-7. 將 iSCSI 設為在開機時啟動，並在此時啟動。
-   - RHEL 6：
+7. 將 iSCSI 設為在開機時啟動，並立即啟動。
+   - RHEL 6
 
       ```
       chkconfig iscsi on
@@ -180,7 +180,7 @@ lastupdated: "2018-05-17"
       ```
       {: pre}
 
-   - CentOS 7：
+   - CentOS 7
 
       ```
       systemctl enable iscsi
@@ -206,13 +206,13 @@ lastupdated: "2018-05-17"
 
 8. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
 
-     a. 針對 iSCSI 陣列執行探索：
+     A. 針對 iSCSI 陣列執行探索。
      ```
      iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
      ```
      {: pre}
 
-     b. 將主機設為自動登入 iSCSI 陣列：
+     B. 將主機設為自動登入 iSCSI 陣列。
      ```
      iscsiadm -m node -L automatic
      ```
@@ -229,33 +229,33 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-   此時這應該會報告路徑。
+   這個指令會報告路徑。
 
-10. 驗證裝置已連接。依預設，裝置將連接至 /dev/mapper/mpathX，其中 X 是所連接裝置產生的 ID。
+10. 驗證裝置已連接。依預設，裝置將連接至 `/dev/mapper/mpathX`，其中 X 是所連接裝置的產生 ID。
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  應該會報告類似下列內容：
+  這個指令會報告與下列範例類似的項目。
     ```
-    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte
+    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
   磁區現在已裝載且可在主機上存取。
 
 ## 建立檔案系統（選用）
 
-以下是在新裝載的磁區之上建立檔案系統的步驟。大部分應用程式都需要檔案系統，才能利用磁區。請對小於 2 TB 的磁碟使用 **fdisk**，而對大於 2 TB 的磁碟使用 **parted**。
+請遵循這些步驟，以在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對小於 2 TB 的磁碟使用 `fdisk`，而對大於 2 TB 的磁碟使用 `parted`。
 
-### fdisk
+### 使用 `fdisk`
 
 1. 取得磁碟名稱。
    ```
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   傳回的磁碟名稱應該類似於 /dev/mapper/XXX。
+   傳回的磁碟名稱看起來類似於 `/dev/mapper/XXX`。
 
-2. 使用 fdisk 在磁碟上建立分割區。
+2. 在磁碟上建立分割區。
 
    ```
    fdisk /dev/mapper/XXX
@@ -264,7 +264,7 @@ lastupdated: "2018-05-17"
 
    XXX 代表步驟 1 中傳回的磁碟名稱。<br />
 
-   **附註**：進一步向下捲動，以取得此區段下 Fdisk 指令表格中列出的指令程式碼。
+   **附註**：進一步向下捲動，以取得 `fdisk` 指令表格中列出的指令程式碼。
 
 3. 在新的分割區上建立檔案系統。
 
@@ -273,7 +273,7 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-   - 新的分割區應該與磁碟一起列出，類似於 XXXlp1，後面接著大小、類型 (83) 及 Linux。
+   - 新的分割區會與磁碟一起列出，類似於 `XXXlp1`，後面接著大小、類型 (83) 及 Linux。
    - 記下分割區名稱，您將在下一步中需要它。（XXXlp1 代表分割區名稱。）
    - 建立檔案系統：
 
@@ -283,39 +283,37 @@ lastupdated: "2018-05-17"
      {: pre}
 
 4. 為檔案系統建立裝載點，並裝載它。
-   - 建立一個分割區名稱 PerfDisk，或您要裝載檔案系統的位置：
+   - 建立一個分割區名稱 `PerfDisk`，或您要裝載檔案系統的位置。
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - 使用分割區名稱裝載儲存空間：
+   - 使用分割區名稱來裝載儲存空間。
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - 確認您在清單中看到新的檔案系統：
+   - 確認您在清單中看到新的檔案系統。
      ```
      df -h
      ```
      {: pre}
 
-5. 將新的檔案系統新增至系統的 **/etc/fstab** 檔案，以在開機時啟用自動裝載。
-   - 將下行附加至 **/etc/fstab** 的底端（使用步驟 3 中的分割區名稱）。<br />
+5. 將新的檔案系統新增至系統的 `/etc/fstab` 檔案，以在開機時啟用自動裝載。
+   - 將下行附加至 `/etc/fstab` 的結尾（使用步驟 3 中的分割區名稱）。<br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
-#### Fdisk 指令表格
-
-
+#### `fdisk` 指令表格
 
 <table border="0" cellpadding="0" cellspacing="0">
-  <caption>fdisk 指令表格包含左側的指令以及右側的預期結果。</caption>
+	<caption><code>fdisk</code> 指令表格包含左側的指令以及右側的預期結果。</caption>
     <thead>
 	<tr>
 		<th style="width:40%;">指令</th>
@@ -366,25 +364,25 @@ lastupdated: "2018-05-17"
 
   (`**`) 鍵入 L 以列出十六進位碼。
 
-### parted
+### 使用 `parted`
 
-在許多 Linux 發行套件上，會預先安裝 **parted**。若其未包含在您的發行套件中，則可以使用下列方式來安裝它：
+在許多 Linux 發行套件上，會預先安裝 `parted`。若其未包含在您的發行套件中，則可以使用下列方式來安裝它：
 - Debian/Ubuntu
   ```
   sudo apt-get install parted
   ```
   {: pre}
 
-- RHEL/CentOS：
+- RHEL/CentOS
   ```
   yum install parted
   ```
   {: pre}
 
 
-若要使用 **parted** 建立檔案系統，請遵循下列步驟：
+若要使用 `parted` 建立檔案系統，請遵循下列步驟。
 
-1. 執行 parted。
+1. 執行 `parted`。
 
    ```
    parted
@@ -392,36 +390,36 @@ lastupdated: "2018-05-17"
    {: pre}
 
 2. 在磁碟上建立分割區。
-   1. 除非另有指定，否則 parted 會使用您的主要磁碟機，在大部分情況下，指的是 **/dev/sda**。使用 **select** 指令，切換至您要分割的磁碟。將 **XXX** 取代為新的裝置名稱。
+   1. 除非另有指定，否則 `parted` 會使用您的主要磁碟機，在大部分情況下是 `/dev/sda`。使用 **select** 指令，切換至您要分割的磁碟。將 **XXX** 取代為新的裝置名稱。
 
       ```
       (parted) select /dev/mapper/XXX
       ```
       {: pre}
 
-   2. 執行 **print**，以確認您位在正確的磁碟上。
+   2. 執行 `print`，以確認您位在正確的磁碟上。
 
       ```
       (parted) print
       ```
       {: pre}
 
-   3. 建立新的 GPT 分割區表格。
+   3. 建立 GPT 分割區表格。
 
       ```
       (parted) mklabel gpt
       ```
       {: pre}
 
-   4. Parted 可以用來建立主要及邏輯磁碟分割區，涉及的步驟相同。若要建立新的分割區，parted 會使用 **mkpart**。您可以為它提供其他參數，如 **primary** 或 **logical**，視您想要建立的分割區類型而定。
-   <br /> **附註**：列出的單位預設為百萬位元組 (MB)。若要建立 10 GB 分割區，您應該從 1 開始並以 10000 結束。想要的話，您也可以輸入 `(parted) unit TB`，將大小單位變更為兆位元組 (TB)。
+   4. `Parted` 可以用來建立主要及邏輯磁碟分割區，涉及的步驟相同。若要建立分割區，`parted` 會使用 `mkpart`。您可以為它提供其他參數，如 **primary** 或 **logical**，視您想要建立的分割區類型而定。
+   <br /> **附註**：列出的單位預設為百萬位元組 (MB)。若要建立 10 GB 分割區，請從 1 開始並以 10000 結束。想要的話，您也可以輸入 `(parted) unit TB`，將大小單位變更為兆位元組 (TB)。
 
       ```
       (parted) mkpart
       ```
       {: pre}
 
-   5. 使用 **quit** 來結束 parted。
+   5. 使用 `quit` 來結束 `parted`。
 
       ```
       (parted) quit
@@ -435,32 +433,32 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-   **附註**：在執行上述指令時，務必選取正確的磁碟及分割區！請列印分割區表格來驗證結果。在檔案系統直欄下，您應該會看到 ext3。
+   **附註**：在執行這個指令時，務必選取正確的磁碟及分割區！請列印分割區表格來驗證結果。在檔案系統直欄下，您可以看到 ext3。
 
 4. 為檔案系統建立裝載點，並裝載它。
-   - 建立一個分割區名稱 PerfDisk，或您要裝載檔案系統的位置：
+   - 建立一個分割區名稱 `PerfDisk`，或您要裝載檔案系統的位置。
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - 使用分割區名稱裝載儲存空間：
+   - 使用分割區名稱來裝載儲存空間。
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - 確認您在清單中看到新的檔案系統：
+   - 確認您在清單中看到新的檔案系統。
 
      ```
      df -h
      ```
      {: pre}
 
-5. 將新的檔案系統新增至系統的 **/etc/fstab** 檔案，以在開機時啟用自動裝載。
-   - 將下行附加至 **/etc/fstab** 的底端（使用步驟 3 中的分割區名稱）。<br />
+5. 將新的檔案系統新增至系統的 `/etc/fstab` 檔案，以在開機時啟用自動裝載。
+   - 將下行附加至 `/etc/fstab` 的結尾（使用步驟 3 中的分割區名稱）。<br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
@@ -470,9 +468,9 @@ lastupdated: "2018-05-17"
 
 
 
-## 如何驗證是否在 *NIX OS 中正確地設置 MPIO
+## 驗證是否在 `*NIX` OS 中正確地設置 MPIO
 
-若要檢查多路徑是否正在挑選裝置，則應該只會顯示 NETADP 裝置，且應該有兩個。
+若要檢查多路徑是否正在挑選裝置，請列出裝置。如果它配置正確，則只會顯示兩台 NETAPP 裝置。
 
 ```
 # multipath -l
@@ -487,7 +485,7 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-確認磁碟已存在，且應該有兩個具有相同 ID 的磁碟，以及一個大小相同且具有相同 ID 的 /dev/mapper 清單。/dev/mapper 裝置是多路徑設定的裝置：
+檢查磁碟是否存在。確認有兩個具有相同 ID 的磁碟，以及大小相同且具有相同 ID 的 `/dev/mapper` 清單。`/dev/mapper` 裝置是多路徑設定的裝置：
 
 ```
 # fdisk -l | grep Disk
@@ -502,12 +500,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-如果未正確設定，它看起來如下：
+如果它未正確設定，則它看起來類似於此範例。
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
 
-這會顯示列入黑名單的裝置：
+這個指令會顯示列入黑名單的裝置。
 ```
 # multipath -l -v 3 | grep sd <date and time>
 ```
@@ -522,7 +520,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-fdisk 只會顯示 `sd*` 裝置，不會顯示 `/dev/mapper`
+`fdisk` 只會顯示 `sd*` 裝置，不會顯示 `/dev/mapper`。
 
 ```
 # fdisk -l | grep Disk

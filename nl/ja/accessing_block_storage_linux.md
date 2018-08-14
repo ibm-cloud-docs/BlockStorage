@@ -2,42 +2,42 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-08-02"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Linux での MPIO iSCSI LUN への接続
 
-以下の説明は、RHEL6/Centos6 向けのものです。 その他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
+以下の説明は、RHEL6/Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。 
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} を介して許可されていることを確認してください。
+例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
 
-1. {{site.data.keyword.blockstorageshort}} リスト表示ページで、新規ボリュームに関連付けられている**「アクション」**をクリックします。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して以前に許可されていることを確認してください。
+
+1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
 2. **「ホストの許可」**をクリックします。
-3. リストから、ボリュームへのアクセスを可能にする必要があるホストを選択し、**「送信」**をクリックします。
+3. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 
-以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) Internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
+以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
 **注:** 手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
 
-**注:** ファイアウォールをバイパスする VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
+**注:** ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
 
 1. iSCSI とマルチパスのユーティリティーをホストにインストールします。
-   - RHEL/CentOS:
+   - RHEL/CentOS
 
    ```
    yum install iscsi-initiator-utils device-mapper-multipath
    ```
    {: pre}
 
-   - Ubuntu/Debian:
+   - Ubuntu/Debian
 
    ```
    sudo apt-get update
@@ -46,7 +46,7 @@ lastupdated: "2018-05-17"
    {: pre}
 
 2. マルチパス構成ファイルを作成または編集します。
-   - 以下のコマンドに指定されている最小限の構成で **/etc/multipath.conf** を編集します。 <br /><br /> **注:** RHEL7/CentOS7 の場合、OS に組み込みの構成があるため、`multipath.conf` はブランクにできます。 multipath.conf は multipath-tools に組み込まれているため、Ubuntu では使用されません。
+   - 以下のコマンドに指定されている最小限の構成で **/etc/multipath.conf** を編集します。 <br /><br /> **注:** RHEL7/CentOS7 の場合、OS に組み込みの構成があるため、`multipath.conf` はブランクにできます。multipath.conf は multipath-tools に組み込まれているため、Ubuntu では使用されません。
 
    ```
    defaults {
@@ -83,7 +83,7 @@ lastupdated: "2018-05-17"
    {: codeblock}
 
 3. マルチパス・モジュールをロードして、マルチパス・サービスを開始し、ブート時に開始するように設定します。
-   - RHEL 6:
+   - RHEL 6
      ```
      modprobe dm-multipath
      ```
@@ -99,7 +99,7 @@ lastupdated: "2018-05-17"
      ```
      {: pre}
 
-   - CentOS 7:
+   - CentOS 7
      ```
      modprobe dm-multipath
      ```
@@ -115,7 +115,7 @@ lastupdated: "2018-05-17"
      ```
      {: pre}
 
-   - Ubuntu:
+   - Ubuntu
      ```
      service multipath-tools start
      ```
@@ -124,15 +124,15 @@ lastupdated: "2018-05-17"
    - その他のディストリビューションについては、OS ベンダーの資料を参照してください。
 
 4. マルチパスが機能していることを確認します。
-   - RHEL 6:
+   - RHEL 6
      ```
      multipath -l
      ```
      {: pre}
 
-     この時点でブランクが返された場合は、機能しています。
+     ブランクが返された場合は、機能しています。
 
-   - CentOS 7:
+   - CentOS 7
      ```
      multipath -ll
      ```
@@ -140,12 +140,12 @@ lastupdated: "2018-05-17"
 
      RHEL 7/CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。
 
-5. {{site.data.keyword.slportal}} から取得した IQN で **/etc/iscsi/initiatorname.iscsi** ファイルを更新します。 値を小文字で入力します。
+5. {{site.data.keyword.slportal}} から取得した IQN で `/etc/iscsi/initiatorname.iscsi` ファイルを更新します。 値を小文字で入力します。
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. {{site.data.keyword.slportal}} から取得したユーザー名とパスワードを使用して **/etc/iscsi/iscsid.conf** 内の CHAP 設定を編集します。 CHAP 名には大文字を使用します。
+6. {{site.data.keyword.slportal}} から取得したユーザー名とパスワードを使用して `/etc/iscsi/iscsid.conf` 内の CHAP 設定を編集します。 CHAP 名には大文字を使用します。
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -156,10 +156,10 @@ lastupdated: "2018-05-17"
    ```
    {: codeblock}
 
-   **注:** その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。
+   **注:** その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと
 
-7. ブート時に開始するように iSCSI を設定し、この時点で iSCSI を開始します。
-   - RHEL 6:
+7. ブート時に開始するように iSCSI を設定し、今すぐ開始します。
+   - RHEL 6
 
       ```
       chkconfig iscsi on
@@ -180,7 +180,7 @@ lastupdated: "2018-05-17"
       ```
       {: pre}
 
-   - CentOS 7:
+   - CentOS 7
 
       ```
       systemctl enable iscsi
@@ -206,13 +206,13 @@ lastupdated: "2018-05-17"
 
 8. {{site.data.keyword.slportal}} から取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
 
-     a. iSCSI アレイに対してディスカバリーを実行します。
+     A. iSCSI アレイに対してディスカバリーを実行します。
      ```
      iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
      ```
      {: pre}
 
-     b. iSCSI アレイに自動的にログインするようにホストを設定します。
+     B. iSCSI アレイに自動的にログインするようにホストを設定します。
      ```
      iscsiadm -m node -L automatic
      ```
@@ -229,33 +229,33 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-   これにより、この時点でのパスが報告されます。
+   このコマンドはパスを報告します。
 
-10. デバイスが接続されていることを確認します。  デフォルトでは、デバイスは /dev/mapper/mpathX に接続されます。ここで X は、接続されるデバイスの生成 ID です。
+10. デバイスが接続されていることを確認します。 デフォルトでは、デバイスは `/dev/mapper/mpathX` に接続されます。ここで X は、接続されるデバイスの生成 ID です。
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  以下のような内容が報告されます。
+  このコマンドは、次の例のようなものを報告します。
     ```
-    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte
+    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
   ボリュームはホスト上にマウント済みであり、アクセス可能です。
 
 ## ファイル・システムの作成 (オプション)
 
-以下に、新しくマウントされたボリューム上にファイル・システムを作成するためのステップを示します。 ファイル・システムは、ボリュームを有効活用するために、ほとんどのアプリケーションに必要です。 2 TB より小さいドライブの場合は **fdisk** を使用し、2 TB より大きいディスクの場合は **parted** を使用します。
+新しくマウントされたボリューム上にファイル・システムを作成するには、以下の手順に従います。ファイル・システムは、ほとんどのアプリケーションでボリュームを使用するために必要です。2 TB より小さいドライブの場合は `fdisk` を使用し、2 TB より大きいディスクの場合は `parted` を使用します。
 
-### fdisk
+### `fdisk` の使用
 
 1. ディスク名を取得します。
    ```
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   返されるディスク名は、/dev/mapper/XXX のようになります。
+   返されるディスク名は、`/dev/mapper/XXX` のようになります。
 
-2. fdisk を使用してディスク上にパーティションを作成します。
+2. ディスク上にパーティションを作成します。
 
    ```
    fdisk /dev/mapper/XXX
@@ -264,7 +264,7 @@ lastupdated: "2018-05-17"
 
    XXX は、ステップ 1 で返されたディスク名を表します。 <br />
 
-   **注**: このセクションの下にさらにスクロールダウンすると、Fdisk コマンドの表にコマンド・コードがリストされています。
+   **注**: さらに下にスクロールして、`fdisk` コマンドの表にリストされているコマンド・コードを表示します。
 
 3. 新規パーティション上にファイル・システムを作成します。
 
@@ -273,7 +273,7 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-   - 新規パーティションはディスクと一緒にリストされ、XXXlp1 のようなものであり、その後にサイズ、タイプ (83)、および Linux が続きます。
+   - 新規パーティションはディスクと一緒にリストされ、`XXXlp1` のようなものであり、その後にサイズ、タイプ (83)、および Linux が続きます。
    - 次のステップで必要になるので、パーティション名をメモします。 (XXXlp1 がパーティション名を表します。)
    - ファイル・システムを作成します。
 
@@ -283,14 +283,14 @@ lastupdated: "2018-05-17"
      {: pre}
 
 4. ファイル・システムのマウント・ポイントを作成し、マウントします。
-   - パーティション名 PerfDisk を作成するか、ファイル・システムをマウントする場所を作成します。
+   - パーティション名 `PerfDisk` を作成するか、ファイル・システムをマウントする場所を作成します。
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - パーティション名を使用して、ストレージをマウントします。
+   - パーティション名を使用してストレージをマウントします。
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
@@ -302,20 +302,18 @@ lastupdated: "2018-05-17"
      ```
      {: pre}
 
-5. 新しいファイル・システムをシステムの **/etc/fstab** ファイルに追加して、ブート時の自動マウントを有効にします。
-   - 以下の行を **/etc/fstab** の末尾に追加します (ステップ 3 で取得したパーティション名を使用します)。 <br />
+5. 新しいファイル・システムをシステムの `/etc/fstab` ファイルに追加して、ブート時の自動マウントを有効にします。
+   - 以下の行を `/etc/fstab` の末尾に追加します (ステップ 3 でメモしたパーティション名を使用します)。<br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
-#### Fdisk コマンド表
-
-
+#### `fdisk` コマンドの表
 
 <table border="0" cellpadding="0" cellspacing="0">
-  <caption>左側にコマンド、右側に予期される結果が示されている fdisk コマンドの表</caption>
+	<caption>左側にコマンド、右側に予期される結果が示されている <code>fdisk</code> コマンドの表</caption>
     <thead>
 	<tr>
 		<th style="width:40%;">コマンド</th>
@@ -366,25 +364,25 @@ lastupdated: "2018-05-17"
 
   (`**`) 16 進コードをリストするには、L を入力します。
 
-### parted
+### `parted` の使用
 
-多くの Linux ディストリビューションで、**parted** はプリインストールされています。 ご使用のディストリビューションに含まれていない場合、以下のようにしてインストールできます。
+多くの Linux ディストリビューションで、`parted` はプリインストールされています。 ご使用のディストリビューションに含まれていない場合、以下のようにしてインストールできます。
 - Debian/Ubuntu
   ```
   sudo apt-get install parted  
   ```
   {: pre}
 
-- RHEL/CentOS:
+- RHEL/CentOS
   ```
   yum install parted  
   ```
   {: pre}
 
 
-**parted** を使用してファイル・システムを作成するには、以下のステップに従います。
+`parted` を使用してファイル・システムを作成するには、以下のステップに従います。
 
-1. parted を実行します。
+1. `parted` を実行します。
 
    ```
    parted
@@ -392,28 +390,28 @@ lastupdated: "2018-05-17"
    {: pre}
 
 2. ディスク上にパーティションを作成します。
-   1. 別途指定されない限り、parted は 1 次ドライブを使用します (ほとんどの場合、これは **/dev/sda** です)。 コマンド **select** を使用して、パーティション化するディスクに切り替えます。 **XXX** は、新しいデバイス名に置き換えてください。
+   1. 別途指定されない限り、`parted` は 1 次ドライブを使用します (ほとんどの場合、これは `/dev/sda` です)。コマンド **select** を使用して、パーティション化するディスクに切り替えます。 **XXX** は、新しいデバイス名に置き換えてください。
 
       ```
       (parted) select /dev/mapper/XXX
       ```
       {: pre}
 
-   2. **print** を実行して、正しいディスク上にいることを確認します。
+   2. `print` を実行して、正しいディスク上にいることを確認します。
 
       ```
       (parted) print
       ```
       {: pre}
 
-   3. 新規 GPT パーティション表を作成します。
+   3. GPT パーティション表を作成します。
 
       ```
       (parted) mklabel gpt
       ```
       {: pre}
 
-   4. parted は、1 次ディスク・パーティションと論理ディスク・パーティションの作成に使用できます。それぞれで必要なステップは同じです。 新しいパーティションを作成する場合、parted は **mkpart** を使用します。 作成するパーティション・タイプに応じて、**primary** や **logical** などの追加パラメーターを指定できます。
+   4. `parted` は、1 次ディスク・パーティションと論理ディスク・パーティションの作成に使用できます。それぞれで必要なステップは同じです。 パーティションを作成する場合、`parted` は `mkpart` を使用します。 作成するパーティション・タイプに応じて、**primary** や **logical** などの他のパラメーターを指定できます。
    <br /> **注**: リストされる単位のデフォルトはメガバイト (MB) です。10 GB のパーティションを作成するには、1 から始めて 10000 で終了する必要があります。 必要に応じて、`(parted) unit TB` と入力することにより、サイズ変更単位をテラバイトに変更することもできます。
 
       ```
@@ -421,7 +419,7 @@ lastupdated: "2018-05-17"
       ```
       {: pre}
 
-   5. **quit** を使用して、parted を終了します。
+   5. `quit` を使用して、`parted` を終了します。
 
       ```
       (parted) quit
@@ -435,18 +433,18 @@ lastupdated: "2018-05-17"
    ```
    {: pre}
 
-   **注**: 上記のコマンドを実行するときは、正しいディスクとパーティションを選択することが重要です。
+   **注**: このコマンドを実行するときは、正しいディスクとパーティションを選択することが重要です。
    パーティション表を表示することで、結果を検証してください。 ファイル・システムの列の下に、ext3 が表示されます。
 
 4. ファイル・システムのマウント・ポイントを作成し、マウントします。
-   - パーティション名 PerfDisk を作成するか、ファイル・システムをマウントする場所を作成します。
+   - パーティション名 `PerfDisk` を作成するか、ファイル・システムをマウントする場所を作成します。
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - パーティション名を使用して、ストレージをマウントします。
+   - パーティション名を使用してストレージをマウントします。
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
@@ -460,8 +458,8 @@ lastupdated: "2018-05-17"
      ```
      {: pre}
 
-5. 新しいファイル・システムをシステムの **/etc/fstab** ファイルに追加して、ブート時の自動マウントを有効にします。
-   - 以下の行を **/etc/fstab** の末尾に追加します (ステップ 3 で取得したパーティション名を使用します)。 <br />
+5. 新しいファイル・システムをシステムの `/etc/fstab` ファイルに追加して、ブート時の自動マウントを有効にします。
+   - 以下の行を `/etc/fstab` の末尾に追加します (ステップ 3 で取得したパーティション名を使用します)。 <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
@@ -471,9 +469,9 @@ lastupdated: "2018-05-17"
 
 
 
-## *NIX OS で MPIO が正しく構成されているかどうかを検証する方法
+## `*NIX` OS で MPIO が正しく構成されているかどうかの検証
 
-マルチパスがデバイスをピックアップしているかどうかを確認するには、NETAPP デバイスのみが表示され、2 つのデバイスが存在している必要があります。
+マルチパスがデバイスをピックアップしているかどうかを確認するには、デバイスをリストします。構成が正しい場合は、2 つの NETAPP デバイスのみが表示されます。
 
 ```
 # multipath -l
@@ -488,7 +486,7 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-ディスクが存在すること、同じ ID を持つ 2 つのディスクが存在し、同じ ID と同じサイズの /dev/mapper リストがあることを確認してください。 /dev/mapper デバイスが、マルチパスによってセットアップされるデバイスです。
+ディスクが存在することを確認してください。同じ ID を持つ 2 つのディスクがあり、同じ ID の同じサイズの `/dev/mapper` リストがあることを確認してください。`/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
 
 ```
 # fdisk -l | grep Disk
@@ -503,12 +501,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-正しくセットアップされていない場合は、以下のような表示になります。
+正しくセットアップされていない場合は、この例のようになります。
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
 
-以下を実行すると、ブラックリストに登録されているデバイスが表示されます。
+このコマンドは、ブラックリストにあるデバイスを表示します。
 ```
 # multipath -l -v 3 | grep sd <date and time>
 ```
@@ -523,7 +521,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-fdisk は、`sd*` デバイスのみを表示し、`/dev/mapper` は表示しません。
+`fdisk` は、`sd*` デバイスのみを表示し、`/dev/mapper` は表示しません。
 
 ```
 # fdisk -l | grep Disk

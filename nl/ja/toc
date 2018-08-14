@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" href="/docs/infrastructure/BlockStorage/index.html"}
+{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html"}
 IBM Cloud Storage - ブロック・ストレージ
 
     {: .navgroup id="learn"}
@@ -24,6 +24,7 @@ IBM Cloud Storage - ブロック・ストレージ
     {: .topicgroup}
     構成
         accessing_block_storage_linux.md
+        configure-iscsi-cloudlinux.md
         accessing-block-storage-windows.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
         configure-backup-cpanel.md

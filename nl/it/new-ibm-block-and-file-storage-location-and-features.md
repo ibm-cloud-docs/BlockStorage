@@ -2,23 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # Nuove ubicazioni e funzioni di {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} sta introducendo una nuova versione di {{site.data.keyword.blockstoragefull}}.
 
-La nuova archiviazione è disponibile in data center selezionati ed è supportato da una archiviazione flash a livelli IOPS più elevati con la crittografia a livello di disco per i dati non attivi.  Tutta l'archiviazione di cui viene eseguito il provisioning nei data center selezionati viene automaticamente creata con la nuova versione.
+La nuova archiviazione è disponibile in data center selezionati ed è supportato da una archiviazione flash a livelli IOPS più elevati con la crittografia a livello di disco per i dati non attivi. Tutta l'archiviazione di cui viene eseguito il provisioning nei data center aggiornati viene automaticamente creata con la nuova versione.
 
-**Nota:** il punto di montaggio NFS per i nuovi volumi è cambiato. Vedi **Nuovo punto di montaggio per i volumi {{site.data.keyword.filestorage_short}} crittografati** per i dettagli.
+**Nota:** il punto di montaggio NFS per i nuovi volumi differisce dal punto di montaggio dei volumi non crittografati. Vedi la sezione **Nuovo punto di montaggio per i volumi {{site.data.keyword.filestorage_short}} crittografati** per i dettagli.
 
-Il nuovo {{site.data.keyword.blockstorageshort}} è attualmente disponibile nelle seguenti regioni/nei seguenti data center e a breve verrà aggiunta la disponibilità di ulteriori data center.
-<table style="width:100%;">
- <caption>La Tabella 1 mostra la nostra disponibilità di data center. Ogni regione ha una propria colonna. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.</caption>
+Il nuovo {{site.data.keyword.blockstorageshort}} è disponibile nei seguenti data center/regioni.
+<table role="presentation">
 	 <tr>
 	   <td><strong>USA 2</strong></td>
 	   <td><strong>UE</strong></td>
@@ -68,6 +66,7 @@ Il nuovo {{site.data.keyword.blockstorageshort}} è attualmente disponibile nell
 	</tr>
 </table>
 
+*La Tabella 1 mostra la nostra disponibilità di data center. Ogni regione ha una propria colonna. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.*
 
 La nuova archiviazione ha le seguenti funzioni e capacità:
 
@@ -86,6 +85,6 @@ La nuova archiviazione ha le seguenti funzioni e capacità:
 
 ## Nuovo punto di montaggio per i volumi di archiviazione crittografati
 
-Tutti i volumi di archiviazione migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Per assicurarti che stai utilizzando il punto di montaggio corretto per i tuoi volumi di archiviazione, puoi visualizzare le informazioni sui punti di montaggio nella pagina **Volume Details** nell'IU. Puoi anche accedere al punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Tutti i volumi di archiviazione migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Per assicurarti che stai utilizzando il punto di montaggio corretto per i tuoi volumi di archiviazione, puoi visualizzare le informazioni sui punti di montaggio nella pagina **Volume Details** in [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Puoi anche accedere al punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Ritorna qui a controllare quando viene eseguito l'upgrade di ulteriori data center e per vedere le nuove funzioni e funzionalità che vengono aggiunte per {{site.data.keyword.blockstorageshort}}.

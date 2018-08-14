@@ -2,23 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # {{site.data.keyword.blockstorageshort}} 的新位置和功能
 
 {{site.data.keyword.BluSoftlayer_full}} 将推出新版本的 {{site.data.keyword.blockstoragefull}}！
 
-新的存储器在精选数据中心内可用，是更高 IOPS 级别的闪存支持的存储器，具有针对静态数据的磁盘级别加密。在精选数据中心内供应的所有存储器都将自动通过新版本创建。
+新的存储器在精选数据中心内提供，是更高 IOPS 级别的闪存支持的存储器，具有针对静态数据的磁盘级别加密。在已升级数据中心内供应的所有存储器都将自动通过新版本创建。
 
-**注：**新卷的 NFS 安装点已更改。有关详细信息，请参阅下面的**加密 {{site.data.keyword.filestorage_short}} 卷的新安装点**。
+**注：**新卷的 NFS 安装点不同于非加密卷的安装点。有关详细信息，请参阅**加密 {{site.data.keyword.filestorage_short}} 卷的新安装点**。
 
-新的 {{site.data.keyword.blockstorageshort}} 目前在以下区域/数据中心内可用，很快会增加更多数据中心！
-<table style="width:100%;">
- <caption>表 1 显示了我们的数据中心可用性。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。</caption>
+新的 {{site.data.keyword.blockstorageshort}} 在以下区域/数据中心提供。
+<table role="presentation">
 	 <tr>
 	   <td><strong>美国 2</strong></td>
 	   <td><strong>欧盟</strong></td>
@@ -68,6 +66,7 @@ lastupdated: "2018-05-29"
 	</tr>
 </table>
 
+*表 1 显示了数据中心可用性。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。*
 
 新存储器具有以下特性和功能：
 
@@ -86,6 +85,6 @@ lastupdated: "2018-05-29"
 
 ## 加密存储卷的新安装点
 
-这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 UI 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
-升级了更多数据中心时，可重新检查此处来查看这些数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新可用特性和功能。
+升级了更多数据中心时，可重新检查此处来查看这些数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新特性和功能。
