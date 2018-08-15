@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-08-15"
 
 ---
 {:new_window: target="_blank"}
@@ -27,9 +27,9 @@ The expand action on the primary storage results in automatic resizing of the re
 
 ## Limitations
 
-This feature is available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only. 
+This feature is available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
 
-Storage that was provisioned in these data centers before the release of this feature (December 14, 2017) can be increased to 10 times its original size and no more. Storage that was provisioned after that date can be increased up to 12 TB. 
+Storage that was provisioned in these data centers before the release of this feature (April 2017 - December 14, 2017) can be increased to 10 times its original size and no more. Storage that was provisioned after December 14, 2017 can be increased up to 12 TB. 
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
 
