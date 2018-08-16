@@ -2,23 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # Nuevas ubicaciones y características de {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} presenta una nueva versión de {{site.data.keyword.blockstoragefull}}.
 
-El nuevo almacenamiento está disponible en centros de datos seleccionados, y está respaldado por el almacenamiento flash a niveles de IOPS superiores con cifrado de disco para datos en reposo.  Todo el almacenamiento suministrado en los centros de datos seleccionados se creará automáticamente con la nueva versión.
+El nuevo almacenamiento está disponible en centros de datos seleccionados, y está respaldado por el almacenamiento flash a niveles de IOPS superiores con cifrado de disco para datos en reposo. Todo el almacenamiento suministrado en los centros de datos actualizados se creará automáticamente con la nueva versión.
 
-**Nota:** ha cambiado el punto de montaje de NFS para nuevos volúmenes. Consulte **Nuevo punto de montaje para volúmenes de {{site.data.keyword.filestorage_short}} cifrados** a continuación para obtener detalles.
+**Nota:** El punto de montaje de NFS para los volúmenes nuevos difiere del punto de montaje de volúmenes no cifrados. Consulte la sección **Nuevo punto de montaje para volúmenes de {{site.data.keyword.filestorage_short}} cifrados** para obtener detalles.
 
-Actualmente {{site.data.keyword.blockstorageshort}} está disponible en los siguientes centros de datos/regiones, aunque pronto se incrementará la disponibilidad en otros centros de datos.
-<table style="width:100%;">
- <caption>La Tabla 1 muestra nuestra disponibilidad de centro de datos. Cada región tiene su propia columna. Algunas ciudades, como Dallas, San José, Washington DC, Amsterdam, Frankfurt, Londres y Sidney, tienen varios centros de datos.</caption>
+El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguientes regiones/centros de datos.
+<table role="presentation">
 	 <tr>
 	   <td><strong>EE.UU. 2</strong></td>
 	   <td><strong>UE</strong></td>
@@ -68,6 +66,7 @@ Actualmente {{site.data.keyword.blockstorageshort}} está disponible en los sigu
 	</tr>
 </table>
 
+*La Tabla 1 muestra nuestra disponibilidad de centro de datos. Cada región tiene su propia columna. Algunas ciudades, como Dallas, San José, Washington DC, Ámsterdam, Frankfurt, Londres y Sídney, tienen varios centros de datos.*
 
 El nuevo almacenamiento tiene las siguientes características y funciones:
 
@@ -81,11 +80,11 @@ El nuevo almacenamiento tiene las siguientes características y funciones:
 - Se ha añadido la opción de **Facturación por hora** para el almacenamiento cuya previsión de uso no alcanza un mes completo.
 - **Hasta 48.000 IOPS** para {{site.data.keyword.blockstorageshort}} suministrado con la opción de Rendimiento.
 - **Las tasas de IOPS se pueden ajustar** para mejorar el rendimiento durante cambios estacionales de la carga de trabajo. [Aquí](adjustable-iops.html) puede leer más información sobre esta característica.
-- Cree un nuevo clon de sus datos con la **característica Duplicación de volumen de [{{site.data.keyword.blockstorageshort}}](how-to-create-duplicate-volume.html)**.
+- Cree un clon de sus datos con la característica de **[duplicación de volúmenes de {{site.data.keyword.blockstorageshort}}](how-to-create-duplicate-volume.html)**.
 - El **almacenamiento se puede ampliar** en incrementos de GB hasta 12 TB, sin necesidad de crear un duplicado ni de mover datos manualmente a un volumen de mayor tamaño. [Aquí](expandable_block_storage.html) puede leer más información sobre esta característica.
 
-## Nuevo punto de montaje para volúmenes de almacenamiento cifrado
+## Nuevo punto de montaje para volúmenes de almacenamiento cifrados
 
-Todos los volúmenes de almacenamiento mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Para asegurarse de que utiliza el punto de montaje correcto para sus volúmenes de almacenamiento, puede consultar la información sobre el punto de montaje en la página **Detalles del volumen** de la IU. También puede acceder al punto de montaje correcto mediante una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Todos los volúmenes de almacenamiento mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Para asegurarse de que utiliza el punto de montaje correcto para sus volúmenes de almacenamiento, puede consultar la información sobre el punto de montaje en la página **Detalles del volumen** de [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. También puede acceder al punto de montaje correcto mediante una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Consulte aquí para ver cuándo se añaden más centros de datos y para ver las nuevas características y funciones que se añaden a {{site.data.keyword.blockstorageshort}}.
+Aquí puede consultar si se han actualizado más centros de datos y si se han añadido nuevas funciones y características a {{site.data.keyword.blockstorageshort}}.

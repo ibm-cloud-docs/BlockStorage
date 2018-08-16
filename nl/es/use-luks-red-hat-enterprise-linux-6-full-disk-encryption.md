@@ -2,22 +2,20 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-25"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Uso de LUKS en Red Hat Enterprise Linux para el cifrado de disco completo
 
-Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el formato denominado Linux Unified Key Setup-on-disk (LUKS), que es particularmente importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
+Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el formato denominado Linux Unified Key Setup-on-disk (LUKS), que es importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
 
 ## Qué hace LUKS
 
-- Cifrar dispositivos de bloque enteros y, por tanto, es ideal para proteger el contenido de dispositivos móviles, como soportes de almacenamiento extraíbles o unidades de disco de portátiles.
+- Cifrar dispositivos de bloque enteros y, por tanto, es ideal para proteger el contenido de dispositivos móviles, como soportes de almacenamiento extraíbles o unidades de disco de cuadernos.
 - El contenido subyacente del dispositivo de bloque cifrado es arbitrario, por lo que resulta útil para cifrar dispositivos de intercambio. El cifrado también es útil con determinadas bases de datos que utilizan dispositivos de bloque con formato especial para el almacenamiento de datos.
 - Utilizar el subsistema correlacionador de dispositivos de correlacionador de dispositivos existente.
 - Proporcionar refuerzo de contraseña para proteger frente a conexiones de diccionario.
@@ -29,11 +27,11 @@ Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el form
 - Permitir que las aplicaciones que requieren muchos usuarios (más de ocho) tengan claves de acceso distintas al mismo dispositivo.
 - Trabajar con aplicaciones que requieren cifrado a nivel de archivos, [más información](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
-## Cómo configurar un volumen cifrado con LUKS con {{site.data.keyword.blockstorageshort}} de Resistencia
+## Configuración de un volumen cifrado con LUKS con {{site.data.keyword.blockstorageshort}} de Resistencia
 
-En estos pasos se supone que el servidor ya tiene acceso a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Pulse [aquí](accessing_block_storage_linux.html) para consultar cómo acceder a {{site.data.keyword.blockstorageshort}} con Linux.
+En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Pulse [aquí](accessing_block_storage_linux.html) para consultar cómo acceder a {{site.data.keyword.blockstorageshort}} con Linux.
 
-Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host que podría afectar potencialmente al rendimiento.
+**Nota**: El proceso de cifrado de datos crea una carga en el host que podría afectar potencialmente al rendimiento.
 
 1. Escriba lo siguiente en el indicador de shell como usuario root para instalar el paquete necesario:   <br/>
    ```
@@ -48,7 +46,7 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
 3. Localice el volumen en el listado.
 4. Cifre el dispositivo de bloque;
 
-   1. este mandato inicializa el volumen y le permite establecer una contraseña: <br/>
+   1. Este mandato inicializa el volumen y le permite establecer una contraseña. <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -57,20 +55,20 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
       
    2. Responda con YES (todo en mayúsculas).
    
-   3. El dispositivo ahora aparecerá como un volumen cifrado: 
+   3. El dispositivo ahora aparece como un volumen cifrado: 
    
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Abra el volumen y cree una correlación:   <br/>
+5. Abra el volumen y cree una correspondencia.   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. Escriba la contraseña que se le ha proporcionado anteriormente.
-7. Verifique la correlación y compruebe el estado del volumen cifrado:   <br/>
+6. Escriba la contraseña.
+7. Verifique la correlación y compruebe el estado del volumen cifrado.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -83,17 +81,17 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
      mode:    read/write
      Command successful
    ```
-8. Escriba datos aleatorios en `/dev/mapper/cryptData` en el dispositivo cifrado. Esto garantiza que el mundo exterior verá esto como datos aleatorios, lo que significa que está protegido contra la divulgación de patrones de uso. Este paso puede tardar un rato.<br/>
+8. Escriba datos aleatorios en `/dev/mapper/cryptData` en el dispositivo cifrado. Esta acción garantiza que el mundo exterior ve esto como datos aleatorios, lo que significa que están protegidos contra la divulgación de patrones de uso. Este paso puede tardar un rato.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Dé formato al volumen:<br/>
+9. Dé formato al volumen.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Monte el volumen:<br/>
+10. Monte el volumen.<br/>
    ```
    # mkdir /cryptData
    ```
@@ -107,14 +105,14 @@ Tenga en cuenta que al realizar el cifrado de datos se crea una carga en el host
    ```
    {: pre}
 
-### Cómo desmontar y cerrar el volumen cifrado de forma segura
+### Desmontaje y cierre del volumen de cifrado de forma segura
    ```
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
    {: codeblock}
 
-### Cómo volver a montar y montar una partición cifrada de LUKS existente
+### Remontaje y montaje de una partición cifrada de LUKS existente
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.

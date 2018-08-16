@@ -2,42 +2,42 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-08-02"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 
 # Conexión a los LUN iSCSI de MPIO en Linux
 
-Estas instrucciones son para RHEL6/Centos6. Hemos añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso. Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} y para configurar la multivía de acceso de DM [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+Estas instrucciones son para RHEL6/Centos6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso. 
 
-Antes de empezar, asegúrese de que el host que accede al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}:
+Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} y para configurar la multivía de acceso de DM [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
-1. Desde la página de listado de {{site.data.keyword.blockstorageshort}}, pulse la opción **Acciones** asociada al nuevo volumen.
+Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través de la [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+
+1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
 2. Pulse **Autorizar host**.
-3. En la lista, seleccione el host o los hosts que deberían tener acceso al volumen y pulse **Enviar**.
+3. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
 
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 
 A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.BluSoftlayer_full}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
-**Nota:** El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino de referencia en las instrucciones pueden obtenerse en la pantalla **{{site.data.keyword.blockstorageshort}} Detalles** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+**Nota:** El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-**Nota:** recomendamos ejecutar el tráfico de almacenamiento en una VLAN que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software incrementará la latencia e incidirá negativamente sobre el rendimiento del almacenamiento.
+**Nota:** Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.
 
-1. Instale los programas de utilidad multivía de multivía e iSCSI en el host:
-   - RHEL/CentOS:
+1. Instale los programas de utilidad multivía e iSCSI en el host.
+   - RHEL/CentOS
 
    ```
    yum install iscsi-initiator-utils device-mapper-multipath
    ```
    {: pre}
 
-   - Ubuntu/Debian:
+   - Ubuntu/Debian
 
    ```
    sudo apt-get update
@@ -46,7 +46,7 @@ A continuación se describen los pasos necesarios para conectar una instancia de
    {: pre}
 
 2. Cree o edite el archivo de configuración multivía.
-   - Edite **/etc/multipath.conf** con la configuración mínima proporcionada en los siguientes mandatos. <br /><br /> **Nota:** tenga en cuenta que para RHEL7/CentOS7, `multipath.conf` puede estar en blanco porque el sistema operativo tiene configuraciones integradas. Ubuntu no utiliza multipath.conf ya que está integrado en las herramientas de multivía de acceso.
+   - Edite **/etc/multipath.conf** con la configuración mínima que se proporciona en los mandatos siguientes. <br /><br /> **Nota:** Para RHEL7/CentOS7, `multipath.conf` puede estar en blanco porque el sistema operativo tiene configuraciones integradas. Ubuntu no utiliza multipath.conf porque está creado en las herramientas de multivía de acceso.
 
    ```
    defaults {
@@ -83,7 +83,7 @@ A continuación se describen los pasos necesarios para conectar una instancia de
    {: codeblock}
 
 3. Cargue el módulo multivía, inicie los servicios de multivía y configúrelo para iniciarse al arrancar.
-   - RHEL 6:
+   - RHEL 6
      ```
      modprobe dm-multipath
      ```
@@ -99,7 +99,7 @@ A continuación se describen los pasos necesarios para conectar una instancia de
      ```
      {: pre}
 
-   - CentOS 7:
+   - CentOS 7
      ```
      modprobe dm-multipath
      ```
@@ -115,7 +115,7 @@ A continuación se describen los pasos necesarios para conectar una instancia de
      ```
      {: pre}
 
-   - Ubuntu:
+   - Ubuntu
      ```
      service multipath-tools start
      ```
@@ -123,8 +123,8 @@ A continuación se describen los pasos necesarios para conectar una instancia de
 
    - Para otras distribuciones, consulte la documentación del proveedor del sistema operativo.
 
-4. Verifique que la multivía de acceso esté funcionando.
-   - RHEL 6:
+4. Verifique que la multivía esté funcionando.
+   - RHEL 6
      ```
      multipath -l
      ```
@@ -132,7 +132,7 @@ A continuación se describen los pasos necesarios para conectar una instancia de
 
      Si se devuelve en blanco, está funcionando.
 
-   - CentOS 7:
+   - CentOS 7
      ```
      multipath -ll
      ```
@@ -140,12 +140,12 @@ A continuación se describen los pasos necesarios para conectar una instancia de
 
      RHEL 7/CentOS 7 puede devolver un dispositivo No fc_host, que puede ignorarse.
 
-5. Actualice el archivo **/etc/iscsi/initiatorname.iscsi** con el nombre calificado iSCSI (IQN) del {{site.data.keyword.slportal}}. Escriba el valor en minúsculas.
+5. Actualice el archivo `/etc/iscsi/initiatorname.iscsi` con el nombre calificado iSCSI (IQN) del {{site.data.keyword.slportal}}. Escriba el valor en minúsculas.
    ```
    InitiatorName=<valor-del-Portal>
    ```
    {: pre}
-6. Edite los valores de CHAP en **/etc/iscsi/iscsid.conf** con el nombre de usuario y contraseña del {{site.data.keyword.slportal}}. Utilice mayúsculas para los nombres de CHAP.
+6. Edite los valores de CHAP en `/etc/iscsi/iscsid.conf` con el nombre de usuario y la contraseña del {{site.data.keyword.slportal}}. Utilice mayúsculas para los nombres de CHAP.
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Valor-nombreUsuario-del-Portal>
@@ -156,10 +156,10 @@ A continuación se describen los pasos necesarios para conectar una instancia de
    ```
    {: codeblock}
 
-   **Nota:** deje un comentario en los demás valores de CHAP. El almacenamiento de {{site.data.keyword.BluSoftlayer_full}} utiliza únicamente autenticación unidireccional.
+   **Nota:** deje un comentario en los demás valores de CHAP. El almacenamiento de {{site.data.keyword.BluSoftlayer_full}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP
 
 7. Establezca iSCSI para que se inicie al arrancar e inícielo ahora.
-   - RHEL 6:
+   - RHEL 6
 
       ```
       chkconfig iscsi on
@@ -180,7 +180,7 @@ A continuación se describen los pasos necesarios para conectar una instancia de
       ```
       {: pre}
 
-   - CentOS 7:
+   - CentOS 7
 
       ```
       systemctl enable iscsi
@@ -206,19 +206,19 @@ A continuación se describen los pasos necesarios para conectar una instancia de
 
 8. Descubra el dispositivo utilizando la dirección IP de destino obtenida desde el {{site.data.keyword.slportal}}.
 
-     a. Ejecute el descubrimiento en la matriz de iSCSI:
+     A. Ejecute el descubrimiento en la matriz de iSCSI.
      ```
      iscsiadm -m discovery -t sendtargets -p <valor-ip-del-Portal-SL>
      ```
      {: pre}
 
-     b. Establezca el host para que inicie sesión automáticamente en la matriz de iSCSI:
+     B. Establezca el host para que inicie sesión automáticamente en la matriz de iSCSI.
      ```
      iscsiadm -m node -L automatic
      ```
      {: pre}
 
-9. Verifique que el host ha iniciado sesión en la matriz de iSCSI y ha mantenido sus sesiones.
+9. Verifique que el host ha iniciado sesión en la matriz de iSCSI y que ha mantenido sus sesiones.
    ```
    iscsiadm -m session
    ```
@@ -229,33 +229,33 @@ A continuación se describen los pasos necesarios para conectar una instancia de
    ```
    {: pre}
 
-   Esto debería notificar las vías de acceso en este momento.
+   Este mandato informa de las vías de acceso.
 
-10. Verifique que el dispositivo esté conectado.  De forma predeterminada, el dispositivo se conectará a /dev/mapper/mpathX donde X es el ID generado del dispositivo conectado.
+10. Verifique que el dispositivo está conectado. De forma predeterminada, el dispositivo se conecta a `/dev/mapper/mpathX`, donde X es el ID generado del dispositivo conectado.
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  Debería notificar algo similar a lo siguiente,
+  Este mandato informa de algo similar al ejemplo siguiente.
     ```
-    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 byte
+    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
   El volumen ahora está montado y es accesible en el host.
 
 ## Creación de un sistema de archivos (opcional)
 
-A continuación se describen los pasos para crear un sistema de archivos sobre el volumen montando recientemente. Un sistema de archivos es necesario para que la mayoría de las aplicaciones utilicen el volumen. Utilice **fdisk** para unidades inferiores a 2 TB y **parted** para discos de más de 2 TB.
+Siga estos pasos para crear un sistema de archivos en la parte superior del volumen montado recientemente. Un sistema de archivos es necesario para que la mayoría de las aplicaciones utilicen el volumen. Utilice `fdisk` para unidades inferiores a 2 TB y `parted` para discos de más de 2 TB.
 
-### fdisk
+### Utilización de `fdisk`
 
 1. Obtenga el nombre de disco.
    ```
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   El nombre de disco devuelto debe ser similar a /dev/mapper/XXX.
+   El nombre de disco que se devuelve tiene un aspecto similar a `/dev/mapper/XXX`.
 
-2. Cree una partición en el disco mediante fdisk.
+2. Cree una partición en el disco.
 
    ```
    fdisk /dev/mapper/XXX
@@ -264,7 +264,7 @@ A continuación se describen los pasos para crear un sistema de archivos sobre e
 
    XXX representa el nombre del disco devuelto en el Paso 1. <br />
 
-   **Nota**: desplácese por los códigos de mandato listados en la tabla de mandatos de Fdisk de esta sección.
+   **Nota**: Desplácese hacia abajo por los códigos de mandatos que están listados en la tabla de mandatos de `fdisk`.
 
 3. Cree un sistema de archivos en la nueva partición.
 
@@ -273,8 +273,8 @@ A continuación se describen los pasos para crear un sistema de archivos sobre e
    ```
    {: pre}
 
-   - La nueva partición debería listarse con el disco, similar a XXXlp1, seguido por el tamaño, tipo (83) y Linux.
-   - Anote el nombre de partición, lo necesitará en el siguiente paso. (XXXlp1 representa el nombre de partición)
+   - La nueva partición se lista con el disco, similar a `XXXlp1`, seguido por el tamaño, tipo (83) y Linux.
+   - Anote el nombre de partición, lo necesita en el siguiente paso. (XXXlp1 representa el nombre de partición)
    - Cree el sistema de archivos:
 
      ```
@@ -283,39 +283,37 @@ A continuación se describen los pasos para crear un sistema de archivos sobre e
      {: pre}
 
 4. Cree un punto de montaje para el sistema de archivos y móntelo.
-   - Cree un nombre de partición PerfDisk o donde quiera montar el sistema de archivos:
+   - Cree un nombre de partición `PerfDisk` o donde quiera montar el sistema de archivos.
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - Uso del nombre de partición para montar el almacenamiento:
+   - Monte el almacenamiento con el nombre de la partición.
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - Compruebe que ve el nuevo sistema de archivos listado:
+   - Compruebe que ve el nuevo sistema de archivos que aparece en la lista.
      ```
      df -h
      ```
      {: pre}
 
-5. Añada el nuevo sistema de archivos al archivo **/etc/fstab** del sistema para habilitar el montaje automático al arrancar.
-   - Añada la siguiente línea en la parte inferior de **/etc/fstab** (utilizando el nombre de partición del Paso 3). <br />
+5. Añada el nuevo sistema de archivos al archivo `/etc/fstab` del sistema para habilitar el montaje automático al arrancar.
+   - Añada la siguiente línea al final de `/etc/fstab` (con el nombre de partición del Paso 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
-#### Tabla de mandatos Fdisk
-
-
+#### Tabla de mandatos `fdisk`
 
 <table border="0" cellpadding="0" cellspacing="0">
-  <caption>La tabla de mandatos fdisk muestra los mandatos a la izquierda y los resultados esperados a la derecha.</caption>
+	<caption>La tabla de mandatos <code>fdisk</code> muestra los mandatos a la izquierda y los resultados esperados a la derecha.</caption>
     <thead>
 	<tr>
 		<th style="width:40%;">Mandato</th>
@@ -366,25 +364,25 @@ A continuación se describen los pasos para crear un sistema de archivos sobre e
 
   (`**`)Escriba L para ver la lista de códigos hexadecimales
 
-### parted
+### Utilización de `parted`
 
-En muchas distribuciones Linux, la opción **parted** viene preinstalada. Si no se incluye en su distribución, puede instalarla con:
+En muchas distribuciones Linux, la opción `parted` viene preinstalada. Si no se incluye en su distribución, puede instalarla con:
 - Debian/Ubuntu
   ```
   sudo apt-get install parted  
   ```
   {: pre}
 
-- RHEL/CentOS:
+- RHEL/CentOS
   ```
   yum install parted  
   ```
   {: pre}
 
 
-Para crear un sistema de archivos con **parted**, siga estos pasos:
+Para crear un sistema de archivos con `parted`, siga estos pasos.
 
-1. Ejecute parted.
+1. Ejecute `parted`.
 
    ```
    parted
@@ -392,36 +390,36 @@ Para crear un sistema de archivos con **parted**, siga estos pasos:
    {: pre}
 
 2. Cree una partición en el disco.
-   1. A menos que se especifique lo contrario, parted utilizará la unidad primaria, que la mayoría de las veces es **/dev/sda**. Cambie al disco en el que quiera la partición utilizando el mandato **select**. Sustituya **XXX** por el nuevo nombre de dispositivo.
+   1. A menos que se especifique lo contrario, `parted` utiliza la unidad primaria, que la mayoría de las veces es `/dev/sda`. Cambie al disco en el que quiera la partición utilizando el mandato **select**. Sustituya **XXX** por el nuevo nombre de dispositivo.
 
       ```
       (parted) select /dev/mapper/XXX
       ```
       {: pre}
 
-   2. Ejecute **print** para confirmar que está en el disco correcto.
+   2. Ejecute `print` para confirmar que está en el disco correcto.
 
       ```
       (parted) print
       ```
       {: pre}
 
-   3. Cree una nueva tabla de partición GPT
+   3. Cree una tabla de partición GPT.
 
       ```
       (parted) mklabel gpt
       ```
       {: pre}
 
-   4. Parted se puede utilizar para crear particiones de disco lógicas y primarias, los pasos a seguir son los mismos. Para crear una nueva partición, parted utiliza **mkpart**. Puede especificar parámetros adicionales como **primaria** o **lógica** en función del tipo de partición que quiera crear.
-   <br /> **Nota**: el valor predeterminado de las unidades listadas es megabytes (MB), para crear una partición de 10 GB deberá empezar en 1 y acabar en 10000. También puede cambiar las unidades de tamaño a terabytes especificando `(parted) unit TB`, si lo desea.
+   4. `Parted` se puede utilizar para crear particiones de disco lógicas y primarias, los pasos a seguir son los mismos. Para crear una partición, `parted` utiliza `mkpart`. Puede especificar otros parámetros como **primaria** o **lógica** en función del tipo de partición que quiera crear.
+   <br /> **Nota**: El valor predeterminado de las unidades listadas es megabytes (MB), para crear una partición de 10 GB deberá empezar en 1 y acabar en 10000. También puede cambiar las unidades de tamaño a terabytes especificando `(parted) unit TB`, si lo desea.
 
       ```
       (parted) mkpart
       ```
       {: pre}
 
-   5. Salga de parted con **quit**.
+   5. Salga de `parted` con `quit`.
 
       ```
       (parted) quit
@@ -435,33 +433,33 @@ Para crear un sistema de archivos con **parted**, siga estos pasos:
    ```
    {: pre}
 
-   **Nota**: es importante seleccionar el disco y la partición adecuados al ejecutar el mandato anterior.
-   Compruebe el resultado imprimiendo la tabla de partición. En la columna del sistema de archivos, debería ver ext3.
+   **Nota**: Es importante seleccionar el disco y la partición adecuados al ejecutar este mandato.
+   Compruebe el resultado imprimiendo la tabla de partición. En la columna del sistema de archivos, puede ver ext3.
 
 4. Cree un punto de montaje para el sistema de archivos y móntelo.
-   - Cree un nombre de partición PerfDisk o donde quiera montar el sistema de archivos:
+   - Cree un nombre de partición `PerfDisk` o donde quiera montar el sistema de archivos.
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - Uso del nombre de partición para montar el almacenamiento:
+   - Monte el almacenamiento con el nombre de la partición.
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - Compruebe que ve el nuevo sistema de archivos listado:
+   - Compruebe que ve el nuevo sistema de archivos que aparece en la lista.
 
      ```
      df -h
      ```
      {: pre}
 
-5. Añada el nuevo sistema de archivos al archivo **/etc/fstab** del sistema para habilitar el montaje automático al arrancar.
-   - Añada la siguiente línea en la parte inferior de **/etc/fstab** (utilizando el nombre de partición del Paso 3). <br />
+5. Añada el nuevo sistema de archivos al archivo `/etc/fstab` del sistema para habilitar el montaje automático al arrancar.
+   - Añada la siguiente línea al final de `/etc/fstab` (utilizando el nombre de partición del Paso 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
@@ -471,9 +469,9 @@ Para crear un sistema de archivos con **parted**, siga estos pasos:
 
 
 
-## Cómo verificar si MPIO se ha configurado correctamente en sistemas operativos *NIX
+## Verificación de si MPIO se ha configurado correctamente en sistemas operativos `*NIX`
 
-Para comprobar si la multivía está recogiendo dispositivos, solo deberían mostrarse los dispositivos NETAPP y debería haber dos de ellos.
+Para comprobar si la multivía está recogiendo dispositivos, liste los dispositivos. Si se ha configurado correctamente, solo se mostrarán dos dispositivos NETAPP.
 
 ```
 # multipath -l
@@ -488,7 +486,7 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-Compruebe que los discos estén presentes, y debería haber dos discos con el mismo identificador, y un listado /dev/mapper del mismo tamaño con el mismo identificador. El dispositivo /dev/mapper es el que configura la multivía:
+Compruebe que los discos estén presentes. Confirme que hay dos discos con el mismo identificador, y un listado `/dev/mapper` del mismo tamaño con el mismo identificador. El dispositivo `/dev/mapper` es el que configura la multivía:
 
 ```
 # fdisk -l | grep Disk
@@ -503,12 +501,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-Si no se configura correctamente, tendrá el siguiente aspecto:
+Si no se ha configurado correctamente, se parece a este ejemplo.
 ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
 
-Se mostrarán los dispositivos en la lista negra:
+Este mandato muestra los dispositivos que están en la lista negra.
 ```
 # multipath -l -v 3 | grep sd <date and time>
 ```
@@ -523,7 +521,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-fdisk solo muestra los dispositivos `sd*`, no los `/dev/mapper`
+`fdisk` solo muestra los dispositivos `sd*`, no los `/dev/mapper`.
 
 ```
 # fdisk -l | grep Disk
