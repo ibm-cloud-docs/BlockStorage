@@ -2,11 +2,10 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-21"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
 # FAQs
 
@@ -14,7 +13,10 @@ lastupdated: "2018-08-08"
 The default limit for number of authorizations per block volume is 8. To increase the limit, contact your sales representative.
 
 ## How many volumes can be ordered?
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume, contact your sales representative to increase your volumes.
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume limit, contact your sales representative.
+
+## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
+That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.BluSoftlayer_full}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
