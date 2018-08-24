@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-21"
+lastupdated: "2018-08-24"
 
 ---
 {:new_window: target="_blank"}
@@ -61,7 +61,7 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
-When storage is deleted, any pointers to the data on that volume are removed thus the data becomes inaccessible. If the physical storage is reprovisioned to another account a new set of pointers are assigned. There’s no way for the new account to access any data that was on the physical storage. The new set of pointers shows all 0's. The new data overwrites any inaccessible data that existed on that physical storage.
+When storage is deleted, the data on that volume is wiped. Wiping occurs immediately after storage deletion. If the physical storage is re-provisioned to another account there’s no way for the new account to access any data that may have been on the physical storage prior to provisioning.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
