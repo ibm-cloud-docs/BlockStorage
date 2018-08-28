@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-24"
+lastupdated: "2018-08-28"
 
 ---
 {:new_window: target="_blank"}
@@ -61,7 +61,7 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
-When storage is deleted, the data on that volume is wiped. Wiping occurs immediately after storage deletion. If the physical storage is re-provisioned to another account, there’s no way for the new account to access any data that might have been on the physical storage before the provisioning.
+{{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any re-use. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
