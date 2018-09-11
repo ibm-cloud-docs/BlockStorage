@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-28"
+lastupdated: "2018-09-10"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-08-28"
 # FAQs
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
-The default limit for number of authorizations per block volume is 8. To increase the limit, contact your sales representative.
+The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. To request a limit increase, contact your sales representative.
 
 ## How many volumes can be ordered?
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume limit, contact your sales representative.
