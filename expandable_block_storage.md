@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -32,10 +32,6 @@ This feature is available for storage that is provisioned in [select data center
 Storage that was provisioned in these data centers before the release of this feature, during **April 2017 - December 14, 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **December 14, 2017** can be increased up to 12 TB. 
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
-
-## Identifying eligible storage
-
-Storage that was provisioned with enhanced capabilities is always encrypted-at-rest. You can easily tell that your storage is eligible if it has a "lock" icon next to it in the {{site.data.keyword.slportal}}. 
 
 ## Resizing storage
 
