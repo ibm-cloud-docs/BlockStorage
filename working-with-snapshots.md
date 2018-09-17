@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -114,4 +114,4 @@ You might need to take your storage volume back to a specific point-in-time beca
    - Click [here](accessing_block_storage_linux.html) for {{site.data.keyword.blockstorageshort}} on Linux instructions.
    - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}} on Microsoft Windows instructions.
    
->**Note** - Restoring a volume results in deleting all snapshots that were taken before the restored snapshot.
+>**Note** - Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
