@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -61,7 +61,9 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 		HKG02<br />
 		SEO01<br />
 		SNG01<br />
-		CHE01<br /><br /><br /><br /><br /><br /><br /></p>
+		CHE01<br />
+                TOK04<br />
+		TOK05<br /><br /><br /><br /><br /></p>
 	   </td>
 	</tr>
 </table>
