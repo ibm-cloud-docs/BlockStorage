@@ -15,7 +15,7 @@ lastupdated: "2018-09-17"
 
 **注：**新卷的 NFS 安装点不同于非加密卷的安装点。有关详细信息，请参阅**加密 {{site.data.keyword.filestorage_short}} 卷的新安装点**。
 
-新的 {{site.data.keyword.blockstorageshort}} 在以下区域/数据中心提供。
+新的 {{site.data.keyword.blockstorageshort}} 在以下区域/数据中心内提供。
 <table role="presentation">
 	 <tr>
 	   <td><strong>美国 2</strong></td>
@@ -58,12 +58,12 @@ lastupdated: "2018-09-17"
 	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 	    </td>
 	    <td><p>TOK02<br />
-    TOK04<br />
-    TOK05<br/>
-		HKG02<br />
-		SEO01<br />
-		SNG01<br />
-		CHE01<br /><br /><br /><br /><br /></p>
+      TOK04<br />
+      TOK05<br />
+		  HKG02<br />
+		  SEO01<br />
+		  SNG01<br />
+		  CHE01<br /><br /><br /><br /><br /></p>
 	   </td>
 	</tr>
 </table>
@@ -89,4 +89,4 @@ lastupdated: "2018-09-17"
 
 这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
-升级了更多数据中心时，可重新检查此处来查看这些数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新特性和功能。
+可重新检查此处来查看何时升级了更多数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新特性和功能。
