@@ -9,9 +9,9 @@ lastupdated: "2018-06-29"
 
 # 调整 IOPS
 
-利用此新功能，{{site.data.keyword.blockstoragefull}} 存储器用户可以立即调整其现有 {{site.data.keyword.blockstorageshort}} 的 IOPS。他们无需创建重复数据或将数据手动复制到新存储器中。在进行调整时，用户不会遇到针对存储器的任何类型的中断或访问权缺乏问题。 
+利用此新功能，{{site.data.keyword.blockstoragefull}} 存储器用户可以立即调整其现有 {{site.data.keyword.blockstorageshort}} 的 IOPS。用户无需创建复制项或将数据手动复制到新存储器。在进行调整时，用户不会遇到针对存储器的任何类型的中断或访问权缺乏问题。 
 
-对存储器的记帐会更新，以将新价格的按比例差值添加到当前计费周期。在下一个计费周期中将采用全新金额记帐。
+对存储器的记帐会更新，以将新价格的按比例差值添加到当前计费周期。在下一个计费周期中将采用整个新金额记帐。
 
 
 ## 可调整 IOPS 的优点
@@ -34,7 +34,7 @@ lastupdated: "2018-06-29"
 
 ## 调整存储器上的 IOPS
 
-1. 转至 {{site.data.keyword.blockstorageshort}} 列表。
+1. 转至 {{site.data.keyword.blockstorageshort}} 的列表。
    - 在 {{site.data.keyword.slportal}} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
    - 在 {{site.data.keyword.BluSoftlayer_full}} 目录中，单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
 2. 从列表中选择 LUN，然后单击**操作** > **修改 LUN**。

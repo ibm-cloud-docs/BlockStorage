@@ -27,7 +27,7 @@ lastupdated: "2018-08-02"
 
 **注**：指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
 
-**注**：最好在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
+**注**：最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
 
 1. 将 iSCSI 和多路径实用程序安装到主机。
    - RHEL/CentOS
@@ -411,7 +411,7 @@ systemctl start iscsid
       ```
       {: pre}
 
-   4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建新的分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。
+   4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。
    <br /> **注**：列出的单位缺省为兆字节 (MB)；要创建 10 GB 的分区，请从 1 开始，到 10000 结束。如果需要，还可以通过输入 `(parted) unit TB` 将大小单位更改为太字节。
 
       ```
@@ -488,7 +488,7 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-检查磁盘是否存在。确认是否有两个具有相同标识的磁盘，并且 `/dev/mapper` 会列出具有相同标识且大小相同的项。`/dev/mapper` 设备是多路径设置的设备：
+检查磁盘是否存在。确认有两个具有相同标识的磁盘，并且 `/dev/mapper` 会列出具有相同标识且大小相同的项。`/dev/mapper` 设备是多路径设置的设备：
 
 ```
 # fdisk -l | grep Disk
@@ -523,7 +523,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-`fdisk` 仅显示 `sd*` 设备，而不会显示 `/dev/mapper`
+`fdisk` 仅显示 `sd*` 设备，而不会显示 `/dev/mapper`。
 
 ```
 # fdisk -l | grep Disk

@@ -112,7 +112,7 @@ lastupdated: "2018-06-25"
    ```
    {: codeblock}
 
-### 重新安装现有 LUKS 加密分区
+### 重新安装和安装现有 LUKS 加密分区
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.
