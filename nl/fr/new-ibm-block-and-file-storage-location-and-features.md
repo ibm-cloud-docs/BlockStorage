@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-06-25"
 
 {{site.data.keyword.BluSoftlayer_full}} présente une nouvelle version d'{{site.data.keyword.blockstoragefull}} !
 
-Le nouveau stockage est disponible dans certains centres de données et sécurisé par mémoire flash à des niveaux d'E-S/s supérieurs avec chiffrement des données au repos au niveau du disque. La totalité du stockage mis à disposition dans les centres de données mis à niveau est automatiquement créée avec la nouvelle version. 
+Le nouveau stockage est disponible dans certains centres de données et sécurisé par mémoire flash à des niveaux d'E-S/s supérieurs avec chiffrement des données au repos au niveau du disque. La totalité du stockage mis à disposition dans les centres de données mis à niveau est automatiquement créée avec la nouvelle version.
 
 **Remarque :** le point de montage NFS des nouveaux volumes est différent du point de montage des volumes non chiffrés. Pour plus de détails, voir **Nouveau point de montage des volumes {{site.data.keyword.filestorage_short}} chiffrés**.
 
@@ -58,10 +58,12 @@ La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans
 	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 	    </td>
 	    <td><p>TOK02<br />
-		HKG02<br />
-		SEO01<br />
-		SNG01<br />
-		CHE01<br /><br /><br /><br /><br /><br /><br /></p>
+        TOK04<br />
+        TOK05<br/>
+		    HKG02<br />
+		    SEO01<br />
+	    	SNG01<br />
+	    	CHE01<br /><br /><br /><br /><br /></p>
 	   </td>
 	</tr>
 </table>

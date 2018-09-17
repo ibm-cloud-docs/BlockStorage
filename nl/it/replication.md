@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -85,11 +85,11 @@ Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e d
 			</td>
 			<td>HKG02<br />
 				TOK02<br />
+        TOK04<br />
+        TOK05<br/>
 				SNG01<br />
 				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
+        CHE01<br />
 				<br />
 				<br />
 				<br />
@@ -160,7 +160,7 @@ Puoi visualizzare i dettagli del volume di replica nella scheda **Replica** in *
 
 ## Specifica delle autorizzazioni host prima che il server riscontri un failover nel data center secondario
 
-Gli host autorizzati e i volumi si devono trovare nello stesso data center. Non puoi avere un volume di replica a Londra e l'host di Amsterdam. Entrambi devono essere a Londra o entrambi devono essere ad Amsterdam. 
+Gli host autorizzati e i volumi si devono trovare nello stesso data center. Non puoi avere un volume di replica a Londra e l'host di Amsterdam. Entrambi devono essere a Londra o entrambi devono essere ad Amsterdam.
 
 1. Fai clic sul tuo volume di origine o di destinazione dall'una o dall'altra pagina **{{site.data.keyword.blockstorageshort}}**-
 2. Fai clic su **Replica**.
@@ -186,7 +186,7 @@ I failover vengono avviati in **Storage**, **{{site.data.keyword.blockstoragesho
 
 1. Fai clic sul tuo LUN attivo ("origine").
 2. Fai clic su **Replica** e fai clic sul link **Actions** nell'angolo superiore destro.
-3. Seleziona **Failover**. 
+3. Seleziona **Failover**.
    >Prevedi un messaggio nella parte superiore della pagina che indica che il failover è in corso. Compare inoltre un'icona accanto al tuo volume in **{{site.data.keyword.blockstorageshort}}** che indica che si sta verificando una transazione attiva. Se passi il puntatore del mouse sull'icona, verrà visualizzata una finestra che indica la transazione. Una volta completata la transazione, l'icona scompare. Durante il processo di failover, le azioni correlate alla configurazione sono di sola lettura. Non puoi modificare le pianificazioni delle istantanee o modificare lo spazio di istantanea. L'evento viene registrato nella cronologia replica.<br/> Una volta che il tuo volume di destinazione è operativo ricevi un altro messaggio. Il nome LUN del tuo volume di origine iniziale si aggiorna in "REP" e il suo stato diventa Inattivo.
 4. Fai clic su **View All ({{site.data.keyword.blockstorageshort}})**.
 5. Fai clic sul tuo LUN attivo (in precedenza il tuo volume di destinazione).

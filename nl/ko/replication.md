@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -85,11 +85,11 @@ lastupdated: "2018-07-30"
 			</td>
 			<td>HKG02<br />
 				TOK02<br />
+        TOK04<br />
+        TOK05<br/>
 				SNG01<br />
 				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
+        CHE01<br />
 				<br />
 				<br />
 				<br />
@@ -207,7 +207,7 @@ lastupdated: "2018-07-30"
 
 장애 복구가 시작되면 복제 관계가 다시 뒤집힙니다. 이제 소스 볼륨이 소스 볼륨으로 복원되고, 대상 볼륨은 다시 **LUN 이름**(뒤에 **REP**가 표시)으로 표시되는 대상 볼륨이 됩니다.
 
-장애 복구는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 시작됩니다. 
+장애 복구는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 시작됩니다.
 
 1. 활성 LUN("대상")을 클릭하십시오.
 2. 오른쪽 상단에서 **복제본**을 클릭하고 **조치**를 클릭하십시오.

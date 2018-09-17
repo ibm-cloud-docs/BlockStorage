@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -85,11 +85,11 @@ lastupdated: "2018-07-30"
 			</td>
 			<td>HKG02<br />
 				TOK02<br />
+        TOK04<br />
+        TOK05<br/>
 				SNG01<br />
 				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
+        CHE01<br />
 				<br />
 				<br />
 				<br />
@@ -214,7 +214,7 @@ lastupdated: "2018-07-30"
 2. 单击右上角的**副本**，然后单击**操作**。
 3. 选择**故障恢复**。
    应该会在页面顶部收到一条消息，显示正在进行故障恢复。此外，**{{site.data.keyword.blockstorageshort}}** 上的相应卷旁边会显示一个图标，指示正在执行活动事务。将鼠标悬停在该图标上将生成一个用于显示事务的窗口。事务完成后，该图标会消失。在故障恢复过程中，与配置相关的操作为只读。无法编辑任何快照安排，也无法更改快照空间。该事件将记录在复制历史记录中。
-   
+
 4. 单击右上角的**查看所有 {{site.data.keyword.blockstorageshort}}** 链接。
 5. 单击活动的 LUN（“源”）。
 6. 安装存储卷并将其连接到主机。单击[此处](provisioning-block_storage.html)以获取指示信息。
