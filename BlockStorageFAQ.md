@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-09-10"
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. To request a limit increase, contact your sales representative.
 
 ## How many volumes can be ordered?
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume limit, contact your sales representative.
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](managing-storage-limits.html).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.BluSoftlayer_full}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
