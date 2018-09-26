@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-09-26"
 
 ---
 {:new_window: target="_blank"}
@@ -61,6 +61,7 @@ You can provision {{site.data.keyword.blockstorageshort}} Storage and fine tune 
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
 - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
+- [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
 - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuring Block Storage for Backup with cPanel](configure-backup-cpanel.html)
 - [Configuring Block Storage for Backup with Plesk](configure-backup-plesk.html)
