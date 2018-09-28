@@ -32,7 +32,7 @@ Sie müssen zunächst für Ihren Datenträger einen bestimmten Snapshotbereich k
 Die Snapshotgestaltung richtet sich nach der Umgebung des Kunden. Die folgenden konzeptionellen Überlegungen können Ihnen helfen, Snapshotkopien zu planen und zu implementieren: 
 - Bis zu 50 Snapshots können über einen Plan und bis zu 50 können manuell auf den einzelnen Datenträgern oder LUNs erstellt werden. 
 - Verwenden Sie nicht zu viele Snapshots. Stellen Sie sicher, dass Ihre geplante Snapshothäufigkeit Ihre RTO- und RPO-Bedürfnisse sowie Ihre Anwendungsgeschäftsanforderungen erfüllt, indem Sie stündliche, tägliche oder wöchentliche Snapshots planen. 
-- Mit der automatischen Löschung von Snapshots (AutoDelete) kann die Zunahme der Speicherbelegung gesteuert werden.<br/>
+- Mit der automatischen Löschung von Snapshots (AutoDelete) kann die Zunahme der Speicherbelegung gesteuert werden. <br/>
   >**Hinweis:** Der Schwellenwert für die automatische Löschung liegt bei 95 Prozent.
     
 Snapshots stellen keinen Ersatz für eine tatsächliche ausgelagerte Disaster-Recovery-Replikation oder eine lange Aufbewahrungssicherung dar.

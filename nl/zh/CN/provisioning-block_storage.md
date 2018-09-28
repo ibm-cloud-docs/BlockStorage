@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-09-26"
 
 ---
 {:new_window: target="_blank"}
@@ -61,6 +61,7 @@ lastupdated: "2018-08-01"
 
 完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
 - [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
 - [使用 cPanel 配置 Block Storage 进行备份](configure-backup-cpanel.html)
 - [使用 Plesk 配置 Block Storage 进行备份](configure-backup-plesk.html)

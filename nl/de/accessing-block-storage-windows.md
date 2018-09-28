@@ -12,12 +12,12 @@ lastupdated: "2018-06-26"
 
 Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde.
 
-1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.Klicken Sie auf **Host autorisieren**.
+1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
 2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 
-Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
+Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
 
 ### Funktion MPIO konfigurieren
 
@@ -83,7 +83,7 @@ Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren. Jetzt werden im Fenster 'Eigenschaften' mehrere Sitzungen im Teilfenster 'ID' angezeigt. Nun haben Sie mehrere Sitzungen zum iSCSI-Initiator.
    ![Einstellungen](/images/Settings.png) 
    
-5. Klicken Sie im Fenster 'Eigenschaften' auf **Geräte**, um das Fenster 'Geräte' zu öffnen. Der Name der Geräteschnittstelle beginnt mit `mpio`.<br/>
+5. Klicken Sie im Fenster 'Eigenschaften' auf **Geräte**, um das Fenster 'Geräte' zu öffnen. Der Name der Geräteschnittstelle beginnt mit `mpio`. <br/>
   ![Geräte](/images/Devices.png) 
   
 6. Klicken Sie auf **MPIO**, um das Fenster **Gerätedetails** zu öffnen. In diesem Fenster können Sie die Lastausgleichsrichtlinien für MPIO auswählen; außerdem werden die Pfade zu iSCSI angezeigt. Im folgenden Beispiel werden zwei Pfade als für MPIO mit der Lastausgleichsrichtlinie 'Round Robin mit Teilmenge' verfügbar dargestellt.

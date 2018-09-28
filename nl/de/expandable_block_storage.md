@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenä
 
 ## Einschränkungen
 
-Diese Funktion ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
+Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
 
-Speicher, der vor der Freigabe dieser Funktion (14. Dezember 2017) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach diesem Datum bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
+Speicher, der vor der Freigabe dieser Funktion (**April 2017 - 14. Dezember 2017**) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach dem **14. Dezember 2017** bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
 
 Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.data.keyword.blockstorageshort}} gelten weiterhin (bis zu 4 TB für das 10-IOPS-Tier und bis zu 12 TB für alle anderen Tiers).
-
-## Infrage kommenden Speicher ermitteln
-
-Speicher, der mit erweiterten Leistungsmerkmalen bereitgestellt wird, wird stets ruhend verschlüsselt. Infrage kommenden Speicher können Sie im {{site.data.keyword.slportal}} an dem 'Schlosssymbol' neben seinem Eintrag erkennen. 
 
 ## Größe des Speichers ändern
 

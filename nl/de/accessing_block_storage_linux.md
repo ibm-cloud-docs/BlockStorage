@@ -15,7 +15,7 @@ Die folgenden Anweisungen gelten für RHEL6/Centos6. Es wurden zwar Hinweise fü
 
 Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde. 
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde.
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
 2. Klicken Sie auf **Host autorisieren**.
@@ -25,7 +25,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
 
-**Hinweis:** Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}} - Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} abgerufen werden. 
+**Hinweis:** Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}} - Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} abgerufen werden.
 
 **Hinweis:** Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
 
@@ -253,7 +253,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystems auf einem neu angeh�
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   Der zurückgegebene Plattenname ähnelt `/dev/mapper/XXX`. 
+   Der zurückgegebene Plattenname ähnelt `/dev/mapper/XXX`.
 
 2. Erstellen Sie eine Partition auf dem Datenträger.
 
@@ -303,7 +303,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystems auf einem neu angeh�
      {: pre}
 
 5. Fügen Sie das neue Dateisystem zur Datei `/etc/fstab` des Systems hinzu, um das automatische Anhängen beim Booten zu aktivieren.
-   - Hängen Sie an das Ende der Datei `/etc/fstab` die folgende Zeile an (mit dem Partitionsnamen aus Schritt 3).<br />
+   - Hängen Sie an das Ende der Datei `/etc/fstab` die folgende Zeile an (mit dem Partitionsnamen aus Schritt 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
@@ -459,7 +459,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
      {: pre}
 
 5. Fügen Sie das neue Dateisystem zur Datei `/etc/fstab` des Systems hinzu, um das automatische Anhängen beim Booten zu aktivieren.
-   - Hängen Sie an das Ende der Datei `/etc/fstab` die folgende Zeile an (mit dem Partitionsnamen aus Schritt 3).<br />
+   - Hängen Sie an das Ende der Datei `/etc/fstab` die folgende Zeile an (mit dem Partitionsnamen aus Schritt 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1

@@ -13,9 +13,9 @@ lastupdated: "2018-08-02"
 
 Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 zu installieren.
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde. 
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde.
 
-1. Melden Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} an. 
+1. Melden Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} an.
 2. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
 3. Klicken Sie auf **Host autorisieren**.
 4. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
@@ -33,7 +33,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
    
    ```
    yum install multipath-tools
-
+   
    ```
    {: pre}
    
@@ -49,7 +49,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 2. Erstellen oder bearbeiten Sie die Konfigurationsdateien.
    - Aktualisieren Sie '/etc/multipath.conf'. <br/>**Hinweis:** Alle Daten unter Blacklist müssen sich speziell auf Ihr System beziehen.
-   ```
+     ```
      defaults {
         user_friendly_names no
         flush_on_last_del       yes
@@ -101,19 +101,19 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 3. Starten Sie die Services `iscsi` und `multipathd` erneut.
    ```
-   /etc/init.d/iscsi restart
+   /etc/init.d/iscsi restart   
    ```
    {: pre}
    
    ```
-   /etc/init.d/multipathd restart
+   /etc/init.d/multipathd restart   
    ```
    {: pre}
  
 4. Führen Sie die Erkennung des Geräts mithilfe der aus dem {{site.data.keyword.slportal}} abgerufenen Ziel-IP-Adresse aus.
 
      A. Führen Sie die Erkennung für das iSCSI-Array aus.
-     ```
+       ```
        iscsiadm -m discovery -t sendtargets -p <ip-Wert-aus-SL-Portal>
        ```
        {: pre}
@@ -146,7 +146,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 6. Überprüfen Sie, ob das Gerät verbunden ist.
    ```
-   fdisk -l
+   fdisk -l 
    ```
    {: pre}
     

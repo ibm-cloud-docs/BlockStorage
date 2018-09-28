@@ -11,13 +11,13 @@ lastupdated: "2018-07-18"
 
 ## {{site.data.keyword.blockstorageshort}} - Verschlüsselung ruhender Daten 
 
-{{site.data.keyword.BluSoftlayer_full}} nimmt das Bedürfnis nach Sicherheit ernst und versteht, wie wichtig es ist, Daten aus Sicherheitsgründen verschlüsseln zu können. Bei der anbietergesteuerten Verschlüsselung wird {{site.data.keyword.blockstoragefull}} standardmäßig entweder mit der Option 'Endurance' oder 'Performance', ohne Zusatzkosten und ohne Beeinträchtigung der Leistung verschlüsselt, bereitgestellt. 
+{{site.data.keyword.BluSoftlayer_full}} nimmt das Bedürfnis nach Sicherheit ernst und versteht, wie wichtig es ist, Daten aus Sicherheitsgründen verschlüsseln zu können. Bei der anbietergesteuerten Verschlüsselung wird {{site.data.keyword.blockstoragefull}} standardmäßig entweder mit der Option 'Endurance' oder 'Performance', ohne Zusatzkosten und ohne Beeinträchtigung der Leistung verschlüsselt, bereitgestellt.
 
 Bei der anbietergesteuerten ruhenden Verschlüsselungsfunktion werden folgende Branchenstandardprotokolle verwendet:
 
 * Branchenstandardverschlüsselung AES-256
 * Schlüssel werden unternehmensintern mit dem Branchenstandardprotokoll KMIP (Key Management Interoperability Protocol) verwaltet
-* Die Speicherung wird per Federal Information Processing Standard (FIPS) Publication 140-2 für Konformität mit Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA) validiert. Die Speicherung ist auch für Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) und EU Data Protection Directive 95/46/EC validiert. 
+* Die Speicherung wird per Federal Information Processing Standard (FIPS) Publication 140-2 für Konformität mit Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA) validiert. Die Speicherung ist auch für Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386) und EU Data Protection Directive 95/46/EC validiert.
 
 ## Ruhende Verschlüsselung zur Speicherung von Snapshots oder Replikaten angeben  
 

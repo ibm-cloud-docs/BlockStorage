@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,8 +25,8 @@ Diese Funktion ist nur in [ausgewählten Rechenzentren](new-ibm-block-and-file-s
 Kunden können beim Anpassen ihrer IOPS nicht zwischen Endurance und Performance wechseln. Sie können jedoch auf Basis der folgenden Bedingungen/Einschränkungen ein neues IOPS-Tier oder eine neue IOPS-Ebene für ihren Speicher angeben: 
 
 - Wenn der Originaldatenträger ein Endurance-Tier mit 0,25 IOPS/GB ist, kann das IOPS-Tier nicht aktualisiert werden.
-- Wenn der Originaldatenträger ein Performance-Tier mit weniger als 0,30 IOPS/GB ist, schließen Sie nur Größen- und IOPS-Kombinationen ein, deren Ergebnis niedriger als 0,30 IOPS/GB ist. 
-- Wenn der Originaldatenträger ein Performance-Tier mit größer-gleich 0,30 IOPS/GB ist, schließen Sie nur Größen- und IOPS-Kombinationen ein, deren Ergebnis größer-gleich 0,30 IOPS/GB ist. 
+- Wenn der Originaldatenträger ein Performance-Tier mit kleiner-gleich 0,30 IOPS/GB ist, schließen Sie nur Größen- und IOPS-Kombinationen ein, deren Ergebnis kleiner-gleich 0,30 IOPS/GB ist. 
+- Wenn der Originaldatenträger ein Performance-Tier mit mehr als 0,30 IOPS/GB ist, schließen Sie nur Größen- und IOPS-Kombinationen ein, deren Ergebnis höher als 0,30 IOPS/GB ist. 
 
 ## Auswirkung der IOPS-Anpassung auf die Replikation
 

@@ -85,12 +85,12 @@ In Tabelle 1 finden Sie eine vollständige Liste der Verfügbarkeit der Rechenze
 			</td>
 			<td>HKG02<br />
 				TOK02<br />
-        TOK04<br />
-        TOK05<br/>
+				TOK04<br />
+				TOK05<br />
 				SNG01<br />
 				SEO01<br />
-        CHE01<br />
-			  <br />
+                                CHE01<br />
+				<br />
 				<br />
 				<br />
 				<br />

@@ -80,17 +80,17 @@ Falls das Rechenzentrum des Replikationsziels noch nicht aktualisiert wurde, kö
 1. Stellen Sie eine Verbindung zu den ursprünglichen und neuen {{site.data.keyword.blockstorageshort}}-LUNs her. 
   - Wenn Sie Unterstützung bei der Herstellung der Verbindung der beiden LUNs zu Ihrem Host benötigen, öffnen Sie ein Support-Ticket.
 
-2. Beachten Sie, welchen Datentyp die ursprüngliche {{site.data.keyword.blockstorageshort}}-LUN aufweist und wie Sie die Daten am besten auf die neue LUN kopieren.  
+2. Beachten Sie, welchen Datentyp die ursprüngliche {{site.data.keyword.blockstorageshort}}-LUN aufweist und wie Sie die Daten am besten auf die neue LUN kopieren. 
   - Wenn Sie über Sicherungen, statischen Inhalt und andere Daten verfügen, bei denen beim Kopieren keine Änderungen zu erwarten sind, brauchen Sie keine großen Überlegungen anzustellen.
   - Wenn Sie auf dem {{site.data.keyword.blockstorageshort}} eine Datenbank oder virtuelle Maschine ausführen, stellen Sie sicher, dass die Daten während des Kopiervorgangs nicht geändert werden, um eine Beschädigung von Daten zu vermeiden. Wenn Sie Sorgen wegen der Bandbreite haben, führen Sie die Migration außerhalb der Stoßzeiten durch. Wenn Sie bei diesen Überlegungen Unterstützung benötigen, öffnen Sie ein Support-Ticket.
  
 3. Kopieren Sie die Daten.
    - **Microsoft Windows:** Formatieren Sie zum Kopieren der Daten von der {{site.data.keyword.blockstorageshort}}-Original-LUN zur neuen LUN den neuen Speicher und kopieren Sie die Dateien mit Windows Explorer.
-   - **Linux:** Sie können `rsync` zum Kopieren der Daten verwenden. Beispiel: 
+   - **Linux:** Sie können `rsync` zum Kopieren der Daten verwenden. Beispiel:
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
    
    Es empfiehlt sich, den obigen Befehl einmal mit dem Flag `--dry-run` zu verwenden, um sicherzustellen, dass die Pfade korrekt ausgerichtet sind. Wenn dieser Prozess unterbrochen wird, können Sie die zuletzt kopierte Zieldatei löschen, um sicherzustellen, dass sie vom Anfang zur neuen Position kopiert wird.<br/>
-Sobald dieser Befehl ohne das Flag `--dry-run` ausgeführt wird, werden die Daten auf die neue {{site.data.keyword.blockstorageshort}}-LUN kopiert. Führen Sie den Befehl noch einmal aus, um sicherzustellen, dass nichts vergessen wurde. Sie können die beiden Positionen auch manuell prüfen, um möglicherweise fehlende Elemente aufzufinden.<br/>
-Wenn die Migration abgeschlossen ist, können Sie die Produktion auf die neue LUN verschieben. Danach können Sie die Original-LUN aus der Konfiguration abhängen und löschen. Durch den Löschvorgang werden auch alle Snapshots oder Replikate von der Zielsite gelöscht, die der Original-LUN zugeordnet waren.
+   Sobald dieser Befehl ohne das Flag `--dry-run` ausgeführt wird, werden die Daten auf die neue {{site.data.keyword.blockstorageshort}}-LUN kopiert. Führen Sie den Befehl noch einmal aus, um sicherzustellen, dass nichts vergessen wurde. Sie können die beiden Positionen auch manuell prüfen, um möglicherweise fehlende Elemente aufzufinden.<br/>
+   Wenn die Migration abgeschlossen ist, können Sie die Produktion auf die neue LUN verschieben. Danach können Sie die Original-LUN aus der Konfiguration abhängen und löschen. Durch den Löschvorgang werden auch alle Snapshots oder Replikate von der Zielsite gelöscht, die der Original-LUN zugeordnet waren.

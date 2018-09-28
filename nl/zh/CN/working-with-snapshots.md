@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -114,4 +114,4 @@ lastupdated: "2018-06-29"
    - 单击[此处](accessing_block_storage_linux.html)以获取有关 Linux 上 {{site.data.keyword.blockstorageshort}} 的指示信息。
    - 单击[此处](accessing-block-storage-windows.html)以获取有关 Microsoft Windows 上 {{site.data.keyword.blockstorageshort}} 的指示信息。
    
->**注** - 复原卷会导致删除在所复原快照之前生成的所有快照。
+>**注**：复原卷会导致在用于复原的快照之后拍摄的所有快照均会被删除。

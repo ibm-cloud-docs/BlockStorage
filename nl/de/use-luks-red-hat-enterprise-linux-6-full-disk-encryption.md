@@ -46,7 +46,7 @@ Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht ver
 3. Suchen Sie Ihren Datenträger in der Liste.
 4. Verschlüsseln Sie das Blockgerät.
 
-   1. Dieser Befehl initialisiert den Datenträger und Sie können eine Kennphrase festlegen.<br/>
+   1. Dieser Befehl initialisiert den Datenträger und Sie können eine Kennphrase festlegen. <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -62,7 +62,7 @@ Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht ver
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung.<br/>
+5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung.   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

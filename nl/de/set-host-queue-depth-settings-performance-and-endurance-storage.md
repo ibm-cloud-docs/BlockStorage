@@ -9,7 +9,7 @@ lastupdated: "2018-08-29"
 
 # Einstellungen der Hostwarteschlangenlänge anpassen
 
-Für {{site.data.keyword.BluSoftlayer_full}} wird für jedes Leistungstier ein maximaler Wert für die Ein-/Ausgabe-Warteschlangenlänge für Host und Anwendungen empfohlen.  
+Für {{site.data.keyword.BluSoftlayer_full}} wird für jedes Leistungstier ein maximaler Wert für die Ein-/Ausgabe-Warteschlangenlänge für Host und Anwendungen empfohlen. 
 
 <table align="center">
   <caption>Empfohlene Warteschlangenlänge für jedes IOPS-Tier</caption>

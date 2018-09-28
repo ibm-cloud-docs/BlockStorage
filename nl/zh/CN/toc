@@ -42,5 +42,5 @@ IBM Cloud 存储 - Block Storage
 
     {: .navgroup id="help"}
     BlockStorageFAQ.md
-    [Python API 客户机信息](https://github.com/softlayer/softlayer-python)
+    [Python API 客户机信息](https://softlayer-python.readthedocs.io/en/latest/index.html)
     {: .navgroup-end}

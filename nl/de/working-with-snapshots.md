@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -114,4 +114,4 @@ Es kann vorkommen, dass Sie Ihren Speicherdatenträger aufgrund eines Benutzerfe
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Linux finden Sie [hier](accessing_block_storage_linux.html).
    - Die Anweisungen zu {{site.data.keyword.blockstorageshort}} unter Microsoft Windows finden Sie [hier](accessing-block-storage-windows.html).
    
->**Hinweis:** Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die vor dem Zurücksetzen des Snapshots erstellt wurden.
+>**Hinweis** - Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach dem für das Zurücksetzen verwendeten Snapshot erstellt wurden.

@@ -2,19 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Häufig gestellte Fragen zu {{site.data.keyword.blockstorageshort}}
+# Häufig gestellte Fragen
 
 ## Wie viele Instanzen können einen bereitgestellten {{site.data.keyword.blockstorageshort}}-Datenträger gemeinsam nutzen?
-Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger ist 8. Wenden Sie sich zur Erhöhung des Grenzwerts an Ihren Vertriebsbeauftragten.
+Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger ist 8. Dies bedeutet, dass bis zu 8 Hosts für den Zugriff auf die Block Storage-LUN berechtigt werden können. Wenn Sie eine Erhöhung des Grenzwerts anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten.
 
 ## Wie viele Datenträger können bestellt werden?
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich zur Erhöhung Ihrer Datenträger an Ihren Vertriebsbeauftragten.
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](managing-storage-limits.html).
+
+## Wie viele {{site.data.keyword.blockstorageshort}}-Datenträger können an einen Host angehängt werden?
+Dies ist abhängig von Kapazität des Hostbetriebssystems, nicht von {{site.data.keyword.BluSoftlayer_full}}-Grenzwerten. Die Dokumentation des jeweiligen Betriebssystems enthält Informationen zu den Grenzwerten für die Anzahl der Datenträger, die angehängt werden können.
 
 ## Wird der zugeordnete IOPS-Grenzwert nach Instanz oder nach Datenträger umgesetzt?
 IOPS werden auf Datenträgerebene umgesetzt. Anders ausgedrückt, zwei Hosts, die mit einem Datenträger mit 6000 IOPS verbunden sind, nutzen diese 6000 IOPS gemeinsam.
@@ -59,7 +61,7 @@ Um Daten auf einem nicht verschlüsselten Speicher in einem aktualisierten Reche
 Ja, {{site.data.keyword.blockstorageshort}} unterstützt die permanente SCSI-2- und SCSI-3-Reservierung.
 
 ## Was passiert mit den Daten, wenn {{site.data.keyword.blockstorageshort}}-LUNs gelöscht werden?
-Beim Löschen von Speicher werden alle Verweise auf die Daten auf diesem Datenträger entfernt; somit ist kein Zugriff auf diese Daten möglich. Wird der physische Speicher einem anderen Konto bereitgestellt, wird eine neue Verweisgruppe zugewiesen. Das neue Konto hat keine Möglichkeit, auf die Daten zuzugreifen, die sich auf der physischen Speichereinheit befunden haben. Die neue Verweisgruppe zeigt ausschließlich den Wert 0 an. Von den neuen Daten werden alle nicht zugänglichen Daten überschrieben, die auf der physischen Speichereinheit vorhanden waren.
+{{site.data.keyword.blockstoragefull}} stellt den Kunden Blockdatenträger auf physischem Speicher bereit, der vor der Wiederverwendung bereinigt wird. Kunden mit bestimmten Compliance-Anforderungen, z. B. hinsichtlich der Einhaltung der NIST 800-88-Richtlinien für das sichere Löschen von Datenträgern, müssen die entsprechende Bereinigungsprozedur durchführen, bevor sie den Speicher löschen.
 
 ## Was passiert mit den Laufwerken, die über das Cloud-Rechenzentrum außer Betrieb gesetzt werden?
 Wenn Laufwerke außer Betrieb gesetzt werden, werden sie vor dem Entsorgen durch IBM zerstört. Die Laufwerke werden somit unbrauchbar. Auf Daten, die auf diesem Laufwerk gespeichert waren, kann nicht mehr zugegriffen werden.

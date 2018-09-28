@@ -36,7 +36,7 @@ Verwenden Sie diesen Artikel zum Konfigurieren der Sicherungen in cPanel für da
     - Wählen Sie die Option **Anhängen eines Sicherungslaufwerks aktivieren**. Diese Einstellung veranlasst den Sicherungskonfigurationsprozess, in der Datei `/etc/fstab` einen Sicherungsmount (`/backup2`) zu suchen. <br /> 
     **Hinweis:** Wenn ein Mount mit demselben Namen wie das Staging-Verzeichnis vorhanden ist, hängt der Sicherungskonfigurationsprozess das Laufwerk an und sichert die Informationen auf diesem Laufwerk. Nach Abschluss des Sicherungsprozesses wird das Laufwerk abgehängt. 
 
-7. Wenden Sie die Änderungen durch Klicken auf **Konfiguration speichern** an. 
+7. Wenden Sie die Änderungen durch Klicken auf **Konfiguration speichern** an.
 
 8. **Optional**: Entfernen Sie je nach Ihrem konkreten Anwendungsfall und Ihren Geschäftsanforderungen den alten Speicher vom Server und brechen Sie das Konto ab.
 

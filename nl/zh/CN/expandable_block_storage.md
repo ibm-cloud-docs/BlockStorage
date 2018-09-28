@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ lastupdated: "2018-06-29"
 
 ## 限制
 
-此功能仅可用于在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应的存储器。 
+此功能可用于在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应的存储器。 
 
-在此功能发布（2017 年 12 月 14 日）之前，这些数据中心内已供应的存储器最多只能增大到原始大小的 10 倍。在该日期之后供应的存储器可以增大到最高 12 TB。 
+在此功能发布之前（**2017 年 4 月到 2017 年 12 月 14 日**期间），在这些数据中心内供应的存储器最多只能增大到原始大小的 10 倍。在 **2017 年 12 月 14 日**之后供应的存储器可以增大到最高 12 TB。 
 
 使用“耐久性”类型供应的 {{site.data.keyword.blockstorageshort}} 的现有大小限制仍然适用（对于 10 IOPS 层，最高为 4 TB，对于其他所有层，最高为 12 TB）。
-
-## 识别有资格的存储器
-
-供应了增强功能的存储器始终会静态加密。如果在 {{site.data.keyword.slportal}} 中，存储器旁边有“锁定”图标，那么可以轻松判断该存储器有资格扩展。 
 
 ## 调整存储器大小
 
