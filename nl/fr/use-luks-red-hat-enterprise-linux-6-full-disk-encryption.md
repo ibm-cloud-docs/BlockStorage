@@ -31,7 +31,7 @@ Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6
 
 Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Cliquez [ici](accessing_block_storage_linux.html) pour savoir comment accéder à {{site.data.keyword.blockstorageshort}} avec Linux.
 
-**Remarque** : le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances. 
+**Remarque** : le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances.
 
 1. Saisissez la commande suivante à une invite shell en tant que root pour installer le package requis :   <br/>
    ```
@@ -62,13 +62,13 @@ Cette procédure suppose que le serveur peut accéder à un nouveau volume {{sit
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. Ouvrez le volume et créez un mappage. <br/>
+5. Ouvrez le volume et créez un mappage.   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
-6. Entrez la phrase de passe. 
-7. Vérifiez le mappage et affichez le statut du volume chiffré. <br/>
+6. Entrez la phrase de passe.
+7. Vérifiez le mappage et affichez le statut du volume chiffré.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.

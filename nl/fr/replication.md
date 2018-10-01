@@ -9,29 +9,29 @@ lastupdated: "2018-09-17"
 
 # Réplication de données
 
-La réplication utilise l'un de vos plannings d'instantané pour copier automatiquement les instantanés vers un volume de destination dans un centre de données distant. Les copies peuvent être récupérées sur le site distant en cas de données endommagées ou de catastrophe.
+La réplication utilise l'un de vos plannings d'instantané pour copier automatiquement des instantanés sur un volume de destination dans un centre de données distant. Les copies peuvent être récupérées sur le site distant en cas de données endommagées ou de catastrophe.
 
 Les répliques vous permettent :
 
-- d'effectuer une restauration rapide après des échecs sur site et d'autres incidents en basculant vers le volume de destination,
+- d'effectuer rapidement une reprise après un échec du site et d'autres incidents en basculant sur le volume de destination,
 - d'effectuer un basculement vers un point de cohérence précis dans la copie de reprise après incident.
 
-Avant de pouvoir exécuter une réplication, vous devez créer un planning d'instantané. Lors du basculement, vous "actionnez le commutateur" à partir du volume de stockage de votre centre de données principal vers le volume de destination de votre centre de données distant. Par exemple, votre centre de données principal est Londres et votre centre de données secondaire est Amsterdam. Dans le cas d'un événement d'échec, vous basculez vers Amsterdam, en vous connectant au volume qui est désormais devenu principal à partir d'une instance de calcul à Amsterdam. Une fois que votre volume à Londres est réparé, un instantané est pris du volume à Amsterdam afin d'effectuer une reprise par restauration à Londres et de revenir au volume principal restauré à partir d'une instance de calcul à Londres.
+Avant d'effectuer une réplication, vous devez créer un planning d'instantané. Lorsque vous effectuez un basculement, vous "basculez l'interrupteur" depuis votre volume de stockage du centre de données principal vers le volume de destination du centre de données distant. Par exemple, votre centre de données principal peut se situer à Londres et votre centre de données secondaire à Amsterdam. Dans le cas d'un événement d'échec, vous basculez vers Amsterdam, en vous connectant au volume qui est désormais devenu principal à partir d'une instance de calcul à Amsterdam. Une fois votre volume de Londres réparé, un instantané du volume d'Amsterdam est pris afin de permettre le retour à Londres avec le volume de Londres à nouveau considéré comme le volume principal à partir d'une instance de traitement située à Londres.
 
 
 ## Comment déterminer le centre de données distant de mon volume de stockage répliqué ?
 
 Les centres de données d'{{site.data.keyword.BluSoftlayer_full}} sont appariés en combinaisons principal-distant dans le monde entier.
-Consultez le Tableau 1 pour obtenir la liste complète de la disponibilité et des cibles de réplication des centres de données.
+Pour obtenir la liste complète de la disponibilité des centres de données et des cibles de réplication, reportez-vous au Tableau 1.
 
 <table>
-	<caption style="text-align: left;"><p>Tableau 1 - Ce tableau présente la liste complète des centres de données avec des fonctionnalités améliorées dans chaque région. Chaque région est une colonne distincte. Certaines villes, comme Dallas, San Jose, Washington DC, Amsterdam, Francfort, Londres et Sydney disposent de plusieurs centres de données.</p>
-		<p>&#42; Les centres de données dans la région US 1 NE disposent PAS d'un stockage amélioré. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées <strong>ne peuvent pas</strong> démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1.</p>
+	<caption style="text-align: left;"><p>Le tableau 1 répertorie l'ensemble des centres de données avec les fonctionnalités améliorées dans chaque région. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San Jose, Washington DC, Amsterdam, Francfort, Londres et Sydney disposent de plusieurs centres de données.</p>
+		<p>&#42; Les centres de données de la région EU 1 ne comportent PAS de stockage amélioré. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées <strong>ne peuvent pas</strong> démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1.</p>
 </caption>
 	<thead>
 		<tr>
-			<th>US 1 &#42;</th>
-			<th>US 2</th>
+			<th>EU 1 &#42;</th>
+			<th>EUS 2</th>
 			<th>Amérique latine</th>
 			<th>Canada</th>
 			<th>Europe</th>
@@ -85,11 +85,11 @@ Consultez le Tableau 1 pour obtenir la liste complète de la disponibilité et d
 			</td>
 			<td>HKG02<br />
 				TOK02<br />
-        TOK04<br />
-        TOK05<br/>
+				TOK04<br />
+				TOK05<br />
 				SNG01<br />
 				SEO01<br />
-        CHE01<br />
+                                CHE01<br />
 				<br />
 				<br />
 				<br />

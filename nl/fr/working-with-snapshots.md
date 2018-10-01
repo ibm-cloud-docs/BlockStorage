@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -96,22 +96,22 @@ Il est possible de supprimer manuellement des instantanés inutiles afin de lib�
 1. Cliquez sur votre volume de stockage et faites défiler l'écran jusqu'à la section **Instantané** pour afficher la liste des instantanés existants.
 2. Cliquez sur **Actions** en regard d'un instantané spécifique, puis cliquez sur **Supprimer** pour supprimer l'instantané. Cela n'affecte pas les instantanés futurs ou passés du même planning puisqu'il n'existe pas de dépendance entre les instantanés.
 
-Les instantanés manuels qui ne sont pas supprimés comme indiqué précédemment sont automatiquement supprimés lorsque vous atteignez les limites en termes d'espace ((le plus ancien d'abord).
+Les instantanés manuels qui ne sont pas supprimés comme indiqué précédemment sont automatiquement supprimés lorsque vous atteignez les limites en termes d'espace (le plus ancien d'abord).
 
 ## Restauration de volume de stockage à un point de cohérence spécifique à l'aide d'un instantané
 
 Il se peut que vous deviez ramener votre volume de stockage à un point de cohérence spécifique en raison d'une erreur d'utilisateur ou d'une altération des données.
 
 1. Démontez et déconnectez le volume de stockage de l'hôte.
-   - Cliquez [ici](accessing_block_storage_linux.html)  pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Linux.
-   - Cliquez [ici](accessing-block-storage-windows.html)  pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Microsoft Windows.
+   - Cliquez [ici](accessing_block_storage_linux.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Linux.
+   - Cliquez [ici](accessing-block-storage-windows.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Microsoft Windows.
 2. Cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 3. Faites défiler l'écran et cliquez sur le volume à restaurer. La section **Instantanés** de la page **Détails** affiche la liste de tous les instantanés sauvegardés, ainsi que leur taille et leur date de création.
 4. Cliquez sur **Actions** en regard de l'instantané à utiliser, puis cliquez sur **Restaurer**. <br/>
    >**Remarque** : l'opération de restauration entraîne la perte des données qui ont été créées ou modifiées après la prise de l'instantané. Cette perte de données se produit car votre volume de stockage reprend le même état que celui qui était le sien au moment de la prise de l'instantané. 
 5. Cliquez sur **Oui** pour lancer la restauration. Un message doit s'afficher en haut de la page pour vous indiquer que le volume est restauré à l'aide de l'instantané sélectionné. En outre, une icône apparaît en regard de votre volume sur {{site.data.keyword.blockstorageshort}} pour indiquer qu'une transaction active est en cours. Survolez cette icône pour ouvrir une boîte de dialogue affichant la transaction. L'icône disparaît une fois la transaction terminée.
 6. Montez et reconnectez le volume de stockage à l'hôte.
-   - Cliquez [ici](accessing_block_storage_linux.html)  pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Linux.
-   - Cliquez [ici](accessing-block-storage-windows.html)  pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Microsoft Windows.
+   - Cliquez [ici](accessing_block_storage_linux.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Linux.
+   - Cliquez [ici](accessing-block-storage-windows.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Microsoft Windows.
    
->**Remarque** : la restauration d'un volume entraîne la suppression de tous les instantanés qui ont été pris avant l'instantané restauré.
+>**Remarque** : la restauration d'un volume entraîne la suppression de tous les instantanés qui ont été pris après celui utilisé pour la restauration.

@@ -2,27 +2,29 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Foire aux questions {{site.data.keyword.blockstorageshort}}
+# FAQ (Foire aux questions)
 
 ## Combien d'instances peuvent partager l'utilisation d'un volume {{site.data.keyword.blockstorageshort}} ?
-La limite par défaut pour le nombre d'autorisations par volume de blocs est 8. Pour augmenter cette limite, contactez votre ingénieur commercial.
+Le nombre d'autorisations par volume de blocs est limité par défaut à 8. Cela signifie que jusqu'à 8 hôtes peuvent être autorisés à accéder au numéro d'unité logique Block Storage. Pour augmenter la limite, contactez votre commercial. 
 
 ## Combien de volumes peuvent être commandés ?
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter vos volumes, contactez votre ingénieur commercial.
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter votre limite, contactez votre commercial. Pour plus d'informations, voir [Gestion des limites de stockage](managing-storage-limits.html).
+
+## Combien de volumes {{site.data.keyword.blockstorageshort}} peuvent être montés sur un hôte ?
+Cela dépend de ce que peut gérer le système d'exploitation de l'hôte. Ce n'est pas {{site.data.keyword.BluSoftlayer_full}} qui fixe une limite. Consultez la documentation de votre système d'exploitation pour connaître les limites fixées pour le nombre de volumes pouvant être montés.
 
 ## La limite du nombre d'IOPS est-elle imposée par instance ou par volume ?
-Les IOPS sont imposées au niveau du volume. En d'autres termes, deux hôtes connectés à un volume avec 6 000 IOPS partagent ces 6 000 IOPS. 
+Les IOPS sont imposées au niveau du volume. En d'autres termes, deux hôtes connectés à un volume avec 6 000 IOPS partagent ces 6 000 IOPS.
 
 ## Mesure des IOPS
-Les E-S/s sont mesurées en fonction d'un profil de chargement par blocs de 16 ko avec 50 % de lectures et 50 % d'écritures aléatoires. Les charges de travail qui diffèrent de ce profil sont susceptibles de connaître une baisse des performances. 
+Les E-S/s sont mesurées en fonction d'un profil de chargement par blocs de 16 ko avec 50 % de lectures et 50 % d'écritures aléatoires. Les charges de travail qui diffèrent de ce profil sont susceptibles de connaître une baisse des performances.
 
-## Que se passe-t-il lorsqu'une taille de bloc inférieure est utilisée pour mesurer les performances ? 
+## Que se passe-t-il lorsqu'une taille de bloc inférieure est utilisée pour mesurer les performances ?
 Le nombre maximal d'IOPS peut être obtenu même si vous utilisez des tailles de bloc plus petites. Toutefois, le débit devient plus lent. Par exemple, un volume doté de 6 000 IOPS présente les débits suivants en fonction des tailles de bloc :
 
 - 16 ko * 6 000 E-S/s == ~93,75 Mo/sec 
@@ -59,7 +61,7 @@ Les données situées sur un stockage non chiffré dans un centre de données mi
 Oui, {{site.data.keyword.blockstorageshort}} prend en charge les réservations persistantes SCSI-2 et SCSI-3.
 
 ## Qu'advient-il des données lors de la suppression des numéros d'unité logique {{site.data.keyword.blockstorageshort}} ?
-Lorsque le stockage est supprimé, tous les pointeurs dirigés vers les données de ce volume sont retirés et les données deviennent donc inaccessibles. Si le stockage physique est remis à disposition sur un autre compte, un nouvel ensemble de pointeurs est affecté. Le nouveau compte ne peut pas accéder aux données qui se trouvaient sur le stockage physique. Le nouvel ensemble de pointeurs affiche tous les 0. Les nouvelles données écrasent les données inaccessibles qui figuraient sur ce stockage physique.
+{{site.data.keyword.blockstoragefull}} propose aux clients les volumes de blocs sur un espace de stockage physique qui est nettoyé avant toute réutilisation. Les clients ayant des exigences particulières de conformité (telles que celles définies dans le document 800-88 du National Institute of Standards and Technology intitulé Guidelines for Media Sanitization) doivent effectuer la procédure d'expurgation des données avant de supprimer leur stockage.
 
 ## Que deviennent les unités qui sont déclassées du centre de données cloud ?
 Lorsque des unités sont déclassées, IBM les détruit avant de les supprimer. Elles sont ainsi inutilisables. Toutes les données qui étaient écrites sur ces unités deviennent inaccessibles.

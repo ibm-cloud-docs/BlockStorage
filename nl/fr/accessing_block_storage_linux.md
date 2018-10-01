@@ -15,7 +15,7 @@ Ces instructions s'appliquent à RHEL6/Centos6. Des remarques pour les autres sy
 
 Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCSI [ici](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} et la configuration DM-Multipath [ici](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}. 
+Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
 2. Cliquez sur **Hôte autorisé**.
@@ -29,7 +29,7 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
 
 **Remarque :** il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
 
-1. Installez les utilitaires iSCSI et multi-accès sur votre hôte. 
+1. Installez les utilitaires iSCSI et multi-accès sur votre hôte.
    - RHEL/CentOS
 
    ```
@@ -156,9 +156,9 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
    ```
    {: codeblock}
 
-   **Remarque :** Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle. 
+   **Remarque :** Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
 
-7. Définissez iSCSI pour qu'il démarre à l'amorçage et démarrez-le maintenant. 
+7. Définissez iSCSI pour qu'il démarre à l'amorçage et démarrez-le maintenant.
    - RHEL 6
 
       ```
@@ -229,9 +229,9 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
    ```
    {: pre}
 
-   Cette commande affiche les chemins d'accès. 
+   Cette commande affiche les chemins d'accès.
 
-10. Vérifiez que le périphérique est connecté.  Par défaut, le périphérique se connecte à `/dev/mapper/mpathX`, où X correspond à l'ID généré du périphérique connecté.
+10. Vérifiez que le périphérique est connecté. Par défaut, le périphérique se connecte à `/dev/mapper/mpathX`, où X correspond à l'ID généré du périphérique connecté.
     ```
     fdisk -l | grep /dev/mapper
     ```
@@ -264,7 +264,7 @@ Procédez comme indiqué ci-après pour créer un système de fichiers par dessu
 
    XXX représente le nom de disque renvoyé à l'étape 1. <br />
 
-   **Remarque** : faites défiler l'écran vers le bas pour afficher les codes de commande répertoriés dans le tableau de la commande `fdisk`. 
+   **Remarque** : faites défiler l'écran vers le bas pour afficher les codes de commande répertoriés dans le tableau de la commande `fdisk`.
 
 3. Créez un système de fichiers sur la nouvelle partition.
 
@@ -283,7 +283,7 @@ Procédez comme indiqué ci-après pour créer un système de fichiers par dessu
      {: pre}
 
 4. Créez un point de montage pour le système de fichiers et montez-le.
-   - Créez un nom de partition `PerfDisk` ou un emplacement où monter le système de fichiers. 
+   - Créez un nom de partition `PerfDisk` ou un emplacement où monter le système de fichiers.
 
      ```
      mkdir /PerfDisk
@@ -313,7 +313,7 @@ Procédez comme indiqué ci-après pour créer un système de fichiers par dessu
 #### Tableau de la commande `fdisk`
 
 <table border="0" cellpadding="0" cellspacing="0">
-	<caption>Le tableau de la commande <code>fdisk</code> contient les commandes à gauche et les résultats attendus à droite. </caption>
+	<caption>Le tableau de la commande <code>fdisk</code> contient les commandes à gauche et les résultats attendus à droite.</caption>
     <thead>
 	<tr>
 		<th style="width:40%;">Commande</th>
@@ -434,24 +434,24 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
    {: pre}
 
    **Remarque** : il est important de sélectionner le disque et la partition corrects lorsque vous exécutez cette commande.
-Vérifiez le résultat en imprimant la table de partition. ext3 est affiché dans la colonne du système de fichiers.
+   Vérifiez le résultat en imprimant la table de partition. ext3 est affiché dans la colonne du système de fichiers.
 
 4. Créez un point de montage pour le système de fichiers et montez-le.
-   - Créez un nom de partition `PerfDisk` ou un emplacement où monter le système de fichiers. 
+   - Créez un nom de partition `PerfDisk` ou un emplacement où monter le système de fichiers.
 
      ```
      mkdir /PerfDisk
      ```
      {: pre}
 
-   - Montez le stockage avec le nom de partition. 
+   - Montez le stockage avec le nom de partition.
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - Vérifiez que votre nouveau système de fichiers est répertorié. 
+   - Vérifiez que votre nouveau système de fichiers est répertorié.
 
      ```
      df -h
@@ -471,7 +471,7 @@ Vérifiez le résultat en imprimant la table de partition. ext3 est affiché dan
 
 ## Vérification que MPIO est correctement configuré dans les systèmes d'exploitation `*NIX`
 
-Pour vérifier si le multi-accès sélectionne les périphériques, affichez la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés. 
+Pour vérifier si le multi-accès sélectionne les périphériques, affichez la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés.
 
 ```
 # multipath -l
@@ -506,7 +506,7 @@ Si la configuration n'est pas correcte, la sortie se présente comme suit :
 No multipath output root@server:~# multipath -l root@server:~#
 ```
 
-Cette commande affiche les périphériques qui sont sur liste noire. 
+Cette commande affiche les périphériques qui sont sur liste noire.
 ```
 # multipath -l -v 3 | grep sd <date and time>
 ```

@@ -2,19 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# {{site.data.keyword.blockstorageshort}} 常見問題
+# 常見問題
 
 ## 有多少實例可以共用 {{site.data.keyword.blockstorageshort}} 磁區？
-每個區塊磁區的授權數目預設限制是 8。若要提高限制，請與業務代表聯絡。 
+每個區塊磁區的授權數目預設限制是 8。這表示最多可以授權 8 個主機存取 Block Storage LUN。若要要求提高限制，請與業務代表聯絡。
 
 ## 可以訂購多少個磁區？
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區，請與業務代表聯絡。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區限制，請與業務代表聯絡。如需相關資訊，請參閱[管理儲存空間限制](managing-storage-limits.html)。
+
+## 一個主機可以裝載多少個 {{site.data.keyword.blockstorageshort}} 磁區？
+這取決於主機作業系統可處理的項目，而不是由 {{site.data.keyword.BluSoftlayer_full}} 所限制。如需可裝載的磁區數目限制，請參閱 OS 文件。
 
 ## 已配置的 IOPS 限制是依據實例還是依據磁區施行？
 IOPS 是在磁區層次上施行。換句話說，連接至具有 6000 IOPS 之磁區的兩台主機會共用該 6000 IOPS。
@@ -57,7 +59,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 是，{{site.data.keyword.blockstorageshort}} 同時支援 SCSI-2 及 SCSI-3 持續保留。
 
 ## 刪除 {{site.data.keyword.blockstorageshort}} LUN 時，資料會發生什麼情況？
-刪除儲存空間時，會移除該磁區上資料的所有指標，因此資料會變成無法存取。如果將實體儲存空間重新佈建給另一個帳戶，則會指派一組新的指標。新帳戶無法存取實體儲存空間上的任何資料。這組新的指標全部顯示 0。新資料會改寫該實體儲存空間上已存在且無法存取的任何資料。
+{{site.data.keyword.blockstoragefull}} 會向客戶呈現在任何重複使用之前抹除的實體儲存空間上的 Block 磁區。具有特殊規範需求的客戶（例如 NIST 800-88 媒體資料安全清除準則）必須先執行資料安全清除程序，再刪除其儲存空間。
 
 ## 從雲端資料中心解除任務的磁碟機會發生什麼情況？
 磁碟機解除任務時，IBM 會先破壞它們再進行處理。磁碟機變成無法使用。已寫入該磁碟機的任何資料都會變成無法存取。

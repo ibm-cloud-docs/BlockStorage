@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,8 +25,8 @@ Cette fonctionnalité est disponible uniquement dans des [centres de données s�
 Les clients ne peuvent pas basculer entre Endurance et Performance lorsqu'ils ajustent leurs IOPS. En revanche, ils peuvent spécifier un nouveau niveau d'IOPS pour leur stockage en fonction des restrictions/critères suivants : 
 
 - Si le volume d'origine est de type Endurance avec un niveau de 0,25, il n'est pas possible de le mettre à jour.
-- Si le volume d'origine est de type Performance avec un niveau inférieur à 0,30 IOPS/Go, les options disponibles incluent uniquement les combinaisons de taille et d'IOPS qui génèrent un niveau inférieur à 0,30 IOPS/Go.
 - Si le volume d'origine est de type Performance avec un niveau inférieur ou égal à 0,30 IOPS/Go, les options disponibles incluent uniquement les combinaisons de taille et d'IOPS qui génèrent un niveau inférieur ou égal à 0,30 IOPS/Go.
+- Si le volume d'origine est de type Performance avec un niveau supérieur à 0,30 IOPS/Go, les options disponibles incluent uniquement les combinaisons de taille et d'IOPS qui génèrent un niveau supérieur à 0,30 IOPS/Go.
 
 ## Effet de l'ajustement des IOPS sur la réplication
 

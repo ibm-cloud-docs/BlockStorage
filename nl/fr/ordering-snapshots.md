@@ -16,7 +16,7 @@ Pour créer des instantanés de votre volume de stockage, que ce soit de manièr
 3. Sélectionnez la quantité d'espace dont vous avez besoin.
 4. Cliquez sur **Continuer**.
 5. Entrez un **code promo** le cas échéant et cliquez sur **Recalculer**. Les zones Prix pour cette commande et Vérification de la commande sont renseignées par défaut.
-6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**. Votre espace d'image instantanée est mis à disposition en quelques minutes. 
+6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**. Votre espace d'image instantanée est mis à disposition en quelques minutes.
 
 ## Calcul de la quantité d'espace d'image instantanée à commander
 

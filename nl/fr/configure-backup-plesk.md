@@ -10,7 +10,7 @@ lastupdated: "2018-06-26"
  
 # Configuration de {{site.data.keyword.blockstorageshort}} pour une sauvegarde avec Plesk
 
-Utilisez ces instructions afin de configurer {{site.data.keyword.blockstoragefull}} pour vos sauvegardes dans Plesk. Cela suppose que vous disposiez d'un accès racine ou sudo SSH et d'un niveau d'administrateur Plesk complet. Ces instructions se fondent sur un hôte CentOS7. 
+Utilisez ces instructions afin de configurer {{site.data.keyword.blockstoragefull}} pour vos sauvegardes dans Plesk. Cela suppose que vous disposiez d'un accès racine ou sudo SSH et d'un niveau d'administrateur Plesk complet. Ces instructions se fondent sur un hôte CentOS7.
 
 **Remarque** : Vous trouverez la documentation relative à Plesk pour la sauvegarde et la restauration [ici](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
 
@@ -19,7 +19,7 @@ Utilisez ces instructions afin de configurer {{site.data.keyword.blockstorageful
 2. Vérifiez qu'il existe un point de montage cible. <br />
    **Remarque** : Plesk dispose de deux options pour stocker les sauvegardes. L'une correspond au stockage Plesk interne (stockage situé sur votre serveur Plesk). L'autre correspond à un stockage FTP externe (stockage situé sur un serveur externe sur le Web ou sur votre réseau local). En général, dans les environnements Plesk, les sauvegardes internes sont stockées dans `/var/lib/psa/dumps` et utilisent `/tmp` comme répertoire temporaire. Dans cet exemple, le répertoire temporaire est conservé en local, mais le répertoire dumps est déplacé vers le répertoire cible STaaS (`/backup/psa/dumps`). Aucune donnée d'identification utilisateur FTP n'est requise.
    
-3. Configurez {{site.data.keyword.blockstorageshort}} comme décrit dans [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html). Montez {{site.data.keyword.blockstorageshort}} dans `/backup` et configurez `/etc/fstab` pour activer le montage à l'amorçage. 
+3. Configurez {{site.data.keyword.blockstorageshort}} comme décrit dans [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html). Montez {{site.data.keyword.blockstorageshort}} dans `/backup` et configurez `/etc/fstab` pour activer le montage à l'amorçage.
 
 4. **Facultatif** : Copiez les sauvegardes existantes dans le nouveau stockage. Vous pouvez utiliser `rsync`.
    ```

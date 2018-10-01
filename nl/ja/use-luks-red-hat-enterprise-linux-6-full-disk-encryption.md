@@ -29,7 +29,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 
 ## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームのセットアップ
 
-以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
+以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。 Linux で{{site.data.keyword.blockstorageshort}}にアクセスする方法については、[ここ](accessing_block_storage_linux.html) をクリックしてください。
 
 **注**: データ暗号化のプロセスにより、パフォーマンスに影響を与える可能性のあるホストへの負荷が発生します。
 
@@ -46,7 +46,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 3. リスト内で該当するボリュームを見つけます。
 4. ブロック・デバイスを暗号化します。
 
-   1. このコマンドはボリュームを初期化します。パスフレーズを設定することができます。<br/>
+   1. このコマンドはボリュームを初期化します。パスフレーズを設定することができます。 <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -68,7 +68,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
    ```
    {: pre}
 6. パスフレーズを入力します。
-7. マッピングを検証し暗号化されたボリュームの状況を表示します。<br/>
+7. マッピングを検証し暗号化されたボリュームの状況を表示します。   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -81,7 +81,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
      mode:    read/write
      Command successful
    ```
-8. 暗号化されたデバイス上の `/dev/mapper/cryptData` にランダム・データを書き込みます。 この操作により、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。このステップには少し時間がかかる場合があります。<br/>
+8. 暗号化されたデバイス上の `/dev/mapper/cryptData` にランダム・データを書き込みます。 この操作により、外部からはこのデータがランダムなデータとして見えるようになります。それは、データの使用パターンが開示されないように保護されることを意味します。 このステップには少し時間がかかる場合があります。<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

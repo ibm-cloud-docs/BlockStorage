@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-10"
 
 ---
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-06-29"
 
 {{site.data.keyword.blockstoragefull}} est un stockage iSCSI persistant, haute performance, qui est mis à disposition et géré indépendamment des instances de calcul. Les numéros d'unité logique {{site.data.keyword.blockstorageshort}} basés sur iSCSI sont connectés à des périphériques autorisés via des connexions en E-S multi-accès (MPIO) redondantes.
 
-{{site.data.keyword.blockstorageshort}} fournit les meilleurs niveaux de durabilité et de disponibilité du marché grâce à un ensemble de fonctionnalités hors pair. Il a été construit dans le respect des normes de l'industrie et des meilleures pratiques. {{site.data.keyword.blockstorageshort}} est conçu pour protéger l'intégrité des données et assurer la disponibilité pendant des événements de maintenance et des pannes inattendues et offrir une base de performance cohérente. 
+{{site.data.keyword.blockstorageshort}} fournit les meilleurs niveaux de durabilité et de disponibilité du marché grâce à un ensemble de fonctionnalités hors pair. Il a été construit dans le respect des normes de l'industrie et des meilleures pratiques. {{site.data.keyword.blockstorageshort}} est conçu pour protéger l'intégrité des données et assurer la disponibilité pendant des événements de maintenance et des pannes inattendues et offrir une base de performance cohérente.
 
 ## Fonctions principales
 
@@ -24,16 +24,16 @@ Profitez des fonctionnalités suivantes de {{site.data.keyword.blockstorageshort
 - **Chiffrement des données au repos** ([disponible dans certains centres de données](new-ibm-block-and-file-storage-location-and-features.html))
    - Chiffrement géré par le fournisseur pour les données au repos sans coût supplémentaire
 - **Stockage entièrement sécurisé par mémoire flash** ([disponible dans certains centres de données](new-ibm-block-and-file-storage-location-and-features.html))
-   - Stockage entièrement sécurisé par mémoire flash pour les volumes mis à disposition avec Endurance ou Performance à 2 E-S/s/Go au minimum 
+   - Stockage entièrement sécurisé par mémoire flash pour les volumes mis à disposition avec Endurance ou Performance à 2 E-S/s/Go au minimum
 - **Instantanés** ([disponibles dans certains centres de données](new-ibm-block-and-file-storage-location-and-features.html))
    - Capture des instantanés de données ponctuels de manière transparente.
 - **Réplication** ([disponible dans certains centres de données](new-ibm-block-and-file-storage-location-and-features.html))
    - Copie automatiquement des instantanés vers un centre de données {{site.data.keyword.BluSoftlayer_full}} partenaire.
 - **Connectivité hautement disponible**
    - Utilise des connexions réseau redondantes pour accroître la disponibilité 
-   - {{site.data.keyword.blockstorageshort}} basé sur iSCSI utilise l'E-S multi-accès (MPIO) 
+   - {{site.data.keyword.blockstorageshort}} basé sur iSCSI utilise l'E-S multi-accès (MPIO)
 - **Accès simultané**
-   - Permet à plusieurs hôtes d'accéder simultanément à des volumes de blocs (jusqu'à huit) pour les configurations en clusters. 
+   - Permet à plusieurs hôtes d'accéder simultanément à des volumes de blocs (jusqu'à huit) pour les configurations en clusters.
 - **Cluster de bases de données**
    - Prend en charge des cas d'utilisation avancés, tels que des bases de données en clusters.
      
@@ -258,6 +258,8 @@ Un autre facteur à prendre en compte est le nombre d'hôtes qui utilisent votre
 La vitesse de votre connexion Ethernet doit être supérieure au débit maximal attendu de votre volume. En règle générale, vous ne devriez pas saturer votre connexion Ethernet au-delà de 70 % de la bande passante disponible. Par exemple, si vous disposez de 6 000 IOPS et que vous utilisez une taille de bloc de 16 ko, le volume peut traiter un débit d'environ 94 Mo par seconde. Si vous disposez d'une connexion Ethernet de 1 Gbps vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement lorsque vos serveurs tentent d'utiliser le débit maximal disponible. Cela est dû au fait que 70 % de la limite théorique d'une connexion Ethernet de 1 Gbps (125 Mo par seconde) n'autorisent que 88 Mo par seconde.
 
 Pour atteindre le nombre maximal d'IOPS, vous devez mettre en place les ressources réseau adéquates. Vous devez également tenir compte de l'utilisation du réseau privé en dehors du stockage, ainsi que des réglages côté hôte et spécifiques aux applications (pile IP, nombre de lignes de file d'attente, etc.).
+
+Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Consultez la [documentation du serveur virtuel](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) pour comprendre les limites pouvant être imposées par le service.
 
 ## Soumission de votre commande
 

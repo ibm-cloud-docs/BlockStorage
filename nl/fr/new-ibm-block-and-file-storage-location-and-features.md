@@ -58,12 +58,13 @@ La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans
 	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 	    </td>
 	    <td><p>TOK02<br />
-        TOK04<br />
-        TOK05<br/>
-		    HKG02<br />
-		    SEO01<br />
-	    	SNG01<br />
-	    	CHE01<br /><br /><br /><br /><br /></p>
+		   TOK04<br />
+		   TOK05<br />
+		   HKG02<br />
+		   SEO01<br />
+		   SNG01<br />
+		   CHE01<br />
+                   <br /><br /><br /><br /></p>
 	   </td>
 	</tr>
 </table>
@@ -81,7 +82,7 @@ Le nouveau stockage inclut les nouvelles fonctions et capacités suivantes :
 - Prise en charge de l'**image instantanée et de la réplication** avec {{site.data.keyword.blockstorageshort}}
 - L'option de **facturation à l'heure** est disponible pour un stockage dont l'utilisation prévue est inférieure à un mois.
 - **Jusqu'à 48 000 E-S/s** pour le service {{site.data.keyword.blockstorageshort}} mis à disposition avec Performance.
-- **Les débits d'E-S/s sont ajustables** pour améliorer les performances en cas de modifications de charge saisonnières. Découvrez plus de détails sur cette fonctionnalité [ici](adjustable-iops.html).
+- **Les débits d'E-S/s sont ajustables** pour améliorer les performances en cas de modifications de charge saisonnières. Pour en savoir plus sur cette fonction, cliquez [ici](adjustable-iops.html).
 - Créez un clone de vos données avec la fonction de duplication de volume de **[{{site.data.keyword.blockstorageshort}}](how-to-create-duplicate-volume.html)**.
 - **Le stockage est extensible** par incréments en Go jusqu'à 12 To, sans avoir besoin de créer un doublon ni de déplacer manuellement les données vers un volume plus grand. Découvrez plus de détails sur cette fonctionnalité [ici](expandable_block_storage.html).
 
@@ -89,4 +90,4 @@ Le nouveau stockage inclut les nouvelles fonctions et capacités suivantes :
 
 Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Pour vous assurer que vous utilisez le point de montage correct pour vos volumes de stockage, vous pouvez afficher les informations relatives au point de montage sur la page **Détails du volume** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Revenez ici pour savoir si d'autres centres de données ont été mis à niveau et si de nouvelles fonctions et capacités ont été ajoutées pour  {{site.data.keyword.blockstorageshort}}.
+Revenez ici pour savoir si d'autres centres de données ont été mis à niveau et si de nouvelles fonctions et capacités ont été ajoutées pour {{site.data.keyword.blockstorageshort}}.

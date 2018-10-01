@@ -13,19 +13,19 @@ lastupdated: "2018-08-02"
 
 Suivez ces instructions pour installer votre numéro d'unité logique iSCSI avec multi-accès sur CloudLinux Server 6.10.
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}. 
+Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
 
-1. Connectez-vous au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. 
+1. Connectez-vous au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
 3. Cliquez sur **Hôte autorisé**.
 4. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
-5. Notez le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible. 
+5. Notez le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible.
 
 **Remarque :** il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 
-1. Installez les utilitaires iSCSI et multi-accès sur votre hôte et activez-les. 
+1. Installez les utilitaires iSCSI et multi-accès sur votre hôte et activez-les.
    ```
    yum install iscsi-initiator-utils
    ```
@@ -47,9 +47,9 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    ```
    {: pre}
 
-2. Créez ou éditez vos fichier de configuration. 
+2. Créez ou éditez vos fichier de configuration.
    - Update your '/etc/multipath.conf'. <br/>**Remarque** : toutes les données répertoriées sous blacklist doivent être propres à votre système.
-```
+     ```
      defaults {
         user_friendly_names no
         flush_on_last_del       yes
@@ -81,7 +81,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
      ```
      {: codeblock}
 
-   - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe. 
+   - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe.
    
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
@@ -96,10 +96,10 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
      ```
      {: codeblock}
    
-     **Remarque** : utilisez des majuscules pour les noms CHAP. Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle. 
+     **Remarque** : utilisez des majuscules pour les noms CHAP. Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
 
 
-3. Redémarrez les services `iscsi` et `multipathd`. 
+3. Redémarrez les services `iscsi` et `multipathd`.
    ```
    /etc/init.d/iscsi restart   
    ```
@@ -113,7 +113,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
 4. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue à partir du portail {{site.data.keyword.slportal}}.
 
      A. Exécutez la reconnaissance sur la grappe iSCSI.
-     ```
+       ```
        iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
        ```
        {: pre}
@@ -126,7 +126,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
        ```
 
      B. Définissez l'hôte pour qu'il se connecte automatiquement à la grappe iSCSI.
-     ```
+       ```
        iscsiadm -m node -L automatic
        ```
        {: pre}
@@ -144,7 +144,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    ```
 
 
-6. Vérifiez que le périphérique est connecté.  
+6. Vérifiez que le périphérique est connecté.
    ```
    fdisk -l 
    ```
@@ -183,7 +183,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
     
    Le volume est maintenant monté et accessible sur l'hôte.
 
-7. Vérifiez si MPIO est correctement configuré en affichant la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés. 
+7. Vérifiez si MPIO est correctement configuré en affichant la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés.
 
    ```
    # multipath -l

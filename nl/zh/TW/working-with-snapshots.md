@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -113,4 +113,4 @@ Snapshot 排程可以透過**儲存空間** > **{{site.data.keyword.blockstorage
    - 按一下[這裡](accessing_block_storage_linux.html)，以取得 Linux 上的 {{site.data.keyword.blockstorageshort}} 指示。
    - 按一下[這裡](accessing-block-storage-windows.html)，以取得 Microsoft Windows 上的 {{site.data.keyword.blockstorageshort}} 指示。
    
->**附註**：還原磁區會導致刪除在還原 Snapshot 之前擷取的所有 Snapshot。
+>**附註** - 還原磁區會導致刪除在用於還原的 Snapshot 之後擷取的所有 Snapshot。

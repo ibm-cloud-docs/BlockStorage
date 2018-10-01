@@ -10,9 +10,9 @@ lastupdated: "2018-06-26"
 
 # Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}. 
+Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
 
-1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.Cliquez sur **Hôte autorisé**.
+1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
 2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
@@ -39,7 +39,7 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
 
 1. Lancez l'initiateur iSCSI à partir du gestionnaire de serveur et sélectionnez **Outils**, **Initiateur iSCSI**.
 2. Cliquez sur l'onglet **Configuration**.
-    - La zone Nom de l'initiateur est peut-être déjà renseignée avec une entrée similaire à `iqn.1991-05.com.microsoft:`. 
+    - La zone Nom de l'initiateur est peut-être déjà renseignée avec une entrée similaire à `iqn.1991-05.com.microsoft:`.
     - Cliquez sur **Modifier** pour remplacer les valeurs existantes par votre nom qualifié iSCSI. Ce dernier peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 ![Propriétés de l'initiateur iSCSI](/images/iSCSI.png)
     - Cliquez sur l'onglet **Découverte**, puis sur **Découvrir un portail**.
@@ -95,7 +95,7 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
 
 ## Vérification que MPIO est correctement configuré dans les systèmes d'exploitation Windows
 
-Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer que le module complémentaire MPIO est activé et redémarrer le serveur. 
+Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer que le module complémentaire MPIO est activé et redémarrer le serveur.
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
@@ -114,7 +114,7 @@ Vous trouverez ci-dessous la procédure à suivre pour déconnecter une instance
 2. Sélectionnez les cibles à retirer et cliquez sur **Déconnexion**.
 
 ### Retrait de cibles
-Facultatif, si vous n'avez plus besoin d'accéder aux cibles iSCSI. 
+Facultatif, si vous n'avez plus besoin d'accéder aux cibles iSCSI.
 
 1. Cliquez sur **Découverte** dans l'initiateur iSCSI.
 2. Mettez en évidence le portail cible qui est associé à votre volume de stockage et cliquez sur **Supprimer**.

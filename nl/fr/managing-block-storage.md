@@ -33,7 +33,7 @@ Les hôtes "autorisés" sont des hôtes auxquels des droits d'accès à un numé
 ## Affichage de la liste des hôtes autorisés à accéder à un numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
 1. Cliquez sur **Stockage** -> **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom LUN.
-2. Faites défiler l'écran jusqu'à la section **Hôtes autorisés**. 
+2. Faites défiler l'écran jusqu'à la section **Hôtes autorisés**.
 
 Cette section affiche la liste des hôtes actuellement autorisés à accéder au numéro d'unité logique. Sont également affichées les informations d'authentification nécessaires pour établir une connexion : nom d'utilisateur, mot de passe et nom qualifié iSCSI hôte. L'adresse cible figure sur la page contenant les détails du stockage. Pour NFS, elle est décrite sous forme de DNS, tandis que pour iSCSI, il s'agit de l'adresse IP du portail cible Discover.
 
@@ -62,9 +62,9 @@ Consultez les articles suivants, qui contiennent des détails :
 
 ## Révocation de l'accès d'un hôte à {{site.data.keyword.blockstorageshort}}
 
-Si vous souhaitez ne plus autoriser un hôte à accéder à un numéro d'unité logique de stockage en particulier, vous pouvez révoquer l'accès. Lors de la révocation de l'accès, la connexion hôte est supprimée du numéro d'unité logique. Le système d'exploitation et les applications sur cet hôte ne peuvent plus communiquer avec le numéro d'unité logique. 
+Si vous souhaitez ne plus autoriser un hôte à accéder à un numéro d'unité logique de stockage en particulier, vous pouvez révoquer l'accès. Lors de la révocation de l'accès, la connexion hôte est supprimée du numéro d'unité logique. Le système d'exploitation et les applications sur cet hôte ne peuvent plus communiquer avec le numéro d'unité logique.
 
-**Remarque** : pour empêcher tout problème côté hôte, démontez le numéro d'unité logique de stockage de votre système d'exploitation avant de révoquer l'accès afin de prévenir tout incident lié à des unités manquantes ou à l'altération des données. 
+**Remarque** : pour empêcher tout problème côté hôte, démontez le numéro d'unité logique de stockage de votre système d'exploitation avant de révoquer l'accès afin de prévenir tout incident lié à des unités manquantes ou à l'altération des données.
 
 Vous pouvez révoquer l'accès à partir de la **Liste des unités** ou de la **vue Stockage**.
 

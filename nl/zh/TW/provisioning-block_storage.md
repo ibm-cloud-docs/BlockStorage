@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-09-26"
 
 ---
 {:new_window: target="_blank"}
@@ -61,6 +61,7 @@ lastupdated: "2018-08-01"
 
 當您的佈建要求完成時，請授權主機存取新的儲存空間，並配置連線。根據主機的作業系統而定，遵循適當的鏈結。
 - [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
 - [使用 cPanel 配置 Block Storage 進行備份](configure-backup-cpanel.html)
 - [使用 Plesk 配置 Block Storage 進行備份](configure-backup-plesk.html)

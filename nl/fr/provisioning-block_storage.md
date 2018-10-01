@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-09-26"
 
 ---
 {:new_window: target="_blank"}
@@ -61,10 +61,11 @@ Vous pouvez mettre à disposition le stockage {{site.data.keyword.blockstoragesh
 
 Lorsque votre demande de mise à disposition est terminée, autorisez vos hôtes à accéder au nouveau stockage et configurez votre connexion. Suivez le lien approprié en fonction du système d'exploitation de votre hôte.
 - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
+- [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
 - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
 - [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)
 
 ## Identification de {{site.data.keyword.blockstorageshort}} sur votre facture
 
-Tous les numéros d'unité logique apparaissent sur votre facture sous forme de lignes d'article. “Endurance Storage Service” s'affiche pour les volumes de type Endurance et "Performance Storage Service"  apparaît pour les volumes de type Performance. Le taux varie en fonction de votre niveau de stockage. Vous pouvez développer Endurance ou Performance pour voir qu'il s'agit de {{site.data.keyword.blockstorageshort}}.
+Tous les numéros d'unité logique apparaissent sur votre facture sous forme de lignes d'article. “Endurance Storage Service” s'affiche pour les volumes de type Endurance et "Performance Storage Service" apparaît pour les volumes de type Performance. Le taux varie en fonction de votre niveau de stockage. Vous pouvez développer Endurance ou Performance pour voir qu'il s'agit de {{site.data.keyword.blockstorageshort}}.

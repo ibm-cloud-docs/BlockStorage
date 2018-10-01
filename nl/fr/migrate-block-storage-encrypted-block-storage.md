@@ -21,7 +21,7 @@ Nous supposons que votre LUN non chiffré est déjà connecté à votre hôte. S
  
 ## Création de {{site.data.keyword.blockstorageshort}}
 
-**IMPORTANT** : Lorsque vous passez une commande via l'API, spécifiez le package "Storage as a Service" pour être certain d'obtenir les fonctionnalités mises à jour avec votre nouveau stockage. 
+**IMPORTANT** : Lorsque vous passez une commande via l'API, spécifiez le package "Storage as a Service" pour être certain d'obtenir les fonctionnalités mises à jour avec votre nouveau stockage.
 
 Les instructions suivantes concernent la commande d'un numéro d'unité logique amélioré via le portail {{site.data.keyword.slportal}}. Votre nouveau numéro d'unité logique doit être de taille identique ou supérieure à celle du volume d'origine pour faciliter la migration.
 
@@ -46,7 +46,7 @@ Les instructions suivantes concernent la commande d'un numéro d'unité logique 
 2. Sur la droite, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 3. Sélectionnez **Performance** dans la liste **Sélectionner le type de stockage**.
 4. Cliquez sur **Emplacement** et sélectionnez votre centre de données.
-   - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes que vous avez précédemment commandés. 
+   - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes que vous avez précédemment commandés.
 5. Sélectionnez votre option de facturation. Vous avez le choix entre une facturation à l'heure ou au mois.
 6. Sélectionnez la **taille de stockage** appropriée.
 7. Saisissez les E-S/s dans la zone **Spécifier les IOPS**.
@@ -61,7 +61,7 @@ Le stockage est mis à disposition en moins d'une minute et est visible sur la p
 
 Les hôtes "autorisés" sont des hôtes auxquels des droits d'accès à un volume ont été accordés. Sans autorisation d'hôte, vous ne pouvez pas accéder au stockage ni l'utiliser depuis votre système. L'autorisation d'un hôte pour accéder à votre volume génère le nom d'utilisateur, le mot de passe et le nom qualifié iSCSI, qui est nécessaire pour monter la connexion iSCSI d'E-S multi-accès.
 
-1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique. 
+1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique.
 
 2. Faites défiler la page jusqu'à **Hôtes autorisés**.
 
@@ -77,20 +77,20 @@ Si votre centre de données cible de réplication n'a pas encore été mis à ni
  
 ## Migration de vos données
 
-1. Connectez-vous à votre numéro d'unité logique d'origine et à vos nouveaux numéros d'unité logique {{site.data.keyword.blockstorageshort}}.  
+1. Connectez-vous à votre numéro d'unité logique d'origine et à vos nouveaux numéros d'unité logique {{site.data.keyword.blockstorageshort}}. 
   - Si vous avez besoin d'aide pour connecter les deux numéros d'unité logique à votre hôte, ouvrez un ticket de demande de service.
 
-2. Identifiez le type de données figurant sur votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine et pensez à la meilleure façon de copier ces données sur votre nouveau numéro d'unité logique.  
+2. Identifiez le type de données figurant sur votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine et pensez à la meilleure façon de copier ces données sur votre nouveau numéro d'unité logique. 
   - Si vous disposez de sauvegardes, d'un contenu statique ou d'autres contenus qui ne sont pas susceptibles d'être modifiés au cours de la copie, le processus s'avère assez simple.
   - Si vous exécutez une base de données ou une machine virtuelle sur votre service {{site.data.keyword.blockstorageshort}}, vérifiez que les données ne sont pas modifiées lors de la copie pour éviter leur altération. Si vous rencontrez des problèmes liés à la bande passante, procédez à la migration pendant les périodes creuses. Si vous avez besoin d'assistance pour ces questions, ouvrez un ticket de demande de service.
  
 3. Copiez vos données.
-   - **Microsoft Windows** : pour copier des données depuis votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine vers le nouveau numéro d'unité logique, formatez le nouveau stockage et copiez les fichiers à l'aide de l'Explorateur Windows. 
+   - **Microsoft Windows** : pour copier des données depuis votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine vers le nouveau numéro d'unité logique, formatez le nouveau stockage et copiez les fichiers à l'aide de l'Explorateur Windows.
    - **Linux** : vous pouvez utiliser `rsync` pour copier les données. Exemple :
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
    
    Il est recommandé d'utiliser une fois la commande précédente avec l'indicateur `--dry-run` pour faire en sorte que les chemins s'alignent correctement. Si ce processus est interrompu, vous pouvez supprimer le fichier cible le plus récemment copié et veiller à ce qu'il soit bien copié depuis le début vers le nouvel emplacement.<br/>
-Une fois cette commande terminée sans l'indicateur `--dry-run`, vos données sont copiées sur le nouveau numéro d'unité logique {{site.data.keyword.blockstorageshort}}. Exécutez la commande une nouvelle fois pour pour être sûr qu'il ne manque aucun élément. Vous pouvez également vérifier manuellement les deux emplacements et rechercher d'éventuels éléments manquants.<br/>
+   Une fois cette commande terminée sans l'indicateur `--dry-run`, vos données sont copiées sur le nouveau numéro d'unité logique {{site.data.keyword.blockstorageshort}}. Exécutez la commande une nouvelle fois pour être sûr qu'il ne manque aucun élément. Vous pouvez également vérifier manuellement les deux emplacements et rechercher d'éventuels éléments manquants.<br/>
    Une fois la migration terminée, vous pouvez déplacer la production vers le nouveau numéro d'unité logique. Vous pouvez ensuite détacher et supprimer votre LUN d'origine de votre configuration. Cette suppression entraîne également la suppression de tous les instantanés ou répliques du site cible qui étaient associés au numéro d'unité logique d'origine.

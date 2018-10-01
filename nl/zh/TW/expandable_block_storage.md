@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ lastupdated: "2018-06-29"
 
 ## 限制
 
-此特性只適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。 
+此特性適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。 
 
-在此特性發行（2017 年 12 月 14 日）之前，這些資料中心內所佈建的儲存空間只能增加至其原始大小的 10 倍，不能再更大。在該日期之後所佈建的儲存空間最多可以增加至 12 TB。 
+在此特性發行之前（**2017 年 4 月 - 2017 年 12 月 14 日**期間），這些資料中心內所佈建的儲存空間可以增加至其原始大小的 10 倍，不能再更大。在 **2017 年 12 月 14 日**之後所佈建的儲存空間最多可以增加至 12 TB。 
 
 已佈建「耐久性」之 {{site.data.keyword.blockstorageshort}} 的現有大小限制仍然適用（10 IOPS 層級最多為 4 TB，而所有其他層級最多為 12 TB）。
-
-## 識別合格的儲存空間
-
-已佈建加強型功能的儲存空間一律採取靜態加密。如果 {{site.data.keyword.slportal}} 中儲存空間旁具有「鎖定」圖示，則可以輕鬆地分辨出儲存空間符合資格。 
 
 ## 調整儲存空間大小
 
