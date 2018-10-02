@@ -12,12 +12,12 @@ lastupdated: "2018-06-26"
 
 시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 권한 부여했는지 확인하십시오.
 
-1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.**호스트 권한 부여**를 클릭하십시오.
+1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오. **호스트 권한 부여**를 클릭하십시오.
 2. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 
-다음은 Windows 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.예제는 Windows Server 2012를 기반으로 합니다. 단계는 운영 체제(OS) 공급업체 문서에 따라 다른 Windows 버전에 맞게 조정 가능합니다.
+다음은 Windows 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다. 예제는 Windows Server 2012를 기반으로 합니다. 단계는 운영 체제(OS) 공급업체 문서에 따라 다른 Windows 버전에 맞게 조정 가능합니다.
 
 ### MPIO 기능 구성
 
@@ -50,7 +50,7 @@ lastupdated: "2018-06-26"
          - **대상 시크릿** 필드에서 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 비밀번호를 입력하십시오.
     - **고급 설정** 및 **대상 포털 발견** 창에서 **확인**을 클릭하고 기본 iSCSI 이니시에이터 특성 화면으로 돌아가십시오. 인증 오류가 수신되면 사용자 이름 및 비밀번호 입력을 확인하십시오.
       ![비활성 대상](/images/Inactive_0.png)
-      **참고**: 대상 이름은 발견된 대상 섹션에 비활성 상태로 표시됩니다. 
+    **참고**: 대상 이름은 발견된 대상 섹션에 비활성 상태로 표시됩니다. 
 
     
 ### 대상 활성화

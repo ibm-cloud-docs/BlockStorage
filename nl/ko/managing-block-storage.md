@@ -9,7 +9,7 @@ lastupdated: "2018-06-26"
 
 # {{site.data.keyword.blockstorageshort}} 관리
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다. 
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
 
 ## {{site.data.keyword.blockstorageshort}} LUN 세부사항 보기
 

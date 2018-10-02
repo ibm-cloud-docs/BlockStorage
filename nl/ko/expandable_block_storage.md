@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ lastupdated: "2018-06-29"
 
 ## 제한사항
 
-이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에만 사용할 수 있습니다. 
+이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에 사용할 수 있습니다. 
 
-이 기능이 릴리스(2017년 12월 14일)되기 전에 이런 데이터 센터에서 업데이트된 스토리지에서 프로비저닝되는 스토리지는 원래 크기의 10배로만 증가됩니다. 이 날짜 이후에 프로비저닝된 다른 모든 스토리지는 최대 12TB까지 확장이 가능합니다. 
+이 기능이 릴리스되기 전에 **2017년 4월 - 2017년 12월 14일** 동안 이러한 데이터 센터에서 프로비저닝된 스토리지는 원래 크기의 10배로만 늘어날 수 있습니다. **2017년 12월 14일** 이후에 프로비저닝된 스토리지는 최대 12TB까지 확장이 가능합니다. 
 
 Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대한 기존 크기 제한은 여전히 적용됩니다(10 IOPS 티어에 대해 최대 4TB, 다른 모든 티어에 대해 최대 12TB).
-
-## 적격 스토리지 식별
-
-개선된 기능으로 프로비저닝된 스토리지는 항상 비활성 시에 암호화(encrypted-at-rest)됩니다. {{site.data.keyword.slportal}}에서 "잠금" 아이콘이 옆에 표시된 경우에는 스토리지의 적합성 여부를 쉽게 판별할 수 있습니다. 
 
 ## 스토리지 크기 조정
 

@@ -207,13 +207,13 @@ lastupdated: "2018-08-02"
 8. {{site.data.keyword.slportal}}에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
 
      A. iSCSI 배열에 대해 검색을 실행하십시오..
-       ```
+     ```
           iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
      ```
      {: pre}
 
      B. iSCSI 배열에 자동 로그인되도록 호스트를 설정하십시오.
-       ```
+     ```
           iscsiadm -m node -L automatic
      ```
      {: pre}
@@ -231,7 +231,8 @@ lastupdated: "2018-08-02"
 
    이 명령은 경로를 보고합니다.
 
-10. 디바이스가 연결되었는지 확인하십시오. 기본적으로, 디바이스는 `/dev/mapper/mpathX`에 연결되며 여기서 X는 연결된 디바이스에 대해 생성된 ID입니다.```
+10. 디바이스가 연결되었는지 확인하십시오. 기본적으로, 디바이스는 `/dev/mapper/mpathX`에 연결되며 여기서 X는 연결된 디바이스에 대해 생성된 ID입니다.
+    ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
@@ -444,7 +445,6 @@ lastupdated: "2018-08-02"
      {: pre}
 
    - 파티션 이름을 사용하여 스토리지를 마운트하십시오.
-     
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
@@ -452,7 +452,6 @@ lastupdated: "2018-08-02"
      {: pre}
 
    - 새 파일 시스템이 나열되는지 확인하십시오.
-     
 
      ```
      df -h
@@ -460,7 +459,7 @@ lastupdated: "2018-08-02"
      {: pre}
 
 5. 새 파일 시스템을 시스템의 `/etc/fstab` 파일에 추가하여 부팅 시에 자동 마운팅이 사용되도록 설정하십시오.
-   - 다음 행을 `/etc/fstab`의 끝에 추가하십시오(3단계의 파티션 이름 사용).<br />
+   - 다음 행을 `/etc/fstab`의 끝에 추가하십시오(3단계의 파티션 이름 사용). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1

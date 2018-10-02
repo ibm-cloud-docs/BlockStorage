@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,8 +25,8 @@ lastupdated: "2018-06-29"
 클라이언트는 IOPS 조정 시에 Endurance/Performance 사이에서 전환할 수 없습니다. 그러나 다음과 같은 기준/제한사항을 바탕으로 스토리지에 대해 새 IOPS 티어 또는 IOPS 레벨을 지정할 수 있습니다. 
 
 - 원본 볼륨이 Endurance0.25 티어인 경우, IOPS 티어는 업데이트할 수 없습니다.
-- 원본 볼륨이 Performance 0.30 IOPS/GB 미만인 경우, 사용 가능한 옵션은 0.30 IOPS/GB 미만인 크기 및 IOPS 조합만 포함해야 합니다.
-- 원본 볼륨이 Performance 0.30 IOPS/GB 이상인 경우, 사용 가능한 옵션은 0.30 IOPS/GB 이상인 크기 및 IOPS 조합만 포함해야 합니다.
+- 원래 볼륨이 0.30IOPS/GB 이하의 Performance인 경우, 사용 가능한 옵션에는 결과가 0.30IOPS/GB 이하인 크기 및 IOPS 조합만 포함됩니다. 
+- 원래 볼륨이 0.30IOPS/GB를 초과하는 Performance인 경우, 사용 가능한 옵션에는 결과가 0.30IOPS/GB를 초과하는 크기 및 IOPS 조합만 포함됩니다. 
 
 ## 복제 시 IOPS 조정 효과
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-10"
 
 ---
 {:new_window: target="_blank"}
@@ -88,7 +88,7 @@ lastupdated: "2018-06-29"
 
 ## 프로비저닝
 
-{{site.data.keyword.blockstorageshort}} LUN은 20GB부터 12TB까지 프로비저닝 가능하며 다음과 같은 두 개의 옵션이 있습니다.<br/>
+{{site.data.keyword.blockstorageshort}} LUN은 20GB부터 12TB까지 프로비저닝 가능하며 다음과 같은 두 개의 옵션이 있습니다. <br/>
 - 사전 정의된 성능 레벨과 스냅샷 및 복제와 같은 기타 기능을 제공하는 **Endurance** 티어를 프로비저닝합니다.
 - 초당 할당된 입출력(I/O) 오퍼레이션(IOPS)이 있는 강력한 **Performance** 환경을 빌드합니다. 
 
@@ -117,7 +117,7 @@ Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항�
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>표 3에서는 성능 스토리지의 크기와 IOPS 조합을 표시합니다. <br/><sup><img src="/images/numberone.png" alt="각주" /></sup> 6,000이 넘는 IOPS 한계는 데이터 센터 선택 시 사용할 수 있습니다.</caption>
+ <caption>표 3에서는 성능 스토리지의 크기와 IOPS 조합을 표시합니다.<br/><sup><img src="/images/numberone.png" alt="각주" /></sup> 6,000이 넘는 IOPS 한계는 데이터 센터 선택 시 사용할 수 있습니다.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -257,7 +257,9 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 
 이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, 6000 IOPS에 16KB의 블록 크기를 사용 중인 경우, 볼륨은 대략적으로 94MBps 처리량을 처리할 수 있습니다. LUN에 1Gbps 이더넷 연결을 사용 중인 경우, 서버가 최대 가용 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 1Gbps 이더넷 연결(초당 125MB)에 대한 이론적 한계의 70%는 초당 88MB만 처리할 수 있기 때문입니다.
 
-최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 이 밖에도 스토리지 외부의 사설 네트워크 사용과 호스트 측 및 애플리케이션별 고유 튜닝(IP 스택 또는 큐 깊이 및 기타 설정)도 고려해야 합니다.
+최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 이 밖에도 스토리지 외부의 사설 네트워크 사용과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 큐 깊이 및 기타 설정)도 고려해야 합니다.
+
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계를 이해하려면 [Virtual Server 문서](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오. 
 
 ## 주문 제출
 

@@ -138,7 +138,6 @@ lastupdated: "2018-08-02"
    {: pre}
    
    출력 예제
-       
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
    tcp: [2] 161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -152,7 +151,6 @@ lastupdated: "2018-08-02"
    {: pre}
     
    출력 예제
-       
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
    255 heads, 63 sectors/track, 121534 cylinders
@@ -193,7 +191,6 @@ lastupdated: "2018-08-02"
    {: pre}
    
    출력 예제
-       
    ```
    root@server:~# multipath -l
    3600a098038304454515d4b6a5a444e35 dm-0 NETAPP,LUN C-Mode

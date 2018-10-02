@@ -62,13 +62,13 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
       
-5. 볼륨을 열고 맵핑을 작성하십시오. <br/>
+5. 볼륨을 열고 맵핑을 작성하십시오.   <br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
 6. 비밀번호 문구를 입력하십시오.
-7. 맵핑을 확인하고 암호화된 볼륨의 상태를 보십시오.<br/>
+7. 맵핑을 확인하고 암호화된 볼륨의 상태를 보십시오.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.

@@ -27,7 +27,7 @@ lastupdated: "2018-07-18"
 
 제공자 관리 비활성 시 암호화(Encryption-At-Rest) 기능은 [데이터 센터](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 사용할 수 있습니다. 해당 데이터 센터에서 주문되는 모든 스토리지는 암호화를 사용하여 자동으로 프로비저닝됩니다.
 
-{{site.data.keyword.blockstorageshort}} 주문 시, 별표(`*`)가 있는 데이터 센터를 선택하십시오. 볼륨이 암호화되어 있음을 나타내는 잠금 아이콘이 LUN/볼륨 이름 필드의 오른쪽에 표시됩니다. 
+{{site.data.keyword.blockstorageshort}} 주문 시, 별표(`*`)가 있는 데이터 센터를 선택하십시오. 볼륨이 암호화되어 있음을 나타내는 잠금 아이콘이 LUN/볼륨 이름 필드의 오른쪽에 표시됩니다.
 
 ![잠금 아이콘은 LUN이 암호화되어 있음을 나타냅니다.](/images/encryptedstorage.png)
 <caption>그림 1. LUN이 암호화되었음을 나타내는 잠금 아이콘 예제</caption>

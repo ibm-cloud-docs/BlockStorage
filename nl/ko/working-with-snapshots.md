@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -114,4 +114,4 @@ lastupdated: "2018-06-29"
    - Linux의 {{site.data.keyword.blockstorageshort}}에 대한 지시사항을 보려면 [여기](accessing_block_storage_linux.html)를 클릭하십시오.
    - Microsoft Windows의 {{site.data.keyword.blockstorageshort}}에 대한 지시사항을 보려면 [여기](accessing-block-storage-windows.html)를 클릭하십시오.
    
->**참고** - 볼륨을 복원하면 복원된 스냅샷 전에 작성한 모든 스냅샷이 삭제됩니다.
+>**참고** - 볼륨을 복원하면 복원에 사용된 스냅샷 이후에 작성된 모든 스냅샷은 삭제됩니다. 

@@ -2,19 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# {{site.data.keyword.blockstorageshort}} 자주 질문되는 내용(FAQ)
+# FAQ
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨의 사용을 몇 개의 인스턴스에서 공유할 수 있습니까?
-블록 볼륨별 권한 부여 수에 대한 기본 한계는 8입니다. 이 한계를 늘리려면 영업 담당자에게 문의하십시오.
+블록 볼륨당 권한 부여 수에 대한 기본 한계는 8개입니다. 이는 블록 스토리지 LUN에 액세스하도록 최대 8개의 호스트에 권한을 부여할 수 있음을 의미합니다. 한계를 늘리도록 요청하려면 영업 담당자에게 문의하십시오. 
 
 ## 주문할 수 있는 볼륨은 얼마나 됩니까?
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨을 늘리려면 영업 담당자에게 문의하십시오.
+기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 한계를 늘리려면 영업 담당자에게 문의하십시오. 자세한 정보는 [스토리지 한계 관리](managing-storage-limits.html)를 참조하십시오.
+
+## 호스트에 마운트할 수 있는 {{site.data.keyword.blockstorageshort}} 볼륨은 몇 개입니까?
+호스트 운영 체제에서 처리할 수 있는 항목에 따라 달라지며 {{site.data.keyword.BluSoftlayer_full}}에서 제한하는 것은 아닙니다. 마운트할 수 있는 볼륨 수에 대한 한계는 OS 문서를 참조하십시오. 
 
 ## 할당된 IOPS 한계는 인스턴스로 적용됩니까, 아니면 볼륨으로 적용됩니까?
 IOPS는 볼륨 레벨에서 적용됩니다. 다시 말해 6000 IOPS로 볼륨에 연결된 두 개의 호스트가 해당 6000 IOPS를 공유합니다.
@@ -59,7 +61,7 @@ Endurance유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB 티어는 
 예, {{site.data.keyword.blockstorageshort}}는  SCSI-2 및 SCSI-3 Persistent Reserve를 지원합니다.
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨이 삭제되면 내 데이터는 어떻게 됩니까?
-스토리지가 삭제되면, 해당 볼륨에서 데이터에 대한 모든 포인터가 제거되기 때문에 데이터에 액세스할 수 없습니다. 물리적 스토리지가 다른 계정으로 다시 프로비저닝되면 새 포인터 세트가 지정됩니다. 새 계정을 통해 물리적 스토리지에 있는 데이터에 액세스할 수 있는 방법이 없습니다. 새로운 포인터 세트는 모두 0입니다. 새로운 데이터가 해당 물리적 스토리지에 있는 액세스할 수 없는 데이터를 겹쳐씁니다.
+{{site.data.keyword.blockstoragefull}}는 재사용 전에 삭제되는 물리적 스토리지의 고객에게 블록 볼륨을 표시합니다. 미디어 무결 처리에 대한 NIST 800-88 가이드라인과 같이 규제 준수에 대한 특별 요구사항이 있는 고객은 스토리지를 삭제하기 전에 데이터 무결 처리 프로시저를 수행해야 합니다. 
 
 ## 클라우드 데이터 센터에서 사용 중지된 드라이브는 어떻게 됩니까?
 드라이브가 사용 중지되는 경우, 처분되기 전에 IBM에서 파기합니다. 드라이브를 사용할 수 없게 됩니다. 해당 드라이브에 쓰여진 모든 데이터는 더 이상 액세스가 불가능합니다.
