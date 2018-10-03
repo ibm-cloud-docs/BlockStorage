@@ -2,20 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Perguntas mais frequentes do {{site.data.keyword.blockstorageshort}}
+# FAQ
 
 ## Quantas instâncias podem compartilhar o uso de um volume do {{site.data.keyword.blockstorageshort}}?
-O limite padrão para o número de autorizações por volume de bloco é 8. Para aumentar o limite, entre em contato com seu representante de vendas.
+O limite padrão do número de autorizações por volume de bloco é oito. Isso significa que até oito hosts podem ser autorizados a acessar o LUN do Block Storage. Para solicitar um aumento de limite, entre em contato com o representante de vendas.
 
 ## Quantos volumes podem ser solicitados?
 Por padrão, é possível provisionar um total combinado de 250
-volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar seu volume, entre em contato com seu representante de vendas para aumentar seus volumes.
+volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar seu limite de volume, entre em contato com o representante de vendas. Para obter mais informações, veja [Gerenciando limites de armazenamento](managing-storage-limits.html).
+
+## Quantos volumes do {{site.data.keyword.blockstorageshort}} podem ser montados em um host?
+Isso depende do que o sistema operacional do host é capaz de manipular, não é algo limitado pelo {{site.data.keyword.BluSoftlayer_full}}. Consulte a documentação do S.O. para conhecer os limites com relação ao número de volumes que podem ser montados.
 
 ## O limite de IOPS alocado é aplicado por instância ou por volume?
 O IOPS é cumprido no nível de volume. Em outras palavras, dois hosts conectados a um volume
@@ -68,7 +70,7 @@ para implementar o fence de E/S para Db2 pureScale?
 Sim, o {{site.data.keyword.blockstorageshort}} suporta as reservas persistentes SCSI-2 e SCSI-3.
 
 ## O que acontece com os dados quando os LUNs do {{site.data.keyword.blockstorageshort}} são excluídos?
-Quando o armazenamento é excluído, todos os ponteiros para os dados nesse volume são removidos, portanto, os dados se tornam inacessíveis. Se o armazenamento físico é reprovisionado para outra conta, um novo conjunto de ponteiros é designado. Não há como a nova conta acessar quaisquer dados que estavam no armazenamento físico. O novo conjunto de ponteiros mostra todos 0s. Os novos dados sobrescrevem todos os dados inacessíveis que existiam nesse armazenamento físico.
+O {{site.data.keyword.blockstoragefull}} apresenta volumes de Bloco aos clientes em armazenamento físico cujos dados são apagados antes da reutilização. Os clientes com necessidades especiais de conformidade, como as Diretrizes para sanitização de mídias NIST 800-88, devem executar o procedimento de sanitização de dados antes de excluir seu armazenamento.
 
 ## O que acontece com as unidades que são desatribuídas do centro de dados de nuvem?
 Quando as unidades são desatribuídas, a IBM as destrói antes de elas serem descartadas. As unidades se tornam inutilizáveis. Quaisquer dados gravados nessas unidades se tornam inacessíveis.

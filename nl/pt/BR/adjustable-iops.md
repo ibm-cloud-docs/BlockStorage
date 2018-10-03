@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,8 +25,8 @@ Esse recurso está disponível somente em [data centers selecionados](new-ibm-bl
 Os clientes não podem alternar entre Endurance e Performance ao ajustarem sua IOPS. No entanto, eles podem especificar uma nova camada de IOPS ou um nível de IOPS para seu armazenamento com base nos critérios/restrições a seguir: 
 
 - Se o volume original é a camada de 0,25 do Endurance, a camada de IOPS não pode ser atualizada.
-- Se o volume original for Performance com um valor menor que 0,30 IOPS/GB, as opções disponíveis incluirão apenas as combinações de tamanho e de IOPS que resultem em um valor menor que 0,30 IOPS/GB.
-- Se o volume original for Performance com um valor maior ou igual a 0,30 IOPS/GB, as opções disponíveis incluirão apenas as combinações de tamanho e de IOPS que resultem em um valor maior ou igual a 0,30 IOPS/GB.
+- Se o volume original for Desempenho, com um valor menor ou igual a 0,30 IOPS/GB, as opções disponíveis incluirão apenas as combinações de tamanho e de IOPS que resultarem em um valor menor ou igual a 0,30 IOPS/GB.
+- Se o volume original for Desempenho, com mais de 0,30 IOPS/GB, as opções disponíveis incluirão apenas as combinações de tamanho e de IOPS que resultarem em mais de 0,30 IOPS/GB.
 
 ## Efeito do ajuste de IOPS na replicação
 

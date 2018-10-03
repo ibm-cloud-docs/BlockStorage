@@ -60,17 +60,18 @@ O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/da
 	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 	    </td>
 	    <td><p>TOK02<br />
-    TOK04<br />
-    TOK05<br/>
-		HKG02<br />
-		SEO01<br />
-		SNG01<br />
-		CHE01<br /><br /><br /><br /><br /></p>
+		   TOK04<br />
+		   TOK05<br />
+		   HKG02<br />
+		   SEO01<br />
+		   SNG01<br />
+		   CHE01<br />
+                   <br /><br /><br /><br /></p>
 	   </td>
 	</tr>
 </table>
 
-*A Tabela 1 mostra nossa disponibilidade do data center. Cada região possui sua própria coluna. Algumas cidades, como Dallas, São José, Washington DC, Amsterdã, Frankfurt, Londres e Sydney, têm múltiplos data centers. *
+*A Tabela 1 mostra nossa disponibilidade do data center. Cada região possui sua própria coluna. Algumas cidades, como Dallas, São José, Washington DC, Amsterdã, Frankfurt, Londres e Sydney, têm múltiplos data centers.*
 
 O novo armazenamento tem os seguintes recursos e capacidades:
 

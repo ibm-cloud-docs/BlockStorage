@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ A ação de expansão nos resultados de armazenamento primário resulta no redim
 
 ## Limitações
 
-Esse recurso está disponível para armazenamento provisionado somente em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). 
+Esse recurso está disponível para armazenamentos provisionados em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). 
 
-O armazenamento provisionado nesses data centers antes da liberação desse recurso (14 de dezembro de 2017) pode ser aumentado 10 vezes seu tamanho original e não mais que isso. O armazenamento provisionado após essa data pode ser aumentado até 12 TB. 
+Os armazenamentos provisionados nesses data centers antes da liberação desse recurso, de **abril de 2017 a 14 de dezembro de 2017**, podem ser aumentados para até 10 vezes o seu tamanho original, não mais que isso. Os armazenamentos provisionados após **14 de dezembro de 2017** podem ser aumentados para até 12 terabytes. 
 
 As limitações de tamanho existentes para o {{site.data.keyword.blockstorageshort}} que foram provisionadas com o Endurance ainda se aplicam (até 4 TB para a camada de 10 IOPS e até 12 TB para todas as outras camadas).
-
-## Identificando o armazenamento elegível
-
-O armazenamento provisionado com recursos aprimorados é sempre criptografado em repouso. Será possível dizer facilmente se seu armazenamento é elegível se ele tiver um ícone de "bloqueio" próximo a ele no {{site.data.keyword.slportal}}. 
 
 ## Redimensionando o
 

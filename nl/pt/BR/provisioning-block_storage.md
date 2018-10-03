@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-09-26"
 
 ---
 {:new_window: target="_blank"}
@@ -62,6 +62,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 
 Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts a acessar o novo armazenamento e configurar sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
 - [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
+- [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
 - [Configurando o Block Storage para backup com o cPanel](configure-backup-cpanel.html)
 - [Configurando o Block Storage para backup com o Plesk](configure-backup-plesk.html)

@@ -117,7 +117,7 @@ o {{site.data.keyword.blockstorageshort}} com o Linux.
    ```
    {: codeblock}
 
-### Remontando e montando uma partição criptografada LUKS existente
+### Remontando e montando uma partição criptografada pelo LUKS existente
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.

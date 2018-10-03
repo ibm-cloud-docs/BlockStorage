@@ -96,7 +96,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
      ```
      {: codeblock}
    
-     **Nota** - Use letras maiúscula para nomes de CHAP. Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
+     **Nota** - Use letras maiúsculas para nomes de CHAP. Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
 
 
 3. Reinicie os serviços  ` iscsi `  e  ` multipathd ` .

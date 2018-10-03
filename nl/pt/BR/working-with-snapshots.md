@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -131,4 +131,4 @@ Talvez seja necessário retornar o seu volume de armazenamento para um momento e
    - Clique [aqui](accessing-block-storage-windows.html) para
 {{site.data.keyword.blockstorageshort}}obter instruções no Microsoft Windows.
    
->**Nota** - a restauração de um volume resulta na exclusão de todas as capturas instantâneas que foram tiradas antes da captura instantânea restaurada.
+>**Observação** - A restauração de um volume resulta na exclusão de todas as capturas instantâneas tomadas após a captura instantânea usada para a restauração.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-10"
 
 ---
 {:new_window: target="_blank"}
@@ -264,11 +264,13 @@ Outro fator a ser considerado é o número de hosts que estão usando seu volume
 A velocidade da sua conexão de Ethernet deve ser mais rápida do
 que o rendimento máximo esperado de seu volume. Em geral, não espere saturar sua conexão Ethernet além de 70% da largura de banda disponível. Por exemplo, se você tiver 6.000 IOPS e estiver usando um tamanho de bloco de 16 KB, o volume poderá manipular aproximadamente o rendimento de 94 MBps. Se você tiver uma conexão Ethernet de 1 Gbps para seu LUN, ela se tornará um gargalo quando seus servidores tentarem usar o rendimento máximo disponível. Isso é porque 70 por cento do limite teórico de uma conexão Ethernet de 1 Gbps (125 MB por segundo) permitiria 88 MB por segundo apenas.
 
-Para obter o máximo de IOPS, recursos de rede adequados precisam estar em vigor. Outras considerações incluem o uso de rede privada fora do armazenamento e do lado do host e de ajustes específicos do aplicativo (pilha IP ou profundidades da fila e outras configurações).
+Para obter o máximo de IOPS, recursos de rede adequados precisam estar em vigor. Outras considerações incluem o uso de rede privada fora do armazenamento, bem como ajustes do lado do host e específicos do aplicativo (pilha IP ou profundidades da fila e outras configurações).
+
+O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Consulte a [documentação do Virtual Server](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) para entender os limites que podem ser impostos pelo serviço.
 
 ## Enviando sua Ordem
 
-Quando você estiver pronto para enviar seu pedido, siga as instruções indicadas [aqui](provisioning-block_storage.html). 
+Quando você estiver pronto para enviar seu pedido, siga as instruções indicadas [aqui](provisioning-block_storage.html).
 
 ## Conectando seu novo armazenamento
 
