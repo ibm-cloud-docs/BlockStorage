@@ -2,14 +2,14 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-10-03"
 
 ---
 {:new_window: target="_blank"}
 
 # Ordering {{site.data.keyword.blockstorageshort}}
 
-You can provision {{site.data.keyword.blockstorageshort}} Storage and fine tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
+You can provision {{site.data.keyword.blockstorageshort}} and fine tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
 
 - You can choose from Endurance IOPs tiers that feature pre-defined performance levels to fit workloads that don't have well defined performance requirements. 
 - You can fine tune your storage to meet very specific performance requirements by specifying the total number of IOPS with Performance.
