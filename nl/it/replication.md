@@ -85,11 +85,11 @@ Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e d
 			</td>
 			<td>HKG02<br />
 				TOK02<br />
-        TOK04<br />
-        TOK05<br/>
+				TOK04<br />
+				TOK05<br />
 				SNG01<br />
 				SEO01<br />
-        CHE01<br />
+                                CHE01<br />
 				<br />
 				<br />
 				<br />

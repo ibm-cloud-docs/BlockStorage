@@ -7,9 +7,9 @@ lastupdated: "2018-08-29"
 ---
 {:new_window: target="_blank"}
 
-# Modifica delle impostazioni della profondità di coda dell'host 
+# Modifica delle impostazioni della profondità di coda dell'host
 
-{{site.data.keyword.BluSoftlayer_full}} consiglia una profondità massima di coda I/O (input/output) di applicazioni e host per ciascun livello Performance.  
+{{site.data.keyword.BluSoftlayer_full}} consiglia una profondità massima di coda I/O (input/output) di applicazioni e host per ciascun livello Performance. 
 
 <table align="center">
   <caption>Profondità della coda consigliata per ciascun livello IOPS</caption>

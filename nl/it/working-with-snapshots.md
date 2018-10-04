@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -114,4 +114,4 @@ Potresti dover riportare il tuo volume di archiviazione a uno specifico punto te
    - Fai clic [qui](accessing_block_storage_linux.html) per le istruzioni di {{site.data.keyword.blockstorageshort}} su Linux.
    - Fai clic [qui](accessing-block-storage-windows.html) per le istruzioni di {{site.data.keyword.blockstorageshort}} su Microsoft Windows.
    
->**Nota** - Il ripristino di un volume provoca l'eliminazione di tutte le istantanee che sono state acquisite prima dell'istantanea ripristinata.
+>**Nota** - il ripristino di un volume determina l'eliminazione di tutte le istantanee acquisite successivamente all'istantanea utilizzata per il ripristino.

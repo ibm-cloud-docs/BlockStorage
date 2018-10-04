@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ L'azione di espansione sull'archiviazione primaria determina una modifica automa
 
 ## Limitazioni
 
-Questa funzione è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
+Questa funzione è disponibile per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
 
-L'archiviazione di cui era stato eseguito il provisioning in questi data center prima della release di questa funzione (14 dicembre 2017) può essere aumentata solo a 10 volte la sua dimensione originale. L'archiviazione di cui è stato eseguito il provisioning dopo tale data può essere aumentata fino a un massimo di 12 TB. 
+L'archiviazione di cui era stato eseguito il provisioning in questi data center prima della release di questa funzione, tra l'**aprile 2017 e il 14 dicembre 2017**, può essere aumentata a 10 volte la sua dimensione originale e non oltre. L'archiviazione di cui è stato eseguito il provisioning dopo il **14 dicembre 2017** può essere aumentata fino a 12 TB. 
 
 I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning con Endurance continuano a essere validi (fino a 4 TB per un livello 10 IOPS e fino a 12 TB per tutti gli altri livelli).
-
-## Identificazione dell'archiviazione eleggibile
-
-L'archiviazione di cui è stato eseguito il provisioning con le funzionalità avanzate è sempre crittografata da inattiva. Puoi distinguere facilmente che la tua archiviazione è idonea se ha un'icona di "blocco" accanto ad essa in {{site.data.keyword.slportal}}. 
 
 ## Ridimensionamento dell'archiviazione
 

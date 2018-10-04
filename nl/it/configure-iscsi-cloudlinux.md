@@ -15,11 +15,11 @@ Segui queste istruzioni per installare la tua LUN iSCSI con multipath su CloudLi
 
 Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-1. Accedi al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. 
+1. Accedi al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
 3. Fai clic su **Authorize Host**.
 4. Dall'elenco, seleziona l'host o gli host che può accedere al volume e fai clic su **Submit**.
-5. Prendi nota dell'IQN host, del nome utente, della password e dell'indirizzo di destinazione. 
+5. Prendi nota dell'IQN host, del nome utente, della password e dell'indirizzo di destinazione.
 
 **Nota:** consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
 
@@ -137,7 +137,7 @@ Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.dat
    ```
    {: pre}
    
-   Output di esempio 
+   Output di esempio
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
    tcp: [2] 161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -150,7 +150,7 @@ Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.dat
    ```
    {: pre}
     
-   Output di esempio 
+   Output di esempio
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
    255 heads, 63 sectors/track, 121534 cylinders
@@ -190,7 +190,7 @@ Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.dat
    ```
    {: pre}
    
-   Output di esempio 
+   Output di esempio
    ```
    root@server:~# multipath -l
    3600a098038304454515d4b6a5a444e35 dm-0 NETAPP,LUN C-Mode

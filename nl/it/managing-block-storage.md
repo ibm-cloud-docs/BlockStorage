@@ -9,9 +9,9 @@ lastupdated: "2018-06-26"
 
 # Gestione di {{site.data.keyword.blockstorageshort}}
 
-Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. 
+Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-## Visualizzazione dei dettagli di un LUN {{site.data.keyword.blockstorageshort}} 
+## Visualizzazione dei dettagli di un LUN {{site.data.keyword.blockstorageshort}}
 
 Puoi visualizzare un riepilogo delle informazioni chiave per il LUN di archiviazione selezionato, comprese le capacità di istantanea e replica supplementari che sono state aggiunte all'archiviazione.
 
@@ -30,7 +30,7 @@ Gli host "autorizzati" sono host a cui è stato concesso l'accesso a uno specifi
 
  
 
-## Visualizzazione dell'elenco di host che sono autorizzati ad accedere a un LUN {{site.data.keyword.blockstorageshort}} 
+## Visualizzazione dell'elenco di host che sono autorizzati ad accedere a un LUN {{site.data.keyword.blockstorageshort}}
 
 1. Fai clic su **Storage** -> **{{site.data.keyword.blockstorageshort}}** e fai clic sul tuo nome LUN.
 2. Scorri verso il basso alla sezione **Authorized Hosts**.

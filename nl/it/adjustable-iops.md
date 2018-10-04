@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -14,7 +14,7 @@ Con questa nuova funzione, gli utenti di archiviazione {{site.data.keyword.block
 La fatturazione per l'archiviazione viene aggiornata per aggiungere la differenza calcolata proporzionalmente del nuovo prezzo al ciclo di fatturazione corrente. L'intero nuovo ammontare verrà fatturato nel prossimo ciclo di fatturazione.
 
 
-## Vantaggi dell'IOPS regolabile 
+## Vantaggi dell'IOPS regolabile
 
 - Gestione dei costi - alcuni dei clienti potrebbero avere bisogno di un IOPS elevato solo durante i tempi di utilizzo di picco. Ad esempio, un grosso negozio al dettaglio ha un utilizzo di picco durante i periodi festivi e potrebbe avere bisogno di un tasso di IOPS sulla sua archiviazione più elevato. Tuttavia, non hanno bisogno di un IOPS più elevato nel bel mezzo dell'estate. Questa funzione consente loro di gestire i loro costi e pagare un IOPS più elevato quando ne hanno bisogno.
 
@@ -25,8 +25,8 @@ Questa funzione è disponibile solo in [data center selezionati](new-ibm-block-a
 I clienti non possono passare da Endurance a Performance e viceversa quando regolano il loro IOPS. Tuttavia, possono specificare un nuovo livello IOPS o un livello IOPS per la loro archiviazione sulla base dei seguenti criteri e delle seguenti limitazioni: 
 
 - Se il volume originale è un livello Endurance 0,25, il livello IOPS non può essere aggiornato.
-- Se il volume originale è Performance con meno di 0.30 IOPS/GB, le opzioni disponibili includono solo le combinazioni di dimensione e IOPS che danno come risultato inferiore a 0.30 IOPS/GB.
-- Se il volume originale è Performance con un numero maggiore o uguale a 0.30 IOPS/GB, le opzioni disponibili includono solo le combinazioni di dimensione e IOPS che danno un risultato maggiore o uguale a 0.30 IOPS/GB.
+- Se il volume originale è Performance con un numero inferiore o uguale a 0,30 IOPS/GB, le opzioni disponibili includono solo le combinazioni di dimensione e IOPS che danno un risultato inferiore o uguale a 0,30 IOPS/GB.
+- Se il volume originale è Performance con più di 0,30 IOPS/GB, le opzioni disponibili includono solo le combinazioni di dimensione e IOPS che danno un risultato superiore a 0,30 IOPS/GB.
 
 ## Effetto della modifica dell'IOPS sulla replica
 

@@ -2,19 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Preguntas más frecuentes sobre {{site.data.keyword.blockstorageshort}}
+# Preguntas más frecuentes
 
 ## ¿Cuántas instancias pueden compartir el uso de un volumen de {{site.data.keyword.blockstorageshort}}?
-El límite predeterminado para el número de autorizaciones por volumen de bloque es de 8. Póngase en contacto con su representante de ventas para aumentar el límite.
+El límite predeterminado de número de autorizaciones por volumen de bloque es de ocho. Esto significa que se pueden autorizar hasta 8 hosts para acceder al LUN de almacenamiento en bloque. Para solicitar un aumento del límite, póngase en contacto con su representante de ventas.
 
 ## ¿Cuántos volúmenes se pueden pedir?
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el volumen, póngase en contacto con su representante de ventas para aumentar el número de volúmenes.
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el límite de volumen, póngase en contacto con su representante de ventas. Para obtener más información, consulte [Gestión de los límites de almacenamiento](managing-storage-limits.html).
+
+## ¿Cuántos volúmenes de {{site.data.keyword.blockstorageshort}} se pueden montar en un host?
+Eso depende de lo que el sistema operativo del host pueda manejar, no se trata de una limitación de {{site.data.keyword.BluSoftlayer_full}}. Consulte la documentación de su sistema operativo para conocer los límites en la cantidad de volúmenes que se pueden montar.
 
 ## ¿Se aplica el límite de IOPS asignado por instancia o por volumen?
 IOPS se aplica a nivel de volumen. Dicho de otro modo, dos hosts conectados a un volumen con 6000 IOPS comparten estos 6000 IOPS.
@@ -59,7 +61,7 @@ Los datos que residen en almacenamiento no cifrado en un centro de datos actuali
 Sí, {{site.data.keyword.blockstorageshort}} da soporte a las reservas persistentes SCSI-2 y SCSI-3.
 
 ## ¿Qué ocurre con los datos cuando se suprimen LUN de {{site.data.keyword.blockstorageshort}}?
-Cuando se suprime el almacenamiento, se eliminan todos los punteros a los datos en dicho volumen, por lo que los datos de vuelven inaccesibles. Si el almacenamiento físico se vuelve a suministrar a otra cuenta, se asignará un nuevo conjunto de punteros. La nueva cuenta no tiene ningún modo de acceder a los datos que se han almacenado en el almacenamiento físico. El nuevo conjunto de punteros muestra todo 0. Los datos nuevos sobrescriben los datos inaccesibles que existían en ese almacenamiento físico.
+{{site.data.keyword.blockstoragefull}} presenta volúmenes en bloque a los clientes en almacenamiento físico que se borra antes de cualquier reutilización. Los clientes con requisitos especiales de cumplimiento, como las directrices NIST 800-88 para el saneamiento de datos, deben realizar el procedimiento de saneamiento de datos antes de suprimir su almacenamiento.
 
 ## ¿Qué pasa a las unidades que quedan fuera de servicio en el centro de datos de nube?
 Cuando las unidades quedan fuera de servicio, IBM las destruye antes de desecharlas. Las unidades se vuelven inutilizables. Los datos escritos en dicha unidad se vuelven inaccesibles.

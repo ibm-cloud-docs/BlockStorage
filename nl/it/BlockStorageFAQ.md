@@ -2,19 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
 
-# Domande frequenti di {{site.data.keyword.blockstorageshort}}
+# Domande frequenti
 
 ## Quante istanze possono condividere l'uso di un volume {{site.data.keyword.blockstorageshort}}?
-Il limite predefinito per il numero di autorizzazioni per volume di blocchi è 8. Per aumentare il limite, contatta il tuo rappresentante di vendita.
+Il limite predefinito per il numero di autorizzazioni per volume di blocchi è otto. Questo significa che è possibile autorizzare l'accesso alla LUN Block Storage per un massimo di 8 host. Per richiedere un aumento del limite, contatta il tuo rappresentante di vendita.
 
 ## Quanti volumi possono essere ordinati?
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare i tuoi volumi, contatta il tuo rappresentante di vendita.
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il tuo limite di volumi, contatta il rappresentante di vendita. Per ulteriori informazioni, vedi [Gestione dei limiti di archiviazione](managing-storage-limits.html).
+
+## Quanti volumi {{site.data.keyword.blockstorageshort}} possono essere montati su un host?
+Dipende da quello che il sistema operativo dell'host è in grado di gestire; non è qualcosa che viene limitato da {{site.data.keyword.BluSoftlayer_full}}. Fai riferimento alla documentazione del tuo sistema operativo per i limiti relativi al numero di volumi che è possibile montare.
 
 ## Il limite dell'IOPS allocato viene implementato in base all'istanza o in base al volume?
 L'IOPS viene implementato a livello dei volumi. In altre parole, due host connessi a un volume con 6000 IOPS condividono questi 6000 IOPS.
@@ -59,7 +61,7 @@ I dati su un'archiviazione non crittografata in un data center di cui è stato e
 Sì, {{site.data.keyword.blockstorageshort}} supporta entrambe le prenotazioni permanenti SCSI-2 e SCSI-3.
 
 ## Che succede ai dati quando i LUN {{site.data.keyword.blockstorageshort}} vengono eliminati?
-Quando l'archiviazione viene eliminata, gli eventuali puntatori ai dati su tale volume vengono rimossi e, pertanto, i dati diventano inaccessibili. Se viene eseguito nuovamente il provisioning dell'archiviazione fisica a un altro account, viene assegnato un nuovo set di puntatori. Non vi è alcuna possibilità che il nuovo account acceda ad eventuali dati che erano stati sull'archiviazione fisica. Il nuovo set di puntatori mostra tutti 0. I nuovi dati sovrascrivono tutti i dati inaccessibili che esistevano su tale archiviazione fisica.
+{{site.data.keyword.blockstoragefull}} presenta i volumi a blocchi ai clienti sull'archiviazione fisica da cui vengono cancellati tutti i dati prima di qualsiasi riutilizzo. I clienti con requisiti speciali per la conformità quali le Guidelines for Media Sanitization (direttive sulla pulizia dei supporti) NIST 800-88 devono eseguire la procedura di ripulitura dei dati prima di eliminare la loro archiviazione.
 
 ## Cosa succede ai driver che vengono disattivati dal data center cloud?
 Quando i driver vengono disattivati, IBM li distrugge prima di eliminarli. I driver diventano inutilizzabili. Tutti i dati scritti in questi driver diventano inaccessibili.

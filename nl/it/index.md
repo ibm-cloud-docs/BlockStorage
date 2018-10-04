@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-10"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
    - Copia automaticamente le istantanee in un data center {{site.data.keyword.BluSoftlayer_full}} partner.
 - **Connettività altamente disponibile**
    - Utilizza le connessioni di rete ridondanti per massimizzare la disponibilità 
-   - {{site.data.keyword.blockstorageshort}} basato su iSCSI utilizza MPIO (Multipath I/O). 
+   - {{site.data.keyword.blockstorageshort}} basato su iSCSI utilizza MPIO (Multipath I/O).
 - **Accesso simultaneo**
    - Consente a più host di accedere simultaneamente ai volumi di blocco (fino a otto) per le configurazioni in cluster.
 - **Database in cluster**
@@ -113,7 +113,7 @@ La scelta del livello Endurance corretto per il tuo carico di lavoro è fondamen
 
 Performance è una classe di {{site.data.keyword.blockstorageshort}} progettata per supportare applicazioni a elevato I/O con requisiti di prestazioni chiari che mal si adattano in un livello Endurance. Delle prestazioni prevedibili si raggiungono tramite l'allocazione di IOPS a livello di protocollo ai singoli volumi. È possibile eseguire il provisioning di vari tassi di IOPS compresi nell'intervallo 100 - 48.000 con delle dimensioni dell'archiviazione che vanno da 20 GB a 12 TB. 
 
-Performance per {{site.data.keyword.blockstorageshort}} è accessibile e montato attraverso una connessione iSCSI (internet Small Computer System Interface) MPIO (Multipath I/O).{{site.data.keyword.blockstorageshort}} viene di norma utilizzato quando si accede al volume da un solo server. Più volumi possono essere montati a un host e messi in stripe insieme per raggiungere volumi più grandi e conteggi IOPS più elevati. I volumi Performance possono essere ordinati in base alle dimensioni e ai tassi dell'IOPS nella Tabella 3 per i sistemi operativi Linux, XEN e Windows.
+Performance per {{site.data.keyword.blockstorageshort}} è accessibile e montato attraverso una connessione iSCSI (internet Small Computer System Interface) MPIO (Multipath I/O). {{site.data.keyword.blockstorageshort}} viene di norma utilizzato quando si accede al volume da un solo server. Più volumi possono essere montati a un host e messi in stripe insieme per raggiungere volumi più grandi e conteggi IOPS più elevati. I volumi Performance possono essere ordinati in base alle dimensioni e ai tassi dell'IOPS nella Tabella 3 per i sistemi operativi Linux, XEN e Windows.
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
@@ -186,7 +186,7 @@ Performance per {{site.data.keyword.blockstorageshort}} è accessibile e montato
 </table>
 
 
-I volumi Performance sono progettati per offrire prestazioni congruentemente prossime al livello IOPS di cui viene eseguito il provisioning. La congruenza semplifica l'impostazione della dimensione e dello scaling degli ambienti applicativi a uno specifico livello di prestazioni. Inoltre, è possibile ottimizzare un ambiente creando un volume con un rapporto ideale prezzo/prestazioni. 
+I volumi Performance sono progettati per offrire prestazioni congruentemente prossime al livello IOPS di cui viene eseguito il provisioning. La congruenza semplifica l'impostazione della dimensione e dello scaling degli ambienti applicativi a uno specifico livello di prestazioni. Inoltre, è possibile ottimizzare un ambiente creando un volume con un rapporto ideale prezzo/prestazioni.
 
 ### Considerazioni sul provisioning
 
@@ -258,6 +258,8 @@ Un altro fattore da considerare è il numero di host che sta utilizzando il tuo 
 La velocità della tua connessione Ethernet deve essere più veloce della velocità effettiva massima prevista dal tuo volume. In generale, non prevedi di saturare la connessione Ethernet oltre il 70% della larghezza di banda disponibile. Ad esempio, se hai 6.000 IOPS e stai utilizzando una dimensione del blocco di 16KB, il volume può gestire una velocità effettiva di circa 94 MBps. Se hai una connessione Ethernet da 1 Gbps al tuo LUN, diventa un collo di bottiglia quando i tuoi server proveranno a utilizzare la velocità effettiva massima disponibile. Ciò è dovuto al fatto che il 70 percento del limite teorico di una connessione Ethernet da 1 Gbps (125 MB al secondo) consentirebbe solo 88 MB al secondo.
 
 Per raggiungere l'IOPS massimo, è necessario che siano implementate delle risorse di rete adeguate. Altre considerazioni includono l'utilizzo della rete privata esternamente al lato archiviazione e host e le regolazioni specifiche per le applicazioni (stack di IP o profondità di coda e altre impostazioni).
+
+Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Consulta la [documentazione dei server virtuali](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) per comprendere i limiti che potrebbero essere imposti dal servizio.
 
 ## Invio del tuo ordine
 

@@ -32,7 +32,7 @@ Devi acquistare dello spazio di istantanea per il tuo volume prima di poter acqu
 La progettazione dell'istantanea dipende dall'ambiente del cliente. Le seguenti considerazioni sulla progettazione può aiutarti a pianificare e implementare copie istantanea: 
 - Puoi creare fino a 50 istantanee tramite la pianificazione e fino a 50 manualmente su ciascun volume o LUN. 
 - Non acquisire troppe istantanee. Assicurati che la tua frequenza di istantanee pianificate soddisfi le tue esigenze di obiettivo del tempo di ripristino (RTO) e obiettivo del punto di ripristino (RPO) e i tuoi requisiti di business applicativi pianificando istantanee orarie, giornaliere o settimanali. 
-- La funzione di eliminazione automatica (AutoDelete) di istantanea può essere utilizzata per controllare la crescita del consumo dell'archiviazione.<br/>
+- La funzione di eliminazione automatica (AutoDelete) di istantanea può essere utilizzata per controllare la crescita del consumo dell'archiviazione. <br/>
   >**Nota** - La soglia di AutoDelete è fissata al 95 percento.
     
 Le istantanee non sono sostituzioni della replica di ripristino di emergenza (Disaster Recovery) offsite o di un backup a lunga conservazione effettivi.

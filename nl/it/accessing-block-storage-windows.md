@@ -12,7 +12,7 @@ lastupdated: "2018-06-26"
 
 Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
-1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.Fai clic su **Authorize Host**.
+1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**. Fai clic su **Authorize Host**.
 2. Dall'elenco, seleziona l'host o gli host che può accedere al volume e fai clic su **Submit**.
 
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}

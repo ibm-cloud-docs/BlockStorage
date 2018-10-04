@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,8 +25,8 @@ Esta característica solo está disponible en [centros de datos seleccionados](n
 Los clientes no pueden cambiar entre Resistencia y Rendimiento al ajustar su IOPS. Sin embargo, pueden especificar un nuevo nivel de IOPS para su almacenamiento en función de los siguientes criterios/restricciones: 
 
 - Si el volumen original es Resistencia nivel 0,25, el nivel de IOPS no se puede actualizar.
-- Si el volumen original es Rendimiento con menos de 0,30 IOPS/GB, las opciones disponibles solo incluyen el tamaño y combinaciones de IOPS que resulten en menos de 0,30 IOPS/GB.
-- Si el volumen original es Rendimiento con más que o igual a 0,30 IOPS/GB, las opciones disponibles solo incluyen el tamaño y las combinaciones de IOPS que resulten en más que o igual a 0,30 IOPS/GB.
+- Si el volumen original es Rendimiento con menos que o igual a 0,30 IOPS/GB, las opciones disponibles solo incluyen el tamaño y las combinaciones de IOPS que resulten en menos que o igual a 0,30 IOPS/GB.
+- Si el volumen original es Rendimiento con más de 0,30 IOPS/GB, las opciones disponibles solo incluyen el tamaño y combinaciones de IOPS que resulten en más de 0,30 IOPS/GB.
 
 ## Efecto del ajuste de IOPS en la réplica
 

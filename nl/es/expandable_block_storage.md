@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-12"
 
 ---
 {:new_window: target="_blank"}
@@ -27,15 +27,11 @@ La acción de ampliar el almacenamiento primario genera un redimensionamiento au
 
 ## Limitaciones
 
-Esta característica solo está disponible para el almacenamiento suministrado en [determinados centros de datos](new-ibm-block-and-file-storage-location-and-features.html). 
+Esta característica está disponible para el almacenamiento suministrado en [determinados centros de datos](new-ibm-block-and-file-storage-location-and-features.html). 
 
-El almacenamiento suministrado en estos centros de datos antes de sacar al mercado esta característica (14 de diciembre de 2017) solo se puede incrementar hasta 10 veces su tamaño original. El almacenamiento suministrado después de esta fecha se puede aumentar hasta alcanzar 12 TB. 
+El almacenamiento suministrado a estos centros de datos antes de sacar al mercado esta característica, durante el periodo **Abril de 2017 - 14 de diciembre de 2017**, se puede incrementar hasta 10 veces su tamaño original y no más. El almacenamiento suministrado después del **14 de diciembre de 2017** se puede aumentar hasta alcanzar 12 TB. 
 
 Las limitaciones de tamaño actuales para {{site.data.keyword.blockstorageshort}} suministrado con Resistencia aún se aplican (hasta 4 TB para IOPS de nivel 10 y hasta 12 TB para los demás niveles).
-
-## Identificación del almacenamiento elegible
-
-El almacenamiento suministrado con funciones mejoradas siempre incluye cifrado en reposo. Puede saber fácilmente si es aplicable a su almacenamiento si tiene un icono de bloqueo en la {{site.data.keyword.slportal}}. 
 
 ## Redimensionamiento de almacenamiento
 

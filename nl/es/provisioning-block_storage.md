@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-09-26"
 
 ---
 {:new_window: target="_blank"}
@@ -61,6 +61,7 @@ Puede suministrar Almacenamiento y mayor precisión de {{site.data.keyword.block
 
 Cuando se haya completado la solicitud de suministro, autorice a los hosts a acceder al nuevo almacenamiento y configure la conexión. En función del sistema operativo del host, siga el enlace adecuado.
 - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
+- [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuración de Block Storage para la copia de seguridad con cPanel](configure-backup-cpanel.html)
 - [Configuración de Block Storage para la copia de seguridad con Plesk](configure-backup-plesk.html)

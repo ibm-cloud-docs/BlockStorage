@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-17"
 
 ---
 {:new_window: target="_blank"}
@@ -114,4 +114,4 @@ Es posible que necesite recuperar el volumen de almacenamiento a un punto en el 
    - Pulse [aquí](accessing_block_storage_linux.html) para obtener las instrucciones de {{site.data.keyword.blockstorageshort}} en Linux.
    - Pulse [aquí](accessing-block-storage-windows.html) para obtener las instrucciones de {{site.data.keyword.blockstorageshort}} en Microsoft Windows.
    
->**Nota**: La restauración de un volumen da lugar a la supresión de todas las instantáneas que se tomaron antes de la instantánea restaurada.
+>**Nota**: La restauración de un volumen da lugar a la supresión de todas las instantáneas que se tomaron después de la instantánea que se utilizó para la restauración.

@@ -232,7 +232,7 @@ Viene qui di seguito indicata la procedura necessaria per connettere un'istanza 
    Questo comando riporta i percorsi.
 
 10. Verifica che il dispositivo sia connesso. Per impostazione predefinita, il dispositivo si collega a `/dev/mapper/mpathX` dove X è l'ID generato del dispositivo connesso.
-```
+    ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
@@ -303,14 +303,14 @@ Segui questa procedura per creare un file system sul volume appena montato. Un f
      {: pre}
 
 5. Aggiungi il nuovo file system al file `/etc/fstab` del sistema per abilitare il montaggio automatico all'avvio del computer.
-   - Accoda la seguente riga alla fine di `/etc/fstab` (con il nome partizione dal passo 3).<br />
+   - Accoda la seguente riga alla fine di `/etc/fstab` (con il nome partizione dal passo 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
-#### La tabella dei comandi `fdisk` 
+#### La tabella dei comandi `fdisk`
 
 <table border="0" cellpadding="0" cellspacing="0">
 	<caption>La tabella comandi <code>fdisk</code> contiene i comandi sulla sinistra e i risultati previsti sulla destra.</caption>
@@ -444,14 +444,14 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
      ```
      {: pre}
 
-   - Monta la memoria con il nome della partizione. 
+   - Monta la memoria con il nome della partizione.
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
      ```
      {: pre}
 
-   - Verifica che vedi elencato il tuo nuovo file system. 
+   - Verifica che vedi elencato il tuo nuovo file system.
 
      ```
      df -h
@@ -459,7 +459,7 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
      {: pre}
 
 5. Aggiungi il nuovo file system al file `/etc/fstab` del sistema per abilitare il montaggio automatico all'avvio del computer.
-   - Accoda la seguente riga alla fine di `/etc/fstab` (utilizzando il nome partizione dal passo 3).<br />
+   - Accoda la seguente riga alla fine di `/etc/fstab` (utilizzando il nome partizione dal passo 3). <br />
 
      ```
      /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
@@ -469,7 +469,7 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
 
 
 
-## Verifica se MPIO è configurato correttamente nei sistemi operativi `*NIX` 
+## Verifica se MPIO è configurato correttamente nei sistemi operativi `*NIX`
 
 Per controllare se multipath sta rilevando i dispositivi, elencali. Se la configurazione è corretta, vengono visualizzati solo due dispositivi NETAPP.
 

@@ -46,7 +46,7 @@ Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site
 3. Individua il tuo volume nell'elenco.
 4. Crittografa il dispositivo a blocchi:
 
-   1. Questo comando inizializza il volume e puoi impostare una passphrase.<br/>
+   1. Questo comando inizializza il volume e puoi impostare una passphrase. <br/>
    
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -68,7 +68,7 @@ Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site
    ```
    {: pre}
 6. Immetti la passphrase.
-7. Verificare l'associazione e lo stato della vista del volume crittografato. <br/>
+7. Verificare l'associazione e lo stato della vista del volume crittografato.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.

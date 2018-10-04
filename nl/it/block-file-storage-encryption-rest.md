@@ -25,9 +25,9 @@ Per impostazione predefinita, vengono crittografate anche tutte le istantanee e 
 
 ## Provisioning di archiviazione con la crittografia
 
-La funzione di crittografia dei dati inattivi gestita dal provider è disponibile per il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).Tutta l'archiviazione ordinata in questi data center è automaticamente dotata della crittografia. 
+La funzione di crittografia dei dati inattivi gestita dal provider è disponibile per il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). Tutta l'archiviazione ordinata in questi data center è automaticamente dotata della crittografia.
 
-Quando ordini {{site.data.keyword.blockstorageshort}}, seleziona un data center indicato con un asterisco (`*`). Vedi un'icona di blocco a destra del campo LUN/Volume Name che indica che il volume è crittografato. 
+Quando ordini {{site.data.keyword.blockstorageshort}}, seleziona un data center indicato con un asterisco (`*`). Vedi un'icona di blocco a destra del campo LUN/Volume Name che indica che il volume è crittografato.
 
 ![L'icona di blocco indica che il LUN è crittografato](/images/encryptedstorage.png)
 <caption>Figura 1. Esempio di icona di blocco che indica che il LUN è crittografato.</caption>
