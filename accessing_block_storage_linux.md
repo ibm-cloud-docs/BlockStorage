@@ -30,23 +30,22 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 **Note:** It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
 1. Install the iSCSI and multipath utilities to your host.
-   - RHEL/CentOS
+  - RHEL/CentOS
+     ```
+    yum install iscsi-initiator-utils device-mapper-multipath
+    ```
+    {: pre}
 
-     ```
-     yum install iscsi-initiator-utils device-mapper-multipath
-     ```
-     {: pre}
+  - Ubuntu/Debian
 
-   - Ubuntu/Debian
-
-     ```
-     sudo apt-get update
-     sudo apt-get install multipath-tools
-     ```
-     {: pre}
+    ```
+    sudo apt-get update
+    sudo apt-get install multipath-tools
+    ```
+    {: pre}
 
 2. Create or edit your multipath configuration file if it is needed.
-   - RHEL 6/CENTOS 6 
+  - RHEL 6/CENTOS 6 
     - Edit **/etc/multipath.conf** with the following minimum configuration.
     ```
     defaults {
@@ -89,66 +88,65 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     ```
     {: pre}
      
-   - RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. 
-   - Ubuntu doesn't use `multipath.conf` because it's built into `multipath-tools`.
+  - RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. 
+  - Ubuntu doesn't use `multipath.conf` because it's built into `multipath-tools`.
 
 3. Load the multipath module, start multipath services, and set it start on boot.
-   - RHEL 6
-     ```
-     modprobe dm-multipath
-     ```
-     {: pre}
+  - RHEL 6
+    ```
+    modprobe dm-multipath
+    ```
+    {: pre}
 
-     ```
-     service multipathd start
-     ```
-     {: pre}
+    ```
+    service multipathd start
+    ```
+    {: pre}
 
-     ```
-     chkconfig multipathd on
-     ```
-     {: pre}
+    ```
+    chkconfig multipathd on
+    ```
+    {: pre}
 
-   - CentOS 7
-     ```
-     modprobe dm-multipath
-     ```
-     {: pre}
+  - CentOS 7
+    ```
+    modprobe dm-multipath
+    ```
+    {: pre}
 
-     ```
-     systemctl start multipathd
-     ```
-     {: pre}
+    ```
+    systemctl start multipathd
+    ```
+    {: pre}
 
-     ```
-     systemctl enable multipathd
-     ```
-     {: pre}
+    ```
+    systemctl enable multipathd
+    ```
+    {: pre}
 
-   - Ubuntu
-     ```
-     service multipath-tools start
-     ```
-     {: pre}
+  - Ubuntu
+    ```
+    service multipath-tools start
+    ```
+    {: pre}
 
-   - For other distributions, consult the OS vendor documentation.
+  - For other distributions, consult the OS vendor documentation.
 
 4. Verify that multipath is working.
-   - RHEL 6
-     ```
-     multipath -l
-     ```
-     {: pre}
+  - RHEL 6
+    ```
+    multipath -l
+    ```
+    {: pre}
 
-     If it returns blank, it's working.
+    If it returns blank, it's working.
+  - CentOS 7
+    ```
+    multipath -ll
+    ```
+    {: pre}
 
-   - CentOS 7
-     ```
-     multipath -ll
-     ```
-     {: pre}
-
-     RHEL 7/CentOS 7 may return No fc_host device, which can be ignored.
+    RHEL 7/CentOS 7 may return No fc_host device, which can be ignored.
 
 5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lowercase.
    ```
@@ -157,76 +155,75 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
    {: pre}
 6. Edit the CHAP settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.slportal}}. Use uppercase for CHAP names.
    ```
-    node.session.auth.authmethod = CHAP
-    node.session.auth.username = <Username-value-from-Portal>
-    node.session.auth.password = <Password-value-from-Portal>
-    discovery.sendtargets.auth.authmethod = CHAP
-    discovery.sendtargets.auth.username = <Username-value-from-Portal>
-    discovery.sendtargets.auth.password = <Password-value-from-Portal>
+   node.session.auth.authmethod = CHAP
+   node.session.auth.username = <Username-value-from-Portal>
+   node.session.auth.password = <Password-value-from-Portal>
+   discovery.sendtargets.auth.authmethod = CHAP
+   discovery.sendtargets.auth.username = <Username-value-from-Portal>
+   discovery.sendtargets.auth.password = <Password-value-from-Portal>
    ```
    {: codeblock}
 
    **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP
 
 7. Set iSCSI to start at boot and start it now.
-   - RHEL 6
+  - RHEL 6
+    ```
+    chkconfig iscsi on
+    ```
+    {: pre}
 
-      ```
-      chkconfig iscsi on
-      ```
-      {: pre}
-      ```
-      chkconfig iscsid on
-      ```
-      {: pre}
+    ```
+    chkconfig iscsid on
+    ```
+    {: pre}
 
-      ```
-      service iscsi start
-      ```
-      {: pre}
+    ```
+    service iscsi start
+    ```
+    {: pre}
 
-      ```
-      service iscsid start
-      ```
-      {: pre}
+    ```
+    service iscsid start
+    ```
+    {: pre}
 
-   - CentOS 7
+  - CentOS 7
+    ```
+    systemctl enable iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsi
-      ```
-      {: pre}
+    ```
+    systemctl enable iscsid
+    ```
+    {: pre}
+ 
+    ```
+    systemctl start iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsid
-      ```
-      {: pre}
-
-      ```
-      systemctl start iscsi
-      ```
-      {: pre}
-
-      ```
-      systemctl start iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsid
+    ```
+    {: pre}
 
    - Other distributions: consult the OS vendor documentation.
 
 8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
-     A. Run the discovery against the iSCSI array.
-     ```
-     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
-     {: pre}
+  A. Run the discovery against the iSCSI array.
+    ```
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    ```
+    {: pre}
 
-     B. Set the host to automatically log in to the iSCSI array.
-     ```
-     iscsiadm -m node -L automatic
-     ```
-     {: pre}
+  B. Set the host to automatically log in to the iSCSI array.
+    ```
+    iscsiadm -m node -L automatic
+    ```
+    {: pre}
 
 9. Verify that the host is logged in to the iSCSI array and maintained its sessions.
    ```
