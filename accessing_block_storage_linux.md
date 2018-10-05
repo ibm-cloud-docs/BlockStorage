@@ -213,13 +213,13 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
 8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
-  A. Run the discovery against the iSCSI array.
+   A. Run the discovery against the iSCSI array.
     ```
     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
     ```
     {: pre}
 
-  B. Set the host to automatically log in to the iSCSI array.
+   B. Set the host to automatically log in to the iSCSI array.
     ```
     iscsiadm -m node -L automatic
     ```
