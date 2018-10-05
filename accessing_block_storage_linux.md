@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-05"
 
 ---
 {:new_window: target="_blank"}
@@ -32,55 +32,65 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 1. Install the iSCSI and multipath utilities to your host.
    - RHEL/CentOS
 
-   ```
-   yum install iscsi-initiator-utils device-mapper-multipath
-   ```
-   {: pre}
+     ```
+     yum install iscsi-initiator-utils device-mapper-multipath
+     ```
+     {: pre}
 
    - Ubuntu/Debian
 
-   ```
-   sudo apt-get update
-   sudo apt-get install multipath-tools
-   ```
-   {: pre}
+     ```
+     sudo apt-get update
+     sudo apt-get install multipath-tools
+     ```
+     {: pre}
 
-2. Create or edit your multipath configuration file.
-   - Edit **/etc/multipath.conf** with the minimum configuration that is provided in the following commands. <br /><br /> **Note:** For RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. Ubuntu doesn't use multipath.conf because it is built into multipath-tools.
-
-   ```
-   defaults {
-   user_friendly_names no
-   max_fds max
-   flush_on_last_del yes
-   queue_without_daemon no
-   dev_loss_tmo infinity
-   fast_io_fail_tmo 5
-   }
-   # All data under blacklist must be specific to your system.
-   blacklist {
-   wwid "SAdaptec*"
-   devnode "^hd[a-z]"
-   devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-   devnode "^cciss.*"  
-   }
-   devices {
-   device {
-   vendor "NETAPP"
-   product "LUN"
-   path_grouping_policy group_by_prio
-   features "3 queue_if_no_path pg_init_retries 50"
-   prio "alua"
-   path_checker tur
-   failback immediate
-   path_selector "round-robin 0"
-   hardware_handler "1 alua"
-   rr_weight uniform
-   rr_min_io 128
-   }
-   }
-   ```
-   {: codeblock}
+2. Create or edit your multipath configuration file if it is needed.
+   - RHEL 6/CENTOS 6 
+     - Edit **/etc/multipath.conf** with the following minimum configuration. <br />
+     ```
+     defaults {
+     user_friendly_names no
+     max_fds max
+     flush_on_last_del yes
+     queue_without_daemon no
+     dev_loss_tmo infinity
+     fast_io_fail_tmo 5
+     }
+     # All data under blacklist must be specific to your system.
+     blacklist {
+     wwid "SAdaptec*"
+     devnode "^hd[a-z]"
+     devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+     devnode "^cciss.*"  
+     }
+     devices {
+     device {
+     vendor "NETAPP"
+     product "LUN"
+     path_grouping_policy group_by_prio
+     features "3 queue_if_no_path pg_init_retries 50"
+     prio "alua"
+     path_checker tur
+     failback immediate
+     path_selector "round-robin 0"
+     hardware_handler "1 alua"
+     rr_weight uniform
+     rr_min_io 128
+     }
+     }
+     ```
+     {: codeblock}
+     
+     - Restart iscsi and iscsid services so that the changes take effect. 
+     ```
+     service iscsi restart
+     service iscsid restart
+     ```
+     {: pre}
+     
+   - RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. 
+   - Ubuntu doesn't use `multipath.conf` because it's built into `multipath-tools`.
 
 3. Load the multipath module, start multipath services, and set it start on boot.
    - RHEL 6
