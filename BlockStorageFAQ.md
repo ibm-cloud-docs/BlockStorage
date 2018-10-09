@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-09"
 
 ---
 {:new_window: target="_blank"}
@@ -17,6 +17,19 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.BluSoftlayer_full}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
+
+## Which Windows version should I choose for my Block Storage LUN?
+
+When you create a LUN, you must specify the OS type. The OS type must be based on the operating system that the hosts that access the LUN use. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
+
+**Windows 2008+**
+- the LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
+ 
+**Windows 2003**
+- the LUN stores a raw disk type in a single-partition Windows disk using the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that's using the MBR partitioning method.
+
+**Windows GPT**
+-  the LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host is capable of using it. Windows Server 2003, Service Pack 1 and later are capable of using the GPT partitioning method, and all 64-bit versions of Windows support it.
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
