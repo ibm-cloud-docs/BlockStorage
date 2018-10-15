@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -25,84 +25,78 @@ I data center {{site.data.keyword.BluSoftlayer_full}} sono accoppiati in combina
 Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e delle destinazioni di replica.
 
 <table>
-	<caption style="text-align: left;"><p>Tabella 1 - questa tabella mostra l'elenco completo di data center con funzionalità migliorate in ciascuna regione. Ogni regione è una colonna separata. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.</p>
-		<p>&#42; I data center nella regione US 1 NON hanno l'archiviazione migliorata. Gli host nei data center con funzionalità di archiviazione migliorate <strong>non possono</strong> avviare la replica con le destinazioni di replica nei data center US 1.</p>
-</caption>
-	<thead>
-		<tr>
-			<th>US 1 &#42;</th>
-			<th>US 2</th>
-			<th>America Latina</th>
-			<th>Canada</th>
-			<th>Europa</th>
-			<th>Asia-Pacifico</th>
-			<th>Australia</t>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>DAL01<br />
-				DAL05<br />
-				DAL06<br />
-				HOU02<br />
-				SJC01<br />
-				WDC01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
-				DAL10<br />
-				DAL12<br />
-				DAL13<br />
-				<br /><br />
-			</td>
-			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>
-				AMS01<br />
-				AMS03<br />
-				FRA02<br />
-				FRA04<br />
-				FRA05<br />
-				LON02<br />
-				LON04<br />
-				LON06<br />
-				OSL01<br />
-				PAR01<br />
-				MIL01<br />
-			</td>
-			<td>HKG02<br />
-				TOK02<br />
-				TOK04<br />
-				TOK05<br />
-				SNG01<br />
-				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>
-				SYD01<br />
-				SYD04<br />
-				MEL01<br />
-				<br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-		</tr>
-	</tbody>
+  <caption style="text-align: left;"><p>Tabella 1 - questa tabella mostra l'elenco completo di data center con funzionalità migliorate in ciascuna regione. Ogni regione è una colonna separata. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.</p>
+  <p>&#42; I data center nella regione US 1 NON hanno l'archiviazione migliorata. Gli host nei data center con funzionalità di archiviazione migliorate <strong>non possono</strong> avviare la replica con le destinazioni di replica nei data center US 1.</p>
+  </caption>
+    <thead>
+    <tr>
+      <th>US 1 &#42;</th>
+      <th>US 2</th>
+      <th>America Latina</th>
+      <th>Canada</th>
+      <th>Europa</th>
+      <th>Asia-Pacifico</th>
+      <th>Australia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DAL01<br />
+          DAL05<br />
+	  DAL06<br />
+	  HOU02<br />
+	  SJC01<br />
+	  WDC01<br />
+	  <br /><br /><br /><br /><br /><br />
+      </td>
+      <td>SJC03<br />
+	  SJC04<br />
+	  WDC04<br />
+	  WDC06<br />
+	  WDC07<br />
+	  DAL09<br />
+	  DAL10<br />
+	  DAL12<br />
+	  DAL13<br />
+	  <br /><br /><br />
+      </td>
+      <td>MEX01<br />
+	  SAO01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>TOR01<br />
+          MON01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>AMS01<br />
+	  AMS03<br />
+	  FRA02<br />
+	  FRA04<br />
+	  FRA05<br />
+	  LON02<br />
+	  LON04<br />
+	  LON05<br />
+	  LON06<br />
+	  OSL01<br />
+	  PAR01<br />
+	  MIL01<br />
+      </td>
+      <td>HKG02<br />
+          TOK02<br />
+	  TOK04<br />
+	  TOK05<br />
+	  SNG01<br />
+	  SEO01<br />
+          CHE01<br />
+	  <br /><br /><br /><br /><br />
+      </td>
+      <td>SYD01<br />
+          SYD04<br />
+	  MEL01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Creazione della replica iniziale

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -19,56 +19,62 @@ flash a níveis de IOPS mais altos com criptografia de nível de disco para dado
 
 O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/data centers a seguir.
 <table role="presentation">
-	 <tr>
-	   <td><strong>EUA 2</strong></td>
-	   <td><strong>União Europeia (UE)</strong></td>
-	   <td><strong>Austrália</strong></td>
-	   <td><strong>Canadá</strong></td>
-	   <td><strong>América Latina</strong></td>
-	   <td><strong>Ásia-Pacífico</strong></td>
-	</tr>
-	<tr>
-	   <td><p>SJC03<br />
-		SJC04<br />
-		WDC04<br />
-		WDC06<br />
-		WDC07<br />
-		DAL09<br />
-		DAL10<br />
-		DAL12<br />
-		DAL13<br /><br /><br /></p>
-	   </td>
-	   <td><p>LON02<br />
-		LON04<br />
-		LON06<br />
-		FRA02<br />
-		FRA04<br />
-		FRA05<br />
-		AMS01<br />
-		AMS03<br />
-		OSLO1<br />
-		PAR01<br />
-		MIL01</p>
-            </td>
-	    <td><p>SYD01<br />
-		SYD04<br />
-		MEL01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>TOR01<br />
-		MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>TOK02<br />
-		   TOK04<br />
-		   TOK05<br />
-		   HKG02<br />
-		   SEO01<br />
-		   SNG01<br />
-		   CHE01<br />
-                   <br /><br /><br /><br /></p>
-	   </td>
-	</tr>
+  <tr>
+    <td><strong>EUA 2</strong></td>
+    <td><strong>União Europeia (UE)</strong></td>
+    <td><strong>Austrália</strong></td>
+    <td><strong>Canadá</strong></td>
+    <td><strong>América Latina</strong></td>
+    <td><strong>Ásia-Pacífico</strong></td>
+  </tr>
+  <tr>
+    <td>DAL09<br />
+	DAL10<br />
+	DAL12<br />
+	DAL13<br />
+	SJC03<br />
+        SJC04<br />
+	WDC04<br />
+	WDC06<br />
+	WDC07<br />
+	<br /><br /><br />
+    </td>
+    <td>AMS01<br />
+        AMS03<br />
+	FRA02<br />
+	FRA04<br />
+	FRA05<br />
+	LON02<br />
+	LON04<br />
+	LON05<br />
+	LON06<br />
+	MIL01<br />
+	OSLO1<br />
+	PAR01<br />
+    </td>
+    <td>MEL01<br />
+        SYD01<br />
+        SYD04<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>MON01<br />
+        TOR01<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>MEX01<br />
+        SAO01<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>CHE01<br />
+        HKG02<br />
+	SEO01<br />
+	SNG01<br />
+        TOK02<br />
+	TOK04<br />
+	TOK05<br />
+	<br /><br /><br /><br /><br />
+    </td>
+  </tr>
 </table>
 
 *A Tabela 1 mostra nossa disponibilidade do data center. Cada região possui sua própria coluna. Algumas cidades, como Dallas, São José, Washington DC, Amsterdã, Frankfurt, Londres e Sydney, têm múltiplos data centers.*

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -25,84 +25,78 @@ lastupdated: "2018-09-17"
 使用可能なデータ・センターとレプリケーション・ターゲットの完全なリストについては、表 1 を参照してください。
 
 <table>
-	<caption style="text-align: left;"><p>表 1 - この表は、各地域の拡張機能を備えたデータ・センターの完全なリストを示しています。 各地域が別々の列に示されています。 一部の都市 (ダラス、サンノゼ、ワシントン DC、アムステルダム、フランクフルト、ロンドン、シドニーなど) には複数のデータ・センターがあります。</p>
-		<p>&#42; 米国 1 地域のデータ・センターには、拡張ストレージがありません。 拡張ストレージ機能を備えたデータ・センター内のホストは、米国 1 データ・センター内のレプリカ・ターゲットが指定されたレプリケーションを<strong>開始できません</strong>。</p>
-</caption>
-	<thead>
-		<tr>
-			<th>米国 1 &#42;</th>
-			<th>米国 2</th>
-			<th>ラテンアメリカ</th>
-			<th>カナダ</th>
-			<th>ヨーロッパ</th>
-			<th>アジア太平洋</th>
-			<th>オーストラリア</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>DAL01<br />
-				DAL05<br />
-				DAL06<br />
-				HOU02<br />
-				SJC01<br />
-				WDC01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
-				DAL10<br />
-				DAL12<br />
-				DAL13<br />
-				<br /><br />
-			</td>
-			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>
-				AMS01<br />
-				AMS03<br />
-				FRA02<br />
-				FRA04<br />
-				FRA05<br />
-				LON02<br />
-				LON04<br />
-				LON06<br />
-				OSL01<br />
-				PAR01<br />
-				MIL01<br />
-			</td>
-			<td>HKG02<br />
-				TOK02<br />
-				TOK04<br />
-				TOK05<br />
-				SNG01<br />
-				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>
-				SYD01<br />
-				SYD04<br />
-				MEL01<br />
-				<br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-		</tr>
-	</tbody>
+  <caption style="text-align: left;"><p>表 1 - この表は、各地域の拡張機能を備えたデータ・センターの完全なリストを示しています。 各地域が別々の列に示されています。 一部の都市 (ダラス、サンノゼ、ワシントン DC、アムステルダム、フランクフルト、ロンドン、シドニーなど) には複数のデータ・センターがあります。</p>
+  <p>&#42; 米国 1 地域のデータ・センターには、拡張ストレージがありません。 拡張ストレージ機能を備えたデータ・センター内のホストは、米国 1 データ・センター内のレプリカ・ターゲットが指定されたレプリケーションを<strong>開始できません</strong>。</p>
+  </caption>
+  <thead>
+    <tr> 
+      <th>米国 1 &#42;</th>
+      <th>米国 2</th>
+      <th>ラテンアメリカ</th>
+      <th>カナダ</th>
+      <th>ヨーロッパ</th>
+      <th>アジア太平洋</th>
+      <th>オーストラリア</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DAL01<br />
+          DAL05<br />
+	  DAL06<br />
+	  HOU02<br />
+	  SJC01<br />
+	  WDC01<br />
+	  <br /><br /><br /><br /><br /><br />
+      </td>
+      <td>SJC03<br />
+	  SJC04<br />
+	  WDC04<br />
+	  WDC06<br />
+	  WDC07<br />
+	  DAL09<br />
+	  DAL10<br />
+	  DAL12<br />
+	  DAL13<br />
+	  <br /><br /><br />
+      </td>
+      <td>MEX01<br />
+	  SAO01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>TOR01<br />
+          MON01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>AMS01<br />
+	  AMS03<br />
+	  FRA02<br />
+	  FRA04<br />
+	  FRA05<br />
+	  LON02<br />
+	  LON04<br />
+	  LON05<br />
+	  LON06<br />
+	  OSL01<br />
+	  PAR01<br />
+	  MIL01<br />
+      </td>
+      <td>HKG02<br />
+          TOK02<br />
+	  TOK04<br />
+	  TOK05<br />
+	  SNG01<br />
+	  SEO01<br />
+          CHE01<br />
+	  <br /><br /><br /><br /><br />
+      </td>
+      <td>SYD01<br />
+          SYD04<br />
+	  MEL01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## 初期レプリカの作成

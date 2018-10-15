@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -25,84 +25,79 @@ lastupdated: "2018-09-17"
 请参阅表 1，以获取数据中心可用性和复制目标的完整列表。
 
 <table>
-	<caption style="text-align: left;"><p>表 1 - 下表显示每个区域中具有增强功能的数据中心的完整列表。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。</p>
-		<p>&#42; “美国 1”区域中的数据中心没有增强型存储器。具有增强存储功能的数据中心内的主机<strong>无法</strong>启动与“美国 1”数据中心内副本目标的复制。</p>
-</caption>
-	<thead>
-		<tr>
-			<th>美国 1 &#42;</th>
-			<th>美国 2</th>
-			<th>拉丁美洲</th>
-			<th>加拿大</th>
-			<th>欧洲</th>
-			<th>亚太地区</th>
-			<th>澳大利亚 </t>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>DAL01<br />
-				DAL05<br />
-				DAL06<br />
-				HOU02<br />
-				SJC01<br />
-				WDC01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
-				DAL10<br />
-				DAL12<br />
-				DAL13<br />
-				<br /><br />
-			</td>
-			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>
-				AMS01<br />
-				AMS03<br />
-				FRA02<br />
-				FRA04<br />
-				FRA05<br />
-				LON02<br />
-				LON04<br />
-				LON06<br />
-				OSL01<br />
-				PAR01<br />
-				MIL01<br />
-			</td>
-			<td>HKG02<br />
-				TOK02<br />
-				TOK04<br />
-				TOK05<br />
-				SNG01<br />
-				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>
-				SYD01<br />
-				SYD04<br />
-				MEL01<br />
-				<br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-		</tr>
-	</tbody>
+  <caption style="text-align: left;"><p>表 1 - 下表显示每个区域中具有增强功能的数据中心的完整列表。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。</p>
+  <p>&#42; “美国 1”区域中的数据中心没有增强型存储器。具有增强存储功能的数据中心内的主机<strong>无法</strong>启动与“美国 1”数据中心内副本目标的复制。</p>
+  </caption>
+  <thead>
+    <tr>
+      <th>美国 1 &#42;</th>
+      <th>美国 2</th>
+      <th>拉丁美洲</th>
+      <th>加拿大</th>
+      <th>欧洲</th>
+      <th>亚太地区</th>
+      <th>澳大利亚</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>DAL01<br />
+          DAL05<br />
+	  DAL06<br />
+	  HOU02<br />
+	  SJC01<br />
+	  WDC01<br />
+	  <br /><br /><br /><br /><br /><br />
+      </td>
+      <td>SJC03<br />
+	  SJC04<br />
+	  WDC04<br />
+	  WDC06<br />
+	  WDC07<br />
+	  DAL09<br />
+	  DAL10<br />
+	  DAL12<br />
+	  DAL13<br />
+	  <br /><br /><br />
+      </td>
+      <td>MEX01<br />
+	  SAO01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>TOR01<br />
+          MON01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>AMS01<br />
+	  AMS03<br />
+	  FRA02<br />
+	  FRA04<br />
+	  FRA05<br />
+	  LON02<br />
+	  LON04<br />
+	  LON05<br />
+	  LON06<br />
+	  OSL01<br />
+	  PAR01<br />
+	  MIL01<br />
+      </td>
+      <td>HKG02<br />
+          TOK02<br />
+	  TOK04<br />
+	  TOK05<br />
+	  SNG01<br />
+	  SEO01<br />
+          CHE01<br />
+	  <br /><br /><br /><br /><br />
+      </td>
+      <td>SYD01<br />
+          SYD04<br />
+	  MEL01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## 创建初始副本

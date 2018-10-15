@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -17,56 +17,62 @@ lastupdated: "2018-09-17"
 
 새 {{site.data.keyword.blockstorageshort}}는 다음 영역/데이터 센터에서 사용할 수 있습니다.
 <table role="presentation">
-	 <tr>
-	   <td><strong>US 2</strong></td>
-	   <td><strong>EU</strong></td>
-	   <td><strong>오스트레일리아</strong></td>
-	   <td><strong>캐나다</strong></td>
-	   <td><strong>라틴 아메리카</strong></td>
-	   <td><strong>아시아 태평양</strong></td>
-	</tr>
-	<tr>
-	   <td><p>SJC03<br />
-		SJC04<br />
-		WDC04<br />
-		WDC06<br />
-		WDC07<br />
-		DAL09<br />
-		DAL10<br />
-		DAL12<br />
-		DAL13<br /><br /><br /></p>
-	   </td>
-	   <td><p>LON02<br />
-		LON04<br />
-		LON06<br />
-		FRA02<br />
-		FRA04<br />
-		FRA05<br />
-		AMS01<br />
-		AMS03<br />
-		OSLO1<br />
-		PAR01<br />
-		MIL01</p>
-            </td>
-	    <td><p>SYD01<br />
-		SYD04<br />
-		MEL01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>TOR01<br />
-		MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>TOK02<br />
-		   TOK04<br />
-		   TOK05<br />
-		   HKG02<br />
-		   SEO01<br />
-		   SNG01<br />
-		   CHE01<br />
-                   <br /><br /><br /><br /></p>
-	   </td>
-	</tr>
+  <tr>
+    <td><strong>US 2</strong></td>
+    <td><strong>EU</strong></td>
+    <td><strong>오스트레일리아</strong></td>
+    <td><strong>캐나다</strong></td>
+    <td><strong>라틴 아메리카</strong></td>
+    <td><strong>아시아 태평양</strong></td>
+  </tr>
+  <tr>
+    <td>DAL09<br />
+	DAL10<br />
+	DAL12<br />
+	DAL13<br />
+	SJC03<br />
+        SJC04<br />
+	WDC04<br />
+	WDC06<br />
+	WDC07<br />
+	<br /><br /><br />
+    </td>
+    <td>AMS01<br />
+        AMS03<br />
+	FRA02<br />
+	FRA04<br />
+	FRA05<br />
+	LON02<br />
+	LON04<br />
+	LON05<br />
+	LON06<br />
+	MIL01<br />
+	OSLO1<br />
+	PAR01<br />
+    </td>
+    <td>MEL01<br />
+        SYD01<br />
+        SYD04<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>MON01<br />
+        TOR01<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>MEX01<br />
+        SAO01<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>CHE01<br />
+        HKG02<br />
+	SEO01<br />
+	SNG01<br />
+        TOK02<br />
+	TOK04<br />
+	TOK05<br />
+	<br /><br /><br /><br /><br />
+    </td>
+  </tr>
 </table>
 
 *표 1은 데이터 센터 가용성을 표시합니다. 각 지역에는 고유한 열이 있습니다. 일부 도시(예: Dallas, San Jose, Washington, Amsterdam, Frankfurt, London, Sydney)에는 데이터 센터가 여러 개 있습니다.*

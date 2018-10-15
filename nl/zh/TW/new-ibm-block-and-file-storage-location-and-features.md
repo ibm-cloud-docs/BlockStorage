@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -17,56 +17,62 @@ lastupdated: "2018-09-17"
 
 新的 {{site.data.keyword.blockstorageshort}} 提供於下列地區/資料中心。
 <table role="presentation">
-	 <tr>
-	   <td><strong>美國 2</strong></td>
-	   <td><strong>歐盟</strong></td>
-	   <td><strong>澳大利亞</strong></td>
-	   <td><strong>加拿大</strong></td>
-	   <td><strong>拉丁美洲</strong></td>
-	   <td><strong>亞太</strong></td>
-	</tr>
-	<tr>
-	   <td><p>SJC03<br />
-		SJC04<br />
-		WDC04<br />
-		WDC06<br />
-		WDC07<br />
-		DAL09<br />
-		DAL10<br />
-		DAL12<br />
-		DAL13<br /><br /><br /></p>
-	   </td>
-	   <td><p>LON02<br />
-		LON04<br />
-		LON06<br />
-		FRA02<br />
-		FRA04<br />
-		FRA05<br />
-		AMS01<br />
-		AMS03<br />
-		OSLO1<br />
-		PAR01<br />
-		MIL01</p>
-            </td>
-	    <td><p>SYD01<br />
-		SYD04<br />
-		MEL01<br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>TOR01<br />
-		MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>MEX01<br />SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-	    </td>
-	    <td><p>TOK02<br />
-		   TOK04<br />
-		   TOK05<br />
-		   HKG02<br />
-		   SEO01<br />
-		   SNG01<br />
-		   CHE01<br />
-                   <br /><br /><br /><br /></p>
-	   </td>
-	</tr>
+  <tr>
+    <td><strong>美國 2</strong></td>
+    <td><strong>歐盟</strong></td>
+    <td><strong>澳大利亞</strong></td>
+    <td><strong>加拿大</strong></td>
+    <td><strong>拉丁美洲</strong></td>
+    <td><strong>亞太</strong></td>
+  </tr>
+  <tr>
+    <td>DAL09<br />
+	DAL10<br />
+	DAL12<br />
+	DAL13<br />
+	SJC03<br />
+        SJC04<br />
+	WDC04<br />
+	WDC06<br />
+	WDC07<br />
+	<br /><br /><br />
+    </td>
+    <td>AMS01<br />
+        AMS03<br />
+	FRA02<br />
+	FRA04<br />
+	FRA05<br />
+	LON02<br />
+	LON04<br />
+	LON05<br />
+	LON06<br />
+	MIL01<br />
+	OSLO1<br />
+	PAR01<br />
+    </td>
+    <td>MEL01<br />
+        SYD01<br />
+        SYD04<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>MON01<br />
+        TOR01<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>MEX01<br />
+        SAO01<br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </td>
+    <td>CHE01<br />
+        HKG02<br />
+	SEO01<br />
+	SNG01<br />
+        TOK02<br />
+	TOK04<br />
+	TOK05<br />
+	<br /><br /><br /><br /><br />
+    </td>
+  </tr>
 </table>
 
 *表 1 顯示資料中心可用性。每一個地區都有自己的直欄。有些城市（例如「達拉斯」、「聖荷西」、「華盛頓特區」、「阿姆斯特丹」、「法蘭克福」、「倫敦」及「雪梨」）會有多個資料中心。*

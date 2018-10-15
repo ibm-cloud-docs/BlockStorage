@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-15"
 
 ---
 {:new_window: target="_blank"}
@@ -25,84 +25,78 @@ lastupdated: "2018-09-17"
 데이터 센터 가용성 및 복제 대상에 대한 전체 목록은 표 1을 참조하십시오.
 
 <table>
-	<caption style="text-align: left;"><p>표 1 - 이 표는 각 지역의 개선된 기능을 포함한 데이터 센터의 전체 목록을 나타냅니다. 모든 지역에는 별도의 열이 있습니다. 일부 도시(예: Dallas, San Jose, Washington, Amsterdam, Frankfurt, London, Sydney)에는 데이터 센터가 여러 개 있습니다.</p>
-		<p>&#42; 미국 1 지역의 데이터 센터에는 개선된 스토리지가 없습니다. 개선된 스토리지 기능이 있는 데이터 센터의 호스트는 미국 1 데이터 센터에서 복제본 대상으로 복제를 시작할 수 <strong>없습니다</strong>.</p>
-</caption>
-	<thead>
-		<tr>
-			<th>미국 1 &#42;</th>
-			<th>미국 2</th>
-			<th>라틴 아메리카</th>
-			<th>캐나다</th>
-			<th>유럽</th>
-			<th>아시아 태평양</th>
-			<th>호주</t>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>DAL01<br />
-				DAL05<br />
-				DAL06<br />
-				HOU02<br />
-				SJC01<br />
-				WDC01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>SJC03<br />
-			       SJC04<br />
-			       WDC04<br />
-			       WDC06<br />
-			       WDC07<br />
-			       DAL09<br />
-				DAL10<br />
-				DAL12<br />
-				DAL13<br />
-				<br /><br />
-			</td>
-			<td>MEX01<br />
-				SAO01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>TOR01<br />
-				MON01<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-			<td>
-				AMS01<br />
-				AMS03<br />
-				FRA02<br />
-				FRA04<br />
-				FRA05<br />
-				LON02<br />
-				LON04<br />
-				LON06<br />
-				OSL01<br />
-				PAR01<br />
-				MIL01<br />
-			</td>
-			<td>HKG02<br />
-				TOK02<br />
-				TOK04<br />
-				TOK05<br />
-				SNG01<br />
-				SEO01<br />
-                                CHE01<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</td>
-			<td>
-				SYD01<br />
-				SYD04<br />
-				MEL01<br />
-				<br /><br /><br /><br /><br /><br /><br /><br />
-			</td>
-		</tr>
-	</tbody>
+  <caption style="text-align: left;"><p>표 1 - 이 표는 각 지역의 개선된 기능을 포함한 데이터 센터의 전체 목록을 나타냅니다. 모든 지역에는 별도의 열이 있습니다. 일부 도시(예: Dallas, San Jose, Washington, Amsterdam, Frankfurt, London, Sydney)에는 데이터 센터가 여러 개 있습니다.</p>
+  <p>&#42; 미국 1 지역의 데이터 센터에는 개선된 스토리지가 없습니다. 개선된 스토리지 기능이 있는 데이터 센터의 호스트는 미국 1 데이터 센터에서 복제본 대상으로 복제를 시작할 수 <strong>없습니다</strong>.</p>
+  </caption>
+  <thead>
+    <tr>
+      <th>미국 1 &#42;</th>
+      <th>미국 2</th>
+      <th>라틴 아메리카</th>
+      <th>캐나다</th>
+      <th>유럽</th>
+      <th>아시아 태평양</th>
+      <th>호주</th>
+    </tr>
+  </thead>    
+  <tbody>
+    <tr>
+      <td>DAL01<br />
+          DAL05<br />
+	  DAL06<br />
+	  HOU02<br />
+	  SJC01<br />
+	  WDC01<br />
+	  <br /><br /><br /><br /><br /><br />
+      </td>
+      <td>SJC03<br />
+	  SJC04<br />
+	  WDC04<br />
+	  WDC06<br />
+	  WDC07<br />
+	  DAL09<br />
+	  DAL10<br />
+	  DAL12<br />
+	  DAL13<br />
+	  <br /><br /><br />
+      </td>
+      <td>MEX01<br />
+	  SAO01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>TOR01<br />
+          MON01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+      <td>AMS01<br />
+	  AMS03<br />
+	  FRA02<br />
+	  FRA04<br />
+	  FRA05<br />
+	  LON02<br />
+	  LON04<br />
+	  LON05<br />
+	  LON06<br />
+	  OSL01<br />
+	  PAR01<br />
+	  MIL01<br />
+      </td>
+      <td>HKG02<br />
+          TOK02<br />
+	  TOK04<br />
+	  TOK05<br />
+	  SNG01<br />
+	  SEO01<br />
+          CHE01<br />
+	  <br /><br /><br /><br /><br />
+      </td>
+      <td>SYD01<br />
+          SYD04<br />
+	  MEL01<br />
+	  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## 초기 복제본 작성
