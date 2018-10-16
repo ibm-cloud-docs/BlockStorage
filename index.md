@@ -227,7 +227,7 @@ The block size that is used by your application directly impacts the storage per
             <td>16</td>
           </tr>
           <tr>
-            <td>32 (typical for SQLServer)</td>
+            <td>32 (typical for SQL Server)</td>
             <td>500</td>
             <td>16</td>
           </tr>          
