@@ -253,7 +253,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
 ## Creating a file system (optional)
 
-Follow these steps to create a file system on top of the newly mounted volume. A file system is necessary for most applications to use the volume. Use `fdisk` for drives that are less than 2 TB and `parted` for a disk bigger than 2 TB.
+Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use `fdisk` for drives that are less than 2 TB and `parted` for a disk bigger than 2 TB.
 
 ### Using `fdisk`
 
