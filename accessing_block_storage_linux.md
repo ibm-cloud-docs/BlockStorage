@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-05"
+lastupdated: "2018-10-16"
 
 ---
 {:new_window: target="_blank"}
@@ -30,13 +30,13 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 **Note:** It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
 1. Install the iSCSI and multipath utilities to your host.
-  - RHEL/CentOS
+  - RHEL and CentOS
      ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
 
-  - Ubuntu/Debian
+  - Ubuntu and Debian
 
     ```
     sudo apt-get update
@@ -45,7 +45,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     {: pre}
 
 2. Create or edit your multipath configuration file if it is needed.
-  - RHEL 6/CENTOS 6 
+  - RHEL 6 and CENTOS 6 
     * Edit **/etc/multipath.conf** with the following minimum configuration.
     
       ```
@@ -82,7 +82,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
       ```
       {: codeblock}
      
-    - Restart iscsi and iscsid services so that the changes take effect. 
+    - Restart `iscsi` and `iscsid` services so that the changes take effect. 
       
       ```
       service iscsi restart
@@ -90,7 +90,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
       ```
       {: pre}
      
-  - RHEL7/CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. 
+  - RHEL7 and CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. 
   - Ubuntu doesn't use `multipath.conf` because it's built into `multipath-tools`.
 
 3. Load the multipath module, start multipath services, and set it start on boot.
@@ -148,7 +148,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     ```
     {: pre}
 
-    RHEL 7/CentOS 7 may return No fc_host device, which can be ignored.
+    RHEL 7/CentOS 7 might return `No fc_host device`, which can be ignored.
 
 5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lowercase.
    ```
@@ -376,13 +376,13 @@ Follow these steps to create a file system on top of the newly mounted volume. A
 ### Using `parted`
 
 On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
-- Debian/Ubuntu
+- Debian and Ubuntu
   ```
   sudo apt-get install parted  
   ```
   {: pre}
 
-- RHEL/CentOS
+- RHEL and CentOS
   ```
   yum install parted  
   ```
@@ -421,7 +421,7 @@ To create a file system with `parted` follow these steps.
       {: pre}
 
    4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
-   <br /> **Note**: The listed units default to megabytes (MB), to create a 10 GB partition you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
+   <br /> **Note**: The listed units default to megabytes (MB). To create a 10 GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
 
       ```
       (parted) mkpart
@@ -478,7 +478,7 @@ To create a file system with `parted` follow these steps.
 
 
 
-## Verifying Whether MPIO is Configured Correctly in `*NIX` OSes
+## Verifying whether MPIO is configured correctly in `*NIX` operating systems
 
 To check whether multipath is picking up the devices, list the devices. If it's configured correct, only two NETAPP devices show up.
 
