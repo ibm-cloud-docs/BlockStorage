@@ -33,7 +33,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine tune to meet 
     - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) for storage that is provisioned up to 4 TB.
 8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
 9. Choose your **OS Type** from the list.<br/>
->**Note** - This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubunto or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](BlockStorageFAQ.html).
+>**Note** - This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](BlockStorageFAQ.html).
 10. Select the checkboxes of **Terms and Conditions**, and click **Place Order**.
 11. Your new storage allocation is available in a few minutes.<br.>
 
@@ -54,7 +54,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine tune to meet 
 7. Enter the IOPS in the **Performance (Allocated IOPS)** field.
 8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
 9. Choose your **OS Type** from the list.<br/>
->**Note** - This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubunto or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](BlockStorageFAQ.html).
+>**Note** - This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](BlockStorageFAQ.html).
 10. Your new storage allocation is available in a few minutes.<br/>
 
 >**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html).
