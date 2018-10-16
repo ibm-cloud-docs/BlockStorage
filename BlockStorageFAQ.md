@@ -60,7 +60,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is only available in select data centers, and new data centers are being added gradually. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} LUNs/volumes are encrypted?
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, you can see a lock icon to the right of the volume name for those LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
