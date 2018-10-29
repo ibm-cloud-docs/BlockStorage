@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-16"
+lastupdated: "2018-10-29"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip} 
+{:note: .note} 
+{:important: .important}
 
 # Getting started with {{site.data.keyword.blockstorageshort}}
 
@@ -70,16 +73,16 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
   </tr>
   <tr>
    <th>Monthly Price</th>
-   <td>$0.10/GB</td>
+   <td>$0.06/GB</td>
+   <td>$0.15/GB</td>
    <td>$0.20/GB</td>
-   <td>$0.35/GB</td>
    <td>$0.58/GB</td>
   </tr>
   <tr>
    <th>Hourly Price</th>
-   <td>0.0002/GB</td>
+   <td>$0.0001/GB</td>
+   <td>$0.0002/GB</td>
    <td>$0.0003/GB</td>
-   <td>$0.0005/GB</td>
    <td>$0.0009/GB</td>
   </tr>
 </table>
@@ -104,7 +107,7 @@ Endurance {{site.data.keyword.blockstorageshort}} is available in four IOPS perf
 
 - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only.
 
-Up to 48,000 IOPS are available with a 12-TB Endurance volume.
+Up to 48,000 IOPS are available with a 12 TB Endurance volume.
  
 Choosing the right Endurance tier for your workload is key. It's equally important to use the right block size, Ethernet connection speed, and the number of hosts necessary to achieve maximum performance. If any of these parts don't align with the other, it can have a significant impact on the resulting throughput.
 
@@ -117,7 +120,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS limits greater than 6,000 are available in select data centers.</caption>
+ <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS limit greater than 6,000 is available in select data centers.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -156,32 +159,32 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
           <tr>
             <td>500</td>
             <td>100</td>
-            <td>6,000 or 10,000 <sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 10,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
           </tr>
           <tr>
             <td>1,000</td>
             <td>100</td>
-            <td>6,000 or 20,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 20,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>2,000-3,000</td>
             <td>200</td>
-            <td>6,000 or 40,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 40,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>4,000-7,000</td>
             <td>300</td>
-            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>8,000-9,000</td>
             <td>500</td>
-            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>10,000-12,000</td>
             <td>1,000</td>
-            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
 </table>
 
@@ -192,7 +195,8 @@ Performance volumes are designed to operate consistently close to the provisione
 
 **Block size**
 
-IOPS for both Endurance and Performance is based on a 16-KB block size with a 50/50 read/write 50 percent random workload. A 16-KB block is the equivalent of one write to the volume.
+IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50 percent random workload. A 16 KB block is the equivalent of one write to the volume.
+{:important}
 
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
 
@@ -255,11 +259,12 @@ Another factor to consider is the number of hosts that are using your volume. If
 
 **Network connection**
 
-The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94 MBps of throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
+The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16 KB block size, the volume can handle approximately 94 MBps throughput. If you have a 1 Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1 Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
-To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or queue depths, and other settings).
+To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](set-host-queue-depth-settings-performance-and-endurance-storage.html), and other settings).
 
-Storage traffic is included in the total network usage of Public Virtual Servers. Please see the [Virtual Server documentation](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) to understand limits that can be imposed by the service.
+Storage traffic is included in the total network usage of Public Virtual Servers. Please see the [Virtual Server documentation](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) to understand limits that may be imposed by the service.
+{:tip}
 
 ## Submitting your Order
 
@@ -273,3 +278,4 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuring Block Storage for Backup with cPanel](configure-backup-cpanel.html)
 - [Configuring Block Storage for Backup with Plesk](configure-backup-plesk.html)
+
