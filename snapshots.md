@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Snapshots
 
@@ -13,31 +16,38 @@ Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot re
 
 {{site.data.keyword.blockstorageshort}} provides you with two ways to take your snapshots.
 
-– First, through a configurable snapshot schedule that creates and deletes snapshot copies automatically for each storage volume. You can also create extra snapshot schedules, manually delete copies, and manage schedules based on your requirements. 
-- The second way is to take a manual snapshot.
+* First, through a configurable snapshot schedule that creates and deletes snapshot copies automatically for each storage volume. You can also create extra snapshot schedules, manually delete copies, and manage schedules based on your requirements.
+* The second way is to take a manual snapshot.
 
-A snapshot copy is a read-only image of a {{site.data.keyword.blockstorageshort}} LUN that captures the state of the volume at a point in time. Snapshot copies are efficient both in the time that is needed to create them and in storage space. A {{site.data.keyword.blockstorageshort}} snapshot copy takes only a few seconds to create. It's typically less than 1 second, regardless of the size of the volume or the level of activity on the storage. After a snapshot copy is created, changes to data objects are reflected in updates to the current version of the objects, as if Snapshot copies didn't exist. Meanwhile, the copy of the data remains stable. 
+A snapshot copy is a read-only image of a {{site.data.keyword.blockstorageshort}} LUN that captures the state of the volume at a point in time. Snapshot copies are efficient both in the time that is needed to create them and in storage space. A {{site.data.keyword.blockstorageshort}} snapshot copy takes only a few seconds to create. It's typically less than 1 second, regardless of the size of the volume or the level of activity on the storage. After a snapshot copy is created, changes to data objects are reflected in updates to the current version of the objects, as if Snapshot copies didn't exist. Meanwhile, the copy of the data remains stable.
 
 A Snapshot copy incurs no performance decrease. Users can easily store up to 50 scheduled snapshots and 50 manual snapshots per {{site.data.keyword.blockstorageshort}} volume, all of which are accessible as read-only and online versions of the data.
 
-With snapshots, you can: 
+With snapshots, you can:
 
 - Non-disruptively create point-in-time recovery points,
 - Revert volumes to previous points-in-time.
 
-You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. See the [Ordering Snapshots](ordering-snapshots.html) article for more details and guidance.
+You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](ordering-snapshots.html).
 
-**Snapshot Best Practices**
+## Snapshot Best Practices
 
-Snapshot design depends on the customer’s environment. The following design considerations can help you to plan and implement Snapshot copies: 
-- Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or LUN. 
-- Don't over snap. Make sure that your scheduled snapshot frequency meets your RTO and RPO needs and your application business requirements by scheduling hourly, daily, or weekly snapshots. 
+Snapshot design depends on the customer’s environment. The following design considerations can help you to plan and implement Snapshot copies:
+- Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or LUN.
+- Don't over snap. Make sure that your scheduled snapshot frequency meets your RTO and RPO needs and your application business requirements by scheduling hourly, daily, or weekly snapshots.
 - Snapshot AutoDelete can be used to control the growth of storage consumption. <br/>
-  >**Note** - the AutoDelete threshold is fixed at 95 percent.
-    
+
+  The AutoDelete threshold is fixed at 95 percent.
+  {:note}
+
 Snapshots are not replacements for actual off-site Disaster Recovery replication or long-retention backup.
-    
-**How Snapshots affect disk space**
+{:important}
+
+## Security
+
+All snapshots and replicas of encrypted {{site.data.keyword.filestorage_short}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](block-file-storage-encryption-rest.html).
+
+## How Snapshots affect disk space
 
 Snapshot copies minimize disk space usage by preserving individual blocks rather than whole files. Snapshot copies use extra space only when files in the active file system are changed or deleted. When this happens, the original file blocks are still preserved as part of one or more Snapshot copies.
 
@@ -62,4 +72,4 @@ In the active file system, the changed blocks are rewritten to different locatio
       </tr>
 </table>
 
-To view how much snapshot space is used, follow the instructions in the [Managing Snapshots](working-with-snapshots.html) article.
+For more information about how to view how much snapshot space is used, see [Managing Snapshots](working-with-snapshots.html).
