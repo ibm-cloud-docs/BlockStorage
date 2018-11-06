@@ -11,7 +11,7 @@ lastupdated: "2018-09-26"
 
 Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} Storage e ottimizzare le capacità per soddisfare le tue esigenze di capacità e IOPS. Ottieni il massimo dalla tua archiviazione con due opzioni per la specifica delle prestazioni.
 
-- Puoi scegliere tra i livelli IOPS Endurance che caratterizzano i livelli di prestazioni predefiniti per soddisfare i carichi di lavoro che non hanno requisiti di prestazioni ben definiti. 
+- Puoi scegliere tra i livelli IOPS Endurance che caratterizzano i livelli di prestazioni predefiniti per soddisfare i carichi di lavoro che non hanno requisiti di prestazioni ben definiti.
 - Puoi ottimizzare l'archiviazione per soddisfare requisiti di prestazione molto specifici specificando il numero totale di IOPS con Performance.
 
 ## Ordine di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)
@@ -20,8 +20,8 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} Storage
 2. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 3. Seleziona l'ubicazione (**Location**) (data center) della tua distribuzione.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host di calcolo di cui disponi.
-4. Fatturazione. Se hai selezionato un data center con funzionalità migliorate (contrassegnato con un asterisco), puoi scegliere tra fatturazione mensile od oraria. 
-     1. Con la fatturazione **oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione. A seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in questi [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
+4. Fatturazione. Se hai selezionato un data center con funzionalità migliorate (contrassegnato con un asterisco), puoi scegliere tra fatturazione mensile od oraria.
+     1. Con la fatturazione **oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione. A seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in questi [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
      2. Con la fatturazione **mensile**, il calcolo per il prezzo è a base proporzionale dalla data di creazione alla fine del ciclo di fatturazione e viene fatturato immediatamente. Non è previsto alcun rimborso se un LUN di blocchi viene eliminato prima della fine del ciclo di fatturazione. La fatturazione mensile è una buona scelta per l'archiviazione utilizzata nei carichi di lavoro di produzione che usano dati che devono essere archiviati e a cui bisogna accedere per lunghi periodi di tempo (un mese o più).
         >**NOTA** - Il tipo di fatturazione mensile viene utilizzato per impostazione predefinita per l'archiviazione di cui viene eseguito il provisioning nei data center che **non** sono aggiornati con funzionalità migliorate.
 5. Immetti la tua dimensione di archiviazione nel campo **New Storage Size**.
@@ -36,8 +36,8 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} Storage
 10. Seleziona le caselle di spunta **Terms and Conditions** e fai clic su **Place Order**.
 11. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
->**Nota** - Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](managing-storage-limits.html).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](BlockStorageFAQ.html)
- 
+>**Nota** - Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](managing-storage-limits.html).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](faqs.html)
+
 ## Ordine di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
 
 1. Dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
@@ -45,7 +45,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} Storage
 3. Fai clic su **Location** e seleziona il tuo data center.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host di calcolo di cui disponi.
 4. Fatturazione. Se hai selezionato un data center con funzionalità migliorate (contrassegnato con un asterisco), puoi scegliere tra fatturazione mensile od oraria.
-     1. Con la fatturazione **oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione. A seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in questi [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
+     1. Con la fatturazione **oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione. A seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in questi [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
      2. Con la fatturazione **mensile**, il calcolo per il prezzo è a base proporzionale dalla data di creazione alla fine del ciclo di fatturazione e viene fatturato immediatamente. Non è previsto alcun rimborso se un LUN di blocchi viene eliminato prima della fine del ciclo di fatturazione. La fatturazione mensile è una buona scelta per l'archiviazione utilizzata nei carichi di lavoro di produzione che usano dati che devono essere archiviati e a cui bisogna accedere per lunghi periodi di tempo (un mese o più).
         >**NOTA** - Il tipo di fatturazione mensile viene utilizzato per impostazione predefinita per l'archiviazione di cui viene eseguito il provisioning nei data center che **non** sono aggiornati con funzionalità migliorate.
 5. Immetti la tua dimensione di archiviazione nel campo **New Storage Size**.
@@ -55,7 +55,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} Storage
 9. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.
 10. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
->**Nota** - Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](managing-storage-limits.html).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](BlockStorageFAQ.html)
+>**Nota** - Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](managing-storage-limits.html).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](faqs.html)
 
 ## Connessione alla tua nuova archiviazione
 

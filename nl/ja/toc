@@ -41,6 +41,6 @@ IBM Cloud Storage - ブロック・ストレージ
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    BlockStorageFAQ.md
+    faqs.md
     [Python API Client 情報](https://softlayer-python.readthedocs.io/en/latest/index.html)
     {: .navgroup-end}

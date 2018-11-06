@@ -2,62 +2,81 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-09"
+lastupdated: "2018-11-05"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Ordering {{site.data.keyword.blockstorageshort}}
 
 You can provision {{site.data.keyword.blockstorageshort}} and fine tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
 
-- You can choose from Endurance IOPs tiers that feature pre-defined performance levels to fit workloads that don't have well defined performance requirements. 
+- You can choose from Endurance IOPs tiers that feature pre-defined performance levels to fit workloads that don't have well defined performance requirements.
 - You can fine tune your storage to meet very specific performance requirements by specifying the total number of IOPS with Performance.
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)
 
-1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
-3. Select your deployment **Location** (data center).
+1. Log in to [The IBM Cloud catalog](https://console.bluemix.net/catalog/){:new_window}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
+
+   Alternatively, you can log into the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
+
+2. Select your deployment **Location** (data center).
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
-4. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing. 
-     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
+3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
+     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
-        >**NOTE** - Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
-5. Enter your storage size in the **New Storage Size** field.
-6. Select **Endurance (tiered IOPS)** in the **Storage IOPS Options** section.
-7. Select the IOPS tier that your application needs.
+
+        Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
+        {:important}
+4. Enter your storage size in the **New Storage Size** field.
+5. Select **Endurance (tiered IOPS)** in the **Storage IOPS Options** section.
+6. Select the IOPS tier that your application needs.
     - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
     - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
     - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
     - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) for storage that is provisioned up to 4 TB.
-8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
-9. Choose your **OS Type** from the list.<br/>
->**Note** - This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](BlockStorageFAQ.html).
-10. Select the checkboxes of **Terms and Conditions**, and click **Place Order**.
-11. Your new storage allocation is available in a few minutes.<br.>
+7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
+8. Choose your **OS Type** from the list.<br/>
 
->**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html).
- 
+   This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
+   {:tip}
+9. On the right, review your order summary, and apply your Promo Code if you have one.
+10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
+11. Click **Create**. Your new storage allocation is available in a few minutes.
+
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
+{:important}
+
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
 
-1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
-3. Click **Location** and select your data center.
-   - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
-4. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
-     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
-     2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
-        >**NOTE** - Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
-5. Enter your storage size in the **New Storage Size** field.
-6. Select **Performance (Allocated IOPS)** in the **Storage IOPS Options** section.
-7. Enter the IOPS in the **Performance (Allocated IOPS)** field.
-8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
-9. Choose your **OS Type** from the list.<br/>
->**Note** - This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](BlockStorageFAQ.html).
-10. Your new storage allocation is available in a few minutes.<br/>
+1. Log in to [The IBM Cloud catalog](https://console.bluemix.net/catalog/){:new_window}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
 
->**Note** - By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](BlockStorageFAQ.html).
+   Alternatively, you can log into the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
+2. Click **Location** and select your data center.
+   - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
+3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
+     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
+     2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
+
+        Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
+        {:note}
+4. Enter your storage size in the **New Storage Size** field.
+5. Select **Performance (Allocated IOPS)** in the **Storage IOPS Options** section.
+6. Enter the IOPS in the **Performance (Allocated IOPS)** field.
+7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
+8. Choose your **OS Type** from the list.<br/>
+
+   This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
+   {:tip}
+9. On the right, review your order summary, and apply your Promo Code if you have one.
+10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
+11. Click **Create**. Your new storage allocation is available in a few minutes.
+
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
+{:important}
 
 ## Connecting your new storage
 

@@ -11,7 +11,7 @@ lastupdated: "2018-09-26"
 
 Vous pouvez mettre à disposition le stockage {{site.data.keyword.blockstorageshort}} et l'ajuster en fonction de vos besoins en termes de capacité et d'IOPS. Profitez pleinement de votre stockage grâce à deux options vous permettant de spécifier les performances.
 
-- Vous pouvez effectuer une sélection parmi les niveaux d'IOPS Endurance qui proposent des niveaux de performances prédéfinis afin de prendre en charge les charges de travail pour lesquelles il n'existe aucune exigence bien définie en matière de performances. 
+- Vous pouvez effectuer une sélection parmi les niveaux d'IOPS Endurance qui proposent des niveaux de performances prédéfinis afin de prendre en charge les charges de travail pour lesquelles il n'existe aucune exigence bien définie en matière de performances.
 - Vous pouvez ajuster votre stockage en fonction d'exigences de performances très spécifiques en spécifiant le nombre total d'IOPS avec Performance.
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)
@@ -20,8 +20,8 @@ Vous pouvez mettre à disposition le stockage {{site.data.keyword.blockstoragesh
 2. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 3. Sélectionnez l'**Emplacement** de votre déploiement (centre de données).
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
-4. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure. 
-     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html). 
+4. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure.
+     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
      2. Avec une facturation **au mois**, le calcul du prix est proportionnel à la durée écoulée entre la date de création et la fin du cycle de facturation, et facturé immédiatement. Aucun remboursement n'est possible si un numéro d'unité logique de bloc est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus).
         >**REMARQUE** : la facturation mensuelle est utilisée par défaut pour le stockage fourni dans les centres de données qui n'ont **pas** été mis à jour avec les fonctionnalités améliorées.
 5. Entrez votre taille de stockage dans la zone **Nouvelle taille de stockage**.
@@ -36,8 +36,8 @@ Vous pouvez mettre à disposition le stockage {{site.data.keyword.blockstoragesh
 10. Cochez les cases **Dispositions**, puis cliquez sur **Passer une commande**.
 11. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
->**Remarque** : par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Découvrez plus de détails sur l'augmentation des limites [ici](managing-storage-limits.html).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](BlockStorageFAQ.html).
- 
+>**Remarque** : par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Découvrez plus de détails sur l'augmentation des limites [ici](managing-storage-limits.html).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](faqs.html).
+
 ## Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)
 
 1. Dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
@@ -45,7 +45,7 @@ Vous pouvez mettre à disposition le stockage {{site.data.keyword.blockstoragesh
 3. Cliquez sur **Emplacement** et sélectionnez votre centre de données.
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
 4. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure.
-     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html). 
+     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
      2. Avec une facturation **au mois**, le calcul du prix est proportionnel à la durée écoulée entre la date de création et la fin du cycle de facturation, et facturé immédiatement. Aucun remboursement n'est possible si un numéro d'unité logique de bloc est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus).
         >**REMARQUE** : la facturation mensuelle est utilisée par défaut pour le stockage fourni dans les centres de données qui n'ont **pas** été mis à jour avec les fonctionnalités améliorées.
 5. Entrez votre taille de stockage dans la zone **Nouvelle taille de stockage**.
@@ -55,7 +55,7 @@ Vous pouvez mettre à disposition le stockage {{site.data.keyword.blockstoragesh
 9. Choisissez votre **Type de système d'exploitation** dans la liste.
 10. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
->**Remarque** : par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Découvrez plus de détails sur l'augmentation des limites [ici](managing-storage-limits.html).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](BlockStorageFAQ.html).
+>**Remarque** : par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Découvrez plus de détails sur l'augmentation des limites [ici](managing-storage-limits.html).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](faqs.html).
 
 ## Connexion de votre nouveau stockage
 

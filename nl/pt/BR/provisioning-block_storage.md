@@ -11,7 +11,7 @@ lastupdated: "2018-09-26"
 
 É possível provisionar o Armazenamento do {{site.data.keyword.blockstorageshort}} e ajustá-lo com precisão para atender às suas necessidades de capacidade e IOPS. Obtenha o máximo de seu armazenamento com duas opções para especificar desempenho.
 
-- É possível escolher entre camadas de IOPs do Endurance que apresentam níveis de desempenho predefinidos para ajustar cargas de trabalho que não têm requisitos de desempenho bem definidos. 
+- É possível escolher entre camadas de IOPs do Endurance que apresentam níveis de desempenho predefinidos para ajustar cargas de trabalho que não têm requisitos de desempenho bem definidos.
 - É possível ajustar com precisão seu armazenamento para atender a requisitos de desempenho muito específicos, especificando o número total de IOPS com o Performance.
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com Camadas IOPS predefinidas (Endurance)
@@ -20,8 +20,8 @@ lastupdated: "2018-09-26"
 2. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
 3. Selecione seu **Local** de implementação (data center).
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que os hosts de cálculo que você tem.
-4. Faturamento. Se você selecionou um data center com recursos melhorados (marcados com um asterisco), é possível escolher entre Faturamento por hora ou mensal. 
-     1. Com o faturamento **por hora**, o número de horas que o LUN de bloco existiu na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento. Que já vem em primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível somente para armazenamento que é provisionado nestes [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). 
+4. Faturamento. Se você selecionou um data center com recursos melhorados (marcados com um asterisco), é possível escolher entre Faturamento por hora ou mensal.
+     1. Com o faturamento **por hora**, o número de horas que o LUN de bloco existiu na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento. Que já vem em primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível somente para armazenamento que é provisionado nestes [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html).
      2. Com o faturamento **mensal**, o cálculo para o preço é proporcional desde a data de criação até o término do ciclo de faturamento e faturado imediatamente. Não há reembolso se um LUN de bloco é excluído antes do término do ciclo de faturamento. O faturamento mensal é uma boa opção para armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais).
         >**NOTA** - o tipo de faturamento mensal é usado por padrão para o armazenamento provisionado em data centers que **não** estão atualizados com recursos melhorados.
 5. Insira seu tamanho de armazenamento no campo **Novo tamanho de armazenamento**.
@@ -37,8 +37,8 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 10. Marque as caixas de seleção de **Termos e condições** e clique em **Fazer pedido**.
 11. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
->**Nota** - por padrão, é possível provisionar um total combinado de 250 volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre como aumentar os limites [aqui](managing-storage-limits.html).<br/><br/>Para o limite de autorizações simultâneas, veja as [FAQs](BlockStorageFAQ.html).
- 
+>**Nota** - por padrão, é possível provisionar um total combinado de 250 volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre como aumentar os limites [aqui](managing-storage-limits.html).<br/><br/>Para o limite de autorizações simultâneas, veja as [FAQs](faqs.html).
+
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com IOPS Customizado (Desempenho)
 
 1. No [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
@@ -46,7 +46,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 3. Clique em **Local** e selecione seu data center.
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que os hosts de cálculo que você tem.
 4. Faturamento. Se você selecionou um data center com recursos melhorados (marcados com um asterisco), é possível escolher entre Faturamento por hora ou mensal.
-     1. Com o faturamento **por hora**, o número de horas que o LUN de bloco existiu na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento. Que já vem em primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível somente para armazenamento que é provisionado nestes [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). 
+     1. Com o faturamento **por hora**, o número de horas que o LUN de bloco existiu na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento. Que já vem em primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível somente para armazenamento que é provisionado nestes [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html).
      2. Com o faturamento **mensal**, o cálculo para o preço é proporcional desde a data de criação até o término do ciclo de faturamento e faturado imediatamente. Não há reembolso se um LUN de bloco é excluído antes do término do ciclo de faturamento. O faturamento mensal é uma boa opção para armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais).
         >**NOTA** - o tipo de faturamento mensal é usado por padrão para o armazenamento provisionado em data centers que **não** estão atualizados com recursos melhorados.
 5. Insira seu tamanho de armazenamento no campo **Novo tamanho de armazenamento**.
@@ -56,7 +56,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 9. Escolha seu **Tipo de S.O.** na lista.
 10. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
->**Nota** - por padrão, é possível provisionar um total combinado de 250 volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre como aumentar os limites [aqui](managing-storage-limits.html).<br/><br/>Para o limite de autorizações simultâneas, veja as [FAQs](BlockStorageFAQ.html).
+>**Nota** - por padrão, é possível provisionar um total combinado de 250 volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre como aumentar os limites [aqui](managing-storage-limits.html).<br/><br/>Para o limite de autorizações simultâneas, veja as [FAQs](faqs.html).
 
 ## Conectando seu novo armazenamento
 
