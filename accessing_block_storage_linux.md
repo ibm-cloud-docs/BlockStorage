@@ -19,7 +19,7 @@ These instructions are mainly for RHEL6 and Centos6. Notes for other OS were add
 {:note}
 
 For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
-{:tip}
+{: tip}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 {:important}
@@ -91,7 +91,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
       ```
       {: codeblock}
 
-    - Restart iscsi and iscsid services so that the changes take effect.
+    - Restart `iscsi` and `iscsid` services so that the changes take effect.
 
       ```
       service iscsi restart
@@ -157,7 +157,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-    RHEL 7 and CentOS 7 may return No fc_host device, which can be ignored.
+    RHEL 7 and CentOS 7 might return No fc_host device, which can be ignored.
 
 5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lowercase.
    ```
@@ -281,7 +281,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    ```
    {: pre}
 
-   The XXX represents the disk name returned in Step 1. <br />
+   The XXX represents the disk name that is returned in Step 1. <br />
 
    Scroll further down for the commands codes that are listed in the `fdisk` command table.
    {: tip}
@@ -343,7 +343,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>Creates a new partition. &#42;</td>
+		<td>Creates a partition. &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -384,7 +384,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
   (`**`) Type L to list the hex codes
 
-### Creating a file system with  `parted`
+### Creating a file system with `parted`
 
 On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian and Ubuntu
@@ -400,7 +400,7 @@ On many Linux distributions, `parted` comes preinstalled. If it isn't included i
   {: pre}
 
 
-To create a file system with `parted` follow these steps.
+To create a file system with `parted`, follow these steps.
 
 1. Run `parted`.
 
@@ -433,7 +433,7 @@ To create a file system with `parted` follow these steps.
 
    4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.<br />
 
-   The listed units default to megabytes (MB), to create a 10 GB partition you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
+   The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
    {: tip}
 
       ```
@@ -491,9 +491,9 @@ To create a file system with `parted` follow these steps.
 
 
 
-## Verifying Whether MPIO is Configured Correctly in `*NIX` OSes
+## Verifying MPIO configuration
 
-1. To check whether multipath is picking up the devices, list the devices. If it's configured correct, only two NETAPP devices show up.
+1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
 
   ```
   multipath -l
@@ -523,7 +523,7 @@ To create a file system with `parted` follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Example outputs of an incorrect configurations:
+  - Example outputs of an incorrect configuration:
     
     ```
     No multipath output root@server:~# multipath -l root@server:~#
@@ -536,7 +536,7 @@ To create a file system with `parted` follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-3. Confirm local discs are not included in the multipath devices. The following command shows the devices that are blacklisted.
+3. Confirm that local discs are not included in the multipath devices. The following command shows the devices that are blacklisted.
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
@@ -551,7 +551,7 @@ To create a file system with `parted` follow these steps.
    | sde: device node name blacklisted Feb 17 19:55:02
    ```
 
-## Un-mounting  {{site.data.keyword.blockstorageshort}} volumes
+## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 
 1. Un-mount the file system.
    ```
