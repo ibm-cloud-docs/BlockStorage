@@ -89,7 +89,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
   ![Target](/images/Target.png)
 
 4. In the Advanced Settings window ![Settings](/images/Settings.png)
-   - On the Local Adapter list, select Microsoft iSCSI Initiator.
+   - On the Local adapter list, select Microsoft iSCSI Initiator.
    - On the Initiator IP list, select the IP address of the host.
    - On the Target Portal IP list, select the IP of device interface.
    - Click **Enable CHAP log on** check box
