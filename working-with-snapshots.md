@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -108,7 +108,7 @@ Manual snapshots that aren't deleted in the way as described previously, are aut
 You might need to take your storage volume back to a specific point-in-time because of user-error or data corruption.
 
 1. Unmount and detach your storage volume from the host.
-   - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
+   - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
    - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **Detail** page displays the list of all saved snapshots along with their size and creation date.
