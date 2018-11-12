@@ -455,7 +455,7 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
 
-   It's important to select the right disk and partition when you run this command!<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
+   It's important to select the right disk and partition when you run this command.<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
    {:important}
 
 4. Create a mount point for the file system and mount it.
@@ -493,7 +493,7 @@ To create a file system with `parted`, follow these steps.
 
 ## Verifying MPIO configuration
 
-1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
+1. To check if multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
 
   ```
   multipath -l
