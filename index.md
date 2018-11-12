@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -107,7 +107,7 @@ Endurance {{site.data.keyword.blockstorageshort}} is available in four IOPS perf
 
 - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only.
 
-Up to 48,000 IOPS are available with a 12 TB Endurance volume.
+Up to 48,000 IOPS are available with a 12-TB Endurance volume.
  
 Choosing the right Endurance tier for your workload is key. It's equally important to use the right block size, Ethernet connection speed, and the number of hosts necessary to achieve maximum performance. If any of these parts don't align with the other, it can have a significant impact on the resulting throughput.
 
@@ -120,7 +120,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS limit greater than 6,000 is available in select data centers.</caption>
+ <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS limits greater than 6,000 is available in select data centers.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -195,7 +195,7 @@ Performance volumes are designed to operate consistently close to the provisione
 
 **Block size**
 
-IOPS for both Endurance and Performance is based on a 16 KB block size with a 50/50 read/write 50 percent random workload. A 16 KB block is the equivalent of one write to the volume.
+IOPS for both Endurance and Performance is based on a 16-KB block size with a 50/50 read/write 50 percent random workload. A 16 KB block is the equivalent of one write to the volume.
 {:important}
 
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
@@ -259,11 +259,11 @@ Another factor to consider is the number of hosts that are using your volume. If
 
 **Network connection**
 
-The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16 KB block size, the volume can handle approximately 94 MBps throughput. If you have a 1 Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1 Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
+The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94 MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1 Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
 To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](set-host-queue-depth-settings-performance-and-endurance-storage.html), and other settings).
 
-Storage traffic is included in the total network usage of Public Virtual Servers. Please see the [Virtual Server documentation](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) to understand limits that may be imposed by the service.
+Storage traffic is included in the total network usage of Public Virtual Servers. Please see the [Virtual Server documentation](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) to understand limits that might be imposed by the service.
 {:tip}
 
 ## Submitting your Order
