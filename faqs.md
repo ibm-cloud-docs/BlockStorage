@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,19 +25,19 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.BluSoftlayer_full}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
-## Which Windows version should I choose for my Block Storage LUN?
+## Which Windows version am I to choose for my Block Storage LUN?
 {: faq}
 
 When you create a LUN, you must specify the OS type. The OS type must be based on the operating system that the hosts that access the LUN use. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
 
 **Windows 2008+**
-- the LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
+- The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
  
 **Windows 2003**
-- the LUN stores a raw disk type in a single-partition Windows disk using the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that's using the MBR partitioning method.
+- The LUN stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
 
 **Windows GPT**
--  the LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host is capable of using it. Windows Server 2003, Service Pack 1 and later are capable of using the GPT partitioning method, and all 64-bit versions of Windows support it.
+-  The LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host is capable of using it. Windows Server 2003, Service Pack 1 and later are capable of using the GPT partitioning method, and all 64-bit versions of Windows support it.
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: faq}
@@ -47,7 +47,7 @@ IOPS is enforced at the volume level. Said differently, two hosts connected to a
 ## Measuring IOPS
 {: faq}
 
-IOPS is measured based on a load profile of 16 KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
+IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
 
 ## What happens when a smaller block size is used to measure performance?
 {: faq}
@@ -66,7 +66,7 @@ There's no need for pre-warming. You can observe specified throughput immediatel
 ## Can more throughput be achieved by using a faster Ethernet connection?
 {: faq}
 
-Throughput limits are set at a per-volume/LUN level so using a faster Ethernet connection doesn't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
+Throughput limits are set at a per-LUN level so using a faster Ethernet connection doesn't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
 ## Do firewalls/security groups impact performance?
 {: faq}
@@ -83,7 +83,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 
 The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is only available in select data centers, and new data centers are being added gradually. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
 
-## How can we tell which {{site.data.keyword.blockstorageshort}} LUNs/volumes are encrypted?
+## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
 
 When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
@@ -97,7 +97,7 @@ When you order {{site.data.keyword.blockstorageshort}}, all upgraded data center
 {: faq}
 
 {{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted. 
-New {{site.data.keyword.blockstorageshort}} provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic. 
+New {{site.data.keyword.blockstorageshort}} that is provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic. 
 Data on non-encrypted storage in an upgraded data center can be encrypted by creating a new Block LUN, then copying the data to the new encrypted LUN with host-based migration. Click [here](migrate-block-storage-encrypted-block-storage.html) for instructions.
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
@@ -108,7 +108,7 @@ Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 per
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
 {: faq}
 
-{{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any re-use. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
+{{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
 {: faq}
