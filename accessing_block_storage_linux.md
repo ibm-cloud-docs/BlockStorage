@@ -553,7 +553,7 @@ To create a file system with `parted`, follow these steps.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 
-1. Un-mount the file system.
+1. Unmount the file system.
    ```
    umount /dev/mapper/XXXlp1 /PerfDisk
    ```
@@ -571,5 +571,5 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
   
-   For more information, see the [man-page of iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   For more information, see the [`iscsiadm` man-page](https://linux.die.net/man/8/iscsiadm).
    {:tip}
