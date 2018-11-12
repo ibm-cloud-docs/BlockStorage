@@ -68,7 +68,7 @@ There's no need for pre-warming. You can observe specified throughput immediatel
 
 Throughput limits are set at a per-LUN level so using a faster Ethernet connection doesn't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
-## Do firewalls/security groups impact performance?
+## Do firewalls and security groups impact performance?
 {: faq}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
