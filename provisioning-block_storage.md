@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -47,7 +47,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine tune to meet 
 10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#which-windows-version-am-i-to-choose-for-my-block-storage-lun-).
 {:important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
@@ -75,7 +75,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#faqs.html#which-windows-version-am-i-to-choose-for-my-block-storage-lun-).
 {:important}
 
 ## Connecting your new storage
