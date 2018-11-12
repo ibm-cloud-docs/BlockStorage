@@ -116,7 +116,7 @@ The process of data encryption creates a load on the host that might potentially
    ```
    {: codeblock}
 
-### Remounting and Mounting an existing LUKS encrypted partition
+### Remounting and mounting an existing LUKS encrypted partition
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.
