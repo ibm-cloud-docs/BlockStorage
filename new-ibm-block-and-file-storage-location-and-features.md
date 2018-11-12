@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # New Locations and Features of {{site.data.keyword.blockstorageshort}}
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest. All storage that is provisioned in the upgraded data centers is automatically created with the new version.
 
-**Note:** The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. See **New mount point for encrypted {{site.data.keyword.filestorage_short}} Volumes** section for details.
+The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. For more information, see the [New mount point for encrypted {{site.data.keyword.filestorage_short}} Volumes](#new-mount-point-for-encrypted-storage-volumes) section.
+{:important}
+
+## New locations
 
 The new {{site.data.keyword.blockstorageshort}} is available in the following regions/data centers.
 <table role="presentation">
@@ -77,7 +83,7 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 
 *Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers.*
 
-The new storage has the following features and capabilities:
+## New features and capabilities
 
 - **[Provider-managed encryption for data-at-rest](block-file-storage-encryption-rest.html)**.
   All {{site.data.keyword.blockstorageshort}} is automatically provisioned as encrypted at no extra charge.
@@ -97,3 +103,4 @@ The new storage has the following features and capabilities:
 All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure that you're using the correct mount point for your storage volumes, you can view the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Check back here to see when more data centers are upgraded and for new features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.
+{:tip}

@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Securing Your Data - Provider-managed Encryption-At-Rest
 
-## {{site.data.keyword.blockstorageshort}} Encryption-At-Rest 
+## {{site.data.keyword.blockstorageshort}} Encryption-At-Rest
 
 {{site.data.keyword.BluSoftlayer_full}} takes the need for security seriously, and understands the importance of being able to encrypt data to keep it safe. With provider-managed encryption, {{site.data.keyword.blockstoragefull}} that is provisioned with either Endurance or Performance option is encrypted by default, at no extra cost and no impact to performance.
 
@@ -34,4 +37,5 @@ When you order {{site.data.keyword.blockstorageshort}}, select a data center not
 
 
 
-**Note** - Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new LUN/volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](migrate-block-storage-encrypted-block-storage.html).
+Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new LUN/volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](migrate-block-storage-encrypted-block-storage.html).
+{:important}

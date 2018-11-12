@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Using LUKS in Red Hat Enterprise Linux for Full Disk Encryption
 
@@ -29,9 +32,10 @@ You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux 
 
 ## Setting up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
-These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. Click [here](accessing_block_storage_linux.html) for how to access {{site.data.keyword.blockstorageshort}} with Linux.
+These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux host, see [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html).
 
-**Note**: The process of data encryption creates a load on the host that might potentially impact performance.
+The process of data encryption creates a load on the host that might potentially impact performance.
+{:note}
 
 1. Type the following at a shell prompt as root to install the required package:   <br/>
    ```
@@ -47,22 +51,22 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 4. Encrypt the block device;
 
    1. This command initializes the volume, and you can set a passphrase. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. Respond with YES (all uppercase letters.)
-   
-   3. The device now appears as an encrypted volume: 
-   
+
+   3. The device now appears as an encrypted volume:
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. Open the volume, and create a mapping.   <br/>
+
+5. Open the volume, and create a mapping.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

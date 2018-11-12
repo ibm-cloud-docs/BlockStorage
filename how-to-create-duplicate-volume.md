@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Creating a duplicate Block Volume
 
@@ -20,7 +22,10 @@ Duplicate volumes can be accessed by a host for read/write as soon as the storag
 
 When the data copy is complete, the duplicate can be managed and used as a completely independent volume.
 
-This feature is available in most locations. Click [here](new-ibm-block-and-file-storage-location-and-features.html) for the list of available data centers. **Note**: If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers/cs_storage_file.html#backup_restore).
+This feature is available in most locations. Click [here](new-ibm-block-and-file-storage-location-and-features.html) for the list of available data centers.
+
+If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers/cs_storage_file.html#backup_restore).
+{:tip}
 
 Some common uses for a duplicate volume:
 - **Disaster Recovery Testing**: Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
@@ -50,7 +55,9 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}}](h
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
     - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
 6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
-    - **Note**: {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
+
+   {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
+   {:tip}
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default.
 8. Click **Continue** to place your order.
 
@@ -66,7 +73,9 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}}](h
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
     - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
 6. You can update the size of the new volume so that it is larger than the original. The size of the original volume is set by default.
-    - **Note**: {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
+
+   {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
+   {:tip}
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default.
 8. Click **Continue** to place your order for the duplicate.
 

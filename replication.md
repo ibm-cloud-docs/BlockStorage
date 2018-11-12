@@ -2,19 +2,22 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Replicating Data
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
 
-With replicas, you can
+With replicas, you can recover from site failures and other disasters quickly. In case of an emergency, you can fail over to the destination volume, and access your data from a specific point-in-time in the DR copy. For more information, see [Duplicating Replica Volumes for Disaster Recovery](disaster-recovery.html).
 
-- Recover from site failures and other disasters quickly by failing over to the destination volume,
-- Fail over to a specific point-in-time in the DR copy.
+Replication keeps your data in sync in two different locations. If you just want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
+{:tip}
 
 Before you can replicate, you must create a snapshot schedule. When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
 
@@ -106,7 +109,8 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 1. Click your storage volume.
 2. Click **Replica** and click **Purchase a replication**.
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
-   >**Note** - You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](snapshots.html) for more details.
+   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](snapshots.html) for more details.
+   {:important}
 3. Click **Location**, and select the data center that is your DR site.
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
@@ -167,7 +171,8 @@ Authorized hosts and volumes must be in the same data center. You can't have a r
 
 Your volume sizes must be the same for your primary and replica storage volumes. One can't be larger than the other. When you increase your snapshot space for your primary volume, the replica space is automatically increased. Increasing snapshot space triggers an immediate replication update. The increase to both volumes shows as line items on your invoice and is prorated as necessary.
 
-Click [here](snapshots.html) to learn how to increase your snapshot space.
+For more information about increasing Snapshot space, see [Ordering Snapshots](ordering-snapshots.html).
+{:tip}
 
 
 ## Starting a failover from a volume to its replica
@@ -229,7 +234,7 @@ Duplicates can be created from both primary and replica volumes. The new duplica
 
 Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete.
 
-For more information, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html)
+For more information, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
 
 
 ## Canceling an existing replication

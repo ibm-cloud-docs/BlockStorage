@@ -2,23 +2,26 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Managing Snapshots
 
 ## Creating a Snapshot schedule
 
-You decide how often and when you want to create a point-in-time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage**, **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+You decide how often and when you want to create a point-in-time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume.
+{:important}
 
 ### Adding a Snapshot schedule
 
-Snapshots schedules can be set up for hourly, daily, and weekly intervals, each with a distinct retention cycle. There is a maximum of 50 scheduled snapshots, which can be a mix of hourly, daily, and weekly schedules, and manual snapshots per storage volume.
+Snapshots schedules can be set up for hourly, daily, and weekly intervals, each with a distinct retention cycle. There is a maximum limit of 50 scheduled snapshots, which can be a mix of hourly, daily, and weekly schedules, and manual snapshots per storage volume.
 
 1. Click your storage volume, click **Actions**, and click **Schedule Snapshot**.
 2. In the New Schedule Snapshot window, there are three different snapshot frequencies to select from. Use any combination of the three to create a comprehensive snapshot schedule.
@@ -39,7 +42,7 @@ The list of the snapshots are displayed as they're taken in the **Snapshots** se
 
 Manual snapshots can be taken at various points during an application upgrade or maintenance. You can also take snapshots across multiple servers that were temporarily deactivated at the application level.
 
-There's a maximum of 50 manual snapshots per storage volume.
+There's a maximum limit of 50 manual snapshots per storage volume.
 
 1. Click your storage volume.
 2. Click **Actions**.
@@ -48,7 +51,7 @@ The snapshot is taken and displayed in the **Snapshots** section of the **Detail
 
 ## Listing all Snapshots with Space Used Information and Management functions
 
-A list of retained snapshots and space that is used can be seen on the **Detail** page (Storage, {{site.data.keyword.blockstorageshort}}). Management functions (editing schedules and adding more space) are conducted on the Detail page by using the **Actions** menu or links in the various sections on the page.
+A list of retained snapshots and space that is used can be seen on the **Detail** page.  Management functions (editing schedules and adding more space) are conducted on the Detail page by using the **Actions** menu or links in the various sections on the page.
 
 ## Viewing the list of retained Snapshots
 
@@ -60,9 +63,10 @@ The pie chart at the top of the **Details** page displays how much space is used
 
 ## Changing the amount of Snapshot space for a volume
 
-You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space. You can add 5 - 4,000 GB depending on your needs. 
+You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space. You can add 5 - 4,000 GB depending on your needs.
 
-**Note**: Snapshot space can be increased only. It can't be reduced. You can select a smaller amount of space until you determine how much space you actually need. Remember, automated, and manual snapshots share the space.
+Snapshot space can be increased only. It can't be reduced. You can select a smaller amount of space until you determine how much space you actually need. Remember, automated, and manual snapshots share the space.
+{:note}
 
 Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
@@ -87,7 +91,8 @@ Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.b
 1. Click the schedule to be deleted in the **Snapshot Schedules** frame on the **Details** page.
 2. Click the check box next to the schedule to be deleted and click **Save**.<br />
 
->**Caution** - If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. Click [here](replication.html) for more information on deleting a replication schedule.
+If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](replication.html).
+{:important}
 
 ## Deleting a snapshot
 
@@ -103,15 +108,19 @@ Manual snapshots that aren't deleted in the way as described previously, are aut
 You might need to take your storage volume back to a specific point-in-time because of user-error or data corruption.
 
 1. Unmount and detach your storage volume from the host.
-   - Click [here](accessing_block_storage_linux.html) for {{site.data.keyword.blockstorageshort}} on Linux instructions.
-   - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}} on Microsoft Windows instructions.
+   - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
+   - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
-   >**Note** - Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot. 
+
+   Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot.
+   {:note}
 5. Click **Yes** to start the restore. Expect a message across the top of the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
 6. Mount and reattach your storage volume to the host.
-   - Click [here](accessing_block_storage_linux.html) for {{site.data.keyword.blockstorageshort}} on Linux instructions.
-   - Click [here](accessing-block-storage-windows.html) for {{site.data.keyword.blockstorageshort}} on Microsoft Windows instructions.
-   
->**Note** - Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
+   - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
+   - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
+   - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
+
+Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
+{:important}

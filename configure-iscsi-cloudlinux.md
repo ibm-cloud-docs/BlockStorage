@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Connecting to MPIO iSCSI LUNs on CloudLinux
 
 Follow these instructions to install your iSCSI LUN with multipath on CloudLinux Server release 6.10.
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+{:tip}
 
 1. Log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
@@ -21,7 +25,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 4. From the list, select the host or hosts that can access the volume and click **Submit**.
 5. Take note of the Host IQN, user name, password, and target address.
 
-**Note:** It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+{:important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 
@@ -30,18 +35,18 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
-   
+
    ```
    {: pre}
-   
+
    ```
    chkconfig multipathd on
    ```
    {: pre}
-   
+
    ```
    chkconfig iscsid on
    ```
@@ -82,7 +87,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
      {: codeblock}
 
    - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the user name, password.
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +100,9 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **Note** - Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
+
+     Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
+     {:important}
 
 
 3. Restart `iscsi` and `multipathd` services.
@@ -104,12 +110,12 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
      A. Run the discovery against the iSCSI array.
@@ -117,7 +123,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
        iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
        ```
        {: pre}
-     
+
         Example output
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +142,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    iscsiadm -m session
    ```
    {: pre}
-   
+
    Example output
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -146,10 +152,10 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 6. Verify that the device is connected.
    ```
-   fdisk -l 
+   fdisk -l
    ```
    {: pre}
-    
+
    Example output
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +186,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
    The volume is now mounted and accessible on the host.
 
 7. Verify whether MPIO is configured correctly by listing the devices. If it's configured correct, only two NETAPP devices show up.
@@ -189,7 +195,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    # multipath -l
    ```
    {: pre}
-   
+
    Example output
    ```
    root@server:~# multipath -l
