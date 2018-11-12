@@ -14,7 +14,7 @@ lastupdated: "2018-10-31"
 
 To create snapshots of your storage volume, either automated or manually, you need to purchase space to hold them. You can purchase capacity up to your storage volume amount (during the initial volume purchase or later by using the steps that are described here).
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://console.bluemix.net/catalog/){:new_window} and click the **Menu** icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://console.bluemix.net/catalog/){:new_window} and click the menu icon on the upper left. Select **Classic Infrastructure**.
 
    Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.
