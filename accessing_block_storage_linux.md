@@ -15,12 +15,14 @@ lastupdated: "2018-11-12"
 
 # Connecting to MPIO iSCSI LUNs on Linux
 
-These instructions are for RHEL6/Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
+These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
+{:note}
 
 For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+{:tip}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-{: tip}
+{:important}
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 2. Click **Authorize Host**.
@@ -43,7 +45,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-  - Ubuntu/Debian
+  - Ubuntu and Debian
 
     ```
     sudo apt-get update
