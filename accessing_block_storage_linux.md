@@ -571,5 +571,5 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
   
-   For more information, see the [`iscsiadm` man-page](https://linux.die.net/man/8/iscsiadm).
+   For more information, see the [`iscsiadm` man page](https://linux.die.net/man/8/iscsiadm).
    {:tip}
