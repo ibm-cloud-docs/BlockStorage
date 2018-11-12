@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -16,7 +16,7 @@ lastupdated: "2018-10-31"
 
 The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest. All storage that is provisioned in the upgraded data centers is automatically created with the new version.
 
-The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. For more information, see the [New mount point for encrypted {{site.data.keyword.filestorage_short}} Volumes](#new-mount-point-for-encrypted-storage-volumes) section.
+The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. For more information, see the [New mount point for encrypted {{site.data.keyword.blockstorageshort}} volumes](#new-mount-point-for-encrypted-storage-volumes) section.
 {:important}
 
 ## New locations
@@ -98,7 +98,7 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 - Create a clone of your data with the **[{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html)**.
 - **Storage is expandable** in GB increments up to 12 TB, without the need to create a duplicate or manually moving data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
 
-## New Mount Point for encrypted storage volumes
+## New mount point for encrypted storage volumes
 
 All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure that you're using the correct mount point for your storage volumes, you can view the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
