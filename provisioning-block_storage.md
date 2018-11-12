@@ -41,13 +41,13 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine tune to meet 
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
 8. Choose your **OS Type** from the list.<br/>
 
-   This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
+   This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
 10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#which-windows-version-am-i-to-choose-for-my-block-storage-lun-).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html).
 {:important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
@@ -69,13 +69,13 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](ordering-snapshots.html).
 8. Choose your **OS Type** from the list.<br/>
 
-   This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
+   This selection is based on the operating system that your hosts is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
 10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html#faqs.html#which-windows-version-am-i-to-choose-for-my-block-storage-lun-).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](managing-storage-limits.html).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](faqs.html).
 {:important}
 
 ## Connecting your new storage
