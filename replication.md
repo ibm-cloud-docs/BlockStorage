@@ -14,8 +14,6 @@ lastupdated: "2018-10-31"
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
 
-With replicas, you can recover from site failures and other disasters quickly. In case of an emergency, you can fail over to the destination volume, and access your data from a specific point-in-time in the DR copy. For more information, see [Duplicating Replica Volumes for Disaster Recovery](disaster-recovery.html).
-
 Replication keeps your data in sync in two different locations. If you just want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
 {:tip}
 
