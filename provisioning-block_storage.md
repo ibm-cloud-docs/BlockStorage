@@ -84,8 +84,8 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
 - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
 - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuring Block Storage for Backup with cPanel](configure-backup-cpanel.html)
-- [Configuring Block Storage for Backup with Plesk](configure-backup-plesk.html)
+- [Configuring Block Storage for backup with cPanel](configure-backup-cpanel.html)
+- [Configuring Block Storage for backup with Plesk](configure-backup-plesk.html)
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 

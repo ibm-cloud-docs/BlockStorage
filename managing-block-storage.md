@@ -61,8 +61,8 @@ Based on the Operating System of your host, follow the appropriate instructions.
 - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
 - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
 - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuring Block Storage for Backup with cPanel](configure-backup-cpanel.html)
-- [Configuring Block Storage for Backup with Plesk](configure-backup-plesk.html)
+- [Configuring Block Storage for backup with cPanel](configure-backup-cpanel.html)
+- [Configuring Block Storage for backup with Plesk](configure-backup-plesk.html)
 
 
 ## Revoking a host's access to {{site.data.keyword.blockstorageshort}}

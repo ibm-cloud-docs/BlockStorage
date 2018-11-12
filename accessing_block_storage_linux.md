@@ -513,7 +513,7 @@ To create a file system with `parted`, follow these steps.
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - Example output of a correct configuration:
 
     ```
@@ -524,11 +524,11 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - Example outputs of an incorrect configuration:
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
     Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -541,7 +541,7 @@ To create a file system with `parted`, follow these steps.
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    | sda: device node name blacklisted Feb 17 19:55:02
@@ -564,12 +564,12 @@ To create a file system with `parted`, follow these steps.
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
-   For more information, see the [`iscsiadm` man page](https://linux.die.net/man/8/iscsiadm).
+
+   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm).
    {:tip}
