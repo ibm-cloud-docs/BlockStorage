@@ -128,7 +128,7 @@ To verify whether Windows MPIO is configured, you must first ensure that the MPI
 When the restart is complete and the Storage Device is added, you can verify if MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-If MPIO wasn't configured correctly, your storage device disconnects and becomes unavailable when a network outage occurs or when {{site.data.keyword.BluSoftlayer_full}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active reads/writes going to the LUN.
+If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.BluSoftlayer_full}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active reads/writes going to the LUN.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 
