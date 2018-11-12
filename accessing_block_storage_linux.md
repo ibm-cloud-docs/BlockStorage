@@ -2,20 +2,25 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-16"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+
 
 # Connecting to MPIO iSCSI LUNs on Linux
 
-These instructions are for RHEL6/Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority. 
+These instructions are for RHEL6/Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
 
 For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+{: tip}
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 2. Click **Authorize Host**.
@@ -25,9 +30,11 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 Following are the steps that are required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-**Note:** The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+{: tip}
 
-**Note:** It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+{:important}
 
 1. Install the iSCSI and multipath utilities to your host.
   - RHEL and CentOS
@@ -36,7 +43,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     ```
     {: pre}
 
-  - Ubuntu and Debian
+  - Ubuntu/Debian
 
     ```
     sudo apt-get update
@@ -45,9 +52,9 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     {: pre}
 
 2. Create or edit your multipath configuration file if it is needed.
-  - RHEL 6 and CENTOS 6 
+  - RHEL 6 and CENTOS 6
     * Edit **/etc/multipath.conf** with the following minimum configuration.
-    
+
       ```
       defaults {
       user_friendly_names no
@@ -81,16 +88,16 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
       }
       ```
       {: codeblock}
-     
-    - Restart `iscsi` and `iscsid` services so that the changes take effect. 
-      
+
+    - Restart iscsi and iscsid services so that the changes take effect.
+
       ```
       service iscsi restart
       service iscsid restart
       ```
       {: pre}
-     
-  - RHEL7 and CentOS7, `multipath.conf` can be blank as the OS has built-in configurations. 
+
+  - RHEL7 and CentOS7, `multipath.conf` can be blank as the OS has built-in configurations.
   - Ubuntu doesn't use `multipath.conf` because it's built into `multipath-tools`.
 
 3. Load the multipath module, start multipath services, and set it start on boot.
@@ -148,7 +155,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     ```
     {: pre}
 
-    RHEL 7/CentOS 7 might return `No fc_host device`, which can be ignored.
+    RHEL 7 and CentOS 7 may return No fc_host device, which can be ignored.
 
 5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lowercase.
    ```
@@ -166,7 +173,8 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
    ```
    {: codeblock}
 
-   **Note:** Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP
+   Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
+   {:important}
 
 7. Set iSCSI to start at boot and start it now.
   - RHEL 6
@@ -200,7 +208,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
     systemctl enable iscsid
     ```
     {: pre}
- 
+
     ```
     systemctl start iscsi
     ```
@@ -255,7 +263,7 @@ Following are the steps that are required to connect a Linux-based {{site.data.k
 
 Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use `fdisk` for drives that are less than 2 TB and `parted` for a disk bigger than 2 TB.
 
-### Using `fdisk`
+### Creating a file system with `fdisk`
 
 1. Get the disk name.
    ```
@@ -273,7 +281,8 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
    The XXX represents the disk name returned in Step 1. <br />
 
-   **Note**: Scroll further down for the commands codes that are listed in the `fdisk` command table.
+   Scroll further down for the commands codes that are listed in the `fdisk` command table.
+   {: tip}
 
 3. Create a file system on the new partition.
 
@@ -319,7 +328,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      ```
      {: pre}
 
-#### The `fdisk` command table
+#### The  `fdisk` command table
 
 <table border="0" cellpadding="0" cellspacing="0">
 	<caption>The <code>fdisk</code> command table contains commands on the left and expected results on the right.</caption>
@@ -332,7 +341,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>Creates a partition. &#42;</td>
+		<td>Creates a new partition. &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -373,7 +382,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
   (`**`) Type L to list the hex codes
 
-### Using `parted`
+### Creating a file system with  `parted`
 
 On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian and Ubuntu
@@ -402,36 +411,38 @@ To create a file system with `parted` follow these steps.
    1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
 
       ```
-      (parted) select /dev/mapper/XXX
+      select /dev/mapper/XXX
       ```
       {: pre}
 
    2. Run `print` to confirm that you are on the right disk.
 
       ```
-      (parted) print
+      print
       ```
       {: pre}
 
    3. Create a GPT partition table.
 
       ```
-      (parted) mklabel gpt
+      mklabel gpt
       ```
       {: pre}
 
-   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
-   <br /> **Note**: The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `(parted) unit TB` if you want to.
+   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.<br />
+
+   The listed units default to megabytes (MB), to create a 10 GB partition you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
+   {: tip}
 
       ```
-      (parted) mkpart
+      mkpart
       ```
       {: pre}
 
    5. Exit `parted` with `quit`.
 
       ```
-      (parted) quit
+      quit
       ```
       {: pre}
 
@@ -442,8 +453,8 @@ To create a file system with `parted` follow these steps.
    ```
    {: pre}
 
-   **Note**: It's important to select the right disk and partition when you run this command!
-   Verify the result by printing the partition table. Under file system column, you can see ext3.
+   It's important to select the right disk and partition when you run this command!<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
+   {:important}
 
 4. Create a mount point for the file system and mount it.
    - Create a partition name `PerfDisk` or where you want to mount the file system.
@@ -471,75 +482,92 @@ To create a file system with `parted` follow these steps.
    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3). <br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
 
 
 
-## Verifying whether MPIO is configured correctly in `*NIX` operating systems
+## Verifying Whether MPIO is Configured Correctly in `*NIX` OSes
 
-To check whether multipath is picking up the devices, list the devices. If it's configured correct, only two NETAPP devices show up.
+1. To check whether multipath is picking up the devices, list the devices. If it's configured correct, only two NETAPP devices show up.
 
-```
-# multipath -l
-```
-{: pre}
+  ```
+  multipath -l
+  ```
+  {: pre}
 
-```
-root@server:~# multipath -l
-3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
-|-+- policy='round-robin 0' prio=-1 status=active`
-6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
-7:0:0:101 sde 8:64 active undef running
-```
+  ```
+  root@server:~# multipath -l
+  3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
+  |-+- policy='round-robin 0' prio=-1 status=active`
+  6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
+  7:0:0:101 sde 8:64 active undef running
+  ```
 
-Check that the disks are present. Confirm that there are two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up:
+2. Check that the disks are present. There must be two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+  ```
+  fdisk -l | grep Disk
+  ```
+  {: pre}
+  
+  - Example output of a correct configuration:
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
+    ```
+    root@server:~# fdisk -l | grep Disk
+    Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+    Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
+  - Example outputs of an incorrect configurations:
+    
+    ```
+    No multipath output root@server:~# multipath -l root@server:~#
+    ```
+    
+    ```
+    root@server:~# fdisk -l | grep Disk
+    Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+    Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
 
-```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+3. Confirm local discs are not included in the multipath devices. The following command shows the devices that are blacklisted.
+   ```
+   multipath -l -v 3 | grep sd <date and time>
+   ```
+   {: pre}
+ 
+   ```
+   root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
+   | sda: device node name blacklisted Feb 17 19:55:02
+   | sdb: device node name blacklisted Feb 17 19:55:02
+   | sdc: device node name blacklisted Feb 17 19:55:02
+   | sdd: device node name blacklisted Feb 17 19:55:02
+   | sde: device node name blacklisted Feb 17 19:55:02
+   ```
 
-If it isn't correctly set up, it looks like this example.
-```
-No multipath output root@server:~# multipath -l root@server:~#
-```
+## Un-mounting  {{site.data.keyword.blockstorageshort}} volumes
 
-This command shows the devices that are blacklisted.
-```
-# multipath -l -v 3 | grep sd <date and time>
-```
-{: pre}
+1. Un-mount the file system.
+   ```
+   umount /dev/mapper/XXXlp1 /PerfDisk
+   ```
+   {: pre}
 
-```
-root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
-| sda: device node name blacklisted Feb 17 19:55:02
-| sdb: device node name blacklisted Feb 17 19:55:02
-| sdc: device node name blacklisted Feb 17 19:55:02
-| sdd: device node name blacklisted Feb 17 19:55:02
-| sde: device node name blacklisted Feb 17 19:55:02
-```
-
-`fdisk` shows only the `sd*` devices, and no `/dev/mapper`.
-
-```
-# fdisk -l | grep Disk
-```
-{: pre}
-
-```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+2. If you do not have any other volumes in that target portal, you can log out of the target.
+   ```
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+   
+3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
+   ```
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+  
+   For more information, see the [man page of iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   {:tip}
