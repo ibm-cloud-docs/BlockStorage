@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -54,7 +54,7 @@ You're presented with a list of storage LUNs that this particular host has acces
 
 
 
-## Mounting and Unmounting {{site.data.keyword.blockstorageshort}}
+## Mounting and unmounting {{site.data.keyword.blockstorageshort}}
 
 Based on the Operating System of your host, follow the appropriate instructions.
 
