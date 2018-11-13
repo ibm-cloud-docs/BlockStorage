@@ -14,7 +14,7 @@ lastupdated: "2018-10-31"
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
 
-Replication keeps your data in sync in two different locations. If you just want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
+Replication keeps your data in sync in two different locations. If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
 {:tip}
 
 Before you can replicate, you must create a snapshot schedule. When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
@@ -182,9 +182,11 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 **Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.**
 
 1. Click your active LUN (“source”).
-2. Click **Replica** and click the **Actions** link in the upper-right corner.
+2. Click **Replica** and click **Actions**.
 3. Select **Failover**.
-   >Expect a message across the top of the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.<br/> When your target volume is live you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
+
+   Expect a message across the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.<br/> When your target volume is live, you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
+   {:note}
 4. Click **View All ({{site.data.keyword.blockstorageshort}})**.
 5. Click your active LUN (formerly your target volume).
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
@@ -217,16 +219,16 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication history. The history includes:
 
-- Type for replication (failover or failback)
-- When it was started
-- Snapshot that was used for the replication
-- Size of the replication
-- When it completed
+- Type for replication (failover or failback),
+- When it was started,
+- Snapshot that was used for the replication,
+- Size of the replication,
+- When it completed.
 
 
 ## Creating a duplicate of a replica
 
-You can create a duplicate of an existing {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original LUN/volume by default and has a copy of the data up to the point-in-time of a snapshot.
+You can create a duplicate of an existing {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.
 
 Duplicates can be created from both primary and replica volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
 
