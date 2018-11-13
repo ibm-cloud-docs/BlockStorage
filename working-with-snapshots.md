@@ -21,10 +21,10 @@ Before you can set up your initial schedule, you must first purchase snapshot sp
 
 ### Adding a Snapshot schedule
 
-Snapshots schedules can be set up for hourly, daily, and weekly intervals, each with a distinct retention cycle. There is a maximum limit of 50 scheduled snapshots, which can be a mix of hourly, daily, and weekly schedules, and manual snapshots per storage volume.
+Snapshots schedules can be set up for hourly, daily, and weekly intervals, each with a distinct retention cycle. The maximum limit of snapshots is 50 per storage volume, which can be a mix of hourly, daily, and weekly schedules, and manual snapshots.
 
 1. Click your storage volume, click **Actions**, and click **Schedule Snapshot**.
-2. In the New Schedule Snapshot window, there are three different snapshot frequencies to select from. Use any combination of the three to create a comprehensive snapshot schedule.
+2. In the New Schedule Snapshot window, you can select from three different snapshot frequencies. Use any combination of the three to create a comprehensive snapshot schedule.
    - Hourly
       - Specify the minute each hour that a snapshot is to be taken. The default is the current minute.
       - Specify the number of hourly snapshots to be retained before the oldest is discarded.
@@ -34,15 +34,15 @@ Snapshots schedules can be set up for hourly, daily, and weekly intervals, each 
    - Weekly
       - Specify the day of the week, hour, and minute that a snapshot is to be taken. The default is the current day, hour, and minute.
       - Select the number of weekly snapshots to be retained before the oldest is discarded.
-3. Click **Save**, and create another schedule with a different frequency. If the total number of scheduled snapshots is over 50, you receive a warning message and won't be able to save.
+3. Click **Save**, and create another schedule with a different frequency. If the total number of scheduled snapshots is over 50, you receive a warning message and are not be able to save.
 
-The list of the snapshots are displayed as they're taken in the **Snapshots** section of the **Detail** page.
+The list of the snapshots is displayed as they're taken in the **Snapshots** section of the **Detail** page.
 
 ## Taking a manual Snapshot
 
 Manual snapshots can be taken at various points during an application upgrade or maintenance. You can also take snapshots across multiple servers that were temporarily deactivated at the application level.
 
-There's a maximum limit of 50 manual snapshots per storage volume.
+The maximum limit of snapshots per storage volume is 50.
 
 1. Click your storage volume.
 2. Click **Actions**.
@@ -59,13 +59,13 @@ Retained snapshots are based on the number you entered in the **Keep the last** 
 
 ## Viewing the amount of Snapshot space that is used
 
-The pie chart at the top of the **Details** page displays how much space is used and how much space is left. You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
+The pie chart on the **Details** page displays how much space is used and how much space is left. You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
 ## Changing the amount of Snapshot space for a volume
 
 You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space. You can add 5 - 4,000 GB depending on your needs.
 
-Snapshot space can be increased only. It can't be reduced. You can select a smaller amount of space until you determine how much space you actually need. Remember, automated, and manual snapshots share the space.
+Snapshot space can be increased only. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Remember, automated, and manual snapshots share the space.
 {:note}
 
 Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -80,9 +80,9 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 
 Notifications are sent through the support tickets to the Master User on your account when you reach three different space thresholds – 75 percent, 90 percent, and 95 percent.
 
-- **75 percent capacity**: A warning is sent that snapshot space usage exceeded 75 percent. If you heed the warning and manually add space or delete retained and unnecessary snapshots, the action is noted and the ticket is closed. If you do nothing, you must manually acknowledge the ticket and then it is closed.
-- **90 percent capacity**: A second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the space that is used, the action is noted and the ticket is closed. If you do nothing, you must manually acknowledge the ticket and then it is closed.
-- **95 percent capacity**: A final warning is sent. If no action is taken to bring your space usage below the threshold, a notification is generated and automatic deletion occurs so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops below 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops below the threshold. If the space is manually increased or snapshots are deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
+- At **seventy five percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. If you heed the warning and manually add space or delete retained and unnecessary snapshots, the action is noted and the ticket is closed. If you do nothing, you must manually acknowledge the ticket and then it is closed.
+- At **ninety percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the space that is used, the action is noted and the ticket is closed. If you do nothing, you must manually acknowledge the ticket and then it is closed.
+- At **ninety five percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, a notification is generated and automatic deletion occurs so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
 ## Deleting a snapshot schedule
 
@@ -99,9 +99,9 @@ If you're using the replication feature, be sure that the schedule you're deleti
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. Deletion is done through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click your storage volume and scroll to the **Snapshot** section to see the list of existing snapshots.
-2. Click **Actions** next to a particular snapshot and click **Delete** to delete the snapshot. This deletion won't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
+2. Click **Actions** next to a particular snapshot and click **Delete** to delete the snapshot. This deletion doesn't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
 
-Manual snapshots that aren't deleted in the way as described previously, are automatically deleted when you reach space limitations (oldest first).
+Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 
 ## Restoring storage volume to a specific point-in-time by using a snapshot
 
@@ -116,7 +116,10 @@ You might need to take your storage volume back to a specific point-in-time beca
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot.
    {:note}
-5. Click **Yes** to start the restore. Expect a message across the top of the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
+5. Click **Yes** to start the restore.
+
+   Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
+   {:note}
 6. Mount and reattach your storage volume to the host.
    - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
    - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
