@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Snapshots
 
-Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. Snapshots enable you to protect your data with no performance impact, minimal consumption of space, and are considered your first line of defense for data protection. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy.
+Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time.With snapshots, you can protect your data with no performance impact and minimal consumption of space. Snapshots are considered your first line of defense for data protection. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy.
 
 {{site.data.keyword.blockstorageshort}} provides you with two ways to take your snapshots.
 
@@ -49,7 +49,7 @@ All snapshots and replicas of encrypted {{site.data.keyword.filestorage_short}} 
 
 ## How Snapshots affect disk space
 
-Snapshot copies minimize disk space usage by preserving individual blocks rather than whole files. Snapshot copies use extra space only when files in the active file system are changed or deleted. When this happens, the original file blocks are still preserved as part of one or more Snapshot copies.
+Snapshot copies minimize disk space usage by preserving individual blocks rather than whole files. Snapshot copies use extra space only when files in the active file system are changed or deleted. When files are changed or deleted, the original file blocks are still preserved as part of one or more Snapshot copies.
 
 In the active file system, the changed blocks are rewritten to different locations on the disk or removed as active file blocks entirely. As a result, in addition to the disk space that is used by blocks in the modified active file system, disk space that is used by the original blocks is still reserved to reflect the status of the active file system before the change.
 
