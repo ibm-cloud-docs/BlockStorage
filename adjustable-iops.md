@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ Billing for the storage is updated to add the pro-rated difference of the new pr
 
 This feature is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) only.
 
-Clients can't switch between Endurance and Performance when they adjust their IOPS. However, they can specify a new IOPS tier or IOPS level for their storage based on the following criteria/restrictions:
+Clients can't switch between Endurance and Performance when they adjust their IOPS. However, they can specify a new IOPS tier or IOPS level for their storage based on the following criteria and restrictions:
 
 - If original volume is Endurance 0.25 tier, IOPS tier can’t be updated.
 - If original volume is Performance with less than or equal to 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in less than or equal to 0.30 IOPS/GB.
@@ -39,11 +39,12 @@ If the volume has replication in place, the replica is automatically updated to 
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}
    - From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**
-   - From {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+   - From {{site.data.keyword.BluSoftlayer_full}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the LUN from the list and click **Actions** > **Modify LUN**
 3. Under **Storage IOPS Options**, make a new selection:
-    - Endurance (Tiered IOPS): select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
-    - Performance (Allocated IOPS): specify new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
+    - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
+    - For Performance (Allocated IOPS), specify new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
+    
     Be sure to look at any specific boundaries that are required by size in the order form.
     {:tip}
 4. Review your selection and the new pricing.
