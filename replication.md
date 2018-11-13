@@ -209,7 +209,9 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 1. Click your active LUN ("target").
 2. In the upper right, click **Replica** and click **Actions**.
 3. Select **Failback**.
-   >Expect a message across the top of the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
+
+   Expect a message across the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
+   {:note}
 4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}** link.
 5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. Click [here](provisioning-block_storage.html) for instructions.
@@ -217,13 +219,13 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 ## Viewing replication history
 
-Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication history. The history includes:
+Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes:
 
-- Type for replication (failover or failback),
-- When it was started,
-- Snapshot that was used for the replication,
-- Size of the replication,
-- When it completed.
+- the type for replication (failover or failback),
+- when it was started,
+- the snapshot that was used for the replication,
+- the size of the replication,
+- the time when the replication is completed.
 
 
 ## Creating a duplicate of a replica
