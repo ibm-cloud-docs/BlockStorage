@@ -159,32 +159,32 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
           <tr>
             <td>500</td>
             <td>100</td>
-            <td>6,000 or 10,000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 10,000 <sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
           </tr>
           <tr>
             <td>1,000</td>
             <td>100</td>
-            <td>6,000 or 20,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 20,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>2,000-3,000</td>
             <td>200</td>
-            <td>6,000 or 40,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 40,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>4,000-7,000</td>
             <td>300</td>
-            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>8,000-9,000</td>
             <td>500</td>
-            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>10,000-12,000</td>
             <td>1,000</td>
-            <td>6,000 or 48,000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
 </table>
 
@@ -195,7 +195,7 @@ Performance volumes are designed to operate consistently close to the provisione
 
 **Block size**
 
-IOPS for both Endurance and Performance is based on a 16-KB block size with a 50/50 read/write 50 percent random workload. A 16 KB block is the equivalent of one write to the volume.
+IOPS for both Endurance and Performance is based on a 16-KB block size with a 50/50 read/write 50 percent random workload. A 16-KB block is the equivalent of one write to the volume.
 {:important}
 
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
@@ -259,11 +259,11 @@ Another factor to consider is the number of hosts that are using your volume. If
 
 **Network connection**
 
-The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94 MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1 Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
+The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
 To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](set-host-queue-depth-settings-performance-and-endurance-storage.html), and other settings).
 
-Storage traffic is included in the total network usage of Public Virtual Servers. Please see the [Virtual Server documentation](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) to understand limits that might be imposed by the service.
+Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server documentation](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers).
 {:tip}
 
 ## Submitting your Order
