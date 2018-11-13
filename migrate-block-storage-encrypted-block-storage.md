@@ -22,7 +22,10 @@ There's an assumption that you already have your non-encrypted LUN attached to y
 - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
 - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
 
-## Creating new {{site.data.keyword.blockstorageshort}}
+All enhanced {{site.data.keyword.blockstorageshort}} volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you're using the correct mount point for both storage volumes, you can view the mount point information in the **Volume Details** page in the console. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+{:tip}
+
+## Creating a {{site.data.keyword.blockstorageshort}}
 
 When you place an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
 {:important}
