@@ -66,7 +66,7 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}}](h
 ## Creating a duplicate from a specific Snapshot
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}
-2. Click a **LUN/volume** from the list to view the details page. (It can either be a replica or non-replica volume.)
+2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
 3. Scroll down and select an existing snapshot from the list on the details page and click **Actions** > **Duplicate**.   
 4. Storage Type (Endurance or Performance) and Location remain the same as the original volume.
 5. Available Performance and size combinations are displayed. The IOPs designation of the original volume is set by default. You can specify IOPS or IOPS Tier for the new volume.
