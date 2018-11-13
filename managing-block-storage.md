@@ -88,7 +88,7 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 ### Revoking access from the Storage View
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
-2. Scroll to ** Authorized Hosts**.
+2. Scroll to **Authorized Hosts**.
 3. Click **Actions** next to the host whose access is to be revoked, and select **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
 
@@ -99,7 +99,8 @@ If you want to disconnect multiple hosts from a specific LUN, you need to repeat
 
 ## Canceling a storage LUN
 
-If you no longer need a specific LUN, you can cancel it.
+If you no longer need a specific LUN, you can cancel it any time.
+
 To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
 
