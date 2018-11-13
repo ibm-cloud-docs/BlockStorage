@@ -39,12 +39,12 @@ A volume with numerous changes and a lengthy retention period needs more space t
 
 If you take 12 hourly snapshots of 500 GB of actual data, and there's 1 percent of change between each snapshot, you end up with 60 GB for snapshots.
 
-*(5 G Rate of Change) x (12 hourly snapshots) = (60 GB used space)*
+*(5-GB Rate of Change) x (12 hourly snapshots) = (60-GB used space)*
 
 Conversely, if that 500 GB of actual data, with 12 hourly snapshots, saw 10 percent of change every hour, the snapshot space that is used is 600 GB.
 
-*(50 GB Rate of Change) x (12 hourly snapshots) = (600 GB used space)*
+*(50-GB Rate of Change) x (12 hourly snapshots) = (600-GB used space)*
 
-So when you determine how much Snapshot space you need, consider the rate of change carefully. It's a huge influence on how much snapshot space you need. A bigger volume is more likely to change more often. However, a 500 GB volume with 5 GB of change and a 10 TB volume with 5 GB of change use the same amount of snapshot space.
+So when you determine how much Snapshot space you need, consider the rate of change carefully. It's a huge influence on how much snapshot space you need. A bigger volume is more likely to change more often. However, a 500-GB volume with 5 GB of change and a 10-TB volume with 5 GB of change use the same amount of snapshot space.
 
 Additionally, for most workloads, the larger a volume is the less space needs to be set aside initially. It's primarily due to the underlying data efficiencies, and the nature of how snapshots work in the environment.
