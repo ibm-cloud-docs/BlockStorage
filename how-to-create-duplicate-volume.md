@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Creating a duplicate Block Volume
 
-You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original LUN/volume by default and has a copy of the data up to the point-in-time of a snapshot.   
+You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.   
 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](snapshots.html).  
 
@@ -28,12 +28,12 @@ If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see 
 {:tip}
 
 Some common uses for a duplicate volume:
-- **Disaster Recovery Testing**: Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
-- **Golden Copy**: Use a storage volume as golden copy that you can create multiple instances from for various uses.
-- **Data refreshes**: Create a copy of your production data to mount to your non-production environment for testing.
-- **Restore from Snapshot**: Restore data on the original volume with specific files/date from a snapshot without overwriting the entire original volume with the snapshot restore function.
-- **Development and Testing (dev/test)**: Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
-- **Storage Resize**: Create a volume with new size, IOPS rate or both without needing to move your data.  
+- **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
+- **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
+- **Data refreshes**. Create a copy of your production data to mount to your non-production environment for testing.
+- **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
+- **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
+- **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.  
 
 You can create a duplicate volume through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} in a couple of ways.
 
@@ -42,14 +42,14 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}}](h
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}
     - From the customer portal, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR
-    - From the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+    - From the {{site.data.keyword.BluSoftlayer_full}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click **Actions** > **Duplicate LUN (Volume)**
 3. Choose your snapshot option:
     - If you order from a **non-replica** volume,
       - Select **Create from new snapshot** – this action creates a snapshot to be used for the duplicate. Use this option if your volume doesn't have current snapshots or if you want to create a duplicate right then.<br/>
       - Select **Create from latest snapshot** – this action creates a duplicate from the most recent snapshot that exists for this volume.
     - If you order from a **replica** volume the only option for snapshot is to use the most recent snapshot available.
-4. Storage Type and Location remains the same as the original volume.
+4. Storage Type and Location remain the same as the original volume.
 5. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
 5. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
