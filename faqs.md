@@ -28,11 +28,11 @@ That depends on what the host operating system can handle, it’s not something 
 ## Which Windows version am I to choose for my Block Storage LUN?
 {: faq}
 
-When you create a LUN, you must specify the OS type. The OS type must be based on the operating system that the hosts that access the LUN use. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
+When you create a LUN, you must specify the OS type. The OS type must be based on the operating system, which is used by the hosts that access the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
 
 **Windows 2008+**
 - The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
- 
+
 **Windows 2003**
 - The LUN stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
 
@@ -54,7 +54,7 @@ IOPS is measured based on a load profile of 16-KB blocks with random 50 percent 
 
 Maximum IOPS can still be obtained when you use smaller block sizes. However, throughput becomes smaller. For example, a volume with 6000 IOPS would have the following throughput at various block sizes:
 
-- 16 KB * 6000 IOPS == ~93.75 MB/sec 
+- 16 KB * 6000 IOPS == ~93.75 MB/sec
 - 8 KB * 6000 IOPS == ~46.88 MB/sec
 - 4 KB * 6000 IOPS == ~23.44 MB/sec
 
@@ -96,8 +96,8 @@ When you order {{site.data.keyword.blockstorageshort}}, all upgraded data center
 ## If we own non-encrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted. 
-New {{site.data.keyword.blockstorageshort}} that is provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic. 
+{{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted.
+New {{site.data.keyword.blockstorageshort}} that is provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic.
 Data on non-encrypted storage in an upgraded data center can be encrypted by creating a new Block LUN, then copying the data to the new encrypted LUN with host-based migration. Click [here](migrate-block-storage-encrypted-block-storage.html) for instructions.
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
