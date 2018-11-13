@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
@@ -189,7 +189,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    The volume is now mounted and accessible on the host.
 
-7. Verify whether MPIO is configured correctly by listing the devices. If it's configured correct, only two NETAPP devices show up.
+7. Verify whether MPIO is configured correctly by listing the devices. If the configuration is correct, only two NETAPP devices show up.
 
    ```
    # multipath -l
