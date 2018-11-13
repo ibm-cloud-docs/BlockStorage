@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
@@ -40,6 +40,7 @@ The following instructions are for ordering an enhanced LUN through the {{site.d
 6. Select the IOPS tier.
 7. Click **Select Storage Size** and select your storage size from the list.
 8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space.
+
    For more information about snapshot space considerations and recommendations, see [Ordering Snapshots](ordering-snapshots.html).
    {:tip}
 9. Choose your **OS Type** from the list.
@@ -52,7 +53,9 @@ The following instructions are for ordering an enhanced LUN through the {{site.d
 2. On the right, click **Order {{site.data.keyword.blockstorageshort}}**.
 3. Select **Performance** from the **Select Storage Type** list.
 4. Click **Location** and select your data center.
-   - Ensure that the new Storage is added in the same location as the host or hosts you ordered previously.
+
+   Ensure that the new Storage is added in the same location as the host or hosts you ordered previously.
+   {:important}
 5. Select your billing option. You can choose between hourly and monthly billing.
 6. Select the appropriate **Storage Size**.
 7. Enter the IOPS in the **Specify IOPS** field.
@@ -82,6 +85,7 @@ If your replication target data center is not upgraded yet, you can't establish 
 ## Migrating your data
 
 1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs.
+
    If you need assistance with connecting the two LUNs to your host, open a support case.
    {:tip}
 
@@ -90,8 +94,8 @@ If your replication target data center is not upgraded yet, you can't establish 
   - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, do the migration during off peak times. If you need assistance with these considerations, open a support ticket.
 
 3. Copy your data across.
-   - **Microsoft Windows** - To copy data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN, format the new storage, and copy the files over by using Windows Explorer.
-   - **Linux** - You can use `rsync` to copy over the data. This is an example:
+   - For **Microsoft Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
+   - For **Linux**, you can use `rsync` to copy over the data. Here is an example:
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
