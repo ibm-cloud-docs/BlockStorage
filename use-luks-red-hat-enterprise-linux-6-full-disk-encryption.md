@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
@@ -12,9 +12,14 @@ lastupdated: "2018-10-31"
 {:note: .note}
 {:important: .important}
 
-# Using LUKS in Red Hat Enterprise Linux for Full Disk Encryption
+# Achieving Full Disk Encryption with LUKS in Red Hat Enterprise Linux
 
 You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
+
+These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux host, see [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html).
+
+{site.data.keyword.blockstorageshort}} that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) is automatically provisioned with  provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](block-file-storage-encryption-rest.html).
+{:note}
 
 ## What LUKS does
 
@@ -32,12 +37,10 @@ You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux 
 
 ## Setting up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
-These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux host, see [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html).
-
 The process of data encryption creates a load on the host that might potentially impact performance.
 {:note}
 
-1. Type the following at a shell prompt as root to install the required package:   <br/>
+1. Type the following command at a shell prompt as root to install the required package:   <br/>
    ```
    # yum install cryptsetup-luks
    ```
