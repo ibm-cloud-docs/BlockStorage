@@ -32,7 +32,7 @@ The following instructions are for ordering an enhanced LUN through the {{site.d
 ### Ordering an Endurance LUN
 
 1. From the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. In the upper right corner, click **Order {{site.data.keyword.blockstorageshort}}**.
+2. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
 3. Select **Endurance** from the **Select Storage Type** list.
 4. Select your deployment **Location** (data center).
    - Ensure that the new Storage is added in the same location as the previous volume.
