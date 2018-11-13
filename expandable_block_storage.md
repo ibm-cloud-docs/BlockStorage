@@ -2,18 +2,18 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
 
 # Expanding Block Storage Capacity
 
-With this new feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume. There's no outage or lack of access to the storage while the resize is taking place. 
+With this new feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume. There's no outage or lack of access to the storage while the resize is taking place.
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-This feature is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
+This feature is available in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
 
 ## Advantages of Expandable Storage
 
@@ -23,13 +23,13 @@ This feature is available in [select data centers](new-ibm-block-and-file-storag
 
 ## Effects of expanding storage capacity on Replication
 
-The expand action on the primary storage results in automatic resizing of the replica. 
+The expand action on the primary storage results in automatic resizing of the replica.
 
 ## Limitations
 
-This feature is available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html). 
+This feature is available for storage that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html).
 
-Storage that was provisioned in these data centers before the release of this feature, during **April 2017 - December 14, 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **December 14, 2017** can be increased up to 12 TB. 
+Storage that was provisioned in these data centers before the release of this feature, during **April 2017 - 14 December 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **14 December 2017** can be increased up to 12 TB.
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
 
