@@ -21,7 +21,7 @@ The NFS mount point for new volumes differs from the mount point of non-encrypte
 
 ## New locations
 
-The new {{site.data.keyword.blockstorageshort}} is available in the following regions/data centers.
+The new {{site.data.keyword.blockstorageshort}} is available in the following regions and data centers.
 <table role="presentation">
   <tr>
     <td><strong>US 2</strong></td>
@@ -100,7 +100,7 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 
 ## New mount point for encrypted storage volumes
 
-All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure that you're using the correct mount point for your storage volumes, you can view the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. Check the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} to ensure that you're using the correct mount point. You can also get the correct mount point information through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Check back here to see when more data centers are upgraded and for new features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.
 {:tip}
