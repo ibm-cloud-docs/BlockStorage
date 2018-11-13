@@ -85,7 +85,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
 1. Start the iSCSI Initiator, and on the Targets tab, click **Properties**.
 2. Click **Add Session** on the Properties window to open the Connect To Target window.
-3. In the Connect to Target dialog box, select **Enable multi-path** check box and click **Advanced**.
+3. In the Connect to Target dialog box, select **Enable multi-path** check box, and click **Advanced**.
   ![Target](/images/Target.png)
 
 4. In the Advanced Settings window ![Settings](/images/Settings.png)
@@ -100,8 +100,8 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 6. In the Connect to Target window, select the **Enable multi-path** check box. Click **Advanced**.
 7. In the Advanced Settings window:
    - On the Local adapter list, select Microsoft iSCSI Initiator.
-   - On the Initiator IP list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
-   - On the Target Portal IP list, select the IP address for the second data interface enabled on the device.
+   - On the Initiator IP list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
+   - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the device.
    - Click **Enable CHAP log on** check box
    - Enter the Name and Target secret values that were obtained from the portal and click **OK**.
    - Click **OK** on the Connect To Target window to go back to the Properties window.
@@ -125,10 +125,10 @@ To verify whether Windows MPIO is configured, you must first ensure that the MPI
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
-When the restart is complete and the Storage Device is added, you can verify if MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
+When the restart is complete and the Storage Device is added, you can verify whether MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.BluSoftlayer_full}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active reads/writes going to the LUN.
+If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.BluSoftlayer_full}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active read/write operations going to the LUN.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 
@@ -140,7 +140,7 @@ Following are the steps that are required to disconnect a Windows-based {{site.d
 2. Select the targets that you want to remove and click **Disconnect**.
 
 ### Removing targets
-This is optional, for when you no longer need to access the iSCSI targets.
+This step is optional, for when you no longer need to access the iSCSI targets.
 
 1. Click **Discovery** in the iSCSI Initiator.
 2. Highlight the target portal that is associated with your storage volume and click **Remove**.
