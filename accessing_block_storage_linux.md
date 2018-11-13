@@ -221,7 +221,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-   - Other distributions: consult the OS vendor documentation.
+   - For other distributions, consult the OS vendor documentation.
 
 8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
@@ -493,7 +493,7 @@ To create a file system with `parted`, follow these steps.
 
 ## Verifying MPIO configuration
 
-1. To check if multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
+1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
 
   ```
   multipath -l
@@ -514,7 +514,7 @@ To create a file system with `parted`, follow these steps.
   ```
   {: pre}
 
-  - Example output of a correct configuration:
+  - Example output of a correct configuration.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,7 +523,7 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Example outputs of an incorrect configuration:
+  - Example outputs of an incorrect configuration.
 
     ```
     No multipath output root@server:~# multipath -l root@server:~#
