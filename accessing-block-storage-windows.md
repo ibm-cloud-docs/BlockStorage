@@ -62,7 +62,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
     ![Inactive Target](/images/Inactive_0.png)
 
-    the name of your target appears in the Discovered targets section with an Inactive status.
+    The name of your target appears in the Discovered targets section with an `Inactive` status.
     {:note}
 
 
@@ -75,7 +75,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    ![Enable CHAP](/images/chap_0.png)
 4. Enter the user name in the Name field, and enter the password in the Target secret field.
 
-   The Name and Target secret field values can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen. 
+   The Name and Target secret field values can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen.
    {:tip}
 5. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
    ![Connected status](/images/Connected.png)
@@ -106,7 +106,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    - Enter the Name and Target secret values that were obtained from the portal and click **OK**.
    - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
-   
+
    If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} before you attempt to make the connection.
    {:note}
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`. <br/>
