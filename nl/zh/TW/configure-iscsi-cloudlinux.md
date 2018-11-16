@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 在 CloudLinux 上連接至 MPIO iSCSI LUN
 
 請遵循下列指示，以在 CloudLinux Server 6.10 版上按裝具有多路徑的 iSCSI LUN。
 
 開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 獲得授權。
+{:tip}
 
 1. 登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}。
 2. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
@@ -21,7 +25,8 @@ lastupdated: "2018-08-02"
 4. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
 5. 記下「主機 IQN」、使用者名稱、密碼及目標位址。
 
-**附註：**最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且對儲存空間效能有不利的影響。
+最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
+{:important}
 
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 
@@ -30,18 +35,17 @@ lastupdated: "2018-08-02"
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
-   
    ```
    {: pre}
-   
+
    ```
    chkconfig multipathd on
    ```
    {: pre}
-   
+
    ```
    chkconfig iscsid on
    ```
@@ -82,7 +86,7 @@ lastupdated: "2018-08-02"
      {: codeblock}
 
    - 透過新增使用者名稱、密碼，更新 CHAP 設定 `/etc/iscsi/iscsid.conf`。
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +99,9 @@ lastupdated: "2018-08-02"
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **附註**：請對 CHAP 名稱使用大寫字體。請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
+
+     請對 CHAP 名稱使用大寫字體。請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
+     {:important}
 
 
 3. 重新啟動 `iscsi` 及 `multipathd` 服務。
@@ -104,12 +109,12 @@ lastupdated: "2018-08-02"
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
 
      A. 針對 iSCSI 陣列執行探索。
@@ -117,7 +122,7 @@ lastupdated: "2018-08-02"
        iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
        ```
        {: pre}
-     
+
         範例輸出
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +141,7 @@ lastupdated: "2018-08-02"
    iscsiadm -m session
    ```
    {: pre}
-   
+
    範例輸出
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -149,7 +154,7 @@ lastupdated: "2018-08-02"
    fdisk -l 
    ```
    {: pre}
-    
+
    範例輸出
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +185,7 @@ lastupdated: "2018-08-02"
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
    磁區現在已裝載且可在主機上存取。
 
 7. 列出裝置，以驗證 MPIO 是否配置正確。如果它配置正確，則只會顯示兩台 NETAPP 裝置。
@@ -189,7 +194,7 @@ lastupdated: "2018-08-02"
    # multipath -l
    ```
    {: pre}
-   
+
    範例輸出
    ```
    root@server:~# multipath -l

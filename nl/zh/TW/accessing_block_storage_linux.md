@@ -2,20 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+
 
 # 在 Linux 上連接至 MPIO iSCSI LUN
 
-這些指示適用於 RHEL6/Centos6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。 
+這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
+{:note}
 
 例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
+{:tip}
 
 開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 獲得授權。
+{:important}
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
 2. 按一下**授權主機**。
@@ -25,120 +32,132 @@ lastupdated: "2018-08-02"
 
 以下是將 Linux 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
-**附註：**指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
+指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
+{: tip}
 
-**附註：**最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且對儲存空間效能有不利的影響。
+最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
+{:important}
 
 1. 將 iSCSI 及多路徑公用程式安裝至主機。
-   - RHEL/CentOS
+  - RHEL 及 CentOS
+     ```
+    yum install iscsi-initiator-utils device-mapper-multipath
+    ```
+    {: pre}
 
-   ```
-   yum install iscsi-initiator-utils device-mapper-multipath
-   ```
-   {: pre}
+  - Ubuntu 及 Debian
 
-   - Ubuntu/Debian
+    ```
+    sudo apt-get update
+    sudo apt-get install multipath-tools
+    ```
+    {: pre}
 
-   ```
-   sudo apt-get update
-   sudo apt-get install multipath-tools
-   ```
-   {: pre}
+2. 建立或編輯您所需要的多路徑配置檔。
+  - RHEL 6 及 CENTOS 6
+    * 編輯含有下列最少配置的 **/etc/multipath.conf**。
 
-2. 建立或編輯您的多路徑配置檔。
-   - 使用下列指令中所提供的最小配置，編輯 **/etc/multipath.conf**。<br /><br /> **附註：**對於 RHEL7/CentOS7，`multipath.conf` 可以是空白，因為 OS 具有內建配置。Ubuntu 未使用 multipath.conf，因為它已內建到 multipath-tools。
+      ```
+      defaults {
+      user_friendly_names no
+      max_fds max
+      flush_on_last_del yes
+      queue_without_daemon no
+      dev_loss_tmo infinity
+      fast_io_fail_tmo 5
+      }
+      # All data under blacklist must be specific to your system.
+      blacklist {
+      wwid "SAdaptec*"
+      devnode "^hd[a-z]"
+      devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+      devnode "^cciss.*"  
+      }
+      devices {
+      device {
+      vendor "NETAPP"
+      product "LUN"
+      path_grouping_policy group_by_prio
+      features "3 queue_if_no_path pg_init_retries 50"
+      prio "alua"
+      path_checker tur
+      failback immediate
+      path_selector "round-robin 0"
+      hardware_handler "1 alua"
+      rr_weight uniform
+      rr_min_io 128
+      }
+      }
+      ```
+      {: codeblock}
 
-   ```
-   defaults {
-   user_friendly_names no
-   max_fds max
-   flush_on_last_del yes
-   queue_without_daemon no
-   dev_loss_tmo infinity
-   fast_io_fail_tmo 5
-   }
-   # All data under blacklist must be specific to your system.
-   blacklist {
-   wwid "SAdaptec*"
-   devnode "^hd[a-z]"
-   devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-   devnode "^cciss.*"
-   }
-   devices {
-   device {
-   vendor "NETAPP"
-   product "LUN"
-   path_grouping_policy group_by_prio
-   features "3 queue_if_no_path pg_init_retries 50"
-   prio "alua"
-   path_checker tur
-   failback immediate
-   path_selector "round-robin 0"
-   hardware_handler "1 alua"
-   rr_weight uniform
-   rr_min_io 128
-   }
-   }
-   ```
-   {: codeblock}
+    - 重新啟動 iscsi 及 iscsid 服務，使變更生效。
+
+      ```
+      service iscsi restart
+      service iscsid restart
+      ```
+      {: pre}
+
+  - RHEL7 及 CentOS7 的 `multipath.conf` 可以是空白，因為 OS 具有內建配置。
+  - Ubuntu 不使用 `multipath.conf`，因為它已內建到 `multipath-tools`。
 
 3. 載入多路徑模組、啟動多路徑服務，並將其設為在開機時啟動。
-   - RHEL 6
+  - RHEL 6
      ```
      modprobe dm-multipath
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      service multipathd start
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      chkconfig multipathd on
      ```
-     {: pre}
+    {: pre}
 
-   - CentOS 7
+  - CentOS 7
      ```
      modprobe dm-multipath
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      systemctl start multipathd
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      systemctl enable multipathd
      ```
-     {: pre}
+    {: pre}
 
-   - Ubuntu
+  - Ubuntu
      ```
      service multipath-tools start
      ```
-     {: pre}
+    {: pre}
 
-   - 若為其他發行套件，請參閱 OS 供應商文件。
+  - 若為其他發行套件，請參閱 OS 供應商文件。
 
 4. 驗證多路徑正在運作中。
-   - RHEL 6
+  - RHEL 6
      ```
-     multipath -l
-     ```
-     {: pre}
+    multipath -l
+    ```
+    {: pre}
 
-     如果傳回空白，表示它正在運作中。
-
-   - CentOS 7
+    如果傳回空白，表示它正在運作中。
+  - CentOS 7
      ```
      multipath -ll
      ```
-     {: pre}
+    {: pre}
 
-     RHEL 7/CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。
+    RHEL 7 及 CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。
 
 5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 檔案。請以小寫字體輸入此值。
    ```
@@ -156,67 +175,67 @@ lastupdated: "2018-08-02"
    ```
    {: codeblock}
 
-   **附註：**請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
+   請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
+   {:important}
 
 7. 將 iSCSI 設為在開機時啟動，並立即啟動。
-   - RHEL 6
+  - RHEL 6
+     ```
+    chkconfig iscsi on
+    ```
+    {: pre}
 
-      ```
-      chkconfig iscsi on
-      ```
-      {: pre}
-      ```
-      chkconfig iscsid on
-      ```
-      {: pre}
+    ```
+    chkconfig iscsid on
+    ```
+    {: pre}
 
-      ```
-      service iscsi start
-      ```
-      {: pre}
+    ```
+    service iscsi start
+    ```
+    {: pre}
 
-      ```
-      service iscsid start
-      ```
-      {: pre}
+    ```
+    service iscsid start
+    ```
+    {: pre}
 
-   - CentOS 7
+  - CentOS 7
+    ```
+    systemctl enable iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsi
-      ```
-      {: pre}
+    ```
+    systemctl enable iscsid
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl start iscsi
-      ```
-      {: pre}
-
-      ```
-      systemctl start iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsid
+    ```
+    {: pre}
 
    - 其他發行套件：請參閱 OS 供應商文件。
 
 8. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
 
-     A. 針對 iSCSI 陣列執行探索。
-     ```
-     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
-     {: pre}
+   A. 針對 iSCSI 陣列執行探索。
+    ```
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    ```
+    {: pre}
 
-     B. 將主機設為自動登入 iSCSI 陣列。
-     ```
-     iscsiadm -m node -L automatic
-     ```
-     {: pre}
+   B. 將主機設為自動登入 iSCSI 陣列。
+    ```
+    iscsiadm -m node -L automatic
+    ```
+    {: pre}
 
 9. 驗證主機已登入 iSCSI 陣列，並維護其階段作業。
    ```
@@ -244,9 +263,9 @@ lastupdated: "2018-08-02"
 
 ## 建立檔案系統（選用）
 
-請遵循這些步驟，以在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對小於 2 TB 的磁碟使用 `fdisk`，而對大於 2 TB 的磁碟使用 `parted`。
+請遵循這些步驟，以便在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對小於 2 TB 的磁碟使用 `fdisk`，而對大於 2 TB 的磁碟使用 `parted`。
 
-### 使用 `fdisk`
+### 使用 `fdisk` 建立檔案系統
 
 1. 取得磁碟名稱。
    ```
@@ -264,7 +283,8 @@ lastupdated: "2018-08-02"
 
    XXX 代表步驟 1 中傳回的磁碟名稱。<br />
 
-   **附註**：進一步向下捲動，以取得 `fdisk` 指令表格中列出的指令程式碼。
+   進一步向下捲動，以取得 `fdisk` 指令表格中列出的指令程式碼。
+   {: tip}
 
 3. 在新的分割區上建立檔案系統。
 
@@ -364,16 +384,16 @@ lastupdated: "2018-08-02"
 
   (`**`) 鍵入 L 以列出十六進位碼。
 
-### 使用 `parted`
+### 使用 `parted` 建立檔案系統
 
 在許多 Linux 發行套件上，會預先安裝 `parted`。若其未包含在您的發行套件中，則可以使用下列方式來安裝它：
-- Debian/Ubuntu
+- Debian 及 Ubuntu
   ```
   sudo apt-get install parted
   ```
   {: pre}
 
-- RHEL/CentOS
+- RHEL 及 CentOS
   ```
   yum install parted
   ```
@@ -393,36 +413,38 @@ lastupdated: "2018-08-02"
    1. 除非另有指定，否則 `parted` 會使用您的主要磁碟機，在大部分情況下是 `/dev/sda`。使用 **select** 指令，切換至您要分割的磁碟。將 **XXX** 取代為新的裝置名稱。
 
       ```
-      (parted) select /dev/mapper/XXX
+      select /dev/mapper/XXX
       ```
       {: pre}
 
    2. 執行 `print`，以確認您位在正確的磁碟上。
 
       ```
-      (parted) print
+      print
       ```
       {: pre}
 
    3. 建立 GPT 分割區表格。
 
       ```
-      (parted) mklabel gpt
+      mklabel gpt
       ```
       {: pre}
 
-   4. `Parted` 可以用來建立主要及邏輯磁碟分割區，涉及的步驟相同。若要建立分割區，`parted` 會使用 `mkpart`。您可以為它提供其他參數，如 **primary** 或 **logical**，視您想要建立的分割區類型而定。
-   <br /> **附註**：列出的單位預設為百萬位元組 (MB)。若要建立 10 GB 分割區，請從 1 開始並以 10000 結束。想要的話，您也可以輸入 `(parted) unit TB`，將大小單位變更為兆位元組 (TB)。
+   4. `Parted` 可以用來建立主要及邏輯磁碟分割區，涉及的步驟相同。若要建立分割區，`parted` 會使用 `mkpart`。您可以為它提供其他參數，如 **primary** 或 **logical**，視您想要建立的分割區類型而定。<br />
+
+   列出的單位預設為百萬位元組 (MB)，若要建立 10 GB 分割區，請從 1 開始，並在 10000 結束。想要的話，您也可以輸入 `unit TB`，將大小單位變更為兆位元組 (TB)。
+   {: tip}
 
       ```
-      (parted) mkpart
+      mkpart
       ```
       {: pre}
 
    5. 使用 `quit` 來結束 `parted`。
 
       ```
-      (parted) quit
+      quit
       ```
       {: pre}
 
@@ -433,7 +455,8 @@ lastupdated: "2018-08-02"
    ```
    {: pre}
 
-   **附註**：在執行這個指令時，務必選取正確的磁碟及分割區！請列印分割區表格來驗證結果。在檔案系統直欄下，您可以看到 ext3。
+   在執行這個指令時，務必選取正確的磁碟及分割區！<br />請列印分割區表格來驗證結果。在檔案系統直欄下，您可以看到 ext3。
+   {:important}
 
 4. 為檔案系統建立裝載點，並裝載它。
    - 建立一個分割區名稱 `PerfDisk`，或您要裝載檔案系統的位置。
@@ -461,7 +484,7 @@ lastupdated: "2018-08-02"
    - 將下行附加至 `/etc/fstab` 的結尾（使用步驟 3 中的分割區名稱）。<br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -470,14 +493,14 @@ lastupdated: "2018-08-02"
 
 ## 驗證是否在 `*NIX` OS 中正確地設置 MPIO
 
-若要檢查多路徑是否正在挑選裝置，請列出裝置。如果它配置正確，則只會顯示兩台 NETAPP 裝置。
+1. 若要檢查多路徑是否正在挑選裝置，請列出裝置。如果它配置正確，則只會顯示兩台 NETAPP 裝置。
 
-```
-# multipath -l
-```
-{: pre}
+  ```
+   multipath -l
+   ```
+  {: pre}
 
-```
+  ```
 root@server:~# multipath -l
 3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
 |-+- policy='round-robin 0' prio=-1 status=active`
@@ -485,33 +508,41 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-檢查磁碟是否存在。確認有兩個具有相同 ID 的磁碟，以及大小相同且具有相同 ID 的 `/dev/mapper` 清單。`/dev/mapper` 裝置是多路徑設定的裝置：
+2. 檢查磁碟是否存在。必須有兩個具有相同 ID 的磁碟，以及大小相同且具有相同 ID 的 `/dev/mapper` 清單。`/dev/mapper` 裝置是多路徑設定的裝置。
+  ```
+  fdisk -l | grep Disk
+  ```
+  {: pre}
+  
+  - 正確配置的範例輸出：
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
-
-```
-root@server:~# fdisk -l | grep Disk
+    ```
+    root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
 Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
-
-如果它未正確設定，則它看起來類似於此範例。
-```
+  - 不正確配置的範例輸出：
+    
+    ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
+    
+    ```
+root@server:~# fdisk -l | grep Disk
+Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+```
 
-這個指令會顯示列入黑名單的裝置。
-```
-# multipath -l -v 3 | grep sd <date and time>
-```
-{: pre}
-
-```
+3. 確認本端磁碟不包含在多路徑裝置中。下列指令顯示列入黑名單的裝置。
+   ```
+   multipath -l -v 3 | grep sd <date and time>
+   ```
+   {: pre}
+ 
+   ```
 root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
 | sdb: device node name blacklisted Feb 17 19:55:02
@@ -520,16 +551,25 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-`fdisk` 只會顯示 `sd*` 裝置，不會顯示 `/dev/mapper`。
+## 卸載 {{site.data.keyword.blockstorageshort}} 磁區
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
+1. 卸載檔案系統。
+   ```
+   umount /dev/mapper/XXXlp1 /PerfDisk
+   ```
+   {: pre}
 
-```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+2. 如果您在該目標入口網站中沒有任何其他磁區，可登出該目標。
+   ```
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+   
+3. 如果您在該目標入口網站中沒有任何其他磁區，請刪除目標入口網站記錄，以防止未來的登入嘗試。
+   ```
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+  
+   如需相關資訊，請參閱 [iscsiadm 的線上指令說明](https://linux.die.net/man/8/iscsiadm)。
+   {:tip}

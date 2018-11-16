@@ -9,7 +9,7 @@ lastupdated: "2018-09-12"
 
 # 擴充 Block Storage 容量
 
-使用這個新增特性，現行 {{site.data.keyword.blockstoragefull}} 使用者可以立即擴充其現有 {{site.data.keyword.blockstorageshort}} 大小（以 GB 為增量單位，最多可到 12 TB）。他們不需要建立重複項目，或將資料手動移轉至較大的磁區。調整大小時，不會發生中斷，也不會無法存取儲存空間。 
+使用這個新增特性，現行 {{site.data.keyword.blockstoragefull}} 使用者可以立即擴充其現有 {{site.data.keyword.blockstorageshort}} 大小（以 GB 為增量單位，最多可到 12 TB）。他們不需要建立重複項目，或者手動將資料移轉至較大的磁區。調整大小時，不會發生中斷，也不會無法存取儲存空間。 
 
 會自動更新磁區的計費，以將新價格的按比例差額新增至現行計費週期。然後在下一個計費週期計算完整的新金額。
 
@@ -35,9 +35,9 @@ lastupdated: "2018-09-12"
 
 ## 調整儲存空間大小
 
-1. 從 {{site.data.keyword.slportal}} 中，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，或者，從 {{site.data.keyword.BluSoftlayer_full}} 型錄中，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+1. 從 {{site.data.keyword.slportal}}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，或者，從 {{site.data.keyword.BluSoftlayer_full}} 型錄，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中選取 LUN，然後按一下**動作** > **修改 LUN**。
 3. 輸入新的儲存空間大小（以 GB 為單位）。
-4. 檢閱您的選擇及新的定價。
+4. 檢閱您的選取項目及新的定價。
 5. 按一下**我已閱讀主要服務合約...** 勾選框，然後按一下**下訂單**。
 6. 在幾分鐘之後，就可以使用您的新儲存空間配置。

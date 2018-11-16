@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 使用 Red Hat Enterprise Linux 中的 LUKS 進行全磁碟加密
 
@@ -29,9 +32,10 @@ lastupdated: "2018-06-25"
 
 ## 使用耐久性 {{site.data.keyword.blockstorageshort}} 來設定 LUKS 加密磁區
 
-這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需使用 Linux 存取 {{site.data.keyword.blockstorageshort}} 的方式，請按一下[這裡](accessing_block_storage_linux.html)。
+這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接到 Linux 主機的相關資訊，請參閱[連接至 Linux 上的 MPIO iSCSI LUN](accessing_block_storage_linux.html)。
 
-**附註**：資料加密處理程序會在主機上產生可能影響效能的負載。
+資料加密處理程序會在主機上產生可能影響效能的負載。
+{:note}
 
 1. 在 Shell 提示上，以 root 使用者身分鍵入下列指令，以安裝必要套件：<br/>
    ```
@@ -47,21 +51,21 @@ lastupdated: "2018-06-25"
 4. 加密區塊裝置；
 
    1. 這個指令會起始設定磁區，您可以設定通行詞組。<br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. 以 YES 回應（全為大寫字母）。
-   
-   3. 裝置現在會顯示為加密磁區： 
-   
+
+   3. 裝置現在會顯示為加密磁區：
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
+
 5. 開啟磁區並建立對映。<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData

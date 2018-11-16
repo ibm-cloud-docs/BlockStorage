@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} 的新位置及特性
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 精選資料中心內會提供新的儲存空間，並且由更高 IOPS 層次的快閃記憶體儲存空間支援，且具有靜態資料的磁碟層次加密。已升級資料中心內佈建的所有儲存空間，都會自動使用新版本建立。
 
-**附註：**新磁區的 NFS 裝載點與未加密磁區的裝載點不同。如需詳細資料，請參閱**加密 {{site.data.keyword.filestorage_short}} 磁區的新裝載點**一節。
+新磁區的 NFS 裝載點與未加密磁區的裝載點不同。如需相關資訊，請參閱[已加密 {{site.data.keyword.filestorage_short}} 磁區的新裝載點](#new-mount-point-for-encrypted-storage-volumes)一節。
+{:important}
+
+## 新位置
 
 新的 {{site.data.keyword.blockstorageshort}} 提供於下列地區/資料中心。
 <table role="presentation">
@@ -31,14 +37,14 @@ lastupdated: "2018-10-15"
 	DAL12<br />
 	DAL13<br />
 	SJC03<br />
-        SJC04<br />
+SJC04<br />
 	WDC04<br />
 	WDC06<br />
 	WDC07<br />
 	<br /><br /><br />
     </td>
     <td>AMS01<br />
-        AMS03<br />
+AMS03<br />
 	FRA02<br />
 	FRA04<br />
 	FRA05<br />
@@ -51,23 +57,23 @@ lastupdated: "2018-10-15"
 	PAR01<br />
     </td>
     <td>MEL01<br />
-        SYD01<br />
-        SYD04<br />
+SYD01<br />
+SYD04<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
-        TOR01<br />
+TOR01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MEX01<br />
-        SAO01<br />
+SAO01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>CHE01<br />
-        HKG02<br />
+HKG02<br />
 	SEO01<br />
 	SNG01<br />
-        TOK02<br />
+TOK02<br />
 	TOK04<br />
 	TOK05<br />
 	<br /><br /><br /><br /><br />
@@ -77,7 +83,7 @@ lastupdated: "2018-10-15"
 
 *表 1 顯示資料中心可用性。每一個地區都有自己的直欄。有些城市（例如「達拉斯」、「聖荷西」、「華盛頓特區」、「阿姆斯特丹」、「法蘭克福」、「倫敦」及「雪梨」）會有多個資料中心。*
 
-新的儲存空間具有下列特性及功能：
+## 新增特性及功能
 
 - **[靜態資料的提供者管理加密](block-file-storage-encryption-rest.html)**。
   所有 {{site.data.keyword.blockstorageshort}} 都會自動佈建為已加密，不需額外付費。
@@ -94,6 +100,7 @@ lastupdated: "2018-10-15"
 
 ## 已加密儲存空間磁區的新裝載點
 
-這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。為了確保儲存空間磁區使用正確的裝載點，您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的**磁區詳細資料**頁面上檢視裝載點資訊。您也可以透過 API 呼叫存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。為了確保儲存空間磁區使用正確的裝載點，您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的**磁區詳細資料**頁面上檢視裝載點資訊。您也可以透過 API 呼叫來存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
-請在這裡再次確認，以查看何時升級其他資料中心以及要針對 {{site.data.keyword.blockstorageshort}} 新增的新特性及功能。
+請在這裡再次確認，以查看其他資料中心何時升級以及針對 {{site.data.keyword.blockstorageshort}} 新增的特性及功能。
+{:tip}
