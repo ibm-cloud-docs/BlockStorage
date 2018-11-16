@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Ihre Daten schützen - Anbietergesteuerte Verschlüsselung ruhender Daten
 
-## {{site.data.keyword.blockstorageshort}} - Verschlüsselung ruhender Daten 
+## {{site.data.keyword.blockstorageshort}} - Verschlüsselung ruhender Daten
 
 {{site.data.keyword.BluSoftlayer_full}} nimmt das Bedürfnis nach Sicherheit ernst und versteht, wie wichtig es ist, Daten aus Sicherheitsgründen verschlüsseln zu können. Bei der anbietergesteuerten Verschlüsselung wird {{site.data.keyword.blockstoragefull}} standardmäßig entweder mit der Option 'Endurance' oder 'Performance', ohne Zusatzkosten und ohne Beeinträchtigung der Leistung verschlüsselt, bereitgestellt.
 
@@ -34,4 +37,5 @@ Wählen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} ein R
 
 
 
-**Hinweis:** Nicht verschlüsselter Speicher, der vor dem Upgrade eines Rechenzentrums bereitgestellt wird, wird **nicht** automatisch verschlüsselt. Wenn Sie in einem Rechenzentrum nach einem Upgrade über nicht verschlüsselten Speicher verfügen und den Speicher verschlüsseln möchten, müssen Sie eine neue logische Einheit oder einen neuen Datenträger erstellen und eine Datenmigration durchführen. Weitere Informationen finden Sie im Abschnitt [{{site.data.keyword.blockstorageshort}}-Migration in Rechenzentren nach Upgrades](migrate-block-storage-encrypted-block-storage.html).
+Nicht verschlüsselter Speicher, der vor dem Upgrade des Rechenzentrums bereitgestellt wurde, **wird nicht** automatisch verschlüsselt. Wenn Sie in einem Rechenzentrum nach einem Upgrade über nicht verschlüsselten Speicher verfügen und den Speicher verschlüsseln möchten, müssen Sie eine neue logische Einheit oder einen neuen Datenträger erstellen und eine Datenmigration durchführen. Weitere Informationen finden Sie im Abschnitt [{{site.data.keyword.blockstorageshort}}-Migration in Rechenzentren nach Upgrades](migrate-block-storage-encrypted-block-storage.html).
+{:important}

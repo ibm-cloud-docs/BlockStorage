@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Duplikat eines Blockdatenträgers erstellen
 
@@ -20,7 +22,10 @@ Der Lese- und Schreibzugriff auf duplizierte Datenträger kann durch einen Host 
 
 Sobald die Datenkopie abgeschlossen ist, kann das Duplikat als komplett vom Original unabhängiger Datenträger verwaltet und verwendet werden.
 
-Diese Funktion steht an den meisten Standorten zur Verfügung. Klicken Sie [hier](new-ibm-block-and-file-storage-location-and-features.html), um eine Liste mit den verfügbaren Rechenzentren anzuzeigen. **Hinweis**: Als Benutzer mit einem dedizierten Konto für {{site.data.keyword.containerlong}} finden Sie in der [{{site.data.keyword.containerlong_notm}}-Dokumentation](/docs/containers/cs_storage_file.html#backup_restore) Informationen zu Optionen für die Duplizierung eines Datenträgers.
+Diese Funktion steht an den meisten Standorten zur Verfügung. Klicken Sie [hier](new-ibm-block-and-file-storage-location-and-features.html), um eine Liste mit den verfügbaren Rechenzentren anzuzeigen.
+
+Als Benutzer mit einem dedizierten Konto für {{site.data.keyword.containerlong}} finden Sie in der [{{site.data.keyword.containerlong_notm}}-Dokumentation](/docs/containers/cs_storage_file.html#backup_restore) Informationen zu Optionen für die Duplizierung eines Datenträgers.
+{:tip}
 
 Nachstehend einige gängige Anwendungen für duplizierte Datenträger:
 - **Disaster-Recovery-Tests:** Erstellen Sie ein Duplikat des Replikatdatenträgers, um zu überprüfen, ob die Daten intakt sind und im Fall einer Katastrophe ohne Unterbrechung der Replikation verwendet werden können.
@@ -50,7 +55,8 @@ Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slpor
     - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
     - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
 6. Bei Bedarf können Sie die Größe des neuen Datenträgers aktualisieren, sodass er größer als der Originaldatenträger ist. Die Größe des Originaldatenträgers wird standardmäßig festgelegt.
-    - **Hinweis:** {{site.data.keyword.blockstorageshort}} kann auf die 10-fache Originalgröße des Datenträgers vergrößert werden.
+
+   {{site.data.keyword.blockstorageshort}} kann bis auf das Zehnfache der ursprünglichen Größe des Datenträgers erhöht werden.{:tip}
 7. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen. Der Snapshotbereich wird für den Originaldatenträger standardmäßig festgelegt.
 8. Klicken Sie auf **Weiter**, um Ihre Bestellung abzusetzen.
 
@@ -63,10 +69,12 @@ Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slpor
 3. Blättern Sie abwärts, wählen Sie in der Liste auf der Detailseite einen vorhandenen Snapshot aus und klicken Sie auf **Aktionen** > **Duplikate**.   
 4. Speichertyp (Endurance oder Performance) und Position bleiben mit dem Originaldatenträger identisch.
 5. Die verfügbaren Kombinationen aus Leistung und Größe werden angezeigt. Die IOPS-Bezeichnung wird für den Originaldatenträger standardmäßig festgelegt. Sie können IOPS oder ein IOPS-Tier für den neuen Datenträger angeben.
-    - Wenn der Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
-    - Wenn der Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
+    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
+    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
 6. Bei Bedarf können Sie die Größe des neuen Datenträgers aktualisieren, sodass er größer als der Originaldatenträger ist. Die Größe des Originaldatenträgers wird standardmäßig festgelegt.
-    - **Hinweis:** {{site.data.keyword.blockstorageshort}} kann auf die 10-fache Originalgröße des Datenträgers vergrößert werden.
+
+   {{site.data.keyword.blockstorageshort}} kann bis auf das Zehnfache der ursprünglichen Größe des Datenträgers erhöht werden
+. {:tip}
 7. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen. Der Snapshotbereich wird für den Originaldatenträger standardmäßig festgelegt.
 8. Klicken Sie auf **Weiter**, um Ihre Bestellung des Duplikats abzusetzen.
 

@@ -2,19 +2,21 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Daten replizieren
 
 Bei der Replikation werden Snapshots mithilfe eines Ihrer Snapshotpläne automatisch auf einen Zieldatenträger in einem fernen Rechenzentrum kopiert. Im Fall beschädigter Daten oder einer Katastrophe können die Kopien an dem fernen Standort wiederhergestellt werden.
 
-Replikate bieten folgende Möglichkeiten:
+Mit Replikaten können Sie nach Standortausfällen und anderen Katastrophen schnell eine Wiederherstellung durchführen. Im Notfall kann der Zieldatenträger übernehmen und zu einem bestimmten Zeitpunkt in der Disaster Recovery-Kopie (DR-Kopie) auf Ihre Daten zugreifen. Weitere Informationen hierzu finden Sie unter [Replikatdatenträger für Disaster-Recovery duplizieren](disaster-recovery.html).
 
-- Per Failover auf den Zieldatenträger eine schnelle Recovery nach Siteausfällen und anderen Katastrophen durchführen
-- Failover an einen bestimmten Zeitpunkt in der Disaster-Recovery-Kopie durchführen
+Die Replikation hält Ihre Daten an zwei verschiedenen Positionen synchron. Wenn Sie Ihren Datenträger klonen und unabhängig vom ursprünglichen Datenträger verwenden möchten, lesen Sie den Abschnitt [Duplikat des Blockdatenträgers erstellen](how-to-create-duplicate-volume.html).{:tip}
 
 Um Replikationen durchführen zu können, müssen Sie einen Snapshotplan erstellen. Beim Failover 'kippen Sie den Schalter' von Ihrem Speicherdatenträger in Ihrem primären Rechenzentrum auf den Zieldatenträger in Ihrem fernen Rechenzentrum. Beispiel: Ihr primäres Rechenzentrum befindet sich in London und Ihr sekundäres Rechenzentrum in Amsterdam. Bei einem Fehlerereignis können Sie ein Failover nach Amsterdam durchführen und von einer Recheninstanz in Amsterdam eine Verbindung zu dem nun primären Datenträger herstellen. Nachdem Ihr Datenträger in London repariert wurde, wird von dem Datenträger in Amsterdam ein Snapshot erstellt, um von einer Recheninstanz in London eine Rückübertragung nach London und auf den nun wieder primären Datenträger durchzuführen.
 
@@ -27,7 +29,7 @@ In Tabelle 1 finden Sie eine vollständige Liste der Verfügbarkeit der Rechenze
 <table>
   <caption style="text-align: left;"><p>Tabelle 1 - In dieser Tabelle wird eine vollständige Liste der Rechenzentren mit erweiterten Leistungsmerkmalen in jeder Region aufgeführt. Jede Region wird in einer separaten Spalte angegeben. In manchen Städten, wie zum Beispiel Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London und Sydney, befinden sich mehrere Rechenzentren.</p>
   <p>&#42; Rechenzentren in der Region US 1 verfügen NICHT über erweiterten Speicher. Hosts in Rechenzentren mit erweiterten Speicherleistungsmerkmalen können die Replikation mit Replikationszielen in Rechenzentren der Region US 1 <strong>nicht</strong> einleiten.</p>
-  </caption>  
+  </caption>
   <thead>
     <tr>
       <th>US 1 &#42;</th>
@@ -106,7 +108,8 @@ Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen 
 1. Klicken Sie auf Ihren Speicherdatenträger.
 2. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
 3. Wählen Sie einen vorhandenen Snapshotplan für Ihre Replikationen aus. Die Liste enthält alle Ihre aktiven Snapshotpläne. <br />
-   >**Hinweis:** Sie können nur einen einzigen Plan auswählen, auch wenn Sie über eine Mischung aus stündlich, täglich und wöchentlich verfügen. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Genauere Informationen hierzu finden Sie im Abschnitt [Mit Snapshots arbeiten](snapshots.html).
+Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus stündlicher, täglicher und wöchentlicher Rechnungsstellung haben. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Genauere Informationen hierzu finden Sie im Abschnitt [Mit Snapshots arbeiten](snapshots.html).
+   {:important}
 3. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das Sie als Standort für das Disaster-Recovery-Standort verwenden möchten.
 4. Klicken Sie auf **Weiter**.
 5. Geben Sie einen **Werbeaktionscode** ein, sofern vorhanden, und klicken Sie auf **Neu berechnen**. Die anderen Felder im Fenster sind mit den Standardwerten gefüllt.
@@ -167,7 +170,7 @@ Autorisierte Hosts und Datenträger müssen sich in demselben Rechenzentrum befi
 
 Ihr primärer Datenträger und der Replikatspeicherdatenträger müssen dieselbe Datenträgergröße aufweisen. Der eine darf nicht größer sein als der andere. Wenn Sie Ihren Snapshotbereich für Ihren Primärdatenträger erhöhen, wird der Replikatbereich automatisch erhöht. Wird der Snapshotbereich vergrößert, wird eine sofortige Aktualisierung der Replikation ausgelöst. Die Erhöhung der beiden Datenträger wird auf Ihrer Rechnung als Artikelposition angezeigt und bei Bedarf anteilig berechnet.
 
-Klicken Sie [hier](snapshots.html), um Informationen zur Erhöhung Ihres Snapshotbereichs zu erhalten.
+Weitere Informationen zum Vergrößern des Snapschotbereichs finden Sie unter [Snapshots bestellen](ordering-snapshots.html).{:tip}
 
 
 ## Failover von einem Datenträger auf dessen Replikat starten

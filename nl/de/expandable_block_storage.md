@@ -7,7 +7,7 @@ lastupdated: "2018-09-12"
 ---
 {:new_window: target="_blank"}
 
-# Block Storage-Kapazität erweitern
+# Blockspeicherkapazität erweitern
 
 Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung. 
 

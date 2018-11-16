@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Neue Positionen und Funktionen von {{site.data.keyword.blockstorageshort}}
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 Der neue Speicher ist in ausgewählten Rechenzentren verfügbar und wird durch Flashspeicher auf höherem IOPS-Niveau mit Verschlüsselung ruhender Daten auf Datenträgerebene gesichert. Der gesamte in den aktualisierten Rechenzentren bereitgestellte Speicher wird automatisch mit der neuen Version erstellt.
 
-**Hinweis:** Der NFS-Mountpunkt für neue Datenträger weicht vom Mountpunkt für nicht verschlüsselte Datenträger ab. Details hierzu finden Sie im Abschnitt **Neuer Mountpunkt für verschlüsselte {{site.data.keyword.filestorage_short}}-Datenträger**.
+Der NFS-Mountpunkt für neue Datenträger unterscheidet sich vom Mountpunkt für nicht verschlüsselte Datenträger. Weitere Informationen finden Sie im Abschnitt [Neuer Mountpunkt für verschlüsselte {{site.data.keyword.filestorage_short}}-Datenträger](#new-mount-point-for-encrypted-storage-volumes).
+{:important}
+
+## Neue Standorte
 
 Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen bzw. Rechenzentren verfügbar.
 <table role="presentation">
@@ -77,7 +83,7 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 
 *In Tabelle 1 wird die Verfügbarkeit von Rechenzentren aufgeführt. Jede Region weist eine eigene Spalte auf. In manchen Städten, wie zum Beispiel Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London und Sydney, befinden sich mehrere Rechenzentren.*
 
-Der neue Speicher hat die folgenden Funktionen und Leistungsmerkmale:
+## Neue Funktionen und Leistungsmerkmale
 
 - **[Anbietergesteuerte Verschlüsselung ruhender Daten](block-file-storage-encryption-rest.html)**.
   Alle {{site.data.keyword.blockstorageshort}}-Instanzen werden automatisch ohne Zusatzkosten verschlüsselt bereitgestellt.
@@ -97,3 +103,4 @@ Der neue Speicher hat die folgenden Funktionen und Leistungsmerkmale:
 Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Wenn Sie sicherstellen möchten, dass Sie den korrekten Mountpunkt für die Speicherdatenträger verwenden, können Sie die Mountpunktinformationen auf der Seite **Datenträgerdetails** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} anzeigen. Sie können auf den korrekten Mountpunkt auch über einen API-Aufruf zugreifen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Prüfen Sie hier später, ob für weitere Rechenzentren ein Upgrade durchgeführt wurde, und ob und neue Funktionen und Leistungsmerkmale für {{site.data.keyword.blockstorageshort}} hinzugefügt wurden.
+{:tip}

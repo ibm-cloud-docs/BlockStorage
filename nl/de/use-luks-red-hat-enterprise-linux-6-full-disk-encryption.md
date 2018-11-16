@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # LUKS in Red Hat Enterprise Linux für die vollständige Plattenverschlüsselung verwenden
 
@@ -15,7 +18,7 @@ Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Platte
 
 ## Möglichkeiten bei Verwendung von LUKS
 
-- Es verschlüsselt ganze Blockeinheiten und eignet sich daher gut für den Schutz der Inhalte von mobilen Geräten wie Wechselspeichermedien oder Plattenlaufwerken von Notebooks.
+- Es verschlüsselt ganze Blockgeräte und eignet sich daher gut für den Schutz der Inhalte von mobilen Geräten wie Wechselspeichermedien oder Plattenlaufwerken von Notebooks.
 - Der zugrunde liegende Inhalt des verschlüsselten Blockgeräts ist beliebig. Daher ist es hilfreich beim Verschlüsseln von Auslagerungseinheiten. Die Verschlüsselung kann auch bei bestimmten Datenbanken hilfreich sein, die zur Datenspeicherung speziell formatierte Blockgeräte verwenden.
 - Es nutzt das vorhandene Subsystem des Geräte-Mapper-Kernels.
 - Es stellt eine Kennphrasenstärkung bereit, die Schutz vor dem Anhängen von Wörterbüchern bietet.
@@ -29,9 +32,10 @@ Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Platte
 
 ## Mit LUKS verschlüsselten Datenträger mit Endurance für {{site.data.keyword.blockstorageshort}} konfigurieren
 
-Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Klicken Sie [hier](accessing_block_storage_linux.html), um Informationen zum Zugriff auf {{site.data.keyword.blockstorageshort}} mit Linux zu erhalten.
+Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html).
 
-**Hinweis:** Im Verlauf einer Datenverschlüsselung wird auf dem Host eine Arbeitslast generiert, die zu Leistungseinbußen führen kann.
+Der Prozess der Datenverschlüsselung führt zu einer Belastung des Hosts, die möglicherweise die Leistung beeinträchtigt.
+{:note}
 
 1. Machen Sie an einer Shelleingabeaufforderung als Root die folgenden Eingaben, um das erforderliche Paket zu installieren:   <br/>
    ```
@@ -47,22 +51,22 @@ Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht ver
 4. Verschlüsseln Sie das Blockgerät.
 
    1. Dieser Befehl initialisiert den Datenträger und Sie können eine Kennphrase festlegen. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. Antworten Sie mit YES (in Großbuchstaben).
-   
-   3. Das Gerät wird jetzt als verschlüsselter Datenträger angezeigt: 
-   
+
+   3. Das Gerät wird jetzt als verschlüsselter Datenträger angezeigt:
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung.   <br/>
+
+5. Öffnen Sie den Datenträger und erstellen Sie eine Zuordnung.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

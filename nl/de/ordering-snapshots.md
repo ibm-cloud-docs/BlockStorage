@@ -2,30 +2,38 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Snapshots bestellen
 
 Um automatisch oder manuell Snapshots Ihres Speicherdatenträgers zu erstellen, müssen Sie Speicherbereich kaufen, der diese Snapshots aufnehmen kann. Sie können Kapazität bis zur Menge Ihres Speicherdatenträgers kaufen (beim Kauf des ursprünglichen Datenträgers oder später mit den hier beschriebenen Schritten).
 
-1. Greifen Sie über **Speicher**, die Registerkarte **{{site.data.keyword.blockstorageshort}}** des [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}s auf Ihre Speicher-LUN zu.
-2. Klicken Sie im Rahmen 'Snapshots' auf **Snapshotbereich hinzufügen**.
-3. Wählen Sie den benötigten Speicherplatz aus.
+1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole](https://console.bluemix.net/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus. 
+
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} anmelden.
+2. Greifen Sie über **Speicher** >**{{site.data.keyword.blockstorageshort}}** auf Ihre Speicher-LUN zu.
+2. Klicken Sie im Rahmen 'Snapshots' auf die Option zum Ändern des Snapshotbereichs. 
+3. Wählen Sie die Menge an benötigtem Speicherplatz und die Zahlungsmethode aus. 
 4. Klicken Sie auf **Weiter**.
 5. Geben Sie gegebenenfalls den **Werbeaktionscode** ein und klicken Sie auf **Neu berechnen**. In den Feldern für die Gebühren dieser Bestellung und für die Bestellungsprüfung stehen die Standardwerte.
-6. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen…** und klicken Sie auf **Auftrag erteilen**. Der Snapshotbereich wird in wenigen Minuten bereitgestellt.
+6. Markieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen und bin mit den darin genannten Bedingungen einverstanden.** und klicken Sie auf **Bestellung aufgeben**. Der Snapshotbereich wird in wenigen Minuten bereitgestellt.
 
-## Menge des zu bestellenden Snaphostbereichs ermitteln
+## Menge des zu bestellenden Snapshotbereichs ermitteln
 
 Im Allgemeinen wird ein Snapshotbereich von Snapshots auf der Basis von zwei Faktoren verbraucht:
 - Menge der Änderungen im aktiven Dateisystem im zeitlichen Verlauf
 - Geplante Dauer der Beibehaltung der Snapshots  
 
-Der benötigte Speicherplatz kann wie folgt berechnet werden: **(Änderungsrate)** x **(Anzahl der beibehaltenen Stunden/Tage/Wochen/Monate)**.  
->**Hinweis:** Der erste Snapshot verbraucht nur sehr wenig Speicherplatz, weil er lediglich eine Kopie der Metadaten (Verweise) ist, die die Blöcke des aktiven Dateisystems angeben. 
+Der benötigte Speicherplatz kann wie folgt berechnet werden: **(Änderungsrate)** x **(Anzahl der beibehaltenen Stunden/Tage/Wochen/Monate)**.
+
+Der erste Snapshot verwendet nur sehr wenig Speicherplatz, da es sich bei ihm um eine Kopie der Metadaten (Verweise) handelt, mit denen die Blöcke des aktiven Dateisystems angegeben werden.
+{:note}
 
 Ein Datenträger mit vielen Änderungen und einer langen Aufbewahrungsdauer braucht mehr Speicherplatz als ein Datenträger mit moderaten Änderungen und einer moderateren Aufbewahrungsfrist. Ein Beispiel für den ersten Typ ist eine Datenbank mit einer hohen Änderungsrate. Ein Beispiel für den zweiten Typ ist ein VMware-Datenspeicher.
 

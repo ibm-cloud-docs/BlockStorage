@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Snapshots
 
@@ -13,31 +16,38 @@ Snapshots sind eine Funktion von {{site.data.keyword.blockstoragefull}}. Ein Sna
 
 {{site.data.keyword.blockstorageshort}} bietet Ihnen zwei Möglichkeiten, Snapshots zu erstellen.
 
-- Zum einen über einen konfigurierbaren Snapshotplan, der Snapshotkopien automatisch für die einzelnen Speicherdatenträger erstellt und löscht. Je nach Ihren Anforderungen können Sie auch weitere Snapshotpläne erstellen, Kopien manuell löschen und Pläne verwalten. 
-- Die zweite Möglichkeit besteht in einer manuellen Snapshotaufnahme.
+* Zum einen über einen konfigurierbaren Snapshotplan, der Snapshotkopien automatisch für die einzelnen Speicherdatenträger erstellt und löscht. Je nach Ihren Anforderungen können Sie auch weitere Snapshotpläne erstellen, Kopien manuell löschen und Pläne verwalten.
+* Die zweite Möglichkeit besteht in einer manuellen Snapshotaufnahme.
 
-Eine Snapshotkopie ist eine schreibgeschützte Abbildung einer {{site.data.keyword.blockstorageshort}}-LUN, die den Zustand des Datenträgers zu einem bestimmten Zeitpunkt erfasst. Snapshotkopien sind effizient, was die benötigte Zeit zur Erstellung und den Speicherplatz anbelangt. Die Erstellung einer {{site.data.keyword.blockstorageshort}}-Snapshotkopie dauert nur wenige Sekunden. In der Regel dauert es sogar weniger als 1 Sekunde, unabhängig von der Größe des Datenträgers und der Aktivitätsstufe auf dem Datenträger. Nachdem eine Snapshotkopie erstellt wurde, werden Änderungen an Datenobjekten in Aktualisierungen der aktuellen Version der Objekte abgebildet, so als wären keine Snapshotkopien vorhanden. Gleichzeitig bleibt die Kopie der Daten stabil. 
+Eine Snapshotkopie ist eine schreibgeschützte Abbildung einer {{site.data.keyword.blockstorageshort}}-LUN, die den Zustand des Datenträgers zu einem bestimmten Zeitpunkt erfasst. Snapshotkopien sind effizient, was die benötigte Zeit zur Erstellung und den Speicherplatz anbelangt. Die Erstellung einer {{site.data.keyword.blockstorageshort}}-Snapshotkopie dauert nur wenige Sekunden. In der Regel dauert es sogar weniger als 1 Sekunde, unabhängig von der Größe des Datenträgers und der Aktivitätsstufe auf dem Datenträger. Nachdem eine Snapshotkopie erstellt wurde, werden Änderungen an Datenobjekten in Aktualisierungen der aktuellen Version der Objekte abgebildet, so als wären keine Snapshotkopien vorhanden. Gleichzeitig bleibt die Kopie der Daten stabil.
 
 Eine Snapshotkopie verursacht keine Leistungseinbußen. Benutzer können ohne großen Aufwand bis zu 50 geplante Snapshots und 50 manuelle Snapshots pro {{site.data.keyword.blockstorageshort}}-Datenträger speichern, die alle als schreibgeschützte und Onlineversionen der Daten zugänglich sind.
 
-Snapshots bieten Ihnen folgende Möglichkeiten: 
+Snapshots bieten Ihnen folgende Möglichkeiten:
 
 - Zeitpunktgesteuerte Wiederherstellungspunkte ohne Betriebsunterbrechung erstellen
 - Datenträger auf einen früheren Zeitpunkt zurücksetzen
 
-Sie müssen zunächst für Ihren Datenträger einen bestimmten Snapshotbereich kaufen, um Snapshots davon machen zu können. Der Snapshotbereich kann bei der Erstbestellung oder danach über **Datenträgerdetails** hinzugefügt werden. Geplante und manuelle Snapshots nutzen den Snapshotbereich gemeinsam; stellen Sie deswegen sicher, dass Sie ausreichend Speicherplatz bestellen. Im Artikel [Snapshots bestellen](ordering-snapshots.html) finden Sie dazu genauere Informationen und Anweisungen.
+Sie müssen zunächst für Ihren Datenträger einen bestimmten Snapshotbereich kaufen, um Snapshots davon machen zu können. Der Snapshotbereich kann bei der Erstbestellung oder danach über **Datenträgerdetails** hinzugefügt werden. Geplante und manuelle Snapshots nutzen den Snapshotbereich gemeinsam; stellen Sie deswegen sicher, dass Sie ausreichend Speicherplatz bestellen. Weitere Informationen finden Sie unter [Snapshots bestellen](ordering-snapshots.html).
 
-**Bewährte Verfahren für Snapshots**
+## Bewährte Verfahren für Snapshots
 
-Die Snapshotgestaltung richtet sich nach der Umgebung des Kunden. Die folgenden konzeptionellen Überlegungen können Ihnen helfen, Snapshotkopien zu planen und zu implementieren: 
-- Bis zu 50 Snapshots können über einen Plan und bis zu 50 können manuell auf den einzelnen Datenträgern oder LUNs erstellt werden. 
-- Verwenden Sie nicht zu viele Snapshots. Stellen Sie sicher, dass Ihre geplante Snapshothäufigkeit Ihre RTO- und RPO-Bedürfnisse sowie Ihre Anwendungsgeschäftsanforderungen erfüllt, indem Sie stündliche, tägliche oder wöchentliche Snapshots planen. 
+Die Snapshotgestaltung richtet sich nach der Umgebung des Kunden. Die folgenden konzeptionellen Überlegungen können Ihnen helfen, Snapshotkopien zu planen und zu implementieren:
+- Bis zu 50 Snapshots können über einen Plan und bis zu 50 können manuell auf den einzelnen Datenträgern oder LUNs erstellt werden.
+- Verwenden Sie nicht zu viele Snapshots. Stellen Sie sicher, dass Ihre geplante Snapshothäufigkeit Ihre RTO- und RPO-Bedürfnisse sowie Ihre Anwendungsgeschäftsanforderungen erfüllt, indem Sie stündliche, tägliche oder wöchentliche Snapshots planen.
 - Mit der automatischen Löschung von Snapshots (AutoDelete) kann die Zunahme der Speicherbelegung gesteuert werden. <br/>
-  >**Hinweis:** Der Schwellenwert für die automatische Löschung liegt bei 95 Prozent.
-    
+
+  Der Schwellenwert AutoDelete ist auf 95 Prozent festgelegt.
+{:note}
+
 Snapshots stellen keinen Ersatz für eine tatsächliche ausgelagerte Disaster-Recovery-Replikation oder eine lange Aufbewahrungssicherung dar.
-    
-**Einfluss von Snapshots auf den Speicherplatz**
+{:important}
+
+## Sicherheit
+
+Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.filestorage_short}} werden standardmäßig verschlüsselt. Diese Funktion kann nicht auf einzelnen Datenträgern inaktiviert werden. Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [Daten schützen](block-file-storage-encryption-rest.html).
+
+## Auswirkungen von Snapshots auf den Plattenspeicher
 
 Snapshotkopien minimieren die Plattenspeicherplatzbelegung, da Sie einzelne Blöcke anstelle von ganzen Dateien beibehalten. Snapshotkopien verbrauchen nur dann zusätzlichen Speicherplatz, wenn Dateien im aktiven Dateisystem geändert oder gelöscht werden. Wenn das passiert, werden die Originaldateiblöcke als Teil einer oder mehrerer Snapshotkopien weiter beibehalten.
 
@@ -62,4 +72,4 @@ Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positione
       </tr>
 </table>
 
-Führen Sie die Anweisungen im Artikel [Snapshots verwalten](working-with-snapshots.html) aus, um anzuzeigen, wie viel Snapshotbereich verwendet wird.
+Weitere Informationen dazu, wie Sie anzeigen können, wieviel des Snapshotbereichs verwendet wird, finden Sie unter [Snapshots verwalten](working-with-snapshots.html).

@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen
 
 Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 zu installieren.
 
 Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde.
+{:tip}
 
 1. Melden Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} an.
 2. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
@@ -21,7 +25,8 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 4. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
 5. Notieren Sie Host-IQN, Benutzername, Kennwort und Zieladresse.
 
-**Hinweis:** Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
+Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
+{:important}
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 
@@ -30,18 +35,18 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
-   
+
    ```
    {: pre}
-   
+
    ```
    chkconfig multipathd on
    ```
    {: pre}
-   
+
    ```
    chkconfig iscsid on
    ```
@@ -82,7 +87,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
      {: codeblock}
 
    - Aktualisieren Sie die CHAP-Einstellungen `/etc/iscsi/iscsid.conf` durch Hinzufügen von Benutzername und Kennwort.
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +100,9 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **Hinweis:** Verwenden Sie Großbuchstaben für CHAP-Namen. Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.BluSoftlayer_full}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
+
+     Geben Sie die CHAP-Namen in Großbuchstaben ein. Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.BluSoftlayer_full}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
+     {:important}
 
 
 3. Starten Sie die Services `iscsi` und `multipathd` erneut.
@@ -104,12 +110,12 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. Führen Sie die Erkennung des Geräts mithilfe der aus dem {{site.data.keyword.slportal}} abgerufenen Ziel-IP-Adresse aus.
 
      A. Führen Sie die Erkennung für das iSCSI-Array aus.
@@ -117,7 +123,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
        iscsiadm -m discovery -t sendtargets -p <ip-Wert-aus-SL-Portal>
        ```
        {: pre}
-     
+
         Beispielausgabe
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +142,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
    iscsiadm -m session
    ```
    {: pre}
-   
+
    Beispielausgabe
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -146,10 +152,10 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 6. Überprüfen Sie, ob das Gerät verbunden ist.
    ```
-   fdisk -l 
+   fdisk -l
    ```
    {: pre}
-    
+
    Beispielausgabe
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +186,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
    Nun ist der Datenträger angehängt und der Zugriff darauf ist über den Host möglich.
 
 7. Überprüfen Sie durch Auflisten der Geräte, ob MPIO ordnungsgemäß konfiguriert ist. Wenn die Konfiguration korrekt ist, werden nur zwei NETAPP-Geräte angezeigt.
@@ -189,7 +195,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
    # multipath -l
    ```
    {: pre}
-   
+
    Beispielausgabe
    ```
    root@server:~# multipath -l
