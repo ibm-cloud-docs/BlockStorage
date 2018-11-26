@@ -98,7 +98,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
 6. In the Connect to Target window, select the **Enable multi-path** check box. Click **Advanced**.
-7. In the Advanced Settings window:
+7. In the Advanced Settings window,
    - On the Local adapter list, select Microsoft iSCSI Initiator.
    - On the Initiator IP list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
    - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the device.

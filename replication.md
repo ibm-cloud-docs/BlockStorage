@@ -219,13 +219,13 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 ## Viewing replication history
 
-Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes:
+Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes the following items.
 
-- the type for replication (failover or failback),
-- when it was started,
-- the snapshot that was used for the replication,
-- the size of the replication,
-- the time when the replication is completed.
+- The type for replication (failover or failback).
+- When it was started.
+- The snapshot that was used for the replication.
+- The size of the replication.
+- The time when the replication is completed.
 
 
 ## Creating a duplicate of a replica
