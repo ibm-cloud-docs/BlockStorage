@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Creazione di un volume di blocco duplicato
 
@@ -20,7 +22,10 @@ I volumi duplicati solo accessibili da un host per la lettura/scrittura non appe
 
 Una volta completata la copia dei dati, il duplicato può essere gestito e utilizzato come un volume del tutto indipendente.
 
-Questa funzione è disponibile nella maggior parte delle ubicazioni. Fai clic [qui](new-ibm-block-and-file-storage-location-and-features.html) per l'elenco dei data center disponibili. **Nota**: se sei un utente con un account dedicato di {{site.data.keyword.containerlong}}, vedi le tue opzioni per duplicare un volume nella [documentazione di {{site.data.keyword.containerlong_notm}}](/docs/containers/cs_storage_file.html#backup_restore).
+Questa funzione è disponibile nella maggior parte delle ubicazioni. Fai clic [qui](new-ibm-block-and-file-storage-location-and-features.html) per l'elenco dei data center disponibili.
+
+Se sei un utente con un account dedicato di {{site.data.keyword.containerlong}}, vedi le tue opzioni per duplicare un volume nella [documentazione di {{site.data.keyword.containerlong_notm}}](/docs/containers/cs_storage_file.html#backup_restore).
+{:tip}
 
 Alcuni utilizzi comuni per un volume duplicato:
 - **Esecuzione di test di ripristini di emergenza**: Crea un duplicato del tuo volume di copia per verificare che i dati siano intatti e che possano essere utilizzati in caso di emergenza, senza interrompere la replica.
@@ -50,7 +55,9 @@ Puoi creare un volume duplicato tramite [{{site.data.keyword.slportal}}](https:/
     - Se il tuo volume originale è al livello Endurance 0,25 IOPS, non puoi effettuare una nuova selezione.
     - Se il tuo volume originale è al livello Endurance 2, 4 o 10 IOPS, puoi spostarti dovunque tra questi livelli per il nuovo volume.
 6. Puoi aggiornare la dimensione del nuovo volume in modo che sia più grande dell'originale. La dimensione del volume originale è impostata per impostazione predefinita.
-    - **Nota**: la dimensione di {{site.data.keyword.blockstorageshort}} può essere modificata a 10 volte la dimensione originale del volume.
+
+   La dimensione di {{site.data.keyword.blockstorageshort}} può essere modificata fino a 10 volte la dimensione originale del volume.
+   {:tip}
 7. Puoi aggiornare lo spazio di istantanea per il nuovo volume per aggiungere più, meno o zero spazio di istantanea. Lo spazio di istantanea del volume originale viene impostato per impostazione predefinita.
 8. Fai clic su **Continue** per effettuare il tuo ordine.
 
@@ -66,7 +73,9 @@ Puoi creare un volume duplicato tramite [{{site.data.keyword.slportal}}](https:/
     - Se il tuo volume originale è al livello Endurance 0,25 IOPS, non puoi effettuare una nuova selezione.
     - Se il tuo volume originale è al livello Endurance 2, 4 o 10 IOPS, puoi spostarti dovunque tra questi livelli per il nuovo volume.
 6. Puoi aggiornare la dimensione del nuovo volume in modo che sia più grande dell'originale. La dimensione del volume originale è impostata per impostazione predefinita.
-    - **Nota**: la dimensione di {{site.data.keyword.blockstorageshort}} può essere modificata a 10 volte la dimensione originale del volume.
+
+   La dimensione di {{site.data.keyword.blockstorageshort}} può essere modificata fino a 10 volte la dimensione originale del volume.
+   {:tip}
 7. Puoi aggiornare lo spazio di istantanea per il nuovo volume per aggiungere più, meno o zero spazio di istantanea. Lo spazio di istantanea del volume originale viene impostato per impostazione predefinita.
 8. Fai clic su **Continue** per effettuare il tuo ordine per il duplicato.
 

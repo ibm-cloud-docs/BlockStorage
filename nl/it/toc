@@ -1,14 +1,13 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html"}
+{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html" path="infrastructure/BlockStorage"}
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
-    replication.md
     expandable_block_storage.md
     adjustable-iops.md
     {: .navgroup-end}
@@ -30,6 +29,11 @@ IBM Cloud Storage - Block Storage
         configure-backup-cpanel.md
         configure-backup-plesk.md
 
+    {: .topicgroup}
+    Replica
+        replication.md
+        disaster-recovery.md
+    
     {: .topicgroup}
     Sicurezza
         block-file-storage-encryption-rest.md

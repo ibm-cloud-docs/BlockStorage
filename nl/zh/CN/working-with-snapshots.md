@@ -2,23 +2,26 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 管理快照
 
 ## 创建快照安排
 
-通过快照安排，您可以决定创建存储卷的时间点引用的频率和时间。每个存储卷最多可以有 50 个快照。安排可通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 选项卡进行管理。
+通过快照安排，您可以决定创建存储卷的时间点引用的频率和时间。每个存储卷最多可以有 50 个快照。快照安排可通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的**存储** > **{{site.data.keyword.blockstorageshort}}** 选项卡进行管理。
 
 如果在初始供应存储卷期间未购买快照空间，那么必须首先购买快照空间，然后才能设置初始安排。
+{:important}
 
 ### 添加快照安排
 
-可以将快照安排的时间间隔设置为每小时、每天和每周，每种时间间隔使用不同的保留周期。每个存储卷最多可有 50 个安排的快照（可以混合使用每小时、每天和每周安排）和手动快照。
+可以将快照安排的时间间隔设置为每小时、每天和每周，每种时间间隔使用不同的保留周期。每个存储卷最多可以有 50 个安排的快照（可混合使用每小时、每天和每周安排）和手动快照。
 
 1. 单击存储卷，单击**操作**，然后单击**安排快照**。
 2. 在“新建安排快照”窗口中，有三个不同的快照频率可供选择。使用这三项的任意组合来创建综合快照安排。
@@ -39,7 +42,7 @@ lastupdated: "2018-09-17"
 
 手动快照可以在应用程序升级或维护期间在各种时间点生成。您还可以针对在应用程序级别暂时停用的多台服务器生成快照。
 
-每个存储卷最多有 50 个手动快照。
+每个存储卷最多可以有 50 个手动快照。
 
 1. 单击存储卷。
 2. 单击**操作**。
@@ -48,7 +51,7 @@ lastupdated: "2018-09-17"
 
 ## 列出所有带“已用空间信息”和“管理”功能的快照
 
-可以在**详细信息**页面（存储 > {{site.data.keyword.blockstorageshort}}）上查看保留的快照和已使用空间量的列表。管理功能（编辑安排和添加更多空间）是在“详细信息”页面上使用该页面上各部分中的**操作**菜单或链接来执行的。
+在**详细信息**页面上，可以查看保留的快照和已使用空间量的列表。管理功能（编辑安排和添加更多空间）是在“详细信息”页面上使用该页面上各部分中的**操作**菜单或链接来执行的。
 
 ## 查看保留快照的列表
 
@@ -60,16 +63,17 @@ lastupdated: "2018-09-17"
 
 ## 更改卷的快照空间量
 
-您可能需要向先前没有任何快照空间或者可能需要额外快照空间的卷添加快照空间。根据需要，可以添加 5 GB 到 4,000 GB。 
+您可能需要向先前没有任何快照空间或者可能需要额外快照空间的卷添加快照空间。根据需要，可以添加 5 GB 到 4,000 GB。
 
-**注**：快照空间只能增大。不能减小快照空间。因此，在确定实际需要的空间量之前，您可以选择较小的空间量。请记住，自动快照和手动快照共享该空间。
+只能增大快照空间。不能减小快照空间。因此，在确定实际需要的空间量之前，您可以选择较小的空间量。请记住，自动快照和手动快照共享该空间。
+{:note}
 
 通过**存储 > {{site.data.keyword.blockstorageshort}}**，可更改快照空间。
 
 1. 单击存储卷，单击**操作**，然后单击**添加更多快照空间**。
 2. 从提示中的各种大小中进行选择。大小范围通常从 0 到卷大小。
 3. 单击**继续**。
-4. 输入您拥有的任何促销代码，然后单击**重新计算**。缺省情况下，已填写“此订单的费用”和“订单复查”字段。
+4. 输入您拥有的任何促销码，然后单击**重新计算**。缺省情况下，已填写“此订单的费用”和“订单复查”字段。
 5. 单击**我已阅读主服务协议...** 复选框，然后单击**下订单**。更多快照空间将在几分钟后供应。
 
 ## 在达到快照空间限制以及删除快照时接收通知
@@ -87,7 +91,8 @@ lastupdated: "2018-09-17"
 1. 单击**详细信息**页面上**快照安排**框架中要删除的安排。
 2. 单击要删除的安排旁边的复选框，然后单击**保存**。<br />
 
->**注意** - 如果要使用复制功能，请确保删除的安排不是复制所使用的安排。单击[此处](replication.html)以获取有关删除复制安排的更多信息。
+如果要使用复制功能，请确保要删除的安排不是复制所使用的安排。有关删除复制安排的更多信息，请参阅[复制数据](replication.html)。
+{:important}
 
 ## 删除快照
 
@@ -103,15 +108,19 @@ lastupdated: "2018-09-17"
 由于用户错误或数据损坏，您可能需要将存储卷恢复到特定时间点。
 
 1. 从主机卸装并拆离存储卷。
-   - 单击[此处](accessing_block_storage_linux.html)以获取有关 Linux 上 {{site.data.keyword.blockstorageshort}} 的指示信息。
-   - 单击[此处](accessing-block-storage-windows.html)以获取有关 Microsoft Windows 上 {{site.data.keyword.blockstorageshort}} 的指示信息。
+   - [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
+   - [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
 2. 单击 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 向下滚动并单击要复原的卷。**详细信息**页面的**快照**部分将显示所有保存的快照及其大小和创建日期的列表。
 4. 单击要使用的快照旁边的**操作**，然后单击**复原**。<br/>
-   >**注** - 完成复原会导致在生成快照后创建或修改的数据丢失。发生这种数据丢失的原因是，存储卷会恢复到在生成快照时所处的状态。 
+
+   完成复原会导致那些在生成快照后创建或修改的数据丢失。发生这种数据丢失的原因是，存储卷会恢复到在生成快照时所处的状态。
+   {:note}
 5. 单击**是**以启动复原。应该会在页面顶部收到一条消息，声明正在使用所选快照复原卷。此外，{{site.data.keyword.blockstorageshort}} 上的相应卷旁边会显示一个图标，指示正在执行活动事务。将鼠标悬停在该图标上将生成一个用于显示事务的窗口。事务完成后，该图标会消失。
 6. 安装存储卷并将其重新连接到主机。
-   - 单击[此处](accessing_block_storage_linux.html)以获取有关 Linux 上 {{site.data.keyword.blockstorageshort}} 的指示信息。
-   - 单击[此处](accessing-block-storage-windows.html)以获取有关 Microsoft Windows 上 {{site.data.keyword.blockstorageshort}} 的指示信息。
-   
->**注**：复原卷会导致在用于复原的快照之后拍摄的所有快照均会被删除。
+   - [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
+   - [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
+   - [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
+
+复原卷会导致所有在用于复原的快照之后拍摄的快照均会被删除。
+{:important}

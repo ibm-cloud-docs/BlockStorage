@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-29"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip} 
+{:note: .note} 
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} 入门
 
@@ -43,7 +46,7 @@ lastupdated: "2018-09-10"
 
 对于**按小时计费**，在删除 LUN 时或在计费周期结束时（以先发生者为准），将计算块 LUN 在帐户上存在的小时数。对于使用了数天或不足一个月的存储器，按小时计费是不错的选择。按小时计费仅可用于在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应的存储器。 
 
-对于**按月计费**，将从创建日期一直到记帐周期结束按比例计算价格并立即记帐。如果在计费周期结束之前删除了 LUN，那么不会有任何退款。对于所用数据需要长期（一个月或更长时间）存储和访问的生产工作负载，存储器选择按月计费是不错的选择。 
+对于**按月计费**，将从创建日期一直到记帐周期结束按比例计算价格并立即记帐。如果在计费周期结束之前删除了 LUN，那么不会有任何退款。对于所用数据需要长期（一个月或更长时间）存储和访问的生产工作负载，使用按月计费的存储器是不错的选择。 
 
 **性能**
 <table>
@@ -70,16 +73,16 @@ lastupdated: "2018-09-10"
   </tr>
   <tr>
    <th>每月价格</th>
-   <td>0.10 美元/GB</td>
+   <td>0.06 美元/GB</td>
+   <td>0.15 美元/GB</td>
    <td>0.20 美元/GB</td>
-   <td>0.35 美元/GB</td>
    <td>0.58 美元/GB</td>
   </tr>
   <tr>
    <th>每小时价格</th>
+   <td>0.0001 美元/GB</td>
    <td>0.0002 美元/GB</td>
    <td>0.0003 美元/GB</td>
-   <td>0.0005 美元/GB</td>
    <td>0.0009 美元/GB</td>
   </tr>
 </table>
@@ -193,6 +196,7 @@ lastupdated: "2018-09-10"
 **块大小**
 
 “耐久性”和“性能”的 IOPS 基于 16 KB 的块大小，其中读/写随机工作负载的比例为 50/50。一个 16 KB 的块相当于对卷执行一次写操作。
+{:important}
 
 应用程序使用的块大小会直接影响存储器性能。如果应用程序使用的块大小小于 16 KB，那么在达到吞吐量限制之前，会先达到 IOPS 限制。相反，如果应用程序使用的块大小大于 16 KB，那么在达到 IOPS 限制之前，会先达到吞吐量限制。
 
@@ -227,7 +231,7 @@ lastupdated: "2018-09-10"
             <td>16</td>
           </tr>
           <tr>
-            <td>32（SQLServer 的典型值）</td>
+            <td>32（SQL Server 的典型值）</td>
             <td>500</td>
             <td>16</td>
           </tr>          
@@ -257,9 +261,10 @@ lastupdated: "2018-09-10"
 
 以太网连接速度必须快于卷的预期最大吞吐量。一般情况下，不要指望以太网连接饱和到超过可用带宽的 70%。例如，如果您有 6,000 IOPS 并且使用的是 16 KB 块大小，那么卷可以处理约 94 MBps 的吞吐量。如果与 LUN 之间存在 1 Gbps 以太网连接，那么当服务器尝试使用最大可用吞吐量时，此连接会成为瓶颈。这是因为 1 Gbps 以太网连接的理论限制（125 MB/秒）的 70% 仅允许 88 MB/秒。
 
-要实现最大 IOPS，需要落实足够的网络资源。其他注意事项包括在存储器外部使用的专用网络、主机端以及特定于应用程序的调整（IP 堆栈或队列深度以及其他设置）。
+要实现最大 IOPS，需要落实足够的网络资源。其他注意事项包括在存储器外部使用的专用网络、主机端以及特定于应用程序的调整（IP 堆栈或[队列深度](set-host-queue-depth-settings-performance-and-endurance-storage.html)以及其他设置）。
 
 存储流量包含在公共虚拟服务器的总网络使用量之内。要了解服务可能强加的限制，请参阅[虚拟服务器文档](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)。
+{:tip}
 
 ## 提交订单
 
@@ -269,6 +274,7 @@ lastupdated: "2018-09-10"
 
 完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
 - [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
 - [使用 cPanel 配置 Block Storage 进行备份](configure-backup-cpanel.html)
 - [使用 Plesk 配置 Block Storage 进行备份](configure-backup-plesk.html)

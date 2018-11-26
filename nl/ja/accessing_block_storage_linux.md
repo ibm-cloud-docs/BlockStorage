@@ -2,20 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+
 
 # Linux での MPIO iSCSI LUN への接続
 
-以下の説明は、RHEL6/Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。 
+ここでの説明は、主に RHEL6 および Centos6 向けのものです。他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
+{:note}
 
 例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
+{:tip}
 
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して以前に許可されていることを確認してください。
+{:important}
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
 2. **「ホストの許可」**をクリックします。
@@ -25,48 +32,50 @@ lastupdated: "2018-08-02"
 
 以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
-**注:** 手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
+手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
+{: tip}
 
-**注:** ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
+ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
+{:important}
 
 1. iSCSI とマルチパスのユーティリティーをホストにインストールします。
-   - RHEL/CentOS
+  - RHEL および CentOS
+     ```
+    yum install iscsi-initiator-utils device-mapper-multipath
+    ```
+    {: pre}
 
-   ```
-   yum install iscsi-initiator-utils device-mapper-multipath
-   ```
-   {: pre}
+  - Ubuntu および Debian
 
-   - Ubuntu/Debian
-
-   ```
-   sudo apt-get update
+    ```
+    sudo apt-get update
    sudo apt-get install multipath-tools
-   ```
-   {: pre}
+    ```
+    {: pre}
 
-2. マルチパス構成ファイルを作成または編集します。
-   - 以下のコマンドに指定されている最小限の構成で **/etc/multipath.conf** を編集します。 <br /><br /> **注:** RHEL7/CentOS7 の場合、OS に組み込みの構成があるため、`multipath.conf` はブランクにできます。 multipath.conf は multipath-tools に組み込まれているため、Ubuntu では使用されません。
+2. 必要に応じて、マルチパス構成ファイルを作成または編集します。
+  - RHEL 6 および CENTOS 6
+    * 次の最小構成の **/etc/multipath.conf** を編集します。
 
-   ```
-   defaults {
-   user_friendly_names no
+      ```
+      defaults {
+      user_friendly_names no
    max_fds max
    flush_on_last_del yes
    queue_without_daemon no
    dev_loss_tmo infinity
    fast_io_fail_tmo 5
    }
-   # All data under blacklist must be specific to your system.
-   blacklist {
-   wwid "SAdaptec*"
+      # All data under blacklist must be specific to your system.
+      blacklist {
+      wwid "SAdaptec*"
    devnode "^hd[a-z]"
    devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-   devnode "^cciss.*"  
-   }
-   devices {
-   device {
-   vendor "NETAPP"
+      devnode "^cciss.*"  
+      }
+      devices {
+      device {
+      vendor "NETAPP"
    product "LUN"
    path_grouping_policy group_by_prio
    features "3 queue_if_no_path pg_init_retries 50"
@@ -78,67 +87,77 @@ lastupdated: "2018-08-02"
    rr_weight uniform
    rr_min_io 128
    }
-   }
-   ```
-   {: codeblock}
+      }
+      ```
+      {: codeblock}
+
+    - iscsi サービスと iscsid サービスを再始動して、変更内容を有効にします。
+
+      ```
+      service iscsi restart
+      service iscsid restart
+      ```
+      {: pre}
+
+  - RHEL7 および CentOS7 の場合、OS に組み込みの構成があるため、`multipath.conf` はブランクにできます。
+  - `multipath.conf` は `multipath-tools` に組み込まれているため、Ubuntu では使用されません。
 
 3. マルチパス・モジュールをロードして、マルチパス・サービスを開始し、ブート時に開始するように設定します。
-   - RHEL 6
-     ```
-     modprobe dm-multipath
-     ```
-     {: pre}
+  - RHEL 6
+    ```
+    modprobe dm-multipath
+    ```
+    {: pre}
 
-     ```
-     service multipathd start
-     ```
-     {: pre}
+    ```
+    service multipathd start
+    ```
+    {: pre}
 
-     ```
-     chkconfig multipathd on
-     ```
-     {: pre}
+    ```
+    chkconfig multipathd on
+    ```
+    {: pre}
 
-   - CentOS 7
-     ```
-     modprobe dm-multipath
-     ```
-     {: pre}
+  - CentOS 7
+    ```
+    modprobe dm-multipath
+    ```
+    {: pre}
 
-     ```
-     systemctl start multipathd
-     ```
-     {: pre}
+    ```
+    systemctl start multipathd
+    ```
+    {: pre}
 
-     ```
-     systemctl enable multipathd
-     ```
-     {: pre}
+    ```
+    systemctl enable multipathd
+    ```
+    {: pre}
 
-   - Ubuntu
-     ```
-     service multipath-tools start
-     ```
-     {: pre}
+  - Ubuntu
+    ```
+    service multipath-tools start
+    ```
+    {: pre}
 
-   - その他のディストリビューションについては、OS ベンダーの資料を参照してください。
+  - その他のディストリビューションについては、OS ベンダーの資料を参照してください。
 
 4. マルチパスが機能していることを確認します。
-   - RHEL 6
-     ```
-     multipath -l
-     ```
-     {: pre}
+  - RHEL 6
+    ```
+    multipath -l
+    ```
+    {: pre}
 
-     ブランクが返された場合は、機能しています。
+    ブランクが返された場合は、機能しています。
+  - CentOS 7
+    ```
+    multipath -ll
+    ```
+    {: pre}
 
-   - CentOS 7
-     ```
-     multipath -ll
-     ```
-     {: pre}
-
-     RHEL 7/CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。
+    RHEL 7 および CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。
 
 5. {{site.data.keyword.slportal}} から取得した IQN で `/etc/iscsi/initiatorname.iscsi` ファイルを更新します。 値を小文字で入力します。
    ```
@@ -147,7 +166,7 @@ lastupdated: "2018-08-02"
    {: pre}
 6. {{site.data.keyword.slportal}} から取得したユーザー名とパスワードを使用して `/etc/iscsi/iscsid.conf` 内の CHAP 設定を編集します。 CHAP 名には大文字を使用します。
    ```
-    node.session.auth.authmethod = CHAP
+   node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
     node.session.auth.password = <Password-value-from-Portal>
     discovery.sendtargets.auth.authmethod = CHAP
@@ -156,67 +175,67 @@ lastupdated: "2018-08-02"
    ```
    {: codeblock}
 
-   **注:** その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと
+   その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと。
+   {:important}
 
 7. ブート時に開始するように iSCSI を設定し、今すぐ開始します。
-   - RHEL 6
+  - RHEL 6
+    ```
+    chkconfig iscsi on
+    ```
+    {: pre}
 
-      ```
-      chkconfig iscsi on
-      ```
-      {: pre}
-      ```
-      chkconfig iscsid on
-      ```
-      {: pre}
+    ```
+    chkconfig iscsid on
+    ```
+    {: pre}
 
-      ```
-      service iscsi start
-      ```
-      {: pre}
+    ```
+    service iscsi start
+    ```
+    {: pre}
 
-      ```
-      service iscsid start
-      ```
-      {: pre}
+    ```
+    service iscsid start
+    ```
+    {: pre}
 
-   - CentOS 7
+  - CentOS 7
+    ```
+    systemctl enable iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsi
-      ```
-      {: pre}
+    ```
+    systemctl enable iscsid
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl start iscsi
-      ```
-      {: pre}
-
-      ```
-      systemctl start iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsid
+    ```
+    {: pre}
 
    - その他のディストリビューション: OS ベンダーの資料を参照してください。
 
 8. {{site.data.keyword.slportal}} から取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
 
-     A. iSCSI アレイに対してディスカバリーを実行します。
-     ```
-     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
-     {: pre}
+   A. iSCSI アレイに対してディスカバリーを実行します。
+    ```
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    ```
+    {: pre}
 
-     B. iSCSI アレイに自動的にログインするようにホストを設定します。
-     ```
-     iscsiadm -m node -L automatic
-     ```
-     {: pre}
+   B. iSCSI アレイに自動的にログインするようにホストを設定します。
+    ```
+    iscsiadm -m node -L automatic
+    ```
+    {: pre}
 
 9. ホストが iSCSI アレイにログインしており、セッションを維持していることを確認します。
    ```
@@ -244,9 +263,9 @@ lastupdated: "2018-08-02"
 
 ## ファイル・システムの作成 (オプション)
 
-新しくマウントされたボリューム上にファイル・システムを作成するには、以下の手順に従います。 ファイル・システムは、ほとんどのアプリケーションでボリュームを使用するために必要です。 2 TB より小さいドライブの場合は `fdisk` を使用し、2 TB より大きいディスクの場合は `parted` を使用します。
+新しくマウントされたボリュームにファイル・システムを作成するには、以下の手順に従います。 ファイル・システムは、ほとんどのアプリケーションでボリュームを使用するために必要です。 2 TB より小さいドライブの場合は `fdisk` を使用し、2 TB より大きいディスクの場合は `parted` を使用します。
 
-### `fdisk` の使用
+### `fdisk` を使用したファイル・システムの作成
 
 1. ディスク名を取得します。
    ```
@@ -264,7 +283,8 @@ lastupdated: "2018-08-02"
 
    XXX は、ステップ 1 で返されたディスク名を表します。 <br />
 
-   **注**: さらに下にスクロールして、`fdisk` コマンドの表にリストされているコマンド・コードを表示します。
+   さらに下にスクロールして、`fdisk` コマンドの表にリストされているコマンド・コードを表示します。
+   {: tip}
 
 3. 新規パーティション上にファイル・システムを作成します。
 
@@ -364,16 +384,16 @@ lastupdated: "2018-08-02"
 
   (`**`) 16 進コードをリストするには、L を入力します。
 
-### `parted` の使用
+### `parted` を使用したファイル・システムの作成
 
 多くの Linux ディストリビューションで、`parted` はプリインストールされています。 ご使用のディストリビューションに含まれていない場合、以下のようにしてインストールできます。
-- Debian/Ubuntu
+- Debian および Ubuntu
   ```
   sudo apt-get install parted  
   ```
   {: pre}
 
-- RHEL/CentOS
+- RHEL および CentOS
   ```
   yum install parted  
   ```
@@ -393,36 +413,38 @@ lastupdated: "2018-08-02"
    1. 別途指定されない限り、`parted` は 1 次ドライブを使用します (ほとんどの場合、これは `/dev/sda` です)。 コマンド **select** を使用して、パーティション化するディスクに切り替えます。 **XXX** は、新しいデバイス名に置き換えてください。
 
       ```
-      (parted) select /dev/mapper/XXX
+      select /dev/mapper/XXX
       ```
       {: pre}
 
    2. `print` を実行して、正しいディスク上にいることを確認します。
 
       ```
-      (parted) print
+      print
       ```
       {: pre}
 
    3. GPT パーティション表を作成します。
 
       ```
-      (parted) mklabel gpt
+      mklabel gpt
       ```
       {: pre}
 
-   4. `parted` は、1 次ディスク・パーティションと論理ディスク・パーティションの作成に使用できます。それぞれで必要なステップは同じです。 パーティションを作成する場合、`parted` は `mkpart` を使用します。 作成するパーティション・タイプに応じて、**primary** や **logical** などの他のパラメーターを指定できます。
-   <br /> **注**: リストされる単位のデフォルトはメガバイト (MB) です。10 GB のパーティションを作成するには、1 から始めて 10000 で終了する必要があります。 必要に応じて、`(parted) unit TB` と入力することにより、サイズ変更単位をテラバイトに変更することもできます。
+   4. `parted` は、1 次ディスク・パーティションと論理ディスク・パーティションの作成に使用できます。それぞれで必要なステップは同じです。 パーティションを作成する場合、`parted` は `mkpart` を使用します。 作成するパーティション・タイプに応じて、**primary** や **logical** などの他のパラメーターを指定できます。<br />
+
+   リストされる単位のデフォルトはメガバイト (MB) です。10 GB のパーティションを作成するには、1 から始めて 10000 で終了する必要があります。 必要に応じて、`unit TB` と入力することにより、サイズ変更単位をテラバイトに変更することもできます。
+   {: tip}
 
       ```
-      (parted) mkpart
+      mkpart
       ```
       {: pre}
 
    5. `quit` を使用して、`parted` を終了します。
 
       ```
-      (parted) quit
+      quit
       ```
       {: pre}
 
@@ -433,8 +455,8 @@ lastupdated: "2018-08-02"
    ```
    {: pre}
 
-   **注**: このコマンドを実行するときは、正しいディスクとパーティションを選択することが重要です。
-   パーティション表を表示することで、結果を検証してください。 ファイル・システムの列の下に、ext3 が表示されます。
+   このコマンドを実行するときは、正しいディスクとパーティションを選択することが重要です。<br />パーティション表を表示することで、結果を検証してください。 ファイル・システムの列の下に、ext3 が表示されます。
+   {:important}
 
 4. ファイル・システムのマウント・ポイントを作成し、マウントします。
    - パーティション名 `PerfDisk` を作成するか、ファイル・システムをマウントする場所を作成します。
@@ -462,7 +484,7 @@ lastupdated: "2018-08-02"
    - 以下の行を `/etc/fstab` の末尾に追加します (ステップ 3 で取得したパーティション名を使用します)。 <br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -471,66 +493,83 @@ lastupdated: "2018-08-02"
 
 ## `*NIX` OS で MPIO が正しく構成されているかどうかの検証
 
-マルチパスがデバイスをピックアップしているかどうかを確認するには、デバイスをリストします。 構成が正しい場合は、2 つの NETAPP デバイスのみが表示されます。
+1. マルチパスがデバイスをピックアップしているかどうかを確認するには、デバイスをリストします。 構成が正しい場合は、2 つの NETAPP デバイスのみが表示されます。
 
-```
-# multipath -l
-```
-{: pre}
+  ```
+  multipath -l
+  ```
+  {: pre}
 
-```
-root@server:~# multipath -l
+  ```
+  root@server:~# multipath -l
 3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
 |-+- policy='round-robin 0' prio=-1 status=active`
-6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
-7:0:0:101 sde 8:64 active undef running
-```
+  6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
+  7:0:0:101 sde 8:64 active undef running
+  ```
 
-ディスクが存在することを確認してください。 同じ ID を持つ 2 つのディスクがあり、同じ ID の同じサイズの `/dev/mapper` リストがあることを確認してください。 `/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
+2. ディスクが存在することを確認してください。 同じ ID を持つ 2 つのディスクが存在し、同じ ID で同じサイズの `/dev/mapper` がリストされていなければなりません。`/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
+  ```
+  fdisk -l | grep Disk
+  ```
+  {: pre}
+  
+  - 構成が正しい場合の出力例:
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
-
-```
-root@server:~# fdisk -l | grep Disk
+    ```
+    root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
 Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+    ```
+  - 構成が間違っている場合の出力例:
+    
+    ```
+    No multipath output root@server:~# multipath -l root@server:~#
+    ```
+    
+    ```
+    root@server:~# fdisk -l | grep Disk
+Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
 
-正しくセットアップされていない場合は、この例のようになります。
-```
-No multipath output root@server:~# multipath -l root@server:~#
-```
-
-このコマンドは、ブラックリストにあるデバイスを表示します。
-```
-# multipath -l -v 3 | grep sd <date and time>
-```
-{: pre}
-
-```
-root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
+3. ローカル・ディスクがマルチパス・デバイスに含まれていないことを確認します。次のコマンドで、ブラックリストにあるデバイスを表示します。
+   ```
+   multipath -l -v 3 | grep sd <date and time>
+   ```
+   {: pre}
+ 
+   ```
+   root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
 | sdb: device node name blacklisted Feb 17 19:55:02
 | sdc: device node name blacklisted Feb 17 19:55:02
 | sdd: device node name blacklisted Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
-```
+   ```
 
-`fdisk` は、`sd*` デバイスのみを表示し、`/dev/mapper` は表示しません。
+## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
+1. ファイル・システムをアンマウントします。
+   ```
+   umount /dev/mapper/XXXlp1 /PerfDisk
+   ```
+   {: pre}
 
-```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+2. そのターゲット・ポータルに他のボリュームがない場合は、ターゲットからログアウトできます。
+   ```
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+   
+3. そのターゲット・ポータルに他のボリュームがない場合は、ターゲット・ポータル・レコードを削除して、今後ログインを試行できないようにします。
+   ```
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+  
+   詳しくは、[iscsiadm の man ページ](https://linux.die.net/man/8/iscsiadm)を参照してください。
+   {:tip}

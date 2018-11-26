@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Nuevas ubicaciones y características de {{site.data.keyword.blockstorageshort}}
 
@@ -13,7 +16,10 @@ lastupdated: "2018-09-17"
 
 El nuevo almacenamiento está disponible en centros de datos seleccionados, y está respaldado por el almacenamiento flash a niveles de IOPS superiores con cifrado de disco para datos en reposo. Todo el almacenamiento suministrado en los centros de datos actualizados se creará automáticamente con la nueva versión.
 
-**Nota:** El punto de montaje de NFS para los volúmenes nuevos difiere del punto de montaje de volúmenes no cifrados. Consulte la sección **Nuevo punto de montaje para volúmenes de {{site.data.keyword.filestorage_short}} cifrados** para obtener detalles.
+El punto de montaje de NFS para los volúmenes nuevos difiere del punto de montaje de volúmenes no cifrados. Para obtener más información, consulte la sección [Nuevo punto de montaje para volúmenes de {{site.data.keyword.filestorage_short}} cifrados](#new-mount-point-for-encrypted-storage-volumes).
+{:important}
+
+## Nuevas ubicaciones
 
 El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguientes regiones/centros de datos.
 <table role="presentation">
@@ -77,7 +83,7 @@ El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguien
 
 *La Tabla 1 muestra nuestra disponibilidad de centro de datos. Cada región tiene su propia columna. Algunas ciudades, como Dallas, San José, Washington DC, Ámsterdam, Frankfurt, Londres y Sídney, tienen varios centros de datos.*
 
-El nuevo almacenamiento tiene las siguientes características y funciones:
+## Nuevas características y prestaciones
 
 - **[Cifrado gestionado por el proveedor para datos en reposo](block-file-storage-encryption-rest.html)**.
   Todos los {{site.data.keyword.blockstorageshort}} se suministran automáticamente como cifrados sin ningún cargo adicional.
@@ -97,3 +103,4 @@ El nuevo almacenamiento tiene las siguientes características y funciones:
 Todos los volúmenes de almacenamiento mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Para asegurarse de que utiliza el punto de montaje correcto para sus volúmenes de almacenamiento, puede consultar la información sobre el punto de montaje en la página **Detalles del volumen** de [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. También puede acceder al punto de montaje correcto mediante una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Aquí puede consultar si se han actualizado más centros de datos y si se han añadido nuevas funciones y características a {{site.data.keyword.blockstorageshort}}.
+{:tip}

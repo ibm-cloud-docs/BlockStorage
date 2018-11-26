@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Protezione dei tuoi dati - crittografia dei dati inattivi gestita dal provider
 
-## Crittografia dei dati inattivi {{site.data.keyword.blockstorageshort}} 
+## Crittografia dei dati inattivi {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} prende sul serio la sicurezza e comprende l'importanza di poter crittografare i dati per tenerli al sicuro. Con la crittografia gestita dal provider, il {{site.data.keyword.blockstoragefull}} di cui è stato eseguito il provisioning con Endurance o Performance è crittografato per impostazione predefinita senza costi aggiuntivi e ripercussioni sulle prestazioni.
 
@@ -34,4 +37,5 @@ Quando ordini {{site.data.keyword.blockstorageshort}}, seleziona un data center 
 
 
 
-**Nota** - L'archiviazione non crittografata di cui viene eseguito il provisioning prima dell'upgrade del data center **non viene** crittografata automaticamente. Se hai la tua archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade e vuoi che venga crittografata, devi creare un nuovo LUN/volume o volume e migrare i tuoi dati. Per ulteriori informazioni, vedi [Migrazione di {{site.data.keyword.blockstorageshort}} in data center di cui è stato eseguito l'upgrade](migrate-block-storage-encrypted-block-storage.html).
+L'archiviazione non crittografata di cui viene eseguito il provisioning prima dell'upgrade del data center **non viene** crittografata automaticamente. Se hai la tua archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade e vuoi che venga crittografata, devi creare un nuovo LUN/volume o volume e migrare i tuoi dati. Per ulteriori informazioni, vedi [Migrazione di {{site.data.keyword.blockstorageshort}} in data center di cui è stato eseguito l'upgrade](migrate-block-storage-encrypted-block-storage.html).
+{:important}

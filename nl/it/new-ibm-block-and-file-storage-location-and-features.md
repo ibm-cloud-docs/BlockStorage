@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Nuove ubicazioni e funzioni di {{site.data.keyword.blockstorageshort}}
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 La nuova archiviazione è disponibile in data center selezionati ed è supportato da una archiviazione flash a livelli IOPS più elevati con la crittografia a livello di disco per i dati non attivi. Tutta l'archiviazione di cui viene eseguito il provisioning nei data center aggiornati viene automaticamente creata con la nuova versione.
 
-**Nota:** il punto di montaggio NFS per i nuovi volumi differisce dal punto di montaggio dei volumi non crittografati. Vedi la sezione **Nuovo punto di montaggio per i volumi {{site.data.keyword.filestorage_short}} crittografati** per i dettagli.
+Il punto di montaggio NFS per i nuovi volumi differisce dal punto di montaggio dei volumi non crittografati. Per ulteriori informazioni, consulta la sezione [Nuovo punto di montaggio per i volumi {{site.data.keyword.filestorage_short}} crittografati](#new-mount-point-for-encrypted-storage-volumes).
+{:important}
+
+## Nuove ubicazioni
 
 Il nuovo {{site.data.keyword.blockstorageshort}} è disponibile nei seguenti data center/regioni.
 <table role="presentation">
@@ -77,7 +83,7 @@ Il nuovo {{site.data.keyword.blockstorageshort}} è disponibile nei seguenti dat
 
 *La Tabella 1 mostra la nostra disponibilità di data center. Ogni regione ha una propria colonna. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.*
 
-La nuova archiviazione ha le seguenti funzioni e capacità:
+## Nuove funzioni e funzionalità
 
 - **[Crittografia gestita dal provider per i dati inattivi](block-file-storage-encryption-rest.html)**.
   Viene eseguito automaticamente il provisioning di tutto il {{site.data.keyword.blockstorageshort}} come crittografato senza costi aggiuntivi.
@@ -97,3 +103,4 @@ La nuova archiviazione ha le seguenti funzioni e capacità:
 Tutti i volumi di archiviazione migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Per assicurarti che stai utilizzando il punto di montaggio corretto per i tuoi volumi di archiviazione, puoi visualizzare le informazioni sui punti di montaggio nella pagina **Volume Details** in [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Puoi anche accedere al punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Ritorna qui a controllare quando viene eseguito l'upgrade di ulteriori data center e per vedere le nuove funzioni e funzionalità che vengono aggiunte per {{site.data.keyword.blockstorageshort}}.
+{:tip}

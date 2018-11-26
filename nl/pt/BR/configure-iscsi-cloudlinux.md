@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Conectando-se a LUNs do iSCSI de MPIO no CloudLinux
 
 Siga estas instruções para instalar seu LUN do iSCSI com caminhos múltiplos no CloudLinux Server liberação 6.10.
 
 Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+{:tip}
 
 1. Efetue login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
@@ -21,7 +25,8 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
 4. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
 5. Anote o IQN do host, o nome do usuário, a senha e o endereço de destino.
 
-**Nota:** é melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
+É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
+{:important}
 
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
 
@@ -30,18 +35,18 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
-   
+
    ```
    {: pre}
-   
+
    ```
    chkconfig multipathd on
    ```
    {: pre}
-   
+
    ```
    chkconfig iscsid on
    ```
@@ -82,7 +87,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
      {: codeblock}
 
    - Atualize suas configurações de CHAP `/etc/iscsi/iscsid.conf` incluindo o nome de usuário e a senha.
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +100,9 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **Nota** - Use letras maiúsculas para nomes de CHAP. Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
+
+     Use maiúscula para nomes de CHAP. Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
+     {:important}
 
 
 3. Reinicie os serviços  ` iscsi `  e  ` multipathd ` .
@@ -104,12 +110,12 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. Descubra o dispositivo usando o endereço IP de destino que foi obtido do {{site.data.keyword.slportal}}.
 
      A. Execute a descoberta com relação à matriz iSCSI.
@@ -117,7 +123,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
        iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
        ```
        {: pre}
-     
+
         Exemplo de saída
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +142,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
    iscsiadm -m session
    ```
    {: pre}
-   
+
    Exemplo de saída
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -146,10 +152,10 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
 
 6. Verifique se o dispositivo está conectado.
    ```
-   fdisk -l 
+   fdisk -l
    ```
    {: pre}
-    
+
    Exemplo de saída
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +186,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
    O volume agora está montado e acessível no host.
 
 7. Verifique se o MPIO está configurado corretamente listando os dispositivos. Se ele estiver configurado corretamente, somente dois dispositivos NETAPP aparecerão.
@@ -189,7 +195,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
    # multipath -l
    ```
    {: pre}
-   
+
    Exemplo de saída
    ```
    root@server:~# multipath -l

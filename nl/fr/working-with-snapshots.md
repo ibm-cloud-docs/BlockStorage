@@ -2,19 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Gestion des instantanés
 
 ## Création d'un planning d'instantané
 
-Les plannings d'instantané vous permettent de choisir la fréquence et le moment de création d'une référence ponctuelle de votre volume de stockage. Vous disposez d'un maximum de 50 instantanés par volume de stockage. Les plannings sont gérés via l'onglet **Stockage**, **{{site.data.keyword.blockstorageshort}}** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Les plannings d'instantané vous permettent de choisir la fréquence et le moment de création d'une référence ponctuelle de votre volume de stockage. Vous disposez d'un maximum de 50 instantanés par volume de stockage. Les plannings sont gérés via l'onglet **Stockage** > **{{site.data.keyword.blockstorageshort}}** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 Avant de pouvoir configurer votre planning initial, vous devez d'abord acheter de l'espace d'image instantanée si vous ne l'avez pas fait lors de la mise à disposition initiale du volume de stockage.
+{:important}
 
 ### Ajout d'un planning d'instantané
 
@@ -48,7 +51,7 @@ L'instantané est pris et affiché dans la section **Instantanés** de la page *
 
 ## Affichage de la liste de tous les instantanés avec les informations relatives à l'espace utilisé et les fonctions de gestion
 
-Vous pouvez afficher la liste des instantanés conservés ainsi que l'espace utilisé sur la page **Détails** (Stockage, {{site.data.keyword.blockstorageshort}}). Les fonctions de gestion (édition des plannings et ajout d'espace supplémentaire) sont réalisées sur la page Détail à l'aide du menu **Actions** ou des liens qui figurent dans les différentes sections de la page.
+Vous pouvez afficher la liste des instantanés conservés ainsi que l'espace utilisé sur la page **Détails**. Les fonctions de gestion (édition des plannings et ajout d'espace supplémentaire) sont réalisées sur la page Détail à l'aide du menu **Actions** ou des liens qui figurent dans les différentes sections de la page.
 
 ## Affichage de la liste des instantanés conservés
 
@@ -60,9 +63,10 @@ Le graphique circulaire en haut de la page **Détails** indique la quantité d'e
 
 ## Modification de la quantité d'espace d'image instantanée pour un volume
 
-Il se peut que vous deviez ajouter de l'espace d'image instantanée à un volume qui n'en disposait pas auparavant ou qui en requiert davantage. Vous pouvez ajouter entre 5 et 4 000 Go, selon vos besoins. 
+Il se peut que vous deviez ajouter de l'espace d'image instantanée à un volume qui n'en disposait pas auparavant ou qui en requiert davantage. Vous pouvez ajouter entre 5 et 4 000 Go, selon vos besoins.
 
-**Remarque** : l'espace d'image instantanée peut uniquement être augmenté. Il est impossible de le réduire. Vous pouvez sélectionner une quantité moins élevée d'espace jusqu'à ce que vous déterminiez vos besoins réels. Gardez à l'esprit que les instantanés automatisés et manuels partagent le même espace.
+L'espace d'image instantanée peut uniquement être augmenté. Il est impossible de le réduire. Vous pouvez sélectionner une quantité moins élevée d'espace jusqu'à ce que vous déterminiez vos besoins réels. Gardez à l'esprit que les instantanés automatisés et manuels partagent le même espace.
+{:note}
 
 L'espace d'instantané est modifié via **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 
@@ -87,7 +91,8 @@ Les plannings d'instantané peuvent être annulés via **Stockage** > **{{site.d
 1. Cliquez sur le planning à supprimer dans le cadre **Plannings d'échantillonnage** sur la page **Détails**.
 2. Cochez la case en regard du planning à supprimer et cliquez sur **Enregistrer**.<br />
 
->**Attention** : si vous utilisez la fonctionnalité de réplication, vérifiez que le planning que vous supprimez n'est pas celui qui est employé par la réplication. Cliquez [ici](replication.html) pour plus d'informations sur la suppression d'un planning de réplication.
+Si vous utilisez la fonctionnalité de réplication, vérifiez que le planning que vous supprimez n'est pas celui qui est employé par la réplication. Pour plus d'informations sur la suppression d'un planning de réplication, voir [Réplication de données](replication.html).
+{:important}
 
 ## Suppression d'un instantané
 
@@ -103,15 +108,18 @@ Les instantanés manuels qui ne sont pas supprimés comme indiqué précédemmen
 Il se peut que vous deviez ramener votre volume de stockage à un point de cohérence spécifique en raison d'une erreur d'utilisateur ou d'une altération des données.
 
 1. Démontez et déconnectez le volume de stockage de l'hôte.
-   - Cliquez [ici](accessing_block_storage_linux.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Linux.
-   - Cliquez [ici](accessing-block-storage-windows.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Microsoft Windows.
+   - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
+   - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
 2. Cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 3. Faites défiler l'écran et cliquez sur le volume à restaurer. La section **Instantanés** de la page **Détails** affiche la liste de tous les instantanés sauvegardés, ainsi que leur taille et leur date de création.
 4. Cliquez sur **Actions** en regard de l'instantané à utiliser, puis cliquez sur **Restaurer**. <br/>
-   >**Remarque** : l'opération de restauration entraîne la perte des données qui ont été créées ou modifiées après la prise de l'instantané. Cette perte de données se produit car votre volume de stockage reprend le même état que celui qui était le sien au moment de la prise de l'instantané. 
+
+   L'opération de restauration entraîne la perte des données qui ont été créées ou modifiées après la prise de l'instantané. Cette perte de données se produit car votre volume de stockage reprend le même état que celui qui était le sien au moment de la prise de l'instantané.
+   {:note}
 5. Cliquez sur **Oui** pour lancer la restauration. Un message doit s'afficher en haut de la page pour vous indiquer que le volume est restauré à l'aide de l'instantané sélectionné. En outre, une icône apparaît en regard de votre volume sur {{site.data.keyword.blockstorageshort}} pour indiquer qu'une transaction active est en cours. Survolez cette icône pour ouvrir une boîte de dialogue affichant la transaction. L'icône disparaît une fois la transaction terminée.
 6. Montez et reconnectez le volume de stockage à l'hôte.
-   - Cliquez [ici](accessing_block_storage_linux.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Linux.
-   - Cliquez [ici](accessing-block-storage-windows.html) pour obtenir des instructions sur {{site.data.keyword.blockstorageshort}} sous Microsoft Windows.
-   
->**Remarque** : la restauration d'un volume entraîne la suppression de tous les instantanés qui ont été pris après celui utilisé pour la restauration.
+   - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
+   - [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
+   - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+
+La restauration d'un volume entraîne la suppression de tous les instantanés qui ont été pris après celui utilisé pour la restauration.{:important}

@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Uso de LUKS en Red Hat Enterprise Linux para el cifrado de disco completo
 
@@ -29,9 +32,10 @@ Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el form
 
 ## Configuración de un volumen cifrado con LUKS con {{site.data.keyword.blockstorageshort}} de Resistencia
 
-En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Pulse [aquí](accessing_block_storage_linux.html) para consultar cómo acceder a {{site.data.keyword.blockstorageshort}} con Linux.
+En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Para obtener más información sobre cómo conectar {{site.data.keyword.blockstorageshort}} a un host Linux, consulte [Conexión a LUN MPIO iSCSI en Linux](accessing_block_storage_linux.html).
 
-**Nota**: El proceso de cifrado de datos crea una carga en el host que podría afectar potencialmente al rendimiento.
+El proceso de cifrado de datos crea una carga en el host que podría afectar potencialmente al rendimiento.
+{:note}
 
 1. Escriba lo siguiente en el indicador de shell como usuario root para instalar el paquete necesario:   <br/>
    ```
@@ -47,22 +51,22 @@ En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{s
 4. Cifre el dispositivo de bloque;
 
    1. Este mandato inicializa el volumen y le permite establecer una contraseña. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. Responda con YES (todo en mayúsculas).
-   
-   3. El dispositivo ahora aparece como un volumen cifrado: 
-   
+
+   3. El dispositivo ahora aparece como un volumen cifrado:
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. Abra el volumen y cree una correspondencia.   <br/>
+
+5. Abra el volumen y cree una correspondencia.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
@@ -121,14 +125,14 @@ En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{s
    # lsblk
    NAME                                       MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
    xvdb                                       202:16   0    2G  0 disk
-   +-xvdb1                                    202:17   0    2G  0 part  [SWAP]
+   └─xvdb1                                    202:17   0    2G  0 part  [SWAP]
    xvda                                       202:0    0   25G  0 disk
-   +-xvda1                                    202:1    0  256M  0 part  /boot
-   +-xvda2                                    202:2    0 24.8G  0 part  /
+   ├─xvda1                                    202:1    0  256M  0 part  /boot
+   └─xvda2                                    202:2    0 24.8G  0 part  /
    sda                                          8:0    0   20G  0 disk
-   +-3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-   +-cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
+   └─cryptData (dm-1)                         253:1    0   20G  0 crypt /cryptData
    sdb                                          8:16   0   20G  0 disk
-   +-3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
-   +-cryptData (dm-1)                       253:1    0   20G  0 crypt /cryptData
+   └─3600a0980383034685624466470446564 (dm-0) 253:0    0   20G  0 mpath
+   └─cryptData (dm-1)                         253:1    0   20G  0 crypt /cryptData
    ```

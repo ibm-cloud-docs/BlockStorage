@@ -1,14 +1,13 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html"}
+{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html" path="infrastructure/BlockStorage"}
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
-    replication.md
     expandable_block_storage.md
     adjustable-iops.md
     {: .navgroup-end}
@@ -31,6 +30,11 @@ IBM Cloud Storage - Block Storage
         configure-backup-plesk.md
 
     {: .topicgroup}
+    Replicação
+        replication.md
+        disaster-recovery.md
+    
+    {: .topicgroup}
     Segurança
         block-file-storage-encryption-rest.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
@@ -42,5 +46,5 @@ IBM Cloud Storage - Block Storage
 
     {: .navgroup id="help"}
     faqs.md
-    [Informações do cliente da API Python](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    [Informações do cliente da API da Python](https://softlayer-python.readthedocs.io/en/latest/index.html)
     {: .navgroup-end}

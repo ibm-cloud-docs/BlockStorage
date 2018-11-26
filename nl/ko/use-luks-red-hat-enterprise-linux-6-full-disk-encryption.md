@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 전체 디스크 암호화에 Red Hat Enterprise Linux의 LUKS 사용
 
@@ -29,9 +32,10 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 
 ## Endurance{{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정
 
-이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않았으며 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 수 있는 것으로 가정합니다. Linux에서 {{site.data.keyword.blockstorageshort}}에 액세스하는 방법을 보려면 [여기](accessing_block_storage_linux.html)를 클릭하십시오.
+이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않았으며 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 수 있는 것으로 가정합니다. Linux 호스트에 {{site.data.keyword.blockstorageshort}} 연결에 대한 자세한 정보는 [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)을 참조하십시오. 
 
-**참고**: 데이터 암호화 프로세스를 통해 잠재적으로 성능에 영향을 미칠 수 있는 호스트에 로드를 작성합니다.
+데이터 암호화 프로세스는 잠재적으로 성능에 영향을 줄 수 있는 호스트의 로드를 생성합니다.
+{:note}
 
 1. 쉘 프롬프트에서 루트로 다음을 입력하여 필요한 패키지를 설치하십시오.   <br/>
    ```
@@ -47,22 +51,22 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 4. 블록 디바이스를 암호화하십시오.
 
    1. 이 명령을 통해 볼륨을 초기화하고 비밀번호 문구를 설정할 수 있습니다. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. YES(모두 대문자)로 응답하십시오.
-   
-   3. 이제 디바이스는 암호화된 볼륨으로 표시됩니다. 
-   
+
+   3. 이제 디바이스는 암호화된 볼륨으로 표시됩니다.
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. 볼륨을 열고 맵핑을 작성하십시오.   <br/>
+
+5. 볼륨을 열고 맵핑을 작성하십시오.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

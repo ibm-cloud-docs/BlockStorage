@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Utilisation de LUKS dans Red Hat Enterprise Linux 6 pour un chiffrement de disque complet
 
@@ -29,9 +32,9 @@ Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6
 
 ## Configuration d'un volume chiffré LUKS avec {{site.data.keyword.blockstorageshort}} Endurance
 
-Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Cliquez [ici](accessing_block_storage_linux.html) pour savoir comment accéder à {{site.data.keyword.blockstorageshort}} avec Linux.
+Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Pour plus d'informations sur la connexion de {{site.data.keyword.blockstorageshort}} à un hôte Linux, voir [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html).
 
-**Remarque** : le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances.
+Le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances. {:note}
 
 1. Saisissez la commande suivante à une invite shell en tant que root pour installer le package requis :   <br/>
    ```
@@ -47,22 +50,22 @@ Cette procédure suppose que le serveur peut accéder à un nouveau volume {{sit
 4. Chiffrez l'unité par bloc :
 
    1. Cette commande initialise le volume et vous permet de définir une phrase passe. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. Répondez par YES (tout en majuscules).
-   
-   3. Le périphérique apparaît maintenant sous forme de volume chiffré : 
-   
+
+   3. Le périphérique apparaît maintenant sous forme de volume chiffré :
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. Ouvrez le volume et créez un mappage.   <br/>
+
+5. Ouvrez le volume et créez un mappage.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

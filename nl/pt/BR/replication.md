@@ -2,19 +2,27 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Dados de Replicação
 
 A replicação usa um de seus planejamentos de captura instantânea para copiar automaticamente capturas instantâneas para um volume de destino em um data center remoto. As cópias poderão ser recuperadas no site remoto se ocorrer um evento catastrófico ou se os dados forem corrompidos.
 
-Com réplicas, é possível
+Com as réplicas, é possível recuperar-se de falhas do site e de outros desastres rapidamente. No caso de uma
+emergência, é possível executar failover no volume de destino e acessar os dados de um momento específico na
+cópia de DR. Para obter mais informações, consulte [Duplicando os volumes de réplicas
+para a recuperação de desastre](disaster-recovery.html).
 
-- Recuperar de falhas do site e outros desastres rapidamente efetuando failover para o volume de destino.
-- Efetuar failover para um momento específico na cópia de DR.
+A replicação mantém os dados em sincronia em duas localizações diferentes. Se você desejar apenas clonar o
+volume e usá-lo independentemente do volume original, consulte [Criando
+um volume de bloco duplicado](how-to-create-duplicate-volume.html).
+{:tip}
 
 Antes de replicar, deve-se criar um planejamento de captura instantânea. Ao efetuar failover, você está "invertendo o comutador" do volume de armazenamento em seu data center primário para o volume de destino em seu data center remoto. Por exemplo, seu data center primário é Londres e seu data center secundário é Amsterdã. Se um evento de falha ocorresse, você efetuaria failover para Amsterdã - conectando-se ao volume agora primário de uma instância de cálculo em Amsterdã. Depois que seu volume em Londres é reparado, uma captura instantânea é tomada do volume de Amsterdã para efetuar failback para Londres e para o volume novamente primário de uma instância de cálculo em Londres.
 
@@ -39,7 +47,6 @@ Veja a Tabela 1 para a lista completa de disponibilidade de data center e destin
       <th>Austrália</th>
     </tr>
   </thead>
-  
   <tbody>
     <tr>
       <td>DAL01<br />
@@ -107,8 +114,9 @@ As replicações funcionam com base em um planejamento de captura instantânea. 
 1. Clique em seu volume de armazenamento.
 2. Clique em **Réplica** e em **Comprar uma replicação**.
 3. Selecione o planejamento de captura instantânea existente que você deseja que sua replicação siga. A lista contém todos os seus planejamentos de captura instantânea ativa. <br />
-   >**Nota** - Será possível selecionar somente um planejamento, mesmo se você tiver uma combinação de a cada hora, diário e semanal. Todas as capturas instantâneas que foram capturadas desde o ciclo de replicação anterior são replicadas independentemente do planejamento que as originou.<br />Se você não tiver Capturas instantâneas configuradas, será solicitado que faça isso antes de poder pedir replicação. Consulte [Trabalhando
+   É possível selecionar apenas um planejamento mesmo se você tiver uma combinação de horário, diário e semanal. Todas as capturas instantâneas que foram capturadas desde o ciclo de replicação anterior são replicadas independentemente do planejamento que as originou.<br />Se você não tiver Capturas instantâneas configuradas, será solicitado que faça isso antes de poder pedir replicação. Consulte [Trabalhando
 com capturas instantâneas](snapshots.html) para obter mais detalhes.
+   {:important}
 3. Clique em **Local** e selecione o data center que é seu site de DR.
 4. Clique em **Continuar**.
 5. Insira um **Código promocional** se você tiver um e clique em **Recalcular**. Os outros campos na janela são preenchidos por padrão.
@@ -143,7 +151,8 @@ Seu espaço de captura instantânea primário e seu espaço de réplica devem se
 2. Selecione **Incluir mais espaço de captura instantânea**.
 3. Selecione o tamanho de armazenamento na lista e clique em **Continuar**.
 4. Insira um **Código promocional** se você tiver um e clique em **Recalcular**. Os outros campos na caixa de diálogo são concluídos por padrão.
-5. Clique na caixa de seleção **Eu li o contrato de prestação de serviços principal…** e clique em **Fazer pedido**.
+5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principais…** e
+clique em **Fazer pedido**.
 
 
 ## Visualizando os volumes de réplica na Lista de volumes
@@ -173,7 +182,9 @@ Os hosts e volumes autorizados devem estar no mesmo data center. Não é possív
 Os tamanhos de volume devem ser os mesmos para os volumes de armazenamento primário e de réplica. Um não pode ser maior que o outro. Ao aumentar o espaço de captura instantânea para o volume
 primário, o espaço de réplica é aumentado automaticamente. Aumentar o espaço de captura instantânea aciona uma atualização de replicação imediata. O aumento em ambos os volumes é mostrado como itens de linha em sua fatura e é rateado conforme necessário.
 
-Clique [aqui](snapshots.html) para saber como aumentar o espaço de captura instantânea.
+Para obter mais informações sobre o aumento do espaço de captura instantânea, consulte
+[Pedindo capturas instantâneas](ordering-snapshots.html).
+{:tip}
 
 
 ## Iniciando um failover de um volume para sua réplica
@@ -235,7 +246,7 @@ As duplicatas podem ser criadas de ambos os volumes, o primário e o de réplica
 Os volumes duplicados podem ser acessados por um host para leitura/gravação assim que o armazenamento
 é provisionado. No entanto, capturas instantâneas e replicação não são permitidas até que a cópia de dados do original para a duplicata seja concluída.
 
-Para obter mais informações, consulte [Criando um volume de bloco duplicado](how-to-create-duplicate-volume.html)
+Para obter mais informações, consulte [Criando um volume de bloco duplicado](how-to-create-duplicate-volume.html).
 
 
 ## Cancelando uma Replicação Existente

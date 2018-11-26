@@ -2,20 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+
 
 # 在 Linux 上连接到 MPIO iSCSI LUN
 
-以下指示信息适用于 RHEL6/Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。 
+这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
+{:note}
 
 例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到有关 DM-Multipath 设置的指示信息。
+{:tip}
 
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 授权。
+{:important}
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
 2. 单击**授权主机**。
@@ -25,30 +32,32 @@ lastupdated: "2018-08-02"
 
 下面是将基于 Linux 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
 
-**注**：指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
+指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
+{: tip}
 
-**注**：最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
+最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
+{:important}
 
 1. 将 iSCSI 和多路径实用程序安装到主机。
-   - RHEL/CentOS
-
-   ```
+  - RHEL 和 CentOS
+     ```
    yum install iscsi-initiator-utils device-mapper-multipath
    ```
-   {: pre}
+    {: pre}
 
-   - Ubuntu/Debian
+  - Ubuntu 和 Debian
 
-   ```
+    ```
    sudo apt-get update
    sudo apt-get install multipath-tools
    ```
-   {: pre}
+    {: pre}
 
-2. 创建或编辑多路径配置文件。
-   - 使用以下命令中提供的最低配置来编辑 **/etc/multipath.conf**。<br /><br /> **注**：对于 RHEL7/CentOS7，`multipath.conf` 可能为空白，因为该操作系统具有内置配置。Ubuntu 内置于多路径工具中，因此不会使用 multipath.conf。
+2. 根据需要创建或编辑多路径配置文件。
+  - RHEL 6 和 CENTOS 6
+    * 使用以下最低配置编辑 **/etc/multipath.conf**。
 
-   ```
+      ```
    defaults {
    user_friendly_names no
    max_fds max
@@ -63,9 +72,9 @@ lastupdated: "2018-08-02"
    devnode "^hd[a-z]"
    devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
    devnode "^cciss.*"  
-   }
-   devices {
-   device {
+      }
+      devices {
+      device {
    vendor "NETAPP"
    product "LUN"
    path_grouping_policy group_by_prio
@@ -79,66 +88,76 @@ lastupdated: "2018-08-02"
    rr_min_io 128
    }
    }
-   ```
-   {: codeblock}
+      ```
+      {: codeblock}
+
+    - 重新启动 iscsi 和 iscsid 服务，以使更改生效。
+
+      ```
+      service iscsi restart
+      service iscsid restart
+      ```
+      {: pre}
+
+  - 对于 RHEL7 和 CentOS7，`multipath.conf` 可能为空白，因为该操作系统具有内置配置。
+  - Ubuntu 内置于 `multipath-tools`，因此不会使用 `multipath.conf`。
 
 3. 装入多路径模块，启动多路径服务并将其设置为在引导时启动。
-   - RHEL 6
+  - RHEL 6
      ```
      modprobe dm-multipath
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      service multipathd start
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      chkconfig multipathd on
      ```
-     {: pre}
+    {: pre}
 
-   - CentOS 7
+  - CentOS 7
      ```
      modprobe dm-multipath
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      systemctl start multipathd
      ```
-     {: pre}
+    {: pre}
 
-     ```
+    ```
      systemctl enable multipathd
      ```
-     {: pre}
+    {: pre}
 
-   - Ubuntu
+  - Ubuntu
      ```
      service multipath-tools start
      ```
-     {: pre}
+    {: pre}
 
-   - 对于其他分发版，请查阅相应的操作系统供应商文档。
+  - 对于其他分发版，请查阅相应的操作系统供应商文档。
 
 4. 验证多路径是否生效。
-   - RHEL 6
+  - RHEL 6
      ```
-     multipath -l
-     ```
-     {: pre}
+   multipath -l
+   ```
+    {: pre}
 
-     如果返回空白，说明多路径生效。
-
-   - CentOS 7
+    如果返回空白，说明多路径生效。
+  - CentOS 7
      ```
      multipath -ll
      ```
-     {: pre}
+    {: pre}
 
-     RHEL 7/CentOS 7 可能会返回“无 fc_host 设备”，可以忽略此消息。
+    RHEL 7 和 CentOS 7 可能会返回“无 fc_host 设备”，您可以忽略此消息。
 
 5. 使用 {{site.data.keyword.slportal}}中的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 文件。请以小写输入值。
    ```
@@ -156,67 +175,67 @@ lastupdated: "2018-08-02"
    ```
    {: codeblock}
 
-   **注**：将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
+   将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
+   {:important}
 
 7. 将 iSCSI 设置为在引导时启动，并立即将其启动。
-   - RHEL 6
-
-      ```
+  - RHEL 6
+     ```
 chkconfig iscsi on
       ```
-      {: pre}
-      ```
-      chkconfig iscsid on
-      ```
-      {: pre}
+    {: pre}
 
+    ```
+chkconfig iscsid on
       ```
+    {: pre}
+
+    ```
 service iscsi start
       ```
-      {: pre}
+    {: pre}
 
-      ```
+    ```
 service iscsid start
       ```
-      {: pre}
+    {: pre}
 
-   - CentOS 7
-
-      ```
+  - CentOS 7
+     ```
 systemctl enable iscsi
       ```
-      {: pre}
+    {: pre}
 
-      ```
+    ```
 systemctl enable iscsid
       ```
-      {: pre}
+    {: pre}
 
-      ```
+    ```
 systemctl start iscsi
       ```
-      {: pre}
+    {: pre}
 
-      ```
+    ```
 systemctl start iscsid
       ```
-      {: pre}
+    {: pre}
 
    - 其他分发版：请查阅相应的操作系统供应商文档。
 
 8. 使用从 {{site.data.keyword.slportal}} 中获取的目标 IP 地址来发现该设备。
 
-     A. 针对 iSCSI 阵列运行发现。
+   A. 针对 iSCSI 阵列运行发现。
+    ```
+         iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
      ```
-          iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
-     {: pre}
+    {: pre}
 
-     B. 将主机设置为自动登录到 iSCSI 阵列。
+   B. 将主机设置为自动登录到 iSCSI 阵列。
+    ```
+         iscsiadm -m node -L automatic
      ```
-          iscsiadm -m node -L automatic
-     ```
-     {: pre}
+    {: pre}
 
 9. 验证主机是否已登录到 iSCSI 阵列并维护其会话。
    ```
@@ -233,8 +252,8 @@ systemctl start iscsid
 
 10. 验证该设备是否已连接。缺省情况下，该设备将连接到 `/dev/mapper/mpathX`，其中 X 是生成的已连接设备标识。
     ```
-    fdisk -l | grep /dev/mapper
-    ```
+   fdisk -l | grep /dev/mapper
+   ```
     {: pre}
   此命令报告类似于以下示例的内容。
     ```
@@ -244,9 +263,9 @@ systemctl start iscsid
 
 ## 创建文件系统（可选）
 
-执行以下步骤以基于新安装的卷来创建文件系统。大多数应用程序都需要文件系统才可使用卷。对于小于 2 TB 的驱动器，请使用 `fdisk`；对于大于 2 TB 的磁盘，请使用 `parted`。
+您可以通过执行以下步骤，在新安装的卷上创建文件系统。大多数应用程序都需要文件系统才可使用卷。对于小于 2 TB 的驱动器，请使用 `fdisk`；对于大于 2 TB 的磁盘，请使用 `parted`。
 
-### 使用 `fdisk`
+### 使用 `fdisk` 创建文件系统
 
 1. 获取磁盘名称。
    ```
@@ -264,7 +283,8 @@ systemctl start iscsid
 
    XXX 表示步骤 1 中返回的磁盘名称。<br />
 
-   **注**：进一步向下滚动可查看在 `fdisk` 命令表中列出的命令代码。
+   进一步向下滚动可查看在 `fdisk` 命令表中列出的命令代码。
+   {: tip}
 
 3. 在新分区上创建文件系统。
 
@@ -364,16 +384,16 @@ systemctl start iscsid
 
   (`**`) 输入 L 可列出十六进制代码
 
-### 使用 `parted`
+### 使用 `parted` 创建文件系统
 
 许多 Linux 分发版上已预安装 `parted`。如果您的分发版中不包含 parted，可以通过以下方式进行安装：
-- Debian/Ubuntu
+- Debian 和 Ubuntu
   ```
   sudo apt-get install parted  
   ```
   {: pre}
 
-- RHEL/CentOS
+- RHEL 和 CentOS
   ```
   yum install parted  
   ```
@@ -393,36 +413,38 @@ systemctl start iscsid
    1. 除非另行指定，否则 `parted` 会使用主驱动器，在大多数情况下为 `/dev/sda`。使用 **select** 命令切换到要分区的磁盘。将 **XXX** 替换为新设备名称。
 
       ```
-      (parted) select /dev/mapper/XXX
+      select /dev/mapper/XXX
       ```
       {: pre}
 
    2. 运行 `print` 以确认您位于正确的磁盘上。
 
       ```
-      (parted) print
+      print
       ```
       {: pre}
 
    3. 创建 GPT 分区表。
 
       ```
-      (parted) mklabel gpt
+      mklabel gpt
       ```
       {: pre}
 
-   4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。
-   <br /> **注**：列出的单位缺省为兆字节 (MB)；要创建 10 GB 的分区，请从 1 开始，到 10000 结束。如果需要，还可以通过输入 `(parted) unit TB` 将大小单位更改为太字节。
+   4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。<br />
+
+   列出的单位缺省为兆字节 (MB)；要创建 10 GB 的分区，可以从 1 开始，以 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。 
+   {: tip}
 
       ```
-      (parted) mkpart
+      mkpart
       ```
       {: pre}
 
    5. 使用 `quit` 退出 `parted`。
 
       ```
-      (parted) quit
+      quit
       ```
       {: pre}
 
@@ -433,8 +455,9 @@ systemctl start iscsid
    ```
    {: pre}
 
-   **注**：运行此命令时，请务必选择正确的磁盘和分区！
-   通过打印分区表来验证结果。在“文件系统”列下，可以看到 ext3。
+   运行此命令时，请务必选择正确的磁盘和分区！
+   <br />通过打印分区表来验证结果。在“文件系统”列下，可以看到 ext3。
+   {:important}
 
 4. 为文件系统创建安装点并安装文件系统。
    - 创建分区名称 `PerfDisk` 或要在其中安装文件系统的分区的名称。
@@ -445,7 +468,6 @@ systemctl start iscsid
      {: pre}
 
    - 使用分区名称安装存储器。
-     
 
      ```
      mount /dev/mapper/XXXlp1 /PerfDisk
@@ -453,7 +475,6 @@ systemctl start iscsid
      {: pre}
 
    - 检查是否看到新的文件系统列出。
-     
 
      ```
      df -h
@@ -464,7 +485,7 @@ systemctl start iscsid
    - 将以下行附加到 `/etc/fstab` 的末尾（使用步骤 3 中的分区名称）。<br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+/dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -473,14 +494,14 @@ systemctl start iscsid
 
 ## 验证是否在 `*NIX` 操作系统中正确地配置了 MPIO
 
-要检查多路径是否在选取设备，请列出设备。如果配置正确，将仅显示两个 NETAPP 设备。
+1. 要检查多路径是否在选取设备，请列出设备。如果配置正确，将仅显示两个 NETAPP 设备。
 
-```
-# multipath -l
-```
-{: pre}
+  ```
+   multipath -l
+   ```
+  {: pre}
 
-```
+  ```
 root@server:~# multipath -l
 3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
 |-+- policy='round-robin 0' prio=-1 status=active`
@@ -488,33 +509,41 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-检查磁盘是否存在。确认有两个具有相同标识的磁盘，并且 `/dev/mapper` 会列出具有相同标识且大小相同的项。`/dev/mapper` 设备是多路径设置的设备：
+2. 检查磁盘是否存在。必须有两个磁盘具有相同的标识，而且 `/dev/mapper` 列出的设备应具有相同的标识和大小。`/dev/mapper` 设备是多路径设置的设备。
+  ```
+  fdisk -l | grep Disk
+  ```
+  {: pre}
+  
+  - 正确配置的输出示例：
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
-
-```
-root@server:~# fdisk -l | grep Disk
+    ```
+    root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
 Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
-
-如果未正确设置，那么将类似于以下示例。
-```
+  - 错误配置的输出示例：
+    
+    ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
+    
+    ```
+root@server:~# fdisk -l | grep Disk
+Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+```
 
-此命令显示列入黑名单的设备。
-```
-# multipath -l -v 3 | grep sd <date and time>
-```
-{: pre}
-
-```
+3. 确认多路径设备中不包含本地磁盘。以下命令将显示列入黑名单的设备。
+   ```
+   multipath -l -v 3 | grep sd <date and time>
+   ```
+   {: pre}
+ 
+   ```
 root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
 | sdb: device node name blacklisted Feb 17 19:55:02
@@ -523,16 +552,25 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
 ```
 
-`fdisk` 仅显示 `sd*` 设备，而不会显示 `/dev/mapper`。
+## 卸载 {{site.data.keyword.blockstorageshort}} 卷
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
+1. 卸载文件系统。
+   ```
+   umount /dev/mapper/XXXlp1 /PerfDisk
+   ```
+   {: pre}
 
-```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+2. 如果您的目标门户网站中没有任何其他卷，那么可以从目标门户网站注销。
+   ```
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+   
+3. 如果您的目标门户网站中没有任何其他卷，那么可以删除目标门户网站记录，以防止未来的登录尝试。
+   ```
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+  
+   有关更多信息，请参阅 [iscsiadm 的联机帮助页](https://linux.die.net/man/8/iscsiadm)。
+   {:tip}

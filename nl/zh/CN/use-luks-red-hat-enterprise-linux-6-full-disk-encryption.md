@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 在 Red Hat Enterprise Linux 中使用 LUKS 进行全磁盘加密
 
@@ -29,9 +32,11 @@ lastupdated: "2018-06-25"
 
 ## 使用耐久性 {{site.data.keyword.blockstorageshort}} 设置 LUKS 加密卷
 
-以下步骤假定服务器可以访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。单击[此处](accessing_block_storage_linux.html)以获取有关如何在 Linux 上访问 {{site.data.keyword.blockstorageshort}} 的信息。
+以下步骤假定服务器可以访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。有关将 {{site.data.keyword.blockstorageshort}} 连接到 Linux 主机的更多信息，请参阅
+[在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)。
 
-**注**：数据加密过程会在主机上创建负载，这可能会影响性能。
+数据加密过程会在主机上产生负载，这可能会影响性能。
+{:note}
 
 1. 在 shell 提示符处以 root 用户身份输入以下命令来安装必需的包：<br/>
    ```
@@ -47,21 +52,21 @@ lastupdated: "2018-06-25"
 4. 加密块设备：
 
    1. 此命令会初始化卷，并且您可以设置口令。<br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. 以 YES（全大写字母）进行响应。
-   
-   3. 现在设备将显示为加密卷： 
-   
+
+   3. 现在设备将显示为加密卷：
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
+
 5. 打开该卷并创建映射。<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData

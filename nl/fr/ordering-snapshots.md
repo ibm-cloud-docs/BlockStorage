@@ -2,21 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Commande d'instantanés
 
 Pour créer des instantanés de votre volume de stockage, que ce soit de manière automatisée ou manuelle, vous devez acheter de l'espace dans lequel les conserver. Vous pouvez acheter de la capacité pour atteindre la quantité de votre volume de stockage (lors de l'achat initial de volume ou ultérieurement en suivant les étapes décrites ici).
 
-1. Accédez à votre LUN de stockage via **Stockage**, onglet **{{site.data.keyword.blockstorageshort}}** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-2. Cliquez sur **Ajouter de l'espace d'instantané** dans le cadre Instantanés.
-3. Sélectionnez la quantité d'espace dont vous avez besoin.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/){:new_window} et cliquez sur l'icône **Menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+
+   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+2. Accédez au numéro d'unité logique de stockage via **Stockage** >**{{site.data.keyword.blockstorageshort}}**.
+2. Cliquez sur **Modifier l'espace d'instantané** dans le cadre Instantanés.
+3. Sélectionnez la quantité d'espace dont vous avez besoin et la méthode de paiement.
 4. Cliquez sur **Continuer**.
 5. Entrez un **code promo** le cas échéant et cliquez sur **Recalculer**. Les zones Prix pour cette commande et Vérification de la commande sont renseignées par défaut.
-6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**. Votre espace d'image instantanée est mis à disposition en quelques minutes.
+6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service** et cliquez sur **Passer une commande**. Votre espace d'image instantanée est mis à disposition en quelques minutes.
 
 ## Calcul de la quantité d'espace d'image instantanée à commander
 
@@ -24,8 +30,9 @@ En règle générale, l'espace d'image instantanée est utilisé par les instant
 - la quantité de modifications apportées à votre système de fichiers actif ;
 - la durée de conservation envisagée des instantanés.  
 
-La méthode de calcul de la quantité d'espace nécessaire est la suivante : **(taux de modification)** x **(nombre d'heures/de jours/de semaines/de mois de conservation)**.  
->**Remarque** : le premier instantané utilise une quantité négligeable d'espace car il s'agit uniquement d'une copie des métadonnées (pointeurs) indiquant les blocs du système de fichiers actif. 
+La méthode de calcul de la quantité d'espace nécessaire est la suivante : **(taux de modification)** x **(nombre d'heures/de jours/de semaines/de mois de conservation)**.
+
+Le premier instantané utilise une quantité négligeable d'espace car il s'agit uniquement d'une copie des métadonnées (pointeurs) indiquant les blocs du système de fichiers actif.{:note}
 
 Un volume comportant un nombre important de modifications et une longue période de conservation a besoin de davantage d'espace qu'un volume doté d'un taux moyen de modifications et d'un planning de conservation des instantanés modéré. Une base de données avec un nombre élevé de modifications illustre le premier type et un magasin de données VMware illustre le second type.
 

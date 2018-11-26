@@ -2,20 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+
 
 # Conectando-se a LUNs iSCSI de MPIO no Linux
 
-Essas instruções são para o RHEL6/Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho. 
+Essas instruções são principalmente para o RHEL6 e o Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho.
+{:note}
 
 Por exemplo, é possível localizar instruções do Ubuntu para a Configuração do inicializador iSCSI [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e configuração de DM-Multipath [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+{:tip}
 
 Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+{:important}
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
 2. Clique em **Autorizar host**.
@@ -25,48 +32,51 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
 
 A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada em Linux a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO).
 
-**Nota:** o IQN do host, o nome do usuário, a senha e o endereço de destino referenciados nas instruções podem ser obtidos da tela **Detalhes do {{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+O IQN do host, o nome do usuário, a senha e o endereço de destino referenciados nas instruções podem ser obtidos na
+tela **{{site.data.keyword.blockstorageshort}}Detalhes** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+{: tip}
 
-**Nota:** é melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
+É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
+{:important}
 
 1. Instale os utilitários iSCSI e de caminhos múltiplos em seu host.
-   - RHEL/CentOS
+  - RHEL e CentOS
+     ```
+    yum install iscsi-initiator-utils device-mapper-multipath
+    ```
+    {: pre}
 
-   ```
-   yum install iscsi-initiator-utils device-mapper-multipath
-   ```
-   {: pre}
+  - Ubuntu e Debian
 
-   - Ubuntu / Debian
-
-   ```
-   sudo apt-get update
+    ```
+    sudo apt-get update
    sudo apt-get install multipath-tools
-   ```
-   {: pre}
+    ```
+    {: pre}
 
-2. Crie ou edite o arquivo de configuração de caminhos múltiplos.
-   - Edite **/etc/multipath.conf** com a configuração mínima fornecida nos comandos a seguir. <br /><br /> **Nota:** para RHEL7/CentOS7, `multipath.conf` pode ficar em branco, pois o S.O. tem configurações integradas. O Ubuntu não usa multipath.conf, pois é integrado a ferramentas de caminhos múltiplos.
+2. Crie ou edite o arquivo de configuração de caminhos múltiplos, se for necessário.
+  - RHEL 6 e CENTOS 6
+    * Edite **/etc/multipath.conf** com a configuração mínima a seguir.
 
-   ```
-   defaults {
-   user_friendly_names no
+      ```
+      defaults {
+      user_friendly_names no
    max_fds max
    flush_on_last_del yes
    queue_without_daemon no
    dev_loss_tmo infinity
    fast_io_fail_tmo 5
    }
-   # All data under blacklist must be specific to your system.
-   blacklist {
-   wwid "SAdaptec*"
+      # All data under blacklist must be specific to your system.
+      blacklist {
+      wwid "SAdaptec*"
    devnode "^hd[a-z]"
    devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-   devnode "^cciss.*"  
-   }
-   devices {
-   device {
-   vendor "NETAPP"
+      devnode "^cciss.*"  
+      }
+      devices {
+      device {
+      vendor "NETAPP"
    product "LUN"
    path_grouping_policy group_by_prio
    features "3 queue_if_no_path pg_init_retries 50"
@@ -78,67 +88,78 @@ A seguir estão as etapas necessárias para conectar uma instância de Cálculo 
    rr_weight uniform
    rr_min_io 128
    }
-   }
-   ```
-   {: codeblock}
+      }
+      ```
+      {: codeblock}
+
+    - Reinicie os serviços iscsi e iscsid para que as mudanças entrem em vigor.
+
+      ```
+      service iscsi restart
+      service iscsid restart
+      ```
+      {: pre}
+
+  - RHEL7 e CentOS7, `multipath.conf` podem ficar em branco, pois o S.O. tem as configurações
+integradas.
+  - O Ubuntu não usa `multipath.conf` porque ele está integrado no `multipath-tools`.
 
 3. Carregue o módulo de caminhos múltiplos, inicie os serviços de caminhos múltiplos e configure-o para ser iniciado na inicialização.
-   - RHEL 6
-     ```
-     modprobe dm-multipath
-     ```
-     {: pre}
+  - RHEL 6
+    ```
+    modprobe dm-multipath
+    ```
+    {: pre}
 
-     ```
-     service multipathd start
-     ```
-     {: pre}
+    ```
+    service multipathd start
+    ```
+    {: pre}
 
-     ```
-     chkconfig multipathd on
-     ```
-     {: pre}
+    ```
+    chkconfig multipathd on
+    ```
+    {: pre}
 
-   - CentOS 7
-     ```
-     modprobe dm-multipath
-     ```
-     {: pre}
+  - CentOS 7
+    ```
+    modprobe dm-multipath
+    ```
+    {: pre}
 
-     ```
-     systemctl start multipathd
-     ```
-     {: pre}
+    ```
+    systemctl start multipathd
+    ```
+    {: pre}
 
-     ```
-     systemctl enable multipathd
-     ```
-     {: pre}
+    ```
+    systemctl enable multipathd
+    ```
+    {: pre}
 
-   - Ubuntu
-     ```
-     service multipath-tools start
-     ```
-     {: pre}
+  - Ubuntu
+    ```
+    service multipath-tools start
+    ```
+    {: pre}
 
-   - Para outras distribuições, consulte a documentação do fornecedor do S.O.
+  - Para outras distribuições, consulte a documentação do fornecedor do S.O.
 
 4. Verifique se os caminhos múltiplos estão funcionando.
-   - RHEL 6
-     ```
-     multipath -l
-     ```
-     {: pre}
+  - RHEL 6
+    ```
+    multipath -l
+    ```
+    {: pre}
 
-     Se ele retornar em branco, ele está funcionando.
+    Se ele retornar em branco, ele está funcionando.
+  - CentOS 7
+    ```
+    multipath -ll
+    ```
+    {: pre}
 
-   - CentOS 7
-     ```
-     multipath -ll
-     ```
-     {: pre}
-
-     O RHEL 7/CentOS 7 pode retornar Nenhum dispositivo fc_host, que pode ser ignorado.
+    O RHEL 7 e o CentOS 7 podem retornar Nenhum dispositivo fc_host, que pode ser ignorado.
 
 5. Atualize o arquivo `/etc/iscsi/initiatorname.iscsi` com o IQN do {{site.data.keyword.slportal}}. Insira o valor como lowercase.
    ```
@@ -147,7 +168,7 @@ A seguir estão as etapas necessárias para conectar uma instância de Cálculo 
    {: pre}
 6. Edite as configurações de CHAP em `/etc/iscsi/iscsid.conf` usando o nome de usuário e a senha do {{site.data.keyword.slportal}}. Use maiúscula para nomes de CHAP.
    ```
-    node.session.auth.authmethod = CHAP
+   node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
     node.session.auth.password = <Password-value-from-Portal>
     discovery.sendtargets.auth.authmethod = CHAP
@@ -156,67 +177,67 @@ A seguir estão as etapas necessárias para conectar uma instância de Cálculo 
    ```
    {: codeblock}
 
-   **Nota:** deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ativar o CHAP Mútuo
+   Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
+   {:important}
 
 7. Configure iSCSI para ser iniciado na inicialização e inicie-o agora.
-   - RHEL 6
+  - RHEL 6
+    ```
+    chkconfig iscsi on
+    ```
+    {: pre}
 
-      ```
-      chkconfig iscsi on
-      ```
-      {: pre}
-      ```
-      chkconfig iscsid on
-      ```
-      {: pre}
+    ```
+    chkconfig iscsid on
+    ```
+    {: pre}
 
-      ```
-      service iscsi start
-      ```
-      {: pre}
+    ```
+    service iscsi start
+    ```
+    {: pre}
 
-      ```
-      service iscsid start
-      ```
-      {: pre}
+    ```
+    service iscsid start
+    ```
+    {: pre}
 
-   - CentOS 7
+  - CentOS 7
+    ```
+    systemctl enable iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsi
-      ```
-      {: pre}
+    ```
+    systemctl enable iscsid
+    ```
+    {: pre}
 
-      ```
-      systemctl enable iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsi
+    ```
+    {: pre}
 
-      ```
-      systemctl start iscsi
-      ```
-      {: pre}
-
-      ```
-      systemctl start iscsid
-      ```
-      {: pre}
+    ```
+    systemctl start iscsid
+    ```
+    {: pre}
 
    - Outras distribuições: consulte a documentação do fornecedor do S.O.
 
 8. Descubra o dispositivo usando o endereço IP de destino que foi obtido do {{site.data.keyword.slportal}}.
 
-     A. Execute a descoberta com relação à matriz iSCSI.
-     ```
-     iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
-     {: pre}
+   A. Execute a descoberta com relação à matriz iSCSI.
+    ```
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    ```
+    {: pre}
 
-     B. Configure o host para efetuar login automaticamente na matriz iSCSI.
-     ```
-     iscsiadm -m node -L automatic
-     ```
-     {: pre}
+   B. Configure o host para efetuar login automaticamente na matriz iSCSI.
+    ```
+    iscsiadm -m node -L automatic
+    ```
+    {: pre}
 
 9. Verifique se o host efetuou login na matriz iSCSI e manteve suas sessões.
    ```
@@ -242,11 +263,11 @@ A seguir estão as etapas necessárias para conectar uma instância de Cálculo 
     ```
   O volume agora está montado e acessível no host.
 
-## Criando um Sistema de Arquivos (opcional)
+## Criando um sistema de arquivos (opcional)
 
-Siga estas etapas para criar um sistema de arquivos na parte superior do volume recém-montado. Um sistema de arquivos é necessário para que a maioria dos aplicativos use o volume. Use `fdisk` para unidades que sejam menores que 2 TB e `parted` para um disco maior que 2 TB.
+Siga essas etapas para criar um sistema de arquivos no volume recém-montado. Um sistema de arquivos é necessário para que a maioria dos aplicativos use o volume. Use `fdisk` para unidades que sejam menores que 2 TB e `parted` para um disco maior que 2 TB.
 
-### Usando o  ` fdisk `
+### Criando um sistema de arquivos com `fdisk`
 
 1. Obtenha o nome do disco.
    ```
@@ -264,7 +285,8 @@ Siga estas etapas para criar um sistema de arquivos na parte superior do volume 
 
    O XXX representa o nome do disco retornado na Etapa 1. <br />
 
-   **Nota**: role mais para baixo para obter os códigos de comandos listados na tabela de comandos `fdisk`.
+   Role mais para baixo para os códigos de comandos que estão listados na tabela de comandos `fdisk`.
+   {: tip}
 
 3. Crie um sistema de arquivos na nova partição.
 
@@ -364,16 +386,16 @@ Siga estas etapas para criar um sistema de arquivos na parte superior do volume 
 
   (`**`) Digite L para listar os códigos hexadecimais
 
-### Usando  ` parted `
+### Criando um sistema de arquivos com `parted`
 
 Em muitas distribuições Linux, `parted` vem pré-instalado. Se não estiver incluído em sua distribuição, será possível instalá-lo com:
-- Debian/Ubuntu
+- Debian e Ubuntu
   ```
   sudo apt-get install parted  
   ```
   {: pre}
 
-- RHEL/CentOS
+- RHEL e CentOS
   ```
   yum install parted  
   ```
@@ -393,36 +415,39 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
    1. A menos que seja especificado de outra forma, `parted` usa sua unidade primária, que é `/dev/sda` na maioria dos casos. Alterne para o disco que você deseja particionar usando o comando **select**. Substitua **XXX** pelo seu novo nome do dispositivo.
 
       ```
-      (parted) select /dev/mapper/XXX
+      select /dev/mapper/XXX
       ```
       {: pre}
 
    2. Execute `print` para confirmar que você está no disco correto.
 
       ```
-      (parted) print
+      print
       ```
       {: pre}
 
    3. Crie uma tabela de partição GPT.
 
       ```
-      (parted) mklabel gpt
+      mklabel gpt
       ```
       {: pre}
 
-   4. `Parted` pode ser usado para criar partições de disco primárias e lógicas; as etapas envolvidas são as mesmas. Para criar uma partição, `parted` usa `mkpart`. É possível fornecer outros parâmetros a ele, como **primary** ou **logical**, dependendo do tipo de partição que você deseja criar.
-   <br /> **Nota**: as unidades listadas são padronizadas em megabytes (MB). Para criar uma partição de 10 GB você inicia em 1 e termina em 10.000. Também é possível mudar as unidades de dimensionamento para terabytes inserindo `(parted) unit TB`, se desejar.
+   4. `Parted` pode ser usado para criar partições de disco primárias e lógicas; as etapas envolvidas são as mesmas. Para criar uma partição, `parted` usa `mkpart`. É possível fornecer outros parâmetros a ele, como **primary** ou **logical**, dependendo do tipo de partição que você deseja criar.<br />
+
+   As unidades listadas assumem megabytes (MB) como o padrão. Para criar uma partição de 10 GB, inicie em 1 e termine em 10000. Também
+é possível mudar as unidades de dimensionamento para terabytes inserindo `unit TB` se desejar.
+   {: tip}
 
       ```
-      (parted) mkpart
+      mkpart
       ```
       {: pre}
 
    5. Saia  ` parted `  com  ` quit `.
 
       ```
-      (parted) quit
+      quit
       ```
       {: pre}
 
@@ -433,8 +458,8 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
    ```
    {: pre}
 
-   **Nota**: é importante selecionar o disco e a partição corretos ao executar esse comando!
-   Verifique o resultado por imprimir a tabela de partição. Na coluna do sistema de arquivos, é possível ver ext3.
+   É importante selecionar o disco e a partição corretos ao executar esse comando.<br />Verifique o resultado por imprimir a tabela de partição. Na coluna do sistema de arquivos, é possível ver ext3.
+   {:important}
 
 4. Crie um ponto de montagem para o sistema de arquivos e monte-o.
    - Crie um nome de partição `PerfDisk` ou o local em que você deseja montar o sistema de arquivos.
@@ -462,7 +487,7 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
    - Anexe a linha a seguir ao término de `/etc/fstab` (usando o nome da partição da Etapa 3). <br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults    0    1
+     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -471,66 +496,85 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
 
 ## Verificando se o MPIO está configurado corretamente nos S.Os. `*NIX`
 
-Para verificar se os caminhos múltiplos estão detectando os dispositivos, liste os dispositivos. Se ele estiver configurado corretamente, somente dois dispositivos NETAPP aparecerão.
+1. Para verificar se os caminhos múltiplos estão detectando os dispositivos, liste os dispositivos. Se ele estiver configurado corretamente, somente dois dispositivos NETAPP aparecerão.
 
-```
-# multipath -l
-```
-{: pre}
+  ```
+  multipath -l
+  ```
+  {: pre}
 
-```
-root@server:~# multipath -l
+  ```
+  root@server:~# multipath -l
 3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
 |-+- policy='round-robin 0' prio=-1 status=active`
-6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
-7:0:0:101 sde 8:64 active undef running
-```
+  6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
+  7:0:0:101 sde 8:64 active undef running
+  ```
 
-Verifique se os discos estão presentes. Confirme se há dois discos com o mesmo identificador e uma listagem `/dev/mapper` do mesmo tamanho com o mesmo identificador. O dispositivo `/dev/mapper` é aquele que os caminhos múltiplos configuram:
+2. Verifique se os discos estão presentes. Deve haver dois discos com o mesmo identificador e uma listagem `/dev/mapper` do mesmo tamanho com o mesmo identificador. O dispositivo `/dev/mapper` é aquele que os caminhos múltiplos configuram.
+  ```
+  fdisk -l | grep Disk
+  ```
+  {: pre}
+  
+  - Saída de exemplo de uma configuração correta:
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
-
-```
-root@server:~# fdisk -l | grep Disk
+    ```
+    root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
 Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+    ```
+  - Saídas de exemplo de uma configuração incorreta:
+    
+    ```
+    No multipath output root@server:~# multipath -l root@server:~#
+    ```
+    
+    ```
+    root@server:~# fdisk -l | grep Disk
+Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
 
-Se não estiver configurado corretamente, ele será semelhante a este exemplo.
-```
-No multipath output root@server:~# multipath -l root@server:~#
-```
-
-Esse comando mostra os dispositivos incluídos na lista de bloqueio.
-```
-# multipath -l -v 3 | grep sd <date and time>
-```
-{: pre}
-
-```
-root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
+3. Confirme que os discos locais não estão incluídos nos dispositivos de caminhos múltiplos. O comando a seguir
+mostra os dispositivos que estão na lista de bloqueio.
+   ```
+   multipath -l -v 3 | grep sd <date and time>
+   ```
+   {: pre}
+ 
+   ```
+   root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
 | sdb: device node name blacklisted Feb 17 19:55:02
 | sdc: device node name blacklisted Feb 17 19:55:02
 | sdd: device node name blacklisted Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
-```
+   ```
 
-`fdisk` mostra somente os dispositivos `sd*` e nenhum `/dev/mapper`.
+## Desmontando os volumes do {{site.data.keyword.blockstorageshort}}
 
-```
-# fdisk -l | grep Disk
-```
-{: pre}
+1. Desmonte o sistema de arquivos.
+   ```
+   umount /dev/mapper/XXXlp1 /PerfDisk
+   ```
+   {: pre}
 
-```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+2. Se você não tiver nenhum outro volume nesse portal de destino, será possível efetuar logout do destino.
+   ```
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+   
+3. Se você não tiver nenhum outro volume nesse portal de destino, exclua o registro do portal de destino para
+evitar futuras tentativas de login.
+   ```
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+  
+   Para obter mais informações, consulte a [página principal do iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   {:tip}

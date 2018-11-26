@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # データの保護 - プロバイダー管理の保存データの暗号化
 
-## {{site.data.keyword.blockstorageshort}} の保存データの暗号化 
+## {{site.data.keyword.blockstorageshort}} の保存データの暗号化
 
 {{site.data.keyword.BluSoftlayer_full}} は、セキュリティーに対するニーズを深刻に受け止めるとともに、データを安全に維持するためにデータを暗号化できることの重要性を理解しています。 プロバイダー管理の暗号化では、エンデュランスまたはパフォーマンスのいずれかのオプションを指定してプロビジョンされた {{site.data.keyword.blockstoragefull}} はデフォルトで暗号化され、そのための追加のコストもパフォーマンスへの影響も発生しません。
 
@@ -34,4 +37,5 @@ lastupdated: "2018-07-18"
 
 
 
-**注** - データ・センターがアップグレードされる前にプロビジョンされた非暗号化ストレージは、自動的には**暗号化されません**。 アップグレードされたデータ・センターに暗号化されていないストレージを所有していて、暗号化ストレージが必要な場合は、新しい LUN/ボリュームを作成し、データをマイグレーションする必要があります。 詳しくは、[{{site.data.keyword.blockstorageshort}} アップグレード済みのデータ・センターでのマイグレーション](migrate-block-storage-encrypted-block-storage.html)を参照してください。
+データ・センターがアップグレードされる前にプロビジョンされた非暗号化ストレージは、自動的には**暗号化されません**。 アップグレードされたデータ・センターに暗号化されていないストレージを所有していて、暗号化ストレージが必要な場合は、新しい LUN/ボリュームを作成し、データをマイグレーションする必要があります。 詳しくは、[{{site.data.keyword.blockstorageshort}} アップグレード済みのデータ・センターでのマイグレーション](migrate-block-storage-encrypted-block-storage.html)を参照してください。
+{:important}

@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows
 
@@ -34,30 +36,40 @@ A seguir estão as etapas necessárias para conectar uma instância de Cálculo 
 3. Marque **Incluir suporte para dispositivos iSCSI** e, em seguida, clique em **Incluir**. Quando solicitado a reiniciar o computador, clique em
 **Sim**.
 
-**Nota**: no Windows Server 2008, a inclusão de suporte para o iSCSI permite que o Microsoft Device Specific Module (MSDSM) solicite MPIO para todos os dispositivos iSCSI, o que requer uma conexão com um Destino iSCSI primeiro.
+No Windows Server 2008, a inclusão de suporte para o iSCSI permite ao Microsoft Device Specific Module (MSDSM)
+reivindicar todos os dispositivos iSCSI para MPIO, o que requer uma conexão com um destino iSCSI primeiro.
+{:note}
 
 ### Configurando o Inicializador iSCSI
 
 1. Inicie o Inicializador iSCSI por meio do Gerenciador do servidor e selecione **Ferramentas**, **Inicializador iSCSI**.
 2. Clique na guia **Configuração**.
     - O campo Nome do inicializador poderá já estar preenchido com uma entrada semelhante a `iqn.1991-05.com.microsoft:`.
-    - Clique em **Mudar** para substituir os valores existentes pelo seu Nome
-qualificado de iSCSI (IQN). O nome de IQN pode ser obtido na tela Detalhes do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-    ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
+    - Clique em **Mudar** para substituir os valores existentes pelo nome qualificado de
+iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
+
+      O nome do IQN pode ser obtido por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}
+no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+      {: tip}
+
     - Clique na guia **Descoberta** e clique em **Descobrir
 portal**.
-    - Insira o endereço IP de seu destino iSCSI e deixe a Porta no valor padrão de 3260. 
+    - Insira o endereço IP de seu destino iSCSI e deixe a Porta no valor padrão de 3260.
     - Clique em **Avançado** para abrir a janela Configurações avançadas.
     - Selecione **Ativar logon do CHAP** para ativar a autenticação do CHAP.
 ![Ativar login do CHAP](/images/Advanced_0.png)
-    **Nota:** os campos Nome e Segredo de destino fazem distinção entre maiúsculas e minúsculas.
+
+    Os campos Nome e Segredo de destino fazem distinção entre maiúsculas e minúsculas.
+    {:important}
          - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
          - No campo **Segredo de destino**, insira a senha do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
     - Clique em **OK** nas janelas **Configurações avançadas** e **Descobrir portal de destino** para voltar à tela principal Propriedades do inicializador iSCSI. Se você receber erros de autenticação, verifique as entradas de nome de usuário e senha.
     ![Destino inativo](/images/Inactive_0.png)
-    **Nota**: o nome de seu destino aparece na seção Destinos descobertos com um status Inativo. 
 
-    
+    O nome do destino aparecerá na seção Destinos descobertos com um status Inativo.
+    {:note}
+
+
 ### Ativando o destino
 
 1. Clique em **Conectar** para conectar-se ao destino.
@@ -65,36 +77,61 @@ portal**.
 ![Ativar caminhos múltiplos](/images/Connect_0.png)
 3. Clique em **Avançado** e selecione **Ativar logon do CHAP**.
 ![Ativar o CHAP](/images/chap_0.png)
-4. Insira o nome do usuário no campo Nome e insira a senha no campo Segredo de destino.<br/>
-**Nota:** os valores dos campos Nome e Segredo de destino podem ser obtidos na tela Detalhes do {{site.data.keyword.blockstorageshort}}.
+4. Insira o nome do usuário no campo Nome e insira a senha no campo Segredo de destino.
+
+   Os valores de campo Nome e Segredo de destino podem ser obtidos por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}.
+   {:tip}
 5. Clique em **OK** até que a janela **Propriedades do inicializador iSCSI** seja exibida. O status do destino na seção **Destinos descobertos** muda de **Inativo** para **Conectado**.
-![Status Conectado](/images/Connected.png) 
+![Status Conectado](/images/Connected.png)
 
 
 ### Configurando o MPIO no Inicializador iSCSI
 
 1. Inicie o Inicializador iSCSI e, na guia Destinos, clique em **Propriedades**.
 2. Clique em **Incluir sessão** na janela Propriedades para abrir a janela Conectar ao destino.
-3. Marque a caixa de seleção **Ativar caminhos múltiplos** e clique em **Avançado...**.
-![Destino](/images/Target.png) 
-  
-4. Na janela Configurações avançadas
-   - Deixe o Padrão como o valor para os campos Adaptador local e IP do inicializador. Para servidores host com múltiplas interfaces no iSCSI, é necessário escolher o valor apropriado para o campo IP do Inicializador.
-   - Selecione o IP de seu armazenamento iSCSI na lista suspensa **IP do portal de destino**.
+3. Na caixa de diálogo Conectar ao destino, selecione a caixa de opção **Ativar caminhos
+múltiplos** e clique em **Avançado**.
+  ![Destino](/images/Target.png)
+
+4. Na janela Configurações avançadas ![Configurações](/images/Settings.png)
+   - Na lista Adaptador local, selecione Inicializador iSCSI da Microsoft.
+   - Na lista IP do inicializador, selecione o endereço IP do host.
+   - Na lista IP do portal de destino, selecione o IP da interface do dispositivo.
    - Clique na caixa de seleção **Ativar logon do CHAP**
    - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
    - Clique em **OK** na janela Conectar-se ao destino para voltar para a janela
-Propriedades. Agora a janela Propriedades exibe mais de uma sessão dentro da área de janela Identificador. Agora
-você tem mais de uma sessão para o armazenamento iSCSI.
-![Configurações](/images/Settings.png) 
+Propriedades.
+
+5. Clique em **Propriedades**. Na caixa de diálogo Propriedades, clique em **Incluir
+sessão** novamente para incluir o segundo caminho.
+6. Na janela Conectar ao destino, selecione a caixa de opção **Ativar caminhos múltiplos**. Clique em **Avançado**.
+7. Na janela Configurações avançadas:
+   - Na lista Adaptador local, selecione Inicializador iSCSI da Microsoft.
+   - Na lista IP do inicializador, selecione o endereço IP correspondente ao host. Nesse caso, você está
+conectando duas interfaces de rede no dispositivo a uma interface de rede única no host. Portanto, essa interface é a
+mesma fornecida para a primeira sessão.
+   - Na lista IP do portal de destino, selecione o endereço IP para a segunda interface de dados ativada no
+dispositivo.
+   - Clique na caixa de seleção **Ativar logon do CHAP**
+   - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
+   - Clique em **OK** na janela Conectar-se ao destino para voltar para a janela
+Propriedades.
+8. Agora a janela Propriedades exibe mais de uma sessão dentro da área de janela Identificador. Você tem mais de
+uma sessão no armazenamento iSCSI.
    
-5. Na janela Propriedades, clique em **Dispositivos** para abrir a janela Dispositivos. O nome da interface do dispositivo começa com `mpio`. <br/>
-  ![Dispositivos](/images/Devices.png) 
-  
-6. Clique em **MPIO** para abrir a janela **Detalhes do dispositivo**. É possível escolher as políticas de balanceamento de carga para o MPIO nessa janela e ela mostrará os caminhos para o iSCSI. Neste exemplo, dois caminhos são mostrados como disponíveis para o MPIO com uma política de balanceamento de carga de Round Robin com Subconjunto.
-  ![A janela Detalhes do dispositivo mostra dois caminhos disponíveis para o MPIO com uma política de balanceamento de carga de Round Robin com Subconjunto](/images/DeviceDetails.png) 
-  
-7. Clique em **OK** várias vezes para sair do Inicializador iSCSI.
+   Se o host tiver múltiplas interfaces que você deseja conectar ao armazenamento ISCSI, será possível
+configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. No entanto, certifique-se de
+autorizar o segundo endereço IP do inicializador no
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} antes de
+tentar fazer a conexão.
+   {:note}
+9. Na janela Propriedades, clique em **Dispositivos** para abrir a janela Dispositivos. O nome da interface do dispositivo começa com `mpio`. <br/>
+  ![Dispositivos](/images/Devices.png)
+
+10. Clique em **MPIO** para abrir a janela **Detalhes do dispositivo**. É possível escolher as políticas de balanceamento de carga para o MPIO nessa janela e ela mostrará os caminhos para o iSCSI. Neste exemplo, dois caminhos são mostrados como disponíveis para o MPIO com uma política de balanceamento de carga de Round Robin com Subconjunto.
+  ![A janela Detalhes do dispositivo mostra dois caminhos disponíveis para o MPIO com uma política de balanceamento de carga de Round Robin com Subconjunto](/images/DeviceDetails.png)
+
+11. Clique em **OK** várias vezes para sair do Inicializador iSCSI.
 
 
 

@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} 的新位置和功能
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 新的存储器在精选数据中心内提供，是更高 IOPS 级别的闪存支持的存储器，具有针对静态数据的磁盘级别加密。在已升级数据中心内供应的所有存储器都将自动通过新版本创建。
 
-**注：**新卷的 NFS 安装点不同于非加密卷的安装点。有关详细信息，请参阅**加密 {{site.data.keyword.filestorage_short}} 卷的新安装点**。
+新卷的 NFS 安装点不同于非加密卷的安装点。有关更多信息，请参阅[加密 {{site.data.keyword.filestorage_short}} 卷的新安装点](#new-mount-point-for-encrypted-storage-volumes)部分。
+{:important}
+
+## 新位置
 
 新的 {{site.data.keyword.blockstorageshort}} 在以下区域/数据中心内提供。
 <table role="presentation">
@@ -31,14 +37,14 @@ lastupdated: "2018-10-15"
 	DAL12<br />
 	DAL13<br />
 	SJC03<br />
-        SJC04<br />
+SJC04<br />
 	WDC04<br />
 	WDC06<br />
 	WDC07<br />
 	<br /><br /><br />
     </td>
     <td>AMS01<br />
-        AMS03<br />
+AMS03<br />
 	FRA02<br />
 	FRA04<br />
 	FRA05<br />
@@ -51,23 +57,23 @@ lastupdated: "2018-10-15"
 	PAR01<br />
     </td>
     <td>MEL01<br />
-        SYD01<br />
-        SYD04<br />
+SYD01<br />
+SYD04<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
-        TOR01<br />
+TOR01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MEX01<br />
-        SAO01<br />
+SAO01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>CHE01<br />
-        HKG02<br />
+HKG02<br />
 	SEO01<br />
 	SNG01<br />
-        TOK02<br />
+TOK02<br />
 	TOK04<br />
 	TOK05<br />
 	<br /><br /><br /><br /><br />
@@ -77,7 +83,7 @@ lastupdated: "2018-10-15"
 
 *表 1 显示了数据中心可用性。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。*
 
-新存储器具有以下特性和功能：
+## 新功能部件和功能
 
 - **[对静态数据进行提供者管理的加密](block-file-storage-encryption-rest.html)**。
   所有 {{site.data.keyword.blockstorageshort}} 都将自动以加密形式免费供应。
@@ -97,3 +103,4 @@ lastupdated: "2018-10-15"
 这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
 可重新检查此处来查看何时升级了更多数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新特性和功能。
+{:tip}

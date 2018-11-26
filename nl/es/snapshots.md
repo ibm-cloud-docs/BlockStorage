@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Instantáneas
 
@@ -13,31 +16,38 @@ Las instantáneas son una característica de {{site.data.keyword.blockstorageful
 
 {{site.data.keyword.blockstorageshort}} le ofrece dos formas de realizar instantáneas.
 
-- La primera, mediante una planificación de instantáneas configurable que crea y suprime copias de instantáneas automáticamente para cada volumen de almacenamiento. También puede crear planificaciones de instantáneas adicionales, suprimir copias manualmente y gestionar las planificaciones en base a sus requisitos. 
-- La segunda forma es realizar una instantánea manual.
+* La primera, mediante una planificación de instantáneas configurable que crea y suprime copias de instantáneas automáticamente para cada volumen de almacenamiento. También puede crear planificaciones de instantáneas adicionales, suprimir copias manualmente y gestionar las planificaciones en base a sus requisitos.
+* La segunda forma es realizar una instantánea manual.
 
-Una copia de instantánea es una imagen de solo lectura de un LUN de {{site.data.keyword.blockstorageshort}}, que captura el estado del volumen en un momento específico. Las copias de instantánea son eficientes, por el tiempo necesario en crearlas y por el espacio de almacenamiento. Se tarda unos pocos segundos en crear una copia de instantánea de {{site.data.keyword.blockstorageshort}}. Normalmente se tarda menos de 1 segundo, independientemente del tamaño del volumen o del nivel de actividad en el almacenamiento. Una vez creada una copia de instantánea, los cambios en los objetos de datos se reflejan en actualizaciones de la versión actual de los objetos, como si las copias de instantáneas no existieran. Mientras tanto, la copia de los datos permanece estable. 
+Una copia de instantánea es una imagen de solo lectura de un LUN de {{site.data.keyword.blockstorageshort}}, que captura el estado del volumen en un momento específico. Las copias de instantánea son eficientes, por el tiempo necesario en crearlas y por el espacio de almacenamiento. Se tarda unos pocos segundos en crear una copia de instantánea de {{site.data.keyword.blockstorageshort}}. Normalmente se tarda menos de 1 segundo, independientemente del tamaño del volumen o del nivel de actividad en el almacenamiento. Una vez creada una copia de instantánea, los cambios en los objetos de datos se reflejan en actualizaciones de la versión actual de los objetos, como si las copias de instantáneas no existieran. Mientras tanto, la copia de los datos permanece estable.
 
 Una copia de instantánea no implica una disminución en el rendimiento. Los usuarios pueden almacenar fácilmente hasta 50 instantáneas planificadas y 50 instantáneas manuales por volumen de {{site.data.keyword.blockstorageshort}}, todas ellas accesibles como solo lectura y versiones en línea de los datos.
 
-Con las instantáneas, puede: 
+Con las instantáneas, puede:
 
 - Crear puntos de recuperación de un punto en el tiempo sin interrupciones.
 - Revertir los volúmenes a puntos en el tiempo anteriores.
 
-Debe adquirir cierta cantidad de espacio de instantáneas para su volumen para poder realizar instantáneas. El espacio de instantáneas se puede añadir durante el pedido inicial o posteriormente, a través de la página **Detalles del volumen**. Las instantáneas planificadas y manuales comparten el espacio de instantáneas, por lo tanto, asegúrese de solicitar suficiente espacio de instantáneas. Consulte el artículo [Realizar pedido de instantáneas](ordering-snapshots.html) para obtener más detalles y orientación.
+Debe adquirir cierta cantidad de espacio de instantáneas para su volumen para poder realizar instantáneas. El espacio de instantáneas se puede añadir durante el pedido inicial o posteriormente, a través de la página **Detalles del volumen**. Las instantáneas planificadas y manuales comparten el espacio de instantáneas, por lo tanto, asegúrese de solicitar suficiente espacio de instantáneas. Para más información, consulte [Solicitud de instantáneas](ordering-snapshots.html).
 
-**Prácticas recomendadas en torno a las instantáneas**
+## Prácticas recomendadas en torno a las instantáneas
 
-El diseño de instantáneas depende del entorno del cliente. Las siguientes consideraciones sobre diseño le ayudarán a planificar e implementar copias de instantáneas: 
-- Pueden crearse hasta 50 instantáneas a través de una planificación y hasta 50 manualmente en cada volumen o LUN. 
-- No cree más instantáneas de las necesarias. Asegúrese de que la frecuencia de instantáneas planificadas cumpla sus necesidades de objetivo de tiempo de recuperación (RTO) y objetivo de punto de recuperación (RPO), así como los requisitos empresariales de las aplicaciones planificando las instantáneas por hora, a diario o semanalmente. 
+El diseño de instantáneas depende del entorno del cliente. Las siguientes consideraciones sobre diseño le ayudarán a planificar e implementar copias de instantáneas:
+- Pueden crearse hasta 50 instantáneas a través de una planificación y hasta 50 manualmente en cada volumen o LUN.
+- No cree más instantáneas de las necesarias. Asegúrese de que la frecuencia de instantáneas planificadas cumpla sus necesidades de objetivo de tiempo de recuperación (RTO) y objetivo de punto de recuperación (RPO), así como los requisitos empresariales de las aplicaciones planificando las instantáneas por hora, a diario o semanalmente.
 - La opción de supresión automática de instantáneas puede utilizarse para controlar el crecimiento del consumo de almacenamiento. <br/>
-  >**Nota**: El umbral de supresión automática está fijado en 95 por ciento.
-    
+
+  El umbral de supresión automática está fijado en 95 por ciento.
+  {:note}
+
 Las instantáneas no son sustituciones de la réplica de recuperación tras desastre externa real ni de las copias de seguridad de larga retención.
-    
-**Cómo afectan las instantáneas al espacio de disco**
+{:important}
+
+## Seguridad
+
+Todas las instantáneas y réplicas de {{site.data.keyword.filestorage_short}} cifrados también se cifran de forma predeterminada. Esta característica no se puede desactivar por volumen. Para obtener más información sobre el cifrado de datos en reposo gestionado por el proveedor, consulte [Protección de los datos](block-file-storage-encryption-rest.html).
+
+## Cómo afectan las instantáneas al espacio de disco
 
 Las copias de instantáneas minimizan el uso de espacio de disco conservando bloques individuales en lugar de archivos completos. Las copias de instantáneas solo utilizan espacio adicional cuando se cambian o suprimen archivos en el sistema de archivos activo. Cuando esto sucede, los bloques de archivos originales aún se conservan como parte de una o más copias de instantáneas.
 
@@ -62,4 +72,4 @@ En el sistema de archivos activo, los bloques modificados se vuelven a escribir 
       </tr>
 </table>
 
-Para ver cuánto espacio de instantáneas se utiliza, siga las instrucciones del artículo [Gestión de instantáneas](working-with-snapshots.html).
+Para obtener más información sobre cómo ver cuánto espacio de instantáneas se ha utilizado, consulte [Gestión de instantáneas](working-with-snapshots.html).

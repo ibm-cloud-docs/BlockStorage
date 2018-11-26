@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Novos locais e recursos do {{site.data.keyword.blockstorageshort}}
 
@@ -15,7 +18,12 @@ O {{site.data.keyword.BluSoftlayer_full}} está introduzindo uma nova versão do
 O novo armazenamento está disponível nos data centers de seleção e é suportado pelo armazenamento
 flash a níveis de IOPS mais altos com criptografia de nível de disco para dados em repouso. Todo o armazenamento provisionado nos data centers submetidos a upgrade é criado automaticamente com a nova versão.
 
-**Nota:** o ponto de montagem do NFS para novos volumes difere do ponto de montagem de volumes não criptografados. Consulte a seção **Novo ponto de montagem para volumes criptografados do {{site.data.keyword.filestorage_short}}** para obter detalhes.
+O ponto de montagem do NFS para novos volumes é diferente do ponto de montagem de volumes não criptografados. Para
+obter mais informações, consulte a seção [Novo ponto de
+montagem para os volumes criptografados do {{site.data.keyword.filestorage_short}}](#new-mount-point-for-encrypted-storage-volumes).
+{:important}
+
+## Novas localizações
 
 O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/data centers a seguir.
 <table role="presentation">
@@ -79,7 +87,7 @@ O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/da
 
 *A Tabela 1 mostra nossa disponibilidade do data center. Cada região possui sua própria coluna. Algumas cidades, como Dallas, São José, Washington DC, Amsterdã, Frankfurt, Londres e Sydney, têm múltiplos data centers.*
 
-O novo armazenamento tem os seguintes recursos e capacidades:
+## Novos recursos e habilidades
 
 - **[Criptografia gerenciada por provedor para dados em repouso](block-file-storage-encryption-rest.html)**.
   Todo {{site.data.keyword.blockstorageshort}} é provisionado automaticamente como criptografado sem encargo extra.
@@ -100,3 +108,4 @@ O novo armazenamento tem os seguintes recursos e capacidades:
 Todos os volumes de armazenamento aprimorado que são provisionados nesses data centers têm um ponto de montagem diferente dos volumes não criptografados. Para assegurar-se de que esteja usando o ponto de montagem correto para seus volumes de armazenamento, é possível visualizar as informações do ponto de montagem na página **Detalhes do volume** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Também é possível acessar o ponto de montagem correto por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Consulte esta página novamente para ver quando mais data centers serão submetidos a upgrade e os novos recursos e capacidades que estão sendo incluídos no {{site.data.keyword.blockstorageshort}}.
+{:tip}

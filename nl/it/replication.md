@@ -2,19 +2,22 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Replica dei dati
 
 La replica usa una delle tue pianificazioni delle istantanee per copiare automaticamente le istantanee su un volume di destinazione in un data center remoto. Le copie possono essere ripristinate nel sito remoto se si verifica un evento catastrofico o un danneggiamento dei dati.
 
-Con le repliche, puoi
+Con le repliche, puoi eseguire il ripristino rapidamente per via di errori del sito e di emergenze. In caso di emergenza, puoi eseguire il failover al volume di destinazione e accedere ai tuoi dati da un preciso momento nella copia DR. Per ulteriori informazioni, consulta [Duplicazione dei volumi di replica per il ripristino d'emergenza](disaster-recovery.html).
 
-- eseguire il ripristino da malfunzionamento del sito e altre situazioni critiche in modo rapido eseguendo il failover al volume di destinazione;
-- eseguire il failover a uno specifico punto temporale nella copia di ripristino di emergenza (DR, disaster recovery).
+La replica mantiene i tuoi dati sincronizzati in due diverse ubicazioni. Se vuoi solo clonare il volume e utilizzarlo in modo indipendente dal volume originale, consulta [Creazione di un volume di blocco duplicato](how-to-create-duplicate-volume.html).
+{:tip}
 
 Prima di poter eseguire la replica, è necessario creare una pianificazione delle istantanee. Quando esegui il failover, stai passando dal tuo volume di archiviazione nel tuo data center primario al volume di destinazione nel tuo data center remoto. Ad esempio, il tuo data center primario si trova a Londra e il tuo data center secondario si trova ad Amsterdam. Se si verifica un evento di malfunzionamento, eseguirai il failover ad Amsterdam, stabilendo una connessione al volume che ora è quello primario da un'istanza di elaborazione ad Amsterdam. Dopo che il tuo volume a Londra sarà stato riparato, verrà acquisita un'istantanea del volume che si trova ad Amsterdam per eseguire il failback a Londra e al volume che ora è nuovamente quello primario da un'istanza di elaborazione a Londra.
 
@@ -28,7 +31,7 @@ Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e d
   <caption style="text-align: left;"><p>Tabella 1 - questa tabella mostra l'elenco completo di data center con funzionalità migliorate in ciascuna regione. Ogni regione è una colonna separata. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.</p>
   <p>&#42; I data center nella regione US 1 NON hanno l'archiviazione migliorata. Gli host nei data center con funzionalità di archiviazione migliorate <strong>non possono</strong> avviare la replica con le destinazioni di replica nei data center US 1.</p>
   </caption>
-    <thead>
+  <thead>
     <tr>
       <th>US 1 &#42;</th>
       <th>US 2</th>
@@ -106,7 +109,8 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 1. Fai clic sul tuo volume di archiviazione.
 2. Fai clic su **Replica** e fai clic su **Purchase a replication**.
 3. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla tua replica. L'elenco contiene tutte le pianificazioni delle istantanee attive. <br />
-   >**Nota:** - Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Vedi il documento relativo alla [gestione delle istanze](snapshots.html) per ulteriori dettagli.
+   Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Vedi il documento relativo alla [gestione delle istanze](snapshots.html) per ulteriori dettagli.
+   {:important}
 3. Fai clic su **Location** e seleziona il data center che è il tuo sito di ripristino di emergenza (DR, disaster recovery).
 4. Fai clic su **Continue**.
 5. Immetti un codice promozionale (**Promo Code**), se ne hai uno, e fai clic su **Recalculate**. Gli altri campi nella finestra sono completati per impostazione predefinita.
@@ -167,7 +171,8 @@ Gli host autorizzati e i volumi si devono trovare nello stesso data center. Non 
 
 Le dimensioni dei tuoi volumi devono essere le stesse per i volumi di archiviazione primario e di replica. L'uno non può essere più grande dell'altro. Quando aumenti il tuo spazio di istantanea per il tuo volume primario, lo spazio di replica viene aumentato automaticamente. L'aumento dello spazio dell'istantanea attiva un aggiornamento di replica immediato. L'aumento per entrambi i volumi viene visualizzato come delle voci di riga nella tua fattura ed è a base proporzionale come necessario.
 
-Fai clic [qui](snapshots.html) per informazioni su come aumentare il tuo spazio di istantanea.
+Per ulteriori informazioni sulle considerazioni sullo spazio dell'istantanea, consulta [Ordinazione di istantanee](ordering-snapshots.html).
+{:tip}
 
 
 ## Avvio di un failover da un volume alla sua replica
@@ -228,7 +233,7 @@ I duplicati possono essere creati sia dal volume primario che da quello di repli
 
 I volumi duplicati solo accessibili da un host per la lettura/scrittura non appena viene seguito il provisioning dell'archiviazione. Tuttavia, le istantanee e le repliche sono consentite solo dopo il completamento della copia dei dati dall'originale al duplicato.
 
-Per ulteriori informazioni, vedi [Creazione di un volume di blocco duplicato](how-to-create-duplicate-volume.html)
+Per ulteriori informazioni, vedi [Creazione di un volume di blocco duplicato](how-to-create-duplicate-volume.html).
 
 
 ## Annullamento di una replica esistente

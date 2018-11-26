@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-29"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip} 
+{:note: .note} 
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}}入門
 
@@ -70,16 +73,16 @@ lastupdated: "2018-09-10"
   </tr>
   <tr>
    <th>月次価格</th>
-   <td>$0.10/GB</td>
+   <td>$0.06/GB</td>
+   <td>$0.15/GB</td>
    <td>$0.20/GB</td>
-   <td>$0.35/GB</td>
    <td>$0.58/GB</td>
   </tr>
   <tr>
    <th>毎時価格</th>
-   <td>0.0002/GB</td>
+   <td>$0.0001/GB</td>
+   <td>$0.0002/GB</td>
    <td>$0.0003/GB</td>
-   <td>$0.0005/GB</td>
    <td>$0.0009/GB</td>
   </tr>
 </table>
@@ -193,6 +196,7 @@ lastupdated: "2018-09-10"
 **ブロック・サイズ**
 
 エンデュランスとパフォーマンスの IOPS はどちらも、16 KB のブロック・サイズと、50/50 の読み取り/書き込みの 50% のランダム・ワークロードに基づいています。 16 KB ブロックは、ボリュームへの 1 回の書き込みに相当します。
+{:important}
 
 アプリケーションが使用するブロック・サイズは、ストレージのパフォーマンスに直接影響します。 アプリケーションが使用するブロック・サイズが 16 KB より小さい場合、スループット限度に達する前に IOPS 限度に到達します。 逆に、アプリケーションが使用するブロック・サイズが 16 KB より大きい場合、IOPS 限度に達する前にスループット限度に到達します。
 
@@ -227,7 +231,7 @@ lastupdated: "2018-09-10"
             <td>16</td>
           </tr>
           <tr>
-            <td>32 (SQLServer の場合の標準)</td>
+            <td>32 (SQL Server の場合の標準)</td>
             <td>500</td>
             <td>16</td>
           </tr>          
@@ -257,9 +261,10 @@ lastupdated: "2018-09-10"
 
 イーサネット接続の速度は、ボリュームから予想される最大スループットよりも高速でなければなりません。 一般的に、イーサネット接続が、使用可能な帯域幅の 70% を超えることはありません。 例えば、6,000 IOPS で 16 KB ブロック・サイズを使用している場合、ボリュームは約 94 MB/秒のスループットを処理できます。 LUN への 1 Gbps イーサネット接続がある場合、使用可能な最大スループットをサーバーが使用しようとすると、ボトルネックが発生します。 その理由は、1 Gbps イーサネット接続の理論上の限度 (125 MB/秒) の 70% では、88 MB/秒しか使用できないからです。
 
-最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、キュー項目数、およびその他の設定) があります。
+最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、[キュー項目数](set-host-queue-depth-settings-performance-and-endurance-storage.html)、およびその他の設定) があります。
 
-ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。サービスによって課される可能性のある制限を理解するには、[仮想サーバーの資料](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)を参照してください。
+ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 サービスによって課される可能性のある制限を理解するには、[仮想サーバーの資料](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)を参照してください。
+{:tip}
 
 ## 注文の送信
 
@@ -269,6 +274,7 @@ lastupdated: "2018-09-10"
 
 プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
 - [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)
+- [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
 - [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
 - [cPanel を使用したバックアップ用のブロック・ストレージの構成](configure-backup-cpanel.html)
 - [Plesk を使用したバックアップ用のブロック・ストレージの構成](configure-backup-plesk.html)

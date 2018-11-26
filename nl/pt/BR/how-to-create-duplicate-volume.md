@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Criando um volume de bloco duplicado
 
@@ -21,7 +23,10 @@ Os volumes duplicados podem ser acessados por um host para leitura/gravação as
 
 Quando a cópia de dados é concluída, a duplicata pode ser gerenciada e usada como um volume completamente independente.
 
-Esse recurso está disponível na maioria dos locais. Clique [aqui](new-ibm-block-and-file-storage-location-and-features.html) para obter a lista de data centers disponíveis. **Observação**: se você é um usuário de conta Dedicada do {{site.data.keyword.containerlong}}, veja suas opções para duplicação de volume na [documentação do {{site.data.keyword.containerlong_notm}}](/docs/containers/cs_storage_file.html#backup_restore).
+Esse recurso está disponível na maioria dos locais. Clique [aqui](new-ibm-block-and-file-storage-location-and-features.html) para obter a lista de data centers disponíveis.
+
+Se você for um usuário da conta dedicado do {{site.data.keyword.containerlong}}, consulte as opções para duplicar um volume na documentação do [ {{site.data.keyword.containerlong_notm}}](/docs/containers/cs_storage_file.html#backup_restore).
+{:tip}
 
 Alguns usos comuns para um volume duplicado:
 - **Teste de recuperação de desastre**: crie uma duplicata de seu volume de réplica para verificar se os dados estão intactos e podem ser usados no caso de ocorrer um desastre, sem interromper a replicação.
@@ -52,7 +57,10 @@ possível criar múltiplas instâncias para vários usos.
     - Se o seu volume original for a camada 0,25 IOPS Endurance, não será possível fazer uma nova seleção.
     - Se seu volume original for a camada de 2, 4 ou 10 IOPR do Endurance, será possível se mover em qualquer lugar entre essas camadas para o novo volume.
 6. É possível atualizar o tamanho do novo volume para que seja maior que o do original. O tamanho do volume original é configurado por padrão.
-    - **Nota**: o {{site.data.keyword.blockstorageshort}} pode ser redimensionado para 10 vezes o tamanho original do volume.
+
+   O {{site.data.keyword.blockstorageshort}} pode ser redimensionado para 10 vezes o tamanho original do
+volume.
+   {:tip}
 7. É possível atualizar o espaço de captura instantânea do novo volume para incluir mais, menos ou nenhum espaço de captura instantânea. O espaço de captura instantânea do volume original é configurado por padrão.
 8. Clique em **Continuar** para fazer seu pedido.
 
@@ -69,7 +77,10 @@ pode ser um volume de réplica ou não de réplica).
     - Se o seu volume original for a camada 0,25 IOPS Endurance, não será possível fazer uma nova seleção.
     - Se seu volume original for a camada de 2, 4 ou 10 IOPS do Endurance, será possível se mover em qualquer lugar entre essas camadas para o novo volume.
 6. É possível atualizar o tamanho do novo volume para que seja maior que o original. O tamanho do volume original é configurado por padrão.
-    - **Nota**: o {{site.data.keyword.blockstorageshort}} pode ser redimensionado para 10 vezes o tamanho original do volume.
+
+   O {{site.data.keyword.blockstorageshort}} pode ser redimensionado para 10 vezes o tamanho original do
+volume.
+   {:tip}
 7. É possível atualizar o espaço de captura instantânea do novo volume para incluir mais, menos ou nenhum espaço de captura instantânea. O espaço de captura instantânea do volume original é configurado por padrão.
 8. Clique em **Continuar** para colocar a sua ordem para a duplicata.
 

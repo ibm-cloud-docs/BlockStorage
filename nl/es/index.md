@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-29"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip} 
+{:note: .note} 
+{:important: .important}
 
 # Iniciación a {{site.data.keyword.blockstorageshort}}
 
@@ -70,16 +73,16 @@ Con la **facturación mensual**, el cálculo del precio se prorratea desde la fe
   </tr>
   <tr>
    <th>Precio mensual</th>
-   <td>0,10 USD/GB</td>
+   <td>0,06 USD/GB</td>
+   <td>0,15 USD/GB</td>
    <td>0,20 USD/GB</td>
-   <td>0,35 USD/GB</td>
    <td>0,58 USD/GB</td>
   </tr>
   <tr>
    <th>Precio por hora</th>
+   <td>0,0001 USD/GB</td>
    <td>0,0002 USD/GB</td>
    <td>0,0003 USD/GB</td>
-   <td>0,0005 USD/GB</td>
    <td>0,0009 USD/GB</td>
   </tr>
 </table>
@@ -193,6 +196,7 @@ Los volúmenes de rendimiento están diseñados para funcionar constantemente ce
 **Tamaño de bloque**
 
 Los IOPS, para Resistencia y Rendimiento, se basan en un tamaño de bloque de 16 KB con una carga de trabajo aleatoria del 50 % de lectura/escritura 50/50. Un bloque de 16 KB es el equivalente a una escritura en el volumen.
+{:important}
 
 El tamaño de bloque que utiliza la aplicación afecta directamente al rendimiento del almacenamiento. Si el tamaño de bloque utilizado por la aplicación es inferior a 16 KB, se alcanza el límite de IOPS antes que el límite de rendimiento. Por el contrario, si el tamaño de bloque utilizado por la aplicación es superior a 16 KB, se alcanza el límite de rendimiento antes que el límite de IOPS.
 
@@ -227,7 +231,7 @@ El tamaño de bloque que utiliza la aplicación afecta directamente al rendimien
             <td>16</td>
           </tr>
           <tr>
-            <td>32 (típico para SQLServer)</td>
+            <td>32 (típico para SQL Server)</td>
             <td>500</td>
             <td>16</td>
           </tr>          
@@ -257,9 +261,10 @@ Otro factor a tener en cuenta es el número de hosts que están utilizando el vo
 
 La velocidad de la conexión de Ethernet debe ser más rápida que el rendimiento máximo previsto de su volumen. Generalmente, no espere que se sature la conexión de Ethernet más allá del 70 % del ancho de banda disponible. Por ejemplo, si tiene 6.000 IOPS y está utilizando un tamaño de bloque de 16 KB, el volumen puede manejar aproximadamente un rendimiento de 94 MBps. Si tiene una conexión de Ethernet de 1 Gbps para el LUN, se genera un cuello de botella cuando los servidores intenten utilizar el máximo rendimiento disponible. Esto se debe a que el 70 % del límite teórico de una conexión de Ethernet de 1 Gbps (125 MB por segundo) solo permitiría 88 MB por segundo.
 
-Para alcanzar el número máximo de IOPS, es necesario disponer de los recursos de red adecuados. Otros aspectos a tener en cuenta son el uso de la red privada fuera del almacenamiento y los ajustes del lado del host y específicos de la aplicación (pila IP o profundidades de colas, y otros valores).
+Para alcanzar el número máximo de IOPS, es necesario disponer de los recursos de red adecuados. Otros aspectos a tener en cuenta son el uso de la red privada fuera del almacenamiento y los ajustes del lado del host y específicos de la aplicación (pila IP o [profundidades de colas](set-host-queue-depth-settings-performance-and-endurance-storage.html) y otros valores).
 
 El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Consulte la [documentación de servidor virtual](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) para conocer los límites que puede imponer el servicio.
+{:tip}
 
 ## Envío de su pedido
 
@@ -269,6 +274,7 @@ Cuando esté listo para enviar el pedido, siga las instrucciones [aquí](provisi
 
 Cuando se haya completado la solicitud de suministro, autorice a los hosts a acceder al nuevo almacenamiento y configure la conexión. En función del sistema operativo del host, siga el enlace adecuado.
 - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
+- [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuración de Block Storage para la copia de seguridad con cPanel](configure-backup-cpanel.html)
 - [Configuración de Block Storage para la copia de seguridad con Plesk](configure-backup-plesk.html)

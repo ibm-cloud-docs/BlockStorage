@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Sécurisation des données - Chiffrement au repos géré par le fournisseur
 
-## Chiffrement au repos de {{site.data.keyword.blockstorageshort}} 
+## Chiffrement au repos de {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} prend très au sérieux la question de la sécurité et comprend l'importance du chiffrement des données pour assurer leur sécurité. Avec le chiffrement géré par le fournisseur, {{site.data.keyword.blockstoragefull}}, qui est mis à disposition avec Endurance ou Performance, est chiffré par défaut sans coût supplémentaire et sans aucun impact sur les performances.
 
@@ -34,4 +37,5 @@ Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, sélectionnez un
 
 
 
-**Remarque** : un stockage non chiffré qui a été mis à disposition avant la mise à niveau d'un centre de données **n'est pas** automatiquement chiffré. Si vous disposez d'un stockage non chiffré dans un centre de données mis à niveau et que vous souhaitez le chiffrer, vous devrez créer un nouveau numéro d'unité logique/volume et faire migrer vos données. Pour plus d'informations, voir [{{site.data.keyword.blockstorageshort}} Migration dans des centres de données mis à niveau](migrate-block-storage-encrypted-block-storage.html).
+Un stockage non chiffré qui a été mis à disposition avant la mise à niveau du centre de données **n'est pas** automatiquement chiffré. Si vous disposez d'un stockage non chiffré dans un centre de données mis à niveau et que vous souhaitez le chiffrer, vous devrez créer un nouveau numéro d'unité logique/volume et faire migrer vos données. Pour plus d'informations, voir [{{site.data.keyword.blockstorageshort}} Migration dans des centres de données mis à niveau](migrate-block-storage-encrypted-block-storage.html).
+{:important}

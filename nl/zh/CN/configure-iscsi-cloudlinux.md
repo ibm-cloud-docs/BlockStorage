@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 在 CloudLinux 上连接到 MPIO iSCSI LUN
 
 遵循以下指示信息在 CloudLinux Server R6.10 上安装使用多路径的 iSCSI LUN。
 
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 授权。
+{:tip}
 
 1. 登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}。 
 2. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
@@ -21,7 +25,8 @@ lastupdated: "2018-08-02"
 4. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
 5. 记下主机 IQN、用户名、密码和目标地址。
 
-**注**：最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
+最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
+{:important}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 
@@ -30,18 +35,18 @@ lastupdated: "2018-08-02"
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
    
    ```
    {: pre}
-   
+
    ```
      chkconfig multipathd on
      ```
    {: pre}
-   
+
    ```
 chkconfig iscsid on
       ```
@@ -82,7 +87,7 @@ chkconfig iscsid on
      {: codeblock}
 
    - 通过添加用户名和密码来更新 CHAP 设置 `/etc/iscsi/iscsid.conf`。
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +100,9 @@ chkconfig iscsid on
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **注** - 对 CHAP 名称请使用大写。将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
+
+     对 CHAP 名称请使用大写。将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
+     {:important}
 
 
 3. 重新启动 `iscsi` 和 `multipathd` 服务。
@@ -104,12 +110,12 @@ chkconfig iscsid on
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. 使用从 {{site.data.keyword.slportal}} 中获取的目标 IP 地址来发现该设备。
 
      A. 针对 iSCSI 阵列运行发现。
@@ -117,7 +123,7 @@ chkconfig iscsid on
             iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
      ```
        {: pre}
-     
+
         示例输出
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +142,7 @@ chkconfig iscsid on
    iscsiadm -m session
    ```
    {: pre}
-   
+
    示例输出
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -149,7 +155,7 @@ chkconfig iscsid on
    fdisk -l 
    ```
    {: pre}
-    
+
    示例输出
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +186,7 @@ chkconfig iscsid on
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
      现在卷已安装到主机上并可供访问。
 
 7. 通过列出设备来验证是否正确配置了 MPIO。如果配置正确，将仅显示两个 NETAPP 设备。
@@ -189,7 +195,7 @@ chkconfig iscsid on
 # multipath -l
 ```
    {: pre}
-   
+
    示例输出
    ```
    root@server:~# multipath -l

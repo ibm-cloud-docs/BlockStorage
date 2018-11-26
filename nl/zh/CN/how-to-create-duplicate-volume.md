@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 创建复制块卷
 
@@ -20,7 +22,10 @@ lastupdated: "2018-09-05"
 
 数据复制完成后，就可以将复制项作为完全独立的卷进行管理和使用。
 
-此功能在大多数位置中提供。单击[此处](new-ibm-block-and-file-storage-location-and-features.html)以获取可用数据中心的列表。**注**：如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers/cs_storage_file.html#backup_restore)中有关复制卷的选项。
+此功能在大多数位置中提供。单击[此处](new-ibm-block-and-file-storage-location-and-features.html)以获取可用数据中心的列表。
+
+如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers/cs_storage_file.html#backup_restore)中有关复制卷的选项。
+{:tip}
 
 复制卷的一些常见用途：
 - **灾难恢复测试**：创建副本卷的复制项，以验证数据是否完整并可以在发生灾难时使用，而不中断复制。
@@ -50,7 +55,9 @@ lastupdated: "2018-09-05"
     - 如果原始卷为 0.25 IOPS 耐久性层，那么将无法进行新的选择。
     - 如果原始卷为 2、4 或 10 IOPS 耐久性层，那么可以使新卷移至这些层之间的任意位置。
 6. 可以将新卷的大小更新为大于原始卷。缺省情况下设置了原始卷的大小。
-    - **注**：{{site.data.keyword.blockstorageshort}} 的大小可以调整为卷原始大小的 10 倍。
+
+   {{site.data.keyword.blockstorageshort}} 的大小可以调整为卷原始大小的 10 倍。
+   {:tip}
 7. 可以更新新卷的快照空间，以添加更多或更少的快照空间，或者不添加快照空间。缺省情况下设置了原始卷的快照空间。
 8. 单击**继续**以下订单。
 
@@ -66,9 +73,11 @@ lastupdated: "2018-09-05"
     - 如果原始卷为 0.25 IOPS 耐久性层，那么将无法进行新的选择。
     - 如果原始卷为 2、4 或 10 IOPS 耐久性层，那么可以使新卷移至这些层之间的任意位置。
 6. 可以将新卷的大小更新为大于原始卷。缺省情况下设置了原始卷的大小。
-    - **注**：{{site.data.keyword.blockstorageshort}} 的大小可以调整为卷原始大小的 10 倍。
+
+   {{site.data.keyword.blockstorageshort}} 的大小可以调整为卷原始大小的 10 倍。
+   {:tip}
 7. 可以更新新卷的快照空间，以添加更多或更少的快照空间，或者不添加快照空间。缺省情况下设置了原始卷的快照空间。
-8. 单击**继续**以下单订购复制项。
+8. 单击**继续**，以下订单购买复制卷。
 
 
 ## 管理复制卷

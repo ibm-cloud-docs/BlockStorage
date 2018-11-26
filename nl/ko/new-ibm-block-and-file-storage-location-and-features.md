@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}}의 새 위치 및 기능
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 새 스토리지는 데이터 센터 선택 시에 사용 가능하며 비활성 데이터(data-at-rest)에 대한 디스크 레벨의 암호화가 사용되는 더 높은 IOPS의 플래시 스토리지로 지원됩니다. 업그레이드된 데이터 센터에서 프로비저닝된 모든 스토리지는 새 버전으로 자동 작성됩니다.
 
-**참고:** 새 볼륨의 NFS 마운트 위치는 암호화되지 않은 볼륨의 마운트 포인트와 다릅니다. 세부사항은 **암호화된 {{site.data.keyword.filestorage_short}} 볼륨에 대한 새 마운트 위치** 섹션을 참조하십시오.
+새 볼륨의 NFS 마운트 위치는 암호화되지 않은 볼륨의 마운트 위치와 다릅니다. 자세한 정보는 [암호화된 {{site.data.keyword.filestorage_short}} 볼륨의 새 마운트 위치](#new-mount-point-for-encrypted-storage-volumes) 섹션을 참조하십시오.
+{:important}
+
+## 새 위치
 
 새 {{site.data.keyword.blockstorageshort}}는 다음 영역/데이터 센터에서 사용할 수 있습니다.
 <table role="presentation">
@@ -31,14 +37,14 @@ lastupdated: "2018-10-15"
 	DAL12<br />
 	DAL13<br />
 	SJC03<br />
-        SJC04<br />
+SJC04<br />
 	WDC04<br />
 	WDC06<br />
 	WDC07<br />
 	<br /><br /><br />
     </td>
     <td>AMS01<br />
-        AMS03<br />
+AMS03<br />
 	FRA02<br />
 	FRA04<br />
 	FRA05<br />
@@ -51,23 +57,23 @@ lastupdated: "2018-10-15"
 	PAR01<br />
     </td>
     <td>MEL01<br />
-        SYD01<br />
-        SYD04<br />
+SYD01<br />
+SYD04<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
-        TOR01<br />
+TOR01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MEX01<br />
-        SAO01<br />
+SAO01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>CHE01<br />
-        HKG02<br />
+HKG02<br />
 	SEO01<br />
 	SNG01<br />
-        TOK02<br />
+TOK02<br />
 	TOK04<br />
 	TOK05<br />
 	<br /><br /><br /><br /><br />
@@ -77,7 +83,7 @@ lastupdated: "2018-10-15"
 
 *표 1은 데이터 센터 가용성을 표시합니다. 각 지역에는 고유한 열이 있습니다. 일부 도시(예: Dallas, San Jose, Washington, Amsterdam, Frankfurt, London, Sydney)에는 데이터 센터가 여러 개 있습니다.*
 
-새 스토리지에는 다음과 같은 기능이 있습니다.
+## 새 기능 및 특성
 
 - **[비활성 데이터(Data-At-Rest)에 대한 제공자 관리 암호화](block-file-storage-encryption-rest.html)**.
   모든 {{site.data.keyword.blockstorageshort}}는 추가 비용 없이 자동으로 암호화된 상태로 프로비저닝됩니다.
@@ -97,3 +103,4 @@ lastupdated: "2018-10-15"
 이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. 스토리지 볼륨에 대해 올바른 마운트 위치를 사용 중인지 확인하기 위해 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인할 수 있습니다. 또한 API 호출(`SoftLayer_Network_Storage::getNetworkMountAddress()`)을 통해 올바른 마운트 지점에 액세스할 수도 있습니다.
 
 여기에서는 추가 데이터 센터가 업그레이드된 시기 및 {{site.data.keyword.blockstorageshort}}에 대해 추가 중인 새로운 기능에 대해서도 확인할 수 있습니다.
+{:tip}

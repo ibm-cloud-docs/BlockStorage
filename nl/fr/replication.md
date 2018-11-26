@@ -2,19 +2,22 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Réplication de données
 
 La réplication utilise l'un de vos plannings d'instantané pour copier automatiquement des instantanés sur un volume de destination dans un centre de données distant. Les copies peuvent être récupérées sur le site distant en cas de données endommagées ou de catastrophe.
 
-Les répliques vous permettent :
+Les répliques vous permettent d'effectuer rapidement une reprise après un échec du site. En cas d'urgence, vous pouvez effectuer un basculement vers le volume de destination et accéder à vos données à partir d'un point de cohérence spécifique dans la copie de reprise après incident. Pour plus d'informations, voir [Duplication de volumes de réplique pour reprise après incident](disaster-recovery.html).
 
-- d'effectuer rapidement une reprise après un échec du site et d'autres incidents en basculant sur le volume de destination,
-- d'effectuer un basculement vers un point de cohérence précis dans la copie de reprise après incident.
+La réplication permet de synchroniser vos données entre deux emplacements différents. Si vous souhaitez uniquement cloner votre volume et l'utiliser indépendamment de votre volume d'origine, voir [Création d'un volume de blocs en double](how-to-create-duplicate-volume.html).
+{:tip}
 
 Avant d'effectuer une réplication, vous devez créer un planning d'instantané. Lorsque vous effectuez un basculement, vous "basculez l'interrupteur" depuis votre volume de stockage du centre de données principal vers le volume de destination du centre de données distant. Par exemple, votre centre de données principal peut se situer à Londres et votre centre de données secondaire à Amsterdam. Dans le cas d'un événement d'échec, vous basculez vers Amsterdam, en vous connectant au volume qui est désormais devenu principal à partir d'une instance de calcul à Amsterdam. Une fois votre volume de Londres réparé, un instantané du volume d'Amsterdam est pris afin de permettre le retour à Londres avec le volume de Londres à nouveau considéré comme le volume principal à partir d'une instance de traitement située à Londres.
 
@@ -28,7 +31,7 @@ Pour obtenir la liste complète de la disponibilité des centres de données et 
   <caption style="text-align: left;"><p>Le tableau 1 répertorie l'ensemble des centres de données avec les fonctionnalités améliorées dans chaque région. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San Jose, Washington DC, Amsterdam, Francfort, Londres et Sydney disposent de plusieurs centres de données.</p>
   <p>&#42; Les centres de données de la région EU 1 ne comportent PAS de stockage amélioré. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées <strong>ne peuvent pas</strong> démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1.</p>
   </caption>
-    <thead>
+  <thead>
     <tr>
       <th>EU 1 &#42;</th>
       <th>EUS 2</th>
@@ -106,7 +109,8 @@ Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abo
 1. Cliquez sur votre volume de stockage.
 2. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
 3. Sélectionnez le planning d'instantané existant que vous souhaitez que votre réplication suive. La liste contient tous vos plannings d'instantané actifs. <br />
-   >**Remarque :** vous ne pouvez sélectionner qu'une seul planning, même si vous combinez des réplications horaires, quotidiennes et hebdomadaires. Tous les instantanés qui ont été capturés depuis le cycle de réplication précédent sont répliqués quel que soit leur planning d'origine.<br />Si vous n'avez pas configuré d'instantanés, vous êtes invité à le faire avant de pouvoir commander la réplication. Pour plus de détails, voir [Utilisation d'instantanés](snapshots.html).
+Vous ne pouvez sélectionner qu'une seul planning, même si vous combinez des réplications horaires, quotidiennes et hebdomadaires. Tous les instantanés qui ont été capturés depuis le cycle de réplication précédent sont répliqués quel que soit leur planning d'origine.<br />Si vous n'avez pas configuré d'instantanés, vous êtes invité à le faire avant de pouvoir commander la réplication. Pour plus de détails, voir [Utilisation d'instantanés](snapshots.html).
+   {:important}
 3. Cliquez sur **Emplacement** et sélectionnez le centre de données qui est votre site de reprise après incident.
 4. Cliquez sur **Continuer**.
 5. Entrez un **Code promo** le cas échéant et cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
@@ -167,7 +171,8 @@ Les hôtes et les volumes autorisés doivent figurer dans le même centre de don
 
 Les tailles des volumes de stockage principal et de réplique doivent être identiques. Il n'est pas possible que l'un soit plus grand que l'autre. Lorsque vous augmentez votre espace d'image instantanée dans le volume principal, l'espace de réplique est automatiquement augmenté. L'augmentation de l'espace d'image instantanée déclenche une mise à jour immédiate de la réplication. L'augmentation des deux volumes apparaît sous forme de lignes d'article dans votre facture et est calculée au prorata si nécessaire.
 
-Cliquez [ici](snapshots.html) pour savoir comment augmenter votre espace d'instantané.
+Pour plus d'informations sur l'augmentation de l'espace d'image instantanée, voir [Commande d'instantanés](ordering-snapshots.html).
+{:tip}
 
 
 ## Démarrage d'un basculement depuis un volume vers sa réplique
@@ -228,7 +233,7 @@ Vous pouvez créer des doublons à partir de volumes principaux et de volumes de
 
 Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès la mise à disposition du stockage. Toutefois, les instantanés et la réplication ne sont pas autorisés tant que la copie des données depuis le volume d'origine vers le doublon n'est pas terminée.
 
-Pour plus d'informations, voir [Création d'un volume de blocs en double](how-to-create-duplicate-volume.html)
+Pour plus d'informations, voir [Création d'un volume de blocs en double](how-to-create-duplicate-volume.html).
 
 
 ## Annulation d'une réplication existante

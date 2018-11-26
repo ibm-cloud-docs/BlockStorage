@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Protección de los datos: cifrado en reposo gestionado por el proveedor
 
-## Cifrado en reposo de {{site.data.keyword.blockstorageshort}} 
+## Cifrado en reposo de {{site.data.keyword.blockstorageshort}}
 
 {{site.data.keyword.BluSoftlayer_full}} se toma en serio la seguridad y comprende la importancia de cifrar los datos para mantenerlos protegidos. Mediante el cifrado gestionado por proveedor, los datos de {{site.data.keyword.blockstoragefull}} suministrados con la opción de Resistencia o Rendimiento se cifran de forma predeterminada sin coste adicional ni impacto sobre el rendimiento.
 
@@ -34,4 +37,5 @@ Al realizar el pedido de {{site.data.keyword.blockstorageshort}}, seleccione un 
 
 
 
-**Nota**: El almacenamiento no cifrado que se suministró antes de que se actualizara el centro de datos **no** se cifra automáticamente. Si dispone de almacenamiento no cifrado en un centro de datos actualizado y desea almacenamiento cifrado, deberá crear un nuevo LUN/volumen y migrar los datos. Para obtener más información, consulte [Migración de {{site.data.keyword.blockstorageshort}} en Centros de datos actualizados](migrate-block-storage-encrypted-block-storage.html).
+El almacenamiento no cifrado que se suministró antes de que se actualizara el centro de datos **no** se cifra automáticamente. Si dispone de almacenamiento no cifrado en un centro de datos actualizado y desea almacenamiento cifrado, deberá crear un nuevo LUN/volumen y migrar los datos. Para obtener más información, consulte [Migración de {{site.data.keyword.blockstorageshort}} en Centros de datos actualizados](migrate-block-storage-encrypted-block-storage.html).
+{:important}

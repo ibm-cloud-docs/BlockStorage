@@ -2,21 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Ordinazione di istantanee
 
 Per creare le istantanee del tuo volume di archiviazione, in modo automatizzato o manualmente, devi acquistare dello spazio per contenerle. Puoi acquistare capacità fino al tuo ammontare del volume di archiviazione (durante l'acquisto di volume iniziale e successivamente attenendoti alla procedura qui descritta).
 
-1. Accedi al tuo LUN di archiviazione tramite la scheda **Storage**, **{{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-2. Fai clic su **Add Snapshot Space** nel frame Snapshots.
-3. Seleziona la quantità di spazio che ti serve.
+1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/){:new_window} e fai clic sull'icona **Menu** in alto a sinistra. Seleziona **Infrastruttura classica**.
+
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+2. Accedi al tuo LUN di archiviazione tramite **Storage** >**{{site.data.keyword.blockstorageshort}}**.
+2. Fai clic su **Change Snapshot Space** nel frame Snapshots.
+3. Seleziona la quantità di spazio che ti serve e il metodo di pagamento. 
 4. Fai clic su **Continue**.
 5. Immetti l'eventuale codice promozionale (**Promo Code**) a tua disposizione e fai clic su **Recalculate**. Gli addebiti (Charges) per questo ordine e il riesame dell'ordine (Order Review) vengono completati per impostazione predefinita.
-6. Fai clic sulla casella di spunta **I have read the Master Service Agreement…** e fai clic su **Place Order**. Nel giro di pochi minuti, viene eseguito il provisioning del tuo spazio di istantanea.
+6. Seleziona la casella **I have read the Master Service Agreement and agree to the terms therein.** e fai clic su **Place Order**. Nel giro di pochi minuti, viene eseguito il provisioning del tuo spazio di istantanea.
 
 ## Determinazione di quanto spazio di istantanea ordinare
 
@@ -24,8 +30,10 @@ In linea generale, lo spazio di istantanea viene utilizzato dalle istantanee in 
 - La quantità di modifiche del file system attivo nel tempo,
 - Per quanto tempo prevedi di conservare le istantanee.  
 
-Il modo per calcolare la quantità di spazio necessaria è **(Frequenza di modifica)** x **(numero di ore/giorni/settimane/mesi di conservazione dei dati)**.  
->**Nota** - La prima istantanea utilizza una quantità trascurabile di spazio poiché è solo una copia dei metadati (puntatori) che indicano i blocchi di file system attivi. 
+Il modo per calcolare la quantità di spazio necessaria è **(Frequenza di modifica)** x **(numero di ore/giorni/settimane/mesi di conservazione dei dati)**.
+
+La prima istantanea utilizza una quantità trascurabile di spazio poiché è solo una copia dei metadati (puntatori) che indicano i blocchi di file system attivi.
+{:note}
 
 Un volume con molte modifiche e un lungo periodo di conservazione ha bisogno di più spazio rispetto a un volume con meno modifiche e una pianificazione di conservazione moderata. Un esempio per il primo tipo è un database a tasso di modifica elevato. Un esempio per il secondo tipo è un archivio dati VMware.
 

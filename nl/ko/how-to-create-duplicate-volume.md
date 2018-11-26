@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 복제 블록 볼륨 작성
 
@@ -20,7 +22,10 @@ lastupdated: "2018-09-05"
 
 데이터 복사가 완료되면 복제는 완전히 독립된 볼륨으로 관리 및 사용이 가능합니다.
 
-이 기능은 대부분의 위치에서 사용할 수 있습니다. 사용 가능한 데이터 센터 목록을 보려면 [여기](new-ibm-block-and-file-storage-location-and-features.html)를 클릭하십시오. **참고**: {{site.data.keyword.containerlong}}의 데디케이티드 계정 사용자인 경우 [{{site.data.keyword.containerlong_notm}} 문서](/docs/containers/cs_storage_file.html#backup_restore)에서 볼륨 복제에 대한 옵션을 참조하십시오.
+이 기능은 대부분의 위치에서 사용할 수 있습니다. 사용 가능한 데이터 센터 목록을 보려면 [여기](new-ibm-block-and-file-storage-location-and-features.html)를 클릭하십시오.
+
+{{site.data.keyword.containerlong}}의 데디케이티드 계정 사용자인 경우에는 [{{site.data.keyword.containerlong_notm}} 문서](/docs/containers/cs_storage_file.html#backup_restore)에서 볼륨 복제에 대한 옵션을 참조하십시오.
+{:tip}
 
 복제 볼륨에 대한 일부 공통 사용법:
 - **재해 복구 테스트**: 복제본 볼륨의 복제본을 작성하여 복제 중단 없이 데이터가 손상되지 않았는지 그리고 재해 발생 시 사용할 수 있는지를 확인하십시오.
@@ -50,7 +55,9 @@ lastupdated: "2018-09-05"
     - 원본 볼륨이 0.25 IOPS Endurance티어인 경우, 새로 선택할 수 없습니다.
     - 원본 볼륨이 2, 4 또는 10 IOPR Endurance티어인 경우, 새 볼륨에 대해 해당 티어 사이에서 임의로 이동 가능합니다.
 6. 새 볼륨이 원본보다 더 커지도록 해당 크기를 업데이트할 수 있습니다. 원본 볼륨 크기는 기본적으로 설정됩니다.
-    - **참고**: {{site.data.keyword.blockstorageshort}}는 볼륨의 원래 크기보다 10배로 크기 조정할 수 있습니다.
+
+   {{site.data.keyword.blockstorageshort}}는 원래 볼륨 크기의 10배까지 크기가 조정될 수 있습니다.
+   {:tip}
 7. 새 볼륨에 대해 스냅샷 영역을 더 추가하거나 더 적게 추가 또는 전혀 추가하지 않도록 업데이트할 수 있습니다. 원본 볼륨의 스냅샷 영역은 기본값으로 설정됩니다.
 8. **계속**을 클릭하여 주문을 제출하십시오.
 
@@ -66,7 +73,9 @@ lastupdated: "2018-09-05"
     - 원본 볼륨이 0.25 IOPS Endurance티어인 경우, 새로 선택할 수 없습니다.
     - 원본 볼륨이 2, 4 또는 10 IOPS Endurance티어인 경우, 새 볼륨에 대해 해당 티어 사이에서 임의로 이동 가능합니다.
 6. 새 볼륨이 원본보다 더 커지도록 해당 크기를 업데이트할 수 있습니다. 원본 볼륨 크기는 기본적으로 설정됩니다.
-    - **참고**: {{site.data.keyword.blockstorageshort}}는 볼륨의 원래 크기보다 10배로 크기 조정할 수 있습니다.
+
+   {{site.data.keyword.blockstorageshort}}는 원래 볼륨 크기의 10배까지 크기가 조정될 수 있습니다.
+   {:tip}
 7. 새 볼륨에 대해 스냅샷 영역을 더 추가하거나 더 적게 추가 또는 전혀 추가하지 않도록 업데이트할 수 있습니다. 원본 볼륨의 스냅샷 영역은 기본값으로 설정됩니다.
 8. **계속**을 클릭하여 복제에 대한 주문을 제출하십시오.
 

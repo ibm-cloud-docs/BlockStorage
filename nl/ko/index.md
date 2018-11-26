@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-29"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip} 
+{:note: .note} 
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} 시작하기
 
@@ -70,16 +73,16 @@ lastupdated: "2018-09-10"
   </tr>
   <tr>
    <th>월별 가격</th>
-   <td>$0.10/GB</td>
+   <td>$0.06/GB</td>
+   <td>$0.15/GB</td>
    <td>$0.20/GB</td>
-   <td>$0.35/GB</td>
    <td>$0.58/GB</td>
   </tr>
   <tr>
    <th>시간별 가격</th>
-   <td>0.0002/GB</td>
+   <td>$0.0001/GB</td>
+   <td>$0.0002/GB</td>
    <td>$0.0003/GB</td>
-   <td>$0.0005/GB</td>
    <td>$0.0009/GB</td>
   </tr>
 </table>
@@ -193,6 +196,7 @@ Performance 볼륨은 프로비저닝된 IOPS 레벨과 계속 근접하게 작�
 **블록 크기**
 
 Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크로드의 16KB 블록 크기를 기반으로 합니다. 16KB 블록은 볼륨에 한 번 쓰는 것에 해당합니다.
+{:important}
 
 애플리케이션에서 사용하는 블록 크기는 스토리지 성능에 직접적인 영향을 줍니다. 애플리케이션에서 사용하는 블록 크기가 16KB보다 작은 경우, IOPS 한계가 처리량 한계 이전에 실현됩니다. 반대로, 애플리케이션에서 사용하는 블록 크기가 16KB보다 큰 경우, 처리량 한계가 IOPS 한계 이전에 실현됩니다.
 
@@ -227,7 +231,7 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
             <td>16</td>
           </tr>
           <tr>
-            <td>32(일반적으로 SQLServer용)</td>
+            <td>32(일반적으로 SQL Server용)</td>
             <td>500</td>
             <td>16</td>
           </tr>          
@@ -257,9 +261,10 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 
 이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, 6000 IOPS에 16KB의 블록 크기를 사용 중인 경우, 볼륨은 대략적으로 94MBps 처리량을 처리할 수 있습니다. LUN에 1Gbps 이더넷 연결을 사용 중인 경우, 서버가 최대 가용 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 1Gbps 이더넷 연결(초당 125MB)에 대한 이론적 한계의 70%는 초당 88MB만 처리할 수 있기 때문입니다.
 
-최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 이 밖에도 스토리지 외부의 사설 네트워크 사용과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 큐 깊이 및 기타 설정)도 고려해야 합니다.
+최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](set-host-queue-depth-settings-performance-and-endurance-storage.html) 및 기타 설정)도 고려해야 합니다. 
 
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계를 이해하려면 [Virtual Server 문서](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오. 
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계를 이해하려면 [Virtual Server 문서](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.
+{:tip}
 
 ## 주문 제출
 
@@ -269,6 +274,7 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 
 프로비저닝 요청이 완료되면 새 스토리지에 액세스하고 연결을 구성하도록 호스트에 권한을 부여하십시오. 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
 - [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)
+- [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
 - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
 - [cPanel을 사용하여 Block Storage 구성](configure-backup-cpanel.html)
 - [Plesk를 사용하여 Block Storage 구성](configure-backup-plesk.html)

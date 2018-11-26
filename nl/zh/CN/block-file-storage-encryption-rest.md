@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 确保数据安全 - 提供者管理的静态加密
 
-## {{site.data.keyword.blockstorageshort}} 静态加密 
+## {{site.data.keyword.blockstorageshort}} 静态加密
 
 {{site.data.keyword.BluSoftlayer_full}} 认真对待安全性需求，并深知能够加密数据以保证数据安全的重要性。借助提供者管理的加密，缺省情况下，会免费加密使用“耐久性”或“性能”选项供应的 {{site.data.keyword.blockstoragefull}}，也不会对性能产生任何影响。
 
@@ -21,7 +24,7 @@ lastupdated: "2018-07-18"
 
 ## 针对快照或已复制存储器提供静态加密  
 
-缺省情况下，加密{{site.data.keyword.blockstorageshort}}的所有快照和副本也都已加密。此功能无法逐个卷加以禁用。
+缺省情况下，加密 {{site.data.keyword.blockstorageshort}} 的所有快照和副本也都已加密。此功能无法逐个卷加以禁用。
 
 ## 为存储器供应加密
 
@@ -34,4 +37,5 @@ lastupdated: "2018-07-18"
 
 
 
-**注** - 在数据中心升级之前供应的非加密存储器**不会**自动加密。如果在已升级的数据中心内拥有非加密存储器，并且需要加密的存储器，那么需要创建新的 LUN/卷，然后迁移数据。有关更多信息，请参阅[在已升级的数据中心内执行 {{site.data.keyword.blockstorageshort}} 迁移](migrate-block-storage-encrypted-block-storage.html)。
+在升级数据中心之前供应的非加密存储器**不会**自动加密。如果在已升级的数据中心内拥有非加密存储器，并且需要加密的存储器，那么需要创建新的 LUN/卷，然后迁移数据。有关更多信息，请参阅[在已升级的数据中心内执行 {{site.data.keyword.blockstorageshort}} 迁移](migrate-block-storage-encrypted-block-storage.html)。
+{:important}

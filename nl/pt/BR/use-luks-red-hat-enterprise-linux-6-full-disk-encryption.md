@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Usando o LUKS no Red Hat Enterprise Linux para criptografia total de disco
 
@@ -33,10 +36,10 @@ contêm múltiplos slots de chave.
 
 ## Configurando um volume criptografado pelo LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
 
-Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Clique [aqui](accessing_block_storage_linux.html) para saber como acessar
-o {{site.data.keyword.blockstorageshort}} com o Linux.
+Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Para obter mais informações sobre como conectar o {{site.data.keyword.blockstorageshort}} a um host Linux, consulte [Conectando-se aos LUNs iSCSI MPIO no Linux](accessing_block_storage_linux.html).
 
-**Nota**: o processo de criptografia de dados cria uma carga no host que pode afetar potencialmente o desempenho.
+O processo de criptografia de dados cria um carregamento no host que pode potencialmente afetar o desempenho.
+{:note}
 
 1. Digite o seguinte em um prompt de shell como raiz para instalar o pacote necessário:   <br/>
    ```
@@ -52,22 +55,22 @@ o {{site.data.keyword.blockstorageshort}} com o Linux.
 4. Criptografe o dispositivo de bloco;
 
    1. Esse comando inicializa o volume e é possível configurar uma passphrase. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. Responda com SIM (todas as letras maiúsculas).
-   
-   3. O dispositivo agora aparece como um volume criptografado: 
-   
+
+   3. O dispositivo agora aparece como um volume criptografado:
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. Abra o volume e crie um mapeamento.   <br/>
+
+5. Abra o volume e crie um mapeamento.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

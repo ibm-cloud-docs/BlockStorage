@@ -2,23 +2,26 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Gestión de instantáneas
 
 ## Creación de una planificación de instantáneas
 
-Usted decide con qué frecuencia y cuándo se debe crear una referencia de un punto en el tiempo de su volumen de almacenamiento con planificaciones de instantáneas. Puede tener un máximo de 50 instantáneas del volumen de almacenamiento. Las planificaciones se gestionan a través del separador **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Usted decide con qué frecuencia y cuándo se debe crear una referencia de un punto en el tiempo de su volumen de almacenamiento con planificaciones de instantáneas. Puede tener un máximo de 50 instantáneas del volumen de almacenamiento. Las planificaciones se gestionan a través del separador **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 
 Para poder configurar la planificación inicial, debe adquirir el espacio de instantáneas si no lo ha comprado durante el suministro inicial del volumen de almacenamiento.
+{:important}
 
 ### Adición de una planificación de instantáneas
 
-Las planificaciones de instantáneas se pueden configurar para intervalos por horas, diarios y semanales, cada uno con un ciclo de retención distinto. Hay un máximo de 50 instantáneas planificadas, que pueden ser una combinación de planificaciones por horas, diarias y semanales, e instantáneas manuales por volumen de almacenamiento.
+Las planificaciones de instantáneas se pueden configurar para intervalos por horas, diarios y semanales, cada uno con un ciclo de retención distinto. Hay un límite máximo de 50 instantáneas planificadas, que pueden ser una combinación de planificaciones por horas, diarias y semanales, e instantáneas manuales por volumen de almacenamiento.
 
 1. Pulse el volumen de almacenamiento, pulse **Acciones** y luego pulse **Planificar instantánea**.
 2. En la ventana Nueva planificación de instantáneas, puede elegir entre tres frecuencias de instantáneas distintas. Utilice cualquier combinación de las tres para crear una planificación de instantáneas completa.
@@ -39,7 +42,7 @@ Las instantáneas de la lista se muestran tal como se han tomado en la sección 
 
 Las instantáneas manuales se pueden realizar en distintos puntos durante una actualización o mantenimiento de la aplicación. También puede tomar instantáneas en varios servidores que se desactivaron temporalmente a nivel de aplicación.
 
-Hay un máximo de 50 instantáneas manuales por volumen de almacenamiento.
+Hay un límite máximo de 50 instantáneas manuales por volumen de almacenamiento.
 
 1. Pulse el volumen de almacenamiento.
 2. Pulse **Acciones**.
@@ -48,7 +51,7 @@ Se realiza la instantánea y se muestra en la sección **Instantáneas** de la p
 
 ## Listado de todas las instantáneas con información de espacio utilizado y de funciones de gestión
 
-Se puede visualizar una lista de las instantáneas retenidas y el espacio utilizado en la página **Detalles** (Almacenamiento, {{site.data.keyword.blockstorageshort}}). Las funciones de gestión (editar planificaciones y añadir más espacio) se realizan en la página Detalles utilizando el menú **Acciones** o los enlaces de las distintas secciones de la página.
+Se puede visualizar una lista de las instantáneas retenidas y el espacio utilizado en la página **Detalles**.  Las funciones de gestión (editar planificaciones y añadir más espacio) se realizan en la página Detalles utilizando el menú **Acciones** o los enlaces de las distintas secciones de la página.
 
 ## Visualización de la lista de instantáneas retenidas
 
@@ -60,9 +63,10 @@ El gráfico circular en la parte superior de la página **Detalles** muestra la 
 
 ## Cambio de la cantidad de espacio de instantáneas para un volumen
 
-Es posible que necesite añadir espacio de instantáneas a un volumen que anteriormente no tuviera o que requiera espacio de instantáneas adicional. Puede añadir entre 5 GB y 4.000 GB, en función de sus necesidades. 
+Es posible que necesite añadir espacio de instantáneas a un volumen que anteriormente no tuviera o que requiera espacio de instantáneas adicional. Puede añadir entre 5 GB y 4.000 GB, en función de sus necesidades.
 
-**Nota**: El espacio de instantáneas solo se puede aumentar. No se puede reducir. Puede seleccionar una cantidad de espacio inferior hasta que determine cuánto espacio necesita realmente. Recuerde que las instantáneas automatizadas y manuales comparten el espacio.
+El espacio de instantáneas solo se puede aumentar. No se puede reducir. Puede seleccionar una cantidad de espacio inferior hasta que determine cuánto espacio necesita realmente. Recuerde que las instantáneas automatizadas y manuales comparten el espacio.
+{:note}
 
 El espacio de instantáneas se cambia seleccionando **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 
@@ -87,7 +91,8 @@ Las planificaciones de instantáneas se pueden cancelar seleccionando **Almacena
 1. Pulse la planificación que se va a suprimir en el marco **Planificaciones de instantáneas** de la página **Detalles**.
 2. Marque el recuadro de selección junto a la planificación que se va a suprimir y pulse **Guardar**.<br />
 
->**Precaución**: Si está utilizando la característica de réplica, asegúrese de que la planificación que está suprimiendo no sea la planificación utilizada por la réplica. Pulse [aquí](replication.html) para obtener más información sobre cómo suprimir una planificación de réplica.
+Si está utilizando la característica de réplica, asegúrese de que la planificación que está suprimiendo no sea la planificación utilizada por la réplica. Para obtener más información sobre cómo suprimir una planificación de réplica, consulte [Réplica de datos](replication.html).
+{:important}
 
 ## Supresión de una instantánea
 
@@ -103,15 +108,19 @@ Las instantáneas manuales que no se supriman del modo descrito anteriormente, s
 Es posible que necesite recuperar el volumen de almacenamiento a un punto en el tiempo específico debido a un error de usuario o porque los datos hayan resultado dañados.
 
 1. Desmonte y desconecte el volumen de almacenamiento del host.
-   - Pulse [aquí](accessing_block_storage_linux.html) para obtener las instrucciones de {{site.data.keyword.blockstorageshort}} en Linux.
-   - Pulse [aquí](accessing-block-storage-windows.html) para obtener las instrucciones de {{site.data.keyword.blockstorageshort}} en Microsoft Windows.
+   - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
+   - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
 2. Pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 3. Desplácese y pulse el volumen que se va a restaurar. La sección **Instantáneas** de la página **Detalles** mostrará una lista de todas las instantáneas guardadas junto con su tamaño y fecha de creación.
 4. Pulse **Acciones** junto a la instantánea que se va a utilizar y pulse **Restaurar**. <br/>
-   >**Nota**: La restauración de los resultados da como resultado la pérdida de los datos que se han creado o modificado después de que la instantánea se haya realizado. Esta pérdida de datos se produce porque el volumen de almacenamiento vuelve al mismo estado en el que se encontraba en el momento de la instantánea. 
+
+   La restauración de los resultados da como resultado la pérdida de los datos que se han creado o modificado después de que la instantánea se haya realizado. Esta pérdida de datos se produce porque el volumen de almacenamiento vuelve al mismo estado en el que se encontraba en el momento de la instantánea.
+   {:note}
 5. Pulse **Sí** para iniciar la restauración. Recibirá un mensaje en la parte superior de la página que indicará que el volumen se ha restaurado utilizando la instantánea seleccionada. También aparecerá un icono junto al volumen en {{site.data.keyword.blockstorageshort}} que indicará que hay una transacción activa en curso. Al pasar el ratón sobre el icono se abre una ventana que muestra la transacción. El icono desaparecerá una vez completada la transacción.
 6. Monte y vuelva a conectar el volumen de almacenamiento al host.
-   - Pulse [aquí](accessing_block_storage_linux.html) para obtener las instrucciones de {{site.data.keyword.blockstorageshort}} en Linux.
-   - Pulse [aquí](accessing-block-storage-windows.html) para obtener las instrucciones de {{site.data.keyword.blockstorageshort}} en Microsoft Windows.
-   
->**Nota**: La restauración de un volumen da lugar a la supresión de todas las instantáneas que se tomaron después de la instantánea que se utilizó para la restauración.
+   - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
+   - [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
+   - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
+
+La restauración de un volumen da lugar a la supresión de todas las instantáneas que se tomaron después de la instantánea que se utilizó para la restauración.
+{:important}

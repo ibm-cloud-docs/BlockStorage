@@ -2,12 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Utilizzo di LUKS in Red Hat Enterprise Linux per la crittografia totale del disco
 
@@ -29,9 +32,10 @@ Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con i
 
 ## Configurazione di un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
 
-Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Fai clic [qui](accessing_block_storage_linux.html) per informazioni su come accedere a {{site.data.keyword.blockstorageshort}} con Linux.
+Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, consulta [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html).
 
-**Nota**: l'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
+L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
+{:note}
 
 1. Immetti quanto segue a un prompt della shell come root per installare il pacchetto richiesto:   <br/>
    ```
@@ -47,22 +51,22 @@ Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site
 4. Crittografa il dispositivo a blocchi:
 
    1. Questo comando inizializza il volume e puoi impostare una passphrase. <br/>
-   
+
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
-      
+
    2. Rispondi con YES (tutto in lettere maiuscole).
-   
-   3. Il dispositivo viene ora visualizzato come un volume crittografato: 
-   
+
+   3. Il dispositivo viene ora visualizzato come un volume crittografato:
+
       ```
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
-      
-5. Apri il volume e crea un'associazione.   <br/>
+
+5. Apri il volume e crea un'associazione.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```

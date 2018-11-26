@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Captura Instantânea
 
@@ -13,31 +16,39 @@ As capturas instantâneas são um recurso do {{site.data.keyword.blockstorageful
 
 O {{site.data.keyword.blockstorageshort}} fornece duas maneiras de tomar suas capturas instantâneas.
 
-– A primeira maneira é por meio de um planejamento de captura instantânea configurável que cria e exclui cópias de captura instantânea automaticamente para cada volume de armazenamento. Também é possível criar planejamentos de captura instantânea extra, excluir cópias manualmente e gerenciar planejamentos com base em seus requisitos. 
-- A segunda maneira é obter uma captura instantânea manual.
+* Primeiro, por meio de um planejamento de captura instantânea configurável que cria e exclui as cópias de captura
+instantânea automaticamente para cada volume de armazenamento. Também é possível criar planejamentos de captura instantânea extra, excluir cópias manualmente e gerenciar planejamentos com base em seus requisitos.
+* A segunda maneira é obter uma captura instantânea manual.
 
-Uma cópia de captura instantânea é uma imagem somente leitura de um LUN do {{site.data.keyword.blockstorageshort}} que captura o estado do volume em um momento. As cópias de captura instantânea são eficientes tanto no momento em que é necessário criá-las quanto no espaço de armazenamento. Uma cópia de captura instantânea do {{site.data.keyword.blockstorageshort}} leva somente alguns segundos para ser criada. Normalmente menos de 1 segundo, independentemente do tamanho do volume ou do nível de atividade no armazenamento. Depois que uma cópia de captura instantânea é criada, as mudanças nos objetos de dados são refletidas em atualizações para a versão atual dos objetos, como se as cópias de Captura instantânea não existissem. Enquanto isso, a cópia dos dados permanece estável. 
+Uma cópia de captura instantânea é uma imagem somente leitura de um LUN do {{site.data.keyword.blockstorageshort}} que captura o estado do volume em um momento. As cópias de captura instantânea são eficientes tanto no momento em que é necessário criá-las quanto no espaço de armazenamento. Uma cópia de captura instantânea do {{site.data.keyword.blockstorageshort}} leva somente alguns segundos para ser criada. Normalmente menos de 1 segundo, independentemente do tamanho do volume ou do nível de atividade no armazenamento. Depois que uma cópia de captura instantânea é criada, as mudanças nos objetos de dados são refletidas em atualizações para a versão atual dos objetos, como se as cópias de Captura instantânea não existissem. Enquanto isso, a cópia dos dados permanece estável.
 
 Em uma cópia de Captura instantânea não incorre diminuição de desempenho. Os usuários podem armazenar facilmente até 50 capturas instantâneas planejadas e 50 capturas instantâneas manuais por volume do {{site.data.keyword.blockstorageshort}}, todas as quais são acessíveis como versões somente leitura e on-line dos dados.
 
-Com capturas instantâneas, é possível: 
+Com capturas instantâneas, é possível:
 
 - Criar ininterruptamente pontos de recuperação point-in-time,
 - Reverter os volumes para momentos anteriores.
 
-Deve-se comprar alguma quantia de espaço de captura instantânea para seu volume primeiro para que você possa tirar capturas instantâneas dele. O espaço de captura instantânea pode ser incluído durante o pedido inicial ou mais tarde por meio da página **Detalhes do volume**. As capturas instantâneas planejadas e manuais compartilham o espaço de captura instantânea, portanto, certifique-se de pedir espaço de Captura instantânea suficiente. Consulte o artigo [Solicitando capturas instantâneas](ordering-snapshots.html) para obter mais detalhes e orientação.
+Deve-se comprar alguma quantia de espaço de captura instantânea para seu volume primeiro para que você possa tirar capturas instantâneas dele. O espaço de captura instantânea pode ser incluído durante o pedido inicial ou mais tarde por meio da página **Detalhes do volume**. As capturas instantâneas planejadas e manuais compartilham o espaço de captura instantânea, portanto, certifique-se de pedir espaço de Captura instantânea suficiente. Para obter mais informações, consulte [Pedindo capturas instantâneas](ordering-snapshots.html).
 
-**Melhores práticas de captura instantânea**
+## Melhores práticas de captura instantânea
 
-O design da captura instantânea depende do ambiente do cliente. As considerações de design a seguir podem ajudá-lo a planejar e implementar cópias de Captura instantânea: 
-- Até 50 capturas instantâneas podem ser criadas por meio de um planejamento e até 50 manualmente em cada volume ou LUN. 
-- Não crie capturas instantâneas em excesso. Certifique-se de que a frequência de captura instantânea planejada atenda às suas necessidades de RTO e RPO e às suas necessidades de negócios do aplicativo, planejando capturas instantâneas por hora, diárias ou semanais. 
+O design da captura instantânea depende do ambiente do cliente. As considerações de design a seguir podem ajudá-lo a planejar e implementar cópias de Captura instantânea:
+- Até 50 capturas instantâneas podem ser criadas por meio de um planejamento e até 50 manualmente em cada volume ou LUN.
+- Não crie capturas instantâneas em excesso. Certifique-se de que a frequência de captura instantânea planejada atenda às suas necessidades de RTO e RPO e às suas necessidades de negócios do aplicativo, planejando capturas instantâneas por hora, diárias ou semanais.
 - O AutoDelete da captura instantânea pode ser usado para controlar o crescimento do consumo de armazenamento. <br/>
-  >**Nota** - o limite de AutoDelete é fixado em 95 por cento.
-    
+
+  O limite de AutoDelete é fixo em 95%.
+  {:note}
+
 As capturas instantâneas não são substituições para replicação real de Recuperação de desastre externo ou para backup de longa retenção.
-    
-** Como as capturas instantâneas afetam o espaço em disco **
+{:important}
+
+## Segurança
+
+Todas as capturas instantâneas e réplicas do {{site.data.keyword.filestorage_short}} criptografado também são criptografadas por padrão. Esse recurso não pode ser desativado em uma base de volume. Para obter mais informações sobre a criptografia em repouso gerenciada pelo provedor, consulte [Protegendo os dados](block-file-storage-encryption-rest.html).
+
+## Como as capturas instantâneas afetam o espaço em disco
 
 As cópias de captura instantânea minimizam o uso de espaço em disco preservando blocos individuais em vez de arquivos inteiros. As cópias de captura instantânea usam espaço extra somente quando os arquivos no sistema de arquivos ativo são mudados ou excluídos. Quando isso acontece, os blocos de arquivos originais ainda são preservados como parte de uma ou mais cópias de captura instantânea.
 
@@ -62,4 +73,5 @@ No sistema de arquivos ativo, os blocos mudados são regravados em diferentes lo
       </tr>
 </table>
 
-Para visualizar a quantia de espaço de captura instantânea que é usada, siga as instruções no artigo [Gerenciando capturas instantâneas](working-with-snapshots.html).
+Para obter mais informações sobre como visualizar quanto de espaço de captura instantânea é usado, consulte
+[Gerenciando as capturas instantâneas](working-with-snapshots.html).

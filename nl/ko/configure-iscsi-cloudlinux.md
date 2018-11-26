@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # CloudLinux에서 MPIO iSCSI LUN에 연결
 
 다음 지시사항을 따라 CloudLinux Server 릴리스 6.10에서 다중 경로를 사용하여 iSCSI LUN을 설치하십시오.
 
 시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 이미 권한 부여했는지 확인하십시오.
+{:tip}
 
 1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에 로그인하십시오.
 2. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
@@ -21,7 +25,8 @@ lastupdated: "2018-08-02"
 4. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
 5. 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소를 기록해 두십시오.
 
-**참고:** 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
+방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
+{:important}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 
@@ -30,18 +35,18 @@ lastupdated: "2018-08-02"
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
-   
+
    ```
    {: pre}
-   
+
    ```
      chkconfig multipathd on
    ```
    {: pre}
-   
+
    ```
       chkconfig iscsid on
    ```
@@ -82,7 +87,7 @@ lastupdated: "2018-08-02"
      {: codeblock}
 
    - 사용자 이름과 비밀번호를 추가하여 CHAP 설정 `/etc/iscsi/iscsid.conf`를 업데이트하십시오.
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +100,9 @@ lastupdated: "2018-08-02"
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **참고** - CHAP 이름에는 대문자를 사용하십시오. 다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.BluSoftlayer_full}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
+
+     CHAP 이름에는 대문자를 사용하십시오. 다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.BluSoftlayer_full}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
+     {:important}
 
 
 3. `iscsi` 및 `multipathd` 서비스를 다시 시작하십시오.
@@ -104,12 +110,12 @@ lastupdated: "2018-08-02"
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. {{site.data.keyword.slportal}}에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
 
      A. iSCSI 배열에 대해 검색을 실행하십시오..
@@ -117,7 +123,7 @@ lastupdated: "2018-08-02"
             iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
        ```
        {: pre}
-     
+
         출력 예제
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +142,7 @@ lastupdated: "2018-08-02"
    iscsiadm -m session
    ```
    {: pre}
-   
+
    출력 예제
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -146,10 +152,10 @@ lastupdated: "2018-08-02"
 
 6. 디바이스가 연결되었는지 확인하십시오.
    ```
-   fdisk -l 
+   fdisk -l
    ```
    {: pre}
-    
+
    출력 예제
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +186,7 @@ lastupdated: "2018-08-02"
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
      이제 볼륨이 마운트되어 호스트에서 액세스 가능합니다.
 
 7. 디바이스를 나열하여 MPIO가 제대로 구성되었는지 확인하십시오. 올바르게 구성된 경우 두 개의 NETAPP 디바이스만 표시됩니다.
@@ -189,7 +195,7 @@ lastupdated: "2018-08-02"
 # multipath -l
    ```
    {: pre}
-   
+
    출력 예제
    ```
    root@server:~# multipath -l

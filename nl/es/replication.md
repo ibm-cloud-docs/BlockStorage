@@ -2,19 +2,22 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# Replicación de datos
+# Réplica de datos
 
 La réplica utiliza una de sus planificaciones de instantáneas para copiar automáticamente las instantáneas a un volumen de destino de un centro de datos remoto. Las copias se pueden recuperar en el sitio remoto si se produce un suceso catastrófico o los datos resultan dañados.
 
-Con las réplicas, puede
+Con las réplicas puede recuperarse rápidamente de anomalías del sitio y otros desastres. En caso de emergencia, puede realizar una migración tras error al volumen de destino y acceder a sus datos desde un determinado punto en el tiempo en la copia DR. Para obtener más información, consulte [Duplicación de volúmenes de réplica para la recuperación tras desastre](disaster-recovery.html).
 
-- Recuperarse rápidamente de fallos del sitio y otros desastres realizando la migración al volumen de destino.
-- Realizar una migración tras error a un punto específico en el tiempo en la copia de recuperación tras desastre.
+La réplica conserva sus datos sincronizados en dos ubicaciones diferentes. Si solo desea clonar su volumen y utilizarlo independientemente del volumen original, consulte [Creación de un volumen de bloque duplicado](how-to-create-duplicate-volume.html).
+{:tip}
 
 Antes de poder replicar, debe crear una planificación de instantáneas. Cuando realiza la migración tras error, está "cambiando el conmutador" de su volumen de almacenamiento del centro de datos primario al volumen de destino del centro de datos remoto. Por ejemplo, su centro de datos primario es Londres y el centro de datos secundario es Ámsterdam. Si se produjera un suceso de error, debería realizar la migración a Ámsterdam, conectando al ahora volumen primario desde una instancia de cálculo en Ámsterdam. Cuando su volumen de Londres se haya reparado, se realizará una instantánea del volumen de Ámsterdam para volver a Londres y al volumen primario de nuevo desde una instancia de cálculo de Londres.
 
@@ -28,7 +31,7 @@ Consulte la Tabla 1 para ver la lista completa de disponibilidad de centros de d
   <caption style="text-align: left;"><p>Tabla 1: esta tabla muestra la lista completa de centros de datos con funciones mejoradas en cada región. Cada región está en una columna separada. Algunas ciudades, como Dallas, San José, Washington DC, Ámsterdam, Frankfurt, Londres y Sídney, tienen varios centros de datos.</p>
   <p>&#42; Los centros de datos de la región EE.UU. 1 NO tienen almacenamiento mejorado. Los hosts de los centros de datos con funciones mejoradas de almacenamiento <strong>no pueden</strong> iniciar la réplica con destinos de réplica en los centros de datos de EE.UU. 1.</p>
   </caption>
-    <thead>
+  <thead>
     <tr>
       <th>EE.UU. 1 &#42;</th>
       <th>EE.UU. 2</th>
@@ -106,7 +109,8 @@ Las réplicas se basan en una planificación de réplica. Primero debe tener un 
 1. Pulse el volumen de almacenamiento.
 2. Pulse **Réplica** y pulse **Adquirir una réplica**.
 3. Seleccione la planificación de instantáneas existente que quiera que siga su réplica. La lista contiene todas las planificaciones de instantáneas activas. <br />
-   >**Nota**: Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Consulte [Trabajar con instantáneas](snapshots.html) para obtener más detalles.
+   Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Consulte [Trabajar con instantáneas](snapshots.html) para obtener más detalles.
+   {:important}
 3. Pulse **Ubicación** y seleccione el centro de datos que es su sitio de recuperación tras desastre.
 4. Pulse **Continuar**.
 5. Especifique un **Código promocional** si tiene uno y pulse **Recalcular**. Los otros campos de la ventana se completan de forma predeterminada.
@@ -167,7 +171,8 @@ Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. No p
 
 Los tamaños de volumen deben ser los mismos para sus volúmenes de almacenamiento primario y de réplica. No puede haber uno mayor que otro. Cuando aumenta el espacio de instantáneas para su volumen primario, el espacio de réplica se aumenta automáticamente. El aumento del espacio de instantáneas desencadena una actualización de réplica inmediata. El aumento en ambos volúmenes se muestra como elementos de línea en su factura, y se prorratea en caso necesario.
 
-Pulse [aquí](snapshots.html) para obtener información sobre cómo aumentar el espacio de instantáneas.
+Para obtener más información sobre cómo aumentar el espacio de instantáneas, consulte [Solicitud de instantáneas](ordering-snapshots.html).
+{:tip}
 
 
 ## Inicio de una migración tras error desde un volumen a su réplica
@@ -228,7 +233,7 @@ Los duplicados pueden crearse a partir de volúmenes primarios y de réplica. El
 
 Se puede acceder a los volúmenes duplicados mediante un host para lectura/escritura siempre y cuando el almacenamiento esté suministrado. Sin embargo, no se permiten instantáneas ni réplicas hasta que se completa la copia de datos del original en el duplicado.
 
-Para obtener más información, consulte [Creación de un volumen de bloque duplicado](how-to-create-duplicate-volume.html)
+Para obtener más información, consulte [Creación de un volumen de bloque duplicado](how-to-create-duplicate-volume.html).
 
 
 ## Cancelación de una réplica existente

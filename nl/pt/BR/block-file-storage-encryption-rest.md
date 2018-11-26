@@ -2,14 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Protegendo seus dados - Criptografia em repouso gerenciada por provedor
 
-## Criptografia em repouso do {{site.data.keyword.blockstorageshort}} 
+## Criptografia em repouso do {{site.data.keyword.blockstorageshort}}
 
 O {{site.data.keyword.BluSoftlayer_full}} leva a necessidade de segurança a sério e entende a importância de ser capaz de criptografar dados para mantê-los seguros. Com a criptografia gerenciada por provedor, o {{site.data.keyword.blockstoragefull}} que é provisionado com a opção Endurance ou Performance, é criptografado por padrão, sem custo extra e sem impacto no desempenho.
 
@@ -34,4 +37,5 @@ Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center ano
 
 
 
-**Nota** - O armazenamento não criptografado que foi provisionado antes do upgrade do data center **não é** criptografado automaticamente. Se você possuir um armazenamento não criptografado em um data center submetido a upgrade e desejar armazenamento criptografado, será necessário criar um novo LUN/volume e migrar seus dados. Para obter mais informações, consulte [Migração do {{site.data.keyword.blockstorageshort}} em data centers submetidos a upgrade](migrate-block-storage-encrypted-block-storage.html).
+O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você possuir um armazenamento não criptografado em um data center submetido a upgrade e desejar armazenamento criptografado, será necessário criar um novo LUN/volume e migrar seus dados. Para obter mais informações, consulte [Migração do {{site.data.keyword.blockstorageshort}} em data centers submetidos a upgrade](migrate-block-storage-encrypted-block-storage.html).
+{:important}

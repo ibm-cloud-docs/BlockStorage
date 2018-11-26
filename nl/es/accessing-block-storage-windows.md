@@ -2,11 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Conexión a los LUN de iSCSI de MPIO en Microsoft Windows
 
@@ -33,62 +35,86 @@ A continuación se describen los pasos necesarios para conectar una instancia de
 2. Pulse **Descubrir multivías de acceso**.
 3. Marque el recuadro de selección **Añadir soporte para dispositivos iSCSI** y, a continuación, pulse **Añadir**. Cuando se le solicite reiniciar el sistema, pulse **Sí**.
 
-**Nota**: En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device Specific Module (MSDSM) reclame todos los dispositivos iSCSI para MPIO, lo que requiere una conexión a un destino de iSCSI en primer lugar.
+En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device Specific Module (MSDSM) reclame todos los dispositivos iSCSI para MPIO, lo que requiere una conexión a un destino de iSCSI en primer lugar.
+{:note}
 
 ### Configuración del iniciador iSCSI
 
 1. Inicie el iniciador iSCSI desde Server Manager y seleccione **Herramientas**, **Iniciador iSCSI**.
 2. Pulse el separador **Configuración**.
     - Puede que el campo de nombre de iniciador ya esté rellenado con una entrada similar a `iqn.1991-05.com.microsoft:`.
-    - Pulse **Cambiar** para sustituir los valores existentes por su nombre calificado iSCSI (IQN). El nombre IQN se puede obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+    - Pulse **Cambiar** para sustituir los valores existentes por su nombre calificado iSCSI (IQN).
     ![Propiedades del iniciador de iSCSI](/images/iSCSI.png)
+
+      El nombre IQN se puede obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+      {: tip}
+
     - Pulse el separador **Descubrir** y pulse **Descubrir portal**.
-    - Especifique la dirección IP del destino iSCSI y deje el puerto en el valor predeterminado de 3260. 
+    - Especifique la dirección IP del destino iSCSI y deje el puerto en el valor predeterminado de 3260.
     - Pulse **Avanzado** para abrir la ventana Configuración avanzada.
     - Seleccione **Habilitar inicio de sesión CHAP** para activar la autenticación CHAP.
     ![Habilitar inicio de sesión CHAP](/images/Advanced_0.png)
-    **Nota:** los campos Nombre y Secreto de destino distinguen entre mayúsculas y minúsculas.
+
+    Los campos Nombre y Secreto de destino distinguen entre mayúsculas y minúsculas.
+    {:important}
          - En el campo **Nombre**, suprima las entradas existentes y la entrada correspondiente al nombre de usuario del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
          - En el campo **Secreto de destino**, escriba la contraseña del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
     - Pulse **Aceptar** en las ventanas **Configuración avanzada** y **Descubrir portal de destino** para volver a la pantalla principal de propiedades del iniciador de iSCSI. Si recibe errores de autenticación, compruebe las entradas de nombre de usuario y contraseña.
     ![Destino inactivo](/images/Inactive_0.png)
-    **Nota**: El nombre de su destino aparece en la sección Destinos descubiertos con un estado Inactivo. 
 
-    
+    El nombre de su destino aparece en la sección Destinos descubiertos con un estado Inactivo.
+    {:note}
+
+
 ### Activación de destino
 
 1. Pulse **Conectar** para conectarse al destino.
 2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. ![Habilitar multivía de acceso](/images/Connect_0.png)
 3. Pulse **Avanzado** y seleccione **Habilitar inicio de sesión CHAP**.
 ![Habilitar CHAP](/images/chap_0.png)
-4. Especifique el nombre de usuario en el campo Nombre y especifique la contraseña en el campo secreto de destino.<br/>
-**Nota:** los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}}.
+4. Especifique el nombre de usuario en el campo Nombre y especifique la contraseña en el campo secreto de destino.
+
+   Los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}}. 
+   {:tip}
 5. Pulse **Aceptar** hasta que aparezca la ventana **Propiedades del iniciador de iSCSI**. El estado del destino en la sección **Destinos descubiertos** pasa de **Inactivo** a **Conectado**.
-![Estado Conectado](/images/Connected.png) 
+![Estado Conectado](/images/Connected.png)
 
 
 ### Configuración de MPIO en el iniciador iSCSI
 
 1. Inicie el iniciador iSCSI y, en el separador Destinos, pulse **Propiedades**.
 2. Pulse **Añadir sesión** en la ventana Propiedades para abrir la ventana Conectar a destino.
-3. Marque el recuadro de selección **Habilitar multivía de acceso** y pulse **Avanzado...**.
-  ![Destino](/images/Target.png) 
-  
-4. En la ventana Configuración avanzada:
-   - Deje el valor predeterminado en los campos Adaptador local e IP de iniciador. Para los servidores de host con varias interfaces de iSCSI, debe elegir el valor adecuado para el campo IP del iniciador.
-   - Seleccione la dirección IP del almacenamiento iSCSI en la lista desplegable **IP del portal de destino**.
+3. En el recuadro de diálogo Conectar con destino, marque el recuadro de selección **Habilitar multivía de acceso** y pulse **Avanzado**.
+  ![Destino](/images/Target.png)
+
+4. En la ventana Configuración avanzada ![Configuración](/images/Settings.png)
+   - En la lista de adaptadores locales, seleccione Microsoft iSCSI Initiator.
+   - En la lista de IP de iniciador, seleccione la dirección IP del host.
+   - En la lista de IP de portal de destino, seleccione la IP de la interfaz del dispositivo.
    - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
    - Escriba los valores secretos Nombre y Destino obtenidos en el portal y pulse **Aceptar**.
-   - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades. Ahora la ventana Propiedades muestra más de una sesión dentro del panel Identificador. Ahora tiene más de una sesión en el almacenamiento de iSCSI.
-   ![Valores](/images/Settings.png) 
+   - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades.
+
+5. Pulse **Propiedades**. En el recuadro de diálogo Propiedades, vuelva a pulsar **Añadir sesión** para añadir la segunda vía de acceso.
+6. En la ventana Conectar con destino, marque el recuadro de selección **Habilitar multivía**. Pulse **Avanzado**.
+7. En la ventana Configuración avanzada:
+   - En la lista de adaptadores locales, seleccione Microsoft iSCSI Initiator.
+   - En la lista de IP de iniciador, seleccione la dirección IP correspondiente al host. En este caso, va a conectar dos interfaces de red del dispositivo a una sola interfaz de red del host. Por lo tanto, la interfaz es la misma que la proporcionada para la primera sesión.
+   - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
+   - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
+   - Escriba los valores secretos Nombre y Destino obtenidos en el portal y pulse **Aceptar**.
+   - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades.
+8. Ahora la ventana Propiedades muestra más de una sesión dentro del panel Identificador. Tiene más de una sesión en el almacenamiento de iSCSI.
    
-5. En la ventana Propiedades, pulse **Dispositivos** para abrir la ventana Dispositivos. El nombre de la interfaz de dispositivo empieza por `mpio`. <br/>
-  ![Dispositivos](/images/Devices.png) 
-  
-6. Pulse **MPIO** para abrir la ventana **Detalles de dispositivo**. Puede elegir las políticas de equilibrio de carga para MPIO en esta ventana, que también muestra las vías de acceso a iSCSI. En este ejemplo, dos vías de acceso se muestran como disponibles para MPIO con una política de equilibrio de carga Round Robin con subconjunto.
-  ![La ventana Detalles del dispositivo muestra dos vías de acceso disponibles para MPIO con una política de equilibrio de carga Round Robin con subconjunto](/images/DeviceDetails.png) 
-  
-7. Pulse **Aceptar** varias veces para salir del iniciador iSCSI.
+   Si el host tiene varias interfaces que desea conectar con el almacenamiento ISCSI, puede configurar otra conexión con la dirección IP del otro NIC en el campo de IP del iniciador. Sin embargo, asegúrese de autorizar a la segunda dirección IP del iniciador en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} antes de intentar establecer la conexión.
+   {:note}
+9. En la ventana Propiedades, pulse **Dispositivos** para abrir la ventana Dispositivos. El nombre de la interfaz de dispositivo empieza por `mpio`. <br/>
+  ![Dispositivos](/images/Devices.png)
+
+10. Pulse **MPIO** para abrir la ventana **Detalles de dispositivo**. Puede elegir las políticas de equilibrio de carga para MPIO en esta ventana, que también muestra las vías de acceso a iSCSI. En este ejemplo, dos vías de acceso se muestran como disponibles para MPIO con una política de equilibrio de carga Round Robin con subconjunto.
+  ![La ventana Detalles del dispositivo muestra dos vías de acceso disponibles para MPIO con una política de equilibrio de carga Round Robin con subconjunto](/images/DeviceDetails.png)
+
+11. Pulse **Aceptar** varias veces para salir del iniciador iSCSI.
 
 
 

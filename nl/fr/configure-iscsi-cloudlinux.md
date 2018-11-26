@@ -2,18 +2,22 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux
 
 Suivez ces instructions pour installer votre numéro d'unité logique iSCSI avec multi-accès sur CloudLinux Server 6.10.
 
 Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
+{:tip}
 
 1. Connectez-vous au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
 2. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
@@ -21,7 +25,8 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
 4. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
 5. Notez le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible.
 
-**Remarque :** il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
+Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
+{:important}
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 
@@ -30,18 +35,18 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    yum install iscsi-initiator-utils
    ```
    {: pre}
-   
+
    ```
    yum install multipath-tools
-   
+
    ```
    {: pre}
-   
+
    ```
    chkconfig multipathd on
    ```
    {: pre}
-   
+
    ```
    chkconfig iscsid on
    ```
@@ -82,7 +87,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
      {: codeblock}
 
    - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe.
-   
+
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
@@ -95,8 +100,9 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
      discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
      ```
      {: codeblock}
-   
-     **Remarque** : utilisez des majuscules pour les noms CHAP. Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
+
+     Utilisez des majuscules pour les noms CHAP. Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
+     {:important}
 
 
 3. Redémarrez les services `iscsi` et `multipathd`.
@@ -104,12 +110,12 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    /etc/init.d/iscsi restart   
    ```
    {: pre}
-   
+
    ```
    /etc/init.d/multipathd restart   
    ```
    {: pre}
- 
+
 4. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue à partir du portail {{site.data.keyword.slportal}}.
 
      A. Exécutez la reconnaissance sur la grappe iSCSI.
@@ -117,7 +123,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
        iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
        ```
        {: pre}
-     
+
         Exemple de sortie
        ```
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
@@ -136,7 +142,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    iscsiadm -m session
    ```
    {: pre}
-   
+
    Exemple de sortie
    ```
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
@@ -146,10 +152,10 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
 
 6. Vérifiez que le périphérique est connecté.
    ```
-   fdisk -l 
+   fdisk -l
    ```
    {: pre}
-    
+
    Exemple de sortie
    ```
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
@@ -180,7 +186,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    I/O size (minimum/optimal): 4096 bytes / 65536 bytes
    Disk identifier: 0x00000000
    ```
-    
+
    Le volume est maintenant monté et accessible sur l'hôte.
 
 7. Vérifiez si MPIO est correctement configuré en affichant la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés.
@@ -189,7 +195,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
    # multipath -l
    ```
    {: pre}
-   
+
    Exemple de sortie
    ```
    root@server:~# multipath -l

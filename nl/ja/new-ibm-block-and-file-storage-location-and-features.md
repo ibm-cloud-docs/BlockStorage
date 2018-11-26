@@ -2,10 +2,13 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} の新しいロケーションと機能
 
@@ -13,7 +16,10 @@ lastupdated: "2018-10-15"
 
 この新しいストレージは限られたデータ・センターで使用可能で、Data at Rest (保存されたデータ) に対してディスク・レベルで暗号化でき IOPS レベルがより高いフラッシュ・ストレージに基づいています。 アップグレードされたデータ・センターにプロビジョンされるストレージはすべて、新規バージョンで自動的に作成されます。
 
-**注:** 新規ボリュームの NFS マウント・ポイントは、非暗号化ボリュームのマウント・ポイントとは異なります。 詳しくは、**暗号化 {{site.data.keyword.filestorage_short}} ボリュームの新規マウント・ポイント**セクションを参照してください。
+新規ボリュームの NFS マウント・ポイントは、非暗号化ボリュームのマウント・ポイントとは異なります。 詳しくは、[暗号化 {{site.data.keyword.filestorage_short}} ボリュームの新規マウント・ポイント](#new-mount-point-for-encrypted-storage-volumes)セクションを参照してください。
+{:important}
+
+## 新しい場所
 
 新しい {{site.data.keyword.blockstorageshort}} は、以下の地域/データ・センターにあります。
 <table role="presentation">
@@ -77,7 +83,7 @@ lastupdated: "2018-10-15"
 
 *表 1 は、IBM のデータ・センターの可用性を示しています。 地域ごとに独自の列があります。 一部の都市 (ダラス、サンノゼ、ワシントン DC、アムステルダム、フランクフルト、ロンドン、シドニーなど) には複数のデータ・センターがあります。*
 
-新しいストレージは以下の機能と性能を備えています。
+## 新機能および能力
 
 - **[Data at Rest (保存されたデータ) に対するプロバイダー管理の暗号化](block-file-storage-encryption-rest.html)**。
   すべての {{site.data.keyword.blockstorageshort}} が、追加料金なしに、自動的に暗号化されてプロビジョンされます。
@@ -97,3 +103,4 @@ lastupdated: "2018-10-15"
 これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 ストレージ・ボリュームに対して正しいマウント・ポイントを使用していることを確認するには、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を表示します。 また、API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して、正しいマウント・ポイントにアクセスすることもできます。
 
 追加のデータ・センターがアップグレードされていないか確認したり、新しいフィーチャーや機能が {{site.data.keyword.blockstorageshort}} に追加されていないか確認したりするには、このページをもう一度参照してください。
+{:tip}

@@ -2,21 +2,27 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-10-31"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Realizar pedidos de instantáneas
 
 Para crear instantáneas de su volumen de almacenamiento, automática o manualmente, necesita adquirir espacio para mantenerlas. Puede adquirir capacidad hasta la cantidad de su volumen de almacenamiento (durante la adquisición de volumen inicial o posteriormente siguiendo los pasos descritos aquí).
 
-1. Acceda a su LUN de almacenamiento a través del separador **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-2. Pulse **Añadir espacio de instantáneas** en el marco Instantáneas.
-3. Seleccione la cantidad de espacio que necesita.
+1. Inicie una sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/){:new_window} y pulse el icono **Menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+
+   También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+2. Acceda a su LUN de almacenamiento a través de **Almacenamiento** >**{{site.data.keyword.blockstorageshort}}**.
+2. Pulse **Cambiar espacio de instantáneas** en el marco Instantáneas.
+3. Seleccione la cantidad de espacio que necesita y el método de pago.
 4. Pulse **Continuar**.
 5. Especifique cualquier **código promocional** que tenga y pulse **Recalcular**. Los campos Cargos para este pedido y Revisión de pedido contienen información de forma predeterminada.
-6. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro…** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
+6. Marque el recuadro **He leído el Acuerdo de Servicio Maestro y acepto sus condiciones.** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
 
 ## Determinación de la cantidad de espacio de instantáneas que se debe pedir
 
@@ -24,8 +30,10 @@ Como norma general, el espacio de instantáneas que utilizan las instantáneas s
 - Cuánto cambia el sistema de archivos activo a lo largo del tiempo,
 - Cuánto tiempo tiene previsto retener las instantáneas.  
 
-La forma de calcular la cantidad de espacio que necesita es **(Tasa de Cambio)** x **(número de horas/días/semanas/meses que se retienen los datos)**.  
->**Nota**: La primera instantánea utiliza una cantidad insignificante de espacio porque solo es una copia de los metadatos (punteros) que indica los bloques del sistema de archivos activo. 
+La forma de calcular la cantidad de espacio que necesita es **(Tasa de Cambio)** x **(número de horas/días/semanas/meses que se retienen los datos)**.
+
+La primera instantánea utiliza una cantidad insignificante de espacio porque solo es una copia de los metadatos (punteros) que indica los bloques del sistema de archivos activo.
+{:note}
 
 Un volumen con muchos cambios y un periodo largo de retención necesita más espacio que un volumen con una cantidad moderada de cambios y una planificación de retención moderada. Un ejemplo para el primer tipo es una base de datos de tasas de cambio alta. Un ejemplo para el segundo tipo es un almacén de datos VMware.
 

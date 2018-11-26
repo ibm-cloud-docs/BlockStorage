@@ -39,5 +39,5 @@ As limitações de tamanho existentes para o {{site.data.keyword.blockstoragesho
 2. Selecione o LUN na lista e clique em **Ações** > **Modificar LUN**
 3. Insira o novo tamanho de armazenamento em GB.
 4. Revise a sua seleção e a nova precificação.
-5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principal...** e clique em **Fazer pedido**.
+5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principais...** e clique em **Fazer pedido**.
 6. Sua nova alocação de armazenamento estará disponível em alguns minutos.
