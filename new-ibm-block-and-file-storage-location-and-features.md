@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-26"
 
 ---
 {:new_window: target="_blank"}
@@ -101,6 +101,9 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 ## New mount point for encrypted storage volumes
 
 All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. Check the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} to ensure that you're using the correct mount point. You can also get the correct mount point information through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+
+To be able to access all the new features, select `Storage-as-a-Service Package 759` when you place your order through the API. For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
+{:important}
 
 Check back here to see when more data centers are upgraded and for new features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.
 {:tip}
