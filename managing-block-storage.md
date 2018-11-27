@@ -99,7 +99,7 @@ If you want to disconnect multiple hosts from a specific LUN, you need to repeat
 
 ## Canceling a storage LUN
 
-If you no longer need a specific LUN, you can cancel the volume at any time.
+If you no longer need a specific LUN, you can cancel that volume at any time.
 
 To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
