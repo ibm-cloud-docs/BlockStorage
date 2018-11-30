@@ -14,9 +14,9 @@ lastupdated: "2018-11-30"
 
 # Duplicating Replica Volumes for Disaster Recovery
 
-In the event of a catastrophic failure or disaster that causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site.
+If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site.
 
-## Failover with a duplicate of a replica volume on the secondary site
+## Fail over with a duplicate of a replica volume on the secondary site
 
 1. Log in to [The IBM Cloud console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://
 {DomainName}/catalog/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
@@ -31,7 +31,7 @@ In the event of a catastrophic failure or disaster that causes an outage on the 
 
 As soon as the volume is created, it can be attached to a host and perform read/write operations. While data is being copied from the original volume to the duplicate, the details page that shows that the duplication is in progress. When the duplication process is complete, the new volume becomes completely independent from the original and can be managed with snapshots and replication as normal.
 
-## Failback to the original primary site
+## Fail back to the original primary site
 
 If you want to return production to the original primary site, you must perform the following steps.
 
