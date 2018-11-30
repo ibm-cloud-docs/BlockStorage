@@ -29,7 +29,7 @@ If a catastrophic failure or disaster causes an outage on the primary site, cust
 6. Update the snapshot space for the new volume if needed.
 7. Click **Continue** to place the order for the duplicate.
 
-As soon as the volume is created, it can be attached to a host and perform read/write operations. While data is being copied from the original volume to the duplicate, the details page that shows that the duplication is in progress. When the duplication process is complete, the new volume becomes completely independent from the original and can be managed with snapshots and replication as normal.
+As soon as the volume is created, it can be attached to a host and perform read/write operations. While data is being copied from the original volume to the duplicate, the details page that shows that the duplication is in progress. When the duplication process is complete, the new volume becomes independent from the original and can be managed with snapshots and replication as normal.
 
 ## Fail back to the original primary site
 
