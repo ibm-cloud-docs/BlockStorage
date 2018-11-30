@@ -2,22 +2,24 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 스냅샷 주문
 
 스토리지 볼륨의 스냅샷을 작성하려면 자동으로 또는 수동으로 이를 보유하는 영역을 구매해야 합니다. 용량은 최대 스토리지 볼륨 크기까지 구매가 가능합니다(초기 볼륨 구매 중 또는 여기에 설명된 단계를 사용하여 이후에).
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔](https://console.bluemix.net/catalog/){:new_window}에 로그인하여 왼쪽 상단의 **메뉴** 아이콘을 클릭하십시오. **일반 인프라**를 선택하십시오. 
+1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/catalog/){:new_window}에 로그인하여 왼쪽 상단의 **메뉴** 아이콘을 클릭하십시오. **일반 인프라**를 선택하십시오.
 
-   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에 로그인할 수 있습니다. 
-2. **스토리지** >**{{site.data.keyword.blockstorageshort}}**를 통해 스토리지 LUN에 액세스하십시오. 
+   또는 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에 로그인할 수 있습니다.
+2. **스토리지** >**{{site.data.keyword.blockstorageshort}}**를 통해 스토리지 LUN에 액세스하십시오.
 2. 스냅샷 프레임에서 **스냅샷 영역 변경**을 클릭하십시오.
 3. 필요한 영역의 양과 지불 방법을 선택하십시오.
 4. **계속**을 클릭하십시오.

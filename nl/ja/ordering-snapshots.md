@@ -2,21 +2,23 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # スナップショットの注文
 
 ストレージ・ボリュームのスナップショットを作成するには、自動作成と手動作成のいずれでも、作成したスナップショットを保持するためのスペースを購入する必要があります。 容量は、(ボリュームを初めて購入するとき、またはここで説明するステップを使用して後からでも) ご使用のストレージ・ボリューム量まで購入できます。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール](https://console.bluemix.net/catalog/){:new_window}にログインし、左上の**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/catalog/){:new_window}にログインし、左上の**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
 
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}にログインできます。
+   または、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}にログインできます。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**を使用して、ストレージ LUN にアクセスします。
 2. 「スナップショット」フレームにある**「スナップショット・スペースの変更 (Change Snapshot Space)」**をクリックします。
 3. 必要なスペースの量と支払方法を選択します。

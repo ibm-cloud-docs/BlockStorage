@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-01"
+lastupdated: "2018-11-30"
 
 ---
 
@@ -10,18 +10,19 @@ lastupdated: "2018-11-01"
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Duplicando os volumes de réplicas para a recuperação de desastre
 
 No caso de uma falha ou desastre catastrófico que cause uma indisponibilidade no site primário, os clientes podem
-executar as seguintes ações para acessar rapidamente os dados no site secundário. 
+executar as seguintes ações para acessar rapidamente os dados no site secundário.
 
 ## Failover com uma duplicata de um volume de réplica no site secundário
 
-1. Efetue login no [console do IBM Cloud](https://console.bluemix.net/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**. 
+1. Efetue login no [console do IBM Cloud](https://{DomainName}/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 3. Clique na réplica do LUN na lista para visualizar a sua página de **Detalhes**.
 4. Na página de **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
@@ -35,18 +36,18 @@ Assim que o volume é criado, ele pode ser anexado a um host e executar operaç�
 
 Se você deseja retornar a produção para o site primário original, execute as seguintes etapas.
 
-1. Efetue login no [console do IBM Cloud](https://console.bluemix.net/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**. 
+1. Efetue login no [console do IBM Cloud](https://{DomainName}/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
-3. Clique no nome do LUN e crie um planejamento de captura instantânea (se ainda não existir um). 
+3. Clique no nome do LUN e crie um planejamento de captura instantânea (se ainda não existir um).
 
    Para obter mais informações sobre os planejamentos de captura instantânea, consulte
 [Gerenciando as capturas instantâneas](working-with-snapshots.html#adding-a-snapshot-schedule).
    {:tip}
 4. Clique em **Réplica** e em **Comprar uma replicação**.
 5. Selecione o planejamento de captura instantânea existente que você deseja que a replicação siga. A lista
-contém todos os planejamentos de captura instantânea ativos. 
+contém todos os planejamentos de captura instantânea ativos.
 6. Clique em **Localização** e selecione o data center que era o site de produção original.
 7. Clique em **Continuar**.
 8. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços principal…** e clique em **Fazer pedido**.

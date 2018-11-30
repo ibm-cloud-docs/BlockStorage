@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -21,7 +21,7 @@ Estas instrucciones se aplican principalmente a RHEL6 y Centos6. Se han añadido
 Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} y para configurar la multivía de acceso de DM [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {:tip}
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través de la [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través de la [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
@@ -32,7 +32,7 @@ Antes de empezar, asegúrese de que el host que está accediendo al volumen de {
 
 A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.BluSoftlayer_full}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
-El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.
@@ -513,7 +513,7 @@ Para crear un sistema de archivos con `parted`, siga estos pasos.
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - Ejemplo de salida de una configuración correcta:
 
     ```
@@ -524,11 +524,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - Ejemplos de salidas de configuraciones incorrectas:
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -541,7 +541,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -564,12 +564,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. Si no tiene ningún otro volumen en el portal de destino, suprima el registro del portal de destino para evitar futuros intentos de inicio de sesión.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    Para obtener más información, consulte la [página man de iscsiadm](https://linux.die.net/man/8/iscsiadm).
    {:tip}

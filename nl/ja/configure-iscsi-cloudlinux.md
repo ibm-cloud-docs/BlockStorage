@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -16,10 +16,10 @@ lastupdated: "2018-10-31"
 
 以下の手順に従って、CloudLinux Server リリース 6.10 にマルチパスを使用して iSCSI LUN をインストールします。
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して以前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}を介して以前に許可されていることを確認してください。
 {:tip}
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}にログインします。
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}にログインします。
 2. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
 3. **「ホストの許可」**をクリックします。
 4. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。

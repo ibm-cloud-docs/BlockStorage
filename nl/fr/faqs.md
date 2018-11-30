@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -28,16 +28,16 @@ Cela dépend de ce que peut gérer le système d'exploitation de l'hôte. Ce n'e
 ## Quelle version de Windows dois-je choisir pour mon numéro d'unité logique Block Storage ?
 {: faq}
 
-Lorsque vous créez un numéro d'unité logique, vous devez spécifier le type de système d'exploitation. Le type de système d'exploitation doit être basé sur le système d'exploitation qui est utilisé par les hôtes qui accèdent au numéro d'unité logique. Le type de système d'exploitation ne peut pas être modifié une fois que le numéro d'unité logique est créé. La taille réelle du numéro d'unité logique peut varier légèrement en fonction du type de système d'exploitation du numéro d'unité logique. 
+Lorsque vous créez un numéro d'unité logique, vous devez spécifier le type de système d'exploitation. Le type de système d'exploitation doit être basé sur le système d'exploitation qui est utilisé par les hôtes qui accèdent au numéro d'unité logique. Le type de système d'exploitation ne peut pas être modifié une fois que le numéro d'unité logique est créé. La taille réelle du numéro d'unité logique peut varier légèrement en fonction du type de système d'exploitation du numéro d'unité logique.
 
 ** Windows 2008+**
-- Le numéro d'unité logique stocke des données Windows pour Windows 2008 et versions ultérieures. Utilisez cette option de système d'exploitation si votre système d'exploitation hôte est Windows Server 2008, Windows Server 2012, Windows Server 2016. Les méthodes de partitionnement MBR et GPT sont toutes les deux prises en charge. 
- 
+- Le numéro d'unité logique stocke des données Windows pour Windows 2008 et versions ultérieures. Utilisez cette option de système d'exploitation si votre système d'exploitation hôte est Windows Server 2008, Windows Server 2012, Windows Server 2016. Les méthodes de partitionnement MBR et GPT sont toutes les deux prises en charge.
+
 **Windows 2003**
-- Le numéro d'unité logique stocke un type de disque brut dans un disque Windows à une partition à l'aide du style de partitionnement MBR (Master Boot Record). Utilisez cette option uniquement si votre système d'exploitation hôte est Windows 2000 Server, Windows XP ou Windows Server 2003 qui utilise la méthode de partitionnement MBR. 
+- Le numéro d'unité logique stocke un type de disque brut dans un disque Windows à une partition à l'aide du style de partitionnement MBR (Master Boot Record). Utilisez cette option uniquement si votre système d'exploitation hôte est Windows 2000 Server, Windows XP ou Windows Server 2003 qui utilise la méthode de partitionnement MBR.
 
 **Windows GPT**
--  Le numéro d'unité logique stocke des données Windows en utilisant le style de partitionnement GPT (GUID Partition Type). Utilisez cette option si vous souhaitez adopter la méthode de partitionnement GPT et que votre hôte est capable de l'utiliser. Windows Server 2003, Service Pack 1 et les niveaux ultérieurs peuvent utiliser la méthode de partitionnement GPT, et toutes les versions 64 bits de Windows la prennent en charge. 
+-  Le numéro d'unité logique stocke des données Windows en utilisant le style de partitionnement GPT (GUID Partition Type). Utilisez cette option si vous souhaitez adopter la méthode de partitionnement GPT et que votre hôte est capable de l'utiliser. Windows Server 2003, Service Pack 1 et les niveaux ultérieurs peuvent utiliser la méthode de partitionnement GPT, et toutes les versions 64 bits de Windows la prennent en charge.
 
 ## La limite du nombre d'IOPS est-elle imposée par instance ou par volume ?
 {: faq}
@@ -54,7 +54,7 @@ Les E-S/s sont mesurées en fonction d'un profil de chargement par blocs de 16 k
 
 Le nombre maximal d'IOPS peut être obtenu même si vous utilisez des tailles de bloc plus petites. Toutefois, le débit devient plus lent. Par exemple, un volume doté de 6 000 IOPS présente les débits suivants en fonction des tailles de bloc :
 
-- 16 ko * 6 000 E-S/s == ~93,75 Mo/sec 
+- 16 ko * 6 000 E-S/s == ~93,75 Mo/sec
 - 8 ko * 6 000 E-S/s == ~46,88 Mo/sec
 - 4 ko * 6 000 E-S/s == ~23,44 Mo/sec
 
@@ -86,7 +86,7 @@ Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}}
 ## Comment savoir quels numéros d'unité logiques/volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
 
-Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés. 
+Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
 
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}
@@ -96,8 +96,8 @@ Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres
 ## Si nous possédons un stockage {{site.data.keyword.blockstorageshort}} non chiffré dans un centre de données qui a été récemment mis à jour, pouvons-nous chiffrer ce stockage {{site.data.keyword.blockstorageshort}} ?
 {: faq}
 
-Un service {{site.data.keyword.blockstorageshort}} qui est mis à disposition avant la mise à niveau du centre de données ne peut pas être chiffré. 
-Un nouveau service {{site.data.keyword.blockstorageshort}} mis à disposition dans des centres de données mis à niveau est automatiquement chiffré. Vous n'avez pas à choisir de paramètre de chiffrement, car la procédure est automatique. 
+Un service {{site.data.keyword.blockstorageshort}} qui est mis à disposition avant la mise à niveau du centre de données ne peut pas être chiffré.
+Un nouveau service {{site.data.keyword.blockstorageshort}} mis à disposition dans des centres de données mis à niveau est automatiquement chiffré. Vous n'avez pas à choisir de paramètre de chiffrement, car la procédure est automatique.
 Les données situées sur un stockage non chiffré dans un centre de données mis à niveau peuvent être chiffrées en créant un numéro d'unité logique de bloc, puis en copiant les données sur le nouveau numéro d'unité logique chiffré à l'aide d'une migration basée sur l'hôte. Cliquez [ici](migrate-block-storage-encrypted-block-storage.html) pour obtenir des instructions.
 
 ## {{site.data.keyword.blockstorageshort}} prend-il en charge la réservation persistante SCSI-3 pour implémenter la protection d'E-S pour Db2 pureScale ?

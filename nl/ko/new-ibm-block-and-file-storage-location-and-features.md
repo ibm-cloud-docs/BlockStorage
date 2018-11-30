@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -100,7 +100,7 @@ TOK02<br />
 
 ## 암호화된 스토리지 볼륨의 새 마운트 위치
 
-이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. 스토리지 볼륨에 대해 올바른 마운트 위치를 사용 중인지 확인하기 위해 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인할 수 있습니다. 또한 API 호출(`SoftLayer_Network_Storage::getNetworkMountAddress()`)을 통해 올바른 마운트 지점에 액세스할 수도 있습니다.
+이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. 스토리지 볼륨에 대해 올바른 마운트 위치를 사용 중인지 확인하기 위해 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인할 수 있습니다. 또한 API 호출(`SoftLayer_Network_Storage::getNetworkMountAddress()`)을 통해 올바른 마운트 지점에 액세스할 수도 있습니다.
 
 여기에서는 추가 데이터 센터가 업그레이드된 시기 및 {{site.data.keyword.blockstorageshort}}에 대해 추가 중인 새로운 기능에 대해서도 확인할 수 있습니다.
 {:tip}

@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Iniciación a {{site.data.keyword.blockstorageshort}}
 
@@ -33,20 +35,20 @@ Aproveche las siguientes características de {{site.data.keyword.blockstoragesho
 - **Réplica** ([disponible en centros de datos seleccionados](new-ibm-block-and-file-storage-location-and-features.html))
    - Copia automáticamente instantáneas a un centro de datos de {{site.data.keyword.BluSoftlayer_full}} asociado.
 - **Conectividad de alta disponibilidad**
-   - Utiliza conexiones de red redundantes para maximizar la disponibilidad 
+   - Utiliza conexiones de red redundantes para maximizar la disponibilidad
    - {{site.data.keyword.blockstorageshort}} basado en iSCSI utiliza E/S de multivía de acceso (MPIO).
 - **Acceso simultáneo**
    - Permite a varios hosts acceder a volúmenes de bloques simultáneamente (hasta ocho) para configuraciones en clúster.
 - **Bases de datos en clúster**
    - Da soporte a casos de uso avanzados, como bases de datos en clúster.
-     
+
 ## Facturación
 
-Puede elegir entre facturación por horas o mensual para un LUN de bloque. El tipo de facturación seleccionado para un LUN se aplica a su espacio de instantáneas y réplicas. Por ejemplo, si suministra un LUN con facturación por horas, todas las tasas de instantáneas o réplicas se facturan por horas. Si suministra un LUN con facturación mensual, todas las tasas de instantáneas o réplicas se facturan mensualmente. 
+Puede elegir entre facturación por horas o mensual para un LUN de bloque. El tipo de facturación seleccionado para un LUN se aplica a su espacio de instantáneas y réplicas. Por ejemplo, si suministra un LUN con facturación por horas, todas las tasas de instantáneas o réplicas se facturan por horas. Si suministra un LUN con facturación mensual, todas las tasas de instantáneas o réplicas se facturan mensualmente.
 
-Con la **facturación por horas**, el número de horas que el LUN de bloque ha existido en la cuenta se calcula en el momento en que se suprime el LUN o al final del ciclo de facturación, lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas está disponible para el almacenamiento suministrado solo en [centros de datos seleccionados](new-ibm-block-and-file-storage-location-and-features.html). 
+Con la **facturación por horas**, el número de horas que el LUN de bloque ha existido en la cuenta se calcula en el momento en que se suprime el LUN o al final del ciclo de facturación, lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas está disponible para el almacenamiento suministrado solo en [centros de datos seleccionados](new-ibm-block-and-file-storage-location-and-features.html).
 
-Con la **facturación mensual**, el cálculo del precio se prorratea desde la fecha de creación hasta la finalización del ciclo de facturación y se factura al momento. Si se suprime un LUN antes de finalizar el ciclo de facturación, no se reembolsará. La facturación mensual es una buena opción para el almacenamiento utilizado en cargas de trabajo de producción que utilizan datos que tienen que almacenarse, y por tanto acceder a ellos, durante largo periodos de tiempo (un mes o más). 
+Con la **facturación mensual**, el cálculo del precio se prorratea desde la fecha de creación hasta la finalización del ciclo de facturación y se factura al momento. Si se suprime un LUN antes de finalizar el ciclo de facturación, no se reembolsará. La facturación mensual es una buena opción para el almacenamiento utilizado en cargas de trabajo de producción que utilizan datos que tienen que almacenarse, y por tanto acceder a ellos, durante largo periodos de tiempo (un mes o más).
 
 **Rendimiento**
 <table>
@@ -60,7 +62,7 @@ Con la **facturación mensual**, el cálculo del precio se prorratea desde la fe
    <td>0,0001 USD/GB + 0,0002 USD/IOPS</td>
   </tr>
 </table>
- 
+
 **Resistencia**
 <table>
   <caption>La Tabla 2 muestra los precios de Almacenamiento resistente para cada nivel con opciones de facturación mensual y por horas.</caption>
@@ -93,7 +95,7 @@ Con la **facturación mensual**, el cálculo del precio se prorratea desde la fe
 
 Los LUN de {{site.data.keyword.blockstorageshort}} se pueden suministrar de 20 GB a 12 TB con dos opciones: <br/>
 - Suministro de niveles de **Resistencia** que presentan niveles de rendimiento predefinidos y otras características como instantáneas y réplica.
-- Crear un entorno de **Rendimiento** de alta potencia con operaciones de entrada/salida asignadas por segundo (IOPS). 
+- Crear un entorno de **Rendimiento** de alta potencia con operaciones de entrada/salida asignadas por segundo (IOPS).
 
 ### Suministro con niveles de Resistencia
 
@@ -108,13 +110,13 @@ Los LUN de {{site.data.keyword.blockstorageshort}} se pueden suministrar de 20 G
 - **10 IOPS por GB** está diseñado para las cargas de trabajo más exigentes, como las creadas por bases de datos NoSQL y el proceso de datos para Analytics. Este nivel está disponible para almacenamiento suministrado de hasta 4 TB solo en [centros de datos seleccionados](new-ibm-block-and-file-storage-location-and-features.html).
 
 Hay disponibles hasta 48.000 IOPS con el volumen de Resistencia de 12 TB.
- 
+
 Elegir el nivel de Resistencia adecuado para su carga de trabajo es clave. Es igualmente importante utilizar valores adecuados para el tamaño de bloque, la velocidad de conexión de Ethernet y el número de hosts necesarios para alcanzar el máximo rendimiento. Si alguno de estos componentes no se alinea con los demás, puede afectar negativamente sobre el rendimiento final.
 
- 
+
 ### Suministro con Rendimiento
 
-El Rendimiento es una clase de {{site.data.keyword.blockstorageshort}} diseñada para dar soporte a aplicaciones de alto nivel de entrada/salida con requisitos de rendimiento definidos, que no encajan en un nivel de Resistencia. El rendimiento previsible se consigue mediante la asignación de IOPS a nivel de protocolo a volúmenes individuales. Se pueden suministrar varias tasas de IOPS (de 100 a 48.000) con tamaños de almacenamiento que oscilan entre los 20 GB y los 12 TB. 
+El Rendimiento es una clase de {{site.data.keyword.blockstorageshort}} diseñada para dar soporte a aplicaciones de alto nivel de entrada/salida con requisitos de rendimiento definidos, que no encajan en un nivel de Resistencia. El rendimiento previsible se consigue mediante la asignación de IOPS a nivel de protocolo a volúmenes individuales. Se pueden suministrar varias tasas de IOPS (de 100 a 48.000) con tamaños de almacenamiento que oscilan entre los 20 GB y los 12 TB.
 
 Se requiere una conexión de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO) para acceder y montar el rendimiento para {{site.data.keyword.blockstorageshort}}. {{site.data.keyword.blockstorageshort}} se suele utilizar cuando un único servidor accede al volumen. Se pueden montar varios volúmenes en un host y juntarse para conseguir volúmenes más grandes y recuentos de IOPS más altos. Se pueden realizar pedidos de volúmenes de rendimiento de acuerdo con los tamaños y las tasas de IOPS indicados en la Tabla 3 para sistemas operativos Linux, XEN y Windows.
 
@@ -263,7 +265,7 @@ La velocidad de la conexión de Ethernet debe ser más rápida que el rendimient
 
 Para alcanzar el número máximo de IOPS, es necesario disponer de los recursos de red adecuados. Otros aspectos a tener en cuenta son el uso de la red privada fuera del almacenamiento y los ajustes del lado del host y específicos de la aplicación (pila IP o [profundidades de colas](set-host-queue-depth-settings-performance-and-endurance-storage.html) y otros valores).
 
-El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Consulte la [documentación de servidor virtual](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) para conocer los límites que puede imponer el servicio.
+El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Consulte la [documentación de servidor virtual](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) para conocer los límites que puede imponer el servicio.
 {:tip}
 
 ## Envío de su pedido
@@ -278,4 +280,3 @@ Cuando se haya completado la solicitud de suministro, autorice a los hosts a acc
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuración de Block Storage para la copia de seguridad con cPanel](configure-backup-cpanel.html)
 - [Configuración de Block Storage para la copia de seguridad con Plesk](configure-backup-plesk.html)
-

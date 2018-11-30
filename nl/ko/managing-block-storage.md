@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # {{site.data.keyword.blockstorageshort}} 관리
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
 
 ## {{site.data.keyword.blockstorageshort}} LUN 세부사항 보기
 
@@ -56,7 +56,7 @@ lastupdated: "2018-10-31"
 
 ## {{site.data.keyword.blockstorageshort}} 마운트 및 마운트 해제
 
-호스트의 운영 체제에 따라 해당되는 지시사항을 따르십시오. 
+호스트의 운영 체제에 따라 해당되는 지시사항을 따르십시오.
 
 - [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)
 - [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
@@ -76,7 +76,7 @@ lastupdated: "2018-10-31"
 
 ### 디바이스 목록에서 액세스 권한 취소
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 **디바이스**, **디바이스 목록**을 클릭하고 해당 디바이스를 두 번 클릭하십시오.
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 **디바이스**, **디바이스 목록**을 클릭하고 해당 디바이스를 두 번 클릭하십시오.
 2. **스토리지** 탭을 선택하십시오.
 3. 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. LUN 이름 옆에 있는 **조치를 선택하고 **액세스 권한 취소**를 클릭하십시오.
 4. 조치는 실행 취소할 수 없기 때문에 LUN에 대한 액세스 권한을 취소할 것인지 확인하십시오. **예**를 클릭하여 LUN 액세스 권한을 취소하거나 **아니오**를 클릭하여 조치를 취소하십시오.

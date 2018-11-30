@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-12"
 
 # Microsoft Windows での MPIO iSCSI LUN への接続
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}を介して許可されていることを確認してください。
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。 **「ホストの許可」**をクリックします。
 2. リストから、ボリュームにアクセスするホストを選択し、**「送信」**をクリックします。
@@ -45,7 +45,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
     - 「イニシエーター名」フィールドには、`iqn.1991-05.com.microsoft:` のような項目が既に取り込まれている場合があります。
     - **「変更」** をクリックして、既存の値をご使用の iSCSI 修飾名 (IQN) に置き換えます。![iSCSI イニシエーターのプロパティー](/images/iSCSI.png)
 
-      IQN 名は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の「{{site.data.keyword.blockstorageshort}} 詳細」画面で取得できます。
+      IQN 名は、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の「{{site.data.keyword.blockstorageshort}} 詳細」画面で取得できます。
       {: tip}
 
     - **「探索」**タブをクリックし、**「ポータルの探索」**をクリックします。
@@ -56,8 +56,8 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 
     「名前」フィールドと「ターゲット シークレット」フィールドでは、大/小文字が区別されます。
     {:important}
-         - **「名前」**フィールドで、既存のエントリーをすべて削除し、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}から取得したユーザー名を入力します。
-         - **「ターゲット シークレット」**フィールドに、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}から取得したパスワードを入力します。
+         - **「名前」**フィールドで、既存のエントリーをすべて削除し、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}から取得したユーザー名を入力します。
+         - **「ターゲット シークレット」**フィールドに、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}から取得したパスワードを入力します。
     - **「詳細設定」**ウィンドウおよび**「ターゲット ポータルの探索」**ウィンドウで**「OK」**をクリックして、メインの「iSCSI イニシエーターのプロパティ」画面に戻ります。 認証エラーを受け取った場合は、ユーザー名とパスワードの項目を確認してください。
     ![非アクティブ・ターゲット](/images/Inactive_0.png)
 
@@ -74,7 +74,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 ![CHAP ログオンを有効にする](/images/chap_0.png)
 4. 「名前」フィールドにユーザー名を入力し、「ターゲット シークレット」フィールドにパスワードを入力します。
 
-   「名前」および「ターゲット シークレット」フィールドの値は、「{{site.data.keyword.blockstorageshort}} 詳細」画面から取得できます。 
+   「名前」および「ターゲット シークレット」フィールドの値は、「{{site.data.keyword.blockstorageshort}} 詳細」画面から取得できます。
    {:tip}
 5. **「iSCSI イニシエーターのプロパティ」**ウィンドウが表示されるまで**「OK」**をクリックします。 **「検出されたターゲット」**セクションのターゲットの状況が、**「非アクティブ」**から**「接続完了」**に変わります。
 ![「接続完了」状況](/images/Connected.png)
@@ -105,8 +105,8 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
    - ポータルから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
    - 「ターゲットへの接続」ウィンドウで**「OK」**をクリックして、「プロパティ」ウィンドウに戻ります。
 8. 「プロパティー」ウィンドウには、「ID」ペイン内に複数のセッションが表示されています。 iSCSI ストレージには複数のセッションがあります。
-   
-   ISCSI ストレージに接続する複数のインターフェースがホストにある場合は、「イニシエーター IP」フィールドに他の NIC の IP アドレスを使用して別の接続を設定できます。ただし、接続を試行する前に、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} で 2 番目のイニシエーター IP アドレスを許可してください。{:note}
+
+   ISCSI ストレージに接続する複数のインターフェースがホストにある場合は、「イニシエーター IP」フィールドに他の NIC の IP アドレスを使用して別の接続を設定できます。ただし、接続を試行する前に、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} で 2 番目のイニシエーター IP アドレスを許可してください。{:note}
 9. 「プロパティ」ウィンドウで、**「デバイス」**をクリックして、「デバイス」ウィンドウを開きます。 デバイス・インターフェース名は `mpio` で始まります。 <br/>
   ![デバイス](/images/Devices.png)
 

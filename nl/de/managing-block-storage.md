@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # {{site.data.keyword.blockstorageshort}} verwalten
 
-Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} verwalten.
+Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über das [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} verwalten.
 
 ## Details zu {{site.data.keyword.blockstorageshort}}-LUN anzeigen
 
@@ -76,7 +76,7 @@ Sie können den Zugriff über die **Geräteliste** oder die **Speicheransicht** 
 
 ### Zugriff über Geräteliste widerrufen
 
-1. Klicken Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} auf **Geräte** - **Geräteliste** und doppelklicken Sie auf das entsprechende Gerät.
+1. Klicken Sie im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} auf **Geräte** - **Geräteliste** und doppelklicken Sie auf das entsprechende Gerät.
 2. Wählen Sie die Registerkarte **Speicher** aus.
 3. Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Wählen Sie neben dem Namen der LUN **Aktion** aus und klicken Sie auf 'Zugriff widerrufen'**.
 4. Bestätigen Sie, dass Sie den Zugriff für eine LUN widerrufen möchten, weil die Aktion nicht rückgängig gemacht werden kann. Klicken Sie auf **Ja**, um den LUN-Zugriff zu widerrufen, oder auf **Nein**, um die Aktion abzubrechen.

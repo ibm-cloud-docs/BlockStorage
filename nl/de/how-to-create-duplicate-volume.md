@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,7 +35,7 @@ Nachstehend einige gängige Anwendungen für duplizierte Datenträger:
 - **Entwicklung/Test:** Erstellen Sie gleichzeitig bis zu vier simultane Duplikate eines Datenträgers, um duplizierte Daten zu Entwicklungs- und Testzwecken zu erstellen.
 - **Größenänderung des Speichers:** Erstellen Sie einen Datenträger mit der neuen Größe und/oder den IOPS-Raten, ohne die Daten verschieben zu müssen.  
 
-Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} erstellen:
+Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} erstellen:
 
 
 ## Duplikat von einem bestimmten Datenträger in der Speicherliste erstellen

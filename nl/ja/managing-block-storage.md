@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # {{site.data.keyword.blockstorageshort}}の管理
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を使用して、{{site.data.keyword.blockstoragefull}} のボリュームを管理できます。
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}を使用して、{{site.data.keyword.blockstoragefull}} のボリュームを管理できます。
 
 ## {{site.data.keyword.blockstorageshort}} LUN の詳細の表示
 
@@ -76,7 +76,7 @@ LUN へのアクセスが現在許可されているホストのリストが表�
 
 ### デバイス・リストからのアクセス権の取り消し
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}で、**「デバイス」**、**「デバイス・リスト」**をクリックし、目的のデバイスをダブルクリックします。
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}で、**「デバイス」**、**「デバイス・リスト」**をクリックし、目的のデバイスをダブルクリックします。
 2. **「ストレージ」**タブを選択します。
 3. この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 LUN 名の横にある**「アクション」**を選択し、「アクセスの取り消し」**をクリックします。
 4. このアクションは元に戻すことができないため、LUN に対するアクセス権を取り消すことを確認します。 LUN のアクセス権を取り消すには**「はい」**をクリックし、アクションをキャンセルする場合は**「いいえ」**をクリックします。

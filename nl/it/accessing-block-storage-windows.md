@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-12"
 
 # Connessione ai LUN iSCSI MPIO su Microsoft Windows
 
-Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**. Fai clic su **Authorize Host**.
 2. Dall'elenco, seleziona l'host o gli host che può accedere al volume e fai clic su **Submit**.
@@ -46,7 +46,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
     - Fai clic su **Modifica** per sostituire i valori esistenti con il tuo nome qualificato iSCSI (IQN, iSCSI Qualified Name).
     ![Proprietà iniziatore iSCSI](/images/iSCSI.png)
 
-      Il nome IQN può essere ottenuto dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+      Il nome IQN può essere ottenuto dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
       {: tip}
 
     - Fai clic sulla scheda **Individuazione** e fai clic su **Individua portale**.
@@ -57,8 +57,8 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 
     I campi Nome e Segreto destinazione sono sensibili a maiuscole/minuscole.
     {:important}
-         - Nel campo **Nome**, elimina qualsiasi voce esistente e immetti il nome utente dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-         - Nel campo **Segreto destinazione**, immetti la password dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+         - Nel campo **Nome**, elimina qualsiasi voce esistente e immetti il nome utente dal [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+         - Nel campo **Segreto destinazione**, immetti la password dal [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
     - Fai clic su **OK** nelle finestre **Impostazioni avanzate** e **Individua portale destinazione** per tornare alla schermata Proprietà iniziatore iSCSI principale. Se ricevi degli errori di autenticazione, controlla le voci di nome utente e password.
     ![Destinazione inattiva](/images/Inactive_0.png)
 
@@ -101,13 +101,13 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 7. Nella finestra Impostazioni avanzate:
    - Nell'elenco Adattatore locale, seleziona Iniziatore iSCSI Microsoft.
    - Nell'elenco IP iniziatore, seleziona l'indirizzo IP corrispondente all'host. In questo caso, stai collegando due interfacce di rete sul dispositivo a una sola interfaccia di rete sull'host. Di conseguenza, questa interfaccia è la stessa di quella fornita per la prima sessione.
-   - Nell'elenco IP portale di destinazione, seleziona l'indirizzo IP della seconda interfaccia dati abilitata sul dispositivo. 
+   - Nell'elenco IP portale di destinazione, seleziona l'indirizzo IP della seconda interfaccia dati abilitata sul dispositivo.
    - Fai clic sulla casella di spunta **Attiva accesso CHAP**
    - Immetti i valori Nome e Segreto destinazione ottenuti dal portale e fai clic su **OK**.
    - Fai clic su **OK** nella finestra Connessione alla destinazione per tornare alla finestra Proprietà.
-8. La finestra Proprietà ora visualizza più di una sessione nella finestra Identificatore. Hai più di una sessione nell'archiviazione iSCSI. 
-   
-   Se il tuo host dispone di più interfacce che vuoi collegare all'archivio ISCSI, puoi configurare un'altra connessione con l'indirizzo IP dell'altro NIC nel campo IP iniziatore. Tuttavia, assicurati di autorizzare il secondo indirizzo IP dell'iniziatore nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} prima di tentare di effettuare la connessione.
+8. La finestra Proprietà ora visualizza più di una sessione nella finestra Identificatore. Hai più di una sessione nell'archiviazione iSCSI.
+
+   Se il tuo host dispone di più interfacce che vuoi collegare all'archivio ISCSI, puoi configurare un'altra connessione con l'indirizzo IP dell'altro NIC nel campo IP iniziatore. Tuttavia, assicurati di autorizzare il secondo indirizzo IP dell'iniziatore nel [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} prima di tentare di effettuare la connessione.
 {:note}
 9. Nella finestra Proprietà, fai clic su **Dispositivi** e apri la finestra Dispositivi. Il nome dell'interfaccia del dispositivo inizia con `mpio`. <br/>
   ![Dispositivi](/images/Devices.png)

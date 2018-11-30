@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Gestión de {{site.data.keyword.blockstorageshort}}
 
-Puede gestionar los volúmenes de {{site.data.keyword.blockstoragefull}} mediante el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Puede gestionar los volúmenes de {{site.data.keyword.blockstoragefull}} mediante el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 ## Visualización de los detalles de LUN de {{site.data.keyword.blockstorageshort}}
 
@@ -76,7 +76,7 @@ Puede revocar el acceso desde la **Lista de dispositivos** o desde la **Vista de
 
 ### Revocación del acceso de la lista de dispositivos
 
-1. Pulse **Dispositivos**, **Lista de dispositivos** desde el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} y efectúe una doble pulsación sobre el dispositivo adecuado.
+1. Pulse **Dispositivos**, **Lista de dispositivos** desde el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} y efectúe una doble pulsación sobre el dispositivo adecuado.
 2. Seleccione el separador **Almacenamiento**.
 3. Se le presentará una lista de los LUN de almacenamiento a los cuales este host tiene acceso. La lista está agrupada por tipo de almacenamiento (bloque, archivo, otros). Junto al nombre de LUN, seleccione **Acción** y pulse Revocar acceso**.
 4. Confirme que desea revocar el acceso al LUN porque la acción no puede deshacerse. Pulse **Sí** para revocar el acceso al LUN o **No** para cancelar la acción.

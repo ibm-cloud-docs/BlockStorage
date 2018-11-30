@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-12"
 
 # Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
+Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
 2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
@@ -45,7 +45,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     - Cliquez sur **Modifier** pour remplacer les valeurs existantes par votre nom qualifié iSCSI.
     ![Propriétés de l'initiateur iSCSI](/images/iSCSI.png)
 
-      Ce dernier peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+      Ce dernier peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
       {: tip}
 
     - Cliquez sur l'onglet **Découverte**, puis sur **Découvrir un portail**.
@@ -55,8 +55,8 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     ![Activer l'ouverture de session CHAP](/images/Advanced_0.png)
 
     Les zones Nom et Secret de la cible sont sensibles à la casse.{:important}
-         - Dans la zone **Nom**, supprimez les entrées existantes et saisissez le nom d'utilisateur à partir du [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-         - Dans la zone **Secret de la cible**, saisissez le mot de passe à partir du [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+         - Dans la zone **Nom**, supprimez les entrées existantes et saisissez le nom d'utilisateur à partir du [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+         - Dans la zone **Secret de la cible**, saisissez le mot de passe à partir du [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
     - Cliquez sur **OK** dans les fenêtres **Paramètres avancés** et **Détecter un portail cible** pour revenir à l'écran principal des propriétés de l'initiateur SCSI. Si des erreurs d'authentification s'affichent, vérifiez le nom d'utilisateur et le mot de passe.
     ![Cible inactive](/images/Inactive_0.png)
 
@@ -86,25 +86,25 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 
 4. Dans la fenêtre Paramètres avancés ![Paramètres](/images/Settings.png)
    - Dans la liste Adaptateur local, sélectionnez Microsoft iSCSI Initiator.
-   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. 
+   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte.
    - Dans la liste IP du portail cible, sélectionnez l'adresse IP de l'interface de périphérique.
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
 
-5. Cliquez sur **Propriétés**. Dans la boîte de dialogue Propriétés, cliquez de nouveau sur **Ajouter une session** pour ajouter le second chemin d'accès. 
+5. Cliquez sur **Propriétés**. Dans la boîte de dialogue Propriétés, cliquez de nouveau sur **Ajouter une session** pour ajouter le second chemin d'accès.
 6. Dans la fenêtre Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès**.
 Cliquez sur **Avancé**.
 7. Dans la fenêtre Paramètres avancés :
    - Dans la liste Adaptateur local, sélectionnez Microsoft iSCSI Initiator.
-   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui est fournie pour la première session. 
+   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui est fournie pour la première session.
    - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données sur le périphérique.
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
 8. Cette fenêtre affiche maintenant plusieurs sessions dans la sous-fenêtre Identificateur. Vous disposez désormais de plusieurs sessions dans le stockage iSCSI.
-   
-   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} avant de tenter d'établir la connexion.
+
+   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} avant de tenter d'établir la connexion.
    {:note}
 9. Dans la fenêtre Propriétés, cliquez sur **Périphériques** pour ouvrir la fenêtre correspondante. Le nom de l'interface de périphérique débute par `mpio`. <br/>
   ![Périphériques](/images/Devices.png)

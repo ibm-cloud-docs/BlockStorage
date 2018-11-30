@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -34,7 +34,7 @@ Voici quelques exemples d'utilisation courante d'un volume dupliqué :
 - **Développement/Test** : créez jusqu'à quatre doublons simultanés d'un volume en même temps pour créer des données dupliquées à des fins de développement et de test.
 - **Redimensionnement de stockage** : créez un volume avec une nouvelle taille et/ou un nouveau nombre d'IOPS sans avoir à effectuer une migration de vos données.  
 
-Il existe deux manières de créer un volume dupliqué via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Il existe deux manières de créer un volume dupliqué via le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 
 ## Création d'un doublon à partir d'un volume spécifique dans la liste de stockage

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ Quando si crea un LUN, devi specificare il tipo di SO. Il tipo di SO deve essere
 
 **Windows 2008+**
 - il LUN archivia i dati di Windows per Windows 2008 e versioni successive. Utilizza questa opzione del SO se il tuo sistema operativo host è Windows Server 2008, Windows Server 2012, Windows Server 2016. Sono supportati i metodi di partizionamento MBR e GPT.
- 
+
 **Windows 2003**
 - il LUN archivia un tipo di disco non elaborato in un disco Windows a partizione singola utilizzando lo stile di partizionamento MBR (Master Boot Record). Utilizza questa opzione solo se il tuo sistema operativo host è Windows 2000 Server, Windows XP o Windows Server 2003 che utilizza il metodo di partizionamento MBR.
 
@@ -54,7 +54,7 @@ L'IOPS viene misurato in base a un profilo di caricamento di blocchi da 16 KB co
 
 Quando utilizzi delle dimensioni blocco più piccole, è comunque possibile ottenere l'IOPS massimo. Tuttavia, la velocità effettiva sarà inferiore. Ad esempio, un volume con 6000 IOPS avrà la seguente velocità effettiva alle varie dimensioni blocco:
 
-- 16 KB * 6000 IOPS == ~93,75 MB/sec 
+- 16 KB * 6000 IOPS == ~93,75 MB/sec
 - 8 KB * 6000 IOPS == ~46,88 MB/sec
 - 4 KB * 6000 IOPS == ~23,44 MB/sec
 
@@ -86,7 +86,7 @@ Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Enduran
 ## Come faccio a capire quali LUN/volumi {{site.data.keyword.blockstorageshort}} sono crittografati?
 {: faq}
 
-Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
+Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
 
 ## Come facciamo a sapere se stiamo eseguendo il provisioning di {{site.data.keyword.blockstorageshort}} in un data center di cui è stato eseguito l'upgrade?
 {: faq}
@@ -96,8 +96,8 @@ Quando ordini {{site.data.keyword.blockstorageshort}}, tutti i data center di cu
 ## Se siamo i proprietari di {{site.data.keyword.blockstorageshort}} non crittografato in un data center di cui è stato appena eseguito l'upgrade, possiamo crittografare tale {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
-Non è possibile crittografare il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning prima dell'upgrade del data center. 
-Il nuovo {{site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in data center di cui è stato eseguito l'upgrade viene crittografato automaticamente. Non c'è alcuna impostazione di crittografia da cui scegliere, l'operazione è automatica. 
+Non è possibile crittografare il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning prima dell'upgrade del data center.
+Il nuovo {{site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in data center di cui è stato eseguito l'upgrade viene crittografato automaticamente. Non c'è alcuna impostazione di crittografia da cui scegliere, l'operazione è automatica.
 I dati su un'archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade possono essere crittografati creando un nuovo LUN di blocchi e copiando quindi i dati nel nuovo LUN crittografato con una migrazione basata sull'host. Fai clic [qui](migrate-block-storage-encrypted-block-storage.html) per le istruzioni.
 
 ## {{site.data.keyword.blockstorageshort}} supporta la prenotazione permanente SCSI-3 per implementare il fencing I/O per Db2 pureScale?

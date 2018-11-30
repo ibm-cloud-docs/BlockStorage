@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-12"
 
 # Microsoft Windows에서 MPIO iSCSI LUNS 연결
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 권한 부여했는지 확인하십시오.
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}을 통해 권한 부여했는지 확인하십시오.
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오. **호스트 권한 부여**를 클릭하십시오.
 2. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
@@ -45,7 +45,7 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
     - **변경**을 클릭하여 기존 값을 iSCSI 규정된 이름(IQN)으로 대체하십시오.
     ![iSCSI 이니시에이터 특성](/images/iSCSI.png)
 
-      IQN 이름은 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 가져올 수 있습니다.
+      IQN 이름은 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 가져올 수 있습니다.
       {: tip}
 
     - **발견** 탭을 클릭하고 **포털 발견**을 클릭하십시오.
@@ -55,8 +55,8 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 
     이름 및 대상 시크릿 필드는 대소문자를 구분합니다.
     {:important}
-         - **이름** 필드에서 기존 항목을 삭제하고 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 사용자 이름을 입력하십시오.
-         - **대상 시크릿** 필드에서 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 비밀번호를 입력하십시오.
+         - **이름** 필드에서 기존 항목을 삭제하고 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 사용자 이름을 입력하십시오.
+         - **대상 시크릿** 필드에서 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 비밀번호를 입력하십시오.
     - **고급 설정** 및 **대상 포털 발견** 창에서 **확인**을 클릭하고 기본 iSCSI 이니시에이터 특성 화면으로 돌아가십시오. 인증 오류가 수신되면 사용자 이름 및 비밀번호 입력을 확인하십시오.
       ![비활성 대상](/images/Inactive_0.png)
 
@@ -87,25 +87,25 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
   ![대상](/images/Target.png)
 
 4. 고급 설정 창에서 다음을 수행하십시오. ![설정](/images/Settings.png)
-   - 로컬 어댑터 목록에서 Microsoft iSCSI 이니시에이터를 선택하십시오. 
-   - 이니시에이터 IP 목록에서 호스트의 IP 주소를 선택하십시오. 
-   - 대상 포털 IP 목록에서 디바이스 인터페이스의 IP를 선택하십시오. 
+   - 로컬 어댑터 목록에서 Microsoft iSCSI 이니시에이터를 선택하십시오.
+   - 이니시에이터 IP 목록에서 호스트의 IP 주소를 선택하십시오.
+   - 대상 포털 IP 목록에서 디바이스 인터페이스의 IP를 선택하십시오.
    - **CHAP 로그온 사용** 선택란을 클릭하십시오.
    - 포털 창에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
    - 대상 연결 창에서 **확인**을 클릭하여 특성 창으로 돌아가십시오.
 
-5. **특성**을 클릭하십시오. 특성 대화 상자에서 **세션 추가**를 다시 클릭하여 두 번째 경로를 추가하십시오. 
+5. **특성**을 클릭하십시오. 특성 대화 상자에서 **세션 추가**를 다시 클릭하여 두 번째 경로를 추가하십시오.
 6. 대상에 연결 창에서 **다중 경로 사용** 선택란을 선택하십시오. **고급**을 클릭하십시오.
 7. 고급 설정 창에서 다음을 수행하십시오.
-   - 로컬 어댑터 목록에서 Microsoft iSCSI 이니시에이터를 선택하십시오. 
-   - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결 중입니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다. 
-   - 대상 포털 IP 목록에서, 디바이스에서 사용되는 두 번째 데이터 인터페이스의 IP 주소를 선택하십시오. 
+   - 로컬 어댑터 목록에서 Microsoft iSCSI 이니시에이터를 선택하십시오.
+   - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결 중입니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다.
+   - 대상 포털 IP 목록에서, 디바이스에서 사용되는 두 번째 데이터 인터페이스의 IP 주소를 선택하십시오.
    - **CHAP 로그온 사용** 선택란을 클릭하십시오.
    - 포털 창에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
    - 대상 연결 창에서 **확인**을 클릭하여 특성 창으로 돌아가십시오.
-8. 이제 특성 창의 ID 분할창에는 두 개 이상의 세션이 표시됩니다. iSCSI 스토리지에 대해 둘 이상의 세션이 있습니다. 
-   
-   호스트에 ISCSI 스토리지에 연결될 다수의 인터페이스가 있는 경우에는 이니시에이터 IP 필드에서 기타 NIC의 IP 주소로 다른 연결을 설정할 수 있습니다. 그러나 연결을 시도하기 전에 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 두 번째 이니시에이터 IP 주소에 반드시 권한 부여하십시오.
+8. 이제 특성 창의 ID 분할창에는 두 개 이상의 세션이 표시됩니다. iSCSI 스토리지에 대해 둘 이상의 세션이 있습니다.
+
+   호스트에 ISCSI 스토리지에 연결될 다수의 인터페이스가 있는 경우에는 이니시에이터 IP 필드에서 기타 NIC의 IP 주소로 다른 연결을 설정할 수 있습니다. 그러나 연결을 시도하기 전에 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 두 번째 이니시에이터 IP 주소에 반드시 권한 부여하십시오.
    {:note}
 9. 특성 창에서 **디바이스**를 클릭하여 디바이스 창을 여십시오. 디바이스 인터페이스 이름이 `mpio`로 시작됩니다. <br/>
   ![디바이스](/images/Devices.png)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ Les instructions suivantes concernent la commande d'un numéro d'unité logique 
 
 ### Commande d'un numéro d'unité logique Endurance
 
-1. Dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
+1. Dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
 2. Dans l'angle supérieur droit, cliquez sur **Commander du stockage par blocs**.
 3. Sélectionnez **Endurance** dans la liste **Sélectionner le type de stockage**.
 4. Sélectionnez l'**Emplacement** de votre déploiement (centre de données).
@@ -48,7 +48,7 @@ Les instructions suivantes concernent la commande d'un numéro d'unité logique 
 
 ### Commande d'un numéro d'unité logique Performance
 
-1. Dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
+1. Dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
 2. Sur la droite, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 3. Sélectionnez **Performance** dans la liste **Sélectionner le type de stockage**.
 4. Cliquez sur **Emplacement** et sélectionnez votre centre de données.

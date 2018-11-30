@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Introduzione a {{site.data.keyword.blockstorageshort}}
 
@@ -33,20 +35,20 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
 - **Replica** ([Disponibile in data center selezionati](new-ibm-block-and-file-storage-location-and-features.html))
    - Copia automaticamente le istantanee in un data center {{site.data.keyword.BluSoftlayer_full}} partner.
 - **Connettività altamente disponibile**
-   - Utilizza le connessioni di rete ridondanti per massimizzare la disponibilità 
+   - Utilizza le connessioni di rete ridondanti per massimizzare la disponibilità
    - {{site.data.keyword.blockstorageshort}} basato su iSCSI utilizza MPIO (Multipath I/O).
 - **Accesso simultaneo**
    - Consente a più host di accedere simultaneamente ai volumi di blocco (fino a otto) per le configurazioni in cluster.
 - **Database in cluster**
    - Supporta dei casi d'uso avanzati, quali i database in cluster.
-     
+
 ## Fatturazione
 
-Puoi selezionare la fatturazione mensile o oraria per un LUN di blocchi. Il tipo di fatturazione selezionato per un LUN si applica al suo spazio di istantanea e alle sue repliche. Ad esempio, se esegui il provisioning di un LUN con fatturazione oraria, eventuali addebiti di istantanee o replica vengono fatturati in modo orario. Se esegui il provisioning di un LUN con fatturazione mensile, eventuali addebiti di istantanee o replica vengono fatturati in modo mensile. 
+Puoi selezionare la fatturazione mensile o oraria per un LUN di blocchi. Il tipo di fatturazione selezionato per un LUN si applica al suo spazio di istantanea e alle sue repliche. Ad esempio, se esegui il provisioning di un LUN con fatturazione oraria, eventuali addebiti di istantanee o replica vengono fatturati in modo orario. Se esegui il provisioning di un LUN con fatturazione mensile, eventuali addebiti di istantanee o replica vengono fatturati in modo mensile.
 
-Con la **fatturazione oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione, a seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
+Con la **fatturazione oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione, a seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
 
-Con la **fatturazione mensile**, il calcolo per il prezzo è a base proporzionale dalla data di creazione alla fine del ciclo di fatturazione e viene fatturato immediatamente. Non è previsto alcun rimborso se un LUN viene eliminato prima della fine del ciclo di fatturazione. La fatturazione mensile è una buona scelta per l'archiviazione utilizzata nei carichi di lavoro di produzione che usano dati che devono essere archiviati e a cui bisogna accedere per lunghi periodi di tempo (un mese o più). 
+Con la **fatturazione mensile**, il calcolo per il prezzo è a base proporzionale dalla data di creazione alla fine del ciclo di fatturazione e viene fatturato immediatamente. Non è previsto alcun rimborso se un LUN viene eliminato prima della fine del ciclo di fatturazione. La fatturazione mensile è una buona scelta per l'archiviazione utilizzata nei carichi di lavoro di produzione che usano dati che devono essere archiviati e a cui bisogna accedere per lunghi periodi di tempo (un mese o più).
 
 **Performance**
 <table>
@@ -60,7 +62,7 @@ Con la **fatturazione mensile**, il calcolo per il prezzo è a base proporzional
    <td>$0,0001/GB + $0,0002/IOP</td>
   </tr>
 </table>
- 
+
 **Endurance**
 <table>
   <caption>La tabella 2 che mostra i prezzi per l'archiviazione Endurance per ogni livello con le opzioni fatturazione oraria e mensile.</caption>
@@ -93,7 +95,7 @@ Con la **fatturazione mensile**, il calcolo per il prezzo è a base proporzional
 
 È possibile eseguire il provisioning dei LUN {{site.data.keyword.blockstorageshort}} da 20 GB a 12 TB con due opzioni: <br/>
 - Esegui il provisioning di livelli **Endurance** che offrono livelli di prestazioni predefiniti e altre funzioni quali istantanee e replica.
-- Crea un ambiente **Performance** molto potente con IOPS (input/output operations per second) allocato. 
+- Crea un ambiente **Performance** molto potente con IOPS (input/output operations per second) allocato.
 
 ### Provisioning con i livelli Endurance
 
@@ -108,13 +110,13 @@ Endurance {{site.data.keyword.blockstorageshort}} è disponibile in quattro live
 - **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
 
 Sono disponibili fino a 48.000 IOPS con un volume Endurance di 12 TB.
- 
+
 La scelta del livello Endurance corretto per il tuo carico di lavoro è fondamentale. È ugualmente importante utilizzare la dimensione blocco corretta, la velocità di connessione Ethernet e il numero di host necessari per ottenere le prestazioni massime. Se qualcuna di queste parti non si allinea con le altre, le ripercussioni sulla velocità effettiva risultante potrebbero essere di notevole entità.
 
- 
+
 ### Provisioning con Performance
 
-Performance è una classe di {{site.data.keyword.blockstorageshort}} progettata per supportare applicazioni a elevato I/O con requisiti di prestazioni chiari che mal si adattano in un livello Endurance. Delle prestazioni prevedibili si raggiungono tramite l'allocazione di IOPS a livello di protocollo ai singoli volumi. È possibile eseguire il provisioning di vari tassi di IOPS compresi nell'intervallo 100 - 48.000 con delle dimensioni dell'archiviazione che vanno da 20 GB a 12 TB. 
+Performance è una classe di {{site.data.keyword.blockstorageshort}} progettata per supportare applicazioni a elevato I/O con requisiti di prestazioni chiari che mal si adattano in un livello Endurance. Delle prestazioni prevedibili si raggiungono tramite l'allocazione di IOPS a livello di protocollo ai singoli volumi. È possibile eseguire il provisioning di vari tassi di IOPS compresi nell'intervallo 100 - 48.000 con delle dimensioni dell'archiviazione che vanno da 20 GB a 12 TB.
 
 Performance per {{site.data.keyword.blockstorageshort}} è accessibile e montato attraverso una connessione iSCSI (internet Small Computer System Interface) MPIO (Multipath I/O). {{site.data.keyword.blockstorageshort}} viene di norma utilizzato quando si accede al volume da un solo server. Più volumi possono essere montati a un host e messi in stripe insieme per raggiungere volumi più grandi e conteggi IOPS più elevati. I volumi Performance possono essere ordinati in base alle dimensioni e ai tassi dell'IOPS nella Tabella 3 per i sistemi operativi Linux, XEN e Windows.
 
@@ -263,7 +265,7 @@ La velocità della tua connessione Ethernet deve essere più veloce della veloci
 
 Per raggiungere l'IOPS massimo, è necessario che siano implementate delle risorse di rete adeguate. Altre considerazioni includono l'utilizzo della rete privata esternamente al lato archiviazione e host e le regolazioni specifiche per le applicazioni (stack di IP o [profondità di coda](set-host-queue-depth-settings-performance-and-endurance-storage.html) e altre impostazioni).
 
-Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Consulta la [documentazione dei server virtuali](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) per comprendere i limiti che potrebbero essere imposti dal servizio.
+Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Consulta la [documentazione dei server virtuali](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) per comprendere i limiti che potrebbero essere imposti dal servizio.
 {:tip}
 
 ## Invio del tuo ordine
@@ -278,4 +280,3 @@ Quando la tua richiesta di provisioning è completa, autorizza i tuoi host ad ac
 - [Connessione ai LUN iSCSI MPIO su Microsoft Windows](accessing-block-storage-windows.html)
 - [Configurazione di Block Storage per il backup con cPanell](configure-backup-cpanel.html)
 - [Configurazione di Block Storage per il backup con Plesk](configure-backup-plesk.html)
-

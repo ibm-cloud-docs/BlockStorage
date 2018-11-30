@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Commande de {{site.data.keyword.blockstorageshort}}
 
@@ -19,9 +21,9 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)
 
-1. Connectez-vous au [catalogue IBM Cloud](https://console.bluemix.net/catalog/){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur **Créer**.
+1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog/){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur **Créer**.
 
-   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} et cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
+   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} et cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 
 2. Sélectionnez l'**Emplacement** de votre déploiement (centre de données).
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
@@ -42,8 +44,8 @@ La facturation mensuelle est utilisée par défaut pour le stockage fourni dans 
 
    Ce choix est basé sur le système d'exploitation sur lequel vos hôtes s'exécutent et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
    {:tip}
-9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un. 
-10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**. 
+9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un.
+10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**.
 11. Cliquez sur **Créer**.Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
 Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Découvrez plus de détails sur l'augmentation des limites [ici](managing-storage-limits.html).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
@@ -51,9 +53,9 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)
 
-1. Connectez-vous au [catalogue IBM Cloud](https://console.bluemix.net/catalog/){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez {{site.data.keyword.blockstorageshort}}, puis cliquez sur **Créer**.
+1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog/){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez {{site.data.keyword.blockstorageshort}}, puis cliquez sur **Créer**.
 
-   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} et cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
+   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} et cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur **Emplacement** et sélectionnez votre centre de données.
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
 3. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure.
@@ -69,8 +71,8 @@ La facturation mensuelle est utilisée par défaut pour le stockage fourni dans 
 
    Ce choix est basé sur le système d'exploitation sur lequel vos hôtes s'exécutent et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
    {:tip}
-9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un. 
-10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**. 
+9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un.
+10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**.
 11. Cliquez sur **Créer**.Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
 Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Découvrez plus de détails sur l'augmentation des limites [ici](managing-storage-limits.html).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).

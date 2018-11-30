@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # 기존 {{site.data.keyword.blockstorageshort}}을 개선된 {{site.data.keyword.blockstorageshort}}로 업그레이드
 
-개선된 {{site.data.keyword.blockstoragefull}}는 이제 데이터 센터 선택에서 사용할 수 있습니다. 업그레이드된 데이터 센터 및 사용 가능한 기능(예: 조정 가능한 IOPS 속도 및 확장 가능한 볼륨) 목록을 보려면 [여기](new-ibm-block-and-file-storage-location-and-features.html)를 클릭하십시오. 제공자 관리 암호화된 스토리지에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 저장 시 암호화](block-file-storage-encryption-rest.html)를 참조하십시오. 
+개선된 {{site.data.keyword.blockstoragefull}}는 이제 데이터 센터 선택에서 사용할 수 있습니다. 업그레이드된 데이터 센터 및 사용 가능한 기능(예: 조정 가능한 IOPS 속도 및 확장 가능한 볼륨) 목록을 보려면 [여기](new-ibm-block-and-file-storage-location-and-features.html)를 클릭하십시오. 제공자 관리 암호화된 스토리지에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 저장 시 암호화](block-file-storage-encryption-rest.html)를 참조하십시오.
 
 선호하는 마이그레이션 경로는 두 LUN 모두에 동시 연결되고 임의의 LUN에서 다른 LUN으로 데이터를 직접 전송합니다. 스펙은 운영 체제 및 데이터가 복사 오퍼레이션 중에 변경되는지 여부에 따라 다릅니다.
 
@@ -31,7 +31,7 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 
 ### EnduranceLUN 주문
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 3. **스토리지 유형 선택** 목록에서 **Endurance**를 선택하십시오.
 4. 배치 **위치**(데이터 센터)를 선택하십시오.
@@ -48,7 +48,7 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 
 ### Performance LUN 주문
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 오른쪽에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 3. **스토리지 유형 선택** 목록에서 **Performance**를 선택하십시오.
 4. **위치**를 클릭하고 데이터 센터를 선택하십시오.

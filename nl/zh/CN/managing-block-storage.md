@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # 管理 {{site.data.keyword.blockstorageshort}}
 
-您可以通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 来管理 {{site.data.keyword.blockstoragefull}} 卷。
+您可以通过 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 来管理 {{site.data.keyword.blockstoragefull}} 卷。
 
 ## 查看 {{site.data.keyword.blockstorageshort}} LUN 详细信息
 
@@ -76,7 +76,7 @@ lastupdated: "2018-10-31"
 
 ### 通过设备列表撤销访问权
 
-1. 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中，单击**设备** > **设备列表**，然后双击相应的设备。
+1. 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中，单击**设备** > **设备列表**，然后双击相应的设备。
 2. 选择**存储**选项卡。
 3. 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。在 LUN 名称旁边，选择**操作**，然后单击**撤销访问权**。
 4. 确认是否要撤销对 LUN 的访问权，因为该操作无法撤销。单击**是**以撤销 LUN 访问权，或单击**否**以取消该操作。

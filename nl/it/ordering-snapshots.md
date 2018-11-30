@@ -2,24 +2,26 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Ordinazione di istantanee
 
 Per creare le istantanee del tuo volume di archiviazione, in modo automatizzato o manualmente, devi acquistare dello spazio per contenerle. Puoi acquistare capacità fino al tuo ammontare del volume di archiviazione (durante l'acquisto di volume iniziale e successivamente attenendoti alla procedura qui descritta).
 
-1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/){:new_window} e fai clic sull'icona **Menu** in alto a sinistra. Seleziona **Infrastruttura classica**.
+1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog/){:new_window} e fai clic sull'icona **Menu** in alto a sinistra. Seleziona **Infrastruttura classica**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. Accedi al tuo LUN di archiviazione tramite **Storage** >**{{site.data.keyword.blockstorageshort}}**.
 2. Fai clic su **Change Snapshot Space** nel frame Snapshots.
-3. Seleziona la quantità di spazio che ti serve e il metodo di pagamento. 
+3. Seleziona la quantità di spazio che ti serve e il metodo di pagamento.
 4. Fai clic su **Continue**.
 5. Immetti l'eventuale codice promozionale (**Promo Code**) a tua disposizione e fai clic su **Recalculate**. Gli addebiti (Charges) per questo ordine e il riesame dell'ordine (Order Review) vengono completati per impostazione predefinita.
 6. Seleziona la casella **I have read the Master Service Agreement and agree to the terms therein.** e fai clic su **Place Order**. Nel giro di pochi minuti, viene eseguito il provisioning del tuo spazio di istantanea.

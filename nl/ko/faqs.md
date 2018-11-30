@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -25,19 +25,19 @@ lastupdated: "2018-11-05"
 
 호스트 운영 체제에서 처리할 수 있는 항목에 따라 달라지며 {{site.data.keyword.BluSoftlayer_full}}에서 제한하는 것은 아닙니다. 마운트할 수 있는 볼륨 수에 대한 한계는 OS 문서를 참조하십시오.
 
-## 내 블록 스토리지 LUN에 대해 어떤 Windows 버전을 선택해야 합니까? 
+## 내 블록 스토리지 LUN에 대해 어떤 Windows 버전을 선택해야 합니까?
 {: faq}
 
-LUN을 작성할 때 OS 유형을 지정해야 합니다. OS 유형은 LUN에 액세스하는 호스트가 사용하는 운영 체제를 기반으로 해야 합니다. OS 유형은 LUN 작성 이후 수정될 수 없습니다. LUN의 실제 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다. 
+LUN을 작성할 때 OS 유형을 지정해야 합니다. OS 유형은 LUN에 액세스하는 호스트가 사용하는 운영 체제를 기반으로 해야 합니다. OS 유형은 LUN 작성 이후 수정될 수 없습니다. LUN의 실제 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다.
 
 **Windows 2008+**
-- LUN에서 Windows 2008 이상 버전의 Windows 데이터를 저장합니다. 호스트 운영 체제가 Windows Server 2008, Windows Server 2012, Windows Server 2016인 경우에는 이 OS 옵션을 사용하십시오. MBR 및 GPT 파티셔닝 방법이 둘 다 지원됩니다. 
- 
+- LUN에서 Windows 2008 이상 버전의 Windows 데이터를 저장합니다. 호스트 운영 체제가 Windows Server 2008, Windows Server 2012, Windows Server 2016인 경우에는 이 OS 옵션을 사용하십시오. MBR 및 GPT 파티셔닝 방법이 둘 다 지원됩니다.
+
 **Windows 2003**
-- LUN에서 MBR(Master Boot Record) 파티셔닝 스타일을 사용하여 단일 파티션 Windows 디스크에 원시 디스크 유형을 저장합니다. 호스트 운영 체제가 MBR 파티셔닝 방법을 사용하는 Windows 2000 Server, Windows XP 또는 Windows Server 2003인 경우에만 이 옵션을 사용하십시오. 
+- LUN에서 MBR(Master Boot Record) 파티셔닝 스타일을 사용하여 단일 파티션 Windows 디스크에 원시 디스크 유형을 저장합니다. 호스트 운영 체제가 MBR 파티셔닝 방법을 사용하는 Windows 2000 Server, Windows XP 또는 Windows Server 2003인 경우에만 이 옵션을 사용하십시오.
 
 **Windows GPT**
--  LUN에서 GPT(GUID Partition Type) 파티셔닝 스타일을 사용하여 Windows 데이터를 저장합니다. GPT 파티셔닝 방법을 사용하고자 하며 호스트가 이를 사용할 수 있는 경우에는 이 옵션을 사용하십시오. Windows Server 2003, 서비스팩 1 이상은 GPT 파티셔닝 방법을 사용할 수 있으며, 모든 64비트 Windows 버전은 이를 지원합니다. 
+-  LUN에서 GPT(GUID Partition Type) 파티셔닝 스타일을 사용하여 Windows 데이터를 저장합니다. GPT 파티셔닝 방법을 사용하고자 하며 호스트가 이를 사용할 수 있는 경우에는 이 옵션을 사용하십시오. Windows Server 2003, 서비스팩 1 이상은 GPT 파티셔닝 방법을 사용할 수 있으며, 모든 64비트 Windows 버전은 이를 지원합니다.
 
 ## 할당된 IOPS 한계는 인스턴스로 적용됩니까, 아니면 볼륨으로 적용됩니까?
 {: faq}
@@ -54,7 +54,7 @@ IOPS는 랜덤 50% 읽기 및 50% 쓰기의 16KB 블록 로드 프로파일을 �
 
 더 작은 블록 크기를 사용해도 최대 IOPS를 얻을 수 있습니다. 그러나 처리량은 작아집니다. 예를 들어, 6000 IOPS의 볼륨의 경우 다양한 블록 크기에서 처리량은 다음과 같습니다.
 
-- 16 KB * 6000 IOPS == ~93.75 MB/sec 
+- 16 KB * 6000 IOPS == ~93.75 MB/sec
 - 8 KB * 6000 IOPS == ~46.88 MB/sec
 - 4 KB * 6000 IOPS == ~23.44 MB/sec
 
@@ -86,7 +86,7 @@ Endurance유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB 티어는 
 ## 암호화된 {{site.data.keyword.blockstorageshort}} LUN/볼륨을 어떻게 알 수 있습니까?
 {: faq}
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 {{site.data.keyword.blockstorageshort}}의 목록을 보는 경우, 암호화된 LUN의 볼륨 이름 옆에 잠금 아이콘이 나타납니다. 
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 {{site.data.keyword.blockstorageshort}}의 목록을 보는 경우, 암호화된 LUN의 볼륨 이름 옆에 잠금 아이콘이 나타납니다.
 
 ## 업그레이드된 데이터 센터에서 {{site.data.keyword.blockstorageshort}}를 프로비저닝하는 경우를 어떻게 알 수 있습니까?
 {: faq}
@@ -96,8 +96,8 @@ Endurance유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB 티어는 
 ## 최근에 업그레이드된 데이터 센터에 암호화되지 않은 {{site.data.keyword.blockstorageshort}}가 있으면 {{site.data.keyword.blockstorageshort}}를 암호화할 수 있습니까?
 {: faq}
 
-데이터 센터가 업그레이드되기 전에 프로비저닝되는 {{site.data.keyword.blockstorageshort}}를 암호화할 수 없습니다. 
-업그레이드된 데이터 센터에서 프로비저닝된 새 {{site.data.keyword.blockstorageshort}}는 자동으로 암호화됩니다. 선택 가능한 암호화 설정이 없으며 이는 자동으로 수행됩니다. 
+데이터 센터가 업그레이드되기 전에 프로비저닝되는 {{site.data.keyword.blockstorageshort}}를 암호화할 수 없습니다.
+업그레이드된 데이터 센터에서 프로비저닝된 새 {{site.data.keyword.blockstorageshort}}는 자동으로 암호화됩니다. 선택 가능한 암호화 설정이 없으며 이는 자동으로 수행됩니다.
 업그레이드된 데이터 센터에서 암호화되지 않은 스토리지의 데이터는 새 블록 LUN을 작성하고 호스트 기반 마이그레이션을 통해 데이터를 암호화된 새 LUN으로 복사하여 암호화할 수 있습니다. 자세한 내용은 [여기](migrate-block-storage-encrypted-block-storage.html)를 참조하십시오.
 
 ## Db2 pureScale에 대한 I/O 펜싱을 구현하기 위한 {{site.data.keyword.blockstorageshort}}의 SCSI-3 Persistent Reserve를 지원합니까?

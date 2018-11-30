@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 訂購 {{site.data.keyword.blockstorageshort}}
 
@@ -19,16 +21,16 @@ lastupdated: "2018-11-05"
 
 ## 使用預先定義的 IOPS 層級（耐久性）訂購 {{site.data.keyword.blockstorageshort}}
 
-1. 登入 [IBM Cloud 型錄](https://console.bluemix.net/catalog/){:new_window}，並按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
+1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog/){:new_window}，並按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
 
-   或者，您可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
+   或者，您可以登入 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
 
 2. 選取您的部署**位置**（資料中心）。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
      1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則按小時計費是一個良好的選擇。按小時計費只適用於這些[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。
      2. 使用**按月**計費，價格是從建立日期到計費週期結束按比例計算，並立即計費。如果區塊 LUN 在計費週期結束之前遭到刪除，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
-        
+
 
         對於在**未**使用改良功能更新的資料中心內佈建的儲存空間，依預設會使用按月計費類型。
         {:important}
@@ -53,15 +55,15 @@ lastupdated: "2018-11-05"
 
 ## 使用自訂 IOPS（效能）訂購 {{site.data.keyword.blockstorageshort}}
 
-1. 登入 [IBM Cloud 型錄](https://console.bluemix.net/catalog/){:new_window}，並按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
+1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog/){:new_window}，並按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
 
-   或者，您可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
+   或者，您可以登入 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
 2. 按一下**位置**，然後選取資料中心。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
      1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則按小時計費是一個良好的選擇。按小時計費只適用於這些[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。
      2. 使用**按月**計費，價格是從建立日期到計費週期結束按比例計算，並立即計費。如果區塊 LUN 在計費週期結束之前遭到刪除，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
-        
+
 
         對於在**未**使用改良功能更新的資料中心內佈建的儲存空間，依預設會使用按月計費類型。
         {:note}

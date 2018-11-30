@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -21,7 +21,7 @@ Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques 
 Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCSI [ici](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} et la configuration DM-Multipath [ici](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {:tip}
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
+Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
 {:important}
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
@@ -32,7 +32,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
 
 Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Linux à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI).
 
-Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **Détails {{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **Détails {{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
@@ -91,7 +91,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
       ```
       {: codeblock}
 
-    - Redémarrez les services iscsi et iscsid de sorte que les modifications prennent effet. 
+    - Redémarrez les services iscsi et iscsid de sorte que les modifications prennent effet.
 
       ```
       service iscsi restart
@@ -99,7 +99,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
       ```
       {: pre}
 
-  - Pour RHEL7 et CentOS7, `multipath.conf` peut être vierge car le système d'exploitation contient des configurations intégrées. 
+  - Pour RHEL7 et CentOS7, `multipath.conf` peut être vierge car le système d'exploitation contient des configurations intégrées.
   - Ubuntu n'utilise pas `multipath.conf` car il est intégré dans `multipath-tools`.
 
 3. Chargez le module multi-accès, démarrez les services multi-accès et définissez-le pour qu'il démarre à l'amorçage.
@@ -157,7 +157,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
     ```
     {: pre}
 
-    RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, qui peut être ignoré. 
+    RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, qui peut être ignoré.
 
 5. Mettez à jour le fichier `/etc/iscsi/initiatorname.iscsi` avec le nom qualifié iSCSI provenant du portail {{site.data.keyword.slportal}}. Saisissez la valeur en minuscules.
    ```
@@ -507,12 +507,12 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. Assurez-vous que les disques sont présents. Vous devez avoir deux disques portent le même identificateur et une liste `/dev/mapper` de même taille existe avec le même identificateur. Le périphérique `/dev/mapper` est celui qui est configuré par le multi-accès. 
+2. Assurez-vous que les disques sont présents. Vous devez avoir deux disques portent le même identificateur et une liste `/dev/mapper` de même taille existe avec le même identificateur. Le périphérique `/dev/mapper` est celui qui est configuré par le multi-accès.
   ```
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - Exemple de sortie d'une configuration correcte :
 
     ```
@@ -523,11 +523,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - Exemple de sortie d'une configuration incorrecte :
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -540,7 +540,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -552,7 +552,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 
 ## Démontage des volumes {{site.data.keyword.blockstorageshort}}
 
-1. Démontez le système de fichiers. 
+1. Démontez le système de fichiers.
    ```
    umount /dev/mapper/XXXlp1 /PerfDisk
    ```
@@ -563,12 +563,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
-3. Si vous n'avez pas d'autre volumes dans ce portail cible, supprimez l'enregistrement de portail cible pour empêcher les futures tentatives de connexion. 
+
+3. Si vous n'avez pas d'autre volumes dans ce portail cible, supprimez l'enregistrement de portail cible pour empêcher les futures tentatives de connexion.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    Pour plus d'informations, voir [man page of iscsiadm](https://linux.die.net/man/8/iscsiadm).
    {:tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,10 +18,10 @@ lastupdated: "2018-11-12"
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
 
-예를 들어, iSCSI 이니시에이터 구성([여기](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}) 및 DM 다중 경로 설정([여기](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
+예를 들어, iSCSI 이니시에이터 구성([여기 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}) 및 DM 다중 경로 설정([여기 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
 {:tip}
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 이미 권한 부여했는지 확인하십시오.
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}을 통해 이미 권한 부여했는지 확인하십시오.
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
@@ -32,7 +32,7 @@ lastupdated: "2018-11-12"
 
 다음은 Linux 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
 
-지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
+지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
 {: tip}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
@@ -53,9 +53,9 @@ lastupdated: "2018-11-12"
     ```
     {: pre}
 
-2. 필요하면 다중 경로 구성 파일을 작성하거나 편집하십시오. 
+2. 필요하면 다중 경로 구성 파일을 작성하거나 편집하십시오.
   - RHEL 6 및 CENTOS 6
-    * 다음의 최소 구성으로 **/etc/multipath.conf**를 편집하십시오. 
+    * 다음의 최소 구성으로 **/etc/multipath.conf**를 편집하십시오.
 
       ```
    defaults {
@@ -91,7 +91,7 @@ lastupdated: "2018-11-12"
       ```
       {: codeblock}
 
-    - 변경사항이 적용되도록 iscsi 및 iscsid 서비스를 다시 시작하십시오. 
+    - 변경사항이 적용되도록 iscsi 및 iscsid 서비스를 다시 시작하십시오.
 
       ```
       service iscsi restart
@@ -99,8 +99,8 @@ lastupdated: "2018-11-12"
       ```
       {: pre}
 
-  - RHEL7 및 CentOS7의 경우, OS에 기본 제공된 구성이 있으므로 `multipath.conf`는 공백일 수 있습니다. 
-  - `다중 경로 도구`에 빌드되어 있으므로 Ubuntu는 `multipath.conf`를 사용하지 않습니다. 
+  - RHEL7 및 CentOS7의 경우, OS에 기본 제공된 구성이 있으므로 `multipath.conf`는 공백일 수 있습니다.
+  - `다중 경로 도구`에 빌드되어 있으므로 Ubuntu는 `multipath.conf`를 사용하지 않습니다.
 
 3. 다중 경로 모듈을 로드하고 다중 경로 서비스를 시작한 후 부팅 시에 시작되도록 설정하십시오.
   - RHEL 6
@@ -157,7 +157,7 @@ lastupdated: "2018-11-12"
     ```
     {: pre}
 
-    RHEL 7 및 CentOS 7에서 "No fc_host device"를 리턴할 수 있지만 이는 무시해도 됩니다. 
+    RHEL 7 및 CentOS 7에서 "No fc_host device"를 리턴할 수 있지만 이는 무시해도 됩니다.
 
 5. `/etc/iscsi/initiatorname.iscsi` 파일을 {{site.data.keyword.slportal}}의 IQN으로 업데이트하십시오. 값은 소문자로 입력하십시오.
    ```
@@ -508,13 +508,13 @@ root@server:~# multipath -l
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. 디스크가 있는지 확인하십시오. ID가 동일한 2개의 디스크와 ID가 동일한 같은 크기의 `/dev/mapper` 목록이 있어야 합니다. `/dev/mapper` 디바이스는 다중 경로에서 설정하는 디바이스입니다. 
+2. 디스크가 있는지 확인하십시오. ID가 동일한 2개의 디스크와 ID가 동일한 같은 크기의 `/dev/mapper` 목록이 있어야 합니다. `/dev/mapper` 디바이스는 다중 경로에서 설정하는 디바이스입니다.
   ```
   fdisk -l | grep Disk
   ```
   {: pre}
-  
-  - 올바른 구성의 예제 출력: 
+
+  - 올바른 구성의 예제 출력:
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,12 +523,12 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - 올바르지 않은 구성의 예제 출력: 
-    
+  - 올바르지 않은 구성의 예제 출력:
+
     ```
 No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
 root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -541,7 +541,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
 root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -553,23 +553,23 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨의 마운트 해제
 
-1. 파일 시스템을 마운트 해제하십시오. 
+1. 파일 시스템을 마운트 해제하십시오.
    ```
    umount /dev/mapper/XXXlp1 /PerfDisk
    ```
    {: pre}
 
-2. 해당되는 대상 포털에 기타 볼륨이 없으면 대상에서 로그아웃할 수 있습니다. 
+2. 해당되는 대상 포털에 기타 볼륨이 없으면 대상에서 로그아웃할 수 있습니다.
    ```
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
-3. 해당되는 대상 포털에 기타 볼륨이 없으면 추가 로그인 시도의 방지를 위해 대상 포털 레코드를 삭제하십시오. 
+
+3. 해당되는 대상 포털에 기타 볼륨이 없으면 추가 로그인 시도의 방지를 위해 대상 포털 레코드를 삭제하십시오.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    자세한 정보는 [iscsiadm의 man 페이지](https://linux.die.net/man/8/iscsiadm)를 참조하십시오.
    {:tip}

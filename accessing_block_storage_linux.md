@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,10 +18,10 @@ lastupdated: "2018-11-12"
 These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
 {:note}
 
-For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} and DM-Multipath setup [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {: tip}
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
@@ -32,7 +32,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 Following are the steps that are required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
@@ -571,5 +571,5 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
 
-   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm).
+   For more information, see the [`iscsiadm` manual ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://linux.die.net/man/8/iscsiadm).
    {:tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -21,7 +21,7 @@ Queste istruzioni sono principalmente per RHEL6 e Centos6. Sono state aggiunte d
 Ad esempio, puoi trovare le istruzioni di Ubuntu per la configurazione dell'iniziatore iSCSI [qui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e per la configurazione di DM-Multipath [qui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {:tip}
 
-Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
@@ -32,7 +32,7 @@ Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.dat
 
 Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.BluSoftlayer_full}} basata su Linux a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output).
 
-L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}}** Details nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}}** Details nel [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
@@ -53,7 +53,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
     ```
     {: pre}
 
-2. Crea o modifica il file di configurazione multipath se necessario. 
+2. Crea o modifica il file di configurazione multipath se necessario.
   - RHEL 6 e CENTOS 6
     * Modifica **/etc/multipath.conf** con la seguente configurazione minima.
 
@@ -99,7 +99,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
       ```
       {: pre}
 
-  - RHEL7 e CentOS7, `multipath.conf` può essere vuoto perché il sistema operativo ha delle configurazioni integrate. 
+  - RHEL7 e CentOS7, `multipath.conf` può essere vuoto perché il sistema operativo ha delle configurazioni integrate.
   - Ubuntu non utilizza `multipath.conf` poiché è integrato in `multipath-tools`.
 
 3. Carica il modulo multipath, avvia i servizi multipath ed impostane l'avvio all'avvio del computer.
@@ -513,7 +513,7 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - Output di esempio di una configurazione corretta:
 
     ```
@@ -524,11 +524,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - Output di esempio di una configurazione non corretta:
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -541,7 +541,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -551,7 +551,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 | sde: device node name blacklisted Feb 17 19:55:02
    ```
 
-## Smontaggio dei volumi {{site.data.keyword.blockstorageshort}} 
+## Smontaggio dei volumi {{site.data.keyword.blockstorageshort}}
 
 1. Smonta il file system.
    ```
@@ -564,12 +564,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. Se non disponi di altri volumi in quel portale di destinazione, elimina il record del portale di destinazione per impedire tentativi di login futuri.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    Per ulteriori informazioni, consulta la [pagina principale di iscsiadm](https://linux.die.net/man/8/iscsiadm).
    {:tip}

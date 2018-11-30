@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -100,7 +100,7 @@ TOK02<br />
 
 ## 已加密儲存空間磁區的新裝載點
 
-這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。為了確保儲存空間磁區使用正確的裝載點，您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的**磁區詳細資料**頁面上檢視裝載點資訊。您也可以透過 API 呼叫來存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。為了確保儲存空間磁區使用正確的裝載點，您可以在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**磁區詳細資料**頁面上檢視裝載點資訊。您也可以透過 API 呼叫來存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
 請在這裡再次確認，以查看其他資料中心何時升級以及針對 {{site.data.keyword.blockstorageshort}} 新增的特性及功能。
 {:tip}

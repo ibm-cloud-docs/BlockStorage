@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ lastupdated: "2018-10-31"
 
 ### 订购耐久性 LUN
 
-1. 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
+1. 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
 2. 在右上角，单击**订购 {{site.data.keyword.blockstorageshort}}**。
 3. 从**选择存储器类型**列表中，选择**耐久性**。
 4. 选择部署**位置**（数据中心）。
@@ -47,7 +47,7 @@ lastupdated: "2018-10-31"
 
 ### 订购性能 LUN
 
-1. 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
+1. 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
 2. 单击右侧的**订购 {{site.data.keyword.blockstorageshort}}**。
 3. 从**选择存储器类型**列表中，选择**性能**。
 4. 单击**位置**，然后选择数据中心。

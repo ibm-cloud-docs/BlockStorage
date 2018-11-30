@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Solicitud de {{site.data.keyword.blockstorageshort}}
 
@@ -19,9 +21,9 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 
 ## Pedido de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)
 
-1. Inicie una sesión en [el catálogo de IBM Cloud](https://console.bluemix.net/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
+1. Inicie una sesión en [el catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
 
-   Como alternativa, puede iniciar una sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} y pulsar **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
+   Como alternativa, puede iniciar una sesión en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} y pulsar **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 
 2. Seleccione la **Ubicación** (centro de datos) del despliegue.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts de cálculo que tiene.
@@ -52,9 +54,9 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 
 ## Pedido de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)
 
-1. Inicie una sesión en [el catálogo de IBM Cloud](https://console.bluemix.net/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
+1. Inicie una sesión en [el catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
 
-   Como alternativa, puede iniciar una sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} y pulsar **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
+   Como alternativa, puede iniciar una sesión en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} y pulsar **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 2. Pulse **Ubicación** y seleccione el centro de datos.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts de cálculo que tiene.
 3. Facturación. Si ha seleccionado un centro de datos con prestaciones mejoradas (marcados con un asterisco), podrá elegir entre facturación mensual o por horas.

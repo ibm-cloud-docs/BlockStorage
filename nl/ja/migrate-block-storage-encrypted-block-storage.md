@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 ### エンデュランス LUN の注文
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} から**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} から**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. 右上隅で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 3. **「ストレージ・タイプの選択」**リストから**「エンデュランス」**を選択します。
 4. デプロイメント・**ロケーション** (データ・センター) を選択します。
@@ -47,7 +47,7 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 ### パフォーマンス LUN の注文
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} から**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} から**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. 右側で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 3. **「ストレージ・タイプの選択 (Select Storage Type)」**リストから、**「パフォーマンス」**を選択します。
 4. **「ロケーション」**をクリックして、データ・センターを選択します。

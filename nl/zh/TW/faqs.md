@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ lastupdated: "2018-11-05"
 
 **Windows 2008+**
 - LUN 儲存 Windows 2008 以及更新版本的 Windows 資料。如果您的主機作業系統是 Windows Server 2008、Windows Server 2012、Windows Server 2016，請使用這個 OS 選項。MBR 和 GPT 分割方法均受支援。
- 
+
 **Windows 2003**
 - LUN 在使用「主要開機記錄 (MBR)」分割樣式的單一分割區 Windows 磁碟中，儲存原始磁碟類型。唯有當您的主機作業系統是使用 MBR 分割方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003 時，才使用這個選項。
 
@@ -54,7 +54,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 
 使用較小的區塊大小時，仍然可以取得最大 IOPS。不過，傳輸量會變小。例如，具有 6000 IOPS 的磁區會有下列各種區塊大小的傳輸量：
 
-- 16 KB * 6000 IOPS == ~93.75 MB/秒 
+- 16 KB * 6000 IOPS == ~93.75 MB/秒
 - 8 KB * 6000 IOPS == ~46.88 MB/秒
 - 4 KB * 6000 IOPS == ~23.44 MB/秒
 
@@ -86,7 +86,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 如何分辨哪些 {{site.data.keyword.blockstorageshort}} LUN/磁區已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
+在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
 
 ## 如何知道是否在已升級資料中心內佈建 {{site.data.keyword.blockstorageshort}}？
 {: faq}

@@ -2,21 +2,23 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 訂購 Snapshot
 
 若要自動或手動建立儲存空間磁區的 Snapshot，您需要購買空間來保留它們。您可以購買最多達到儲存空間磁區量的容量（在起始磁區購買期間購買，或之後使用此處說明的步驟購買）。
 
-1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://console.bluemix.net/catalog/){:new_window}，然後按一下左上方的**功能表**圖示。選取**典型基礎架構**。
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的**功能表**圖示。選取**典型基礎架構**。
 
-   或者，您可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}。
+   或者，您可以登入 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}。
 2. 透過**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 存取「儲存空間 LUN」。
 2. 按一下 Snapshot 頁框中的**變更 Snapshot 空間**。
 3. 選取您需要的空間量和付款方法。

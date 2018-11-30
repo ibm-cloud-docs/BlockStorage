@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # {{site.data.keyword.blockstorageshort}} の注文
 
@@ -19,7 +21,7 @@ lastupdated: "2018-11-05"
 
 ## 事前定義の IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文
 
-1. [IBM Cloud カタログ](https://console.bluemix.net/catalog/){:new_window}にログインし、**「ストレージ」**をクリックします。次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
+1. [IBM Cloud カタログ](https://{DomainName}/catalog/){:new_window}にログインし、**「ストレージ」**をクリックします。次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
 
    または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}にログインし、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 
@@ -51,7 +53,7 @@ lastupdated: "2018-11-05"
 
 ## カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文
 
-1. [IBM Cloud カタログ](https://console.bluemix.net/catalog/){:new_window}にログインし、**「ストレージ」**をクリックします。次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
+1. [IBM Cloud カタログ](https://{DomainName}/catalog/){:new_window}にログインし、**「ストレージ」**をクリックします。次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
 
    または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}にログインし、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 2. **「ロケーション」**をクリックして、データ・センターを選択します。

@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # {{site.data.keyword.blockstorageshort}} 시작하기
 
@@ -33,20 +35,20 @@ lastupdated: "2018-10-29"
 - **복제**([데이터 센터 선택 시 사용 가능](new-ibm-block-and-file-storage-location-and-features.html))
    - 파트너 {{site.data.keyword.BluSoftlayer_full}} 데이터 센터에 스냅샷 자동 복사
 - **고가용성의 연결**
-   - 가용성을 극대화하기 위해 중복 네트워킹 연결 사용 
+   - 가용성을 극대화하기 위해 중복 네트워킹 연결 사용
    - iSCSI 기반 {{site.data.keyword.blockstorageshort}}에서는 다중 경로 I/O(MPIO)를 사용합니다.
 - **동시 액세스**
    - 클러스터된 구성을 위해 여러 호스트가 동시에 블록 볼륨(최대 8)에 액세스하는 것을 허용합니다.
 - **클러스터된 데이터베이스**
    - 클러스터된 데이터베이스와 같은 고급 유스 케이스를 지원합니다.
-     
+
 ## 비용 청구
 
-블록 LUN에 대해 시간별 또는 월별 비용 청구를 선택할 수 있습니다. LUN에 대해 선택한 비용 청구 유형은 해당 스냅샷 영역 및 복제본에 적용됩니다. 예를 들어, LUN을 시간별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 시간별로 청구됩니다. LUN을 월별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 월별로 청구됩니다. 
+블록 LUN에 대해 시간별 또는 월별 비용 청구를 선택할 수 있습니다. LUN에 대해 선택한 비용 청구 유형은 해당 스냅샷 영역 및 복제본에 적용됩니다. 예를 들어, LUN을 시간별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 시간별로 청구됩니다. LUN을 월별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 월별로 청구됩니다.
 
-**시간별 비용 청구**를 사용하면 계정에서 블록 LUN이 존재하는 시간은 LUN이 삭제되는 시점 또는 비용 청구 주기 종료 시점(둘 중 빠른 경우)에 계산합니다. 시간별 비용 청구는 며칠 정도 또는 한 달 미만으로 사용되는 스토리지에 적합합니다. 시간별 비용 청구는 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에만 사용할 수 있습니다. 
+**시간별 비용 청구**를 사용하면 계정에서 블록 LUN이 존재하는 시간은 LUN이 삭제되는 시점 또는 비용 청구 주기 종료 시점(둘 중 빠른 경우)에 계산합니다. 시간별 비용 청구는 며칠 정도 또는 한 달 미만으로 사용되는 스토리지에 적합합니다. 시간별 비용 청구는 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에만 사용할 수 있습니다.
 
-**월별 비용 청구**를 사용하는 경우, 비용 계산은 작성 날짜부터 비용 청구 주기 종료 시점까지 비례 배분되며 즉시 청구됩니다. 비용 청구 주기 종료 전에 LUN이 삭제되는 경우에는 환불되지 않습니다. 월별 비용 청구는 장시간(한달 이상) 저장 및 액세스해야 하는 데이터를 사용하는 프로덕션 워크로드에서 사용되는 스토리지에 적합합니다. 
+**월별 비용 청구**를 사용하는 경우, 비용 계산은 작성 날짜부터 비용 청구 주기 종료 시점까지 비례 배분되며 즉시 청구됩니다. 비용 청구 주기 종료 전에 LUN이 삭제되는 경우에는 환불되지 않습니다. 월별 비용 청구는 장시간(한달 이상) 저장 및 액세스해야 하는 데이터를 사용하는 프로덕션 워크로드에서 사용되는 스토리지에 적합합니다.
 
 **Performance**
 <table>
@@ -60,7 +62,7 @@ lastupdated: "2018-10-29"
    <td>$0.0001/GB + $0.0002/IOP</td>
   </tr>
 </table>
- 
+
 **Endurance**
 <table>
   <caption>표 2에는 월별 및 시간별 비용 청구 옵션을 사용하는 각 티어의 Endurance 스토리지 가격이 표시되어 있습니다.</caption>
@@ -93,7 +95,7 @@ lastupdated: "2018-10-29"
 
 {{site.data.keyword.blockstorageshort}} LUN은 20GB부터 12TB까지 프로비저닝 가능하며 다음과 같은 두 개의 옵션이 있습니다. <br/>
 - 사전 정의된 성능 레벨과 스냅샷 및 복제와 같은 기타 기능을 제공하는 **Endurance** 티어를 프로비저닝합니다.
-- 초당 할당된 입출력(I/O) 오퍼레이션(IOPS)이 있는 강력한 **Performance** 환경을 빌드합니다. 
+- 초당 할당된 입출력(I/O) 오퍼레이션(IOPS)이 있는 강력한 **Performance** 환경을 빌드합니다.
 
 ### Endurance 티어를 사용하여 프로비저닝
 
@@ -108,13 +110,13 @@ Endurance{{site.data.keyword.blockstorageshort}}는 다양한 애플리케이션
 - **10 IOPS/GB**는 NoSQL 데이터베이스로 작성된 워크로드 및 분석을 위한 데이터 처리와 같이 가장 수요가 많은 워크로드를 대상으로 디자인되었습니다. 이 티어는 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html) 시에만 최대 4TB의 스토리지 프로비저닝에 사용할 수 있습니다.
 
 12TB Endurance볼륨에 최대 48,000 IOPS가 사용 가능합니다.
- 
+
 워크로드에 맞는 Endurance 티어를 선택하는 것이 중요합니다. 최대 성능 달성에 필요한 올바른 블록 크기, 이더넷 연결 속도 및 호스트 수를 사용하는 것도 매우 중요합니다. 이들 중 하나라도 제대로 맞지 않는 경우, 처리 결과에 심각한 영향을 줄 수 있습니다.
 
- 
+
 ### Performance를 사용하여 프로비저닝
 
-Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항이 있는 높은 I/O의 애플리케이션을 지원하도록 설계된 {{site.data.keyword.blockstorageshort}}의 클래스입니다. 예측 가능한 성능은 프로토콜 레벨의 IOPS를 개별 볼륨에 할당하여 얻을 수 있습니다. 100 - 48,000의 다양한 IOPS 속도는 20GB - 12TB 범위의 스토리지 크기로 프로비저닝할 수 있습니다. 
+Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항이 있는 높은 I/O의 애플리케이션을 지원하도록 설계된 {{site.data.keyword.blockstorageshort}}의 클래스입니다. 예측 가능한 성능은 프로토콜 레벨의 IOPS를 개별 볼륨에 할당하여 얻을 수 있습니다. 100 - 48,000의 다양한 IOPS 속도는 20GB - 12TB 범위의 스토리지 크기로 프로비저닝할 수 있습니다.
 
 {{site.data.keyword.blockstorageshort}}용 Performance는 다중 경로 I/O(MPIO) iSCSI(internet Small Computer System Interface) 연결을 통해 액세스하고 마운트합니다. 일반적으로 {{site.data.keyword.blockstorageshort}}는 단일 서버에서 볼륨에 액세스하는 경우에 사용됩니다. 다중 볼륨은 더 큰 볼륨 및 더 높은 IOPS 수를 얻기 위해 호스트에 마운트되어 같이 스트라이프 가능합니다. Performance 볼륨은 표 3의 크기 및 IOPS 속도에 따라 주문 가능합니다(Linux, XEN 및 Windows 운영 체제).
 
@@ -261,9 +263,9 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 
 이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, 6000 IOPS에 16KB의 블록 크기를 사용 중인 경우, 볼륨은 대략적으로 94MBps 처리량을 처리할 수 있습니다. LUN에 1Gbps 이더넷 연결을 사용 중인 경우, 서버가 최대 가용 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 1Gbps 이더넷 연결(초당 125MB)에 대한 이론적 한계의 70%는 초당 88MB만 처리할 수 있기 때문입니다.
 
-최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](set-host-queue-depth-settings-performance-and-endurance-storage.html) 및 기타 설정)도 고려해야 합니다. 
+최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](set-host-queue-depth-settings-performance-and-endurance-storage.html) 및 기타 설정)도 고려해야 합니다.
 
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계를 이해하려면 [Virtual Server 문서](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계를 이해하려면 [Virtual Server 문서](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.
 {:tip}
 
 ## 주문 제출
@@ -278,4 +280,3 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
 - [cPanel을 사용하여 Block Storage 구성](configure-backup-cpanel.html)
 - [Plesk를 사용하여 Block Storage 구성](configure-backup-plesk.html)
-

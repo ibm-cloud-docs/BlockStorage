@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -86,7 +86,7 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}

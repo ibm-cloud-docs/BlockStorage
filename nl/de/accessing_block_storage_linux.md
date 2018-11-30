@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,10 +18,10 @@ lastupdated: "2018-11-12"
 Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
 {:note}
 
-Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {:tip}
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} autorisiert wurde.
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} autorisiert wurde.
 {:important}
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
@@ -32,7 +32,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
 
-Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}}Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} abgelesen werden.
+Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}}Details** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} abgelesen werden.
 {: tip}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
@@ -99,7 +99,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
       ```
       {: pre}
 
-  - Die Datei `multipath.conf` kann bei RHEL7/CentOS7 leer sein, da das Betriebssystem über integrierte Konfigurationen verfügt. 
+  - Die Datei `multipath.conf` kann bei RHEL7/CentOS7 leer sein, da das Betriebssystem über integrierte Konfigurationen verfügt.
   - Ubuntu verwendet `multipath.conf` nicht, da es in `multipath-tools` integriert ist.
 
 3. Laden Sie das Multipath-Modul, starten Sie die Multipath-Services und legen Sie fest, dass es beim Booten gestartet werden soll.
@@ -157,7 +157,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
     ```
     {: pre}
 
-    Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden. 
+    Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden.
 
 5. Aktualisieren Sie die Datei `/etc/iscsi/initiatorname.iscsi` mit dem IQN aus dem {{site.data.keyword.slportal}}. Geben Sie den Wert in Kleinbuchstaben ein.
    ```
@@ -265,7 +265,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
 Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehängten Datenträger zu erstellen. Ein Dateisystem ist erforderlich, damit die meisten Anwendungen den Datenträger verwenden können. Verwenden Sie `fdisk` für Laufwerke bis zu 2 TB und `parted` für Datenträger ab 2 TB.
 
-### Dateisystem mit `fdisk` erstellen 
+### Dateisystem mit `fdisk` erstellen
 
 1. Rufen Sie den Namen des Datenträgers ab.
    ```
@@ -506,12 +506,12 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. Überprüfen Sie, ob die Platten vorhanden sind. Es müssen zwei Platten mit derselben Kennung und eine `/dev/mapper`-Auflistung mit derselben Größe und mit derselben ID vorhanden sein. Die Einheit `/dev/mapper` ist die Einheit, die Multipath konfiguriert. 
+2. Überprüfen Sie, ob die Platten vorhanden sind. Es müssen zwei Platten mit derselben Kennung und eine `/dev/mapper`-Auflistung mit derselben Größe und mit derselben ID vorhanden sein. Die Einheit `/dev/mapper` ist die Einheit, die Multipath konfiguriert.
   ```
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - Beispielausgabe einer korrekten Konfiguration:
 
     ```
@@ -522,11 +522,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - Beispielausgaben für eine falsche Konfiguration:
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -539,7 +539,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -551,7 +551,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
 
-1. Hängen Sie das Dateisystem ab. 
+1. Hängen Sie das Dateisystem ab.
    ```
    umount /dev/mapper/XXXlp1 /PerfDisk
    ```
@@ -562,12 +562,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
-3. Wenn Sie über keine anderen Datenträger in diesem Zielportal verfügen, löschen Sie den Zielportaldatensatz, um künftige Anmeldeversuche zu verhindern. 
+
+3. Wenn Sie über keine anderen Datenträger in diesem Zielportal verfügen, löschen Sie den Zielportaldatensatz, um künftige Anmeldeversuche zu verhindern.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    Weitere Informationen finden Sie auf der [Handbuchseite zu iscsiadm](https://linux.die.net/man/8/iscsiadm).
    {:tip}

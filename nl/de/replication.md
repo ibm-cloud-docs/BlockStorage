@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -103,7 +103,7 @@ In Tabelle 1 finden Sie eine vollständige Liste der Verfügbarkeit der Rechenze
 
 ## Erstreplikation erstellen
 
-Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen zuerst über einen Snapshotbereich und einen Snapshotplan für den Quellendatenträger verfügen, um replizieren zu können. Wenn Sie versuchen, eine Replikation zu konfigurieren und sich der eine oder andere nicht an seiner Position befindet, werden Sie aufgefordert, mehr Speicherplatz zu erwerben oder einen Zeitplan einzurichten. Replikationen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} verwaltet.
+Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen zuerst über einen Snapshotbereich und einen Snapshotplan für den Quellendatenträger verfügen, um replizieren zu können. Wenn Sie versuchen, eine Replikation zu konfigurieren und sich der eine oder andere nicht an seiner Position befindet, werden Sie aufgefordert, mehr Speicherplatz zu erwerben oder einen Zeitplan einzurichten. Replikationen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} verwaltet.
 
 1. Klicken Sie auf Ihren Speicherdatenträger.
 2. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
@@ -118,7 +118,7 @@ Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus st
 
 ## Vorhandene Replikation bearbeiten
 
-Sie können entweder auf der Registerkarte **Primär** oder **Replikat** unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} einen Replikationsplan bearbeiten und den Replikationsbereich ändern.
+Sie können entweder auf der Registerkarte **Primär** oder **Replikat** unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} einen Replikationsplan bearbeiten und den Replikationsbereich ändern.
 
 
 
@@ -177,7 +177,7 @@ Weitere Informationen zum Vergrößern des Snapschotbereichs finden Sie unter [S
 
 Bei einem Fehlerereignis können Sie einen **Failover** für Ihr Ziel bzw. Ihren Datenträger starten. Der Zieldatenträger wird aktiv. Der letzte erfolgreich replizierte Snapshot wird aktiviert und der Datenträger wird zum Anhängen verfügbar gemacht. Alle seit dem letzten Replikationszyklus auf den Quellendatenträger geschriebenen Daten werden gelöscht. Mit dem Starten eines Failovers wird die Replikationsbeziehung umgedreht. Ihr Zieldatenträger ist nun Ihr Quellendatenträger und Ihr früherer Quellendatenträger wird Ihr Ziel, wie durch den **LUN-Namen** mit angehängtem **REP** angezeigt.
 
-Failover werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} gestartet.
+Failover werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} gestartet.
 
 **Bevor Sie mit den folgenden Schritten fortfahren, unterbrechen Sie die Verbindung zum Datenträger. Wenn Sie das nicht tun, sind Datenbeschädigungen und/oder Datenverlust die Folge.**
 
@@ -202,7 +202,7 @@ Sobald Ihr Originalquellendatenträger repariert ist, können Sie eine gesteuert
 
 Mit dem Starten der Rückübertragung wird die Replikationsbeziehung wieder umgedreht. Ihr Quellendatenträger wird als Ihr Quellendatenträger wiederhergestellt und Ihr Zieldatenträger ist wieder der Zieldatenträger, wie durch **LUN-Name** und angehängtem **REP** angezeigt.
 
-Rückübertragungen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} gestartet.
+Rückübertragungen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} gestartet.
 
 1. Klicken Sie auf Ihre aktive LUN ('Ziel').
 2. Klicken Sie oben rechts auf **Replikat** und danach auf **Aktionen**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,10 +18,10 @@ lastupdated: "2018-11-12"
 Essas instruções são principalmente para o RHEL6 e o Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho.
 {:note}
 
-Por exemplo, é possível localizar instruções do Ubuntu para a Configuração do inicializador iSCSI [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e configuração de DM-Multipath [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+Por exemplo, é possível localizar instruções do Ubuntu para a Configuração do inicializador iSCSI [aqui ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e configuração de DM-Multipath [aqui ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {:tip}
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
@@ -33,7 +33,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
 A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada em Linux a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO).
 
 O IQN do host, o nome do usuário, a senha e o endereço de destino referenciados nas instruções podem ser obtidos na
-tela **{{site.data.keyword.blockstorageshort}}Detalhes** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+tela **{{site.data.keyword.blockstorageshort}}Detalhes** no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
@@ -516,7 +516,7 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - Saída de exemplo de uma configuração correta:
 
     ```
@@ -527,11 +527,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - Saídas de exemplo de uma configuração incorreta:
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -545,7 +545,7 @@ mostra os dispositivos que estão na lista de bloqueio.
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -568,13 +568,13 @@ mostra os dispositivos que estão na lista de bloqueio.
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. Se você não tiver nenhum outro volume nesse portal de destino, exclua o registro do portal de destino para
 evitar futuras tentativas de login.
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    Para obter mais informações, consulte a [página principal do iscsiadm](https://linux.die.net/man/8/iscsiadm).
    {:tip}

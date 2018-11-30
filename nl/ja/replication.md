@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -104,7 +104,7 @@ lastupdated: "2018-10-31"
 
 ## 初期レプリカの作成
 
-レプリケーションは、スナップショット・スケジュールに基づいて作動します。 レプリケーションを行うには、まずソース・ボリューム用のスナップショット・スペースとスナップショット・スケジュールを作成する必要があります。 レプリケーションを設定しようとしたときに、どちらかの準備ができていなければ、より多くのスペースを購入するか、スケジュールを設定するように求められます。 レプリケーションは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で管理されます。
+レプリケーションは、スナップショット・スケジュールに基づいて作動します。 レプリケーションを行うには、まずソース・ボリューム用のスナップショット・スペースとスナップショット・スケジュールを作成する必要があります。 レプリケーションを設定しようとしたときに、どちらかの準備ができていなければ、より多くのスペースを購入するか、スケジュールを設定するように求められます。 レプリケーションは、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で管理されます。
 
 1. ストレージ・ボリュームをクリックします。
 2. **「レプリカ」**をクリックし、**「レプリケーションの購入 (Purchase a replication)」**をクリックします。
@@ -119,7 +119,7 @@ lastupdated: "2018-10-31"
 
 ## 既存のレプリケーションの編集
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下にある**「プライマリー」**または**「レプリカ」**のいずれかのタブから、レプリケーション・スケジュールを編集したり、レプリケーション・スペースを変更したりできます。
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下にある**「プライマリー」**または**「レプリカ」**のいずれかのタブから、レプリケーション・スケジュールを編集したり、レプリケーション・スペースを変更したりできます。
 
 
 
@@ -179,7 +179,7 @@ lastupdated: "2018-10-31"
 
 障害が発生した場合、宛先 (つまりターゲット) ボリュームへの**フェイルオーバー**を開始できます。 ターゲット・ボリュームがアクティブになります。 最後に正常に複製されたスナップショットがアクティブになり、ボリュームがマウント可能になります。 前回のレプリケーション・サイクル以降にソース・ボリュームに書き込まれたデータは、すべて失われます。 フェイルオーバーが開始されると、レプリケーションの関係が反転します。 ターゲット・ボリュームがソース・ボリュームになり、以前のソース・ボリュームは、**「LUN 名」**の後に **REP** を付けて示されるターゲットになります。
 
-フェイルオーバーは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の**「ストレージ」**、「**{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
+フェイルオーバーは、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の**「ストレージ」**、「**{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
 
 **これらのステップに進む前に、ボリュームを切り離します。 そうしないと、破損やデータ損失が発生します。**
 
@@ -204,7 +204,7 @@ lastupdated: "2018-10-31"
 
 フェイルバックが開始されると、レプリケーションの関係が再び反転します。 ソース・ボリュームがソース・ボリュームとして復元され、ターゲット・ボリュームは、再度、**「LUN 名」**の後に **REP** を付けて示されるターゲット・ボリュームになります。
 
-フェイルバックは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
+フェイルバックは、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
 
 1. アクティブな LUN (「ターゲット」) をクリックします。
 2. 右上にある**「レプリカ」**をクリックし、**「アクション」** をクリックします。

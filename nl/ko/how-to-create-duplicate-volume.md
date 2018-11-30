@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,7 +35,7 @@ lastupdated: "2018-10-31"
 - **개발/테스트**: 개발 및 테스트를 위해 중복 데이터를 작성하기 위해 한 번에 최대 네 개의 동시 볼륨 복제를 작성하십시오.
 - **스토리지 크기 조정**: 데이터를 이동할 필요없이 새로운 크기 또는 IOPS 속도 또는 모두로 볼륨을 작성하십시오.  
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}을 통해 몇 가지 방법으로 중복 볼륨을 작성할 수 있습니다.
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}을 통해 몇 가지 방법으로 중복 볼륨을 작성할 수 있습니다.
 
 
 ## 스토리지 목록의 특정 볼륨에서 복제 작성

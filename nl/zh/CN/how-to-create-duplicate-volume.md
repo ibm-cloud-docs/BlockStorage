@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,7 +35,7 @@ lastupdated: "2018-10-31"
 - **开发和测试（开发/测试）**：一次最多可同时创建卷的 4 个复制项，以创建复制数据用于开发和测试。
 - **存储器大小调整**：创建具有新大小和/或 IOPS 速率的卷，而无需移动数据。  
 
-您可以采用多种方式通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 来创建复制卷。
+您可以采用多种方式通过 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 来创建复制卷。
 
 
 ## 基于存储器列表中的特定卷创建复制项

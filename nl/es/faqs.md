@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ Después de crear una LUN, debe especificar el tipo de SO. El tipo de SO se debe
 
 **Windows 2008+**
 - la LUN almacena datos de Windows para Windows 2008 y versiones posteriores. Utilice esta opción de SO si el sistema operativo del host es Windows Server 2008, Windows Server 2012 o Windows Server 2016. Se da soporte a los modelos de particionamiento MBR y GPT.
- 
+
 **Windows 2003**
 - la LUN almacena un tipo de disco sin formato en un disco Windows de una sola partición utilizando el estilo de particionamiento MBR (registro de arranque maestro). Utilice esta opción solo si el sistema operativo del host es Windows 2000 Server, Windows XP o Windows Server 2003 que utiliza el método de particionamiento MBR.
 
@@ -54,7 +54,7 @@ IOPS se mide en función de un perfil de carga de bloques de 16 KB con 50 % de l
 
 El máximo de IOPS todavía se puede obtener cuando se utilizan tamaños de bloque más pequeños. Sin embargo, el rendimiento se vuelve más pequeño. Por ejemplo, un volumen con 6000 IOPS tendrá el siguiente rendimiento en varios tamaños de bloque:
 
-- 16 KB * 6000 IOPS == ~93,75 MB/seg. 
+- 16 KB * 6000 IOPS == ~93,75 MB/seg.
 - 8 KB * 6000 IOPS == ~46,88 MB/seg.
 - 4 KB * 6000 IOPS == ~23,44 MB/seg.
 
@@ -86,7 +86,7 @@ El nivel 10 de IOPS/GB de tipo Resistencia {{site.data.keyword.blockstorageshort
 ## ¿Cómo podemos saber cuáles de los LUN/volúmenes de {{site.data.keyword.blockstorageshort}} están cifrados?
 {: faq}
 
-Al consultar la lista de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, puede ver un icono de bloqueo junto al nombre de volumen de las LUN que están cifradas.
+Al consultar la lista de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, puede ver un icono de bloqueo junto al nombre de volumen de las LUN que están cifradas.
 
 ## ¿Cómo sabemos cuándo estamos suministrando {{site.data.keyword.blockstorageshort}} en un centro de datos actualizado?
 {: faq}
@@ -96,8 +96,8 @@ Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos
 ## Si tenemos {{site.data.keyword.blockstorageshort}} no cifrado en un centro de datos actualizado recientemente, ¿podemos cifrar dicho {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} suministrado antes de la actualización del centro de datos no se puede cifrar. 
-El nuevo {{site.data.keyword.blockstorageshort}} suministrado en centros de datos actualizados se cifra automáticamente. No hay que elegir ningún valor de cifrado; es automático. 
+{{site.data.keyword.blockstorageshort}} suministrado antes de la actualización del centro de datos no se puede cifrar.
+El nuevo {{site.data.keyword.blockstorageshort}} suministrado en centros de datos actualizados se cifra automáticamente. No hay que elegir ningún valor de cifrado; es automático.
 Los datos que residen en almacenamiento no cifrado en un centro de datos actualizado se pueden cifrar creando un nuevo LUN de bloque para posteriormente copiar los datos al nuevo LUN cifrado con migración basada en host. Pulse [aquí](migrate-block-storage-encrypted-block-storage.html) para obtener instrucciones.
 
 ## ¿{{site.data.keyword.blockstorageshort}} da soporte a la reserva persistente SCSI-3 para implementar una barrera de E/S para Db2 pureScale?

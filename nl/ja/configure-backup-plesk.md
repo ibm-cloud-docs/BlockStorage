@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 
 以下の説明に従って、Plesk でのバックアップ用に {{site.data.keyword.blockstoragefull}} を構成します。 root または sudo SSH でのアクセスが可能であり、管理者レベルの Plesk フル・アクセス権限があることを前提としています。 ここでの説明は、CentOS7 ホストに基づいています。
 
-ベンダーからの詳細情報は、[バックアップとリストアに関する Plesk の資料](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}を参照してください。
+ベンダーからの詳細情報は、[バックアップとリストアに関する Plesk の資料 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}を参照してください。
 {:tip}
 
 1. SSH 経由でホストに接続します。

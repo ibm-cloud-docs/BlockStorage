@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ contêm múltiplos slots de chave.
 ## O que o LUKS não faz
 
 - Permitir que os aplicativos que requerem muitos usuários (mais de oito) tenham chaves de acesso distintas para os mesmos dispositivos.
-- Trabalhar com aplicativos que requerem criptografia no nível de arquivo, [mais informações](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Trabalhar com aplicativos que requerem criptografia no nível de arquivo, [mais informações ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configurando um volume criptografado pelo LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
 

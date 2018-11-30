@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Ordinazione di {{site.data.keyword.blockstorageshort}}
 
@@ -19,9 +21,9 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 
 ## Ordine di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)
 
-1. Accedi al [Catalogo IBM Cloud](https://console.bluemix.net/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi **{{site.data.keyword.blockstorageshort}}** e fai clic su **Crea**.
+1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi **{{site.data.keyword.blockstorageshort}}** e fai clic su **Crea**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} e fare clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} e fare clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 
 2. Seleziona l'ubicazione (**Location**) (data center) della tua distribuzione.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host di calcolo di cui disponi.
@@ -52,9 +54,9 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 
 ## Ordine di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
 
-1. Accedi al [Catalogo IBM Cloud](https://console.bluemix.net/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi {{site.data.keyword.blockstorageshort}} e fai clic su **Crea**.
+1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi {{site.data.keyword.blockstorageshort}} e fai clic su **Crea**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} e fare clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} e fare clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 2. Fai clic su **Location** e seleziona il tuo data center.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host di calcolo di cui disponi.
 3. Fatturazione. Se hai selezionato un data center con funzionalità migliorate (contrassegnato con un asterisco), puoi scegliere tra fatturazione mensile od oraria.

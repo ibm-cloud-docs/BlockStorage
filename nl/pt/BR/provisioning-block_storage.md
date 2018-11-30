@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Solicitando o {{site.data.keyword.blockstorageshort}}
 
@@ -19,9 +21,9 @@ lastupdated: "2018-11-05"
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com Camadas IOPS predefinidas (Endurance)
 
-1. Efetue login no [catálogo do IBM Cloud](https://console.bluemix.net/catalog/){:new_window} e clique em **Armazenamento**. Em seguida, selecione **{{site.data.keyword.blockstorageshort}}** e clique em **Criar**.
+1. Efetue login no [catálogo do IBM Cloud](https://{DomainName}/catalog/){:new_window} e clique em **Armazenamento**. Em seguida, selecione **{{site.data.keyword.blockstorageshort}}** e clique em **Criar**.
 
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} e clicar em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
+   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} e clicar em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
 
 2. Selecione seu **Local** de implementação (data center).
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que os hosts de cálculo que você tem.
@@ -58,9 +60,9 @@ volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de s
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com IOPS Customizado (Desempenho)
 
-1. Efetue login no [catálogo do IBM Cloud](https://console.bluemix.net/catalog/){:new_window} e clique em **Armazenamento**. Em seguida, selecione {{site.data.keyword.blockstorageshort}} e clique em **Criar**.
+1. Efetue login no [catálogo do IBM Cloud](https://{DomainName}/catalog/){:new_window} e clique em **Armazenamento**. Em seguida, selecione {{site.data.keyword.blockstorageshort}} e clique em **Criar**.
 
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} e clicar em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
+   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} e clicar em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
 2. Clique em **Local** e selecione seu data center.
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que os hosts de cálculo que você tem.
 3. Faturamento. Se você selecionou um data center com recursos melhorados (marcados com um asterisco), é possível escolher entre Faturamento por hora ou mensal.

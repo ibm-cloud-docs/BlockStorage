@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -14,7 +14,7 @@ lastupdated: "2018-06-25"
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes globally.
 
-You can request a limit increase by submitting a ticket in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. When the request is approved, you get a volume limit that is set for a specific data center.  
+You can request a limit increase by submitting a ticket in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. When the request is approved, you get a volume limit that is set for a specific data center.  
 
 To request a limit increase, open a ticket and direct it to your sales representative.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -14,7 +14,7 @@ lastupdated: "2018-10-31"
 
 ## スナップショット・スケジュールの作成
 
-スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**タブから行います。
+スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**タブから行います。
 
 初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。
 {:important}
@@ -110,7 +110,7 @@ lastupdated: "2018-10-31"
 1. ストレージ・ボリュームをホストからアンマウントして、切り離します。
    - [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
    - [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
-2. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+2. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. スクロールダウンして、復元するボリュームをクリックします。 **「詳細」**ページの**「スナップショット」**セクションに、保存されているすべてのスナップショットのリストがサイズと作成日とともに表示されます。
 4. 使用するスナップショットの横の**「アクション」**をクリックし、**「復元」** をクリックします。 <br/>
 

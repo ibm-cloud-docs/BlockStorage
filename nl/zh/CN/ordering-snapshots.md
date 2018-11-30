@@ -2,21 +2,23 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 订购快照
 
 为了自动或手动创建存储卷的快照，您需要购买空间来保存快照。可以购买的最高容量等于存储卷容量（在初始卷购买期间或之后使用在此描述的步骤）。
 
-1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://console.bluemix.net/catalog/){:new_window}，然后单击左上方的**菜单**图标。选择**经典基础架构**。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/catalog/){:new_window}，然后单击左上方的**菜单**图标。选择**经典基础架构**。
 
-   也可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}。
+   也可以登录到 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}。
 2. 通过**存储** > **{{site.data.keyword.blockstorageshort}}**，访问存储器 LUN。
 2. 单击“快照”框架上的**更改快照空间**。
 3. 选择所需的空间量和付款方式。

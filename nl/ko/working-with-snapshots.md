@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -14,14 +14,14 @@ lastupdated: "2018-10-31"
 
 ## 스냅샷 스케줄 작성
 
-스냅샷 스케줄을 사용하여 스토리지 볼륨에 대한 특정 시점의 참조를 작성하는 빈도 및 시기를 결정합니다. 스토리지 볼륨별로 최대 50개의 스냅샷이 가능합니다. 스케줄은 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **스토리지** > **{{site.data.keyword.blockstorageshort}}** 탭을 통해 관리됩니다. 
+스냅샷 스케줄을 사용하여 스토리지 볼륨에 대한 특정 시점의 참조를 작성하는 빈도 및 시기를 결정합니다. 스토리지 볼륨별로 최대 50개의 스냅샷이 가능합니다. 스케줄은 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **스토리지** > **{{site.data.keyword.blockstorageshort}}** 탭을 통해 관리됩니다.
 
 스토리지 볼륨의 초기 프로비저닝 중에 스냅샷 영역을 구매하지 않은 경우에는 초기 스케줄을 설정하기 전에 우선 이를 구매해야 합니다.
 {:important}
 
 ### 스냅샷 스케줄 추가
 
-스냅샷 스케줄은 시간별, 일별, 주별 간격으로 설정할 수 있으며 이들 각각에는 개별적인 보유 주기가 있습니다. 스토리지 볼륨마다 최대 한계가 50개인 스케줄된 스냅샷(이는 시간별, 일별, 주별 스케줄의 혼합일 수 있음)과 수동 스냅샷이 있습니다. 
+스냅샷 스케줄은 시간별, 일별, 주별 간격으로 설정할 수 있으며 이들 각각에는 개별적인 보유 주기가 있습니다. 스토리지 볼륨마다 최대 한계가 50개인 스케줄된 스냅샷(이는 시간별, 일별, 주별 스케줄의 혼합일 수 있음)과 수동 스냅샷이 있습니다.
 
 1. 스토리지 볼륨을 클릭하고 **조치**를 클릭한 후 **스케줄 스냅샷**을 클릭하십시오.
 2. 새 스케줄 스냅샷 창에서는 세 개의 다른 스냅샷 빈도 중에서 선택이 가능합니다. 이 세 개의 조합 중 임의의 조합을 사용하여 포괄적인 스냅샷 스케줄을 작성하십시오.
@@ -42,7 +42,7 @@ lastupdated: "2018-10-31"
 
 수동 스냅샷은 애플리케이션 업그레이드 또는 유지보수 중에 다양한 시점에서 작성할 수 있습니다. 또한 애플리케이션 레벨에서 임시로 비활성화된 여러 서버에서도 스냅샷을 작성할 수 있습니다.
 
-스토리지 볼륨마다 최대 한계가 50개인 수동 스냅샷이 있습니다. 
+스토리지 볼륨마다 최대 한계가 50개인 수동 스냅샷이 있습니다.
 
 1. 스토리지 볼륨을 클릭하십시오.
 2. **조치**를 클릭하십시오.
@@ -110,7 +110,7 @@ lastupdated: "2018-10-31"
 1. 호스트에서 스토리지 볼륨을 마운트 해제하고 분리하십시오.
    - [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
    - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
-2. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}에서 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+2. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 3. 아래로 스크롤한 후에 복원되는 볼륨을 클릭하십시오. **세부사항** 페이지의 **스냅샷** 섹션에 해당 크기 및 작성 날짜와 같이 저장된 모든 스냅샷 목록이 표시됩니다.
 4. 사용되는 스냅샷 옆에 있는 **조치**를 클릭하고 **복원**을 클릭하십시오. <br/>
 

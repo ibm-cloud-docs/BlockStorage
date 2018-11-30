@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,7 +18,7 @@ lastupdated: "2018-11-12"
 ここでの説明は、主に RHEL6 および Centos6 向けのものです。他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
 
-例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
+例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
 {:tip}
 
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して以前に許可されていることを確認してください。
@@ -513,7 +513,7 @@ lastupdated: "2018-11-12"
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - 構成が正しい場合の出力例:
 
     ```
@@ -524,11 +524,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
   - 構成が間違っている場合の出力例:
-    
+
     ```
     No multipath output root@server:~# multipath -l root@server:~#
     ```
-    
+
     ```
     root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -541,7 +541,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
    root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -564,12 +564,12 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. そのターゲット・ポータルに他のボリュームがない場合は、ターゲット・ポータル・レコードを削除して、今後ログインを試行できないようにします。
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    詳しくは、[iscsiadm の man ページ](https://linux.die.net/man/8/iscsiadm)を参照してください。
    {:tip}

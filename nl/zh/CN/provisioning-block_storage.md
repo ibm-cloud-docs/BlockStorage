@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 订购 {{site.data.keyword.blockstorageshort}}
 
@@ -19,9 +21,9 @@ lastupdated: "2018-11-05"
 
 ## 订购使用预定义的 IOPS 层的 {{site.data.keyword.blockstorageshort}}（耐久性）
 
-1. 登录到 [IBM Cloud 目录](https://console.bluemix.net/catalog/){:new_window}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
+1. 登录到 [IBM Cloud 目录 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/){:new_window}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
 
-   也可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
+   也可以登录到 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 
 2. 选择部署**位置**（数据中心）。
    - 确保将新存储器添加到您拥有的计算主机所在位置。
@@ -52,9 +54,9 @@ lastupdated: "2018-11-05"
 
 ## 订购使用定制 IOPS 的 {{site.data.keyword.blockstorageshort}}（性能）
 
-1. 登录到 [IBM Cloud 目录](https://console.bluemix.net/catalog/){:new_window}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
+1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog/){:new_window}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
 
-   也可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
+   也可以登录到 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 2. 单击**位置**，然后选择数据中心。
    - 确保将新存储器添加到您拥有的计算主机所在位置。
 3. 计费。如果选择了具有改进功能的数据中心（标记有星号），那么可以选择“按月计费”或“按小时计费”。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-12"
 
 # Connecting to MPIO iSCSI LUNS on Microsoft Windows
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**. Click **Authorize Host**.
 2. From the list, select the host or hosts that are to access the volume and click **Submit**.
@@ -46,7 +46,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN).
     ![iSCSI Initiator Properties](/images/iSCSI.png)
 
-      The IQN name can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+      The IQN name can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
       {: tip}
 
     - Click the **Discovery** tab and click **Discover Portal**.
@@ -57,8 +57,8 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
     The Name and Target secret fields are case-sensitive.
     {:important}
-         - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
-         - In the **Target secret** field, enter the password from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+         - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+         - In the **Target secret** field, enter the password from the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
     - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
     ![Inactive Target](/images/Inactive_0.png)
 
@@ -107,7 +107,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} before you attempt to make the connection.
+   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} before you attempt to make the connection.
    {:note}
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`. <br/>
   ![Devices](/images/Devices.png)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 
 Verwenden Sie diesen Artikel zum Konfigurieren der Sicherungen in cPanel für das Speichern im {{site.data.keyword.blockstoragefull}}. Dabei wird angenommen, dass root- oder sudo SSH- sowie ein vollständiger WHM-Zugriff (WHM = WebHost Manager) verfügbar ist. Diese Anweisungen basieren auf einem **CentOS 7**-Host.
 
-Weitere Informationen des Anbieters finden Sie in [cPanel - Configuring Backup Directory](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}.
+Weitere Informationen des Anbieters finden Sie in [cPanel - Configuring Backup Directory ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}.
 {:tip}
 
 1. Stellen Sie über SSH eine Verbindung zu dem Host her.

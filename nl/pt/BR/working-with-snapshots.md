@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 ## Criando um planejamento de captura instantânea
 
 Você decide com que frequência e quando deseja criar uma referência de momento de seu volume de armazenamento com planejamentos de Captura instantânea. É possível ter um máximo de 50 capturas
-instantâneas por volume de armazenamento. Os planejamentos são gerenciados por meio da guia **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+instantâneas por volume de armazenamento. Os planejamentos são gerenciados por meio da guia **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** do [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 Para poder configurar seu planejamento inicial, deve-se primeiramente comprar um espaço de captura instantânea, caso você não tenha comprado durante o fornecimento inicial do volume de armazenamento.
 {:important}
@@ -124,7 +124,7 @@ Talvez seja necessário retornar o seu volume de armazenamento para um momento e
    - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
 2. Clique em **Armazenamento**,
 **{{site.data.keyword.blockstorageshort}}** no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 3. Role para baixo e clique no seu volume a ser restaurado. A seção **Capturas instantâneas** da página **Detalhes** exibe a lista de todas as capturas instantâneas salvas juntamente com seu tamanho e data de criação.
 4. Clique em **Ações** próximo à captura instantânea a ser usada e clique em **Restaurar**. <br/>
 

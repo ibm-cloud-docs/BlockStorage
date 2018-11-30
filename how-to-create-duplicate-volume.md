@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,7 +35,7 @@ Some common uses for a duplicate volume:
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 - **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.  
 
-You can create a duplicate volume through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} in a couple of ways.
+You can create a duplicate volume through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} in a couple of ways.
 
 
 ## Creating a duplicate from a specific volume in the Storage List

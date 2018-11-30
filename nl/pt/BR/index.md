@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Introdução ao {{site.data.keyword.blockstorageshort}}
 
@@ -33,21 +35,21 @@ Aproveite os recursos do {{site.data.keyword.blockstorageshort}} a seguir:
 - **Replicação** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
    - Copia capturas instantâneas automaticamente para um data center parceiro do {{site.data.keyword.BluSoftlayer_full}}.
 - **Conectividade altamente disponível**
-   - Usa conexões de rede redundantes para maximizar a disponibilidade 
+   - Usa conexões de rede redundantes para maximizar a disponibilidade
    - O {{site.data.keyword.blockstorageshort}} baseado em iSCSI usa Multipath I/O (MPIO).
 - **Acesso simultâneo**
    - Permite que múltiplos hosts acessem simultaneamente volumes de bloco de acesso (até oito) para configurações em cluster.
 - **Bancos de dados em cluster**
    - Suporta casos de uso avançados, como bancos de dados em cluster.
-     
+
 ## Faturamento
 
-É possível selecionar o faturamento por hora ou mensal para um LUN de bloco. O tipo de faturamento selecionado para um LUN aplica-se a seu espaço de captura instantânea e réplicas. Por exemplo, se você provisionar um LUN com o faturamento por hora, quaisquer taxas de capturas instantâneas ou de réplica serão faturadas por hora. Se você provisionar um LUN com faturamento mensal, quaisquer taxas de capturas instantâneas ou de réplicas serão faturadas mensalmente. 
+É possível selecionar o faturamento por hora ou mensal para um LUN de bloco. O tipo de faturamento selecionado para um LUN aplica-se a seu espaço de captura instantânea e réplicas. Por exemplo, se você provisionar um LUN com o faturamento por hora, quaisquer taxas de capturas instantâneas ou de réplica serão faturadas por hora. Se você provisionar um LUN com faturamento mensal, quaisquer taxas de capturas instantâneas ou de réplicas serão faturadas mensalmente.
 
-Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível para o armazenamento provisionado somente em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). 
+Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível para o armazenamento provisionado somente em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html).
 
 Com o **faturamento mensal**, o cálculo do preço é rateado a partir da data
-de criação até o término do ciclo de faturamento e é cobrado imediatamente. Se um LUN for excluído antes do término do ciclo de faturamento, não haverá reembolso. O faturamento mensal é uma boa opção para o armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais). 
+de criação até o término do ciclo de faturamento e é cobrado imediatamente. Se um LUN for excluído antes do término do ciclo de faturamento, não haverá reembolso. O faturamento mensal é uma boa opção para o armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais).
 
 **Performance**
 <table>
@@ -61,7 +63,7 @@ de criação até o término do ciclo de faturamento e é cobrado imediatamente.
    <td>US$ 0,0001/GB + US$ 0,0002/IOP</td>
   </tr>
 </table>
- 
+
 ** Endurance **
 <table>
   <caption>A Tabela 2 está mostrando os preços para o armazenamento do Endurance para cada camada com opções de faturamento mensais e por hora.</caption>
@@ -95,7 +97,7 @@ de criação até o término do ciclo de faturamento e é cobrado imediatamente.
 Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser provisionados de 20 GB a 12 TB com duas opções: <br/>
 - Provisiona camadas do **Endurance** que apresentam níveis de desempenho predefinidos e outros recursos, como capturas instantâneas e replicação.
 - Construa um ambiente de **Desempenho** poderoso com operações de
-entrada/saída por segundo (IOPS) alocadas. 
+entrada/saída por segundo (IOPS) alocadas.
 
 ### Fornecimento com Camadas de Endurance
 
@@ -111,14 +113,14 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 - **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento provisionado até 4 TB em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html) apenas.
 
 Até 48.000 IOPS estão disponíveis com um volume de Resistência de 12 TB.
- 
+
 A escolha da camada correta do Endurance é essencial para sua carga de trabalho. É igualmente importante usar o tamanho de bloco, a velocidade de conexão Ethernet e o número de hosts corretos necessários para alcançar o máximo desempenho. Se alguma dessas partes não se alinhar, poderá haver um impacto significativo no rendimento resultante.
 
- 
+
 ### Provisionando com Desempenho
 
 Performance é uma classe do {{site.data.keyword.blockstorageshort}} projetada para suportar aplicativos de alta E/S com requisitos de desempenho entendidos que não se ajustam bem em uma camada do Endurance. Um desempenho previsível é atingido por meio da alocação
-de IOPS de nível de protocolo para volumes individuais. Várias taxas de IOPS (100 - 48.000) podem ser provisionadas com tamanhos de armazenamento que variam de 20 GB a 12 TB. 
+de IOPS de nível de protocolo para volumes individuais. Várias taxas de IOPS (100 - 48.000) podem ser provisionadas com tamanhos de armazenamento que variam de 20 GB a 12 TB.
 
 O Performance para o {{site.data.keyword.blockstorageshort}} é acessado e montado por meio de uma conexão Small Computer System Interface (iSCSI) da internet de Multipath I/O (MPIO). O {{site.data.keyword.blockstorageshort}} é usado geralmente quando o volume é acessado por um único servidor. Múltiplos volumes podem ser montados em um host e divididos juntos para atingir volumes
 e contagens de IOPS maiores. Os volumes do Performance podem ser pedidos de acordo com os tamanhos e as taxas de IOPS na Tabela 3 para os sistemas operacionais Linux, XEN e Windows.
@@ -273,7 +275,7 @@ de rede privada fora do armazenamento e os ajustes específicos do aplicativo e 
 IP ou [profundidades da fila](set-host-queue-depth-settings-performance-and-endurance-storage.html) e
 outras configurações).
 
-O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Consulte a [documentação do Virtual Server](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) para entender os limites que podem ser impostos pelo serviço.
+O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Consulte a [documentação do Virtual Server](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) para entender os limites que podem ser impostos pelo serviço.
 {:tip}
 
 ## Enviando sua Ordem
@@ -288,4 +290,3 @@ Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts
 - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
 - [Configurando o Block Storage para backup com o cPanel](configure-backup-cpanel.html)
 - [Configurando o Block Storage para backup com o Plesk](configure-backup-plesk.html)
-

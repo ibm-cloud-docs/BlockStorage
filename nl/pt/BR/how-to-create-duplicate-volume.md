@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -37,7 +37,7 @@ possível criar múltiplas instâncias para vários usos.
 - **Desenvolvimento e teste (desenv./teste)**: crie até quatro duplicatas simultâneas de um volume de uma vez para criar dados duplicados para desenvolvimento e teste.
 - **Redimensionamento de armazenamento**: crie um volume com novo tamanho, taxa de IOPS, ou ambos, sem a necessidade de mover seus dados.  
 
-É possível criar um volume duplicado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} de duas maneiras.
+É possível criar um volume duplicado por meio do [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} de duas maneiras.
 
 
 ## Criando uma duplicata de um volume específico na Lista de armazenamento

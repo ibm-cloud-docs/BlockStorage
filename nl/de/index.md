@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Einführung in {{site.data.keyword.blockstorageshort}}
 
@@ -33,20 +35,20 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
 - **Replikation** ([in ausgewählten Rechenzentren verfügbar](new-ibm-block-and-file-storage-location-and-features.html))
    - Kopiert Snapshots automatisch an ein Partner-{{site.data.keyword.BluSoftlayer_full}}-Rechenzentrum.
 - **Hoch verfügbare Konnektivität**
-   - Verwendet redundante Netzbetriebsverbindungen zum Maximieren der Verfügbarkeit 
+   - Verwendet redundante Netzbetriebsverbindungen zum Maximieren der Verfügbarkeit
    - iSCSI-basierter {{site.data.keyword.blockstorageshort}} verwendet Multipath I/O (MPIO).
 - **Gleichzeitiger Zugriff**
    - Ermöglicht in Clusterkonfigurationen mehreren Hosts den gleichzeitigen Zugriff auf Blockdatenträger (bis zu 8).
 - **Clusterdatenbanken**
    - Unterstützt erweiterte Anwendungsfälle wie Clusterdatenbanken.
-     
+
 ## Abrechnung
 
-Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für ihren Snapshotbereich und zugehörige Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet. 
+Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für ihren Snapshotbereich und zugehörige Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet.
 
-Bei **stündlicher Abrechnung** wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
+Bei **stündlicher Abrechnung** wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
 
-Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger). 
+Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger).
 
 **Performance**
 <table>
@@ -60,7 +62,7 @@ Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der E
    <td>$0,0001/GB + $0,0002/IOP</td>
   </tr>
 </table>
- 
+
 **Endurance**
 <table>
   <caption>In Tabelle 2 werden die Preise für Endurance-Speicher für jedes Tier mit Optionen für monatliche und stündliche Abrechnung aufgeführt.</caption>
@@ -93,7 +95,7 @@ Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der E
 
 {{site.data.keyword.blockstorageshort}}-LUNs können mit zwei Optionen von 20 GB bis 12 TB bereitgestellt werden: <br/>
 - Stellen Sie **Endurance**-Tiers mit vordefinierten Leistungsstufen und weiteren Funktionen wie Snapshots und Replikation bereit.
-- Erstellen Sie eine leistungsfähige **Performance**-Umgebung mit zugeordneten E/A-Operationen pro Sekunde (IOPS). 
+- Erstellen Sie eine leistungsfähige **Performance**-Umgebung mit zugeordneten E/A-Operationen pro Sekunde (IOPS).
 
 ### Mit Endurance-Tiers bereitstellen
 
@@ -108,13 +110,13 @@ Endurance-{{site.data.keyword.blockstorageshort}} ist in vier IOPS-Performance-T
 - **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse. Dieses Tier ist für Speicher bis zu 4 TB verfügbar, der nur in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
 
 Bis zu 48.000 IOPS sind bei einem 12-TB-Endurance-Datenträger verfügbar.
- 
+
 Die Auswahl des richtigen Endurance-Tiers ist für die Workload von entscheidender Bedeutung. Zur Erreichung der maximalen Leistung ist es gleichermaßen wichtig, die passende Blockgröße, Ethernet-Verbindungsgeschwindigkeit und Hostanzahl zu verwenden. Wenn diese Parameter nicht zueinander passen, kann das erhebliche Auswirkungen auf den Durchsatz haben.
 
- 
+
 ### Mit Performance bereitstellen
 
-Performance ist eine Klasse von {{site.data.keyword.blockstorageshort}}, deren Aufgabe darin besteht, ein- und ausgabenintensive Anwendungen mit definierten Leistungsanforderungen zu unterstützen, die nicht in ein Endurance-Tier passen. Durch die Zuordnung von IOPS auf Protokollebene zu einzelnen Datenträgern wird eine vorhersehbare Leistung erreicht. Unterschiedliche IOPS-Raten (von 100 bis 48.000) können bei Speichergrößen von 20 GB bis 12 TB bereitgestellt werden. 
+Performance ist eine Klasse von {{site.data.keyword.blockstorageshort}}, deren Aufgabe darin besteht, ein- und ausgabenintensive Anwendungen mit definierten Leistungsanforderungen zu unterstützen, die nicht in ein Endurance-Tier passen. Durch die Zuordnung von IOPS auf Protokollebene zu einzelnen Datenträgern wird eine vorhersehbare Leistung erreicht. Unterschiedliche IOPS-Raten (von 100 bis 48.000) können bei Speichergrößen von 20 GB bis 12 TB bereitgestellt werden.
 
 Performance für {{site.data.keyword.blockstorageshort}} wird über eine MPIO-iSCSI-Verbindung (MPIO = Multipath I/O; iSCSI = Internet Small Computer System Interface) verfügbar gemacht und angehängt. {{site.data.keyword.blockstorageshort}} wird in der Regel verwendet, wenn auf den Datenträger von einem einzelnen Server zugegriffen wird. Mehrere Datenträger können an einen Host angehängt und per Stripekonfiguration verbunden werden, um größere Datenträger und höhere IOPS-Werte zu erreichen. Performance-Datenträger können entsprechend den Größen und IOPS-Raten in Tabelle 3 für die Betriebssysteme Linux, XEN und Windows bestellt werden.
 
@@ -261,9 +263,9 @@ Ein anderer zu berücksichtigender Faktor ist die Anzahl der Hosts, die den Date
 
 Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete maximale Durchsatz auf Ihrem Datenträger. Generell sollten Sie nicht erwarten, Ihre Ethernet-Verbindung über 70 % der verfügbaren Bandbreite hinaus auszulasten. Wenn Sie beispielsweise über 6.000 IOPS verfügen und eine Blockgröße von 16 KB verwenden, sind auf dem Datenträger etwa 94 MBps möglich. Bei einer Ethernet-Verbindung von 1 Gb/s zu einer LUN wird diese Verbindung zu einem Engpass, wenn die Server versuchen, den maximal verfügbaren Durchsatz zu nutzen. Ursache hierfür ist, dass 70 Prozent des theoretischen Grenzwerts von einer Ethernet-Verbindung mit 1 Gb/s (125 MB pro Sekunde) nur 88 MB pro Sekunde zulassen würden.
 
-Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](set-host-queue-depth-settings-performance-and-endurance-storage.html) und andere Einstellungen) zu berücksichtigen. 
+Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](set-host-queue-depth-settings-performance-and-endurance-storage.html) und andere Einstellungen) zu berücksichtigen.
 
-Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Die [Dokumentation zu virtuellen Servern](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) enthält Informationen zu den möglichen Einschränkungen im Zusammenhang mit dem Service.
+Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Die [Dokumentation zu virtuellen Servern](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) enthält Informationen zu den möglichen Einschränkungen im Zusammenhang mit dem Service.
 {:tip}
 
 ## Auftrag erteilen
@@ -278,4 +280,3 @@ Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Host
 - [Verbindung zu MPIO-iSCSI-LUNs unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
 - [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
 - [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)
-

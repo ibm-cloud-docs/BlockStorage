@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ As instruções a seguir são para pedir um LUN aprimorado por meio do {{site.da
 
 ### Pedindo um LUN do Endurance
 
-1. No [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
+1. No [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
 2. No canto superior direito, clique em **Pedir o {{site.data.keyword.blockstorageshort}}**.
 3. Selecione **Endurance** na lista **Selecionar tipo de armazenamento**.
 4. Selecione seu **Local** de implementação (data center).
@@ -50,7 +50,7 @@ com uma chance final para revisar os detalhes do pedido.
 
 ### Solicitando um LUN de Desempenho
 
-1. No [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
+1. No [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
 2. À direita, clique em **Pedir {{site.data.keyword.blockstorageshort}} **.
 3. Selecione **Performance** na lista **Selecionar tipo de armazenamento**.
 4. Clique em **Local** e selecione seu data center.

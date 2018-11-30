@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,10 +18,10 @@ lastupdated: "2018-11-12"
 这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
 
-例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到有关 DM-Multipath 设置的指示信息。
+例如，您可以在[此处 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，在[此处 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到有关 DM-Multipath 设置的指示信息。
 {:tip}
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 授权。
 {:important}
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
@@ -32,7 +32,7 @@ lastupdated: "2018-11-12"
 
 下面是将基于 Linux 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
 
-指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
+指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
 {: tip}
 
 最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
@@ -433,7 +433,7 @@ systemctl start iscsid
 
    4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。<br />
 
-   列出的单位缺省为兆字节 (MB)；要创建 10 GB 的分区，可以从 1 开始，以 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。 
+   列出的单位缺省为兆字节 (MB)；要创建 10 GB 的分区，可以从 1 开始，以 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。
    {: tip}
 
       ```
@@ -514,7 +514,7 @@ root@server:~# multipath -l
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - 正确配置的输出示例：
 
     ```
@@ -525,11 +525,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
   - 错误配置的输出示例：
-    
+
     ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
-    
+
     ```
 root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -542,7 +542,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
 root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -565,12 +565,12 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. 如果您的目标门户网站中没有任何其他卷，那么可以删除目标门户网站记录，以防止未来的登录尝试。
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    有关更多信息，请参阅 [iscsiadm 的联机帮助页](https://linux.die.net/man/8/iscsiadm)。
    {:tip}

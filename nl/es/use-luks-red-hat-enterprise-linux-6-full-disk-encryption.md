@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el form
 ## Lo que LUKS no hace
 
 - Permitir que las aplicaciones que requieren muchos usuarios (más de ocho) tengan claves de acceso distintas al mismo dispositivo.
-- Trabajar con aplicaciones que requieren cifrado a nivel de archivos, [más información](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Trabajar con aplicaciones que requieren cifrado a nivel de archivos, [más información ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configuración de un volumen cifrado con LUKS con {{site.data.keyword.blockstorageshort}} de Resistencia
 

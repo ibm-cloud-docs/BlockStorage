@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -100,7 +100,7 @@ Le tableau 1 répertorie la disponibilité de nos centres de données. Chaque r�
 
 ## Nouveau Point de montage des volumes de stockage chiffrés
 
-Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Pour vous assurer que vous utilisez le point de montage correct pour vos volumes de stockage, vous pouvez afficher les informations relatives au point de montage sur la page **Détails du volume** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Pour vous assurer que vous utilisez le point de montage correct pour vos volumes de stockage, vous pouvez afficher les informations relatives au point de montage sur la page **Détails du volume** dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Revenez ici pour savoir si d'autres centres de données ont été mis à niveau et si de nouvelles fonctions et capacités ont été ajoutées pour {{site.data.keyword.blockstorageshort}}.
 {:tip}

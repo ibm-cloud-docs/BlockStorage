@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Gestion de {{site.data.keyword.blockstorageshort}}
 
-Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 ## Affichage des détails de numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
@@ -74,7 +74,7 @@ Vous pouvez révoquer l'accès à partir de la **Liste des unités** ou de la **
 
 ### Révocation de l'accès à partir de la liste des unités
 
-1. Cliquez sur **Périphériques**, **Liste des unités** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, puis cliquez deux fois sur le périphérique approprié.
+1. Cliquez sur **Périphériques**, **Liste des unités** dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, puis cliquez deux fois sur le périphérique approprié.
 2. Sélectionnez l'onglet **Stockage**.
 3. Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). En regard du nom LUN, sélectionnez **Action**, puis cliquez sur **Révoquer le droit d'accès**.
 4. Confirmez l'action car elle ne peut pas être annulée. Cliquez sur **Oui** pour révoquer l'accès d'un numéro d'unité logique, ou sur **Non** pour annuler l'action.

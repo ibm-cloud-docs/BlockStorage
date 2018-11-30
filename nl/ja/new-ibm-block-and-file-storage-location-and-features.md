@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -100,7 +100,7 @@ lastupdated: "2018-10-31"
 
 ## 暗号化ストレージ・ボリュームの新規マウント・ポイント
 
-これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 ストレージ・ボリュームに対して正しいマウント・ポイントを使用していることを確認するには、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を表示します。 また、API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して、正しいマウント・ポイントにアクセスすることもできます。
+これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 ストレージ・ボリュームに対して正しいマウント・ポイントを使用していることを確認するには、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を表示します。 また、API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して、正しいマウント・ポイントにアクセスすることもできます。
 
 追加のデータ・センターがアップグレードされていないか確認したり、新しいフィーチャーや機能が {{site.data.keyword.blockstorageshort}} に追加されていないか確認したりするには、このページをもう一度参照してください。
 {:tip}

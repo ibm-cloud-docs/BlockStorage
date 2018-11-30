@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 
 この記事は、{{site.data.keyword.blockstoragefull}} に保管される、cPanel でのバックアップを構成するために使用します。 root または sudo SSH でのアクセスが可能であり、WebHost Manager (WHM) のフル・アクセス権限があることを前提としています。 ここでの説明は、**CentOS 7** ホストに基づいています。
 
-ベンダーからの詳細情報は、[cPanel - バックアップ・ディレクトリーの構成](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}を参照してください。
+ベンダーからの詳細情報は、[cPanel - バックアップ・ディレクトリーの構成 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}を参照してください。
 {:tip}
 
 1. SSH 経由でホストに接続します。

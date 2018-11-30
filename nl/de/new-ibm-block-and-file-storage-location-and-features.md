@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -100,7 +100,7 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 
 ## Neuer Mountpunkt für verschlüsselten Speicherdatenträger
 
-Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Wenn Sie sicherstellen möchten, dass Sie den korrekten Mountpunkt für die Speicherdatenträger verwenden, können Sie die Mountpunktinformationen auf der Seite **Datenträgerdetails** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} anzeigen. Sie können auf den korrekten Mountpunkt auch über einen API-Aufruf zugreifen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Wenn Sie sicherstellen möchten, dass Sie den korrekten Mountpunkt für die Speicherdatenträger verwenden, können Sie die Mountpunktinformationen auf der Seite **Datenträgerdetails** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} anzeigen. Sie können auf den korrekten Mountpunkt auch über einen API-Aufruf zugreifen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Prüfen Sie hier später, ob für weitere Rechenzentren ein Upgrade durchgeführt wurde, und ob und neue Funktionen und Leistungsmerkmale für {{site.data.keyword.blockstorageshort}} hinzugefügt wurden.
 {:tip}

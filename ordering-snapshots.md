@@ -2,21 +2,23 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Ordering Snapshots
 
 To create snapshots of your storage volume, either automated or manually, you need to purchase space to hold them. You can purchase capacity up to your storage volume amount (during the initial volume purchase or later by using the steps that are described here).
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://console.bluemix.net/catalog/){:new_window} and click the menu icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/){:new_window} and click the menu icon on the upper left. Select **Classic Infrastructure**.
 
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+   Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.
 2. Click **Change Snapshot Space** in the Snapshots frame.
 3. Select the amount of space that you need and the payment method.

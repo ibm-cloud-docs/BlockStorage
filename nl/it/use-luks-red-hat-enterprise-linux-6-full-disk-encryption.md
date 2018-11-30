@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con i
 ## Cosa non fa LUKS
 
 - Consente alle applicazioni che richiedono molti utenti (più di otto) di avere delle chiavi di accesso distinte agli stessi dispositivi.
-- Opera con le applicazioni che richiedono la crittografia a livello di file, [ulteriori informazioni](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Opera con le applicazioni che richiedono la crittografia a livello di file, [ulteriori informazioni ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configurazione di un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
 

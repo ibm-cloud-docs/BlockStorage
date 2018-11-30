@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,7 +18,7 @@ sudo e o acesso do WebHost Manager (WHM) total estejam disponíveis. Estas instr
 
 Para obter mais informações do fornecedor, consulte
 [cPanel:
-configurando o diretório de backup](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}.
+configurando o diretório de backup ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}.
 {:tip}
 
 1. Conecte-se ao host por meio de SSH.

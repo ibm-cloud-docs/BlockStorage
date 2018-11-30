@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,7 +35,7 @@ lastupdated: "2018-10-31"
 - **開發及測試（開發/測試）**：一次最多可同時建立磁區的四個重複磁區，以建立重複資料來進行開發及測試。
 - **調整儲存空間大小**：建立具有新大小及（或）IOPS 速率的磁區，而不需要移動資料。  
 
-您可以利用下列幾種方法透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 來建立重複磁區。
+您可以利用下列幾種方法透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 來建立重複磁區。
 
 
 ## 建立儲存空間清單中特定磁區的重複磁區

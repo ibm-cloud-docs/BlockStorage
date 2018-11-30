@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ Las siguientes instrucciones son para solicitar un LUN mejorado a través del {{
 
 ### Solicitud de un LUN de Resistencia
 
-1. En el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
+1. En el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
 2. En la esquina superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 3. Seleccione **Resistencia** en la lista **Seleccionar tipo de almacenamiento**.
 4. Seleccione la **Ubicación** (centro de datos) del despliegue.
@@ -48,7 +48,7 @@ Las siguientes instrucciones son para solicitar un LUN mejorado a través del {{
 
 ### Solicitud de un LUN de Rendimiento
 
-1. En el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
+1. En el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
 2. En la parte derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 3. Seleccione **Rendimiento** en la lista **Seleccionar tipo de almacenamiento**.
 4. Pulse **Ubicación** y seleccione el centro de datos.

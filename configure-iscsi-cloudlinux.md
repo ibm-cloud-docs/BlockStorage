@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -16,10 +16,10 @@ lastupdated: "2018-11-13"
 
 Follow these instructions to install your iSCSI LUN with multipath on CloudLinux Server release 6.10.
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 {:tip}
 
-1. Log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}.
+1. Log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 3. Click **Authorize Host**.
 4. From the list, select the host or hosts that can access the volume and click **Submit**.

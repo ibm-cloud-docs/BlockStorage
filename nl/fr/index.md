@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Initiation à {{site.data.keyword.blockstorageshort}}
 
@@ -33,20 +35,20 @@ Profitez des fonctionnalités suivantes de {{site.data.keyword.blockstorageshort
 - **Réplication** ([disponible dans certains centres de données](new-ibm-block-and-file-storage-location-and-features.html))
    - Copie automatiquement des instantanés vers un centre de données {{site.data.keyword.BluSoftlayer_full}} partenaire.
 - **Connectivité hautement disponible**
-   - Utilise des connexions réseau redondantes pour accroître la disponibilité 
+   - Utilise des connexions réseau redondantes pour accroître la disponibilité
    - {{site.data.keyword.blockstorageshort}} basé sur iSCSI utilise l'E-S multi-accès (MPIO)
 - **Accès simultané**
    - Permet à plusieurs hôtes d'accéder simultanément à des volumes de blocs (jusqu'à huit) pour les configurations en clusters.
 - **Cluster de bases de données**
    - Prend en charge des cas d'utilisation avancés, tels que des bases de données en clusters.
-     
+
 ## Facturation
 
-Vous pouvez sélectionner une facturation à l'heure ou au mois pour un numéro d'unité logique Block Storage. Le type de facturation sélectionné pour un numéro d'unité logique s'applique à son espace d'image instantanée et à ses répliques. Par exemple, si vous mettez à disposition un numéro d'unité logique avec une facturation horaire, tous les frais liés aux instantanés ou aux répliques seront facturés à l'heure. Si vous mettez à disposition un numéro d'unité logique avec une facturation mensuelle, tous les frais liés aux instantanés ou aux répliques sont facturés au mois. 
+Vous pouvez sélectionner une facturation à l'heure ou au mois pour un numéro d'unité logique Block Storage. Le type de facturation sélectionné pour un numéro d'unité logique s'applique à son espace d'image instantanée et à ses répliques. Par exemple, si vous mettez à disposition un numéro d'unité logique avec une facturation horaire, tous les frais liés aux instantanés ou aux répliques seront facturés à l'heure. Si vous mettez à disposition un numéro d'unité logique avec une facturation mensuelle, tous les frais liés aux instantanés ou aux répliques sont facturés au mois.
 
-Avec la **facturation horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, selon l'événement qui se produit en premier. La facturation horaire est un bon choix si vous avez besoin d'un stockage pour quelques jours ou pour moins d'un mois complet. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html). 
+Avec la **facturation horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, selon l'événement qui se produit en premier. La facturation horaire est un bon choix si vous avez besoin d'un stockage pour quelques jours ou pour moins d'un mois complet. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
 
-Avec la **facturation mensuelle**, le calcul du prix est calculé au prorata depuis la date de création jusqu'à la fin du cycle de facturation et la facturation est immédiate. Aucun remboursement n'est possible si un numéro d'unité logique est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus). 
+Avec la **facturation mensuelle**, le calcul du prix est calculé au prorata depuis la date de création jusqu'à la fin du cycle de facturation et la facturation est immédiate. Aucun remboursement n'est possible si un numéro d'unité logique est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus).
 
 **Performance**
 <table>
@@ -60,7 +62,7 @@ Avec la **facturation mensuelle**, le calcul du prix est calculé au prorata dep
    <td>0,0001 $/Go + 0,0002 $/IOP</td>
   </tr>
 </table>
- 
+
 **Endurance**
 <table>
   <caption>Le tableau 2 contient les prix du stockage Endurance avec chaque niveau avec des options de facturation mensuelle et horaire.</caption>
@@ -93,7 +95,7 @@ Avec la **facturation mensuelle**, le calcul du prix est calculé au prorata dep
 
 Des numéros d'unité logique {{site.data.keyword.blockstorageshort}} peuvent être mis à disposition de 20 Go à 12 To avec deux options : <br/>
 - Effectuez la mise à disposition avec des niveaux **Endurance** offrant des niveaux de performance prédéfinis et d'autres fonctionnalités telles que les instantanés et la réplication.
-- Créez un environnement de **Performance** haute puissance avec des opérations d'entrée-sortie par seconde (IOPS) allouées. 
+- Créez un environnement de **Performance** haute puissance avec des opérations d'entrée-sortie par seconde (IOPS) allouées.
 
 ### Mise à disposition avec des niveaux Endurance
 
@@ -108,13 +110,13 @@ Des numéros d'unité logique {{site.data.keyword.blockstorageshort}} peuvent ê
 - L'option **10 IOPS par Go** est adaptée aux charges de travail les plus intensives, telles que celles créées par les bases de données NoSQL et le traitement de données pour Analytics. Ce niveau est disponible pour le stockage mis à disposition jusqu'à 4 To uniquement dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
 
 Un volume de type Endurance de 12 To comporte un maximum de 48 000 IOPS disponibles.
- 
+
 Il est essentiel de choisir le niveau d'endurance adapté pour votre charge de travail. Il est également important d'utiliser la taille de bloc, la vitesse de connexion Ethernet et le nombre d'hôtes appropriés afin d'atteindre des performances maximales. La non-concordance de l'un de ces éléments peut avoir un impact important sur le débit généré.
 
- 
+
 ### Mise à disposition avec Performance
 
-Performance est une classe de {{site.data.keyword.blockstorageshort}} conçue pour prendre en charge des applications avec un niveau élevé d'entrée/sortie et nécessitant un niveau de performance bien établi qui ne correspond pas à un niveau Endurance. Pour atteindre la performance prévue, il suffit d'allouer les IOPS au niveau du protocole à des volumes individuels. Des IOPS allant de 100 à 48 000 peuvent être mis à disposition avec des tailles de stockage de 20 Go à 12 To. 
+Performance est une classe de {{site.data.keyword.blockstorageshort}} conçue pour prendre en charge des applications avec un niveau élevé d'entrée/sortie et nécessitant un niveau de performance bien établi qui ne correspond pas à un niveau Endurance. Pour atteindre la performance prévue, il suffit d'allouer les IOPS au niveau du protocole à des volumes individuels. Des IOPS allant de 100 à 48 000 peuvent être mis à disposition avec des tailles de stockage de 20 Go à 12 To.
 
 Le niveau Performance pour {{site.data.keyword.blockstorageshort}} est accessible et monté via une connexion iSCSI d'E-S multi-accès. {{site.data.keyword.blockstorageshort}} est généralement utilisé lorsqu'un seul serveur doit accéder au volume. Plusieurs volumes peuvent être montés sur un hôte et segmentés pour atteindre des volumes plus importants et un nombre d'E-S/s plus élevé. Des volumes de performance peuvent être commandés selon les tailles et les E-S/s figurant dans le tableau 3 pour les systèmes d'exploitation Linux, XEN et Windows.
 
@@ -263,7 +265,7 @@ La vitesse de votre connexion Ethernet doit être supérieure au débit maximal 
 
 Pour atteindre le nombre maximal d'IOPS, vous devez mettre en place les ressources réseau adéquates. Vous devez également tenir compte de l'utilisation du réseau privé en dehors du stockage, ainsi que des réglages côté hôte et spécifiques aux applications (pile IP ou [nombre de lignes de file d'attente](set-host-queue-depth-settings-performance-and-endurance-storage.html), etc.).
 
-Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Consultez la [documentation du serveur virtuel](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers) pour comprendre les limites pouvant être imposées par le service.
+Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Consultez la [documentation du serveur virtuel](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) pour comprendre les limites pouvant être imposées par le service.
 {:tip}
 
 ## Soumission de votre commande
@@ -278,4 +280,3 @@ Lorsque votre demande de mise à disposition est terminée, autorisez vos hôtes
 - [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
 - [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)
-

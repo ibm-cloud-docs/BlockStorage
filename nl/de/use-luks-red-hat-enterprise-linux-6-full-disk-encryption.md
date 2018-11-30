@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Platte
 ## Was LUKS nicht bietet
 
 - Bereitstellung unterschiedlicher Zugriffsschlüssel für dieselben Geräte in Anwendungen, in denen dies für viele Benutzer (mehr als acht) erforderlich ist
-- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist ([weitere Informationen](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
+- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist ([weitere Informationen ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
 
 ## Mit LUKS verschlüsselten Datenträger mit Endurance für {{site.data.keyword.blockstorageshort}} konfigurieren
 

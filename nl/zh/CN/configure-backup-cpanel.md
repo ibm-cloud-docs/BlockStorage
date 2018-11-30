@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 
 使用此文章以帮助在 cPanel 中配置要存储在 {{site.data.keyword.blockstoragefull}} 中的备份。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的 WebHost Manager (WHM) 访问权。这些指示信息基于 **CentOS 7** 主机。
 
-有关来自供应商的更多信息，请参阅 [cPanel - 配置备份目录](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
+有关来自供应商的更多信息，请参阅 [cPanel - 配置备份目录 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
 {:tip}
 
 1. 通过 SSH 连接到主机。

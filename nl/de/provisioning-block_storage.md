@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # {{site.data.keyword.blockstorageshort}} bestellen
 
@@ -19,9 +21,9 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 
 ## {{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers bestellen (Endurance)
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://console.bluemix.net/catalog/){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
+1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog/){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
 
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 
 2. Wählen Sie Ihre Bereitstellungs**position** (Rechenzentrum) aus.
    - Stellen Sie sicher, dass der neue Speicher an derselben Position des vorhandenen Rechenhosts bzw. der vorhandenen Rechenhosts hinzugefügt wird.
@@ -41,7 +43,7 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 8. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.<br/>
 
    Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).    {:tip}
-9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an. 
+9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
@@ -50,9 +52,9 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 
 ## {{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Raten bestellen (Performance)
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://console.bluemix.net/catalog/){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
+1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog/){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
 
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 2. Klicken Sie auf die Liste **Position** und wählen Sie Ihr Rechenzentrum aus.
    - Stellen Sie sicher, dass der neue Speicher an derselben Position des vorhandenen Rechenhosts bzw. der vorhandenen Rechenhosts hinzugefügt wird.
 3. Abrechnung. Wenn Sie ein Rechenzentrum mit verbesserten Leistungsmerkmalen (mit einem Stern gekennzeichnet) ausgewählt haben, haben Sie die Auswahl zwischen monatlicher und stündlicher Abrechnung.
@@ -67,7 +69,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 8. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.<br/>
 
    Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).    {:tip}
-9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an. 
+9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 
 請使用這些指示，在 Plesk 中配置備份的 {{site.data.keyword.blockstoragefull}}。我們假設可以使用 root 或 sudo SSH 及完整管理層次 Plesk 存取權。這些指示以 CentOS7 主機為基礎。
 
-如需供應商的相關資訊，請參閱 [Plesk 的備份及還原文件](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}。
+如需供應商的相關資訊，請參閱 [Plesk 的備份及還原文件 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}。
 {:tip}
 
 1. 透過 SSH 連接至主機。

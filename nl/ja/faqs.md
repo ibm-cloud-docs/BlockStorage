@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ LUN を作成するときに、OS タイプを指定する必要があります�
 
 **Windows 2008+**
 - LUN は、Windows 2008 以降のバージョンの Windows データを保管します。ホスト・オペレーティング・システムが Windows Server 2008、Windows Server 2012、Windows Server 2016 の場合は、この OS オプションを使用します。MBR と GPT の両方のパーティショニング方式がサポートされています。
- 
+
 **Windows 2003**
 - LUN は、マスター・ブート・レコード (MBR、Master Boot Record) パーティショニング・スタイルを使用して、単一パーティションの Windows ディスクにロー・ディスク・タイプを保管します。このオプションは、ホスト・オペレーティング・システムが、MBR パーティショニング方式を使用する Windows 2000 Server、Windows Server XP、または Windows Server 2003 である場合にのみ使用します。
 
@@ -54,7 +54,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 
 小さいブロック・サイズを使用しても、最大の IOPS が得られます。 ただし、スループットは小さくなります。 例えば、6000 IOPS のボリュームの場合、さまざまなブロック・サイズでのスループットは以下のようになります。
 
-- 16 KB * 6000 IOPS == ~93.75 MB/秒 
+- 16 KB * 6000 IOPS == ~93.75 MB/秒
 - 8 KB * 6000 IOPS == ~46.88 MB/秒
 - 4 KB * 6000 IOPS == ~23.44 MB/秒
 
@@ -86,7 +86,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## どの {{site.data.keyword.blockstorageshort}} LUN/ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
 
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}
@@ -96,8 +96,8 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## 最近アップグレードされたデータ・センターに暗号化されていない {{site.data.keyword.blockstorageshort}} を所有している場合は、その {{site.data.keyword.blockstorageshort}} を暗号化できますか?
 {: faq}
 
-データ・センターのアップグレード前にプロビジョンされた {{site.data.keyword.blockstorageshort}} は、暗号化できません。 
-アップグレードされたデータ・センターでプロビジョンされた新しい {{site.data.keyword.blockstorageshort}} は自動的に暗号化されます。 暗号化設定は選択できず、自動的に暗号化されます。 
+データ・センターのアップグレード前にプロビジョンされた {{site.data.keyword.blockstorageshort}} は、暗号化できません。
+アップグレードされたデータ・センターでプロビジョンされた新しい {{site.data.keyword.blockstorageshort}} は自動的に暗号化されます。 暗号化設定は選択できず、自動的に暗号化されます。
 アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、新しいブロック LUN を作成してから、ホスト・ベースのマイグレーションを使用してそのデータを暗号化された新しい LUN にコピーします。 手順については、[ここ](migrate-block-storage-encrypted-block-storage.html)をクリックしてください。
 
 ## {{site.data.keyword.blockstorageshort}} は、DB2 pureScale 用に I/O フェンシングを実装するための SCSI-3 永続予約をサポートしますか?

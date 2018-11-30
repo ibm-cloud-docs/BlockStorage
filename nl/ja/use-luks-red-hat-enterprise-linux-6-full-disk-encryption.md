@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 ## LUKS にない機能
 
 - 多数 (8 人を超える) のユーザーが同じデバイスに対して異なるアクセス・キーを持つことを必要とするアプリケーションを許可する。
-- ファイル・レベルの暗号化を必要とするアプリケーションを処理する ([詳細情報](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window})。
+- ファイル・レベルの暗号化を必要とするアプリケーションを処理する ([詳細情報 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window})。
 
 ## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームのセットアップ
 

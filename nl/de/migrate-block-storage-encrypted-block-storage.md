@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ Die folgenden Anweisungen sind für die Bestellung einer erweiterten LUN über d
 
 ### Endurance für LUN bestellen
 
-1. Klicken Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} auf **Speicher** -> **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur > Speicher > {{site.data.keyword.blockstorageshort}}**.
+1. Klicken Sie im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} auf **Speicher** -> **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur > Speicher > {{site.data.keyword.blockstorageshort}}**.
 2. Klicken Sie in der rechten oberen Ecke auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 3. Wählen Sie **Endurance** in der Liste **Speichertyp auswählen** aus.
 4. Wählen Sie Ihre Bereitstellungs**position** (Rechenzentrum) aus.
@@ -48,7 +48,7 @@ Die folgenden Anweisungen sind für die Bestellung einer erweiterten LUN über d
 
 ### Performance für LUN bestellen
 
-1. Klicken Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} auf **Speicher** und danach auf **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur > Speicher > {{site.data.keyword.blockstorageshort}}**.
+1. Klicken Sie im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} auf **Speicher** und danach auf **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur > Speicher > {{site.data.keyword.blockstorageshort}}**.
 2. Klicken Sie rechts auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 3. Wählen Sie in der Liste **Speichertyp auswählen** den Eintrag **Performance** aus.
 4. Klicken Sie auf die Liste **Position** und wählen Sie Ihr Rechenzentrum aus.

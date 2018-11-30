@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -14,7 +14,7 @@ lastupdated: "2018-10-31"
 
 ## 建立 Snapshot 排程
 
-您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤來管理。
+您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤來管理。
 
 您必須先購買 Snapshot 空間（如果未在起始佈建儲存空間磁區期間購買的話），才能設定起始排程。
 {:important}
@@ -109,7 +109,7 @@ Snapshot 排程可以透過**儲存空間** > **{{site.data.keyword.blockstorage
 1. 從主機中卸載並分離您的儲存空間磁區。
    - [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html#un-mounting-block-storage-volumes)
    - [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
-2. 按一下 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
+2. 按一下 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
 3. 向下捲動，並按一下要還原的磁區。**詳細資料**頁面的 **Snapshot** 區段會顯示所有已儲存 Snapshot 的清單及其大小和建立日期。
 4. 按一下要使用之 Snapshot 旁的**動作**，然後按一下**還原**。<br/>
 

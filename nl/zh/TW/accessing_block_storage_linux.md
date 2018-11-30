@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -18,10 +18,10 @@ lastupdated: "2018-11-12"
 這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
 {:note}
 
-例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
+例如，您可以在[這裡 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
 {:tip}
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 獲得授權。
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 獲得授權。
 {:important}
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
@@ -32,7 +32,7 @@ lastupdated: "2018-11-12"
 
 以下是將 Linux 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
-指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
+指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
 {: tip}
 
 最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
@@ -513,7 +513,7 @@ root@server:~# multipath -l
   fdisk -l | grep Disk
   ```
   {: pre}
-  
+
   - 正確配置的範例輸出：
 
     ```
@@ -524,11 +524,11 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
   - 不正確配置的範例輸出：
-    
+
     ```
 No multipath output root@server:~# multipath -l root@server:~#
 ```
-    
+
     ```
 root@server:~# fdisk -l | grep Disk
 Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
@@ -541,7 +541,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
- 
+
    ```
 root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sda: device node name blacklisted Feb 17 19:55:02
@@ -564,12 +564,12 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
-   
+
 3. 如果您在該目標入口網站中沒有任何其他磁區，請刪除目標入口網站記錄，以防止未來的登入嘗試。
    ```
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-  
+
    如需相關資訊，請參閱 [iscsiadm 的線上指令說明](https://linux.die.net/man/8/iscsiadm)。
    {:tip}

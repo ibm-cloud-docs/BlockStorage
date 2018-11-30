@@ -2,24 +2,26 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Snapshots bestellen
 
 Um automatisch oder manuell Snapshots Ihres Speicherdatenträgers zu erstellen, müssen Sie Speicherbereich kaufen, der diese Snapshots aufnehmen kann. Sie können Kapazität bis zur Menge Ihres Speicherdatenträgers kaufen (beim Kauf des ursprünglichen Datenträgers oder später mit den hier beschriebenen Schritten).
 
-1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole](https://console.bluemix.net/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus. 
+1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} anmelden.
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} anmelden.
 2. Greifen Sie über **Speicher** >**{{site.data.keyword.blockstorageshort}}** auf Ihre Speicher-LUN zu.
-2. Klicken Sie im Rahmen 'Snapshots' auf die Option zum Ändern des Snapshotbereichs. 
-3. Wählen Sie die Menge an benötigtem Speicherplatz und die Zahlungsmethode aus. 
+2. Klicken Sie im Rahmen 'Snapshots' auf die Option zum Ändern des Snapshotbereichs.
+3. Wählen Sie die Menge an benötigtem Speicherplatz und die Zahlungsmethode aus.
 4. Klicken Sie auf **Weiter**.
 5. Geben Sie gegebenenfalls den **Werbeaktionscode** ein und klicken Sie auf **Neu berechnen**. In den Feldern für die Gebühren dieser Bestellung und für die Bestellungsprüfung stehen die Standardwerte.
 6. Markieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen und bin mit den darin genannten Bedingungen einverstanden.** und klicken Sie auf **Bestellung aufgeben**. Der Snapshotbereich wird in wenigen Minuten bereitgestellt.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -35,7 +35,7 @@ lastupdated: "2018-10-31"
 - **開発とテスト (dev/test)**: ボリュームの同時複製を一度に 4 つまで作成して、開発およびテスト用の複製データを作成する。
 - **ストレージのサイズ変更**: データの移動の必要なく、新しいサイズまたは IOPS レート (あるいはその両方) を指定したボリュームを作成する。  
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して、いくつかの方法で重複ボリュームを作成できます。
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}を介して、いくつかの方法で重複ボリュームを作成できます。
 
 
 ## ストレージ・リスト内の特定のボリュームから複製を作成する方法

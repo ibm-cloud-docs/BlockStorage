@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,7 +31,7 @@ Le seguenti istruzioni servono ad ordinare un LUN migliorato tramite {{site.data
 
 ### Ordine di un LUN Endurance
 
-1. Dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+1. Dal [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. Nell'angolo superiore destro, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 3. Seleziona **Endurance** dall'elenco **Select Storage Type**.
 4. Seleziona l'ubicazione (**Location**) (data center) della tua distribuzione.
@@ -48,7 +48,7 @@ Le seguenti istruzioni servono ad ordinare un LUN migliorato tramite {{site.data
 
 ### Ordine di un LUN Performance
 
-1. Dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+1. Dal [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. Sulla destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 3. Seleziona **Performance** dall'elenco **Select Storage Type**.
 4. Fai clic su **Location** e seleziona il tuo data center.

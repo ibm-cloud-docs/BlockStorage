@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -37,7 +37,7 @@ pode variar um pouco com base no tipo de S.O. do LUN.
 - O LUN armazena dados do Windows para as versões Windows 2008 e mais recente. Use essa opção de S.O. se o
 sistema operacional do host for Windows Server 2008, Windows Server 2012 e Windows Server 2016. Os métodos de
 particionamento MBR e GPT são suportados.
- 
+
 **Windows 2003**
 - O LUN armazena um tipo de disco rígido em um disco do Windows de partição única usando o estilo de
 particionamento Master Boot Record (MBR). Use essa opção somente se o sistema operacional do host for Windows 2000 Server,
@@ -65,7 +65,7 @@ O IOPS é medido com base em um perfil de carregamento de blocos de 16 KB com 50
 
 O IOPS máximo ainda poderá ser obtido quando você usar tamanhos de bloco menores. No entanto, o rendimento torna-se menor. Por exemplo, um volume com 6.000 IOPS teria o rendimento a seguir em vários tamanhos de bloco:
 
-- 16 KB * 6.000 IOPS == ~93,75 MB/s 
+- 16 KB * 6.000 IOPS == ~93,75 MB/s
 - 8 KB * 6.000 IOPS == ~46,88 MB/s
 - 4 KB * 6.000 IOPS == ~23,44 MB/s
 
@@ -100,7 +100,7 @@ data centers submetidos a upgrade e de recursos disponíveis
 ## Como podemos dizer quais LUNs/volumes do {{site.data.keyword.blockstorageshort}} são criptografados?
 {: faq}
 
-Ao observar a lista de {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}, é
+Ao observar a lista de {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, é
 possível ver um ícone de fechadura ao lado do nome do volume para os LUNs que estão criptografados.
 
 ## Como sabemos quando estamos provisionando o {{site.data.keyword.blockstorageshort}} em um data center submetido a upgrade?
@@ -113,8 +113,8 @@ data centers submetidos a upgrade e de recursos disponíveis
 ## Se possuímos um {{site.data.keyword.blockstorageshort}} não criptografado em um data center que tenha sido submetido a upgrade recentemente, podemos criptografar esse {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
-O {{site.data.keyword.blockstorageshort}} que é provisionado antes do upgrade do data center não pode ser criptografado. 
-O novo {{site.data.keyword.blockstorageshort}} provisionado em data centers submetidos a upgrade é criptografado automaticamente. Não há configuração de criptografia para escolher, é automático. 
+O {{site.data.keyword.blockstorageshort}} que é provisionado antes do upgrade do data center não pode ser criptografado.
+O novo {{site.data.keyword.blockstorageshort}} provisionado em data centers submetidos a upgrade é criptografado automaticamente. Não há configuração de criptografia para escolher, é automático.
 Os dados em armazenamento não criptografado em um data center submetido a upgrade podem ser criptografados
 criando um novo LUN de bloco e, em seguida, copiando os dados para o novo LUN criptografado com migração baseada em host. Clique [aqui](migrate-block-storage-encrypted-block-storage.html) para obter instruções.
 

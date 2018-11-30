@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -14,7 +14,7 @@ lastupdated: "2018-10-31"
 
 복제 중에는 스냅샷 스케줄 중 하나를 사용하여 자동으로 스냅샷을 원격 데이터 센터의 대상 볼륨으로 복사합니다. 사본은 재해가 발생하거나 데이터가 손상된 경우 원격 사이트에서 복구 가능합니다.
 
-복제본을 사용하면 사이트 장애와 기타 재해로부터 빠르게 복구할 수 있습니다. 긴급한 상황에서는 대상 볼륨으로 장애 복구하여 DR 사본의 특정 시점에서 데이터에 액세스할 수 있습니다. 자세한 정보는 [재해 복구를 위한 복제본 볼륨 복제](disaster-recovery.html)를 참조하십시오. 
+복제본을 사용하면 사이트 장애와 기타 재해로부터 빠르게 복구할 수 있습니다. 긴급한 상황에서는 대상 볼륨으로 장애 복구하여 DR 사본의 특정 시점에서 데이터에 액세스할 수 있습니다. 자세한 정보는 [재해 복구를 위한 복제본 볼륨 복제](disaster-recovery.html)를 참조하십시오.
 
 복제는 서로 다른 두 위치에 동기화된 데이터를 보관합니다. 단지 볼륨을 복제한 후에 이를 원래 볼륨과 독립적으로 사용하려면 [중복 블록 볼륨 작성](how-to-create-duplicate-volume.html)을 참조하십시오.
 {:tip}
@@ -104,7 +104,7 @@ lastupdated: "2018-10-31"
 
 ## 초기 복제본 작성
 
-복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 관리됩니다.
+복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 관리됩니다.
 
 1. 스토리지 볼륨을 클릭하십시오.
 2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
@@ -119,7 +119,7 @@ lastupdated: "2018-10-31"
 
 ## 기존 복제본 편집
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**의 **기본** 또는 **복제본** 탭에서 복제 스케줄을 편집하고 복제 영역을 변경할 수 있습니다.
+[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**의 **기본** 또는 **복제본** 탭에서 복제 스케줄을 편집하고 복제 영역을 변경할 수 있습니다.
 
 
 
@@ -179,7 +179,7 @@ lastupdated: "2018-10-31"
 
 장애 발생 시, 목적지 또는 대상 볼륨으로 **장애 복구**를 시작할 수 있습니다. 대상 볼륨은 활성 상태가 됩니다. 마지막으로 복제가 성공된 스냅샷이 활성화되고 마운팅을 위해 볼륨을 사용할 수 있습니다. 이전 복제 주기 이후에 소스 볼륨에 작성된 모든 데이터가 손실됩니다. 장애 복구가 시작되면 복제 관계가 뒤집힙니다. 대상 볼륨이 소스 볼륨이 되고 이전의 소스 볼륨은 **LUN 이름**(뒤에 **REP**가 표시)으로 표시되는 대상이 됩니다.
 
-장애 복구는 [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}]의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 시작됩니다.
+장애 복구는 [[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}]의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 시작됩니다.
 
 **해당 단계를 진행하기 전에 볼륨의 연결을 끊으십시오. 그렇지 않으면 결과적으로 손상되고 데이터가 유실됩니다.**
 
@@ -204,7 +204,7 @@ lastupdated: "2018-10-31"
 
 장애 복구가 시작되면 복제 관계가 다시 뒤집힙니다. 이제 소스 볼륨이 소스 볼륨으로 복원되고, 대상 볼륨은 다시 **LUN 이름**(뒤에 **REP**가 표시)으로 표시되는 대상 볼륨이 됩니다.
 
-장애 복구는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 시작됩니다.
+장애 복구는 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 시작됩니다.
 
 1. 활성 LUN("대상")을 클릭하십시오.
 2. 오른쪽 상단에서 **복제본**을 클릭하고 **조치**를 클릭하십시오.
@@ -234,7 +234,7 @@ lastupdated: "2018-10-31"
 
 복제 볼륨은 스토리지가 프로비저닝되는 즉시 읽기/쓰기를 위해 호스트에서 액세스 가능합니다. 그러나 원본에서 복제까지 데이터 복사가 완료되지 않으면 스냅샷 및 복제가 허용되지 않습니다.
 
-자세한 정보는 [중복 블록 볼륨 작성](how-to-create-duplicate-volume.html)을 참조하십시오. 
+자세한 정보는 [중복 블록 볼륨 작성](how-to-create-duplicate-volume.html)을 참조하십시오.
 
 
 ## 기존 복제본 취소

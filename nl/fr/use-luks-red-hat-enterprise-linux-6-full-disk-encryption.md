@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6
 ## Opérations impossibles avec LUKS
 
 - Possibilité pour les applications nécessitant un grand nombre d'utilisateurs (plus de huit) d'avoir des clés distinctes pour accéder aux mêmes unités.
-- Utilisation d'applications nécessitant un chiffrement au niveau fichier ([en savoir plus](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
+- Utilisation d'applications nécessitant un chiffrement au niveau fichier ([en savoir plus ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
 
 ## Configuration d'un volume chiffré LUKS avec {{site.data.keyword.blockstorageshort}} Endurance
 

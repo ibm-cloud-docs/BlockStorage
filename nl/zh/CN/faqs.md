@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ lastupdated: "2018-11-05"
 
 **Windows 2008+**
 - LUN 会存储 Windows 2008 和更高版本的 Windows 数据。如果您的主机操作系统是 Windows Server 2008、Windows Server 2012 或 Windows Server 2016，请使用此操作系统选项。MBR 和 GPT 分区方法均受支持。
- 
+
 **Windows 2003**
 - LUN 使用主引导记录 (MBR) 分区样式在单一分区的 Windows 磁盘中存储原始磁盘类型。要使用此选项，您的主机操作系统只能是使用 MBR 分区方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003。
 
@@ -54,7 +54,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 
 使用更小的块大小时，仍然可以获得最大 IOPS。但是吞吐量会下降。例如，下面是具有 6000 IOPS 的卷针对各种不同块大小的吞吐量：
 
-- 16 KB * 6000 IOPS == 约 93.75 MB/秒 
+- 16 KB * 6000 IOPS == 约 93.75 MB/秒
 - 8 KB * 6000 IOPS == 约 46.88 MB/秒
 - 4 KB * 6000 IOPS == 约 23.44 MB/秒
 
@@ -86,7 +86,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 如何判断哪些 {{site.data.keyword.blockstorageshort}} LUN/卷已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
+在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
 
 ## 怎样知道是在已升级的数据中心内供应 {{site.data.keyword.blockstorageshort}}？
 {: faq}

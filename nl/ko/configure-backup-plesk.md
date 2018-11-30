@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-10-31"
 
 이 지시사항을 사용하여 Plesk에 백업하도록 {{site.data.keyword.blockstoragefull}}를 구성할 수 있습니다. root 또는 sudo SSH 및 전체 관리 레벨 Plesk 액세스가 사용 가능한 것으로 가정합니다. 해당 지시사항은 CentOS 7 호스트를 기반으로 합니다.
 
-공급업체에 대한 자세한 정보는 [백업 및 복원에 대한 Plesk 문서](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}를 참조하십시오.
+공급업체에 대한 자세한 정보는 [백업 및 복원에 대한 Plesk 문서 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}를 참조하십시오.
 {:tip}
 
 1. SSH를 통해 호스트에 연결하십시오.

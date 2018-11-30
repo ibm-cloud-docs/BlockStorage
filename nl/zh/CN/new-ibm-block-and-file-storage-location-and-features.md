@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -100,7 +100,7 @@ TOK02<br />
 
 ## 加密存储卷的新安装点
 
-这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
 可重新检查此处来查看何时升级了更多数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新特性和功能。
 {:tip}

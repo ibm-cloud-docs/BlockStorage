@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # 管理 {{site.data.keyword.blockstorageshort}}
 
-您可以透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
+您可以透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
 
 ## 檢視 {{site.data.keyword.blockstorageshort}} LUN 詳細資料
 
@@ -76,7 +76,7 @@ lastupdated: "2018-10-31"
 
 ### 從裝置清單撤銷存取權
 
-1. 從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}，按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
+1. 從 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}，按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
 2. 選取**儲存空間**標籤。
 3. 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。在 LUN 名稱旁，選取**動作**，然後按一下「撤銷存取權」。
 4. 確認您要撤銷 LUN 的存取權，因為該動作無法復原。按一下**是**以撤銷 LUN 存取權，或按一下**否**以取消動作。

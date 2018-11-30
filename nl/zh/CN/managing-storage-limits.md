@@ -2,16 +2,16 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
 
 # 管理存储限制
 
-缺省情况下，总共可以全局供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。 
+缺省情况下，总共可以全局供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。
 
-您可以通过在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} 中提交凭单来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
+您可以通过在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中提交凭单来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
 
 要请求增大限制，请开具凭单并将其提交给销售代表。
 
@@ -27,11 +27,11 @@ lastupdated: "2018-06-25"
 
 - **按类型、大小、IOPS 和位置需要多少额外的文件卷？**<br />
 *例如，您的回答可能类似于“25 个性能 20 GB，10 IOPS，在 DAL09 中”或“50 个耐久性 2 TB，0.25 IOPS，在 SJC03 中”。*
- 
+
 - **提供预期/计划供应完所有请求的卷增加量的估计时间。**<br />
 *例如，您的回答可能类似于“90 天”。*
 
 - **提供这些卷预期平均容量使用率的 90 天预测。**<br />
 *例如，您的回答可能类似于“预期 30 天内的利用率为 25%，60 天内的利用率为 50%，90 天内的利用率为 75%”。*
 
-需要回答上述所有问题。系统将通过凭单流程向您通知对限制的更新。 
+需要回答上述所有问题。系统将通过凭单流程向您通知对限制的更新。

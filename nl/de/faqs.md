@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -31,13 +31,13 @@ Dies ist abhängig von der Kapazität des Hostbetriebssystems, nicht von {{site.
 Wenn Sie eine LUN erstellen, müssen Sie den Betriebssystemtyp angeben. Der Betriebssystemtyp muss auf dem Betriebssystem basieren, das die Hosts verwenden, die auf die LUN zugreifen. Der Betriebssystemtyp kann nicht geändert werden, nachdem die LUN erstellt wurde. Die tatsächliche Größe der LUN kann je nach Betriebssystemtyp der LUN geringfügig variieren.
 
 **Windows 2008+**
-- Die LUN speichert Windows-Daten für Windows 2008 und nachfolgende Versionen. Verwenden Sie diese Betriebssystemoption, wenn Ihr Hostbetriebssystem Windows Server 2008, Windows Server 2012 oder Windows Server 2016 ist. Es wird sowohl die Partitionierungsmethode MBR als auch die Methode GPT unterstützt. 
- 
+- Die LUN speichert Windows-Daten für Windows 2008 und nachfolgende Versionen. Verwenden Sie diese Betriebssystemoption, wenn Ihr Hostbetriebssystem Windows Server 2008, Windows Server 2012 oder Windows Server 2016 ist. Es wird sowohl die Partitionierungsmethode MBR als auch die Methode GPT unterstützt.
+
 **Windows 2003**
-- Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet. 
+- Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet.
 
 **Windows GPT**
--  Die LUN speichert Windows-Daten mithilfe der Partitionierungsmethode GPT (GUID Partition Type). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. Windows Server 2003, Service Pack 1 und höher sind in der Lage, die Partitionierungsmethode GPT zu verwenden. Ferner unterstützen alle 64-Bit-Versionen diese Methode. 
+-  Die LUN speichert Windows-Daten mithilfe der Partitionierungsmethode GPT (GUID Partition Type). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. Windows Server 2003, Service Pack 1 und höher sind in der Lage, die Partitionierungsmethode GPT zu verwenden. Ferner unterstützen alle 64-Bit-Versionen diese Methode.
 
 ## Wird der zugeordnete IOPS-Grenzwert nach Instanz oder nach Datenträger umgesetzt?
 {: faq}
@@ -54,7 +54,7 @@ IOPS werden auf Basis eines Belastungsprofils von 16-KB-Blöcken mit zufälligen
 
 Auch bei kleineren Blockgrößen kann der maximale IOPS-Wert erreicht werden. Allerdings verringert sich der Durchsatz. Beispiel: Ein Datenträger mit 6000 IOPS hat bei verschiedenen Blockgrößen den folgenden Durchsatz:
 
-- 16 KB * 6000 IOPS == ~93,75 MB/Sek. 
+- 16 KB * 6000 IOPS == ~93,75 MB/Sek.
 - 8 KB * 6000 IOPS == ~46,88 MB/Sek.
 - 4 KB * 6000 IOPS == ~23,44 MB/Sek.
 
@@ -86,7 +86,7 @@ Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichert
 ## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-LUNs bzw. -Datenträger verschlüsselt sind?
 {: faq}
 
-Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
+Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
 
 ## Wie weiß ich, dass ich {{site.data.keyword.blockstorageshort}} in einem aktualisierten Rechenzentrum bereitstelle?
 {: faq}
@@ -96,8 +96,8 @@ Bei der Bestellung von {{site.data.keyword.blockstorageshort}} werden alle aktua
 ## Wenn ich über nicht verschlüsselten {{site.data.keyword.blockstorageshort}} in einem Rechenzentrum verfüge, der vor kurzem aktualisiert wurde, kann dieser {{site.data.keyword.blockstorageshort}} dann verschlüsselt werden?
 {: faq}
 
-{{site.data.keyword.blockstorageshort}}, der vor der Aktualisierung des Rechenzentrums bereitgestellt wurde, kann nicht verschlüsselt werden. 
-Neuer {{site.data.keyword.blockstorageshort}}, der in aktualisierten Rechenzentren bereitgestellt wird, wird automatisch verschlüsselt. Es kann keine Einstellung für die Verschlüsselung ausgewählt werden. Diese erfolgt automatisch. 
+{{site.data.keyword.blockstorageshort}}, der vor der Aktualisierung des Rechenzentrums bereitgestellt wurde, kann nicht verschlüsselt werden.
+Neuer {{site.data.keyword.blockstorageshort}}, der in aktualisierten Rechenzentren bereitgestellt wird, wird automatisch verschlüsselt. Es kann keine Einstellung für die Verschlüsselung ausgewählt werden. Diese erfolgt automatisch.
 Um Daten auf einem nicht verschlüsselten Speicher in einem aktualisierten Rechenzentrum zu verschlüsseln, können Sie eine neue Block-LUN erstellen und die Daten anschließend mithilfe von hostbasierter Migration an die neu verschlüsselte LUN kopieren. Die Anweisungen dazu finden Sie [hier](migrate-block-storage-encrypted-block-storage.html).
 
 ## Unterstützt {{site.data.keyword.blockstorageshort}} die permanente SCSI-3-Reservierung zur Implementierung der E/A-Abschirmung für Db2 pureScale?
