@@ -33,7 +33,7 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 ## What LUKS doesn't do
 
 - Allow applications that require many (more than eight) users to have distinct access keys to same devices.
-- Work with applications that require file-level encryption, [more information ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Work with applications that require file-level encryption. For more information, see [RHEL Security Guide ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Setting up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
