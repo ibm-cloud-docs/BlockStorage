@@ -32,7 +32,8 @@ IBM Cloud Storage - Block Storage
     {: .topicgroup}
     Replication
         replication.md
-
+        disaster-recovery.md
+    
     {: .topicgroup}
     Security
         block-file-storage-encryption-rest.md
