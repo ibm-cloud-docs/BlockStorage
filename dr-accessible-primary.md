@@ -14,7 +14,7 @@ lastupdated: "2018-12-10"
 
 # Disaster Recovery - Failover with an accessible Primary volume
 
-If a catastrophic failure or disaster occured on the primary site and the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
+If a catastrophic failure or disaster occurred on the primary site and the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
 
 Before you start the failover, make sure that all host-authorization is in place.
 
