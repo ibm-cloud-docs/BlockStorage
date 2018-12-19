@@ -47,11 +47,11 @@ Snapshots are not replacements for actual off-site Disaster Recovery replication
 
 All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](block-file-storage-encryption-rest.html).
 
-## How Snapshots affect disk space
+## How Snapshots affect the disk space
 
-Snapshot copies minimize disk space usage by preserving individual blocks rather than whole files. Snapshot copies use extra space only when files in the active file system are changed or deleted. When files are changed or deleted, the original file blocks are still preserved as part of one or more Snapshot copies.
+Snapshot copies minimize disk consumption by preserving individual blocks rather than whole files. Snapshot copies use extra space only when files in the active file system are changed or deleted.
 
-In the active file system, the changed blocks are rewritten to different locations on the disk or removed as active file blocks entirely. As a result, in addition to the disk space that is used by blocks in the modified active file system, disk space that is used by the original blocks is still reserved to reflect the status of the active file system before the change.
+In the active file system, the changed blocks are rewritten to different locations on the disk or removed as active file blocks entirely. When files are changed or deleted, the original file blocks are preserved as part of one or more Snapshot copies. As a result, disk space that is used by the original blocks is still reserved to reflect the status of the active file system before the change. This space is reserved in addition to the disk space that is used by blocks in the modified active file system.
 
 <table>
     <colgroup>
@@ -72,4 +72,4 @@ In the active file system, the changed blocks are rewritten to different locatio
       </tr>
 </table>
 
-For more information about how to view how much snapshot space is used, see [Managing Snapshots](working-with-snapshots.html).
+For more information about snapshot space usage, see [Managing Snapshots](working-with-snapshots.html).
