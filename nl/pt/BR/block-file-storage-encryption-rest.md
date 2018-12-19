@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center ano
 
 
 
-O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você possuir um armazenamento não criptografado em um data center submetido a upgrade e desejar armazenamento criptografado, será necessário criar um novo LUN/volume e migrar seus dados. Para obter mais informações, consulte [Migração do {{site.data.keyword.blockstorageshort}} em data centers submetidos a upgrade](migrate-block-storage-encrypted-block-storage.html).
+O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você tiver armazenamento não criptografado em um data center atualizado e desejar armazenamento criptografado, será necessário criar um novo volume e migrar seus dados. Para obter mais informações, consulte [Migração do {{site.data.keyword.blockstorageshort}} em data centers submetidos a upgrade](migrate-block-storage-encrypted-block-storage.html).
 {:important}

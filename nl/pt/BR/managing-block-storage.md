@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Gerenciando {{site.data.keyword.blockstorageshort}}
 
-É possível gerenciar os volumes do  {{site.data.keyword.blockstoragefull}}  por meio do  [ {{site.data.keyword.slportal}} ](https://control.softlayer.com/){:new_window}.
+É possível gerenciar seus {{site.data.keyword.blockstoragefull}} volumes por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 
 ## Visualizando detalhes do  {{site.data.keyword.blockstorageshort}}  LUN
 
@@ -49,22 +49,22 @@ Lá é possível ver a lista dos hosts que estão atualmente autorizados a acess
 
 É possível visualizar os LUNs aos quais um host tem acesso, incluindo as informações que são necessárias para fazer uma conexão - Nome do LUN, Tipo de armazenamento, Endereço de destino, capacidade e local:
 
-1. Clique em **Dispositivos** -> **Lista de dispositivos** no [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} e clique no dispositivo apropriado.
+1. Clique em **Dispositivos** -> **Lista de dispositivos** no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://control.softlayer.com/){:new_window} e clique no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
 
 É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). É possível autorizar mais armazenamento ou remover o acesso clicando em **Ações**.
 
 
 
-## Montando e desmontando  {{site.data.keyword.blockstorageshort}}
+## Montando e desmontando o {{site.data.keyword.blockstorageshort}}
 
 Com base no sistema operacional do host, siga as instruções apropriadas.
 
 - [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
 - [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurando o Block Storage para backup com o cPanel](configure-backup-cpanel.html)
-- [Configurando o Block Storage para backup com o Plesk](configure-backup-plesk.html)
+- [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
+- [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)
 
 
 ## Revogando o acesso de um host ao  {{site.data.keyword.blockstorageshort}}
@@ -79,9 +79,7 @@ o acesso para evitar unidades ausentes ou distorção de dados.
 
 ### Revogando o acesso a partir da Lista de Dis
 
-1. Clique em **Dispositivos**, **Lista de dispositivos** no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} e
-dê um clique duplo no dispositivo apropriado.
+1. Clique em **Dispositivos**, **Lista de dispositivos** por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window} e dê um clique duplo no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
 3. É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). Próximo ao nome do LUN, selecione **Ação"" e clique em **Revogar acesso**.
 4. Confirme se você deseja revogar o acesso para um LUN porque a ação não pode ser desfeita. Clique em **Sim** para revogar acesso ao LUN ou **Não** para cancelar a ação.
@@ -108,7 +106,8 @@ para cada host.
 
 ## Cancelando um LUN de armazenamento
 
-Se você não precisar mais de um LUN específico, ele poderá ser cancelado.
+Se você não precisar mais de um LUN específico, será possível cancelá-lo a qualquer momento.
+
 Para cancelar um LUN de armazenamento, é necessário revogar o acesso de quaisquer hosts primeiro.
 {:important}
 

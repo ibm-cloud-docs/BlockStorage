@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ lastupdated: "2018-10-31"
 
 
 
-在升级数据中心之前供应的非加密存储器**不会**自动加密。如果在已升级的数据中心内拥有非加密存储器，并且需要加密的存储器，那么需要创建新的 LUN/卷，然后迁移数据。有关更多信息，请参阅[在已升级的数据中心内执行 {{site.data.keyword.blockstorageshort}} 迁移](migrate-block-storage-encrypted-block-storage.html)。
+在升级数据中心之前供应的非加密存储器**不会**自动加密。如果在已升级的数据中心内拥有非加密存储器，并且需要加密的存储器，那么需要创建新的卷，然后迁移数据。有关更多信息，请参阅[在已升级的数据中心内执行 {{site.data.keyword.blockstorageshort}} 迁移](migrate-block-storage-encrypted-block-storage.html)。
 {:important}

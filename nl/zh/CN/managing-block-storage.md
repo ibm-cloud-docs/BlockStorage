@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 
 # 管理 {{site.data.keyword.blockstorageshort}}
 
-您可以通过 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 来管理 {{site.data.keyword.blockstoragefull}} 卷。
+您可以通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 来管理 {{site.data.keyword.blockstoragefull}} 卷。
 
 ## 查看 {{site.data.keyword.blockstorageshort}} LUN 详细信息
 
@@ -47,7 +47,7 @@ lastupdated: "2018-11-30"
 
 可以查看主机有权访问的 LUN，包括建立连接所需的信息 - LUN 名称、存储类型、目标地址、容量和位置：
 
-1. 在 [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} 中，单击**设备** -> **设备列表**，然后单击相应的设备。
+1. 单击 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://control.softlayer.com/){:new_window} 中的**设备** -> **设备列表**，然后单击相应的设备。
 2. 选择**存储**选项卡。
 
 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。您可以通过单击**操作**来授予对更多存储器的访问权或除去访问权。
@@ -76,7 +76,7 @@ lastupdated: "2018-11-30"
 
 ### 通过设备列表撤销访问权
 
-1. 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中，单击**设备** > **设备列表**，然后双击相应的设备。
+1. 单击 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中的**设备** > **设备列表**，然后双击相应的设备。
 2. 选择**存储**选项卡。
 3. 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。在 LUN 名称旁边，选择**操作**，然后单击**撤销访问权**。
 4. 确认是否要撤销对 LUN 的访问权，因为该操作无法撤销。单击**是**以撤销 LUN 访问权，或单击**否**以取消该操作。
@@ -99,7 +99,9 @@ lastupdated: "2018-11-30"
 
 ## 取消存储器 LUN
 
-如果不再需要特定 LUN，可以将其取消。要取消存储器 LUN，首先需要撤销所有主机对它的访问权。
+如果不再需要特定 LUN，可以随时将其取消。
+
+要取消存储器 LUN，首先需要撤销所有主机对它的访问权。
 {:important}
 
 1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。

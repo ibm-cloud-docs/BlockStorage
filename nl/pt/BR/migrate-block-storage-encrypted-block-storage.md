@@ -22,7 +22,10 @@ Supõe-se que seu LUN não criptografado já esteja conectado ao seu host. Se n�
 - [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
 
-## Criando novo  {{site.data.keyword.blockstorageshort}}
+Todos os volumes aprimorados do {{site.data.keyword.blockstorageshort}} provisionados nesses data centers têm um ponto de montagem diferente de volumes não criptografados. Para assegurar que você esteja usando o ponto de montagem correto para os dois volumes de armazenamento, é possível visualizar as informações do ponto de montagem na página **Detalhes do volume** no console. Também é possível acessar o ponto de montagem correto por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+{:tip}
+
+## Criando um {{site.data.keyword.blockstorageshort}}
 
 Ao fazer um pedido com a API, especifique o pacote "Armazenamento como um serviço" para assegurar-se de que esteja obtendo os recursos atualizados com seu novo armazenamento.
 {:important}
@@ -31,8 +34,8 @@ As instruções a seguir são para pedir um LUN aprimorado por meio do {{site.da
 
 ### Pedindo um LUN do Endurance
 
-1. No [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
-2. No canto superior direito, clique em **Pedir o {{site.data.keyword.blockstorageshort}}**.
+1. Por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** OU por meio do catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
+2. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
 3. Selecione **Endurance** na lista **Selecionar tipo de armazenamento**.
 4. Selecione seu **Local** de implementação (data center).
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que o volume anterior.
@@ -40,6 +43,7 @@ As instruções a seguir são para pedir um LUN aprimorado por meio do {{site.da
 6. Selecione a camada de IOPS.
 7. Clique em **Selecionar tamanho de armazenamento** e selecione seu tamanho de armazenamento na lista.
 8. Clique em **Especificar tamanho do espaço de captura instantânea** e selecione o tamanho da captura instantânea na lista. Esse espaço complementa o seu espaço utilizável.
+
    Para obter mais informações sobre as considerações e as recomendações de espaço de captura instantânea, consulte
 [Pedindo capturas instantâneas](ordering-snapshots.html).
    {:tip}
@@ -50,11 +54,13 @@ com uma chance final para revisar os detalhes do pedido.
 
 ### Solicitando um LUN de Desempenho
 
-1. No [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** OU, no catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
+1. Por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** OU por meio do catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
 2. À direita, clique em **Pedir {{site.data.keyword.blockstorageshort}} **.
 3. Selecione **Performance** na lista **Selecionar tipo de armazenamento**.
 4. Clique em **Local** e selecione seu data center.
-   - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que o host ou hosts pedidos anteriormente.
+
+   Assegure-se de que o novo Armazenamento seja incluído no mesmo local que o host ou hosts pedidos anteriormente.
+   {:important}
 5. Selecione sua opção de faturamento. É possível escolher entre faturamento por hora e mensal.
 6. Selecione o  ** Tamanho de armazenamento ** apropriado.
 7. Insira o número de IOPS no campo **Especifique as IOPS**.
@@ -86,6 +92,7 @@ Se o data center de destino de replicação ainda não tiver sido submetido a up
 ## Migrando seus Dados
 
 1. Conecte-se a ambos os LUNs do {{site.data.keyword.blockstorageshort}}, originais e novos.
+
    Se você precisar de assistência para conectar os dois LUNs ao host, abra um caso de suporte.
    {:tip}
 
@@ -94,8 +101,8 @@ Se o data center de destino de replicação ainda não tiver sido submetido a up
   - Se você estiver executando um banco de dados ou uma máquina virtual em seu {{site.data.keyword.blockstorageshort}}, certifique-se de que os dados não sejam alterados durante a cópia para evitar distorção de dados. Se você tiver alguma preocupação com a largura de banda, faça a migração durante os horários fora de pico. Se precisar de assistência com essas considerações, abra um chamado de suporte.
 
 3. Copie os dados em.
-   - **Microsoft Windows** - Para copiar dados do LUN original do {{site.data.keyword.blockstorageshort}} para seu novo LUN, formate o novo armazenamento e copie os arquivos usando o Windows Explorer.
-   - **Linux** - É possível usar `rsync` para copiar os dados. Este é um exemplo:
+   - Para o **Microsoft Windows**, formate o novo armazenamento e copie os dados do seu LUN original do {{site.data.keyword.blockstorageshort}} para seu novo LUN usando o Windows Explorer.
+   - Para o **Linux**, é possível usar `rsync` para copiar sobre os dados. Aqui está um exemplo:
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

@@ -16,10 +16,10 @@ lastupdated: "2018-11-30"
 
 Siga estas instruções para instalar seu LUN do iSCSI com caminhos múltiplos no CloudLinux Server liberação 6.10.
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 {:tip}
 
-1. Efetue login no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+1. Efetue login no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 2. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
 3. Clique em **Autorizar host**.
 4. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
@@ -189,7 +189,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume do {{
 
    O volume agora está montado e acessível no host.
 
-7. Verifique se o MPIO está configurado corretamente listando os dispositivos. Se ele estiver configurado corretamente, somente dois dispositivos NETAPP aparecerão.
+7. Verifique se o MPIO está configurado corretamente listando os dispositivos. Se a configuração estiver correta, apenas dois dispositivos NETAPP serão mostrados.
 
    ```
    # multipath -l

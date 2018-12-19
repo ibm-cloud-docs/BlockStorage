@@ -112,7 +112,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 
 - **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento provisionado até 4 TB em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html) apenas.
 
-Até 48.000 IOPS estão disponíveis com um volume de Resistência de 12 TB.
+Até 48.000 IOPS estão disponíveis com um volume do Endurance de 12 TB.
 
 A escolha da camada correta do Endurance é essencial para sua carga de trabalho. É igualmente importante usar o tamanho de bloco, a velocidade de conexão Ethernet e o número de hosts corretos necessários para alcançar o máximo desempenho. Se alguma dessas partes não se alinhar, poderá haver um impacto significativo no rendimento resultante.
 
@@ -127,7 +127,7 @@ e contagens de IOPS maiores. Os volumes do Performance podem ser pedidos de acor
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>A Tabela 3 está mostrando combinações de tamanho e de IOPS para armazenamento do Performance.<br/><sup><img src="/images/numberone.png" alt="Nota de rodapé" /></sup> O limite de IOPS maior que 6.000 está disponível nos data centers selecionados.</caption>
+ <caption>A Tabela 3 está mostrando combinações de tamanho e de IOPS para armazenamento do Performance.<br/><sup><img src="/images/numberone.png" alt="Nota de rodapé" /></sup> Os limites de IOPS maiores que 6.000 estão disponíveis nos data centers selecionados.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -202,8 +202,7 @@ Os volumes do Performance foram projetados para operar consistentemente próximo
 
 ** Tamanho do bloco **
 
-A IOPS para Endurance e Performance tem como base um tamanho de bloco de 16 KB com leitura/gravação de 50/50 e 50 por cento de carga de trabalho aleatória. Um bloco de 16 KB equivale a uma gravação no
-volume.
+O IOPS para o Endurance e o Performance tem como base um tamanho de bloco de 16 KB com uma carga de trabalho aleatória de 50%, 50/50 de leitura/gravação. Um bloco de 16 KB equivale a uma gravação no volume.
 {:important}
 
 O tamanho do bloco usado por seu aplicativo afetará diretamente o desempenho do armazenamento. Se o tamanho do bloco usado por seu aplicativo for menor que 16 KB, o limite do IOPS será realizado antes do limite do rendimento. Por outro lado, se o tamanho do bloco usado por seu aplicativo for maior que 16 KB, o limite de rendimento será realizado antes do limite do IOPS.
@@ -268,14 +267,14 @@ Outro fator a ser considerado é o número de hosts que estão usando seu volume
 ** Conexão de rede **
 
 A velocidade da sua conexão de Ethernet deve ser mais rápida do
-que o rendimento máximo esperado de seu volume. Em geral, não espere saturar sua conexão Ethernet além de 70% da largura de banda disponível. Por exemplo, se você tiver 6.000 IOPS e estiver usando um tamanho de bloco de 16 KB, o volume poderá manipular aproximadamente o rendimento de 94 MBps. Se você tiver uma conexão Ethernet de 1 Gbps para seu LUN, ela se tornará um gargalo quando seus servidores tentarem usar o rendimento máximo disponível. Isso é porque 70 por cento do limite teórico de uma conexão Ethernet de 1 Gbps (125 MB por segundo) permitiria 88 MB por segundo apenas.
+que o rendimento máximo esperado de seu volume. Em geral, não espere saturar sua conexão Ethernet além de 70% da largura de banda disponível. Por exemplo, se você tiver 6.000 IOPS e estiver usando um tamanho de bloco de 16 KB, o volume poderá manipular o rendimento de aproximadamente 94 MBps. Se você tiver uma conexão Ethernet de 1 Gbps com seu LUN, ela se tornará um gargalo quando seus servidores tentarem usar o rendimento máximo disponível. Isso porque 70% do limite teórico de uma conexão Ethernet de 1 Gbps (125 MB por segundo) permitiria 88 MB por segundo apenas.
 
 Para obter o máximo de IOPS, recursos de rede adequados precisam estar em vigor. Outras considerações incluem o uso
 de rede privada fora do armazenamento e os ajustes específicos do aplicativo e do lado do host (pilha
 IP ou [profundidades da fila](set-host-queue-depth-settings-performance-and-endurance-storage.html) e
 outras configurações).
 
-O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Consulte a [documentação do Virtual Server](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) para entender os limites que podem ser impostos pelo serviço.
+O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Para obter mais informações sobre os limites que podem ser impostos pelo serviço, consulte a [Documentação do Virtual Server](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).
 {:tip}
 
 ## Enviando sua Ordem
@@ -288,5 +287,5 @@ Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts
 - [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
 - [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurando o Block Storage para backup com o cPanel](configure-backup-cpanel.html)
-- [Configurando o Block Storage para backup com o Plesk](configure-backup-plesk.html)
+- [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
+- [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)

@@ -16,12 +16,12 @@ lastupdated: "2018-11-30"
 
 新的存储器在精选数据中心内提供，是更高 IOPS 级别的闪存支持的存储器，具有针对静态数据的磁盘级别加密。在已升级数据中心内供应的所有存储器都将自动通过新版本创建。
 
-新卷的 NFS 安装点不同于非加密卷的安装点。有关更多信息，请参阅[加密 {{site.data.keyword.filestorage_short}} 卷的新安装点](#new-mount-point-for-encrypted-storage-volumes)部分。
+新卷的 NFS 安装点不同于非加密卷的安装点。有关更多信息，请参阅[加密 {{site.data.keyword.blockstorageshort}} 卷的新安装点](#new-mount-point-for-encrypted-storage-volumes)部分。
 {:important}
 
 ## 新位置
 
-新的 {{site.data.keyword.blockstorageshort}} 在以下区域/数据中心内提供。
+新的 {{site.data.keyword.blockstorageshort}} 在以下区域和数据中心内提供。
 <table role="presentation">
   <tr>
     <td><strong>美国 2</strong></td>
@@ -59,7 +59,8 @@ AMS03<br />
     <td>MEL01<br />
 SYD01<br />
 SYD04<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+        SYD05<br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
 TOR01<br />
@@ -100,7 +101,10 @@ TOK02<br />
 
 ## 加密存储卷的新安装点
 
-这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。要确保对存储卷使用正确的安装点，可以在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。请检查 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中的**卷详细信息**页面上的安装点信息，以确保使用正确的安装点。您还可以通过 API 调用获取正确的安装点信息：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+
+要能够访问所有新功能，在通过 API 下订单时，请选择 `Storage-as-a-Service Package 759`。有关通过 API 订购 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [order_block_volume ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}。
+{:important}
 
 可重新检查此处来查看何时升级了更多数据中心，并可了解为 {{site.data.keyword.blockstorageshort}} 添加的新特性和功能。
 {:tip}

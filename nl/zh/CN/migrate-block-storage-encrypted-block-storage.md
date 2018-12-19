@@ -22,7 +22,10 @@ lastupdated: "2018-11-30"
 - [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
 
-## 创建新 {{site.data.keyword.blockstorageshort}}
+这些数据中心内供应的所有增强型 {{site.data.keyword.blockstorageshort}} 卷的安装点与非加密卷不同。要确保对两个存储卷使用正确的安装点，可以在控制台的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+{:tip}
+
+## 创建 {{site.data.keyword.blockstorageshort}}
 
 使用 API 下订单时，请指定“存储即服务”包，以确保获取新存储器的更新功能。
 {:important}
@@ -31,15 +34,17 @@ lastupdated: "2018-11-30"
 
 ### 订购耐久性 LUN
 
-1. 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
-2. 在右上角，单击**订购 {{site.data.keyword.blockstorageshort}}**。
+1. 在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
+2. 单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 3. 从**选择存储器类型**列表中，选择**耐久性**。
 4. 选择部署**位置**（数据中心）。
    - 确保将新存储器添加到先前卷所在位置。
 5. 选择您的记帐选项。可以选择“每小时计费”和“每月计费”。
 6. 选择 IOPS 层。
 7. 单击**选择存储器大小**，然后从列表中选择存储器大小。
-8. 单击**指定快照空间大小**，然后从列表中选择快照大小。这是除了可用空间以外的空间。有关快照空间注意事项和建议的更多信息，请参阅[订购快照](ordering-snapshots.html)。
+8. 单击**指定快照空间大小**，然后从列表中选择快照大小。这是除了可用空间以外的空间。
+
+   有关快照空间注意事项和建议的更多信息，请参阅[订购快照](ordering-snapshots.html)。
    {:tip}
 9. 从列表中选择**操作系统类型**。
 10. 单击**继续**。这将显示每月费用和按比例的费用，此时您还有最后一次机会复查订单详细信息。
@@ -47,11 +52,13 @@ lastupdated: "2018-11-30"
 
 ### 订购性能 LUN
 
-1. 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
+1. 在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}}“目录”中，单击**基础架构 > 存储 > {{site.data.keyword.blockstorageshort}}**。
 2. 单击右侧的**订购 {{site.data.keyword.blockstorageshort}}**。
 3. 从**选择存储器类型**列表中，选择**性能**。
 4. 单击**位置**，然后选择数据中心。
-   - 确保将新存储器添加到先前订购的主机所在位置。
+
+   确保将新存储器添加到先前订购的主机所在位置。
+   {:important}
 5. 选择您的记帐选项。可以选择“每小时计费”和“每月计费”。
 6. 选择相应的**存储器大小**。
 7. 在**指定 IOPS** 字段中，输入 IOPS。
@@ -80,7 +87,9 @@ lastupdated: "2018-11-30"
 
 ## 迁移数据
 
-1. 同时连接到原始和新 {{site.data.keyword.blockstorageshort}} LUN。如果需要有关将这两个 LUN 连接到主机的帮助，请开立支持案例。
+1. 同时连接到原始和新 {{site.data.keyword.blockstorageshort}} LUN。
+
+   如果需要有关将这两个 LUN 连接到主机的帮助，请开立支持案例。
    {:tip}
 
 2. 请考虑原始 {{site.data.keyword.blockstorageshort}} LUN 上有什么类型的数据，以及如何以最佳方式将其复制到新 LUN。
@@ -88,8 +97,8 @@ lastupdated: "2018-11-30"
   - 如果是在 {{site.data.keyword.blockstorageshort}} 上运行数据库或虚拟机，请确保数据在复制期间不会发生变更，以免发生数据损坏。如果您担心任何带宽问题，请在非高峰时段执行迁移。如果需要有关这些注意事项的帮助，请开具支持凭单。
 
 3. 复制数据。
-   - **Microsoft Windows** - 要将数据从原始 {{site.data.keyword.blockstorageshort}} LUN 复制到新 LUN，请使用 Windows 资源管理器设置新存储器的格式并复制文件。
-   - **Linux** - 可以使用 `rsync` 来复制数据。下面是示例：
+   - 对于 **Microsoft Windows**，格式化新存储器，并通过使用 Windows 资源管理器将数据从原始 {{site.data.keyword.blockstorageshort}} LUN 复制到新 LUN。
+   - 对于 **Linux**，可以使用 `rsync` 来复制数据。以下是示例：
    ```
 [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
 ```

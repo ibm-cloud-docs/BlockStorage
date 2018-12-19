@@ -122,7 +122,7 @@ lastupdated: "2018-11-30"
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>表 3 显示了用于性能存储器的大小和 IOPS 组合。<br/><sup><img src="/images/numberone.png" alt="脚注" /></sup> 超过 6,000 的 IOPS 限制在精选数据中心内提供。</caption>
+ <caption>表 3 显示了用于性能存储器的大小和 IOPS 组合。<br/><sup><img src="/images/numberone.png" alt="脚注" /></sup> 在精选数据中心内提供了大于 6,000 的 IOPS 限制。</caption>
         <colgroup>
           <col/>
           <col/>
@@ -265,7 +265,7 @@ lastupdated: "2018-11-30"
 
 要实现最大 IOPS，需要落实足够的网络资源。其他注意事项包括在存储器外部使用的专用网络、主机端以及特定于应用程序的调整（IP 堆栈或[队列深度](set-host-queue-depth-settings-performance-and-endurance-storage.html)以及其他设置）。
 
-存储流量包含在公共虚拟服务器的总网络使用量之内。要了解服务可能强加的限制，请参阅[虚拟服务器文档](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)。
+存储流量包含在公共虚拟服务器的总网络使用量之内。有关服务可能施加的限制的更多信息，请参阅[虚拟服务器文档](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)。
 {:tip}
 
 ## 提交订单

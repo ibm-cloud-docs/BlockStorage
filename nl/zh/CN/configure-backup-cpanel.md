@@ -15,7 +15,7 @@ lastupdated: "2018-11-30"
 
 使用此文章以帮助在 cPanel 中配置要存储在 {{site.data.keyword.blockstoragefull}} 中的备份。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的 WebHost Manager (WHM) 访问权。这些指示信息基于 **CentOS 7** 主机。
 
-有关来自供应商的更多信息，请参阅 [cPanel - 配置备份目录 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
+有关更多信息，请参阅 [cPanel - 配置备份目录 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
 {:tip}
 
 1. 通过 SSH 连接到主机。
@@ -35,7 +35,7 @@ lastupdated: "2018-11-30"
     此命令会压缩并传输数据，同时尽可能地保留信息，但硬链接除外。它提供有关正在传输什么文件的信息并在结尾提供简短摘要。
     {:tip}
 
-5. 登录到 WebHost Manager，然后通过单击**主页** > **备份** > **备份配置**转至备份配置。
+5. 登录到 WHM，然后通过单击**主页** > **备份** > **备份配置**转至备份配置。
 
 6. 编辑配置以将备份保存在新的安装点中。
     - 通过输入新位置的绝对路径来取代 /backup/ 目录，从而更改缺省备份目录。

@@ -18,14 +18,12 @@ O {{site.data.keyword.BluSoftlayer_full}} está introduzindo uma nova versão do
 O novo armazenamento está disponível nos data centers de seleção e é suportado pelo armazenamento
 flash a níveis de IOPS mais altos com criptografia de nível de disco para dados em repouso. Todo o armazenamento provisionado nos data centers submetidos a upgrade é criado automaticamente com a nova versão.
 
-O ponto de montagem do NFS para novos volumes é diferente do ponto de montagem de volumes não criptografados. Para
-obter mais informações, consulte a seção [Novo ponto de
-montagem para os volumes criptografados do {{site.data.keyword.filestorage_short}}](#new-mount-point-for-encrypted-storage-volumes).
+O ponto de montagem do NFS para novos volumes é diferente do ponto de montagem de volumes não criptografados. Para obter mais informações, consulte a seção [Novo ponto de montagem para volumes criptografados do {{site.data.keyword.blockstorageshort}}](#new-mount-point-for-encrypted-storage-volumes).
 {:important}
 
 ## Novas localizações
 
-O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/data centers a seguir.
+O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões e nos data centers a seguir.
 <table role="presentation">
   <tr>
     <td><strong>EUA 2</strong></td>
@@ -63,7 +61,8 @@ O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/da
     <td>MEL01<br />
         SYD01<br />
         SYD04<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+        SYD05<br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
         TOR01<br />
@@ -105,7 +104,10 @@ O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões/da
 
 ## Novo ponto de montagem para volumes de armazenamento criptografados
 
-Todos os volumes de armazenamento aprimorado que são provisionados nesses data centers têm um ponto de montagem diferente dos volumes não criptografados. Para assegurar-se de que esteja usando o ponto de montagem correto para seus volumes de armazenamento, é possível visualizar as informações do ponto de montagem na página **Detalhes do volume** no [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. Também é possível acessar o ponto de montagem correto por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Todos os volumes de armazenamento aprimorado que são provisionados nesses data centers têm um ponto de montagem diferente dos volumes não criptografados. Verifique as informações do ponto de montagem na página **Detalhes do volume** no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window} para assegurar-se de que esteja usando o ponto de montagem correto. Também é possível obter as informações corretas do ponto de montagem por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+
+Para poder acessar todos os novos recursos, selecione `Storage-as-a-Service Package 759` ao fazer seu pedido por meio da API. Para obter mais informações sobre como pedir o {{site.data.keyword.blockstorageshort}} por meio da API, consulte [order_block_volume ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
+{:important}
 
 Consulte esta página novamente para ver quando mais data centers serão submetidos a upgrade e os novos recursos e capacidades que estão sendo incluídos no {{site.data.keyword.blockstorageshort}}.
 {:tip}

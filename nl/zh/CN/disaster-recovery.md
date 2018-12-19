@@ -2,10 +2,9 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-30"
+lastupdated: "2018-12-06"
 
 ---
-
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
@@ -13,16 +12,16 @@ lastupdated: "2018-11-30"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
+# 灾难恢复 - 通过不可访问的主卷进行故障转移
 
-# 复制副本卷以用于灾难恢复
-
-发生导致主站点停运的灾难性故障或状况时，客户可以执行以下操作，以快速访问辅助站点上的数据。
+如果发生导致主站点停运的灾难性故障或状况，客户可以执行以下操作，以快速访问辅助站点上的数据。
 
 ## 在辅助站点上通过复制副本卷实现故障转移
 
-1. 登录到 [IBM Cloud 控制台 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/){:new_window}，然后单击左上方的**菜单**图标。选择**经典基础架构**。
+1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
+{DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
-   也可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}。
+   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击列表中 LUN 的副本，以查看其**详细信息**页面。
 4. 向下滚动**详细信息**页面，选择现有快照，然后单击**操作** > **复制**。
@@ -30,15 +29,16 @@ lastupdated: "2018-11-30"
 6. 根据需要，更新新卷的快照空间。
 7. 单击**继续**，以下订单购买复制卷。
 
-创建卷后，您可以将创建的卷连接到主机上，然后在该卷上执行读/写操作。将数据从原始卷复制到复制卷时，详细信息页面会显示正在进行复制。复制过程完成后，新卷将完全独立于原始卷，您可以如常通过快照和复制对其进行管理。
+创建卷后，您可以将创建的卷连接到主机上，然后在该卷上执行读/写操作。将数据从原始卷复制到复制卷时，详细信息页面会显示正在进行复制。复制过程完成后，新卷变为独立于原始项，并且可以如常通过快照和复制进行管理。
 
-## 故障转移到原始主站点
+## 故障恢复到原始主站点
 
 如果要将生产返回给原始主站点，那么必须执行以下步骤。
 
-1. 登录到 [IBM Cloud 控制台](https://{DomainName}/catalog/){:new_window}，然后单击左上方的**菜单**图标。选择**经典基础架构**。
+1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
+{DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
-   也可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}。
+   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击 LUN 名称，然后创建快照安排（如果尚不存在）。
 

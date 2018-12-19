@@ -25,6 +25,7 @@ IBM Cloud 存储 - Block Storage
         accessing_block_storage_linux.md
         configure-iscsi-cloudlinux.md
         accessing-block-storage-windows.md
+        win12-missing-devices.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
         configure-backup-cpanel.md
         configure-backup-plesk.md
@@ -32,8 +33,9 @@ IBM Cloud 存储 - Block Storage
     {: .topicgroup}
     复制
         replication.md
+        dr-accessible-primary.md
         disaster-recovery.md
-    
+
     {: .topicgroup}
     安全性
         block-file-storage-encryption-rest.md

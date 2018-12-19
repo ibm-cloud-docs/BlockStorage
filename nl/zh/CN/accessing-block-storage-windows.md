@@ -12,7 +12,8 @@ lastupdated: "2018-11-30"
 
 # 在 Microsoft Windows 上连接到 MPIO iSCSI LUN
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 授权。
+
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。单击**授权主机**。
 2. 从列表中选择将访问该卷的一个或多个主机，然后单击**提交**。
@@ -46,7 +47,7 @@ lastupdated: "2018-11-30"
     - 单击**更改**以将现有值替换为 iSCSI 限定名 (IQN)。
     ![iSCSI 启动器属性](/images/iSCSI.png)
 
-      IQN 名称可以从 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取。
+      IQN 名称可以从 {{site.data.keyword.blockstorageshort}}[{{site.data.keyword.slportal}} 中的“详细信息”屏幕 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中获取。
       {: tip}
 
     - 单击**发现**选项卡，然后单击**发现门户网站**。
@@ -56,11 +57,11 @@ lastupdated: "2018-11-30"
     ![启用 CHAP 登录](/images/Advanced_0.png)
         “名称”和“目标私钥”字段区分大小写。
     {:important}
-         - 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中的**名称**字段中，删除任何现有条目，然后输入用户名。
-         - 在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**目标私钥**字段中，输入密码。
+         - 在**名称**字段中，删除任何现有条目，然后输入 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 的用户名。
+         - 在**目标密钥**字段中，输入 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 的密码。
     - 单击**高级设置**和**发现目标门户网站**窗口中的**确定**，以返回到“iSCSI 启动器属性”主屏幕。如果收到认证错误，请检查用户名和密码条目。
     ![不活动的目标](/images/Inactive_0.png)
-        目标的名称显示在“发现的目标”部分，状态为“不活动”。
+        目标的名称显示在“发现的目标”部分中，状态为`不活动`。
     {:note}
 
 
@@ -68,15 +69,18 @@ lastupdated: "2018-11-30"
 
 1. 单击**连接**以连接到目标。
 2. 选中**启用多路径**复选框以启用到目标的多路径 IO。
-![启用多路径](/images/Connect_0.png)
+</br>
+   ![启用多路径](/images/Connect_0.png)
 3. 单击**高级**，然后选择**启用 CHAP 登录**。
-![启用 CHAP](/images/chap_0.png)
+</br>
+   ![启用 CHAP](/images/chap_0.png)
 4. 在“名称”字段中输入用户名，然后在“目标私钥”字段中输入密码。
 
    “名称”和“目标私钥”字段值可以从“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取。
    {:tip}
 5. 单击**确定**，直至显示 **iSCSI 启动器属性**窗口。**发现的目标**部分中目标的状态已从**不活动**变为**已连接**。
-![“已连接”状态](/images/Connected.png)
+</br>
+   ![“已连接”状态](/images/Connected.png)
 
 
 ### 在 iSCSI 启动器中配置 MPIO
@@ -98,14 +102,14 @@ lastupdated: "2018-11-30"
 6. 在“连接到目标”窗口中，选中**启用多路径**复选框。单击**高级**。
 7. 在“高级设置”窗口中：
    - 在“本地适配器”列表中，选择“Microsoft iSCSI 启动器”。
-   - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与您为第一个会话提供的接口相同。
+   - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与为第一个会话提供的接口相同。
    - 在“目标门户网站 IP”列表中，为设备上启用的第二个数据接口选择 IP 地址。
    - 单击**启用 CHAP 登录**复选框。
    - 输入从门户网站中获取的“名称”和“目标私钥”值，然后单击**确定**。
    - 在“连接到目标”窗口上，单击**确定**以返回到“属性”窗口。
 8. “属性”窗口的“标识”窗格中现在会显示多个会话。iSCSI 存储器中有多个会话。
 
-   如果您的主机有多个要连接到 iSCSI 存储器的接口，那么可以在“启动器 IP”字段中使用其他 NIC 的 IP 地址再设置一个连接。但是，在尝试连接之前，一定要在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中对第二个启动器 IP 地址进行授权。
+   如果您的主机有多个要连接到 iSCSI 存储器的接口，那么可以在“启动器 IP”字段中使用其他 NIC 的 IP 地址再设置一个连接。但是，在尝试建立连接之前，确保在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中对第二个启动器 IP 地址进行授权。
    {:note}
 9. 在“属性”窗口中，单击**设备**以打开“设备”窗口。设备接口名称以 `mpio` 开头。<br/>
   ![设备](/images/Devices.png)
@@ -123,10 +127,10 @@ lastupdated: "2018-11-30"
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
-完成了重新引导并且添加了“存储设备”后，就可以验证 MPIO 是否已配置且生效。要执行此操作，请查看**目标设备详细信息**，然后单击 **MPIO**：
+完成了重新启动并且添加了“存储设备”后，就可以验证 MPIO 是否已配置且生效。要执行此操作，请查看**目标设备详细信息**，然后单击 **MPIO**：
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-如果未正确配置 MPIO，那么当发生网络中断或 {{site.data.keyword.BluSoftlayer_full}} 团队执行维护时，存储设备会断开连接并变得不可用。MPIO 将确保在发生这些事件期间获得额外级别的连接，并且会保留已建立的会话，使活动读/写操作转至 LUN。
+如果未正确配置 MPIO，那么当发生网络中断或 {{site.data.keyword.BluSoftlayer_full}} 团队执行维护时，存储设备可能断开连接并显示为已禁用。MPIO 将确保在发生这些事件期间获得额外级别的连接，并且会保留已建立的会话，使活动读/写操作转至 LUN。
 
 ## 卸装 {{site.data.keyword.blockstorageshort}} 卷
 
@@ -138,7 +142,7 @@ lastupdated: "2018-11-30"
 2. 选择要除去的目标，然后单击**断开连接**。
 
 ### 除去目标
-（可选）不再需要访问 iSCSI 目标时，可除去相应的目标。
+不再需要访问 iSCSI 目标时，此步骤为可选。
 
 1. 单击 iSCSI 启动器中的**发现**。
 2. 突出显示与存储卷关联的目标门户网站，然后单击**除去**。

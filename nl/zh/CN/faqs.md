@@ -25,7 +25,7 @@ lastupdated: "2018-11-30"
 
 这取决于主机操作系统的处理能力，而不受 {{site.data.keyword.BluSoftlayer_full}} 的限制。有关可安装的卷数的限制，请参阅操作系统文档。
 
-## 我应该为我的 Block Storage LUN 选择哪个 Windows 版本？
+## 我将为我的 Block Storage LUN 选择哪个 Windows 版本？
 {: faq}
 
 创建 LUN 时，必须指定操作系统类型。操作系统类型必须基于访问 LUN 的主机所使用的操作系统。创建 LUN 后，则无法修改操作系统类型。LUN 的实际大小可能会稍有不同，具体取决于 LUN 的操作系统类型。
@@ -34,7 +34,7 @@ lastupdated: "2018-11-30"
 - LUN 会存储 Windows 2008 和更高版本的 Windows 数据。如果您的主机操作系统是 Windows Server 2008、Windows Server 2012 或 Windows Server 2016，请使用此操作系统选项。MBR 和 GPT 分区方法均受支持。
 
 **Windows 2003**
-- LUN 使用主引导记录 (MBR) 分区样式在单一分区的 Windows 磁盘中存储原始磁盘类型。要使用此选项，您的主机操作系统只能是使用 MBR 分区方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003。
+- LUN 在使用主引导记录 (MBR) 分区样式的单一分区的 Windows 磁盘中存储原始磁盘类型。要使用此选项，您的主机操作系统只能是使用 MBR 分区方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003。
 
 **Windows GPT**
 -  LUN 使用 GUID 分区类型 (GPT) 分区样式来存储 Windows 数据。如果您想要使用 GPT 分区方法并且您的主机可以使用该方法，请使用此选项。Windows Server 2003 SP1 和更高版本可以使用 GPT 分区方法，而且所有 64 位版本的 Windows 都支持该方法。
@@ -66,9 +66,9 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 使用更快的以太网连接可以实现更大的吞吐量吗？
 {: faq}
 
-吞吐量限制是在逐个卷/LUN 级别设置的，因此使用更快的以太网连接并不会增加该设定限制。但是，使用较慢的以太网连接时，带宽可能是潜在瓶颈。
+吞吐量限制是在逐个 LUN 级别设置的，因此使用更快的以太网连接并不会增加该设定限制。但是，使用较慢的以太网连接时，带宽可能是潜在瓶颈。
 
-## 防火墙/安全组会影响性能吗？
+## 防火墙和安全组会影响性能吗？
 {: faq}
 
 最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
@@ -83,10 +83,10 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 
 “耐久性”类型的 {{site.data.keyword.blockstorageshort}} 的 10 IOPS/GB 层仅在精选数据中心内提供，会逐渐增加新的数据中心。您可以在[此处](new-ibm-block-and-file-storage-location-and-features.html)找到已升级的数据中心和可用功能的完整列表。
 
-## 如何判断哪些 {{site.data.keyword.blockstorageshort}} LUN/卷已加密？
+## 如何判断哪些 {{site.data.keyword.blockstorageshort}} 卷已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
+在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
 
 ## 怎样知道是在已升级的数据中心内供应 {{site.data.keyword.blockstorageshort}}？
 {: faq}
@@ -107,7 +107,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 删除 {{site.data.keyword.blockstorageshort}} LUN 时，数据会发生什么情况？
 {: faq}
 
-{{site.data.keyword.blockstoragefull}} 会在物理存储器上为客户提供块卷，并且会在重复使用物理存储器之前擦除其上的数据。如果客户对合规性有特殊要求（如 NIST 800-88《存储介质清理指南》），那么在删除存储器之前，必须执行数据清理过程。
+{{site.data.keyword.blockstoragefull}} 会在物理存储器上为客户提供块卷，并且会在擦除物理存储器之后再进行任何复用。如果客户对合规性有特殊要求（如 NIST 800-88《存储介质清理指南》），那么在删除存储器之前，必须执行数据清理过程。
 
 ## 使驱动器从云数据中心退役时会发生什么情况？
 {: faq}

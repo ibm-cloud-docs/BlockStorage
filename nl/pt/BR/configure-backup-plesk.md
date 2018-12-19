@@ -16,15 +16,14 @@ lastupdated: "2018-11-30"
 Use estas instruções para configurar o {{site.data.keyword.blockstoragefull}} para seus backups no Plesk. Supõe-se que o SSH
 raiz ou sudo e o acesso total ao Plesk no nível de administrador estejam disponíveis. Essas instruções baseiam-se em um host do CentOS7.
 
-Para obter mais informações do fornecedor, consulte [Documentação do
-Plesk para backup e restauração ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
+Para obter mais informações, consulte a [Documentação do Plesk para backup e restauração ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
 {:tip}
 
 1. Conecte-se ao host por meio de SSH.
 2. Assegure-se de que um destino de ponto de montagem exista.
 
    O Plesk tem duas opções para armazenar os backups. Uma opção é o armazenamento interno do Plesk (armazenamento de backup no servidor Plesk). A outra opção é um armazenamento FTP externo (armazenamento de backup em algum servidor externo na web ou em sua rede local). Em geral nas caixas do Plesk, os backups internos são armazenados em
-`/var/lib/psa/dumps` e usam `/tmp` como um diretório temporário. Neste exemplo, o diretório temporário é mantido local, mas o diretório dumps é movido para o destino STaaS (`/backup/psa/dumps`). Nenhuma credencial de usuário FTP é necessária.
+`/var/lib/psa/dumps` e usam `/tmp` como um diretório temporário. Nesse exemplo, o diretório temporário é mantido local, mas o diretório dumps é movido para o destino {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). Nenhuma credencial de usuário FTP é necessária.
    {:note}   
 3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](accessing_block_storage_linux.html). Monte o {{site.data.keyword.blockstorageshort}} em `/backup` e configure `/etc/fstab` para ativar a montagem no início.
 4. **Opcional**: copie os backups existentes para o novo armazenamento. É possível usar  ` rsync `.

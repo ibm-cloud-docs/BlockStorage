@@ -16,10 +16,10 @@ lastupdated: "2018-11-30"
 
 遵循以下指示信息在 CloudLinux Server R6.10 上安装使用多路径的 iSCSI LUN。
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 授权。
 {:tip}
 
-1. 登录到 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}。
+1. 登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
 3. 单击**授权主机**。
 4. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
@@ -38,7 +38,7 @@ lastupdated: "2018-11-30"
 
    ```
    yum install multipath-tools
-
+   
    ```
    {: pre}
 
@@ -152,7 +152,7 @@ chkconfig iscsid on
 
 6. 验证该设备是否已连接。
    ```
-   fdisk -l
+   fdisk -l 
    ```
    {: pre}
 
