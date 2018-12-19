@@ -30,7 +30,7 @@ With snapshots, you can:
 
 You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](ordering-snapshots.html).
 
-## Snapshot Best Practices
+## Snapshot best practices
 
 Snapshot design depends on the customer’s environment. The following design considerations can help you to plan and implement Snapshot copies:
 - Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or LUN.
