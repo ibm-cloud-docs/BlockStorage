@@ -20,7 +20,7 @@ Duplicates can be created from both **primary** and **replica** volumes. The new
 
 Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete.
 
-When the data copy is complete, the duplicate can be managed and used as a completely independent volume.
+When the data copy is complete, the duplicate can be managed and used as an independent volume.
 
 This feature is available in most locations. Click [here](new-ibm-block-and-file-storage-location-and-features.html) for the list of available data centers.
 
@@ -82,4 +82,4 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}} ![
 
 ## Managing your duplicate volume
 
-While data is being copied from the original volume to the duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host and read/write to the volume, but you can't create snapshot schedules. When the duplication process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal.
+While data is being copied from the original volume to the duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules. When the duplication process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal.
