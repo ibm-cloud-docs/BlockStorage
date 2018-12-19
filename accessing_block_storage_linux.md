@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-30"
+lastupdated: "2018-12-19"
 
 ---
 {:new_window: target="_blank"}
@@ -141,7 +141,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-  - For other distributions, consult the OS vendor documentation.
+  - For other distributions, check the OS vendor documentation.
 
 4. Verify that multipath is working.
   - RHEL 6
@@ -221,7 +221,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-   - For other distributions, consult the OS vendor documentation.
+   - For other distributions, check the OS vendor documentation.
 
 8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
 
