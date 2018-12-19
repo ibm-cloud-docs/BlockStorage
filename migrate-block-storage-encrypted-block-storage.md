@@ -93,8 +93,10 @@ If your replication target data center is not upgraded yet, you can't establish 
    {:tip}
 
 2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
-  - If you have backups, static content, and things that aren't expected to change during the copy, there aren't any major concerns.
-  - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. If you have any bandwidth concerns, do the migration during off peak times. If you need assistance with these considerations, open a support ticket.
+  - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
+  - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. 
+  - If you have any bandwidth concerns, do the migration during off peak times. 
+  - If you need assistance with these considerations, open a support ticket.
 
 3. Copy your data across.
    - For **Microsoft Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
