@@ -189,7 +189,7 @@ For more information, see [Creating a duplicate Block Volume](how-to-create-dupl
 
 When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
 
-* If the primary location is in imminent danger or severly impacted, see [Failover with an accessible Primary volume](dr-accessible-primary.html).
+* If the primary location is in imminent danger or severely impacted, see [Failover with an accessible Primary volume](dr-accessible-primary.html).
 * If the primary location is down, see [Failover with an inaccessible Primary volume](disaster-recovery.html).
 
 
