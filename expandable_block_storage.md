@@ -41,3 +41,6 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 4. Review your selection and the new pricing.
 5. Click the **I have read the Master Service Agreement...** check box and click **Place Order**.
 6. Your new storage allocation is available in a few minutes.
+
+For more information about expanding the filesystem (and partitions, if any) on the volume to use the new space, check your OS documentation.
+{:tip}
