@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-12-19"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
@@ -177,6 +177,9 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
    {:important}
+   
+   Ubuntu users, while you are looking at the `iscsid.conf` file, check whether the `node.startup` setting is manual or automatic. If it's manual, change it to automatic.
+   {:tip}
 
 7. Set iSCSI to start at boot and start it now.
   - RHEL 6
