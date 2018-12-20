@@ -2,18 +2,18 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
 
 # Extension de la capacité de stockage par blocs
 
-Cette nouvelle fonctionnalité permet aux utilisateurs d'{{site.data.keyword.blockstoragefull}} d'étendre immédiatement la taille de leur stockage {{site.data.keyword.blockstorageshort}} en incréments de Go jusqu'à 12 To. Ils n'ont pas besoin de créer un doublon ou de faire migrer manuellement les données vers un volume plus grand. Il n'y aura aucune indisponibilité ni refus d'accès au stockage lors du redimensionnement. 
+Cette nouvelle fonctionnalité permet aux utilisateurs d'{{site.data.keyword.blockstoragefull}} d'étendre immédiatement la taille de leur stockage {{site.data.keyword.blockstorageshort}} en incréments de Go jusqu'à 12 To. Ils n'ont pas besoin de créer un doublon ou de faire migrer manuellement les données vers un volume plus grand. Il n'y aura aucune indisponibilité ni refus d'accès au stockage lors du redimensionnement.
 
 La facturation du volume est automatiquement mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est ensuite facturé dans le cycle de facturation suivant.
 
-Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html). 
+Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
 
 ## Avantages du stockage extensible
 
@@ -23,13 +23,13 @@ Cette fonctionnalité est disponible uniquement dans des [centres de données s�
 
 ## Effets de l'extension de la capacité de stockage sur la réplication
 
-L'extension de l'espace de stockage principal entraîne un redimensionnement automatique de la réplique. 
+L'extension de l'espace de stockage principal entraîne un redimensionnement automatique de la réplique.
 
 ## Limitations
 
-Cette fonction est disponible pour le stockage mis à disposition dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html). 
+Cette fonction est disponible pour le stockage mis à disposition dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html).
 
-Le stockage qui a été mis à disposition dans ces centres de données avant la mise sur le marché de cette fonction, d'**avril 2017 au 14 dédembre 2017**, ne peut être augmenté que d'une taille équivalente à 10 fois sa taille d'origine. Le stockage mis à disposition après le **14 décembre 2017** peut être augmenté jusqu'à 12 To. 
+Le stockage qui a été mis à disposition dans ces centres de données avant la mise sur le marché de cette fonction, d'**avril 2017 au 14 décembre 2017**, ne peut être augmenté que d'une taille équivalente à 10 fois sa taille d'origine. Le stockage mis à disposition après le **14 décembre 2017** peut être augmenté jusqu'à 12 To.
 
 Les limitations de taille existantes pour le stockage {{site.data.keyword.blockstorageshort}} qui a été mis à disposition avec l'option Endurance sont toujours applicables (jusqu'à 4 To pour un niveau de 10 IOPS et jusqu'à 12 To pour tous les autres niveaux).
 

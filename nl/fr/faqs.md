@@ -34,7 +34,7 @@ Lorsque vous créez un numéro d'unité logique, vous devez spécifier le type d
 - Le numéro d'unité logique stocke des données Windows pour Windows 2008 et versions ultérieures. Utilisez cette option de système d'exploitation si votre système d'exploitation hôte est Windows Server 2008, Windows Server 2012, Windows Server 2016. Les méthodes de partitionnement MBR et GPT sont toutes les deux prises en charge.
 
 **Windows 2003**
-- Le numéro d'unité logique stocke un type de disque brut dans un disque Windows à une partition à l'aide du style de partitionnement MBR (Master Boot Record). Utilisez cette option uniquement si votre système d'exploitation hôte est Windows 2000 Server, Windows XP ou Windows Server 2003 qui utilise la méthode de partitionnement MBR.
+- Le numéro d'unité logique stocke un type de disque brut dans un disque Windows à une partition qui utilise le style de partitionnement MBR (Master Boot Record). Utilisez cette option uniquement si votre système d'exploitation hôte est Windows 2000 Server, Windows XP ou Windows Server 2003 qui utilise la méthode de partitionnement MBR. 
 
 **Windows GPT**
 -  Le numéro d'unité logique stocke des données Windows en utilisant le style de partitionnement GPT (GUID Partition Type). Utilisez cette option si vous souhaitez adopter la méthode de partitionnement GPT et que votre hôte est capable de l'utiliser. Windows Server 2003, Service Pack 1 et les niveaux ultérieurs peuvent utiliser la méthode de partitionnement GPT, et toutes les versions 64 bits de Windows la prennent en charge.
@@ -47,7 +47,7 @@ Les IOPS sont imposées au niveau du volume. En d'autres termes, deux hôtes con
 ## Mesure des IOPS
 {: faq}
 
-Les E-S/s sont mesurées en fonction d'un profil de chargement par blocs de 16 ko avec 50 % de lectures et 50 % d'écritures aléatoires. Les charges de travail qui diffèrent de ce profil sont susceptibles de connaître une baisse des performances.
+Les IOPS sont mesurées en fonction d'un profil de chargement de blocs de 16 Ko avec une répartition aléatoire de 50 % de lectures et 50 % d'écritures. Les charges de travail qui diffèrent de ce profil sont susceptibles de connaître une baisse des performances.
 
 ## Que se passe-t-il lorsqu'une taille de bloc inférieure est utilisée pour mesurer les performances ?
 {: faq}
@@ -66,7 +66,7 @@ Aucun préchauffage n'est nécessaire. Le débit indiqué peut être observé im
 ## Est-il possible d'atteindre un débit plus élevé en utilisant une connexion Ethernet plus rapide ?
 {: faq}
 
-Les limites de débit sont configurées par volume ou par numéro d'unité logique. Par conséquent, une connexion Ethernet plus rapide ne permet pas d'augmenter la limite définie. Toutefois, avec une connexion Ethernet plus lente, votre bande passante peut éventuellement créer un goulot d'étranglement.
+Les limites de débit sont configurées par numéro d'unité logique. Par conséquent, une connexion Ethernet plus rapide ne permet pas d'augmenter la limite définie. Toutefois, avec une connexion Ethernet plus lente, votre bande passante peut éventuellement créer un goulot d'étranglement.
 
 ## Les pare-feu et groupes de sécurité ont-ils un impact sur les performances ?
 {: faq}
@@ -83,10 +83,10 @@ Le temps d'attente cible dans le stockage est < 1 ms. Le stockage est connecté 
 
 Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}} Endurance est uniquement disponible dans certains centres de données, mais la liste de ces centres va bientôt être enrichie. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](new-ibm-block-and-file-storage-location-and-features.html).
 
-## Comment savoir quels numéros d'unité logiques/volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
+## Comment savoir quels volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
 
-Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
+Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
 
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}
@@ -97,7 +97,7 @@ Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres
 {: faq}
 
 Un service {{site.data.keyword.blockstorageshort}} qui est mis à disposition avant la mise à niveau du centre de données ne peut pas être chiffré.
-Un nouveau service {{site.data.keyword.blockstorageshort}} mis à disposition dans des centres de données mis à niveau est automatiquement chiffré. Vous n'avez pas à choisir de paramètre de chiffrement, car la procédure est automatique.
+Un nouveau stockage {{site.data.keyword.blockstorageshort}} mis à disposition dans des centres de données mis à niveau est automatiquement chiffré. Vous n'avez pas à choisir de paramètre de chiffrement, car la procédure est automatique.
 Les données situées sur un stockage non chiffré dans un centre de données mis à niveau peuvent être chiffrées en créant un numéro d'unité logique de bloc, puis en copiant les données sur le nouveau numéro d'unité logique chiffré à l'aide d'une migration basée sur l'hôte. Cliquez [ici](migrate-block-storage-encrypted-block-storage.html) pour obtenir des instructions.
 
 ## {{site.data.keyword.blockstorageshort}} prend-il en charge la réservation persistante SCSI-3 pour implémenter la protection d'E-S pour Db2 pureScale ?

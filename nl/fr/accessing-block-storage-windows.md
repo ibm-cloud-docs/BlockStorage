@@ -12,7 +12,8 @@ lastupdated: "2018-11-30"
 
 # Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
+Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
 2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
@@ -35,7 +36,8 @@ Vous trouverez ci-dessous la procédure requise pour connecter une instance de c
 2. Cliquez sur **Découvrir plusieurs chemins**.
 3. Cochez la case **Ajouter la prise en charge des périphériques iSCSI**, puis cliquez sur **Ajouter**. Lorsque vous êtes invité à redémarrer l'ordinateur, cliquez sur **Oui**.
 
-Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsoft Device Specific Module (MSDSM) de demander tous les périphériques iSCSI pour MPIO, ce qui nécessite d'abord une connexion à une cible iSCSI.{:note}
+Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsoft Device Specific Module (MSDSM) de demander tous les périphériques iSCSI pour MPIO, ce qui nécessite d'abord une connexion à une cible iSCSI.
+{:note}
 
 ### Configuration de l'initiateur iSCSI
 
@@ -45,7 +47,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     - Cliquez sur **Modifier** pour remplacer les valeurs existantes par votre nom qualifié iSCSI.
     ![Propriétés de l'initiateur iSCSI](/images/iSCSI.png)
 
-      Ce dernier peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+      Le nom qualifié iSCSI peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
       {: tip}
 
     - Cliquez sur l'onglet **Découverte**, puis sur **Découvrir un portail**.
@@ -54,34 +56,40 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     - Sélectionnez **Activer l'ouverture de session CHAP** pour activer l'authentification CHAP.
     ![Activer l'ouverture de session CHAP](/images/Advanced_0.png)
 
-    Les zones Nom et Secret de la cible sont sensibles à la casse.{:important}
-         - Dans la zone **Nom**, supprimez les entrées existantes et saisissez le nom d'utilisateur à partir du [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
-         - Dans la zone **Secret de la cible**, saisissez le mot de passe à partir du [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+    Les zones Nom et Secret de la cible sont sensibles à la casse.
+    {:important}
+         - Dans la zone **Nom**, supprimez les entrées existantes et saisissez le nom d'utilisateur à partir du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+         - Dans la zone **Secret de la cible**, saisissez le mot de passe à partir du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
     - Cliquez sur **OK** dans les fenêtres **Paramètres avancés** et **Détecter un portail cible** pour revenir à l'écran principal des propriétés de l'initiateur SCSI. Si des erreurs d'authentification s'affichent, vérifiez le nom d'utilisateur et le mot de passe.
     ![Cible inactive](/images/Inactive_0.png)
 
-    Le nom de votre cible apparaît dans la section Cibles découvertes avec un statut Inactif.{:note}
+    Le nom de votre cible apparaît dans la section Cibles découvertes avec un statut `Inactif`.
+    {:note}
 
 
 ### Activation de la cible
 
 1. Cliquez sur **Connexion** pour vous connecter à la cible.
 2. Cochez la case **Activer la prise en charge de plusieurs chemins d'accès** pour activer la fonction MPIO sur la cible.
-![Activer la prise en charge de plusieurs chemins d'accès](/images/Connect_0.png)
+</br>
+   ![Activer la prise en charge de plusieurs chemins d'accès](/images/Connect_0.png)
 3. Cliquez sur **Avancé** et sélectionnez **Activer l'ouverture de session CHAP**.
-![Activer l'ouverture de session CHAP](/images/chap_0.png)
+</br>
+   ![Activer l'ouverture de session CHAP](/images/chap_0.png)
 4. Saisissez le nom d'utilisateur dans la zone Nom et le mot de passe dans la zone Secret de la cible.
 
-   Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}}.{:tip}
+   Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}}.
+   {:tip}
 5. Cliquez sur **OK** jusqu'à ce que la fenêtre **Propriétés de l'initiateur iSCSI** s'affiche. Le statut de la cible dans la section **Cibles découvertes** passe d'**Inactif** à **Connecté**.
-![Statut Connecté](/images/Connected.png)
+</br>
+   ![Statut Connecté](/images/Connected.png)
 
 
 ### Configuration de la fonction MPIO dans l'initiateur iSCSI
 
 1. Lancez l'initiateur iSCSI et sur l'onglet Cibles, cliquez sur **Propriétés**.
 2. Cliquez sur **Ajouter une session** dans la fenêtre Propriétés pour ouvrir la fenêtre Se connecter à la cible.
-3. Dans la boîte de dialogue Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès** et cliquez sur **Avancé**.
+3. Dans la boîte de dialogue Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès**, puis cliquez sur **Avancé**.
   ![Cible](/images/Target.png)
 
 4. Dans la fenêtre Paramètres avancés ![Paramètres](/images/Settings.png)
@@ -93,18 +101,17 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
 
 5. Cliquez sur **Propriétés**. Dans la boîte de dialogue Propriétés, cliquez de nouveau sur **Ajouter une session** pour ajouter le second chemin d'accès.
-6. Dans la fenêtre Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès**.
-Cliquez sur **Avancé**.
-7. Dans la fenêtre Paramètres avancés :
-   - Dans la liste Adaptateur local, sélectionnez Microsoft iSCSI Initiator.
-   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui est fournie pour la première session.
-   - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données sur le périphérique.
+6. Dans la fenêtre Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
+7. Dans la fenêtre Paramètres avancés,
+   - Dans la liste Adaptateur local, sélectionnez iSCSI Microsoft Initiator.
+   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session. 
+   - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique.
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
 8. Cette fenêtre affiche maintenant plusieurs sessions dans la sous-fenêtre Identificateur. Vous disposez désormais de plusieurs sessions dans le stockage iSCSI.
 
-   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} avant de tenter d'établir la connexion.
+   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window} avant de tenter d'établir la connexion.
    {:note}
 9. Dans la fenêtre Propriétés, cliquez sur **Périphériques** pour ouvrir la fenêtre correspondante. Le nom de l'interface de périphérique débute par `mpio`. <br/>
   ![Périphériques](/images/Devices.png)
@@ -122,10 +129,10 @@ Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer q
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
-Une fois le réamorçage terminé et le périphérique de stockage ajouté, vous pouvez vérifier si MPIO est configuré et fonctionne. Pour ce faire, consultez les **Détails du périphérique cible** et cliquez sur **MPIO** :
+Une fois le redémarrage terminé et le périphérique de stockage ajouté, vous pouvez vérifier si MPIO est configuré et fonctionne. Pour ce faire, consultez les **Détails du périphérique cible** et cliquez sur **MPIO** :
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Si MPIO n'a pas été configuré correctement, votre périphérique de stockage est déconnecté et devient indisponible en cas de panne réseau ou de maintenance par les équipes {{site.data.keyword.BluSoftlayer_full}}. MPIO garantit un niveau supplémentaire de connectivité au cours de ces événements et conserve une session établie avec des lectures/écritures actives à destination du numéro d'unité logique (LUN).
+Si MPIO n'a pas été configuré correctement, votre périphérique de stockage est déconnecté et apparaît comme étant désactivé en cas de panne réseau ou de maintenance par les équipes {{site.data.keyword.BluSoftlayer_full}}. MPIO garantit un niveau supplémentaire de connectivité au cours de ces événements et conserve une session établie avec des opérations de lecture/écriture actives à destination du numéro d'unité logique (LUN).
 
 ## Démontage de volumes {{site.data.keyword.blockstorageshort}}
 
@@ -137,7 +144,7 @@ Vous trouverez ci-dessous la procédure à suivre pour déconnecter une instance
 2. Sélectionnez les cibles à retirer et cliquez sur **Déconnexion**.
 
 ### Retrait de cibles
-Facultatif, si vous n'avez plus besoin d'accéder aux cibles iSCSI.
+Cette étape est facultative si vous n'avez plus besoin d'accéder aux cibles iSCSI.
 
 1. Cliquez sur **Découverte** dans l'initiateur iSCSI.
 2. Mettez en évidence le portail cible qui est associé à votre volume de stockage et cliquez sur **Supprimer**.

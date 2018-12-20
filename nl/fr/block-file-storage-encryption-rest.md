@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, sélectionnez un
 
 
 
-Un stockage non chiffré qui a été mis à disposition avant la mise à niveau du centre de données **n'est pas** automatiquement chiffré. Si vous disposez d'un stockage non chiffré dans un centre de données mis à niveau et que vous souhaitez le chiffrer, vous devrez créer un nouveau numéro d'unité logique/volume et faire migrer vos données. Pour plus d'informations, voir [{{site.data.keyword.blockstorageshort}} Migration dans des centres de données mis à niveau](migrate-block-storage-encrypted-block-storage.html).
+Un stockage non chiffré qui a été mis à disposition avant la mise à niveau du centre de données **n'est pas** automatiquement chiffré. Si vous disposez d'un stockage non chiffré dans un centre de données mis à niveau et que vous souhaitez le chiffrer, vous devrez créer un nouveau numéro volume et faire migrer vos données. Pour plus d'informations, voir [{{site.data.keyword.blockstorageshort}} Migration dans des centres de données mis à niveau](migrate-block-storage-encrypted-block-storage.html).
 {:important}

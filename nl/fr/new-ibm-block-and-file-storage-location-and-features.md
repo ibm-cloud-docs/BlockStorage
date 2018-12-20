@@ -16,12 +16,12 @@ lastupdated: "2018-11-30"
 
 Le nouveau stockage est disponible dans certains centres de données et sécurisé par mémoire flash à des niveaux d'E-S/s supérieurs avec chiffrement des données au repos au niveau du disque. La totalité du stockage mis à disposition dans les centres de données mis à niveau est automatiquement créée avec la nouvelle version.
 
-Le point de montage NFS des nouveaux volumes est différent du point de montage des volumes non chiffrés. Pour plus d'informations, voir la section [Nouveau point de montage des volumes {{site.data.keyword.filestorage_short}} chiffrés](#new-mount-point-for-encrypted-storage-volumes).
+Le point de montage NFS des nouveaux volumes est différent du point de montage des volumes non chiffrés. Pour plus d'informations, voir la section [Nouveau point de montage des volumes {{site.data.keyword.blockstorageshort}} chiffrés](#new-mount-point-for-encrypted-storage-volumes).
 {:important}
 
 ## Nouveaux emplacements
 
-La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans les régions/centres de données ci-dessous :
+La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans les régions et centres de données ci-dessous :
 <table role="presentation">
   <tr>
     <td><strong>EU 2</strong></td>
@@ -59,7 +59,8 @@ La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans
     <td>MEL01<br />
         SYD01<br />
         SYD04<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+        SYD05<br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
         TOR01<br />
@@ -98,9 +99,12 @@ Le tableau 1 répertorie la disponibilité de nos centres de données. Chaque r�
 - Créez un clone de vos données avec la fonction de duplication de volume de **[{{site.data.keyword.blockstorageshort}}](how-to-create-duplicate-volume.html)**.
 - **Le stockage est extensible** par incréments en Go jusqu'à 12 To, sans avoir besoin de créer un doublon ni de déplacer manuellement les données vers un volume plus grand. Découvrez plus de détails sur cette fonctionnalité [ici](expandable_block_storage.html).
 
-## Nouveau Point de montage des volumes de stockage chiffrés
+## Nouveau point de montage des volumes de stockage chiffrés
 
-Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Pour vous assurer que vous utilisez le point de montage correct pour vos volumes de stockage, vous pouvez afficher les informations relatives au point de montage sur la page **Détails du volume** dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Vérifiez les informations de point de montage sur la page **Volume Details** du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window} pour vous assurer que vous utilisez le point de montage approprié. Vous pouvez également obtenir les informations relatives au point de montage correct via un appel d'API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+
+Pour pouvoir accéder à toutes les nouvelles fonctions, sélectionnez `Storage-as-a-Service Package 759` lorsque vous passez votre commande via l'API. Pour plus d'informations sur les commande {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
+{:important}
 
 Revenez ici pour savoir si d'autres centres de données ont été mis à niveau et si de nouvelles fonctions et capacités ont été ajoutées pour {{site.data.keyword.blockstorageshort}}.
 {:tip}

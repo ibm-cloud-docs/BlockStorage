@@ -122,7 +122,7 @@ Le niveau Performance pour {{site.data.keyword.blockstorageshort}} est accessibl
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Le tableau 3 présente les combinaisons de taille et d'IOPS possibles pour le stockage Performance.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> Vous pouvez opter pour un nombre d'IOPS supérieur à 6 000 dans des centres de données sélectionnés.</caption>
+ <caption>Le tableau 3 présente les combinaisons de taille et d'IOPS possibles pour le stockage Performance.<br/><sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup> Vous pouvez opter pour un nombre d'IOPS supérieur à 6 000 dans des centres de données sélectionnés.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -197,7 +197,7 @@ Les volumes Performance sont conçus pour fonctionner d'une manière cohérente 
 
 **Taille de bloc**
 
-Les E-S/s pour les niveaux Endurance et Performance se fondent sur une taille de bloc de 16 ko avec une charge de travail aléatoire de 50 % de lectures/écritures. Un bloc de 16 ko équivaut à une écriture sur le volume.
+Les IOPS pour les niveaux Endurance et Performance se fondent sur une taille de bloc de 16 Ko avec une charge de travail aléatoire de 50 % de lectures/écritures. Un bloc de 16 Ko équivaut à une écriture sur le volume.
 {:important}
 
 La taille de bloc utilisée par votre application a une incidence directe sur les performances de stockage. Si la taille de bloc employée par votre application est inférieure à 16 ko, la limite des opérations d'entrée-sortie par seconde est atteinte avant la limite de débit. A l'inverse, si la taille de bloc qui est utilisée par votre application est supérieure à 16 ko, la limite de débit est atteinte avant la limite des opérations d'entrée-sortie par seconde.
@@ -261,12 +261,12 @@ Un autre facteur à prendre en compte est le nombre d'hôtes qui utilisent votre
 
 **Connexion réseau**
 
-La vitesse de votre connexion Ethernet doit être supérieure au débit maximal attendu de votre volume. En règle générale, vous ne devriez pas saturer votre connexion Ethernet au-delà de 70 % de la bande passante disponible. Par exemple, si vous disposez de 6 000 IOPS et que vous utilisez une taille de bloc de 16 ko, le volume peut traiter un débit d'environ 94 Mo par seconde. Si vous disposez d'une connexion Ethernet de 1 Gbps vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement lorsque vos serveurs tentent d'utiliser le débit maximal disponible. Cela est dû au fait que 70 % de la limite théorique d'une connexion Ethernet de 1 Gbps (125 Mo par seconde) n'autorisent que 88 Mo par seconde.
+La vitesse de votre connexion Ethernet doit être supérieure au débit maximal attendu de votre volume. En règle générale, vous ne devriez pas saturer votre connexion Ethernet au-delà de 70 % de la bande passante disponible. Par exemple, si vous disposez de 6 000 IOPS et que vous utilisez une taille de bloc de 16 Ko, le volume peut traiter un débit d'environ 94 Mo par seconde. Si vous disposez d'une connexion Ethernet de 1 Gbit/s
+vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement lorsque vos serveurs tentent d'utiliser le débit maximal disponible. Cela est dû au fait que 70 % de la limite théorique d'une connexion Ethernet de 1 Gbit/s (125 Mo par seconde) n'autorisent que 88 Mo par seconde.
 
 Pour atteindre le nombre maximal d'IOPS, vous devez mettre en place les ressources réseau adéquates. Vous devez également tenir compte de l'utilisation du réseau privé en dehors du stockage, ainsi que des réglages côté hôte et spécifiques aux applications (pile IP ou [nombre de lignes de file d'attente](set-host-queue-depth-settings-performance-and-endurance-storage.html), etc.).
 
-Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Consultez la [documentation du serveur virtuel](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) pour comprendre les limites pouvant être imposées par le service.
-{:tip}
+Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Pour plus d'informations sur les limites que peut imposer le service, voir la [documentation sur les serveurs virtuels](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).{:tip}
 
 ## Soumission de votre commande
 

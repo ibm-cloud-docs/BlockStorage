@@ -12,9 +12,14 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Utilisation de LUKS dans Red Hat Enterprise Linux 6 pour un chiffrement de disque complet
+# Chiffrement de disque complet avec LUKS dans Red Hat Enterprise Linux
 
 Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6 avec Linux Unified Key Setup-on-disk-format (LUKS), ce qui est important lorsqu'il s'agit d'ordinateurs portables et de support amovible. LUKS permet à plusieurs clés d'utilisateur de déchiffrer une clé principale utilisée pour le chiffrement en bloc de la partition.
+
+Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Pour plus d'informations sur la connexion de {{site.data.keyword.blockstorageshort}} à un hôte Linux, voir [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html).
+
+{site.data.keyword.blockstorageshort}} qui mis à disposition dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html) est automatiquement doté du chiffrement au repos géré par le fournisseur. Pour plus d'information, voir [Sécurisation des données - Chiffrement au repos géré par le fournisseur](block-file-storage-encryption-rest.html).
+{:note}
 
 ## Opérations possibles avec LUKS
 
@@ -28,13 +33,12 @@ Vous pouvez chiffrer des partitions sur votre serveur Red Hat Enterprise Linux 6
 ## Opérations impossibles avec LUKS
 
 - Possibilité pour les applications nécessitant un grand nombre d'utilisateurs (plus de huit) d'avoir des clés distinctes pour accéder aux mêmes unités.
-- Utilisation d'applications nécessitant un chiffrement au niveau fichier ([en savoir plus ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
+- Utilisation d'applications nécessitant un chiffrement au niveau fichier [en savoir plus ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configuration d'un volume chiffré LUKS avec {{site.data.keyword.blockstorageshort}} Endurance
 
-Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Pour plus d'informations sur la connexion de {{site.data.keyword.blockstorageshort}} à un hôte Linux, voir [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html).
-
-Le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances. {:note}
+Le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances.
+{:note}
 
 1. Saisissez la commande suivante à une invite shell en tant que root pour installer le package requis :   <br/>
    ```

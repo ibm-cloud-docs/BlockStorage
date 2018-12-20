@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ La facturation du stockage est mise à jour : la différence calculée au prorat
 
 Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](new-ibm-block-and-file-storage-location-and-features.html).
 
-Les clients ne peuvent pas basculer entre Endurance et Performance lorsqu'ils ajustent leurs IOPS. En revanche, ils peuvent spécifier un nouveau niveau d'IOPS pour leur stockage en fonction des restrictions/critères suivants :
+Les clients ne peuvent pas basculer entre Endurance et Performance lorsqu'ils ajustent leurs IOPS. En revanche, ils peuvent spécifier un nouveau niveau d'IOPS pour leur stockage en fonction des restrictions et critères suivants :
 
 - Si le volume d'origine est de type Endurance avec un niveau de 0,25, il n'est pas possible de le mettre à jour.
 - Si le volume d'origine est de type Performance avec un niveau inférieur ou égal à 0,30 IOPS/Go, les options disponibles incluent uniquement les combinaisons de taille et d'IOPS qui génèrent un niveau inférieur ou égal à 0,30 IOPS/Go.
@@ -39,13 +39,14 @@ Si la réplication est activée sur le volume, la réplique est automatiquement 
 
 1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
    - A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**
-   - A partir du catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+   - A partir de la console {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
 3. Sous les options d'IOPS de stockage, effectuez une nouvelle sélection :
-    - Endurance (IOPS hiérarchisées) : sélectionnez un niveau d'IOPS supérieur à 0,25 IOPS/Go de votre stockage. Vous pouvez augmenter le niveau d'IOPS à tout moment. Toutefois, vous ne pouvez le diminuer qu'une seule fois par mois.
-    - Performance (IOPS allouées) : indiquez la nouvelle option d'IOPS pour votre stockage en saisissant une valeur comprise entre 100 et 48 000 IOPS.
+    - Pour Endurance (IOPS hiérarchisées), sélectionnez un niveau d'IOPS supérieur à 0,25 IOPS/Go de votre stockage. Vous pouvez augmenter le niveau d'IOPS à tout moment. Toutefois, vous ne pouvez le diminuer qu'une seule fois par mois.
+    - Pour Performance (IOPS allouées), indiquez la nouvelle option d'IOPS pour votre stockage en saisissant une valeur comprise entre 100 et 48 000 IOPS.
+    
     Prenez soin de tenir compte des limites spécifiques requises par la taille dans le formulaire de commande.
-{:tip}
+    {:tip}
 4. Vérifiez votre sélection et la nouvelle tarification.
 5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
 6. Votre nouvelle allocation de stockage est disponible en quelques minutes.

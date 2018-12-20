@@ -18,10 +18,10 @@ lastupdated: "2018-11-30"
 Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
 {:note}
 
-Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCSI [ici](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} et la configuration DM-Multipath [ici](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
-{:tip}
+Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCSI [ici ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} et la configuration DM-Multipath [ici ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+{: tip}
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été affectés via le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} à l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}}.
+Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
@@ -32,7 +32,7 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires ont été 
 
 Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Linux à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI).
 
-Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **Détails {{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **Détails {{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
@@ -91,7 +91,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
       ```
       {: codeblock}
 
-    - Redémarrez les services iscsi et iscsid de sorte que les modifications prennent effet.
+    - Redémarrez les services `iscsi` et `iscsid` pour que les modifications soient prises en compte.
 
       ```
       service iscsi restart
@@ -157,7 +157,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
     ```
     {: pre}
 
-    RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, qui peut être ignoré.
+    RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, que vous pouvez ignorer. 
 
 5. Mettez à jour le fichier `/etc/iscsi/initiatorname.iscsi` avec le nom qualifié iSCSI provenant du portail {{site.data.keyword.slportal}}. Saisissez la valeur en minuscules.
    ```
@@ -221,7 +221,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
     ```
     {: pre}
 
-   - Autres distributions : consultez la documentation du fournisseur du système d'exploitation.
+   - Pour les autres distributions, consultez la documentation du fournisseur du système d'exploitation.
 
 8. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue à partir du portail {{site.data.keyword.slportal}}.
 
@@ -283,7 +283,8 @@ Procédez comme indiqué ci-après pour créer un système de fichiers sur le vo
 
    XXX représente le nom de disque renvoyé à l'étape 1. <br />
 
-   Faites défiler l'écran vers le bas pour afficher les codes de commande répertoriés dans le tableau de la commande `fdisk`.{: tip}
+   Faites défiler l'écran vers le bas pour afficher les codes de commande répertoriés dans le tableau de la commande `fdisk`.
+   {: tip}
 
 3. Créez un système de fichiers sur la nouvelle partition.
 
@@ -432,7 +433,8 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
 
    4. `Parted` peut être utilisé pour créer des partitions de disque logiques et primaires, car les procédures sont identiques. Pour créer une partition, `Parted` utilise `mkpart`. Vous pouvez indiquer des paramètres supplémentaires de type **primaire** ou **logique** en fonction du type de partition que vous souhaitez créer.<br />
 
-   Les unités répertoriées étant exprimées par défaut en mégaoctets (Mo), pour créer une partition de 10 Go, vous devez commencer à 1 et terminer à 10 000. Vous pouvez également modifier les unités de dimensionnement en téraoctets en saisissant `unit TB` si vous le souhaitez.{: tip}
+   Les unités répertoriées sont exprimées par défaut en mégaoctets (Mo). Pour créer une partition de 10 Go, vous devez commencer à 1 et terminer à 10 000. Vous pouvez également modifier les unités de dimensionnement en téraoctets en saisissant `unit TB` si vous le souhaitez.
+   {: tip}
 
       ```
       mkpart
@@ -453,8 +455,7 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
    ```
    {: pre}
 
-   Il est important de sélectionner le disque et la partition corrects lorsque vous exécutez cette commande.
-   <br />Vérifiez le résultat en imprimant la table de partition. ext3 est affiché dans la colonne du système de fichiers.
+   Il est important de sélectionner le disque et la partition corrects lorsque vous exécutez cette commande.<br />Vérifiez le résultat en imprimant la table de partition. ext3 est affiché dans la colonne du système de fichiers.
    {:important}
 
 4. Créez un point de montage pour le système de fichiers et montez-le.
@@ -490,7 +491,7 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
 
 
 
-## Vérification que MPIO est correctement configuré dans les systèmes d'exploitation `*NIX`
+## Vérification de la configuration MPIO (E-S multi-accès)
 
 1. Pour vérifier si le multi-accès sélectionne les périphériques, affichez la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés.
 
@@ -513,7 +514,7 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
   ```
   {: pre}
 
-  - Exemple de sortie d'une configuration correcte :
+  - Exemple de sortie d'une configuration correcte.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -522,7 +523,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Exemple de sortie d'une configuration incorrecte :
+  - Exemple de sortie d'une configuration incorrecte.
 
     ```
     No multipath output root@server:~# multipath -l root@server:~#
@@ -550,7 +551,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 | sde: device node name blacklisted Feb 17 19:55:02
    ```
 
-## Démontage des volumes {{site.data.keyword.blockstorageshort}}
+## Démontage de volumes {{site.data.keyword.blockstorageshort}}
 
 1. Démontez le système de fichiers.
    ```
@@ -570,5 +571,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   Pour plus d'informations, voir [man page of iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   Pour plus d'informations, voir la documentation [`iscsiadm` ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://linux.die.net/man/8/iscsiadm).
    {:tip}
