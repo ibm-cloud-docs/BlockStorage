@@ -266,7 +266,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 ## Creating a file system (optional)
 
-Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use `fdisk` for drives that are less than 2 TB and `parted` for a disk bigger than 2 TB.
+Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB])(#creating-a-file-system-with-fdisk-)  and [`parted` for a disk bigger than 2 TB](#creating-a-file-system-with-parted-).
 
 ### Creating a file system with `fdisk`
 
