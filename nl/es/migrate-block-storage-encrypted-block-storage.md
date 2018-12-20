@@ -22,7 +22,10 @@ Se supone que ya tiene su LUN no cifrado conectado al host. Si no es así, siga 
 - [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
 
-## Creación de nuevas {{site.data.keyword.blockstorageshort}}
+Todos los volúmenes de {{site.data.keyword.blockstorageshort}} mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Para asegurarse de que utiliza el punto de montaje correcto para los volúmenes de almacenamiento, puede consultar la información sobre el punto de montaje en la página **Detalles del volumen** en la consola. También puede acceder al punto de montaje correcto mediante una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+{:tip}
+
+## Creación de un {{site.data.keyword.blockstorageshort}}
 
 Cuando realice un pedido con API, especifique el paquete "Almacenamiento como un servicio" para asegurarse de recibir las características actualizadas con el nuevo almacenamiento.
 {:important}
@@ -31,8 +34,8 @@ Las siguientes instrucciones son para solicitar un LUN mejorado a través del {{
 
 ### Solicitud de un LUN de Resistencia
 
-1. En el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
-2. En la esquina superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
+1. En el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
+2. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 3. Seleccione **Resistencia** en la lista **Seleccionar tipo de almacenamiento**.
 4. Seleccione la **Ubicación** (centro de datos) del despliegue.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el volumen anterior.
@@ -40,6 +43,7 @@ Las siguientes instrucciones son para solicitar un LUN mejorado a través del {{
 6. Seleccione el nivel IOPS.
 7. Pulse **Seleccionar tamaño de almacenamiento** y seleccione el tamaño de almacenamiento en la lista.
 8. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable.
+
    Para obtener más información sobre las consideraciones y recomendaciones del espacio de instantánea, consulte [Solicitud de instantáneas](ordering-snapshots.html).
    {:tip}
 9. Elija el **Tipo de sistema operativo** en la lista.
@@ -48,11 +52,13 @@ Las siguientes instrucciones son para solicitar un LUN mejorado a través del {{
 
 ### Solicitud de un LUN de Rendimiento
 
-1. En el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
+1. En el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
 2. En la parte derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 3. Seleccione **Rendimiento** en la lista **Seleccionar tipo de almacenamiento**.
 4. Pulse **Ubicación** y seleccione el centro de datos.
-   - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts pedidos anteriormente.
+
+   Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts pedidos anteriormente.
+   {:important}
 5. Seleccione la opción de facturación. Puede elegir entre facturación por hora o mensual.
 6. Seleccione el **Tamaño de almacenamiento** apropiado.
 7. Especifique las IOPS en el campo **Especificar IOPS**.
@@ -82,6 +88,7 @@ Si su centro de datos de destino de réplica no se ha actualizado aún, no puede
 ## Migración de los datos
 
 1. Conéctese a los LUN de {{site.data.keyword.blockstorageshort}} originales y nuevos.
+
    Si necesita ayuda para conectar los dos LUN a su host, abra un caso de soporte.
    {:tip}
 
@@ -90,8 +97,8 @@ Si su centro de datos de destino de réplica no se ha actualizado aún, no puede
   - Si está ejecutando una base de datos o una máquina virtual en su {{site.data.keyword.blockstorageshort}}, asegúrese de que los datos no se modifiquen durante la copia para evitar que resulten dañados. Si tiene problemas con el ancho de banda, realice la migración fuera de las horas punta. Si necesita ayuda con estas consideraciones, abra una incidencia de soporte.
 
 3. Copie los datos.
-   - **Microsoft Windows**: Para copiar los datos de su LUN de {{site.data.keyword.blockstorageshort}} original en el nuevo LUN, formatee el nuevo almacenamiento y copie los archivos encima utilizando Windows Explorer.
-   - **Linux**: Puede utilizar `rsync` para copiar los datos. Aquí tiene un ejemplo:
+   - Para **Microsoft Windows**, formatee el nuevo almacenamiento y copie los datos del LUN de {{site.data.keyword.blockstorageshort}} original en el nuevo LUN mediante Windows Explorer.
+   - Para **Linux**, puede utilizar `rsync` para copiar los datos. A continuación se muestra un ejemplo:
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

@@ -16,10 +16,10 @@ lastupdated: "2018-11-30"
 
 Siga estas instrucciones para instalar el LUN de iSCSI con la multivía de acceso en el release 6.10 de CloudLinux Server.
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través de la [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 {:tip}
 
-1. Inicie la sesión en [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+1. Inicie la sesión en [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 2. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
 3. Pulse **Autorizar host**.
 4. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
@@ -189,7 +189,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
    El volumen ahora está montado y es accesible en el host.
 
-7. Verifique si MPIO se ha configurado correctamente listando los dispositivos. Si se ha configurado correctamente, solo se mostrarán dos dispositivos NETAPP.
+7. Verifique si MPIO se ha configurado correctamente listando los dispositivos. Si la configuración es correcta, sólo se mostrarán dos dispositivos NETAPP.
 
    ```
    # multipath -l

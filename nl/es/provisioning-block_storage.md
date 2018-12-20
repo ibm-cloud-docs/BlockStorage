@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-30"
+lastupdated: "2018-12-13"
 
 ---
 {:new_window: target="_blank"}
@@ -12,18 +12,19 @@ lastupdated: "2018-11-30"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
+
 # Solicitud de {{site.data.keyword.blockstorageshort}}
 
 Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes para satisfacer sus necesidades de capacidad y de IOPS. Saque el mayor partido de su almacenamiento con dos opciones para especificar el rendimiento.
 
 - Puede elegir entre los niveles de IOPS de Resistencia que incluyen los niveles de rendimiento predefinidos para que se ajusten las cargas de trabajo que no han definido bien los requisitos de rendimiento.
-- Puede ajustar el almacenamiento para que cumpla los requisitos de rendimiento muy específicos especificando el número total de IOPS con Rendimiento.
+- Puede ajustar el almacenamiento para que cumpla los requisitos de rendimiento específicos especificando el número total de IOPS con Rendimiento.
 
 ## Pedido de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)
 
 1. Inicie una sesión en [el catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
 
-   Como alternativa, puede iniciar una sesión en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} y pulsar **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
+   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 
 2. Seleccione la **Ubicación** (centro de datos) del despliegue.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts de cálculo que tiene.
@@ -43,20 +44,20 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 7. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable. Para consultar consideraciones y recomendaciones sobre el espacio de instantáneas, consulte [Realizar pedidos de instantáneas](ordering-snapshots.html).
 8. Elija el **Tipo de sistema operativo** en la lista.<br/>
 
-   Esta selección depende del sistema operativo en el que se ejecutan los hosts y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas frecuentes](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
+   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas frecuentes](faqs.html).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
 10. Después de revisar los términos y condiciones, marque el recuadro **He leído y acepto los Acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](managing-storage-limits.html) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](managing-storage-limits.html) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html).
 {:important}
 
 ## Pedido de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)
 
 1. Inicie una sesión en [el catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
 
-   Como alternativa, puede iniciar una sesión en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} y pulsar **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
+   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 2. Pulse **Ubicación** y seleccione el centro de datos.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts de cálculo que tiene.
 3. Facturación. Si ha seleccionado un centro de datos con prestaciones mejoradas (marcados con un asterisco), podrá elegir entre facturación mensual o por horas.
@@ -71,13 +72,13 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 7. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable. Para consultar consideraciones y recomendaciones sobre el espacio de instantáneas, consulte [Realizar pedidos de instantáneas](ordering-snapshots.html).
 8. Elija el **Tipo de sistema operativo** en la lista.<br/>
 
-   Esta selección depende del sistema operativo en el que se ejecutan los hosts y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas frecuentes](faqs.html#which-windows-version-should-i-choose-for-my-block-storage-lun-).
+   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas frecuentes](faqs.html).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
 10. Después de revisar los términos y condiciones, marque el recuadro **He leído y acepto los Acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](managing-storage-limits.html) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html#how-many-instances-can-share-the-use-of-a-block-storage-volume-).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](managing-storage-limits.html) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html).
 {:important}
 
 ## Conexión del nuevo almacenamiento
@@ -86,8 +87,14 @@ Cuando se haya completado la solicitud de suministro, autorice a los hosts a acc
 - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
 - [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuración de Block Storage para la copia de seguridad con cPanel](configure-backup-cpanel.html)
-- [Configuración de Block Storage para la copia de seguridad con Plesk](configure-backup-plesk.html)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](configure-backup-cpanel.html)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](configure-backup-plesk.html)
+
+## Consideraciones sobre la recuperación tras desastre
+
+Para evitar la pérdida de datos y garantizar la continuidad del negocio, considere la posibilidad de replicar los servidores y el almacenamiento en otro centro de datos. La réplica mantiene los datos en sincronización en dos ubicaciones distintas en función de la planificación de la instantánea. Para obtener más información, consulte [Réplica de datos](replication.html).
+
+Si desea clonar su volumen y utilizarlo independientemente del volumen original, consulte [Creación de un volumen de bloque duplicado](how-to-create-duplicate-volume.html).
 
 ## Identificación de {{site.data.keyword.blockstorageshort}} en la factura
 

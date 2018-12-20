@@ -16,15 +16,15 @@ lastupdated: "2018-11-30"
 
 Para crear instantáneas de su volumen de almacenamiento, automática o manualmente, necesita adquirir espacio para mantenerlas. Puede adquirir capacidad hasta la cantidad de su volumen de almacenamiento (durante la adquisición de volumen inicial o posteriormente siguiendo los pasos descritos aquí).
 
-1. Inicie una sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog/){:new_window} y pulse el icono **Menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie sesión en la consola de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de menú en la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
-   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 2. Acceda a su LUN de almacenamiento a través de **Almacenamiento** >**{{site.data.keyword.blockstorageshort}}**.
 2. Pulse **Cambiar espacio de instantáneas** en el marco Instantáneas.
 3. Seleccione la cantidad de espacio que necesita y el método de pago.
 4. Pulse **Continuar**.
 5. Especifique cualquier **código promocional** que tenga y pulse **Recalcular**. Los campos Cargos para este pedido y Revisión de pedido contienen información de forma predeterminada.
-6. Marque el recuadro **He leído el Acuerdo de Servicio Maestro y acepto sus condiciones.** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
+6. Seleccione el recuadro **He leído el Acuerdo de Servicio Maestro y acepto sus condiciones** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
 
 ## Determinación de la cantidad de espacio de instantáneas que se debe pedir
 
@@ -41,7 +41,7 @@ Un volumen con muchos cambios y un periodo largo de retención necesita más esp
 
 Si realiza 12 instantáneas por hora de 500 GB de datos reales y hay un 1 por ciento de cambio entre cada instantánea, necesita 60 GB para instantáneas.
 
-*(5 G de tasa de cambio) x (12 instantáneas por hora) = (60 GB de espacio utilizado)*
+*(5 GB de tasa de cambio) x (12 instantáneas por hora) = (60 GB de espacio utilizado)*
 
 Por el contrario, si en estos 500 GB de datos reales, con 12 instantáneas por hora, se observara un 10 por ciento de cambios cada hora, el espacio de instantáneas que se utiliza es de 600 GB.
 

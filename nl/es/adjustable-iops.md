@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ La facturación del almacenamiento se actualiza para añadir la diferencia prorr
 
 Esta característica solo está disponible en [centros de datos seleccionados](new-ibm-block-and-file-storage-location-and-features.html).
 
-Los clientes no pueden cambiar entre Resistencia y Rendimiento al ajustar su IOPS. Sin embargo, pueden especificar un nuevo nivel de IOPS para su almacenamiento en función de los siguientes criterios/restricciones:
+Los clientes no pueden cambiar entre Resistencia y Rendimiento al ajustar su IOPS. Sin embargo, pueden especificar un nuevo nivel de IOPS para su almacenamiento en función de los siguientes criterios y restricciones:
 
 - Si el volumen original es Resistencia nivel 0,25, el nivel de IOPS no se puede actualizar.
 - Si el volumen original es Rendimiento con menos que o igual a 0,30 IOPS/GB, las opciones disponibles solo incluyen el tamaño y las combinaciones de IOPS que resulten en menos que o igual a 0,30 IOPS/GB.
@@ -39,11 +39,12 @@ Si el volumen tiene réplica, la réplica se actualiza automáticamente para coi
 
 1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}
    - En el {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**
-   - Desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+   - Desde la consola de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleccione el LUN de la lista y pulse **Acciones** > **Modificar LUN**
 3. En las **Opciones IOPS de almacenamiento**, realice una nueva selección:
-    - Resistencia (IOPS por niveles): seleccione un nivel de IOPS superior a 0,25 IOPS/GB de su almacenamiento. Puede aumentar el nivel de IOPS en cualquier momento. Sin embargo, la disminución solo está disponible una vez al mes.
-    - Rendimiento (IOPS asignado): Especifique la nueva opción de IOPS para su almacenamiento especificando un valor en el rango de 100 a 48.000 IOPS.
+    - En Resistencia (IOPS por niveles), seleccione un nivel de IOPS superior a 0,25 IOPS/GB de su almacenamiento. Puede aumentar el nivel de IOPS en cualquier momento. Sin embargo, la disminución solo está disponible una vez al mes.
+    - En Rendimiento (IOPS asignado), Especifique la nueva opción de IOPS para su almacenamiento especificando un valor en el rango de 100 a 48.000 IOPS.
+    
     Asegúrese de comprobar los límites específicos requeridos por tamaño en el formulario de pedido.
     {:tip}
 4. Revise su selección y el nuevo precio.

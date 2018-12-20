@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ Al realizar el pedido de {{site.data.keyword.blockstorageshort}}, seleccione un 
 
 
 
-El almacenamiento no cifrado que se suministró antes de que se actualizara el centro de datos **no** se cifra automáticamente. Si dispone de almacenamiento no cifrado en un centro de datos actualizado y desea almacenamiento cifrado, deberá crear un nuevo LUN/volumen y migrar los datos. Para obtener más información, consulte [Migración de {{site.data.keyword.blockstorageshort}} en Centros de datos actualizados](migrate-block-storage-encrypted-block-storage.html).
+El almacenamiento no cifrado que se suministró antes de que se actualizara el centro de datos **no** se cifra automáticamente. Si dispone de almacenamiento no cifrado en un centro de datos actualizado y desea almacenamiento cifrado, deberá crear un nuevo volumen y migrar los datos. Para obtener más información, consulte [Migración de {{site.data.keyword.blockstorageshort}} en Centros de datos actualizados](migrate-block-storage-encrypted-block-storage.html).
 {:important}

@@ -28,16 +28,16 @@ Eso depende de lo que el sistema operativo del host pueda manejar, no se trata d
 ## ¿Qué versión de Windows debo elegir para mi LUN de almacenamiento en bloque?
 {: faq}
 
-Después de crear una LUN, debe especificar el tipo de SO. El tipo de SO se debe basar en el sistema operativo que utilizan los hosts que acceden a la LUN. El tipo de SO no se puede modificar después de que se cree la LUN. El tamaño real de la LUN puede variar ligeramente en función del tipo de SO de la LUN.
+Después de crear un LUN, debe especificar el tipo de SO. El tipo de SO se debe basar en el sistema operativo que utilizan los hosts que acceden al LUN. El tipo de SO no se puede modificar después de que se cree el LUN. El tamaño real del LUN puede variar ligeramente en función del tipo de SO del LUN.
 
 **Windows 2008+**
-- la LUN almacena datos de Windows para Windows 2008 y versiones posteriores. Utilice esta opción de SO si el sistema operativo del host es Windows Server 2008, Windows Server 2012 o Windows Server 2016. Se da soporte a los modelos de particionamiento MBR y GPT.
+- El LUN almacena datos de Windows para Windows 2008 y versiones posteriores. Utilice esta opción de SO si el sistema operativo del host es Windows Server 2008, Windows Server 2012 o Windows Server 2016. Se da soporte a los modelos de particionamiento MBR y GPT.
 
 **Windows 2003**
-- la LUN almacena un tipo de disco sin formato en un disco Windows de una sola partición utilizando el estilo de particionamiento MBR (registro de arranque maestro). Utilice esta opción solo si el sistema operativo del host es Windows 2000 Server, Windows XP o Windows Server 2003 que utiliza el método de particionamiento MBR.
+- El LUN almacena un tipo de disco sin formato en un disco Windows de una sola partición que utiliza el estilo de particionamiento MBR (registro de arranque maestro). Utilice esta opción solo si el sistema operativo del host es Windows 2000 Server, Windows XP o Windows Server 2003 que utiliza el método de particionamiento MBR.
 
 **Windows GPT**
--  la LUN almacena los datos de Windows utilizando el estilo de particionamiento GPT (tipo de partición GUID). Utilice esta opción si desea utilizar el método de particionamiento GPT y el host es capaz de utilizarlo. Windows Server 2003, Service Pack 1 y posteriores pueden utilizar el método de particionamiento GPT y todas las versiones de 64 bits de Windows le dan soporte.
+-  El LUN almacena los datos de Windows utilizando el estilo de particionamiento GPT (tipo de partición GUID). Utilice esta opción si desea utilizar el método de particionamiento GPT y el host es capaz de utilizarlo. Windows Server 2003, Service Pack 1 y posteriores pueden utilizar el método de particionamiento GPT y todas las versiones de 64 bits de Windows le dan soporte.
 
 ## ¿Se aplica el límite de IOPS asignado por instancia o por volumen?
 {: faq}
@@ -66,9 +66,9 @@ No es necesario ningún calentamiento previo. Puede observar el rendimiento espe
 ## ¿Se puede lograr más rendimiento mediante una conexión Ethernet más rápida?
 {: faq}
 
-Los límites de rendimiento están establecidos por volumen/LUN, por lo que utilizar una conexión de Ethernet más rápida no aumenta el límite establecido. Sin embargo, con una conexión Ethernet más lenta, el ancho de banda sí que puede ser un posible cuello de botella.
+Los límites de rendimiento están establecidos por LUN, por lo que utilizar una conexión de Ethernet más rápida no aumenta el límite establecido. Sin embargo, con una conexión Ethernet más lenta, el ancho de banda sí que puede ser un posible cuello de botella.
 
-## ¿Los cortafuegos/grupos de seguridad afectan al rendimiento?
+## ¿Los cortafuegos y los grupos de seguridad afectan al rendimiento?
 {: faq}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.
@@ -83,10 +83,10 @@ La latencia de destino en el almacenamiento es de <1 ms. El almacenamiento está
 
 El nivel 10 de IOPS/GB de tipo Resistencia {{site.data.keyword.blockstorageshort}} solo está disponible en centros de datos seleccionados, y se están añadiendo nuevos centros de datos gradualmente. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](new-ibm-block-and-file-storage-location-and-features.html).
 
-## ¿Cómo podemos saber cuáles de los LUN/volúmenes de {{site.data.keyword.blockstorageshort}} están cifrados?
+## ¿Cómo podemos saber cuáles de los volúmenes de {{site.data.keyword.blockstorageshort}} están cifrados?
 {: faq}
 
-Al consultar la lista de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, puede ver un icono de bloqueo junto al nombre de volumen de las LUN que están cifradas.
+Al consultar la lista de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, puede ver un icono de bloqueo junto al nombre de volumen de los LUN que están cifradas.
 
 ## ¿Cómo sabemos cuándo estamos suministrando {{site.data.keyword.blockstorageshort}} en un centro de datos actualizado?
 {: faq}
@@ -97,7 +97,7 @@ Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos
 {: faq}
 
 {{site.data.keyword.blockstorageshort}} suministrado antes de la actualización del centro de datos no se puede cifrar.
-El nuevo {{site.data.keyword.blockstorageshort}} suministrado en centros de datos actualizados se cifra automáticamente. No hay que elegir ningún valor de cifrado; es automático.
+El nuevo {{site.data.keyword.blockstorageshort}} que se suministra en centros de datos actualizados se cifra automáticamente. No hay que elegir ningún valor de cifrado; es automático.
 Los datos que residen en almacenamiento no cifrado en un centro de datos actualizado se pueden cifrar creando un nuevo LUN de bloque para posteriormente copiar los datos al nuevo LUN cifrado con migración basada en host. Pulse [aquí](migrate-block-storage-encrypted-block-storage.html) para obtener instrucciones.
 
 ## ¿{{site.data.keyword.blockstorageshort}} da soporte a la reserva persistente SCSI-3 para implementar una barrera de E/S para Db2 pureScale?

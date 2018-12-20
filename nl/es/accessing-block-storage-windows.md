@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 
 # Conexión a los LUN de iSCSI de MPIO en Microsoft Windows
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través de la [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**. Pulse **Autorizar host**.
 2. En la lista, seleccione el host o los hosts que accederán al volumen y pulse **Enviar**.
@@ -46,7 +46,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
     - Pulse **Cambiar** para sustituir los valores existentes por su nombre calificado iSCSI (IQN).
     ![Propiedades del iniciador de iSCSI](/images/iSCSI.png)
 
-      El nombre IQN se puede obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+      El nombre IQN se puede obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
       {: tip}
 
     - Pulse el separador **Descubrir** y pulse **Descubrir portal**.
@@ -57,27 +57,30 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 
     Los campos Nombre y Secreto de destino distinguen entre mayúsculas y minúsculas.
     {:important}
-         - En el campo **Nombre**, suprima las entradas existentes y la entrada correspondiente al nombre de usuario del [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
-         - En el campo **Secreto de destino**, escriba la contraseña del [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+         - En el campo **Nombre**, suprima las entradas existentes y la entrada correspondiente al nombre de usuario del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+         - En el campo **Secreto de destino**, escriba la contraseña del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
     - Pulse **Aceptar** en las ventanas **Configuración avanzada** y **Descubrir portal de destino** para volver a la pantalla principal de propiedades del iniciador de iSCSI. Si recibe errores de autenticación, compruebe las entradas de nombre de usuario y contraseña.
     ![Destino inactivo](/images/Inactive_0.png)
 
-    El nombre de su destino aparece en la sección Destinos descubiertos con un estado Inactivo.
+    El nombre de su destino aparece en la sección Destinos descubiertos con un estado `Inactivo`.
     {:note}
 
 
 ### Activación de destino
 
 1. Pulse **Conectar** para conectarse al destino.
-2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. ![Habilitar multivía de acceso](/images/Connect_0.png)
+2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. </br>
+   ![Habilitar multivía de acceso](/images/Connect_0.png)
 3. Pulse **Avanzado** y seleccione **Habilitar inicio de sesión CHAP**.
-![Habilitar CHAP](/images/chap_0.png)
+</br>
+   ![Habilitar CHAP](/images/chap_0.png)
 4. Especifique el nombre de usuario en el campo Nombre y especifique la contraseña en el campo secreto de destino.
 
    Los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}}.
    {:tip}
 5. Pulse **Aceptar** hasta que aparezca la ventana **Propiedades del iniciador de iSCSI**. El estado del destino en la sección **Destinos descubiertos** pasa de **Inactivo** a **Conectado**.
-![Estado Conectado](/images/Connected.png)
+</br>
+   ![Estado Conectado](/images/Connected.png)
 
 
 ### Configuración de MPIO en el iniciador iSCSI
@@ -97,16 +100,16 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 
 5. Pulse **Propiedades**. En el recuadro de diálogo Propiedades, vuelva a pulsar **Añadir sesión** para añadir la segunda vía de acceso.
 6. En la ventana Conectar con destino, marque el recuadro de selección **Habilitar multivía**. Pulse **Avanzado**.
-7. En la ventana Configuración avanzada:
+7. En la ventana Configuración avanzada,
    - En la lista de adaptadores locales, seleccione Microsoft iSCSI Initiator.
    - En la lista de IP de iniciador, seleccione la dirección IP correspondiente al host. En este caso, va a conectar dos interfaces de red del dispositivo a una sola interfaz de red del host. Por lo tanto, la interfaz es la misma que la proporcionada para la primera sesión.
-   - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
+   - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos que está habilitada en el dispositivo.
    - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
    - Escriba los valores secretos Nombre y Destino obtenidos en el portal y pulse **Aceptar**.
    - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades.
 8. Ahora la ventana Propiedades muestra más de una sesión dentro del panel Identificador. Tiene más de una sesión en el almacenamiento de iSCSI.
 
-   Si el host tiene varias interfaces que desea conectar con el almacenamiento ISCSI, puede configurar otra conexión con la dirección IP del otro NIC en el campo de IP del iniciador. Sin embargo, asegúrese de autorizar a la segunda dirección IP del iniciador en el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} antes de intentar establecer la conexión.
+   Si el host tiene varias interfaces que desea conectar con el almacenamiento ISCSI, puede configurar otra conexión con la dirección IP del otro NIC en el campo de IP del iniciador. Sin embargo, asegúrese de autorizar a la segunda dirección IP del iniciador en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window} antes de intentar establecer la conexión.
    {:note}
 9. En la ventana Propiedades, pulse **Dispositivos** para abrir la ventana Dispositivos. El nombre de la interfaz de dispositivo empieza por `mpio`. <br/>
   ![Dispositivos](/images/Devices.png)
@@ -124,10 +127,10 @@ Para verificar si MPIO de Windows está configurado, primero debe asegurarse de 
 
 ![Características_Roles_0](/images/Roles_Features_0.png)
 
-Una vez completado el rearranque y añadido el dispositivo de almacenamiento, puede verificar si MPIO se ha configurado y funciona. Para ello, vaya a **Detalles del dispositivo de destino** y pulse **MPIO**:
+Una vez completado el reinicio y añadido el dispositivo de almacenamiento, puede verificar si MPIO se ha configurado y funciona. Para ello, vaya a **Detalles del dispositivo de destino** y pulse **MPIO**:
 ![DetallesDispositivo_0](/images/DeviceDetails_0.png)
 
-Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se desconecta y deja de estar disponible cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.BluSoftlayer_full}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con lecturas/escrituras activas en el LUN.
+Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se puede desconectar y aparecer inhabilitado cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.BluSoftlayer_full}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con operaciones de lectura/escritura activas en el LUN.
 
 ## Desmontaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 
@@ -139,7 +142,7 @@ A continuación se describen los pasos necesarios para desconectar una instancia
 2. Seleccione los destinos que desee eliminar y pulse **Desconectar**.
 
 ### Eliminar destinos
-Esto es opcional, para cuando ya no necesite acceder a los destinos iSCSI.
+Este paso es opcional, para cuando ya no necesite acceder a los destinos iSCSI.
 
 1. Pulse **Descubrimiento** en el iniciador de iSCSI.
 2. Marque el portal de destino asociado a su volumen de almacenamiento y pulse **Eliminar**.

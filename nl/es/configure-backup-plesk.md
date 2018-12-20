@@ -15,13 +15,13 @@ lastupdated: "2018-11-30"
 
 Utilice estas instrucciones para configurar {{site.data.keyword.blockstoragefull}} para sus copias de seguridad en Plesk. Suponemos que está disponible el acceso de SSH sudo o root y de Plesk a nivel administrador completo. Estas instrucciones se basan en un host CentOS7.
 
-Para obtener más información del proveedor, consulte [Documentación de Plesk sobre copia de seguridad y restauración ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
+Para obtener más información, consulte la [documentación de Plesk sobre copia de seguridad y restauración ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
 {:tip}
 
 1. Conéctese al host a través de SSH.
 2. Asegúrese de que un exista un destino de punto de montaje.
 
-   Plesk tiene dos opciones para almacenar copias de seguridad. Una opción es el almacenamiento interno de Plesk (almacenamiento de copia de almacenamiento en el servidor Plesk). La otra opción es un almacenamiento FTP externo (almacenamiento de copia de seguridad en algún servidor externo en la web o en la red local). Normalmente en las cajas Plesk, las copias de seguridad internas se almacenan en `/var/lib/psa/dumps` y utilice `/tmp` como directorio temporal. En este ejemplo, el directorio temporal se mantiene local, pero el directorio dumps se mueve al destino de STaaS (`/backup/psa/dumps`). No se necesitan credenciales de usuario FTP.
+   Plesk tiene dos opciones para almacenar copias de seguridad. Una opción es el almacenamiento interno de Plesk (almacenamiento de copia de almacenamiento en el servidor Plesk). La otra opción es un almacenamiento FTP externo (almacenamiento de copia de seguridad en algún servidor externo en la web o en la red local). Normalmente en las cajas Plesk, las copias de seguridad internas se almacenan en `/var/lib/psa/dumps` y utilice `/tmp` como directorio temporal. En este ejemplo, el directorio temporal se mantiene local, pero el directorio dumps se mueve al destino de {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). No se necesitan credenciales de usuario FTP.
    {:note}   
 3. Configure su {{site.data.keyword.blockstorageshort}} como se describe en [Conexión a los LUN de iSCSI de MPIO en Linux](accessing_block_storage_linux.html). Monte {{site.data.keyword.blockstorageshort}} en `/backup` y configure `/etc/fstab` para habilitar el montaje en el inicio.
 4. **Opcional**: Copie las copias de seguridad existentes en el nuevo almacenamiento. Puede utilizar `rsync`.

@@ -16,12 +16,12 @@ lastupdated: "2018-11-30"
 
 El nuevo almacenamiento está disponible en centros de datos seleccionados, y está respaldado por el almacenamiento flash a niveles de IOPS superiores con cifrado de disco para datos en reposo. Todo el almacenamiento suministrado en los centros de datos actualizados se creará automáticamente con la nueva versión.
 
-El punto de montaje de NFS para los volúmenes nuevos difiere del punto de montaje de volúmenes no cifrados. Para obtener más información, consulte la sección [Nuevo punto de montaje para volúmenes de {{site.data.keyword.filestorage_short}} cifrados](#new-mount-point-for-encrypted-storage-volumes).
+El punto de montaje de NFS para los volúmenes nuevos difiere del punto de montaje de volúmenes no cifrados. Para obtener más información, consulte la sección [Nuevo punto de montaje para volúmenes de {{site.data.keyword.blockstorageshort}} cifrados](#new-mount-point-for-encrypted-storage-volumes).
 {:important}
 
 ## Nuevas ubicaciones
 
-El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguientes regiones/centros de datos.
+El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguientes regiones y centros de datos.
 <table role="presentation">
   <tr>
     <td><strong>EE.UU. 2</strong></td>
@@ -59,7 +59,8 @@ El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguien
     <td>MEL01<br />
         SYD01<br />
         SYD04<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+        SYD05<br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
         TOR01<br />
@@ -100,7 +101,10 @@ El nuevo {{site.data.keyword.blockstorageshort}} está disponible en las siguien
 
 ## Nuevo punto de montaje para volúmenes de almacenamiento cifrados
 
-Todos los volúmenes de almacenamiento mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Para asegurarse de que utiliza el punto de montaje correcto para sus volúmenes de almacenamiento, puede consultar la información sobre el punto de montaje en la página **Detalles del volumen** de [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. También puede acceder al punto de montaje correcto mediante una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Todos los volúmenes de almacenamiento mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Compruebe la información sobre el punto de montaje en la página **Detalles del volumen** de [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window} para asegurarse de que utiliza el punto de montaje correcto. También puede obtener la información de punto de montaje correcta a través de una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+
+Para poder acceder a todas las nuevas características, seleccione `Storage-as-a-Service Package 759` cuando realice el pedido a través de la API. Para obtener más información sobre cómo solicitar {{site.data.keyword.blockstorageshort}} a través de la API, consulte [order_block_volume ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
+{:important}
 
 Aquí puede consultar si se han actualizado más centros de datos y si se han añadido nuevas funciones y características a {{site.data.keyword.blockstorageshort}}.
 {:tip}

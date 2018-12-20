@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 
 # Gestión de {{site.data.keyword.blockstorageshort}}
 
-Puede gestionar los volúmenes de {{site.data.keyword.blockstoragefull}} mediante el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Puede gestionar los volúmenes de {{site.data.keyword.blockstoragefull}} mediante el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 
 ## Visualización de los detalles de LUN de {{site.data.keyword.blockstorageshort}}
 
@@ -47,7 +47,7 @@ Allí puede ver la lista de hosts, que actualmente tienen autorización para acc
 
 Puede ver los LUN a los cuales un host tiene acceso, incluida la información necesaria para realizar una conexión: nombre de LUN, tipo de almacenamiento, dirección de destino, capacidad y ubicación:
 
-1. Pulse **Dispositivos** -> **Lista de dispositivos** en el [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} y pulse sobre el dispositivo adecuado.
+1. Pulse **Dispositivos** -> **Lista de dispositivos** en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://control.softlayer.com/){:new_window} y pulse sobre el dispositivo adecuado.
 2. Seleccione el separador **Almacenamiento**.
 
 Se le presentará una lista de los LUN de almacenamiento a los cuales este host tiene acceso. La lista está agrupada por tipo de almacenamiento (bloque, archivo, otros). Puede autorizar más almacenamiento o puede eliminar el acceso pulsando **Acciones**.
@@ -61,8 +61,8 @@ En función del sistema operativo del host, siga las instrucciones adecuadas.
 - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
 - [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuración de Block Storage para la copia de seguridad con cPanel](configure-backup-cpanel.html)
-- [Configuración de Block Storage para la copia de seguridad con Plesk](configure-backup-plesk.html)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](configure-backup-cpanel.html)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](configure-backup-plesk.html)
 
 
 ## Revocación del acceso de un host a {{site.data.keyword.blockstorageshort}}
@@ -76,7 +76,7 @@ Puede revocar el acceso desde la **Lista de dispositivos** o desde la **Vista de
 
 ### Revocación del acceso de la lista de dispositivos
 
-1. Pulse **Dispositivos**, **Lista de dispositivos** desde el [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} y efectúe una doble pulsación sobre el dispositivo adecuado.
+1. Pulse **Dispositivos**, **Lista de dispositivos** desde el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window} y efectúe una doble pulsación sobre el dispositivo adecuado.
 2. Seleccione el separador **Almacenamiento**.
 3. Se le presentará una lista de los LUN de almacenamiento a los cuales este host tiene acceso. La lista está agrupada por tipo de almacenamiento (bloque, archivo, otros). Junto al nombre de LUN, seleccione **Acción** y pulse Revocar acceso**.
 4. Confirme que desea revocar el acceso al LUN porque la acción no puede deshacerse. Pulse **Sí** para revocar el acceso al LUN o **No** para cancelar la acción.
@@ -99,7 +99,8 @@ Si desea desconectar varios hosts de un LUN específico, debe repetir la acción
 
 ## Cancelación de un LUN de almacenamiento
 
-Si ya no necesita un LUN específico, puede cancelarlo.
+Si ya no necesita un LUN específico, puede cancelarlo en cualquier momento.
+
 Para cancelar un LUN de almacenamiento, es necesario revocar el acceso de los hosts en primer lugar.
 {:important}
 

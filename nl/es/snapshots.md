@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Instantáneas
 
-Las instantáneas son una característica de {{site.data.keyword.blockstoragefull}}. Una instantánea representa el contenido de un volumen en un momento específico. Las instantáneas le permiten proteger los datos sin afectar al rendimiento, con un consumo mínimo de espacio y son consideradas su primera línea de defensa para la protección de datos. Si un usuario modifica o suprime accidentalmente datos cruciales de un volumen, los datos se pueden restaurar de forma fácil y rápida desde una copia de instantánea.
+Las instantáneas son una característica de {{site.data.keyword.blockstoragefull}}. Una instantánea representa el contenido de un volumen en un momento específico. Con las instantáneas, puede proteger los datos sin afectar al rendimiento y con un consumo mínimo de espacio. Las instantáneas son consideradas su primera línea de defensa para la protección de datos. Si un usuario modifica o suprime accidentalmente datos cruciales de un volumen, los datos se pueden restaurar de forma fácil y rápida desde una copia de instantánea.
 
 {{site.data.keyword.blockstorageshort}} le ofrece dos formas de realizar instantáneas.
 
@@ -49,7 +49,7 @@ Todas las instantáneas y réplicas de {{site.data.keyword.filestorage_short}} c
 
 ## Cómo afectan las instantáneas al espacio de disco
 
-Las copias de instantáneas minimizan el uso de espacio de disco conservando bloques individuales en lugar de archivos completos. Las copias de instantáneas solo utilizan espacio adicional cuando se cambian o suprimen archivos en el sistema de archivos activo. Cuando esto sucede, los bloques de archivos originales aún se conservan como parte de una o más copias de instantáneas.
+Las copias de instantáneas minimizan el uso de espacio de disco conservando bloques individuales en lugar de archivos completos. Las copias de instantáneas solo utilizan espacio adicional cuando se cambian o suprimen archivos en el sistema de archivos activo. Cuando los archivos se modifican o se suprimen, los bloques de archivos originales aún se conservan como parte de una o más copias de instantáneas.
 
 En el sistema de archivos activo, los bloques modificados se vuelven a escribir en diferentes ubicaciones del disco o se eliminan como bloques de archivos activos por completo. Como resultado, además del espacio de disco utilizado por los bloques en el sistema de archivos activo modificado, aún se reserva espacio de disco utilizado por los bloques originales para reflejar el estado del sistema de archivos activo antes del cambio.
 

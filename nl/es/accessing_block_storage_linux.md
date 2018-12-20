@@ -18,10 +18,10 @@ lastupdated: "2018-11-30"
 Estas instrucciones se aplican principalmente a RHEL6 y Centos6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso.
 {:note}
 
-Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} y para configurar la multivía de acceso de DM [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
-{:tip}
+Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} y para configurar la multivía de acceso de DM [aquí ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+{: tip}
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través de la [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
@@ -32,7 +32,7 @@ Antes de empezar, asegúrese de que el host que está accediendo al volumen de {
 
 A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.BluSoftlayer_full}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
-El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.
@@ -91,7 +91,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
       ```
       {: codeblock}
 
-    - Reinicie los servicios iscsi e iscsid para que los cambios entre en vigor.
+    - Reinicie los servicios `iscsi` e `iscsid` para que los cambios entren en vigor.
 
       ```
       service iscsi restart
@@ -157,7 +157,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
     ```
     {: pre}
 
-    RHEL 7 y Centos 7 pueden devolver el mensaje No fc_host device, que se puede pasar por alto.
+    RHEL 7 y CentOS 7 pueden devolver el mensaje No fc_host device, que se puede pasar por alto.
 
 5. Actualice el archivo `/etc/iscsi/initiatorname.iscsi` con el nombre calificado iSCSI (IQN) del {{site.data.keyword.slportal}}. Escriba el valor en minúsculas.
    ```
@@ -221,7 +221,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
     ```
     {: pre}
 
-   - Otras distribuciones: consulte la documentación del proveedor del sistema operativo.
+   - Para otras distribuciones, consulte la documentación del proveedor del sistema operativo.
 
 8. Descubra el dispositivo utilizando la dirección IP de destino obtenida desde el {{site.data.keyword.slportal}}.
 
@@ -281,7 +281,7 @@ Siga estos pasos para crear un sistema de archivos en el volumen montado recient
    ```
    {: pre}
 
-   XXX representa el nombre del disco devuelto en el Paso 1. <br />
+   XXX representa el nombre del disco que se devuelve en el Paso 1. <br />
 
    Desplácese hacia abajo por los códigos de mandatos que se muestran en la tabla de mandatos de `fdisk`.
    {: tip}
@@ -343,7 +343,7 @@ Siga estos pasos para crear un sistema de archivos en el volumen montado recient
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>Crea una nueva partición. &#42;</td>
+		<td>Crea una partición. &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -433,7 +433,7 @@ Para crear un sistema de archivos con `parted`, siga estos pasos.
 
    4. `Parted` se puede utilizar para crear particiones de disco lógicas y primarias, los pasos a seguir son los mismos. Para crear una partición, `parted` utiliza `mkpart`. Puede especificar otros parámetros como **primaria** o **lógica** en función del tipo de partición que quiera crear.<br />
 
-   El valor predeterminado de las unidades de la lista es megabytes (MB), para crear una partición de 10 GB deberá empezar en 1 y acabar en 10000. También puede cambiar las unidades de tamaño a terabytes especificando `unit TB`, si lo desea.
+   El valor predeterminado de las unidades de la lista es megabytes (MB). Para crear una partición de 10 GB, deberá empezar en 1 y acabar en 10000. También puede cambiar las unidades de tamaño a terabytes especificando `unit TB`, si lo desea.
    {: tip}
 
       ```
@@ -491,7 +491,7 @@ Para crear un sistema de archivos con `parted`, siga estos pasos.
 
 
 
-## Verificación de si MPIO se ha configurado correctamente en sistemas operativos `*NIX`
+## Verificación de la configuración de MPIO
 
 1. Para comprobar si la multivía está recogiendo dispositivos, liste los dispositivos. Si se ha configurado correctamente, solo se mostrarán dos dispositivos NETAPP.
 
@@ -514,7 +514,7 @@ Para crear un sistema de archivos con `parted`, siga estos pasos.
   ```
   {: pre}
 
-  - Ejemplo de salida de una configuración correcta:
+  - Ejemplo de salida de una configuración correcta.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,7 +523,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Ejemplos de salidas de configuraciones incorrectas:
+  - Salidas de ejemplo de una configuración incorrecta.
 
     ```
     No multipath output root@server:~# multipath -l root@server:~#
@@ -571,5 +571,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   Para obtener más información, consulte la [página man de iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   Para obtener más información, consulte el manual [`iscsiadm` ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://linux.die.net/man/8/iscsiadm).
    {:tip}

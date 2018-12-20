@@ -265,7 +265,7 @@ La velocidad de la conexión de Ethernet debe ser más rápida que el rendimient
 
 Para alcanzar el número máximo de IOPS, es necesario disponer de los recursos de red adecuados. Otros aspectos a tener en cuenta son el uso de la red privada fuera del almacenamiento y los ajustes del lado del host y específicos de la aplicación (pila IP o [profundidades de colas](set-host-queue-depth-settings-performance-and-endurance-storage.html) y otros valores).
 
-El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Consulte la [documentación de servidor virtual](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) para conocer los límites que puede imponer el servicio.
+El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Para obtener más información acerca de los límites que puede imponer el servicio, consulte la [Documentación de servidor virtual](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).
 {:tip}
 
 ## Envío de su pedido
@@ -278,5 +278,5 @@ Cuando se haya completado la solicitud de suministro, autorice a los hosts a acc
 - [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
 - [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
 - [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuración de Block Storage para la copia de seguridad con cPanel](configure-backup-cpanel.html)
-- [Configuración de Block Storage para la copia de seguridad con Plesk](configure-backup-plesk.html)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](configure-backup-cpanel.html)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](configure-backup-plesk.html)
