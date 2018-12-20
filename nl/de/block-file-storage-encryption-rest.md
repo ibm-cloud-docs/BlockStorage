@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ Wählen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} ein R
 
 
 
-Nicht verschlüsselter Speicher, der vor dem Upgrade des Rechenzentrums bereitgestellt wurde, **wird nicht** automatisch verschlüsselt. Wenn Sie in einem Rechenzentrum nach einem Upgrade über nicht verschlüsselten Speicher verfügen und den Speicher verschlüsseln möchten, müssen Sie eine neue logische Einheit oder einen neuen Datenträger erstellen und eine Datenmigration durchführen. Weitere Informationen finden Sie im Abschnitt [{{site.data.keyword.blockstorageshort}}-Migration in Rechenzentren nach Upgrades](migrate-block-storage-encrypted-block-storage.html).
+Nicht verschlüsselter Speicher, der vor dem Upgrade des Rechenzentrums bereitgestellt wurde, **wird nicht** automatisch verschlüsselt. Wenn Sie in einem Rechenzentrum nach einem Upgrade über nicht verschlüsselten Speicher verfügen und den Speicher verschlüsseln möchten, müssen Sie einen neuen Datenträger erstellen und eine Datenmigration durchführen. Weitere Informationen finden Sie im Abschnitt [{{site.data.keyword.blockstorageshort}}-Migration in Rechenzentren nach Upgrades](migrate-block-storage-encrypted-block-storage.html).
 {:important}

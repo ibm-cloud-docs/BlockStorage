@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ lastupdated: "2018-10-31"
 
 
 
-資料中心升級之前佈建的未加密儲存空間都**不會**自動加密。如果您在已升級的資料中心內擁有未加密的儲存空間，並且想要加密的儲存空間，則需要建立新的 LUN/磁區並移轉資料。如需相關資訊，請參閱[已升級資料中心內的 {{site.data.keyword.blockstorageshort}} 移轉](migrate-block-storage-encrypted-block-storage.html)。
+資料中心升級之前佈建的未加密儲存空間都**不會**自動加密。如果您在已升級的資料中心內擁有未加密的儲存空間，並且想要加密的儲存空間，則需要建立新的磁區並移轉資料。如需相關資訊，請參閱[已升級資料中心內的 {{site.data.keyword.blockstorageshort}} 移轉](migrate-block-storage-encrypted-block-storage.html)。
 {:important}

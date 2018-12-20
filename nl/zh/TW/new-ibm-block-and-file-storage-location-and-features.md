@@ -16,12 +16,12 @@ lastupdated: "2018-11-30"
 
 精選資料中心內會提供新的儲存空間，並且由更高 IOPS 層次的快閃記憶體儲存空間支援，且具有靜態資料的磁碟層次加密。已升級資料中心內佈建的所有儲存空間，都會自動使用新版本建立。
 
-新磁區的 NFS 裝載點與未加密磁區的裝載點不同。如需相關資訊，請參閱[已加密 {{site.data.keyword.filestorage_short}} 磁區的新裝載點](#new-mount-point-for-encrypted-storage-volumes)一節。
+新磁區的 NFS 裝載點與未加密磁區的裝載點不同。如需相關資訊，請參閱[已加密 {{site.data.keyword.blockstorageshort}} 磁區的新裝載點](#new-mount-point-for-encrypted-storage-volumes)一節。
 {:important}
 
 ## 新位置
 
-新的 {{site.data.keyword.blockstorageshort}} 提供於下列地區/資料中心。
+新的 {{site.data.keyword.blockstorageshort}} 提供於下列地區和資料中心。
 <table role="presentation">
   <tr>
     <td><strong>美國 2</strong></td>
@@ -59,7 +59,8 @@ AMS03<br />
     <td>MEL01<br />
 SYD01<br />
 SYD04<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+        SYD05<br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
 TOR01<br />
@@ -100,7 +101,10 @@ TOK02<br />
 
 ## 已加密儲存空間磁區的新裝載點
 
-這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。為了確保儲存空間磁區使用正確的裝載點，您可以在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**磁區詳細資料**頁面上檢視裝載點資訊。您也可以透過 API 呼叫來存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 的**磁區詳細資料**頁面上查看裝載點資訊，確定您使用的是正確的裝載點。您也可以透過 API 呼叫來取得正確的裝載點資訊：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+
+若要能夠存取所有新增特性，請在透過 API 下訂單時，選取 `Storage-as-a-Service Package 759`。如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}。
+{:important}
 
 請在這裡再次確認，以查看其他資料中心何時升級以及針對 {{site.data.keyword.blockstorageshort}} 新增的特性及功能。
 {:tip}

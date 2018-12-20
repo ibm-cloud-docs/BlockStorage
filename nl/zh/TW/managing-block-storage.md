@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 
 # 管理 {{site.data.keyword.blockstorageshort}}
 
-您可以透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
+您可以透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
 
 ## 檢視 {{site.data.keyword.blockstorageshort}} LUN 詳細資料
 
@@ -47,7 +47,7 @@ lastupdated: "2018-11-30"
 
 您可以檢視主機具有存取權的 LUN，包括建立連線所需的資訊 -「LUN 名稱」、「儲存空間類型」、「目標位址」、容量及位置：
 
-1. 在 [{{site.data.keyword.slportal}}](http://control.softlayer.com/){:new_window} 中，按一下**裝置** -> **裝置清單**，然後按一下適當的裝置。
+1. 在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://control.softlayer.com/){:new_window} 中按一下**裝置** -> **裝置清單**，然後按一下適當的裝置。
 2. 選取**儲存空間**標籤。
 
 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。您可以按一下**動作**來授權更多儲存空間或移除存取權。
@@ -61,8 +61,8 @@ lastupdated: "2018-11-30"
 - [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
 - [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [使用 cPanel 配置 Block Storage 進行備份](configure-backup-cpanel.html)
-- [使用 Plesk 配置 Block Storage 進行備份](configure-backup-plesk.html)
+- [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
+- [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)
 
 
 ## 撤銷主機對 {{site.data.keyword.blockstorageshort}} 的存取權
@@ -76,7 +76,7 @@ lastupdated: "2018-11-30"
 
 ### 從裝置清單撤銷存取權
 
-1. 從 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}，按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
+1. 從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
 2. 選取**儲存空間**標籤。
 3. 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。在 LUN 名稱旁，選取**動作**，然後按一下「撤銷存取權」。
 4. 確認您要撤銷 LUN 的存取權，因為該動作無法復原。按一下**是**以撤銷 LUN 存取權，或按一下**否**以取消動作。
@@ -99,7 +99,9 @@ lastupdated: "2018-11-30"
 
 ## 取消儲存空間 LUN
 
-如果不再需要特定 LUN，您可以取消它。為了取消儲存空間 LUN，首先需要撤銷任何主機的存取權。
+如果不再需要特定 LUN，您可以隨時將它取消。
+
+為了取消儲存空間 LUN，首先需要撤銷任何主機的存取權。
 {:important}
 
 1. 按一下**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。

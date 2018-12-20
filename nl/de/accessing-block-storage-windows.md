@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 
 # Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} autorisiert wurde.
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} autorisiert wurde.
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
 2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
@@ -46,7 +46,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
     - Klicken Sie auf **Ändern**, um die vorhandenen Werte durch Ihren qualifizierten iSCSI-Namen (IQN) zu ersetzen.
     ![Eigenschaften des iSCSI-Initiators](/images/iSCSI.png)
 
-      Der IQN-Name kann aus der Anzeige '{{site.data.keyword.blockstorageshort}} - Details' im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} abgelesen werden.
+      Der IQN-Name kann aus der Anzeige '{{site.data.keyword.blockstorageshort}} Details' im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} abgelesen werden.
       {: tip}
 
     - Klicken Sie auf **Erkennung** und anschließend auf **Portal erkennen**.
@@ -55,29 +55,33 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
     - Wählen Sie **CHAP-Anmeldung aktivieren**, um die CHAP-Authentifizierung zu aktivieren.
     ![CHAP-Anmeldung aktivieren](/images/Advanced_0.png)
 
-    In den Feldern 'Name' und 'Zielschlüssel' muss die Groß-/Kleinschreibung beachtet werden.{:important}
-         - Löschen Sie im Feld **Name** alle vorhandenen Einträge und geben Sie den Benutzernamen aus dem [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} ein.
-         - Geben Sie im Feld **Zielschlüssel** das Kennwort aus dem [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} ein.
+    In den Feldern 'Name' und 'Zielschlüssel' muss die Groß-/Kleinschreibung beachtet werden.
+    {:important}
+         - Löschen Sie im Feld **Name** alle vorhandenen Einträge und geben Sie den Benutzernamen aus dem [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ein.
+         - Geben Sie im Feld **Zielschlüssel** das Kennwort aus dem [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ein.
     - Klicken Sie auf **OK** in den Fenstern **Erweiterte Einstellungen** und **Zielportal ermitteln**, um zur Hauptanzeige für die Eigenschaften des iSCSI-Initiators zurückzukehren. Überprüfen Sie die Eingaben für den Benutzernamen und das Kennwort, wenn Sie Authentifizierungsfehler erhalten.
     ![Inaktives Ziel](/images/Inactive_0.png)
 
-    Der Name des Ziels im Bereich 'Erkannte Ziele' wird mit dem Status 'Inaktiv' angezeigt.
-{:note}
+    Der Name des Ziels im Bereich 'Erkannte Ziele' wird mit dem Status `Inaktiv` angezeigt.
+    {:note}
 
 
 ### Ziel aktivieren
 
 1. Klicken Sie auf **Verbinden**, um eine Verbindung zu dem Ziel herzustellen.
 2. Wählen Sie das Kontrollkästchen **Multipfad aktivieren** aus, um Multipath IO für das Ziel zu aktivieren.
-![Multipfad aktivieren](/images/Connect_0.png)
+</br>
+   ![Multipfad aktivieren](/images/Connect_0.png)
 3. Klicken Sie auf **Erweitert** und wählen Sie **CHAP-Anmeldung aktivieren** aus.
-![CHAP aktivieren](/images/chap_0.png)
+</br>
+   ![CHAP aktivieren](/images/chap_0.png)
 4. Geben Sie in das Feld 'Name' den Benutzernamen und in das Feld 'Zielschlüssel' das Kennwort ein.
 
    Die Werte der Felder 'Name' und 'Zielschlüssel' können aus der Anzeige '{{site.data.keyword.blockstorageshort}} - Details' abgerufen werden.
    {:tip}
 5. Klicken Sie auf **OK**, bis das Fenster **Eigenschaften des iSCSI-Initiators** angezeigt wird. Der Status des Ziels im Abschnitt **Erkannte Ziele** wechselt von **Inaktiv** zu **Verbunden**.
-![Verbundener Status](/images/Connected.png)
+</br>
+   ![Verbundener Status](/images/Connected.png)
 
 
 ### MPIO im iSCSI-Initiator konfigurieren
@@ -97,16 +101,17 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 
 5. Klicken Sie auf **Eigenschaften**. Klicken Sie im Dialog 'Eigenschaften' erneut auf **Sitzung hinzufügen**, um den zweiten Pfad hinzuzufügen.
 6. Wählen Sie im Fenster 'Verbindung mit Ziel herstellen' das Kontrollkästchen **Multipfad aktivieren** aus. Klicken Sie auf **Erweitert**.
-7. Im Fenster 'Erweiterte Einstellungen':
+7. Im Fenster "Erweiterte Einstellungen"
    - Wählen Sie in der Liste lokaler Adapter den Eintrag 'Microsoft iSCSI Initiator' aus.
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Gerät mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
-   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf der Einheit aktiviert ist.
+   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf der Einheit aktiviert ist. 
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus dem Portal abgerufen haben, und klicken Sie auf **OK**.
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren.
 8. Jetzt werden im Fenster 'Eigenschaften' mehrere Sitzungen im Teilfenster 'ID' angezeigt. Sie haben nun mehr als eine Sitzung im iSCSI-Speicher.
 
-   Wenn Ihr Host über mehrere Schnittstellen verfügt, die Sie an den ISCSI-Speicher anschließen möchten, können Sie eine andere Verbindung konfigurieren und dabei die IP-Adresse des anderen NIC im Feld für die Initiator-IP verwenden. Stellen Sie jedoch sicher, dass Sie die zweite Initiator-IP-Adresse im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} autorisieren, bevor Sie versuchen, die Verbindung herzustellen. {:note}
+   Wenn Ihr Host über mehrere Schnittstellen verfügt, die Sie an den ISCSI-Speicher anschließen möchten, können Sie eine andere Verbindung konfigurieren und dabei die IP-Adresse des anderen NIC im Feld für die Initiator-IP verwenden. Stellen Sie jedoch sicher, dass Sie die zweite Initiator-IP-Adresse im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} autorisieren, bevor Sie versuchen, die Verbindung herzustellen.
+   {:note}
 9. Klicken Sie im Fenster 'Eigenschaften' auf **Geräte**, um das Fenster 'Geräte' zu öffnen. Der Name der Geräteschnittstelle beginnt mit `mpio`. <br/>
   ![Geräte](/images/Devices.png)
 
@@ -126,7 +131,7 @@ Wenn Sie überprüfen möchten, ob MPIO für Windows konfiguriert ist, müssen S
 Wenn der Neustart abgeschlossen ist und die Speichereinheit hinzugefügt wurde, können Sie überprüfen, ob MPIO konfiguriert ist und ordnungsgemäß funktioniert. Öffnen Sie dazu das Fenster **Zielgerätdetails** und klicken Sie auf **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zur Speichereinheit getrennt und ist nicht mehr verfügbar, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.BluSoftlayer_full}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
+Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zur Speichereinheit getrennt und ist nicht inaktiviert, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.BluSoftlayer_full}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
 

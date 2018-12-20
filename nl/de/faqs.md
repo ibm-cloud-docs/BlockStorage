@@ -34,10 +34,10 @@ Wenn Sie eine LUN erstellen, müssen Sie den Betriebssystemtyp angeben. Der Betr
 - Die LUN speichert Windows-Daten für Windows 2008 und nachfolgende Versionen. Verwenden Sie diese Betriebssystemoption, wenn Ihr Hostbetriebssystem Windows Server 2008, Windows Server 2012 oder Windows Server 2016 ist. Es wird sowohl die Partitionierungsmethode MBR als auch die Methode GPT unterstützt.
 
 **Windows 2003**
-- Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet.
+- Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet. 
 
 **Windows GPT**
--  Die LUN speichert Windows-Daten mithilfe der Partitionierungsmethode GPT (GUID Partition Type). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. Windows Server 2003, Service Pack 1 und höher sind in der Lage, die Partitionierungsmethode GPT zu verwenden. Ferner unterstützen alle 64-Bit-Versionen diese Methode.
+-  Die LUN speichert Windows-Daten unter Verwendung des Partitionierungsstils GUID Partition Type (GPT). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. Windows Server 2003, Service Pack 1 und höher sind in der Lage, die Partitionierungsmethode GPT zu verwenden. Ferner unterstützen alle 64-Bit-Versionen diese Methode.
 
 ## Wird der zugeordnete IOPS-Grenzwert nach Instanz oder nach Datenträger umgesetzt?
 {: faq}
@@ -66,9 +66,9 @@ Ein Aufwärmung ist nicht erforderlich. Der angegebene Durchsatz wird sofort bei
 ## Kann durch eine schnellere Ethernet-Verbindung ein höherer Durchsatz erreicht werden?
 {: faq}
 
-Die Grenzwerte für den Durchsatz werden auf Datenträger- bzw. LUN-Ebene festgelegt und können somit nicht durch eine schnellere Ethernet-Verbindung erhöht werden. Bei einer langsameren Ethernet-Verbindung jedoch kann Ihre Bandbreite ein potenzieller Engpass sein.
+Die Grenzwerte für den Durchsatz werden auf LUN-Ebene festgelegt und können somit nicht durch eine schnellere Ethernet-Verbindung erhöht werden. Bei einer langsameren Ethernet-Verbindung jedoch kann Ihre Bandbreite ein potenzieller Engpass sein.
 
-## Beeinträchtigen Firewalls/Sicherheitsgruppen die Leistung?
+## Beeinträchtigen Firewalls und Sicherheitsgruppen die Leistung?
 {: faq}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
@@ -83,10 +83,10 @@ Die Ziellatenz im Speicher beträgt <1 ms. Da der vorliegende Speicher mit Reche
 
 Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichertyps 10 ist nur in ausgewählten Rechenzentren verfügbar, weitere Rechenzentren folgende nach und nach. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](new-ibm-block-and-file-storage-location-and-features.html).
 
-## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-LUNs bzw. -Datenträger verschlüsselt sind?
+## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-Datenträger verschlüsselt sind?
 {: faq}
 
-Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
+Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
 
 ## Wie weiß ich, dass ich {{site.data.keyword.blockstorageshort}} in einem aktualisierten Rechenzentrum bereitstelle?
 {: faq}

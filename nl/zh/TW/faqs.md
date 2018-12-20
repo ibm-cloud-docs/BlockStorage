@@ -28,16 +28,16 @@ lastupdated: "2018-11-30"
 ## 針對我的 Block Storage LUN，我應該選擇哪一個 Windows 版本？
 {: faq}
 
-當您建立 LUN 時，必須指定 OS 類型。OS 類型必須是根據存取 LUN 的主機所使用的作業系統。建立 LUN 之後，不得修改「OS 類型」。根據 LUN 的 OS 類型，LUN 的實際大小會略有不同。
+當您建立 LUN 時，必須指定 OS 類型。OS 類型必須根據存取 LUN 之主機所使用的作業系統。建立 LUN 之後，不得修改「OS 類型」。根據 LUN 的 OS 類型，LUN 的實際大小會略有不同。
 
 **Windows 2008+**
-- LUN 儲存 Windows 2008 以及更新版本的 Windows 資料。如果您的主機作業系統是 Windows Server 2008、Windows Server 2012、Windows Server 2016，請使用這個 OS 選項。MBR 和 GPT 分割方法均受支援。
+- LUN 會儲存 Windows 2008 以及更新版本的 Windows 資料。如果您的主機作業系統是 Windows Server 2008、Windows Server 2012、Windows Server 2016，請使用這個 OS 選項。MBR 和 GPT 分割方法均受支援。
 
 **Windows 2003**
-- LUN 在使用「主要開機記錄 (MBR)」分割樣式的單一分割區 Windows 磁碟中，儲存原始磁碟類型。唯有當您的主機作業系統是使用 MBR 分割方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003 時，才使用這個選項。
+- LUN 會在使用「主要開機記錄 (MBR)」分割樣式的單一分割區 Windows 磁碟中，儲存原始磁碟類型。唯有當您的主機作業系統是使用 MBR 分割方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003 時，才使用這個選項。
 
 **Windows GPT**
--  LUN 使用「GUID 分割區類型 (GPT)」分割樣式儲存 Windows 資料。如果您想要使用 GPT 分割方法，而且您的主機能夠使用它，請使用這個選項。Windows Server 2003 Service Pack 1 以及更新版本能夠使用 GPT 分割方法，且所有 64 位元版本的 Windows 均支援它。
+-  LUN 會使用「GUID 分割區類型 (GPT)」分割樣式來儲存 Windows 資料。如果您想要使用 GPT 分割方法，而且您的主機能夠使用它，請使用這個選項。Windows Server 2003 Service Pack 1 以及更新版本能夠使用 GPT 分割方法，且所有 64 位元版本的 Windows 均支援它。
 
 ## 已配置的 IOPS 限制是依據實例還是依據磁區施行？
 {: faq}
@@ -66,9 +66,9 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 使用較快的乙太網路連線可以達到更高傳輸量嗎？
 {: faq}
 
-傳輸量限制是以每個磁區/LUN 層次而設定，因此，使用速度更快的乙太網路連線並不會增加該項已設定的限制。不過，乙太網路連線較慢時，您的頻寬可能是潛在瓶頸。
+傳輸量限制是以每個 LUN 層次設定，因此，使用速度更快的乙太網路連線並不會增加該項已設定的限制。不過，乙太網路連線較慢時，您的頻寬可能是潛在瓶頸。
 
-## 防火牆/安全群組是否會影響效能？
+## 防火牆和安全群組是否會影響效能？
 {: faq}
 
 最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
@@ -83,10 +83,10 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 
 「耐久性」類型 {{site.data.keyword.blockstorageshort}} 的 10 IOPS/GB 層級只能用於精選資料中心，並且正在逐步新增新的資料中心。您可以在[這裡](new-ibm-block-and-file-storage-location-and-features.html)找到完整的已升級資料中心及可用特性清單。
 
-## 如何分辨哪些 {{site.data.keyword.blockstorageshort}} LUN/磁區已加密？
+## 如何分辨哪些 {{site.data.keyword.blockstorageshort}} 磁區已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
+在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
 
 ## 如何知道是否在已升級資料中心內佈建 {{site.data.keyword.blockstorageshort}}？
 {: faq}
@@ -96,7 +96,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 如果我們在最近升級的資料中心擁有未加密的 {{site.data.keyword.blockstorageshort}}，可以加密該 {{site.data.keyword.blockstorageshort}} 嗎？
 {: faq}
 
-無法加密在資料中心升級之前所佈建的 {{site.data.keyword.blockstorageshort}}。會自動加密在已升級資料中心內佈建的新 {{site.data.keyword.blockstorageshort}}。沒有任何加密設定可供選擇，它是自動的。您可以加密已升級資料中心內未加密儲存空間的資料，方法是建立新的「區塊 LUN」，然後利用主機型移轉，將資料複製到新的加密 LUN。如需指示，請按一下[這裡](migrate-block-storage-encrypted-block-storage.html)。
+無法加密在資料中心升級之前所佈建的 {{site.data.keyword.blockstorageshort}}。佈建在已升級資料中心內的新 {{site.data.keyword.blockstorageshort}} 會自動加密。沒有任何加密設定可供選擇，它是自動的。您可以加密已升級資料中心內未加密儲存空間的資料，方法是建立新的「區塊 LUN」，然後利用主機型移轉，將資料複製到新的加密 LUN。如需指示，請按一下[這裡](migrate-block-storage-encrypted-block-storage.html)。
 
 ## {{site.data.keyword.blockstorageshort}} 是否支援「SCSI-3 持續保留」來實作 Db2 pureScale 的 I/O 隔離？
 {: faq}

@@ -2,13 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
-{:tip: .tip} 
-{:note: .note} 
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 開始使用 {{site.data.keyword.blockstorageshort}}
 
@@ -33,20 +35,20 @@ lastupdated: "2018-10-29"
 - **抄寫**（[適用於精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)）
    - 自動將 Snapshot 複製到夥伴 {{site.data.keyword.BluSoftlayer_full}} 資料中心。
 - **高度可用的連線功能**
-   - 使用備用網路連線以讓可用性最大化 
+   - 使用備用網路連線以讓可用性最大化
    - iSCSI 型 {{site.data.keyword.blockstorageshort}} 會使用「多路徑 I/O (MPIO)」。
 - **並行存取**
    - 容許多台主機同時針對叢集配置存取區塊磁區（最多八台）。
 - **叢集資料庫**
    - 支援進階使用案例（例如叢集資料庫）。
-     
+
 ## 計費
 
-您可以為「區塊 LUN」選取按小時計費或按月計費。為 LUN 選取的計費類型會套用至其 Snapshot 空間及抄本。例如，如果您佈建按小時計費的 LUN，則任何 Snapshot 或抄本費用都會按小時計費。如果您佈建按月計費的 LUN，則任何 Snapshot 或抄本費用都會按月計費。 
+您可以為「區塊 LUN」選取按小時計費或按月計費。為 LUN 選取的計費類型會套用至其 Snapshot 空間及抄本。例如，如果您佈建按小時計費的 LUN，則任何 Snapshot 或抄本費用都會按小時計費。如果您佈建按月計費的 LUN，則任何 Snapshot 或抄本費用都會按月計費。
 
-使用**按小時計費**，會在刪除 LUN 或計費週期結束時（看何者為先），計算區塊 LUN 存在於帳戶上的小時數。如果儲存空間使用期間為幾天或不到一整個月，則按小時計費是一個良好的選擇。按小時計費只適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。 
+使用**按小時計費**，會在刪除 LUN 或計費週期結束時（看何者為先），計算區塊 LUN 存在於帳戶上的小時數。如果儲存空間使用期間為幾天或不到一整個月，則按小時計費是一個良好的選擇。按小時計費只適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。
 
-使用**按月計費**，價格是從建立日期到計費週期結束為止，按比例計算，並立即計費。如果在計費週期結束之前刪除 LUN，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。 
+使用**按月計費**，價格是從建立日期到計費週期結束為止，按比例計算，並立即計費。如果在計費週期結束之前刪除 LUN，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
 
 **效能**
 <table>
@@ -60,7 +62,7 @@ lastupdated: "2018-10-29"
    <td>$0.0001/GB + $0.0002/IOP</td>
   </tr>
 </table>
- 
+
 **耐久性**
 <table>
   <caption>表 2 顯示「耐久性儲存空間」每個層級的按月及按小時計費選項的價格。</caption>
@@ -93,7 +95,7 @@ lastupdated: "2018-10-29"
 
 您可以使用以下兩種選項，來佈建 20 GB 到 12 TB 的 {{site.data.keyword.blockstorageshort}} LUN：<br/>
 - 佈建**耐久性層級**，其特色是預先定義的效能層次，以及例如 Snapshot 及抄寫等其他特性。
-- 建置具有已配置每秒輸入/輸出作業 (IOPS) 的高功率**效能**環境。 
+- 建置具有已配置每秒輸入/輸出作業 (IOPS) 的高功率**效能**環境。
 
 ### 使用耐久性層級進行佈建
 
@@ -108,13 +110,13 @@ lastupdated: "2018-10-29"
 - **每 GB 10 IOPS** 是為了最嚴苛的工作負載（例如 NoSQL 資料庫所建立的工作負載）以及進行分析的資料處理而設計。此層級只適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內最多佈建 4 TB 的儲存空間。
 
 12 TB 耐久性磁區最多提供 48,000 IOPS。
- 
+
 為您的工作負載選擇正確的「耐久性」層級很重要。使用達到最高效能所需的正確區塊大小、乙太網路連線速度及主機數目也同樣重要。如果這其中有任何部分與其他部分不一致，則會對產生的傳輸量有重大的影響。
 
- 
+
 ### 使用效能進行佈建
 
-「效能」是一種 {{site.data.keyword.blockstorageshort}} 類別，其設計旨在支援高 I/O 應用程式，而這些應用程式具有已深入瞭解且不適合「耐久性」層級的效能需求。透過將通訊協定層次 IOPS 配置到個別磁區，即可達成可預測效能。佈建範圍從 20 GB 到 12 TB 的儲存空間大小時可以使用範圍從 100 - 48,000 的各種 IOPS 速率。 
+「效能」是一種 {{site.data.keyword.blockstorageshort}} 類別，其設計旨在支援高 I/O 應用程式，而這些應用程式具有已深入瞭解且不適合「耐久性」層級的效能需求。透過將通訊協定層次 IOPS 配置到個別磁區，即可達成可預測效能。佈建範圍從 20 GB 到 12 TB 的儲存空間大小時可以使用範圍從 100 - 48,000 的各種 IOPS 速率。
 
 {{site.data.keyword.blockstorageshort}} 的「效能」會透過「多路徑 I/O (MPIO) 網際網路小型電腦系統介面 (iSCSI)」連線存取及裝載。{{site.data.keyword.blockstorageshort}} 通常用於單一伺服器存取磁區的情況。可以將多個磁區裝載至主機，並將其分段合在一起，以達到較大的磁區及更高的 IOPS 計數。您可以根據 Linux、XEN 及 Windows 作業系統的「表 3」中的大小和 IOPS 速率來訂購「效能」磁區。
 
@@ -263,7 +265,7 @@ lastupdated: "2018-10-29"
 
 為達到最大 IOPS，需要有足夠的網路資源。其他考量包括儲存空間之外的專用網路使用情形，以及主機端和應用程式特定的調整（IP 堆疊或[佇列深度](set-host-queue-depth-settings-performance-and-endurance-storage.html)，以及其他設定）。
 
-儲存空間資料流量包含在「公用虛擬伺服器」的總網路使用情形中。請參閱[虛擬伺服器文件](https://console.bluemix.net/docs/vsi/vsi_public.html#public-virtual-servers)，以瞭解服務可能強制的限制。
+儲存空間資料流量包含在「公用虛擬伺服器」的總網路使用情形中。若要進一步瞭解該服務可能強制的限制，請參閱[虛擬伺服器文件](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)。
 {:tip}
 
 ## 提交訂單
@@ -276,6 +278,5 @@ lastupdated: "2018-10-29"
 - [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
 - [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [使用 cPanel 配置 Block Storage 進行備份](configure-backup-cpanel.html)
-- [使用 Plesk 配置 Block Storage 進行備份](configure-backup-plesk.html)
-
+- [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
+- [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)

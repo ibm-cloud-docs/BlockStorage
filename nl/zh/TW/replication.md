@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-30"
+lastupdated: "2018-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -14,12 +14,11 @@ lastupdated: "2018-11-30"
 
 抄寫使用您的其中一個 Snapshot 排程，自動將 Snapshot 複製到遠端資料中心內的目的地磁區。如果發生災難性事件，或者您的資料毀損，則可以在遠端網站中回復副本。
 
-透過抄本，您可以從網站失效和其他災難中快速回復。萬一發生緊急狀況，您可以到目的地磁區進行失效接手，從 DR 副本的特定復原點存取您的資料。如需相關資訊，請參閱[複製抄本磁區供災難回復使用](disaster-recovery.html)。
-
-抄寫是將資料同步保留在兩個不同位置。如果您只想要複製您的磁區，並與原始磁區分開使用，請參閱[建立重複的區塊磁區](how-to-create-duplicate-volume.html)。
+抄寫是將資料同步保留在兩個不同位置。如果您想要複製磁區，並與原始磁區分開使用，請參閱[建立重複的區塊磁區](how-to-create-duplicate-volume.html)。
 {:tip}
 
-您必須先建立 Snapshot 排程，才能進行抄寫。當您失效接手時，會將「開關」從主要資料中心的儲存空間磁區快速切換到遠端資料中心的目的地磁區。例如，您的主要資料中心是「倫敦」，而次要資料中心是「阿姆斯特丹」。如果發生故障事件，您會失效接手至「阿姆斯特丹」- 從「阿姆斯特丹」的運算實例連接至現行主要磁區。修復「倫敦」中的磁區之後，會建立「阿姆斯特丹」磁區的 Snapshot，以從「倫敦」的運算實例失效回復至「倫敦」及那個再度成為主要磁區的磁區。
+您必須先建立 Snapshot 排程，才能進行抄寫。
+{:important}
 
 
 ## 判斷我的已抄寫儲存空間磁區的遠端資料中心
@@ -85,17 +84,18 @@ MON01<br />
       </td>
       <td>HKG02<br />
 TOK02<br />
-	  TOK04<br />
-	  TOK05<br />
-	  SNG01<br />
-	  SEO01<br />
+TOK04<br />
+TOK05<br />
+SNG01<br />
+SEO01<br />
                                 CHE01<br />
-	  <br /><br /><br /><br /><br />
+	        <br /><br /><br /><br /><br />
       </td>
       <td>SYD01<br />
 SYD04<br />
-	  MEL01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br />
+          SYD05<br />
+MEL01<br />
+          <br /><br /><br /><br /><br /><br /><br /><br />
       </td>
     </tr>
   </tbody>
@@ -103,7 +103,7 @@ SYD04<br />
 
 ## 建立起始抄本
 
-抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下進行管理。
+抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下進行管理。
 
 1. 按一下儲存空間磁區。
 2. 按一下**抄本**，然後按一下**購買抄寫**。
@@ -119,7 +119,7 @@ SYD04<br />
 
 ## 編輯現有抄寫
 
-您可以從 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 之**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤中編輯抄寫排程，以及變更抄寫空間。
+您可以從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤編輯抄寫排程，以及變更抄寫空間。
 
 
 
@@ -156,17 +156,6 @@ SYD04<br />
 您可以在**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**抄本**標籤上檢視抄本磁區詳細資料。另一個選項是從 **{{site.data.keyword.blockstorageshort}}** 頁面選取抄本磁區，然後按一下**抄本**標籤。
 
 
-## 在伺服器失效接手至次要資料中心之前指定主機授權
-
-授權主機及磁區必須位在相同的資料中心內。您不可以抄本磁區在「倫敦」，而主機在「阿姆斯特丹」。兩者都必須在「倫敦」，或兩者都必須在「阿姆斯特丹」。
-
-1. 從 **{{site.data.keyword.blockstorageshort}}** 頁面，按一下來源或目的地磁區。
-2. 按一下**抄本**。
-3. 向下捲動至**授權主機**頁框，然後按一下右側的**授權主機**。
-4. 強調顯示要授權進行抄寫的主機。若要選取多台主機，請使用 CTRL 鍵，然後按一下適用的主機。
-5. 按一下**提交**。如果您沒有主機，系統會提示您在相同的資料中心內購買運算資源。
-
-
 ## 在主要資料中心增加 Snapshot 空間時，在抄本資料中心中增加 Snapshot 空間
 
 主要及抄本儲存空間磁區的磁區大小必須相同。其中一個不能大於另一個。當您增加主要磁區的 Snapshot 空間時，即會自動增加抄本空間。增加 Snapshot 空間會觸發立即抄寫更新。兩個磁區的增加量會在您的發票中顯示為行項目，並且視需要按比例分配。
@@ -175,66 +164,33 @@ SYD04<br />
 {:tip}
 
 
-## 開始從磁區到其抄本的失效接手
-
-如果發生故障事件，則您可以開始**失效接手**到目的地或目標磁區。目標磁區會變成作用中。啟動前次順利抄寫的 Snapshot，而且磁區變成可用以進行裝載。將會遺失自前次抄寫週期以來寫入至來源磁區的所有資料。開始失效接手時，會翻轉抄寫關係。您的目標磁區會變成來源磁區，而先前的來源磁區會變成您的目標，並且後面接著 **REP** 的 **LUN 名稱**來表示。
-
-失效接手是在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下開始。
-
-**繼續執行這些步驟之前，請先中斷磁區連線。否則，會導致毀損及資料遺失。**
-
-1. 按一下作用中 LUN（「來源」）。
-2. 按一下**抄本**，然後按一下右上角的**動作**鏈結。
-3. 選取**失效接手**。
-   >預期頁面頂端會有一則訊息，指出正在進行失效接手。此外，**{{site.data.keyword.blockstorageshort}}** 上的磁區旁會出現一個圖示，指出正在進行作用中交易。將游標移至圖示上方會產生一個視窗，顯示交易。完成交易時，圖示即會消失。在失效接手處理程序期間，配置相關動作是唯讀的。您無法編輯任何 Snapshot 排程或變更 Snapshot 空間。事件會記載在抄寫歷程中。<br/> 當您的目標磁區處於作用中時，您會收到另一則訊息。您原始來源磁區的「LUN 名稱」會更新為以 REP 結束，且其「狀態」變成「非作用中」。
-4. 按一下**檢視全部 ({{site.data.keyword.blockstorageshort}})**。
-5. 按一下作用中 LUN（先前稱為目標磁區）。
-6. 將儲存空間磁區裝載並連接至主機。如需指示，請按一下[這裡](provisioning-block_storage.html)。
-
-
-## 開始從磁區到其抄本的失效回復
-
-修復原始來源磁區時，您可以開始對原始來源磁區的受管制失效回復。在受管制的失效回復中，
-
-- 作用中的來源磁區會離線，
-- 擷取 Snapshot，
-- 完成抄寫週期，
-- 啟動剛才建立的資料 Snapshot，
-- 然後，來源磁區會變成作用中以進行裝載。
-
-開始失效回復時，會再次翻轉抄寫關係。來源磁區會還原為來源磁區，而您的目標磁區會再次成為目標磁區，並且後面接著 **REP** 的 **LUN 名稱**來表示。
-
-失效回復是在 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下開始。
-
-1. 按一下作用中 LUN（「目標」）。
-2. 在右上方，按一下**抄本**，然後按一下**動作**。
-3. 選取**失效回復**。
-   >預期頁面頂端會有一則訊息，顯示正在進行失效接手。此外，**{{site.data.keyword.blockstorageshort}}** 上的磁區旁會出現一個圖示，指出正在進行作用中交易。將游標移至圖示上方會產生一個視窗，顯示交易。完成交易時，圖示即會消失。在失效回復處理程序期間，配置相關動作是唯讀的。您無法編輯任何 Snapshot 排程或變更 Snapshot 空間。事件會記載在抄寫歷程中。
-4. 在右上方按一下**檢視所有 {{site.data.keyword.blockstorageshort}}** 鏈結。
-5. 按一下作用中 LUN（「來源」）。
-6. 將儲存空間磁區裝載並連接至主機。如需指示，請按一下[這裡](provisioning-block_storage.html)。
-
-
 ## 檢視抄寫歷程
 
-可以在**管理**下的**帳戶**標籤上，於**審核日誌**中檢視抄寫歷程。主要及抄本磁區都會顯示相同的抄寫歷程。歷程包括：
+可以在**管理**下的**帳戶**標籤上，於**審核日誌**中檢視抄寫歷程。主要及抄本磁區都會顯示相同的抄寫歷程。歷程中包含下列項目。
 
-- 抄寫的類型（失效接手或失效回復）
-- 開始時間
-- 用於抄寫的 Snapshot
-- 抄寫的大小
-- 完成時間
+- 抄寫的類型（失效接手或失效回復）。
+- 開始的時間。
+- 用於抄寫的 Snapshot。
+- 抄寫的大小。
+- 完成抄寫的時間。
 
 
 ## 建立抄本的重複項目
 
-您可以建立現有 {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} 的重複項目。依預設，重複的磁區會繼承原始 LUN/磁區的容量及效能選項，而且會有到達 Snapshot 中該時間點之前的資料副本。
+您可以建立現有 {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} 的重複項目。依預設，重複磁區會繼承原始磁區的容量及效能選項，而且會有到達 Snapshot 中該時間點之前的資料副本。
 
 您可以從主要及抄本磁區建立重複磁區。新的重複磁區會建立在與原始磁區相同的資料中心內。如果您建立抄本磁區的重複磁區，則新的磁區會建立在與抄本磁區相同的資料中心內。
 
 佈建儲存空間之後，主機就可以存取重複磁區來進行讀寫。不過，除非從原始磁區到重複磁區的資料複製已完成，否則不容許進行 Snapshot 及抄寫。
 
 如需相關資訊，請參閱[建立重複的區塊磁區](how-to-create-duplicate-volume.html)。
+
+## 災難來襲時，使用抄本進行失效接手
+
+當您失效接手時，會將「開關」從主要資料中心的儲存空間磁區快速切換到遠端資料中心的目的地磁區。例如，您的主要資料中心是「倫敦」，而次要資料中心是「阿姆斯特丹」。如果發生故障事件，您會失效接手至「阿姆斯特丹」- 從「阿姆斯特丹」的運算實例連接至現行主要磁區。修復「倫敦」中的磁區之後，會建立「阿姆斯特丹」磁區的 Snapshot，以從「倫敦」的運算實例失效回復至「倫敦」及那個再度成為主要磁區的磁區。
+
+* 如果主要位置即將發生危險，請參閱[使用可存取的主要磁區進行失效接手](dr-accessible-primary.html)。
+* 如果主要位置已完全停機，請參閱[使用無法存取的主要磁區進行失效接手](disaster-recovery.html)。
 
 
 ## 取消現有抄寫

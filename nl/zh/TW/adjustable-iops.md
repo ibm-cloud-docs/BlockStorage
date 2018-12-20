@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ lastupdated: "2018-10-31"
 
 只有[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內才提供此特性。
 
-用戶端在調整其 IOPS 時無法切換「耐久性」與「效能」。不過，他們可以根據下列準則/限制來指定儲存空間的新 IOPS 層級或 IOPS 層次：
+用戶端在調整其 IOPS 時無法切換「耐久性」與「效能」。不過，他們可以依據下列準則和限制，指定儲存空間的新 IOPS 層級或 IOPS 層次：
 
 - 如果原始磁區是「耐久性 0.25」層級，則無法更新 IOPS 層級。
 - 如果原始磁區是具有小於或等於 0.30 IOPS/GB 的「效能」磁區，則可用的選項只包含結果會得到小於或等於 0.30 IOPS/GB 的大小及 IOPS 組合。
@@ -39,11 +39,13 @@ lastupdated: "2018-10-31"
 
 1. 移至您的 {{site.data.keyword.blockstorageshort}} 清單：
    - 從 {{site.data.keyword.slportal}}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
-   - 從 {{site.data.keyword.BluSoftlayer_full}} 型錄，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+   - 從 {{site.data.keyword.BluSoftlayer_full}} 主控台，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中選取 LUN，然後按一下**動作** > **修改 LUN**。
 3. 在**儲存空間 IOPS 選項**下，進行新的選取：
-    - 耐久性（分層 IOPS）：為儲存空間選取大於 0.25 IOPS/GB 的「IOPS 層級」。您隨時可以增加 IOPS 層級。不過，一個月只能減少一次。
-    - 效能（已配置的 IOPS）：針對您的儲存空間指定新的 IOPS 選項，方法是輸入範圍在 100-48,000 IOPS 之間的值。請務必在訂單表格中查看大小所需的任何特定界限。
+    - 針對「耐久性」（分層 IOPS），請為您的儲存空間選取大於 0.25 IOPS/GB 的「IOPS 層級」。您隨時可以增加 IOPS 層級。不過，一個月只能減少一次。
+    - 針對「效能」（已配置的 IOPS），請為您的儲存空間指定新的 IOPS 選項，輸入範圍在 100-48,000 IOPS 之間的值。
+    
+請務必在訂單表格中查看大小所需的任何特定界限。
     {:tip}
 4. 檢閱您的選取項目及新的定價。
 5. 按一下**我已閱讀主要服務合約...** 勾選框，然後按一下**下訂單**。

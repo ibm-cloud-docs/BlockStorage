@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
@@ -16,6 +16,11 @@ lastupdated: "2018-10-31"
 
 您可以將具有 Linux Unified Key Setup-on-disk-format (LUKS) 之 Red Hat Enterprise Linux 6 伺服器上的分割區加密，這在涉及行動電腦及抽取式媒體時很重要。LUKS 容許使用多個使用者金鑰來解密用於分割區大量加密的主要金鑰。
 
+這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接到 Linux 主機的相關資訊，請參閱[連接至 Linux 上的 MPIO iSCSI LUN](accessing_block_storage_linux.html)。
+
+佈建在[選取資料中心](new-ibm-block-and-file-storage-location-and-features.html)的 {{site.data.keyword.blockstorageshort}}，會使用提供者管理的靜態加密自動佈建。如需相關資訊，請參閱[保護資料安全 - 提供者管理的靜態加密 (Encryption-At-Rest)](block-file-storage-encryption-rest.html)。
+{:note}
+
 ## LUKS 可以執行的作業
 
 - 加密整個區塊裝置，因此非常適合用來保護行動裝置的內容，例如抽取式儲存媒體或筆記型電腦磁碟機。
@@ -28,11 +33,9 @@ lastupdated: "2018-10-31"
 ## LUKS 不會執行的作業
 
 - 容許需要多個（超過 8 個）使用者的應用程式，對相同的裝置具有不同的存取金鑰。
-- 使用需要檔案層次加密的應用程式（[相關資訊](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}）。
+- 使用需要檔案層次加密的應用程式（[相關資訊 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}）。
 
 ## 使用耐久性 {{site.data.keyword.blockstorageshort}} 來設定 LUKS 加密磁區
-
-這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接到 Linux 主機的相關資訊，請參閱[連接至 Linux 上的 MPIO iSCSI LUN](accessing_block_storage_linux.html)。
 
 資料加密處理程序會在主機上產生可能影響效能的負載。
 {:note}

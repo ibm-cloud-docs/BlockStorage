@@ -11,11 +11,11 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# 利用 cPanel 配置 {{site.data.keyword.blockstorageshort}} 進行備份
+# 使用 cPanel 配置 {{site.data.keyword.blockstorageshort}} 進行備份
 
 本文將協助您在 cPanel 中配置要儲存在 {{site.data.keyword.blockstoragefull}} 中的備份。我們假設可以使用 root 或 sudo SSH 及完整 WebHost Manager (WHM) 存取權。這些指示以 **CentOS 7** 主機為基礎。
 
-如需供應商的相關資訊，請參閱 [cPanel - Configuring Backup Directory ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
+如需相關資訊，請參閱 [cPanel - 配置備份目錄 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
 {:tip}
 
 1. 透過 SSH 連接至主機。
@@ -35,7 +35,7 @@ lastupdated: "2018-11-30"
     這個指令會壓縮並傳輸您的資料，並儘可能保留越多內容（但固定鏈結除外）。它提供要傳送哪些檔案的相關資訊，也會在尾端附上簡短摘要。
     {:tip}
 
-5. 登入 WebHost Manager，然後按一下**首頁** > **備份** > **備份配置**來前往備份配置。
+5. 登入 WHM，然後按一下**首頁** > **備份** > **備份配置**，以前往備份配置。
 
 6. 編輯配置，以將備份儲存在新的裝載點中。
     - 輸入新位置的絕對路徑來取代 /backup/ 目錄，以變更預設備份目錄。

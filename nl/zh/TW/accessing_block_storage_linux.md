@@ -18,10 +18,10 @@ lastupdated: "2018-11-30"
 這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
 {:note}
 
-例如，您可以在[這裡 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}找到「DM 多路徑」設定的 Ubuntu 指示。
-{:tip}
+例如，您可以在[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} 找到 Ubuntu 的「iSCSI 起始器配置」指示，以及在[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} 找到 Ubuntu 的「DM 多路徑」設定指示。
+{: tip}
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 獲得授權。
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 獲得授權。
 {:important}
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
@@ -32,7 +32,7 @@ lastupdated: "2018-11-30"
 
 以下是將 Linux 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
-指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面中取得。
+指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面取得。
 {: tip}
 
 最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
@@ -91,7 +91,7 @@ lastupdated: "2018-11-30"
       ```
       {: codeblock}
 
-    - 重新啟動 iscsi 及 iscsid 服務，使變更生效。
+    - 重新啟動 `iscsi` 和 `iscsid` 服務，讓變更生效。
 
       ```
       service iscsi restart
@@ -157,7 +157,7 @@ lastupdated: "2018-11-30"
      ```
     {: pre}
 
-    RHEL 7 及 CentOS 7 可能傳回「無 fc_host 裝置」，可以忽略此訊息。
+    RHEL 7 和 CentOS 7 可能會傳回「無 fc_host 裝置」，可以忽略此訊息。
 
 5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 檔案。請以小寫字體輸入此值。
    ```
@@ -221,7 +221,7 @@ lastupdated: "2018-11-30"
     ```
     {: pre}
 
-   - 其他發行套件：請參閱 OS 供應商文件。
+   - 若為其他發行套件，請參閱 OS 供應商文件。
 
 8. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
 
@@ -343,7 +343,7 @@ lastupdated: "2018-11-30"
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>建立新的分割區。&#42;</td>
+		<td>建立分割區。&#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -400,7 +400,7 @@ lastupdated: "2018-11-30"
   {: pre}
 
 
-若要使用 `parted` 建立檔案系統，請遵循下列步驟。
+若要使用 `parted` 來建立檔案系統，請遵循下列步驟。
 
 1. 執行 `parted`。
 
@@ -433,7 +433,7 @@ lastupdated: "2018-11-30"
 
    4. `Parted` 可以用來建立主要及邏輯磁碟分割區，涉及的步驟相同。若要建立分割區，`parted` 會使用 `mkpart`。您可以為它提供其他參數，如 **primary** 或 **logical**，視您想要建立的分割區類型而定。<br />
 
-   列出的單位預設為百萬位元組 (MB)，若要建立 10 GB 分割區，請從 1 開始，並在 10000 結束。想要的話，您也可以輸入 `unit TB`，將大小單位變更為兆位元組 (TB)。
+   列出的單位預設為百萬位元組 (MB)。若要建立 10 GB 分割區，請從 1 開始，並在 10000 結束。想要的話，您也可以輸入 `unit TB`，將大小單位變更為兆位元組 (TB)。
    {: tip}
 
       ```
@@ -455,7 +455,7 @@ lastupdated: "2018-11-30"
    ```
    {: pre}
 
-   在執行這個指令時，務必選取正確的磁碟及分割區！<br />請列印分割區表格來驗證結果。在檔案系統直欄下，您可以看到 ext3。
+   在執行這個指令時，務必選取正確的磁碟及分割區。<br />請列印分割區表格來驗證結果。在檔案系統直欄下，您可以看到 ext3。
    {:important}
 
 4. 為檔案系統建立裝載點，並裝載它。
@@ -491,9 +491,9 @@ lastupdated: "2018-11-30"
 
 
 
-## 驗證是否在 `*NIX` OS 中正確地設置 MPIO
+## 驗證 MPIO 配置
 
-1. 若要檢查多路徑是否正在挑選裝置，請列出裝置。如果它配置正確，則只會顯示兩台 NETAPP 裝置。
+1. 若要檢查多路徑是否正在挑選裝置，請列出裝置。如果配置正確，則只會顯示兩台 NETAPP 裝置。
 
   ```
    multipath -l
@@ -514,7 +514,7 @@ root@server:~# multipath -l
   ```
   {: pre}
 
-  - 正確配置的範例輸出：
+  - 正確配置的輸出範例。
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,7 +523,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
-  - 不正確配置的範例輸出：
+  - 不正確配置的輸出範例。
 
     ```
 No multipath output root@server:~# multipath -l root@server:~#
@@ -536,7 +536,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 ```
 
-3. 確認本端磁碟不包含在多路徑裝置中。下列指令顯示列入黑名單的裝置。
+3. 確認本端磁碟未包含在多路徑裝置中。下列指令顯示列入黑名單的裝置。
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
@@ -571,5 +571,5 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    ```
    {: pre}
 
-   如需相關資訊，請參閱 [iscsiadm 的線上指令說明](https://linux.die.net/man/8/iscsiadm)。
+   如需相關資訊，請參閱 [`iscsiadm` 手冊 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://linux.die.net/man/8/iscsiadm)。
    {:tip}

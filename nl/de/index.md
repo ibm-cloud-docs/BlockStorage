@@ -122,7 +122,7 @@ Performance für {{site.data.keyword.blockstorageshort}} wird über eine MPIO-iS
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>In Tabelle 3 werden Kombinationen aus Größe und IOPS-Raten für Performance-Speicher aufgeführt.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> Ein IOPS-Grenzwert über 6.000 ist in ausgewählten Rechenzentren verfügbar.</caption>
+ <caption>In Tabelle 3 werden Kombinationen aus Größe und IOPS-Raten für Performance-Speicher aufgeführt.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS-Grenzwerte über 6.000 sind in ausgewählten Rechenzentren verfügbar.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -265,8 +265,7 @@ Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete
 
 Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](set-host-queue-depth-settings-performance-and-endurance-storage.html) und andere Einstellungen) zu berücksichtigen.
 
-Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Die [Dokumentation zu virtuellen Servern](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) enthält Informationen zu den möglichen Einschränkungen im Zusammenhang mit dem Service.
-{:tip}
+Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die vom Service auferlegt werden können, finden Sie in der [Dokumentation zu virtuellen Servern](https://{/docs/vsi/vsi_public.html#public-virtual-servers).{:tip}
 
 ## Auftrag erteilen
 

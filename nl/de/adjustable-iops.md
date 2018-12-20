@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -39,12 +39,14 @@ Wenn die Replikation auf dem Datenträger eingerichtet wurde, wird das Replikat 
 
 1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste:
    - Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-   - Klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+   - Klicken Sie in der {{site.data.keyword.BluSoftlayer_full}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Treffen Sie im Bereich **IOPS-Optionen für Speicher** eine neue Auswahl:
-    - Endurance (Gestaffelte IOPS): Wählen Sie ein IOPS-Tier aus, das größer als 0,25 IOPS/GB Ihres Speichers ist. Sie können den Wert für das IOPS-Tier jederzeit erhöhen. Seine Verringerung ist jedoch nur einmal pro Monat möglich.
-    - Performance (Zugeordnete IOPS): Geben Sie für Ihren Speicher eine neue IOPS-Option an, indem Sie einen Wert zwischen 100 und 48.000 IOPS eingeben.
-    Stellen Sie sicher, dass Sie alle spezifischen Grenzen beachten, die durch die Größe im Bestellformular erforderlich sind. {:tip}
+    - Wählen Sie für 'Endurance (Gestaffelte IOPS)' Sie ein IOPS-Tier aus, das größer als 0,25 IOPS/GB Ihres Speichers ist. Sie können den Wert für das IOPS-Tier jederzeit erhöhen. Seine Verringerung ist jedoch nur einmal pro Monat möglich.
+    - Geben Sie für 'Performance (zugeordnete E/A-Operationen pro Sekunde)' die neue IOPS-Option für Ihren Speicher an, indem Sie einen Wert im Bereich von 100 bis 48.000 IOPS eingeben. 
+    
+    Stellen Sie sicher, dass Sie alle spezifischen Grenzen beachten, die durch die Größe im Bestellformular erforderlich sind.
+    {:tip}
 4. Prüfen Sie Ihre Auswahl und die neue Preisstruktur.
 5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
 6. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.

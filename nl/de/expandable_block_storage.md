@@ -2,18 +2,18 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
 
 # Blockspeicherkapazität erweitern
 
-Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung. 
+Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung.
 
 Die Abrechnung für den Datenträger wird so aktualisiert, dass die anteilige Differenz des neuen Preises zum aktuellen Abrechnungszyklus hinzugefügt wird. Der gesamte neue Betrag wird dann beim nächsten Abrechnungszyklus abgerechnet.
 
-Diese Funktion ist in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) verfügbar. 
+Diese Funktion ist in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) verfügbar.
 
 ## Vorteile des erweiterbaren Speichers
 
@@ -23,13 +23,13 @@ Diese Funktion ist in [ausgewählten Rechenzentren](new-ibm-block-and-file-stora
 
 ## Auswirkungen einer Erweiterung der Speicherkapazität auf die Replikation
 
-Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenänderung des Replikats zur Folge. 
+Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenänderung des Replikats zur Folge.
 
 ## Einschränkungen
 
-Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird. 
+Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
 
-Speicher, der vor der Freigabe dieser Funktion (**April 2017 - 14. Dezember 2017**) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach dem **14. Dezember 2017** bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden. 
+Speicher, der vor der Freigabe dieser Funktion (**April 2017 - 14. Dezember 2017**) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach dem **14. Dezember 2017** bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden.
 
 Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.data.keyword.blockstorageshort}} gelten weiterhin (bis zu 4 TB für das 10-IOPS-Tier und bis zu 12 TB für alle anderen Tiers).
 

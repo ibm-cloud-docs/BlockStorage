@@ -12,9 +12,13 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# LUKS in Red Hat Enterprise Linux für die vollständige Plattenverschlüsselung verwenden
+# Vollständige Plattenverschlüsselung mit LUKS in Red Hat Enterprise Linux erzielen
 
 Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Plattenformat (LUKS - Linux Unified Key Setup-on-disk-format) verschlüsseln, was für tragbare Computer und und Wechseldatenträger von Bedeutung ist. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
+
+Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html).
+
+{site.data.keyword.blockstorageshort}} wird in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) automatisch durch providerseits verwaltete Verschlüsselung ruhender Daten bereitgestellt. Weitere Informationen finden Sie im Abschnitt [Daten schützen - durch providerseits verwaltete Verschlüsselung ruhender Daten](block-file-storage-encryption-rest.html).{:note}
 
 ## Möglichkeiten bei Verwendung von LUKS
 
@@ -28,16 +32,14 @@ Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Platte
 ## Was LUKS nicht bietet
 
 - Bereitstellung unterschiedlicher Zugriffsschlüssel für dieselben Geräte in Anwendungen, in denen dies für viele Benutzer (mehr als acht) erforderlich ist
-- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist ([weitere Informationen ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}).
+- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist, [weitere Informationen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Mit LUKS verschlüsselten Datenträger mit Endurance für {{site.data.keyword.blockstorageshort}} konfigurieren
-
-Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html).
 
 Der Prozess der Datenverschlüsselung führt zu einer Belastung des Hosts, die möglicherweise die Leistung beeinträchtigt.
 {:note}
 
-1. Machen Sie an einer Shelleingabeaufforderung als Root die folgenden Eingaben, um das erforderliche Paket zu installieren:   <br/>
+1. Geben Sie den folgenden Befehl an einer Shelleingabeaufforderung als Root ein, um das erforderliche Paket zu installieren:   <br/>
    ```
    # yum install cryptsetup-luks
    ```

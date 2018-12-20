@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-10-31"
 
 # Snapshot
 
-Snapshot 是 {{site.data.keyword.blockstoragefull}} 的特性。Snapshot 代表磁區在特定時間點的內容。Snapshot 可讓您保護資料而不影響效能、耗用最小空間，而且視為資料保護的第一線防禦。如果使用者意外修改或刪除磁區中的重要資料，則可以輕鬆且快速地從 Snapshot 副本中還原資料。
+Snapshot 是 {{site.data.keyword.blockstoragefull}} 的特性。Snapshot 代表磁區在特定時間點的內容。Snapshot 可讓您保護資料而不影響效能，且耗用的空間極小。Snapshot 可視為資料保護的第一線防線。如果使用者意外修改或刪除磁區中的重要資料，則可以輕鬆且快速地從 Snapshot 副本中還原資料。
 
 {{site.data.keyword.blockstorageshort}} 提供兩種取得 Snapshot 的方法。
 
@@ -50,7 +50,7 @@ Snapshot 不能取代實際異地「災難回復」抄寫或長時間保留備�
 
 ## Snapshot 對磁碟空間的影響
 
-Snapshot 副本可使磁碟空間用量降到最低，方法是保留個別區塊，而非整個檔案。只有在變更或刪除作用中檔案系統中的檔案時，Snapshot 副本才會使用額外的空間。發生此情況時，仍會保留原始檔案區塊作為一個以上 Snapshot 副本的一部分。
+Snapshot 副本可使磁碟空間用量降到最低，方法是保留個別區塊，而非整個檔案。只有在變更或刪除作用中檔案系統中的檔案時，Snapshot 副本才會使用額外的空間。當檔案變更或刪除時，仍會在一個以上 Snapshot 副本中保留原始檔案區塊。
 
 在作用中檔案系統中，會將已變更的區塊重新寫入至磁碟上的不同位置，或當成作用中檔案區塊完全移除。因此，除了已修改的作用中檔案系統中的區塊所使用的磁碟空間之外，仍會保留原始區塊所使用的磁碟空間，以反映作用中檔案系統在變更之前的狀態。
 

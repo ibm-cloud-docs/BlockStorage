@@ -16,10 +16,10 @@ lastupdated: "2018-11-30"
 
 請遵循下列指示，以在 CloudLinux Server 6.10 版上按裝具有多路徑的 iSCSI LUN。
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} 獲得授權。
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 獲得授權。
 {:tip}
 
-1. 登入 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}。
+1. 登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
 2. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
 3. 按一下**授權主機**。
 4. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
@@ -151,7 +151,7 @@ lastupdated: "2018-11-30"
 
 6. 驗證裝置已連接。
    ```
-   fdisk -l
+   fdisk -l 
    ```
    {: pre}
 
@@ -188,7 +188,7 @@ lastupdated: "2018-11-30"
 
    磁區現在已裝載且可在主機上存取。
 
-7. 列出裝置，以驗證 MPIO 是否配置正確。如果它配置正確，則只會顯示兩台 NETAPP 裝置。
+7. 列出裝置，以驗證 MPIO 是否配置正確。如果配置正確，則只會顯示兩台 NETAPP 裝置。
 
    ```
    # multipath -l

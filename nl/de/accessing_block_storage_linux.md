@@ -18,11 +18,10 @@ lastupdated: "2018-11-30"
 Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
 {:note}
 
-Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
-{:tip}
+Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+{: tip}
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, vorher im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} autorisiert wurde.
-{:important}
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} zuvor autorisiert wurde.{:important}
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
 2. Klicken Sie auf **Host autorisieren**.
@@ -32,7 +31,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 
 Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
 
-Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}}Details** im [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} abgelesen werden.
+Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}} Details** im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} abgelesen werden.
 {: tip}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
@@ -91,7 +90,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
       ```
       {: codeblock}
 
-    - Starten Sie die Services 'iscsi' und 'iscsid' erneut, damit die Änderungen wirksam werden.
+    - Starten Sie die Services `iscsi` und `iscsid` erneut, damit die Änderungen wirksam werden.
 
       ```
       service iscsi restart
@@ -157,7 +156,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
     ```
     {: pre}
 
-    Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden.
+    Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden. 
 
 5. Aktualisieren Sie die Datei `/etc/iscsi/initiatorname.iscsi` mit dem IQN aus dem {{site.data.keyword.slportal}}. Geben Sie den Wert in Kleinbuchstaben ein.
    ```
@@ -283,7 +282,8 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehäng
 
    XXX steht für den in Schritt 1 zurückgegebenen Datenträgernamen. <br />
 
-   Blättern Sie weiter nach unten zu den Befehlscodes, die in der Befehlstabelle `fdisk` aufgelistet sind.{: tip}
+   Blättern Sie weiter nach unten zu den Befehlscodes, die in der Befehlstabelle `fdisk` aufgelistet sind.
+   {: tip}
 
 3. Erstellen Sie ein Dateisystem auf der neuen Partition.
 
@@ -342,7 +342,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehäng
     <tbody>
 	<tr>
 		<td><code>Befehl: n</code></td>
-		<td>Erstellt eine neue Partition. &#42;</td>
+		<td>Erstellt eine Partition. &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Befehlsaktion: p</code></td>
@@ -432,7 +432,8 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
 
    4. Mit `parted` können primäre und logische Datenträgerpartitionen erstellt werden; die Schritte dazu sind identisch. Von `parted` wird `mkpart` zum Erstellen einer Partition verwendet. Je nach dem zu erstellenden Partitionstyp können Sie zusätzliche Parameter wie **primary** oder **logical** verwenden.<br />
 
-   Die aufgelisteten Einheiten sind standardmäßig Megabyte (MB). Um eine Partition mit 10 GB zu erstellen, beginnen Sie mit 1 und enden bei 10000. Sie können die Dimensionierungseinheit auch in Terabyte ändern, indem Sie `unit TB` eingeben, wenn Sie dies wünschen. {: tip}
+   Die aufgelisteten Einheiten werden standardmäßig in Megabyte (MB) angegeben. Um eine Partition mit 10 GB zu erstellen, beginnen Sie mit 1 und enden bei 10000. Sie können die Dimensionierungseinheit auch in Terabyte ändern, indem Sie `unit TB` eingeben, wenn Sie dies wünschen.
+   {: tip}
 
       ```
       mkpart
@@ -453,7 +454,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
    ```
    {: pre}
 
-   Es ist wichtig, die richtige Platte und Partition auszuwählen, wenn Sie diesen Befehl ausführen! <br />Drucken Sie zur Überprüfung des Ergebnisses die Partitionstabelle aus. Unter der Spalte mit den Dateisystemen wird 'ext3' angezeigt.
+   Es ist wichtig, die richtige Platte und Partition auszuwählen, wenn Sie diesen Befehl ausführen. <br />Drucken Sie zur Überprüfung des Ergebnisses die Partitionstabelle aus. Unter der Spalte mit den Dateisystemen wird 'ext3' angezeigt.
    {:important}
 
 4. Erstellen Sie einen Mountpunkt für das Dateisystem und hängen Sie es an.
@@ -489,7 +490,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
 
 
 
-## Korrekte Konfiguration von MPIO auf `*NIX`-Betriebssystemen prüfen
+## MPIO-Konfiguration überprüfen
 
 1. Listen Sie nur die Geräte auf, um zu überprüfen, ob die Geräte von Multipath ausgewählt werden. Wenn die Konfiguration korrekt ist, werden nur zwei NETAPP-Geräte angezeigt.
 
@@ -512,7 +513,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
   ```
   {: pre}
 
-  - Beispielausgabe einer korrekten Konfiguration:
+  - Beispielausgabe einer korrekten Konfiguration.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -521,7 +522,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Beispielausgaben für eine falsche Konfiguration:
+  - Beispielausgaben einer fehlerhaften Konfiguration.
 
     ```
     No multipath output root@server:~# multipath -l root@server:~#
@@ -551,7 +552,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
 
-1. Hängen Sie das Dateisystem ab.
+1. Hängen Sie das Dateisystem ab. 
    ```
    umount /dev/mapper/XXXlp1 /PerfDisk
    ```
@@ -569,5 +570,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   Weitere Informationen finden Sie auf der [Handbuchseite zu iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   Weitere Informationen finden Sie im Handbuch zu [`iscsiadm` ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://linux.die.net/man/8/iscsiadm).
    {:tip}

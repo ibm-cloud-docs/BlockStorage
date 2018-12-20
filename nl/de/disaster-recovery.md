@@ -2,10 +2,9 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-30"
+lastupdated: "2018-12-06"
 
 ---
-
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
@@ -13,16 +12,16 @@ lastupdated: "2018-11-30"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
+# Disaster-Recovery - Failover mit einem nicht zugänglichen Primärdatenträger
 
-# Replikatdatenträger für Disaster-Recovery duplizieren
+Wenn eine Betriebsunterbrechung oder eine Katastrophe einen Ausfall am primären Standort verursachen, können Kunden die folgenden Aktionen ausführen, um schnell am sekundären Standort auf ihre Daten zuzugreifen.
 
-Im Falle einer vollständigen Betriebsunterbrechung oder einer Katastrophe, die einen Ausfall am primären Standort verursacht, können Kunden die folgenden Aktionen ausführen, um schnell am sekundären Standort auf ihre Daten zuzugreifen.
+## Failover mit dem Duplikat eines Replikatdatenträgers am sekundären Standort
 
-## Funktionsübernahme mit dem Duplikat eines Replikatdatenträgers am sekundären Standort
+1. Melden Sie sich an [der IBM Cloud-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
-1. Melden Sie sich an der [IBM Cloud-Konsole](https://{DomainName}/catalog/){:new_window} an, und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.  
 
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} anmelden.
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.
 2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 3. Klicken Sie auf das Replikat der LUN in der Liste, um die zugehörige Seite **Details** anzuzeigen.
 4. Blättern Sie auf der Seite **Details** nach unten und wählen Sie einen vorhandenen Snapshot aus. Klicken Sie anschießend auf **Aktionen** > **Duplikat**.
@@ -36,16 +35,17 @@ Sobald der Datenträger erstellt wurde, kann er einem Host zugeordnet werden und
 
 Wenn Sie die Produktion an den ursprünglichen primären Standort zurückgeben möchten, müssen Sie die folgenden Schritte ausführen.
 
-1. Melden Sie sich an der [IBM Cloud-Konsole](https://{DomainName}/catalog/){:new_window} an, und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.  
+1. Melden Sie sich an [der IBM Cloud-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} anmelden.
+
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.
 2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-3. Klicken Sie auf den LUN-Namen und erstellen Sie einen Snapshotplan (falls noch keiner vorhanden ist).  
+3. Klicken Sie auf den LUN-Namen und erstellen Sie einen Snapshotplan (falls noch keiner vorhanden ist).
 
    Weitere Informationen zu Snapshotplänen finden Sie unter [Snapshots verwalten](working-with-snapshots.html#adding-a-snapshot-schedule).
    {:tip}
 4. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
-5. Wählen Sie einen vorhandenen Snapshotplan aus, den die Replikation befolgen soll. Die Liste enthält alle aktiven Snapshotpläne.  
+5. Wählen Sie einen vorhandenen Snapshotplan aus, den die Replikation befolgen soll. Die Liste enthält alle aktiven Snapshotpläne.
 6. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das der ursprüngliche Produktionsstandort war.
 7. Klicken Sie auf **Weiter**.
 8. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
