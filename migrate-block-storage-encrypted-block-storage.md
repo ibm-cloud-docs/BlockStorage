@@ -16,7 +16,7 @@ Enhanced {{site.data.keyword.blockstoragefull}} is now available in select data 
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 
-There's an assumption that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
+The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
 - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
 - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
@@ -100,7 +100,7 @@ If your replication target data center is not upgraded yet, you can't establish 
 
 3. Copy your data across.
    - For **Microsoft Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
-   - For **Linux**, you can use `rsync` to copy over the data. Here is an example:
+   - For **Linux**, you can use `rsync` to copy over the data.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
