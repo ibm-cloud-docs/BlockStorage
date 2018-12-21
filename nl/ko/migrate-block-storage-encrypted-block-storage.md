@@ -22,7 +22,10 @@ lastupdated: "2018-11-30"
 - [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
 - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
 
-## 새 {{site.data.keyword.blockstorageshort}} 작성
+이러한 데이터 센터에서 프로비저닝된 모든 개선된 {{site.data.keyword.blockstorageshort}} 볼륨에는 암호화되지 않은 볼륨과는 다른 마운트 지점이 있습니다. 두 스토리지 볼륨에 올바른 마운트 지점을 사용 중임을 확인하기 위해 콘솔의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 볼 수 있습니다. 또한 API 호출(`SoftLayer_Network_Storage::getNetworkMountAddress()`)을 통해 올바른 마운트 지점에 액세스할 수도 있습니다.
+{:tip}
+
+## {{site.data.keyword.blockstorageshort}} 작성
 
 API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 기능을 가져오는지 확인하기 위해 "서비스로서의 스토리지" 패키지를 지정하십시오.
 {:important}
@@ -31,7 +34,7 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 
 ### EnduranceLUN 주문
 
-1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 3. **스토리지 유형 선택** 목록에서 **Endurance**를 선택하십시오.
 4. 배치 **위치**(데이터 센터)를 선택하십시오.
@@ -40,6 +43,7 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 6. IOPS 티어를 선택하십시오.
 7. **스토리지 크기 선택**을 클릭하고 목록에서 스토리지 크기를 선택하십시오.
 8. **스냅샷 영역 크기 지정**을 클릭하고 목록에서 스냅샷 크기를 선택하십시오. 이 영역은 사용 가능한 영역 이외의 영역입니다.
+
    스냅샷 영역 고려사항과 권장사항에 대한 자세한 정보는 [스냅샷 주문](ordering-snapshots.html)을 참조하십시오.
    {:tip}
 9. 목록에서 **OS 유형**을 선택하십시오.
@@ -48,11 +52,13 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 
 ### Performance LUN 주문
 
-1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라 > 스토리지 > {{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 오른쪽에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 3. **스토리지 유형 선택** 목록에서 **Performance**를 선택하십시오.
 4. **위치**를 클릭하고 데이터 센터를 선택하십시오.
-   - 사용자가 이전에 주문한 호스트와 같은 위치에 새 스토리지를 추가하십시오.
+
+   사용자가 이전에 주문한 호스트와 같은 위치에 새 스토리지를 추가하십시오.
+   {:important}
 5. 비용 청구 옵션을 선택하십시오. 시간별 비용 청구와 월별 비용 청구 중에서 선택할 수 있습니다.
 6. 적절한 **스토리지 크기**를 선택하십시오.
 7. **IOPS 지정** 필드에 IOPS를 입력하십시오.
@@ -82,6 +88,7 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 ## 데이터 마이그레이션
 
 1. 원본과 새 {{site.data.keyword.blockstorageshort}} LUN에 모두 연결하십시오.
+
    두 개의 LUN을 호스트에 연결하는 데 도움이 필요한 경우에는 지원 케이스를 여십시오.
    {:tip}
 
@@ -90,8 +97,8 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
   - {{site.data.keyword.blockstorageshort}}에서 데이터베이스 또는 가상 머신을 실행 중인 경우, 데이터 손상이 발생하지 않도록 데이터가 복사 중에 수정되지 않도록 하십시오. 대역폭 관련 문제가 있는 경우, 최대 활동 시간이 아닌 시간에 마이그레이션을 수행하십시오. 이런 고려사항에 관련된 도움이 필요한 경우에는 지원 티켓을 여십시오.
 
 3. 데이터를 복사하십시오.
-   - **Microsoft Windows** - 원본 {{site.data.keyword.blockstorageshort}} LUN에서 새 LUN으로 데이터를 복사하려면 새 스토리지를 포맷하고 Windows Explorer를 사용하여 파일을 복사하십시오.
-   - **Linux** - `rsync`를 사용하여 데이터를 복사할 수 있습니다. 예를 들면 다음과 같습니다.
+   - **Microsoft Windows**의 경우 새 스토리지를 포맷하고 Windows Explorer를 사용하여 원본 {{site.data.keyword.blockstorageshort}} LUN에서 새 LUN으로 데이터를 복사하십시오.
+   - **Linux**의 경우 `rsync`를 사용하여 데이터를 복사할 수 있습니다. 예를 들어 다음과 같습니다.
    ```
 [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

@@ -11,17 +11,17 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Plesk を使用したバックアップのための {{site.data.keyword.blockstorageshort}} の構成
+# Plesk を使用してバックアップするための {{site.data.keyword.blockstorageshort}} の構成
 
 以下の説明に従って、Plesk でのバックアップ用に {{site.data.keyword.blockstoragefull}} を構成します。 root または sudo SSH でのアクセスが可能であり、管理者レベルの Plesk フル・アクセス権限があることを前提としています。 ここでの説明は、CentOS7 ホストに基づいています。
 
-ベンダーからの詳細情報は、[バックアップとリストアに関する Plesk の資料 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}を参照してください。
+詳しくは、[バックアップとリストアに関する Plesk の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window} を参照してください。
 {:tip}
 
 1. SSH 経由でホストに接続します。
 2. マウント・ポイント・ターゲットが存在することを確認します。
 
-   Plesk には、バックアップを保管するための 2 つのオプションがあります。 1 つのオプションは、内部 Plesk ストレージ (Plesk サーバー上のバックアップ・ストレージ) です。 もう 1 つのオプションは、外部 FTP ストレージ (Web またはローカル・ネットワーク内の一部の外部サーバー上にあるバックアップ・ストレージ) です。 一般的に、Plesk ボックスでは、内部バックアップは `/var/lib/psa/dumps` に保管され、一時ディレクトリーとして `/tmp` を使用します。 この例では、一時ディレクトリーはローカルのままにしますが、ダンプ・ディレクトリーは STaaS ターゲット (`/backup/psa/dumps`) に移動します。 FTP ユーザー資格情報は不要です。
+   Plesk には、バックアップを保管するための 2 つのオプションがあります。 1 つのオプションは、内部 Plesk ストレージ (Plesk サーバー上のバックアップ・ストレージ) です。 もう 1 つのオプションは、外部 FTP ストレージ (Web またはローカル・ネットワーク内の一部の外部サーバー上にあるバックアップ・ストレージ) です。 一般的に、Plesk ボックスでは、内部バックアップは `/var/lib/psa/dumps` に保管され、一時ディレクトリーとして `/tmp` を使用します。 この例では、一時ディレクトリーはローカルのままにしますが、ダンプ・ディレクトリーは {{site.data.keyword.blockstorageshort}} ターゲット (`/backup/psa/dumps`) に移動します。 FTP ユーザー資格情報は不要です。
    {:note}   
 3. [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)の説明に従って、{{site.data.keyword.blockstorageshort}} を構成します。 {{site.data.keyword.blockstorageshort}} を `/backup` にマウントし、開始時のマウントを可能にするように `/etc/fstab` を構成します。
 4. **オプション**: 既存のバックアップを新規ストレージにコピーします。 `rsync` を使用できます。

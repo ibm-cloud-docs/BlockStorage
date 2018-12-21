@@ -6,12 +6,15 @@ lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # ストレージ制限の管理
 
 デフォルトでは、総計 250 個の {{site.data.keyword.blockstorageshort}} ボリュームをグローバルにプロビジョンできます。
 
-[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} でチケットを送信することによって、制限の引き上げを要求できます。 要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
+[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} でチケットを送信することによって、制限の引き上げを要求できます。 要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
 
 制限の引き上げを要求するには、チケットをオープンして営業担当員に送信します。
 
@@ -34,4 +37,7 @@ lastupdated: "2018-11-30"
 - **これらのボリュームの 90 日間で想定される平均容量使用率の予測を指定してください。** <br />
 *例えば、「30 日間で 25% 使用、60 日間で 50% 使用、90 日間で 75% 使用が想定される」などの回答が考えられます。*
 
-上記の質問はすべて、回答が必須です。 チケット・プロセスによって、制限が更新されたことが通知されます。
+上記の要求内のすべての質問と命題に回答してください。処理と承認を行う際にこれらが必要になります。
+{:important}
+
+チケット・プロセスによって制限が更新されたことが通知されます。

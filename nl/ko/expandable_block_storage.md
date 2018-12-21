@@ -2,18 +2,18 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
 
 # 블록 스토리지 용량 확장
 
-이 새 기능을 사용하면 현재 {{site.data.keyword.blockstoragefull}} 사용자는 기존 {{site.data.keyword.blockstorageshort}} 크기를 GB 단위로 최대 12TB까지 바로 확장 가능합니다. 복제본을 작성하거나 수동으로 데이터를 더 큰 볼륨으로 마이그레이션할 필요가 없습니다. 크기 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다. 
+이 새 기능을 사용하면 현재 {{site.data.keyword.blockstoragefull}} 사용자는 기존 {{site.data.keyword.blockstorageshort}} 크기를 GB 단위로 최대 12TB까지 바로 확장 가능합니다. 복제본을 작성하거나 수동으로 데이터를 더 큰 볼륨으로 마이그레이션할 필요가 없습니다. 크기 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
 
 볼륨에 대한 비용 청구는 현재 비용 청구 주기에 대해 새 가격의 비례 배분된 금액 차이가 추가되도록 자동으로 업데이트됩니다. 그런 다음 비용 청구 주기에는 신규 비용 전체가 청구됩니다.
 
-이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에 사용할 수 있습니다. 
+이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에 사용할 수 있습니다.
 
 ## 확장 가능 스토리지의 이점
 
@@ -23,13 +23,13 @@ lastupdated: "2018-09-12"
 
 ## 복제 시 스토리지 용량 확장 영향
 
-기본 스토리지에서 확장 조치로 인해 복제본의 크기는 자동으로 조정됩니다. 
+기본 스토리지에서 확장 조치로 인해 복제본의 크기는 자동으로 조정됩니다.
 
 ## 제한사항
 
-이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에 사용할 수 있습니다. 
+이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에 사용할 수 있습니다.
 
-이 기능이 릴리스되기 전에 **2017년 4월 - 2017년 12월 14일** 동안 이러한 데이터 센터에서 프로비저닝된 스토리지는 원래 크기의 10배로만 늘어날 수 있습니다. **2017년 12월 14일** 이후에 프로비저닝된 스토리지는 최대 12TB까지 확장이 가능합니다. 
+이 기능이 릴리스되기 전에 **2017년 4월 - 2017년 12월 14일** 동안 이러한 데이터 센터에서 프로비저닝된 스토리지는 원래 크기의 10배로만 늘어날 수 있습니다. **2017년 12월 14일** 이후에 프로비저닝된 스토리지는 최대 12TB까지 확장이 가능합니다.
 
 Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대한 기존 크기 제한은 여전히 적용됩니다(10 IOPS 티어에 대해 최대 4TB, 다른 모든 티어에 대해 최대 12TB).
 

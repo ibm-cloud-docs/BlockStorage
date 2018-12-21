@@ -109,7 +109,7 @@ Endurance{{site.data.keyword.blockstorageshort}}는 다양한 애플리케이션
 
 - **10 IOPS/GB**는 NoSQL 데이터베이스로 작성된 워크로드 및 분석을 위한 데이터 처리와 같이 가장 수요가 많은 워크로드를 대상으로 디자인되었습니다. 이 티어는 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html) 시에만 최대 4TB의 스토리지 프로비저닝에 사용할 수 있습니다.
 
-12TB Endurance볼륨에 최대 48,000 IOPS가 사용 가능합니다.
+12TB Endurance 볼륨으로 최대 48,000IOPS까지 사용 가능합니다.
 
 워크로드에 맞는 Endurance 티어를 선택하는 것이 중요합니다. 최대 성능 달성에 필요한 올바른 블록 크기, 이더넷 연결 속도 및 호스트 수를 사용하는 것도 매우 중요합니다. 이들 중 하나라도 제대로 맞지 않는 경우, 처리 결과에 심각한 영향을 줄 수 있습니다.
 
@@ -122,7 +122,7 @@ Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항�
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>표 3에서는 성능 스토리지의 크기와 IOPS 조합을 표시합니다.<br/><sup><img src="/images/numberone.png" alt="각주" /></sup> 6,000이 넘는 IOPS 한계는 데이터 센터 선택 시 사용할 수 있습니다.</caption>
+ <caption>표 3에서는 성능 스토리지의 크기와 IOPS 조합을 표시합니다.<br/><sup><img src="/images/numberone.png" alt="각주" /></sup> 6,000보다 큰 IOPS 한계는 특정 데이터 센터에서 사용 가능합니다.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -197,7 +197,7 @@ Performance 볼륨은 프로비저닝된 IOPS 레벨과 계속 근접하게 작�
 
 **블록 크기**
 
-Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크로드의 16KB 블록 크기를 기반으로 합니다. 16KB 블록은 볼륨에 한 번 쓰는 것에 해당합니다.
+Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워크로드의 16KB 블록 크기를 기반으로 합니다. 16KB 블록은 볼륨에 한 번 쓰기와 동등합니다.
 {:important}
 
 애플리케이션에서 사용하는 블록 크기는 스토리지 성능에 직접적인 영향을 줍니다. 애플리케이션에서 사용하는 블록 크기가 16KB보다 작은 경우, IOPS 한계가 처리량 한계 이전에 실현됩니다. 반대로, 애플리케이션에서 사용하는 블록 크기가 16KB보다 큰 경우, 처리량 한계가 IOPS 한계 이전에 실현됩니다.
@@ -261,12 +261,11 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 
 **네트워크 연결**
 
-이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, 6000 IOPS에 16KB의 블록 크기를 사용 중인 경우, 볼륨은 대략적으로 94MBps 처리량을 처리할 수 있습니다. LUN에 1Gbps 이더넷 연결을 사용 중인 경우, 서버가 최대 가용 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 1Gbps 이더넷 연결(초당 125MB)에 대한 이론적 한계의 70%는 초당 88MB만 처리할 수 있기 때문입니다.
+이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, IOPS가 6,000이며 16KB 블록 크기를 사용하는 경우 볼륨은 약 94MBps의 처리량을 처리할 수 있습니다. LUN에 대해 1Gbps의 이더넷 연결을 보유하고 있는 경우 서버가 사용 가능한 최대 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 이는 1Gbps 이더넷 연결(초당 125MB)에 대한 70퍼센트 이론적 한계가 초당 88MB까지만 허용하기 때문입니다.
 
 최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](set-host-queue-depth-settings-performance-and-endurance-storage.html) 및 기타 설정)도 고려해야 합니다.
 
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계를 이해하려면 [Virtual Server 문서](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.
-{:tip}
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.{:tip}
 
 ## 주문 제출
 
@@ -279,4 +278,4 @@ Endurance및 Performance 모두의 IOPS는 50/50 읽기/쓰기 50% 랜덤 워크
 - [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
 - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
 - [cPanel을 사용하여 Block Storage 구성](configure-backup-cpanel.html)
-- [Plesk를 사용하여 Block Storage 구성](configure-backup-plesk.html)
+- [cPanel을 사용하여 Block Storage 구성](configure-backup-plesk.html)

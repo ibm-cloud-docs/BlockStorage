@@ -25,19 +25,19 @@ lastupdated: "2018-11-30"
 
 これはホスト・オペレーティング・システムが処理できる内容によって異なりますが、{{site.data.keyword.BluSoftlayer_full}} が制限するものではありません。 マウント可能なボリューム数の制限については、お使いの OS の資料を参照してください。
 
-## ブロック・ストレージ LUN に対してどの Windows バージョンを選択すればよいですか?
+## Block Storage LUN に対してどの Windows バージョンを選択すればよいですか?
 {: faq}
 
-LUN を作成するときに、OS タイプを指定する必要があります。OS タイプは、LUN にアクセスするホストが使用するオペレーティング・システムに基づいている必要があります。LUN の作成後に OS タイプを変更することはできません。LUN の実際のサイズは、LUN の OS タイプによって若干異なる場合があります。
+LUN を作成するときに、OS タイプを指定する必要があります。 OS タイプは、LUN にアクセスするホストが使用するオペレーティング・システムに基づいている必要があります。LUN の作成後に OS タイプを変更することはできません。 LUN の実際のサイズは、LUN の OS タイプによって若干異なる場合があります。
 
 **Windows 2008+**
-- LUN は、Windows 2008 以降のバージョンの Windows データを保管します。ホスト・オペレーティング・システムが Windows Server 2008、Windows Server 2012、Windows Server 2016 の場合は、この OS オプションを使用します。MBR と GPT の両方のパーティショニング方式がサポートされています。
+- LUN は、Windows 2008 以降のバージョンの Windows データを保管します。 ホスト・オペレーティング・システムが Windows Server 2008、Windows Server 2012、Windows Server 2016 の場合は、この OS オプションを使用します。 MBR と GPT の両方のパーティショニング方式がサポートされています。
 
 **Windows 2003**
-- LUN は、マスター・ブート・レコード (MBR、Master Boot Record) パーティショニング・スタイルを使用して、単一パーティションの Windows ディスクにロー・ディスク・タイプを保管します。このオプションは、ホスト・オペレーティング・システムが、MBR パーティショニング方式を使用する Windows 2000 Server、Windows Server XP、または Windows Server 2003 である場合にのみ使用します。
+- LUN は、マスター・ブート・レコード (MBR、Master Boot Record) パーティショニング・スタイルを使用して、単一パーティションの Windows ディスクにロー・ディスク・タイプを保管します。 このオプションは、ホスト・オペレーティング・システムが、MBR パーティショニング方式を使用する Windows 2000 Server、Windows Server XP、または Windows Server 2003 である場合にのみ使用します。
 
 **Windows GPT**
--  LUN は、GUID パーティション・タイプ (GPT、GUID Partition Type) パーティショニング・スタイルを使用して、Windows データを保管します。このオプションは、GPT パーティショニング方式を使用しようとしていて、ホストでその方式の使用が可能な場合に使用します。Windows Server 2003 (Service Pack 1 以降) では GPT パーティショニング方式を使用でき、64 ビット版のすべての Windows はこの方式をサポートしています。
+-  LUN は、GUID パーティション・タイプ (GPT、GUID Partition Type) パーティショニング・スタイルを使用して、Windows データを保管します。 このオプションは、GPT パーティショニング方式を使用しようとしていて、ホストでその方式の使用が可能な場合に使用します。 Windows Server 2003 (Service Pack 1 以降) では GPT パーティショニング方式を使用でき、64 ビット版のすべての Windows はこの方式をサポートしています。
 
 ## 割り振られる IOPS の制限はインスタンスとボリュームのいずれに従って適用されますか?
 {: faq}
@@ -66,9 +66,9 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## より高速なイーサネット接続を使用することによって、より多くのスループットを達成できますか?
 {: faq}
 
-スループットの限度は、ボリューム/LUN レベルで設定されるため、より高速なイーサネット接続を使用しても、設定された上限は増えません。 ただし、低速イーサネット接続では、帯域幅がボトルネックとなる可能性があります。
+スループットの限度は、LUN レベルで設定されるため、より高速なイーサネット接続を使用しても、設定された上限は増えません。 ただし、低速イーサネット接続では、帯域幅がボトルネックとなる可能性があります。
 
-## ファイアウォール/セキュリティー・グループはパフォーマンスに影響しますか?
+## ファイアウォールおよびセキュリティー・グループはパフォーマンスに影響しますか?
 {: faq}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
@@ -83,10 +83,10 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 
 エンデュランス・タイプの 10 IOPS/GB 層 {{site.data.keyword.blockstorageshort}} は、限定されたデータ・センターのみで使用可能ですが、使用可能な新しいデータ・センターが徐々に追加されています。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](new-ibm-block-and-file-storage-location-and-features.html)で見つけることができます。
 
-## どの {{site.data.keyword.blockstorageshort}} LUN/ボリュームが暗号化されているかを知る方法はありますか?
+## どの {{site.data.keyword.blockstorageshort}} ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
 
-[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
+[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
 
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}
@@ -97,7 +97,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 {: faq}
 
 データ・センターのアップグレード前にプロビジョンされた {{site.data.keyword.blockstorageshort}} は、暗号化できません。
-アップグレードされたデータ・センターでプロビジョンされた新しい {{site.data.keyword.blockstorageshort}} は自動的に暗号化されます。 暗号化設定は選択できず、自動的に暗号化されます。
+アップグレードされたデータ・センターで新たにプロビジョンされた {{site.data.keyword.blockstorageshort}} は、自動的に暗号化されます。 つまり、暗号化するかどうかを選択する設定はありません。自動で暗号化されます。
 アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、新しいブロック LUN を作成してから、ホスト・ベースのマイグレーションを使用してそのデータを暗号化された新しい LUN にコピーします。 手順については、[ここ](migrate-block-storage-encrypted-block-storage.html)をクリックしてください。
 
 ## {{site.data.keyword.blockstorageshort}} は、DB2 pureScale 用に I/O フェンシングを実装するための SCSI-3 永続予約をサポートしますか?

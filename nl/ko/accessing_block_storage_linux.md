@@ -18,11 +18,10 @@ lastupdated: "2018-11-30"
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
 
-예를 들어, iSCSI 이니시에이터 구성([여기 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}) 및 DM 다중 경로 설정([여기 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
-{:tip}
+예를 들어 iSCSI 이니시에이터 구성([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}) 및 DM 다중 경로 설정([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
+{: tip}
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 호스트를 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}을 통해 이미 권한 부여했는지 확인하십시오.
-{:important}
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 이전에 부여되었는지 확인하십시오.{:important}
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
 2. **호스트 권한 부여**를 클릭하십시오.
@@ -32,7 +31,7 @@ lastupdated: "2018-11-30"
 
 다음은 Linux 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
 
-지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
+지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
 {: tip}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
@@ -91,7 +90,7 @@ lastupdated: "2018-11-30"
       ```
       {: codeblock}
 
-    - 변경사항이 적용되도록 iscsi 및 iscsid 서비스를 다시 시작하십시오.
+    - 변경사항이 적용되도록 `iscsi` 및 `iscsid` 서비스를 다시 시작하십시오.
 
       ```
       service iscsi restart
@@ -221,7 +220,7 @@ lastupdated: "2018-11-30"
     ```
     {: pre}
 
-   - 다른 배포판의 경우 OS 공급업체 문서를 참조하십시오.
+   - 다른 배포판의 경우, OS 공급업체 문서를 참조하십시오.
 
 8. {{site.data.keyword.slportal}}에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
 
@@ -281,7 +280,7 @@ lastupdated: "2018-11-30"
    ```
    {: pre}
 
-   XXX는 1단계에서 리턴된 디스크 이름을 나타냅니다. <br />
+   XXX는 1단계에서 리턴된 디스크 이름을 나타냅니다.<br />
 
    더 아래로 스크롤하여 `fdisk` 명령 표에 나열된 명령 코드를 찾으십시오.
    {: tip}
@@ -343,7 +342,7 @@ lastupdated: "2018-11-30"
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>새 파티션을 작성합니다. &#42;</td>
+		<td>파티션을 작성합니다. &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -433,7 +432,7 @@ lastupdated: "2018-11-30"
 
    4. `Parted`는 기본 및 논리 디스크 파티션 작성에 사용할 수 있으며 수행 단계는 동일합니다. 파티션을 작성하기 위해 `parted`에서는 `mkpart`를 사용합니다. 작성하려는 파티션 유형에 따라 **primary** 또는 **logical**과 같은 기타 매개변수를 제공할 수도 있습니다.<br />
 
-   나열된 단위는 기본적으로 메가바이트(MB) 단위이며, 10GB 파티션을 작성하려면 1에서 시작하여 10000에서 끝납니다. 원하면 `unit TB`를 입력하여 크기 단위를 TB로 변경할 수도 있습니다.
+   나열된 단위는 기본적으로 메가바이트(MB) 단위입니다. 10GB 파티션을 작성하려면 1에서 시작하여 10000에서 끝납니다. 원하면 `unit TB`를 입력하여 크기 단위를 TB로 변경할 수도 있습니다.
    {: tip}
 
       ```
@@ -455,7 +454,7 @@ lastupdated: "2018-11-30"
    ```
    {: pre}
 
-   이 명령을 실행할 때는 반드시 올바른 디스크와 파티션을 선택해야 합니다! <br />파티션 표를 인쇄하여 결과를 확인하십시오. 파일 시스템 열에 ext3이 표시되어야 합니다.
+   이 명령을 실행할 때는 반드시 올바른 디스크와 파티션을 선택해야 합니다.<br />파티션 표를 인쇄하여 결과를 확인하십시오. 파일 시스템 열에 ext3이 표시되어야 합니다.
    {:important}
 
 4. 파일 시스템에 대한 마운트 지점을 작성하고 이를 마운트하십시오.
@@ -491,7 +490,7 @@ lastupdated: "2018-11-30"
 
 
 
-## MPIO가 `*NIX` OSes에서 제대로 구성되었는지 확인
+## MPIO 구성 확인
 
 1. 다중 경로에서 디바이스를 선택하는지 확인하려면 디바이스를 나열하십시오. 올바르게 구성된 경우 두 개의 NETAPP 디바이스만 표시됩니다.
 
@@ -514,7 +513,7 @@ root@server:~# multipath -l
   ```
   {: pre}
 
-  - 올바른 구성의 예제 출력:
+  - 올바른 구성의 예제 출력.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,7 +522,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - 올바르지 않은 구성의 예제 출력:
+  - 올바르지 않은 구성의 예제 출력.
 
     ```
 No multipath output root@server:~# multipath -l root@server:~#
@@ -551,7 +550,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 | sde: device node name blacklisted Feb 17 19:55:02
    ```
 
-## {{site.data.keyword.blockstorageshort}} 볼륨의 마운트 해제
+## {{site.data.keyword.blockstorageshort}} 볼륨 마운트 해제
 
 1. 파일 시스템을 마운트 해제하십시오.
    ```
@@ -571,5 +570,5 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    ```
    {: pre}
 
-   자세한 정보는 [iscsiadm의 man 페이지](https://linux.die.net/man/8/iscsiadm)를 참조하십시오.
+   자세한 정보는 [`iscsiadm` 매뉴얼 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://linux.die.net/man/8/iscsiadm)을 참조하십시오.
    {:tip}

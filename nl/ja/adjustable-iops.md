@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ lastupdated: "2018-10-31"
 
 この機能は、[限定されたデータ・センター](new-ibm-block-and-file-storage-location-and-features.html)でのみ使用可能です。
 
-お客様は、IOPS を調整するときに、エンデュランスとパフォーマンスを切り替えることはできません。 ただし、以下の基準/制限に基づいて、ストレージの新しい IOPS 層または IOPS レベルを指定できます。
+お客様は、IOPS を調整するときに、エンデュランスとパフォーマンスを切り替えることはできません。 ただし、以下の基準と制限に基づいて、ストレージの新しい IOPS 層または IOPS レベルを指定できます。
 
 - 元のボリュームがエンデュランス 0.25 層の場合、IOPS 層は更新できません。
 - 元のボリュームが 0.30 IOPS/GB 以下の「パフォーマンス」である場合、使用可能なオプションには、0.30 IOPS/GB 以下になるサイズと IOPS の組み合わせのみが含まれます。
@@ -39,11 +39,12 @@ lastupdated: "2018-10-31"
 
 1. {{site.data.keyword.blockstorageshort}}のリストに進みます。
    - {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-   - {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+   - {{site.data.keyword.BluSoftlayer_full}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
 3. **「ストレージ IOPS オプション (Storage IOPS Options)」**の下で、新しい選択を行います。
-    - エンデュランス (層化 IOPS): 0.25 IOPS/GB より大きい IOPS 層をストレージに選択します。 IOPS 層はいつでも増やすことができます。 ただし、下げることができるのは、月に 1 回のみです。
-    - パフォーマンス (割り振り IOPS): 100 から 48,000 IOPS までの値を入力して、ストレージの新しい IOPS オプションを指定します。
+    - エンデュランス (層化 IOPS) の場合、0.25 IOPS/GB より大きい IOPS 層をストレージに選択します。 IOPS 層はいつでも増やすことができます。 ただし、下げることができるのは、月に 1 回のみです。
+    - パフォーマンス (割り振り IOPS) の場合、100 から 48,000 IOPS までの値を入力して、ストレージの新しい IOPS オプションを指定します。
+    
     注文フォームで、サイズ別に必要な特定の境界を必ず確認してください。
     {:tip}
 4. 選択内容と新しい価格設定を確認します。

@@ -6,12 +6,15 @@ lastupdated: "2018-11-30"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 스토리지 한계 관리
 
 기본적으로 글로벌하게 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다.
 
-[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}에서 티켓을 제출하여 한계 증가를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
+[{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 티켓을 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
 
 한계 증가를 요청하려면 티켓을 열고 이를 영업 담당자에게 보내십시오.
 
@@ -28,10 +31,13 @@ lastupdated: "2018-11-30"
 - **유형, 크기, IOPS 및 위치에 따라 필요한 추가 파일 볼륨은 얼마입니까?** <br />
 *예를 들어, 사용자의 답변은 "25x Performance 20GB @ 10 IOPS in DAL09" 또는 "50x Endurance2TB @ 0.25 IOPS in SJC03"과 유사할 수 있습니다.*
 
-- **요청된 볼륨 증가 모두가 프로비저닝되는 예상/계획 시기를 제공하십시오.** <br />
+- **요청된 모든 볼륨 늘리기의 프로비저닝에 대한 예상 또는 계획 시점을 제공하십시오.** <br />
  "*예를 들어, 사용자의 답변은 "90일"과 유사할 수 있습니다.*
 
 - **해당 볼륨의 예상 평균 용량 사용량에 대한 90일의 예측을 제공하십시오.** <br />
 *예를 들어, 사용자의 답변은 "30일 내에 25% 사용, 60일 내에 50% 사용, 90일 내에 75% 사용 예상" 등이 가능합니다.*
 
-위 질문 모두에 대한 응답은 필수입니다. 티켓 프로세스를 통해 사용자 한계에 대한 업데이트 알림을 수신하게 됩니다.
+요청의 모든 질문과 명령문에 응답하십시오. 해당 사항은 처리와 승인에 필요합니다.
+{:important}
+
+사용자는 티켓 프로세스를 통해 한계에 대한 업데이트의 알림을 받습니다.

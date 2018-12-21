@@ -265,7 +265,7 @@ lastupdated: "2018-11-30"
 
 最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、[キュー項目数](set-host-queue-depth-settings-performance-and-endurance-storage.html)、およびその他の設定) があります。
 
-ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 サービスによって課される可能性のある制限を理解するには、[仮想サーバーの資料](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)を参照してください。
+ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 このサービスで設定されている制限について詳しくは、[Virtual Server の資料](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)を参照してください。
 {:tip}
 
 ## 注文の送信

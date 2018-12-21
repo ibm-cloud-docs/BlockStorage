@@ -11,11 +11,11 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# cPanel を使用したバックアップのための {{site.data.keyword.blockstorageshort}} の構成
+# cPanel を使用してバックアップするための {{site.data.keyword.blockstorageshort}} の構成
 
 この記事は、{{site.data.keyword.blockstoragefull}} に保管される、cPanel でのバックアップを構成するために使用します。 root または sudo SSH でのアクセスが可能であり、WebHost Manager (WHM) のフル・アクセス権限があることを前提としています。 ここでの説明は、**CentOS 7** ホストに基づいています。
 
-ベンダーからの詳細情報は、[cPanel - バックアップ・ディレクトリーの構成 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}を参照してください。
+詳しくは、[cPanel - バックアップ・ディレクトリーの構成 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window} を参照してください。
 {:tip}
 
 1. SSH 経由でホストに接続します。
@@ -35,7 +35,7 @@ lastupdated: "2018-11-30"
     このコマンドは、ハード・リンクを除いてデータを可能な限り保持しながら、データを圧縮して送信します。 どのようなファイルが転送されているかに関する情報に加え、最後に簡単な要約を提供します。
     {:tip}
 
-5. WebHost Manager にログインし、**「ホーム (Home)」** > **「バックアップ (Backup)」** > **「バックアップ構成 (Backup Configuration)」**をクリックして、バックアップ構成に移動します。
+5. WHM にログインし、**「ホーム (Home)」** > **「バックアップ (Backup)」** > **「バックアップ構成 (Backup Configuration)」**をクリックして、バックアップ構成に移動します。
 
 6. 構成を編集して、新しいマウント・ポイントにバックアップを保存します。
     - /backup/ ディレクトリーの代わりに新しい場所の絶対パスを入力して、デフォルトのバックアップ・ディレクトリーを変更します。

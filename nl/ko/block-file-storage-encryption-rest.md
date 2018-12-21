@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ lastupdated: "2018-10-31"
 
 
 
-데이터 센터가 업그레이드되기 전에 프로비저닝된 암호화되지 않은 스토리지는 자동으로 암호화되지 **않습니다**. 업그레이드된 데이터 센터에 암호화되지 않은 스토리지가 있지만 암호화된 스토리지를 원하는 경우, 새 LUN/볼륨을 작성하고 데이터를 마이그레이션해야 합니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 업그레이드된 데이터 센터에서 마이그레이션](migrate-block-storage-encrypted-block-storage.html)을 참조하십시오.
+데이터 센터가 업그레이드되기 전에 프로비저닝된 암호화되지 않은 스토리지는 자동으로 암호화되지 **않습니다**. 업그레이드된 데이터 센터에 암호화되지 않은 스토리지가 있지만 암호화된 스토리지를 원하는 경우, 새 볼륨을 작성하고 데이터를 마이그레이션해야 합니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 업그레이드된 데이터 센터에서 마이그레이션](migrate-block-storage-encrypted-block-storage.html)을 참조하십시오.
 {:important}

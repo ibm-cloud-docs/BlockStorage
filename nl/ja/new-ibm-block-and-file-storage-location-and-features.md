@@ -16,12 +16,12 @@ lastupdated: "2018-11-30"
 
 この新しいストレージは限られたデータ・センターで使用可能で、Data at Rest (保存されたデータ) に対してディスク・レベルで暗号化でき IOPS レベルがより高いフラッシュ・ストレージに基づいています。 アップグレードされたデータ・センターにプロビジョンされるストレージはすべて、新規バージョンで自動的に作成されます。
 
-新規ボリュームの NFS マウント・ポイントは、非暗号化ボリュームのマウント・ポイントとは異なります。 詳しくは、[暗号化 {{site.data.keyword.filestorage_short}} ボリュームの新規マウント・ポイント](#new-mount-point-for-encrypted-storage-volumes)セクションを参照してください。
+新規ボリュームの NFS マウント・ポイントは、非暗号化ボリュームのマウント・ポイントとは異なります。 詳しくは、[暗号化 {{site.data.keyword.blockstorageshort}} ボリュームの新規マウント・ポイント](#new-mount-point-for-encrypted-storage-volumes)セクションを参照してください。
 {:important}
 
 ## 新しい場所
 
-新しい {{site.data.keyword.blockstorageshort}} は、以下の地域/データ・センターにあります。
+新しい {{site.data.keyword.blockstorageshort}} は、以下の地域およびデータ・センターにあります。
 <table role="presentation">
   <tr>
     <td><strong>米国 2</strong></td>
@@ -59,7 +59,8 @@ lastupdated: "2018-11-30"
     <td>MEL01<br />
         SYD01<br />
         SYD04<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+        SYD05<br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
         TOR01<br />
@@ -100,7 +101,11 @@ lastupdated: "2018-11-30"
 
 ## 暗号化ストレージ・ボリュームの新規マウント・ポイント
 
-これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 ストレージ・ボリュームに対して正しいマウント・ポイントを使用していることを確認するには、[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を表示します。 また、API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して、正しいマウント・ポイントにアクセスすることもできます。
+これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を確認して、正しいマウント・ポイントを使用していることを確認してください。API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイント情報を取得することもできます。
+
+
+すべての新規機能を利用できるようにするには、API を使用して発注する場合に「`Storage-as-a-Service Package 759`」を選択してください。API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}を参照してください。
+{:important}
 
 追加のデータ・センターがアップグレードされていないか確認したり、新しいフィーチャーや機能が {{site.data.keyword.blockstorageshort}} に追加されていないか確認したりするには、このページをもう一度参照してください。
 {:tip}

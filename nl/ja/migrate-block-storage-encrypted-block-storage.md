@@ -22,7 +22,9 @@ lastupdated: "2018-11-30"
 - [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
 - [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
 
-## 新規 {{site.data.keyword.blockstorageshort}} の作成
+これらのデータ・センターでプロビジョンされる拡張{{site.data.keyword.blockstorageshort}}・ボリュームはすべて、非暗号化ボリュームとは異なるマウント・ポイントになります。 両方のストレージ・ボリュームに正しいマウント・ポイントを使用するために、コンソールの**「ボリュームの詳細」**ページでマウント・ポイント情報を確認することができます。API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイントを取得することもできます。{:tip}
+
+## {{site.data.keyword.blockstorageshort}}の作成
 
 API を使用して注文する場合は、「Storage as a Service」パッケージを指定して、更新済みの機能を新規ストレージと一緒に取得してください。
 {:important}
@@ -31,8 +33,8 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 ### エンデュランス LUN の注文
 
-1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} から**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-2. 右上隅で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+1. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} から**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+2. 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 3. **「ストレージ・タイプの選択」**リストから**「エンデュランス」**を選択します。
 4. デプロイメント・**ロケーション** (データ・センター) を選択します。
    - 新規ストレージは、必ず前のボリュームと同じロケーションに追加してください。
@@ -40,18 +42,22 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 6. IOPS ティアを選択します。
 7. **「ストレージ・サイズの選択」**をクリックし、リストから目的のストレージ・サイズを選択します。
 8. **「スナップショット・スペース・サイズの指定」**をクリックし、リストからスナップショット・サイズを選択します。 このスペースは、使用可能なスペースに加算されます。
-   スナップショット・スペースの考慮事項および推奨について詳しくは、[スナップショットの注文](ordering-snapshots.html)を参照してください。{:tip}
+
+   スナップショット・スペースの考慮事項および推奨について詳しくは、[スナップショットの注文](ordering-snapshots.html)を参照してください。
+   {:tip}
 9. リストからご使用の**「OS タイプ (OS Type)」**を選択します。
 10. **「続行」**をクリックします。 月額課金と日割り計算額が表示されます。これが注文の詳細を確認できる最後の機会となります。
 11. **「マスター・サービス契約を読み ...」**チェック・ボックスをクリックし、**「注文」**をクリックします。
 
 ### パフォーマンス LUN の注文
 
-1. [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} から**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} から**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. 右側で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 3. **「ストレージ・タイプの選択 (Select Storage Type)」**リストから、**「パフォーマンス」**を選択します。
 4. **「ロケーション」**をクリックして、データ・センターを選択します。
-   - 新規ストレージは、以前に注文したホストと同じロケーションに追加するようにしてください。
+
+   新規ストレージは、以前に注文したホストと同じロケーションに追加するようにしてください。
+   {:important}
 5. 請求オプションを選択します。 時間単位と月単位の請求から選択できます。
 6. 適切な**ストレージ・サイズ**を選択します。
 7. **「IOPS の指定 (Specify IOPS)」**フィールドに IOPS を入力します。
@@ -80,7 +86,9 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 ## データのマイグレーション
 
-1. 元と新規の両方の {{site.data.keyword.blockstorageshort}} LUN に接続します。2 つの LUN をホストに接続する際に支援が必要な場合は、サポート・ケースをオープンしてください。
+1. 元と新規の両方の {{site.data.keyword.blockstorageshort}} LUN に接続します。
+
+   2 つの LUN をホストに接続する際に支援が必要な場合は、サポート・ケースをオープンしてください。
    {:tip}
 
 2. 元の {{site.data.keyword.blockstorageshort}} LUN にはどのようなタイプのデータがあり、そのデータを新しい LUN にコピーするにはどういう方法が最善かを検討してください。
@@ -88,8 +96,8 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
   - {{site.data.keyword.blockstorageshort}} 上でデータベースまたは仮想マシンを実行している場合は、データ破壊を避けるため、コピー中にデータが変更されないようにしてください。 帯域幅に少しでも不安がある場合は、マイグレーションは非ピーク時に実行してください。 これらの考慮事項について支援が必要な場合は、サポート・チケットをオープンしてください。
 
 3. データ全体をコピーします。
-   - **Microsoft Windows** - 元の {{site.data.keyword.blockstorageshort}} LUN から新規 LUN にデータをコピーするには、新規ストレージをフォーマットしてから、Windows エクスプローラーを使用してファイルをコピーします。
-   - **Linux** - `rsync` を使用して、データをコピーできます。 次に例を示します。
+   - **Microsoft Windows** の場合、新しいストレージをフォーマットしてから、Windows エクスプローラーを使用して元の {{site.data.keyword.blockstorageshort}} LUN から新しい LUN にデータをコピーします。
+   - **Linux** の場合、`rsync` を使用してデータをコピーできます。次に例を示します。
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

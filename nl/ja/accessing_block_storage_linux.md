@@ -15,13 +15,13 @@ lastupdated: "2018-11-30"
 
 # Linux での MPIO iSCSI LUN への接続
 
-ここでの説明は、主に RHEL6 および Centos6 向けのものです。他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
+ここでの説明は、主に RHEL6 および Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
 
-例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}を参照し、DM マルチパスのセットアップについては、[こちら ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}を参照してください。
-{:tip}
+例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} を参照し、DM マルチパスのセットアップについては、[こちら ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} を参照してください。
+{: tip}
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window}を介して以前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して以前に許可されていることを確認してください。
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
@@ -32,7 +32,7 @@ lastupdated: "2018-11-30"
 
 以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
-手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
+手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
 {: tip}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
@@ -91,7 +91,7 @@ lastupdated: "2018-11-30"
       ```
       {: codeblock}
 
-    - iscsi サービスと iscsid サービスを再始動して、変更内容を有効にします。
+    - `iscsi` サービスと `iscsid` サービスを再始動して、変更内容を有効にします。
 
       ```
       service iscsi restart
@@ -221,7 +221,7 @@ lastupdated: "2018-11-30"
     ```
     {: pre}
 
-   - その他のディストリビューション: OS ベンダーの資料を参照してください。
+   - その他のディストリビューションについては、OS ベンダーの資料を参照してください。
 
 8. {{site.data.keyword.slportal}} から取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
 
@@ -343,7 +343,7 @@ lastupdated: "2018-11-30"
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>新規パーティションを作成します。 &#42;</td>
+		<td>パーティションを作成します。 &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -491,7 +491,7 @@ lastupdated: "2018-11-30"
 
 
 
-## `*NIX` OS で MPIO が正しく構成されているかどうかの検証
+## MPIO 構成の検証
 
 1. マルチパスがデバイスをピックアップしているかどうかを確認するには、デバイスをリストします。 構成が正しい場合は、2 つの NETAPP デバイスのみが表示されます。
 
@@ -508,13 +508,13 @@ lastupdated: "2018-11-30"
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. ディスクが存在することを確認してください。 同じ ID を持つ 2 つのディスクが存在し、同じ ID で同じサイズの `/dev/mapper` がリストされていなければなりません。`/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
+2. ディスクが存在することを確認してください。 同じ ID を持つ 2 つのディスクが存在し、同じ ID で同じサイズの `/dev/mapper` がリストされていなければなりません。 `/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
   ```
   fdisk -l | grep Disk
   ```
   {: pre}
 
-  - 構成が正しい場合の出力例:
+  - 構成が正しい場合の出力例
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,7 +523,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - 構成が間違っている場合の出力例:
+  - 構成が間違っている場合の出力例
 
     ```
     No multipath output root@server:~# multipath -l root@server:~#
@@ -536,7 +536,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-3. ローカル・ディスクがマルチパス・デバイスに含まれていないことを確認します。次のコマンドで、ブラックリストにあるデバイスを表示します。
+3. ローカル・ディスクがマルチパス・デバイスに含まれていないことを確認します。 次のコマンドで、ブラックリストにあるデバイスを表示します。
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
@@ -571,5 +571,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   詳しくは、[iscsiadm の man ページ](https://linux.die.net/man/8/iscsiadm)を参照してください。
+   詳しくは、[`iscsiadm` の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://linux.die.net/man/8/iscsiadm)を参照してください。
    {:tip}

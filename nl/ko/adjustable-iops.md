@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ lastupdated: "2018-10-31"
 
 이 기능은 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서만 사용할 수 있습니다.
 
-클라이언트는 IOPS 조정 시에 Endurance/Performance 사이에서 전환할 수 없습니다. 그러나 다음과 같은 기준/제한사항을 바탕으로 스토리지에 대해 새 IOPS 티어 또는 IOPS 레벨을 지정할 수 있습니다.
+클라이언트는 IOPS 조정 시에 Endurance/Performance 사이에서 전환할 수 없습니다. 그러나 다음과 같은 기준 및 제한사항을 바탕으로 스토리지에 대해 새 IOPS 티어 또는 IOPS 레벨을 지정할 수 있습니다.
 
 - 원본 볼륨이 Endurance0.25 티어인 경우, IOPS 티어는 업데이트할 수 없습니다.
 - 원래 볼륨이 0.30IOPS/GB 이하의 Performance인 경우, 사용 가능한 옵션에는 결과가 0.30IOPS/GB 이하인 크기 및 IOPS 조합만 포함됩니다.
@@ -39,12 +39,13 @@ lastupdated: "2018-10-31"
 
 1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
    - {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-   - {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+   - {{site.data.keyword.BluSoftlayer_full}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
 3. **스토리지 IOPS 옵션**에서 새로 선택하십시오.
-    - Endurance(티어가 있는 IOPS): 스토리지가 0.25 IOPS/GB보다 큰 IOPS 티어를 선택하십시오. IOPS 티어는 언제든지 늘릴 수 있습니다. 그렇지만 줄이는 것은 한 달에 한 번만 가능합니다.
-    - Performance(할당된 IOPS): 100 - 48,000 IOPS 범위의 값을 입력하여 스토리지에 대해 새 IOPS 옵션을 지정하십시오.
-    주문 양식에서 크기별로 필요한 특정 경계를 확인하십시오.
+    - Endurance(계층 IOPS)의 경우 스토리지의 0.25IOPS/GB보다 큰 IOPS 계층을 선택하십시오. IOPS 티어는 언제든지 늘릴 수 있습니다. 그렇지만 줄이는 것은 한 달에 한 번만 가능합니다.
+    - Performance(할당된 IOPS)의 경우 100 - 48,000 IOPS 범위의 값을 입력하여 스토리지에 대해 새 IOPS 옵션을 지정하십시오.
+    
+주문 양식에서 크기별로 필요한 특정 경계를 확인하십시오.
     {:tip}
 4. 선택사항 및 새 가격 책정을 검토하십시오.
 5. **마스터 서비스 계약을 읽었습니다...** 선택란을 클릭하고 **주문하기**를 클릭하십시오.

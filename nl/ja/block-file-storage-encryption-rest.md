@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ lastupdated: "2018-10-31"
 
 
 
-データ・センターがアップグレードされる前にプロビジョンされた非暗号化ストレージは、自動的には**暗号化されません**。 アップグレードされたデータ・センターに暗号化されていないストレージを所有していて、暗号化ストレージが必要な場合は、新しい LUN/ボリュームを作成し、データをマイグレーションする必要があります。 詳しくは、[{{site.data.keyword.blockstorageshort}} アップグレード済みのデータ・センターでのマイグレーション](migrate-block-storage-encrypted-block-storage.html)を参照してください。
+データ・センターがアップグレードされる前にプロビジョンされた非暗号化ストレージは、自動的には**暗号化されません**。 アップグレードされたデータ・センターに暗号化されていないストレージを所有していて、暗号化ストレージが必要な場合は、新しいボリュームを作成し、データをマイグレーションする必要があります。 詳しくは、[{{site.data.keyword.blockstorageshort}} アップグレード済みのデータ・センターでのマイグレーション](migrate-block-storage-encrypted-block-storage.html)を参照してください。
 {:important}
