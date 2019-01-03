@@ -15,13 +15,13 @@ lastupdated: "2018-11-30"
 
 Utilizza queste istruzioni per configurare {{site.data.keyword.blockstoragefull}} per i tuoi backup in Plesk. Il presupposto è che siano disponibili SSH root o sudo e un accesso a Plesk a livello di amministrazione completo. Queste istruzioni sono basate su un host CentOS7.
 
-Per ulteriori informazioni dal fornitore, consulta [Plesk's documentation for backing up and restoration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
+Per ulteriori informazioni, consulta la [documentazione di Plesk per il backup e il ripristino ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
 {:tip}
 
 1. Connettiti all'host tramite SSH.
 2. Assicurati che esista una destinazione di punto di montaggio.
 
-   Plesk ha due opzioni per archiviare i backup. Un'opzione è l'archiviazione Plesk interna (un'archiviazione di backup sul tuo server Plesk). L'altra opzione è un'archiviazione FTP esterna (un'archiviazione di backup su qualche server esterno nel web o nella tua rete locale). Di norma, sui box Plesk, i backup interni sono archiviati in `/var/lib/psa/dumps` e utilizzano `/tmp` come directory temporanea. In questo esempio, la directory temporanea viene tenuta locale ma spostiamo la directory dumps alla destinazione STaaS (`/backup/psa/dumps`). Non sono necessarie credenziali utente FTP.
+   Plesk ha due opzioni per archiviare i backup. Un'opzione è l'archiviazione Plesk interna (un'archiviazione di backup sul tuo server Plesk). L'altra opzione è un'archiviazione FTP esterna (un'archiviazione di backup su qualche server esterno nel web o nella tua rete locale). Di norma, sui box Plesk, i backup interni sono archiviati in `/var/lib/psa/dumps` e utilizzano `/tmp` come directory temporanea. In questo esempio, la directory temporanea viene tenuta locale ma spostiamo la directory dumps alla destinazione {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). Non sono necessarie credenziali utente FTP.
    {:note}   
 3. Configura il tuo {{site.data.keyword.blockstorageshort}} come descritto in [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html). Monta {{site.data.keyword.blockstorageshort}} in `/backup` e configura `/etc/fstab` per abilitare il montaggio all'avvio del computer.
 4. **Facoltativo**: copia i backup esistenti nella nuova archiviazione. Puoi utilizzare `rsync`.

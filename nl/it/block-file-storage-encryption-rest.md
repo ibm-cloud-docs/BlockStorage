@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -37,5 +37,5 @@ Quando ordini {{site.data.keyword.blockstorageshort}}, seleziona un data center 
 
 
 
-L'archiviazione non crittografata di cui viene eseguito il provisioning prima dell'upgrade del data center **non viene** crittografata automaticamente. Se hai la tua archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade e vuoi che venga crittografata, devi creare un nuovo LUN/volume o volume e migrare i tuoi dati. Per ulteriori informazioni, vedi [Migrazione di {{site.data.keyword.blockstorageshort}} in data center di cui è stato eseguito l'upgrade](migrate-block-storage-encrypted-block-storage.html).
+L'archiviazione non crittografata di cui viene eseguito il provisioning prima dell'upgrade del data center **non viene** crittografata automaticamente. Se hai la tua archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade e vuoi che venga crittografata, devi creare un nuovo volume e migrare i tuoi dati. Per ulteriori informazioni, vedi [Migrazione di {{site.data.keyword.blockstorageshort}} in data center di cui è stato eseguito l'upgrade](migrate-block-storage-encrypted-block-storage.html).
 {:important}

@@ -12,9 +12,14 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Utilizzo di LUKS in Red Hat Enterprise Linux per la crittografia totale del disco
+# Ottenere la crittografia totale del disco con LUKS in Red Hat Enterprise Linux
 
 Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con il formato su disco LUKS (Linux Unified Key Setup), cosa importante nel caso di computer mobili e supporti rimovibili. LUKS consente a più chiavi utente di decrittografare una chiave master che viene utilizzata per la crittografia di massa della partizione.
+
+Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, consulta [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html).
+
+Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html) viene automaticamente fornito con la crittografia dei dati inattivi gestita dal provider. Per ulteriori informazioni, consulta [Protezione dei tuoi dati - crittografia dei dati inattivi gestita dal provider](block-file-storage-encryption-rest.html).
+{:note}
 
 ## Cosa fa LUKS
 
@@ -28,16 +33,14 @@ Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con i
 ## Cosa non fa LUKS
 
 - Consente alle applicazioni che richiedono molti utenti (più di otto) di avere delle chiavi di accesso distinte agli stessi dispositivi.
-- Opera con le applicazioni che richiedono la crittografia a livello di file, [ulteriori informazioni ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Utilizza le applicazioni che richiedono la crittografia a livello di file, [ulteriori informazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configurazione di un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
-
-Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, consulta [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html).
 
 L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
 {:note}
 
-1. Immetti quanto segue a un prompt della shell come root per installare il pacchetto richiesto:   <br/>
+1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto: <br/>
    ```
    # yum install cryptsetup-luks
    ```

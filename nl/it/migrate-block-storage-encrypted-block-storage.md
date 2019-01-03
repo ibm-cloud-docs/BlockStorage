@@ -22,7 +22,10 @@ Si presuppone che tu già abbia il tuo LUN non crittografato collegato al tuo ho
 - [Connessione ai LUN iSCSI MPIO su CloudLinux](configure-iscsi-cloudlinux.html)
 - [Connessione ai LUN iSCSI MPIO su Microsoft Windows](accessing-block-storage-windows.html)
 
-## Creazione di nuovi {{site.data.keyword.blockstorageshort}}
+Tutti i volumi {{site.data.keyword.blockstorageshort}} migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Per assicurarti che stai utilizzando il punto di montaggio corretto per entrambi i volumi di archiviazione, puoi visualizzare le informazioni sui punti di montaggio nella pagina **Volume Details** nella console. Puoi anche accedere al punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+{:tip}
+
+## Creazione di un {{site.data.keyword.blockstorageshort}}
 
 Quando effettui un ordine con la API, specifica il pacchetto "Storage as a Service" per assicurarti che stai ottenendo le funzioni aggiornate con la tua nuova archiviazione.
 {:important}
@@ -31,8 +34,8 @@ Le seguenti istruzioni servono ad ordinare un LUN migliorato tramite {{site.data
 
 ### Ordine di un LUN Endurance
 
-1. Dal [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. Nell'angolo superiore destro, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
+1. Dal [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE dal catalogo {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+2. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 3. Seleziona **Endurance** dall'elenco **Select Storage Type**.
 4. Seleziona l'ubicazione (**Location**) (data center) della tua distribuzione.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione del volume precedente.
@@ -40,6 +43,7 @@ Le seguenti istruzioni servono ad ordinare un LUN migliorato tramite {{site.data
 6. Seleziona il livello IOPS.
 7. Fai clic su **Select Storage Size** e seleziona la tua dimensione di archiviazione dall'elenco.
 8. Fai clic su **Specify Snapshot Space Size** e seleziona la dimensione di istantanea dall'elenco. Questo spazio è in aggiunta al tuo spazio utilizzabile.
+
    Per ulteriori informazioni sulle considerazioni sullo spazio dell'istantanea e sui suggerimenti, consulta [Ordinazione di istantanee](ordering-snapshots.html).
    {:tip}
 9. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.
@@ -48,11 +52,13 @@ Le seguenti istruzioni servono ad ordinare un LUN migliorato tramite {{site.data
 
 ### Ordine di un LUN Performance
 
-1. Dal [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** OPPURE, dal catalogo {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
+1. Dal [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** OPPURE dal catalogo {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
 2. Sulla destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 3. Seleziona **Performance** dall'elenco **Select Storage Type**.
 4. Fai clic su **Location** e seleziona il tuo data center.
-   - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host che hai ordinato precedentemente.
+
+   Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host che hai ordinato precedentemente.
+   {:important}
 5. Seleziona la tua opzione di fatturazione. Puoi scegliere tra fatturazione oraria e mensile.
 6. Seleziona il valore corretto per **Storage Size**.
 7. Immetti l'IOPS nel campo **Specify IOPS**.
@@ -82,6 +88,7 @@ Se non è ancora stato eseguito l'upgrade del data center della destinazione di 
 ## Migrazione dei tuoi dati
 
 1. Collegati ai tuoi LUN {{site.data.keyword.blockstorageshort}} originali o nuovi.
+
    Se hai bisogno di assistenza per la connessione dei due LUN al tuo host, apri un caso di supporto.
    {:tip}
 
@@ -90,8 +97,8 @@ Se non è ancora stato eseguito l'upgrade del data center della destinazione di 
   - Se stai eseguendo un database o una macchina virtuale sul tuo {{site.data.keyword.blockstorageshort}}, assicurati che i dati sul LUN originale non vengano modificati durante la copia per evitare un loro danneggiamento. Se ha qualche preoccupazione relativa alla larghezza di banda, esegui la migrazione nei periodi non di punta. Se hai bisogno di assistenza con queste considerazioni, apri un ticket di supporto.
 
 3. Copia i tuoi dati.
-   - **Microsoft Windows** - per copiare i dati dal tuo LUN {{site.data.keyword.blockstorageshort}} originale al tuo nuovo LUN, formatta la nuova archiviazione e copia i file utilizzando Esplora risorse di Windows.
-   - **Linux** - Puoi utilizzare `rsync` per copiare i dati. Questo è un esempio:
+   - Per **Microsoft Windows**, formatta la nuova archiviazione e copia i dati dal tuo LUN {{site.data.keyword.blockstorageshort}} originale al tuo nuovo LUN utilizzando Windows Explorer.
+   - Per **Linux**, puoi utilizzare `rsync` per copiare i dati. Ecco un esempio: 
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

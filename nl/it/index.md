@@ -109,7 +109,7 @@ Endurance {{site.data.keyword.blockstorageshort}} è disponibile in quattro live
 
 - **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
 
-Sono disponibili fino a 48.000 IOPS con un volume Endurance di 12 TB.
+Sono disponibili fino a 48.000 IOPS con un volume Endurance di 12-TB.
 
 La scelta del livello Endurance corretto per il tuo carico di lavoro è fondamentale. È ugualmente importante utilizzare la dimensione blocco corretta, la velocità di connessione Ethernet e il numero di host necessari per ottenere le prestazioni massime. Se qualcuna di queste parti non si allinea con le altre, le ripercussioni sulla velocità effettiva risultante potrebbero essere di notevole entità.
 
@@ -122,7 +122,7 @@ Performance per {{site.data.keyword.blockstorageshort}} è accessibile e montato
 
 
 <table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>La tabella 3 che mostra le combinazioni di dimensione e IOPS per l'archiviazione Performance.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> il limite IOPS al di sopra di 6.000 è disponibile in data center selezionati.</caption>
+ <caption>La tabella 3 che mostra le combinazioni di dimensione e IOPS per l'archiviazione Performance.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> i limiti IOPS al di sopra di 6.000 sono disponibili in data center selezionati.</caption>
         <colgroup>
           <col/>
           <col/>
@@ -197,7 +197,7 @@ I volumi Performance sono progettati per offrire prestazioni congruentemente pro
 
 **Dimensione blocco**
 
-IOPS sia per Endurance che per Performance è basato su una dimensione di blocco di 16 KB con un carico di lavoro casuale al 50 percento e con lettura/scrittura al 50/50. Un blocco di 16 KB è l'equivalente di una scrittura sul volume.
+IOPS sia per Endurance che per Performance è basato su una dimensione di blocco di 16-KB con un carico di lavoro casuale al 50 percento e con lettura/scrittura al 50/50. Un blocco di 16-KB è l'equivalente di una scrittura sul volume.
 {:important}
 
 La dimensione del blocco utilizzata dalla tua applicazione influisce direttamente sulle prestazioni di archiviazione. Se la dimensione del blocco utilizzata dalla tua applicazione è inferiore a 16 KB, il limite IOPS viene realizzato prima del limite di velocità effettiva. Viceversa, se la dimensione del blocco utilizzata dalla tua applicazione è superiore a 16 KB, il limite di velocità effettiva viene realizzato prima del limite IOPS.
@@ -261,11 +261,11 @@ Un altro fattore da considerare è il numero di host che sta utilizzando il tuo 
 
 **Connessione di rete**
 
-La velocità della tua connessione Ethernet deve essere più veloce della velocità effettiva massima prevista dal tuo volume. In generale, non prevedi di saturare la connessione Ethernet oltre il 70% della larghezza di banda disponibile. Ad esempio, se hai 6.000 IOPS e stai utilizzando una dimensione del blocco di 16KB, il volume può gestire una velocità effettiva di circa 94 MBps. Se hai una connessione Ethernet da 1 Gbps al tuo LUN, diventa un collo di bottiglia quando i tuoi server proveranno a utilizzare la velocità effettiva massima disponibile. Ciò è dovuto al fatto che il 70 percento del limite teorico di una connessione Ethernet da 1 Gbps (125 MB al secondo) consentirebbe solo 88 MB al secondo.
+La velocità della tua connessione Ethernet deve essere più veloce della velocità effettiva massima prevista dal tuo volume. In generale, non prevedi di saturare la connessione Ethernet oltre il 70% della larghezza di banda disponibile. Ad esempio, se hai 6.000 IOPS e stai utilizzando una dimensione del blocco di 16-KB, il volume può gestire una velocità effettiva di circa 94-MBps. Se hai una connessione Ethernet da 1-Gbps al tuo LUN, diventa un collo di bottiglia quando i tuoi server proveranno a utilizzare la velocità effettiva massima disponibile. Ciò è dovuto al fatto che il 70 percento del limite teorico di una connessione Ethernet da 1-Gbps (125 MB al secondo) consentirebbe solo 88 MB al secondo.
 
 Per raggiungere l'IOPS massimo, è necessario che siano implementate delle risorse di rete adeguate. Altre considerazioni includono l'utilizzo della rete privata esternamente al lato archiviazione e host e le regolazioni specifiche per le applicazioni (stack di IP o [profondità di coda](set-host-queue-depth-settings-performance-and-endurance-storage.html) e altre impostazioni).
 
-Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Consulta la [documentazione dei server virtuali](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers) per comprendere i limiti che potrebbero essere imposti dal servizio.
+Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Per ulteriori informazioni sui limiti che possono essere imposti dal servizio, consulta la [documentazione di Virtual Server](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).
 {:tip}
 
 ## Invio del tuo ordine

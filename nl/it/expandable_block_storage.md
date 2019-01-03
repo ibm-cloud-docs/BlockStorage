@@ -2,18 +2,18 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-11-13"
 
 ---
 {:new_window: target="_blank"}
 
 # Espansione della capacità di Block Storage
 
-Con questa nuova funzione, gli attuali utenti {{site.data.keyword.blockstoragefull}} possono espandere la dimensione del loro {{site.data.keyword.blockstorageshort}} esistente in incrementi fino a 12 TB immediatamente. Non hanno bisogno di creare un duplicato o migrare manualmente i dati a un volume di dimensione maggiore. Non si verificherà alcuna interruzione o mancanza di accesso all'archiviazione, durante l'esecuzione della modifica della dimensione. 
+Con questa nuova funzione, gli attuali utenti {{site.data.keyword.blockstoragefull}} possono espandere la dimensione del loro {{site.data.keyword.blockstorageshort}} esistente in incrementi fino a 12 TB immediatamente. Non hanno bisogno di creare un duplicato o migrare manualmente i dati a un volume di dimensione maggiore. Non si verificherà alcuna interruzione o mancanza di accesso all'archiviazione, durante l'esecuzione della modifica della dimensione.
 
-La fatturazione per l'archiviazione viene aggiornata per aggiungere la differenza calcolata proporzionalmente del nuovo prezzo al ciclo di fatturazione corrente. L'intero nuovo ammontare viene quindi fatturato nel prossimo ciclo di fatturazione.
+La fatturazione per il volume viene aggiornata automaticamente per aggiungere la differenza calcolata proporzionalmente del nuovo prezzo al ciclo di fatturazione corrente. L'intero nuovo ammontare viene quindi fatturato nel prossimo ciclo di fatturazione.
 
-Questa funzione è disponibile in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
+Questa funzione è disponibile in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
 
 ## Vantaggi dell'archiviazione espandibile
 
@@ -23,13 +23,13 @@ Questa funzione è disponibile in [data center selezionati](new-ibm-block-and-fi
 
 ## Effetti dell'espansione della capacità di archiviazione sulla replica
 
-L'azione di espansione sull'archiviazione primaria determina una modifica automatica della dimensione della replica. 
+L'azione di espansione sull'archiviazione primaria determina una modifica automatica della dimensione della replica.
 
 ## Limitazioni
 
-Questa funzione è disponibile per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). 
+Questa funzione è disponibile per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
 
-L'archiviazione di cui era stato eseguito il provisioning in questi data center prima della release di questa funzione, tra l'**aprile 2017 e il 14 dicembre 2017**, può essere aumentata a 10 volte la sua dimensione originale e non oltre. L'archiviazione di cui è stato eseguito il provisioning dopo il **14 dicembre 2017** può essere aumentata fino a 12 TB. 
+L'archiviazione di cui era stato eseguito il provisioning in questi data center prima della release di questa funzione, tra l'**aprile 2017 e il 14 dicembre 2017**, può essere aumentata fino a 10 volte la sua dimensione originale e non oltre. L'archiviazione di cui è stato eseguito il provisioning dopo il **14 dicembre 2017** può essere aumentata fino a 12 TB.
 
 I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning con Endurance continuano a essere validi (fino a 4 TB per un livello 10 IOPS e fino a 12 TB per tutti gli altri livelli).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-12"
 
 ---
 {:new_window: target="_blank"}
@@ -39,11 +39,12 @@ Se per il volume è implementata la replica, quest'ultima viene aggiornata autom
 
 1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}}
    - Da {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**
-   - Dal catalogo {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+   - Dalla console {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
 3. In **Storage IOPS Options**, effettua una nuova selezione.
-    - Endurance (IOPS a livelli): seleziona un livello IOPS superiore a 0,25 IOPS/GB della tua archiviazione. Puoi aumentare il livello IOPS in qualsiasi momento. Tuttavia, in diminuzione è disponibile solo una volta al mese.
-    - Performance (IOPS allocato): specifica la nuova opzione IOPS per la tua archiviazione immettendo un valore compreso tra 100 e 48.000 IOPS.
+    - Per Endurance (IOPS a livelli), seleziona un livello IOPS superiore a 0,25 IOPS/GB della tua archiviazione. Puoi aumentare il livello IOPS in qualsiasi momento. Tuttavia, in diminuzione è disponibile solo una volta al mese.
+    - Per Performance (IOPS allocato), specifica la nuova opzione IOPS per la tua archiviazione immettendo un valore compreso tra 100 e 48.000 IOPS. 
+    
     Assicurati di esaminare gli eventuali limiti specifici richiesti in base alla dimensione nel modulo dell'ordine.
     {:tip}
 4. Riesamina la tua selezione e la nuova determinazione del prezzo.

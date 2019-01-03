@@ -2,10 +2,9 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-30"
+lastupdated: "2018-12-06"
 
 ---
-
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
@@ -13,16 +12,16 @@ lastupdated: "2018-11-30"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
+# Ripristino di emergenza - Failover con un volume primario non accessibile
 
-# Duplicazione dei volumi di replica per il ripristino d'emergenza
-
-Nel caso di un errore catastrofico o di un'emergenza che causa un'interruzione sul sito primario, i clienti possono eseguire le seguenti azioni per accedere rapidamente ai loro dati sul sito secondario.
+Se un errore catastrofico o un'emergenza causa un'interruzione sul sito primario, i clienti possono eseguire le seguenti azioni per accedere rapidamente ai loro dati sul sito secondario.
 
 ## Failover con un duplicato di un volume di replica sul sito secondario
 
-1. Accedi alla [Console IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic sull'icona **Menu** in alto a sinistra. Seleziona **Infrastruttura classica**.
+1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Fai clic sulla replica del LUN nell'elenco per visualizzare la relativa pagina **Details**.
 4. Nella pagina **Details**, scorri verso il basso, seleziona un'istantanea esistente e fai clic su **Actions** > **Duplicate**.
@@ -36,16 +35,17 @@ Non appena il volume viene creato, può essere collegato a un host ed eseguire l
 
 Se vuoi far tornare la produzione al sito primario originale, devi completare le seguenti istruzioni.
 
-1. Accedi alla [Console IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic sull'icona **Menu** in alto a sinistra. Seleziona **Infrastruttura classica**.
+1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Fai clic sul nome del LUN e crea una pianificazione delle istantanee (se non ne esiste già una).
 
    Per ulteriori informazioni sulle pianificazioni delle istantanee, consulta [Gestione delle istantanee](working-with-snapshots.html#adding-a-snapshot-schedule).
    {:tip}
 4. Fai clic su **Replica** e fai clic su **Purchase a replication**.
-5. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla replica. L'elenco contiene tutte le pianificazioni delle istantanee attive.  
+5. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla replica. L'elenco contiene tutte le pianificazioni delle istantanee attive.
 6. Fai clic su **Location** e seleziona il data center che era il sito di produzione originale.
 7. Fai clic su **Continue**.
 8. Fai clic sulla casella di spunta **I have read the Master Service Agreement…** e su **Place Order**.

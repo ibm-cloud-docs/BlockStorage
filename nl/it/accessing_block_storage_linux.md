@@ -18,10 +18,10 @@ lastupdated: "2018-11-30"
 Queste istruzioni sono principalmente per RHEL6 e Centos6. Sono state aggiunte delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione della tua specifica distribuzione e assicurati che il multipath supporti ALUA per la priorità di percorso.
 {:note}
 
-Ad esempio, puoi trovare le istruzioni di Ubuntu per la configurazione dell'iniziatore iSCSI [qui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e per la configurazione di DM-Multipath [qui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
-{:tip}
+Ad esempio, puoi trovare le istruzioni di Ubuntu per la configurazione dell'iniziatore iSCSI [qui ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e per la configurazione di DM-Multipath [qui ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+{: tip}
 
-Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite il [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 {:important}
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
@@ -32,7 +32,7 @@ Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.dat
 
 Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.BluSoftlayer_full}} basata su Linux a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output).
 
-L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}}** Details nel [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}} Details** nel [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 {: tip}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
@@ -91,7 +91,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
       ```
       {: codeblock}
 
-    - Riavvia i servizi iscsi e iscsid in modo che le modifiche abbiano effetto.
+    - Riavvia i servizi `iscsi` e `iscsid` in modo che le modifiche abbiano effetto.
 
       ```
       service iscsi restart
@@ -157,7 +157,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
     ```
     {: pre}
 
-    RHEL 7 e CentOS 7 potrebbe restituire "No fc_host device", che può essere ignorato.
+    RHEL 7 e CentOS 7 potrebbero restituire "No fc_host device", che può essere ignorato.
 
 5. Aggiorna il file `/etc/iscsi/initiatorname.iscsi` con l'IQN dal {{site.data.keyword.slportal}}. Immetti il valore con lettere minuscole.
    ```
@@ -221,7 +221,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
     ```
     {: pre}
 
-   - Altre distribuzioni: consulta la documentazione del fornitore del sistema operativo.
+   - Per altre distribuzioni, consulta la documentazione del fornitore del sistema operativo.
 
 8. Rileva il dispositivo utilizzando l'indirizzo IP di destinazione ottenuto dal {{site.data.keyword.slportal}}.
 
@@ -343,7 +343,7 @@ Segui questa procedura per creare un file system sul volume appena montato. Un f
     <tbody>
 	<tr>
 		<td><code>Command: n</code></td>
-		<td>Crea una nuova partizione. &#42;</td>
+		<td>Crea una partizione. &#42;</td>
 	</tr>
 	<tr>
 		<td><code>Command action: p</code></td>
@@ -362,7 +362,7 @@ Segui questa procedura per creare un file system sul volume appena montato. Un f
 		<td>Premi Invio per andare all'ultimo cilindro.</td>
 	</tr>
 	<tr>
-		<td><code>Comando: t</code></td>
+		<td><code>Command: t</code></td>
 		<td>Configura il tipo di partizione. &#42;</td>
 	</tr>
 	<tr>
@@ -374,7 +374,7 @@ Segui questa procedura per creare un file system sul volume appena montato. Un f
 		<td>Seleziona Linux come tipo (Type) (83 è il codice esadecimale per Linux).&#42;&#42;</td>
 	 </tr>
 	<tr>
-		<td><code>Comando: w</code></td>
+		<td><code>Command: w</code></td>
 		<td>Scrive le informazioni sulla nuova partizione sul disco. &#42;</td>
 	</tr>
    </tbody>
@@ -400,7 +400,7 @@ Per molte distribuzioni Linux, `parted` è preinstallato. Se non è incluso nel 
   {: pre}
 
 
-Per creare un file system con `parted` attieniti alla seguente procedura.
+Per creare un file system con `parted`, attieniti alla seguente procedura.
 
 1. Esegui `parted`.
 
@@ -433,7 +433,7 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
 
    4. Puoi usare `Parted` per creare partizioni disco primarie e logiche; la procedura prevista è la stessa. Per creare una partizione, `parted` utilizza `mkpart`. Puoi dargli dei parametri aggiuntivi come **primary** oppure **logical**, a seconda del tipo di partizione che vuoi creare.<br />
 
-   Le unità elencate hanno come valore predefinito i megabyte (MB); per creare una partizione da 10 GB inizia da 1 e finisci a 10000. Puoi anche modificare le unità di dimensione in terabyte immettendo `unit TB`, se vuoi.
+   Le unità elencate hanno come valore predefinito i megabyte (MB). Per creare una partizione da 10-GB, inizia da 1 e finisci a 10000. Puoi anche modificare le unità di dimensione in terabyte immettendo `unit TB`, se vuoi.
    {: tip}
 
       ```
@@ -455,7 +455,7 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
    ```
    {: pre}
 
-   È importante selezionare il disco e la partizione corretti quando esegui questo comando!<br />Verifica il risultato stampando la tabella partizioni. Nella colonna del file system, puoi vedere ext3.
+   È importante selezionare il disco e la partizione corretti quando esegui questo comando. <br />Verifica il risultato stampando la tabella partizioni. Nella colonna del file system, puoi vedere ext3.
    {:important}
 
 4. Crea un punto di montaggio per il file system e montalo.
@@ -491,9 +491,9 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
 
 
 
-## Verifica se MPIO è configurato correttamente nei sistemi operativi `*NIX`
+## Verifica della configurazione MPIO
 
-1. Per controllare se multipath sta rilevando i dispositivi, elencali. Se la configurazione è corretta, vengono visualizzati solo due dispositivi NETAPP.
+1. Per controllare se multipath sta rilevando i dispositivi, elencali. Se è stato configurato correttamente, vengono visualizzati solo due dispositivi NETAPP.
 
   ```
   multipath -l
@@ -514,7 +514,7 @@ Per creare un file system con `parted` attieniti alla seguente procedura.
   ```
   {: pre}
 
-  - Output di esempio di una configurazione corretta:
+  - Output di esempio di una configurazione corretta.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -523,7 +523,7 @@ Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Output di esempio di una configurazione non corretta:
+  - Output di esempio di una configurazione non corretta.
 
     ```
     No multipath output root@server:~# multipath -l root@server:~#
@@ -571,5 +571,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   Per ulteriori informazioni, consulta la [pagina principale di iscsiadm](https://linux.die.net/man/8/iscsiadm).
+   Per ulteriori informazioni, consulta il [manuale di `iscsiadm` ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://linux.die.net/man/8/iscsiadm).
    {:tip}

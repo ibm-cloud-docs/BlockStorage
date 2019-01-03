@@ -25,19 +25,19 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 
 Dipende da quello che il sistema operativo dell'host è in grado di gestire; non è qualcosa che viene limitato da {{site.data.keyword.BluSoftlayer_full}}. Fai riferimento alla documentazione del tuo sistema operativo per i limiti relativi al numero di volumi che è possibile montare.
 
-## Quale versione di Windows dovrei scegliere per il mio LUN Block Storage?
+## Quale versione di Windows devo scegliere per il mio LUN Block Storage?
 {: faq}
 
 Quando si crea un LUN, devi specificare il tipo di SO. Il tipo di SO deve essere basato sul sistema operativo utilizzato dagli host che accedono al LUN. Il tipo di SO non può essere modificato dopo la creazione del LUN. La dimensione effettiva del LUN potrebbe variare leggermente in base al tipo di SO del LUN.
 
 **Windows 2008+**
-- il LUN archivia i dati di Windows per Windows 2008 e versioni successive. Utilizza questa opzione del SO se il tuo sistema operativo host è Windows Server 2008, Windows Server 2012, Windows Server 2016. Sono supportati i metodi di partizionamento MBR e GPT.
+- Il LUN archivia i dati di Windows per Windows 2008 e versioni successive. Utilizza questa opzione del SO se il tuo sistema operativo host è Windows Server 2008, Windows Server 2012, Windows Server 2016. Sono supportati i metodi di partizionamento MBR e GPT.
 
 **Windows 2003**
-- il LUN archivia un tipo di disco non elaborato in un disco Windows a partizione singola utilizzando lo stile di partizionamento MBR (Master Boot Record). Utilizza questa opzione solo se il tuo sistema operativo host è Windows 2000 Server, Windows XP o Windows Server 2003 che utilizza il metodo di partizionamento MBR.
+- Il LUN archivia un tipo di disco non elaborato in un disco Windows a partizione singola che utilizza lo stile di partizionamento MBR (Master Boot Record). Utilizza questa opzione solo se il tuo sistema operativo host è Windows 2000 Server, Windows XP o Windows Server 2003 che utilizza il metodo di partizionamento MBR.
 
 **Windows GPT**
--  il LUN archivia i dati Windows utilizzando lo stile di partizionamento GPT (GUID Partition Type). Utilizza questa opzione se vuoi utilizzare il metodo di partizionamento GPT e il tuo host è in grado di utilizzarlo. Windows Server 2003, Service Pack 1 e successivi possono utilizzare il metodo di partizionamento GPT e tutte le versioni a 64-bit di Windows lo supportano.
+-  Il LUN archivia i dati Windows utilizzando lo stile di partizionamento GPT (GUID Partition Type). Utilizza questa opzione se vuoi utilizzare il metodo di partizionamento GPT e il tuo host è in grado di utilizzarlo. Windows Server 2003, Service Pack 1 e successivi possono utilizzare il metodo di partizionamento GPT e tutte le versioni a 64-bit di Windows lo supportano.
 
 ## Il limite dell'IOPS allocato viene implementato in base all'istanza o in base al volume?
 {: faq}
@@ -47,7 +47,7 @@ L'IOPS viene implementato a livello dei volumi. In altre parole, due host connes
 ## Misurazione dell'IOPS
 {: faq}
 
-L'IOPS viene misurato in base a un profilo di caricamento di blocchi da 16 KB con 50 percento di letture e 50 percento di scritture casuali. I carichi di lavoro che differiscono da questo profilo potrebbero riscontrare delle prestazioni inferiori.
+L'IOPS viene misurato in base a un profilo di caricamento di blocchi da 16-KB con 50 percento di letture e 50 percento di scritture casuali. I carichi di lavoro che differiscono da questo profilo potrebbero riscontrare delle prestazioni inferiori.
 
 ## Cosa succede quando una dimensione di blocco più piccola viene utilizzata per misurare le prestazioni?
 {: faq}
@@ -66,9 +66,9 @@ Non è necessario eseguire un preriscaldamento. Puoi osservare la velocità effe
 ## È possibile ottenere più velocità effettiva utilizzando una connessione Ethernet più veloce?
 {: faq}
 
-I limiti di velocità effettiva sono impostati su un livello per volume/LUN; pertanto, l'utilizzo di una connessione Ethernet più veloce non aumenta tale limite impostato. Tuttavia, con una connessione Ethernet più lenta, la tua larghezza di banda può essere un potenziale collo di bottiglia.
+I limiti di velocità effettiva sono impostati su un livello per LUN; pertanto, l'utilizzo di una connessione Ethernet più veloce non aumenta tale limite impostato. Tuttavia, con una connessione Ethernet più lenta, la tua larghezza di banda può essere un potenziale collo di bottiglia.
 
-## I firewall/gruppi di sicurezza hanno ripercussioni sulle prestazioni?
+## I firewall e i gruppi di sicurezza hanno ripercussioni sulle prestazioni?
 {: faq}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
@@ -83,10 +83,10 @@ La latenza di destinazione nell'archiviazione è di <1 ms. L'archiviazione è co
 
 Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Endurance è disponibile solo in data center selezionati; a tale selezione verranno gradualmente aggiunti dei nuovi data center. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](new-ibm-block-and-file-storage-location-and-features.html).
 
-## Come faccio a capire quali LUN/volumi {{site.data.keyword.blockstorageshort}} sono crittografati?
+## Come faccio a capire quali volumi {{site.data.keyword.blockstorageshort}} sono crittografati?
 {: faq}
 
-Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
+Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
 
 ## Come facciamo a sapere se stiamo eseguendo il provisioning di {{site.data.keyword.blockstorageshort}} in un data center di cui è stato eseguito l'upgrade?
 {: faq}
@@ -97,7 +97,7 @@ Quando ordini {{site.data.keyword.blockstorageshort}}, tutti i data center di cu
 {: faq}
 
 Non è possibile crittografare il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning prima dell'upgrade del data center.
-Il nuovo {{site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in data center di cui è stato eseguito l'upgrade viene crittografato automaticamente. Non c'è alcuna impostazione di crittografia da cui scegliere, l'operazione è automatica.
+Il nuovo {{site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in data center di cui è stato eseguito l'upgrade, viene crittografato automaticamente. Non c'è alcuna impostazione di crittografia da cui scegliere, l'operazione è automatica.
 I dati su un'archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade possono essere crittografati creando un nuovo LUN di blocchi e copiando quindi i dati nel nuovo LUN crittografato con una migrazione basata sull'host. Fai clic [qui](migrate-block-storage-encrypted-block-storage.html) per le istruzioni.
 
 ## {{site.data.keyword.blockstorageshort}} supporta la prenotazione permanente SCSI-3 per implementare il fencing I/O per Db2 pureScale?
