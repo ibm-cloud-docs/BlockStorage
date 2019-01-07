@@ -48,5 +48,8 @@ IBM Cloud Storage - Block Storage
     {: .navgroup id="help"}
     faqs.md
     [Informações do cliente da API da Python](https://softlayer-python.readthedocs.io/en/latest/index.html)
-    win12-missing-devices.md
+
+    {: .topicgroup}
+    Troubleshooting
+        win12-missing-devices.md
     {: .navgroup-end}

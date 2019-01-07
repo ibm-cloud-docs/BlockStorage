@@ -49,5 +49,8 @@ IBM Cloud Storage - ブロック・ストレージ
     {: .navgroup id="help"}
     faqs.md
     [Python API Client 情報](https://softlayer-python.readthedocs.io/en/latest/index.html)
-    win12-missing-devices.md
+
+    {: .topicgroup}
+    Troubleshooting
+        win12-missing-devices.md
     {: .navgroup-end}
