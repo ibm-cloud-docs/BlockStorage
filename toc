@@ -14,7 +14,6 @@ IBM Cloud Storage - Block Storage
     {: .topicgroup}
     Provisioning
         provisioning-block_storage.md
-        ordering-through-cli.md
         ordering-snapshots.md
         managing-storage-limits.md
         migrate-block-storage-encrypted-block-storage.md
@@ -35,24 +34,24 @@ IBM Cloud Storage - Block Storage
         adjustable-iops.md
         how-to-create-duplicate-volume.md
         working-with-snapshots.md
-            
+
     {: .topicgroup}
     Replication and Disaster Recovery
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
-        
+
     {: .topicgroup}
     Securing data
         block-file-storage-encryption-rest.md
-        use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md    
+        use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faqs.md
     [Python API Client Information](https://softlayer-python.readthedocs.io/en/latest/index.html)
-    
+
     {: .topicgroup}
-    Troubleshooting    
+    Troubleshooting
         win12-missing-devices.md
     {: .navgroup-end}
