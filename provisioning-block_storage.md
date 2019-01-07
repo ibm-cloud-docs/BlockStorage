@@ -13,7 +13,7 @@ lastupdated: "2019-01-07"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Ordering {{site.data.keyword.blockstorageshort}}
+# Ordering {{site.data.keyword.blockstorageshort}} through the Console
 
 You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
 
