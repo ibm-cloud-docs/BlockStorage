@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-20"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-12-20"
 {:important: .important}
 
 
-# Connecting to MPIO iSCSI LUNs on Linux
+# Connecting to iSCSI LUNs on Linux
 
 These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
 {:note}
