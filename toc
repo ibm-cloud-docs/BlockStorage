@@ -14,6 +14,7 @@ IBM Cloud Storage - Block Storage
     {: .topicgroup}
     Provisioning
         provisioning-block_storage.md
+        ordering-through-cli.md
         ordering-snapshots.md
         managing-storage-limits.md
         migrate-block-storage-encrypted-block-storage.md
