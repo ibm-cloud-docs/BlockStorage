@@ -8,20 +8,19 @@ IBM Cloud Storage - Block Storage
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
-    expandable_block_storage.md
-    adjustable-iops.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     {: .topicgroup}
     Provisioning
         provisioning-block_storage.md
+        ordering-through-cli.md
         ordering-snapshots.md
         managing-storage-limits.md
         migrate-block-storage-encrypted-block-storage.md
 
     {: .topicgroup}
-    Configuration
+    Configuring
         accessing_block_storage_linux.md
         configure-iscsi-cloudlinux.md
         accessing-block-storage-windows.md
@@ -30,22 +29,30 @@ IBM Cloud Storage - Block Storage
         configure-backup-plesk.md
 
     {: .topicgroup}
-    Replication
+    Managing
+        managing-block-storage.md
+        expandable_block_storage.md
+        adjustable-iops.md
+        how-to-create-duplicate-volume.md
+        working-with-snapshots.md
+            
+    {: .topicgroup}
+    Replication and Disaster Recovery
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
-
+        
     {: .topicgroup}
-    Security
+    Securing data
         block-file-storage-encryption-rest.md
-        use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-
-    managing-block-storage.md
-    how-to-create-duplicate-volume.md
-    working-with-snapshots.md
+        use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md    
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faqs.md
     [Python API Client Information](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    
+    {: .topicgroup}
+    Troubleshooting    
+        win12-missing-devices.md
     {: .navgroup-end}
