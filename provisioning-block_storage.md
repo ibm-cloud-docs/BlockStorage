@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -84,11 +84,18 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 ## Connecting your new storage
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
+- [Connecting to iSCSI LUNs on Linux](accessing_block_storage_linux.html)
+- [Connecting to iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connecting to iSCSI LUNs on Microsoft Windows](accessing-block-storage-windows.html)
+- [Mounting an iSCSI LUN in XenServer Shared Storage](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [Configuring Block Storage for backup with cPanel](configure-backup-cpanel.html)
 - [Configuring Block Storage for backup with Plesk](configure-backup-plesk.html)
+
+## Disaster recovery considerations
+
+To avoid data-loss and to ensure business continuity, consider replicating your servers and storage in another data center. Replication keeps your data in sync in two different locations based on your snapshot schedule. For more information, see [Replicating data](replication.html).
+
+If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 
