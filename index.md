@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -270,7 +270,7 @@ Storage traffic is included in the total network usage of Public Virtual Servers
 
 ## Submitting your Order
 
-When you're ready to submit your order, follow the instructions [here](provisioning-block_storage.html).
+When you're ready to submit your order, you can place it through the [Console](provisioning-block_storage.html) or the [SLCLI](ordering-through-cli.html).
 
 ## Connecting your new storage
 
