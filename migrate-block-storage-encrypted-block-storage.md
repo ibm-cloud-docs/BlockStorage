@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -18,9 +18,9 @@ The preferred migration path is to connect to both LUNs simultaneously and trans
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
-- [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
+- [Connecting to iSCSI LUNs on Linux](accessing_block_storage_linux.html)
+- [Connecting to iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connecting to iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
 
 All enhanced {{site.data.keyword.blockstorageshort}} volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you're using the correct mount point for both storage volumes, you can view the mount point information in the **Volume Details** page in the console. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
