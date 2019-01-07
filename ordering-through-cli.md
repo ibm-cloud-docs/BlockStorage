@@ -135,8 +135,8 @@ For the limit on simultaneous authorizations, see the [FAQs](faqs.html).
 ## Connecting your new storage
 
 Depending on your host's operating system, follow the appropriate link.
-- [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
+- [Connecting to iSCSI LUNs on Linux](accessing_block_storage_linux.html)
+- [Connecting to iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connecting to iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuring Block Storage for backup with cPanel](configure-backup-cpanel.html)
 - [Configuring Block Storage for backup with Plesk](configure-backup-plesk.html)
