@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -46,7 +46,10 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 
    This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html).
    {:tip}
-9. On the right, review your order summary, and apply your Promo Code if you have one.
+9. On the right, review your order summary, and apply your Promo Code if you have one. 
+
+   Discounts are applied when the order is processed.
+   {:note}
 10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
@@ -75,6 +78,9 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
    This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](faqs.html).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
+
+   Discounts are applied when the order is processed.
+   {:note}
 10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
