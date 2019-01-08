@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-06"
+  years: 2015, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -114,6 +114,9 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 3. Click **Location**, and select the data center that is your DR site.
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
+
+   Discounts are applied when the order is processed.
+   {:note}
 6. Click the **I have read the Master Service Agreement…** check box, and click **Place Order**.
 
 
