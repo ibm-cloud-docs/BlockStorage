@@ -24,6 +24,9 @@ To create snapshots of your storage volume, either automated or manually, you ne
 3. Select the amount of space that you need and the payment method.
 4. Click **Continue**.
 5. Enter any **Promo Code** that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
+
+   Discounts are applied when the order is processed.
+   {:note}
 6. Check the **I have read the Master Service Agreement and agree to the terms therein** box and click **Place Order**. Your snapshot space is provisioned in a few minutes.
 
 ## Determining how much snapshot space to order
