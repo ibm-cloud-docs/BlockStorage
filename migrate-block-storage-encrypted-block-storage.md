@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -30,44 +30,12 @@ All enhanced {{site.data.keyword.blockstorageshort}} volumes that are provisione
 When you place an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
 {:important}
 
-The following instructions are for ordering an enhanced LUN through the {{site.data.keyword.slportal}}. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
+You can order an enhanced LUN through the IBM Cloud Console and the {{site.data.keyword.slportal}}. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
-### Ordering an Endurance LUN
+- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. From the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
-3. Select **Endurance** from the **Select Storage Type** list.
-4. Select your deployment **Location** (data center).
-   - Ensure that the new Storage is added in the same location as the previous volume.
-5. Select your billing option. You can choose between hourly and monthly billing.
-6. Select the IOPS tier.
-7. Click **Select Storage Size** and select your storage size from the list.
-8. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space.
-
-   For more information about snapshot space considerations and recommendations, see [Ordering Snapshots](ordering-snapshots.html).
-   {:tip}
-9. Choose your **OS Type** from the list.
-10. Click **Continue**. You’re shown the monthly and prorated charges with a final chance to review order details.
-11. Click the **I have read the Master Service Agreement** check box and click **Place Order**.
-
-### Ordering a Performance LUN
-
-1. From the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, click **Storage**, **{{site.data.keyword.blockstorageshort}}** OR from the {{site.data.keyword.BluSoftlayer_full}} catalog click **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. On the right, click **Order {{site.data.keyword.blockstorageshort}}**.
-3. Select **Performance** from the **Select Storage Type** list.
-4. Click **Location** and select your data center.
-
-   Ensure that the new Storage is added in the same location as the host or hosts you ordered previously.
-   {:important}
-5. Select your billing option. You can choose between hourly and monthly billing.
-6. Select the appropriate **Storage Size**.
-7. Enter the IOPS in the **Specify IOPS** field.
-8. Click **Continue**. You are shown the monthly and prorated charges with a final chance to review order details. Click **Previous** if you want to change your order.
-9. Click the **I have read the Master Service Agreement** check box, and click **Place Order**.
-
-Storage is provisioned in less than a minute and is visible on the {{site.data.keyword.blockstorageshort}} page of the {{site.data.keyword.slportal}}.
-
-
+Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 
 ## Connecting new {{site.data.keyword.blockstorageshort}} to host
 
