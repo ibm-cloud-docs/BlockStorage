@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-14"
 
 ---
 {:new_window: target="_blank"}
@@ -69,9 +69,9 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 ### Activating Target
 
 1. Click **Connect** to connect to the target.
-2. Select **Enable multi-path** check box to enable multi-path IO to the target.
+2. Select **Enable multi-path** check box to enable multi-path IO to the target.<br/>
    ![Enable Multi-path](/images/Connect_0.png)
-3. Click **Advanced** and select **Enable CHAP log on**.
+3. Click **Advanced** and select **Enable CHAP log on**.</br>
    ![Enable CHAP](/images/chap_0.png)
 4. Enter the user name in the Name field, and enter the password in the Target secret field.
 
@@ -100,8 +100,11 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 6. In the Connect to Target window, select the **Enable multi-path** check box. Click **Advanced**.
 7. In the Advanced Settings window,
    - On the Local adapter list, select Microsoft iSCSI Initiator.
-   - On the Initiator IP list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
-   - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the device.
+   - On the Initiator IP list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the storage device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
+   - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the storage device.
+
+     You can find the second IP address in the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+      {: tip}
    - Click **Enable CHAP log on** check box
    - Enter the Name and Target secret values that were obtained from the portal and click **OK**.
    - Click **OK** on the Connect To Target window to go back to the Properties window.
