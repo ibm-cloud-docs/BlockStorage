@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -26,7 +26,7 @@ lastupdated: "2018-11-30"
 每個訂單都必須要有相關聯的位置（資料中心）。當您訂購 {{site.data.keyword.blockstorageshort}} 時，請確定其佈建在與運算實例相同的位置。
 {:important}
 
-您可以使用 `slcli order package-list` 指令來尋找您想要訂購的套件。有提供 `–keyword` 選項來執行簡單的搜尋和過濾。此選項可讓您更容易找到所需的套件。
+您可以使用 `slcli order package-list` 指令來尋找您想要訂購的套件。有提供 `–keyword` 選項來執行簡單的搜尋和過濾。此選項可讓您更容易找到所需的套件。請尋找 **Storage-as-a-Service Package 759**。
 
 ```
 $ slcli order package-list --help
@@ -50,85 +50,80 @@ Options:
   -h, --help      Show this message and exit.
 ```
 
-*需要如何尋找 Storage-as-a-Service Package 759 的指示*
+您也可以使用 `slcli block volume-order` 指令。
 
 ```
-$ slcli order package-list --keyword "Storage"
-:.....................:.....................:
-:         name        :       keyName       :
-:.....................:.....................:
-: ???                 : ???                 :
-: ???                 : ???                 :
-:.....................:.....................:
+# slcli block volume-order --help
+Usage: slcli block volume-order [OPTIONS]
+
+ Order a block storage volume.
+
+Options:
+ --storage-type [performance|endurance]
+                                 Type of block storage volume  [required]
+ --size INTEGER                  Size of block storage volume in GB.
+                                 Permitted Sizes:
+                                 20, 40, 80, 100, 250, 500,
+                                 1000, 2000, 4000, 8000, 12000  [required]
+ --iops INTEGER                  Performance Storage IOPs, between 100 and
+                                 6000 in multiples of 100  [required for
+                                 storage-type performance]
+ --tier [0.25|2|4|10]            Endurance Storage Tier (IOP per GB)
+                                 [required for storage-type endurance]
+ --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                 Operating System  [required]
+ --location TEXT                 Datacenter short name (e.g.: dal09)
+                                 [required]
+ --snapshot-size INTEGER         Optional parameter for ordering snapshot
+                                 space along with endurance block storage;
+                                 specifies the size (in GB) of snapshot space
+                                 to order
+ --service-offering [storage_as_a_service|enterprise|performance]
+                                 The service offering package to use for
+                                 placing the order [optional, default is
+                                 'storage_as_a_service']
+ --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                 to monthly)
+ -h, --help                      Show this message and exit.
 ```
 
-```
-$ slcli order category-list STORAGE_AS_A_SERVICE_STAAS --required
-:..................................:...................:............:
-:               name               :    categoryCode   : isRequired :
-:..................................:...................:............:
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:..................................:...................:............:
-```
-
-使用 `item-list` 指令來選取訂單的其餘項目。套件通常會有許多項目可供選擇，您可以使用 `–category` 選項，只從您感興趣的種類中擷取項目。
-
-```
-$ slcli order item-list STORAGE_AS_A_SERVICE_STAAS --category ??
-:..........................:..............................................:
-:         keyName          :                description                   :
-:..........................:..............................................:
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:..........................:..............................................:
-```
-
-如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}。
-若要能夠存取所有新增特性，請訂購 `Storage-as-a-Service Package 759`。
+如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}。若要能夠存取所有新增特性，請訂購 `Storage-as-a-Service Package 759`。
 {:tip}
 
-## 驗證訂單
-
-如果您不確定訂單中是否遺漏了必要的種類，您可以使用 `place` 指令搭配 `–verify` 旗標。若有遺漏任何種類，就會列印在畫面上。
-
-
-```
-$ slcli order place --verify blablabla
-:..............................................:.................................................:......:
-:                keyName                       :                   description                   : cost :
-:..............................................:.................................................:......:
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:..............................................:.................................................:......:
-```
-
-輸出會顯示所訂購的每個項目，以及該項目的相關成本。如果訂單通過驗證，則表示沒有衝突的項目，且所有必要種類都有訂單中所指定的項目。
 
 ## 下訂單
 
-下一步是下訂單。
+下列範例顯示如何訂購具有 20 GB Snapshot 空間及每 GB 具有 0.25 IOPS 的 80 GB {{site.data.keyword.blockstorageshort}} 磁區。
 
 ```
-$ slcli order place .....
-
-This action will incur charges on your account. Continue? [y/N]: y
-
-API response
+slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
+Order #15547457 placed successfully!
+ > Endurance Storage
+ > Block Storage
+ > 0.25 IOPS per GB
+ > 80 GB Storage Space
+ > 20 GB Storage Space (Snapshot Space)
 ```
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。如需增加限制的相關資訊，請參閱[管理儲存空間限制](managing-storage-limits.html)。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 磁區。若要增加磁區數目，請與業務代表聯絡。如需增加限制的相關資訊，請參閱[管理儲存空間限制](managing-storage-limits.html)。
 {:important}
 
 ## 授權主機存取新的儲存空間
 
-TBD
+```
+slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+  Authorizes hosts to access a given volume
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 若要進一步瞭解如何授權主機透過 API 來存取 {{site.data.keyword.blockstorageshort}}，請參閱 [authorize_host_to_volume ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}。
 {:tip}
@@ -139,8 +134,8 @@ TBD
 ## 連接新的儲存空間
 
 根據主機的作業系統而定，遵循適當的鏈結。
-- [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
+- [在 Linux 上連接至 iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上連接至 iSCSI LUN](configure-iscsi-cloudlinux.html)
+- [在 Microsoft Windows 上連接至 iSCSI LUN](accessing-block-storage-windows.html)
 - [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
 - [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)

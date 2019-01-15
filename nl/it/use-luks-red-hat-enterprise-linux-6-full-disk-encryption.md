@@ -33,14 +33,14 @@ Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioni
 ## Cosa non fa LUKS
 
 - Consente alle applicazioni che richiedono molti utenti (più di otto) di avere delle chiavi di accesso distinte agli stessi dispositivi.
-- Utilizza le applicazioni che richiedono la crittografia a livello di file, [ulteriori informazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Lavora con le applicazioni che richiedono la crittografia a livello di file. Per ulteriori informazioni, consulta il manuale [RHEL Security Guide ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configurazione di un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
 
 L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
 {:note}
 
-1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto: <br/>
+1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:   <br/>
    ```
    # yum install cryptsetup-luks
    ```

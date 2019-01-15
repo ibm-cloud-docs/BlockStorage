@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-06"
+lastupdated: "2018-12-11"
 
 ---
 {:new_window: target="_blank"}
@@ -21,6 +21,7 @@ lastupdated: "2018-12-06"
 1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
 {DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
+
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击列表中 LUN 的副本，以查看其**详细信息**页面。
@@ -37,6 +38,7 @@ lastupdated: "2018-12-06"
 
 1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
 {DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+
 
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。

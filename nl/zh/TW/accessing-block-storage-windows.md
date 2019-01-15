@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# 在 Microsoft Windows 上連接至 MPIO iSCSI LUN
+# 在 Microsoft Windows 上連接至 iSCSI LUN
 
 開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機已透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 獲得授權。
 
@@ -68,18 +68,15 @@ lastupdated: "2018-11-30"
 
 1. 按一下**連接**來連接至目標。
 2. 選取**啟用多路徑**勾選框，以啟用目標的多路徑 IO。
-</br>
-   ![啟用多路徑](/images/Connect_0.png)
+![啟用多路徑](/images/Connect_0.png)
 3. 按一下**進階**，然後選取**啟用 CHAP 登入**。
-</br>
-   ![啟用 CHAP](/images/chap_0.png)
+![啟用 CHAP](/images/chap_0.png)
 4. 在「名稱」欄位中輸入使用者名稱，然後在「目標密碼」欄位中輸入密碼。
 
    您可以從「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面取得「名稱」及「目標密碼」欄位值。
    {:tip}
 5. 按一下**確定**，直到顯示 **iSCSI 起始器內容**視窗。**已探索目標**區段中的目標狀態會從**非作用中**變更為**已連接**。
-</br>
-   ![已連接狀態](/images/Connected.png)
+![已連接狀態](/images/Connected.png)
 
 
 ### 在 iSCSI 起始器中配置 MPIO

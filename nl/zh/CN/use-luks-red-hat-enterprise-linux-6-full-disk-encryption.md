@@ -34,7 +34,7 @@ lastupdated: "2018-11-30"
 ## LUKS 不执行以下操作
 
 - 允许需要多个（超过 8 个）用户的应用程序对相同设备具有不同的访问密钥。
-- 使用需要文件级别加密的应用程序；请参阅[更多信息 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}。
+- 使用需要文件级别加密的应用程序。有关更多信息，请参阅 [RHEL 安全指南 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}。
 
 ## 使用耐久性 {{site.data.keyword.blockstorageshort}} 设置 LUKS 加密卷
 

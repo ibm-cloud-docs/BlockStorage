@@ -24,6 +24,9 @@ Para criar capturas instantâneas de seu volume de armazenamento, seja automatic
 3. Selecione a quantidade de espaço que você precisa e o método de pagamento.
 4. Clique em **Continuar**.
 5. Insira qualquer **Código promocional** que você tiver e clique em **Recalcular**. Os campos Encargos para este pedido e Revisão do pedido são concluídos por padrão.
+
+   Os descontos são aplicados quando o pedido é processado.
+   {:note}
 6. Marque a caixa **Eu li o Contrato de Prestação de Serviços Principal e concorde com os termos contidos nele** e clique em **Fazer pedido**. Seu espaço de captura instantânea será provisionado em alguns minutos.
 
 ## Determinando a quantidade de espaço de captura instantânea a ser pedido

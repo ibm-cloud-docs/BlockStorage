@@ -14,7 +14,7 @@ lastupdated: "2018-12-10"
 
 # Ripristino di emergenza - Failover con un volume primario accessibile
 
-Se si è verificato un errore catastrofico o un'emergenza sul sito primario e l'archiviazione primaria è ancora accessibile, i clienti possono eseguire le seguenti azioni per accedere rapidamente ai loro dati sul sito secondario.
+Se si verifica un errore catastrofico o un'emergenza sul sito primario e l'archiviazione primaria è ancora accessibile, i clienti possono eseguire le seguenti azioni per accedere rapidamente ai loro dati sul sito secondario.
 
 Prima di avviare il failover, assicurati che sia in vigore tutta l'autorizzazione host.
 

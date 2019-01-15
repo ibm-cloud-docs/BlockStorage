@@ -23,6 +23,7 @@ lastupdated: "2018-12-10"
 
 1. 登入 [{{site.data.keyword.cloud}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
 
+
    或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
 2. 從 **{{site.data.keyword.blockstorageshort}}** 頁面，按一下來源或目的地磁區。
 3. 按一下**抄本**。

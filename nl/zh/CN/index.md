@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -270,13 +270,13 @@ lastupdated: "2018-11-30"
 
 ## 提交订单
 
-准备好提交订单时，请遵循[此处](provisioning-block_storage.html)的指示信息进行操作。
+准备好提交订单时，可以通过[控制台](provisioning-block_storage.html)或 [SLCLI](ordering-through-cli.html) 来完成此操作。
 
 ## 连接新存储器
 
 完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
-- [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [使用 cPanel 配置 Block Storage 进行备份](configure-backup-cpanel.html)
-- [使用 Plesk 配置 Block Storage 进行备份](configure-backup-plesk.html)
+- [在 Linux 上连接到 iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上连接到 iSCSI LUN](configure-iscsi-cloudlinux.html)
+- [在 Microsoft Windows 上连接到 iSCSI LUN](accessing-block-storage-windows.html)
+- [在 cPanel 中将 Block Storage 配置用于备份](configure-backup-cpanel.html)
+- [在 Plesk 中将 Block Storage 配置用于备份](configure-backup-plesk.html)

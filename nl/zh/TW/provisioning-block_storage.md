@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,14 +13,14 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# 訂購 {{site.data.keyword.blockstorageshort}}
+# 透過主控台訂購 {{site.data.keyword.blockstorageshort}}
 
 您可以佈建 {{site.data.keyword.blockstorageshort}} 並微調，以符合您的容量和 IOPS 需求。利用兩個指定效能的選項來充份利用儲存空間。
 
 - 您可以從耐久性 IOPS 層級進行選擇，其特色為預先定義的效能層次，可適合沒有妥善定義之效能需求的工作負載。
 - 您可以對儲存空間進行細部調整，藉由指定效能的 IOPS 總數來滿足特定效能需求。
 
-## 使用預先定義的 IOPS 層級（耐久性）訂購 {{site.data.keyword.blockstorageshort}}
+## 訂購具有預先定義 IOPS 層級（耐久性）的 {{site.data.keyword.blockstorageshort}}
 
 1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog/){:new_window}，並按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
 
@@ -47,14 +47,17 @@ lastupdated: "2018-12-13"
 
    此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](faqs.html)。
    {:tip}
-9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。
+9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。 
+
+   折扣會在處理訂單時套用。
+   {:note}
 10. 檢閱條款之後，請勾選**我已閱讀並同意協力廠商服務合約**方框。
 11. 按一下**建立**。在幾分鐘之後，就可以使用您的新儲存空間配置。
 
 依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](managing-storage-limits.html)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](faqs.html)。
 {:important}
 
-## 使用自訂 IOPS（效能）訂購 {{site.data.keyword.blockstorageshort}}
+## 訂購具有自訂 IOPS（效能）的 {{site.data.keyword.blockstorageshort}}
 
 1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog/){:new_window}，並按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
 
@@ -62,7 +65,7 @@ lastupdated: "2018-12-13"
 2. 按一下**位置**，然後選取資料中心。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
-     1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則按小時計費是一個良好的選擇。按小時計費只適用於這些[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。
+     1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費只適用於這些[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的儲存空間。
      2. 使用**按月**計費，價格是從建立日期到計費週期結束按比例計算，並立即計費。如果區塊 LUN 在計費週期結束之前遭到刪除，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
         
 
@@ -77,6 +80,9 @@ lastupdated: "2018-12-13"
    此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](faqs.html)。
    {:tip}
 9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。
+
+   折扣會在處理訂單時套用。
+   {:note}
 10. 檢閱條款之後，請勾選**我已閱讀並同意協力廠商服務合約**方框。
 11. 按一下**建立**。在幾分鐘之後，就可以使用您的新儲存空間配置。
 
@@ -86,9 +92,10 @@ lastupdated: "2018-12-13"
 ## 連接新的儲存空間
 
 當您的佈建要求完成時，請授權主機存取新的儲存空間，並配置連線。根據主機的作業系統而定，遵循適當的鏈結。
-- [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
+- [在 Linux 上連接至 iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上連接至 iSCSI LUN](configure-iscsi-cloudlinux.html)
+- [在 Microsoft Windows 上連接至 iSCSI LUN](accessing-block-storage-windows.html)
+- [在 XenServer 共用儲存空間中裝載 iSCSI LUN](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
 - [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)
 

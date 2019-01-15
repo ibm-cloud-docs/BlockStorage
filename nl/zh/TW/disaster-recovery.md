@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-06"
+lastupdated: "2018-12-11"
 
 ---
 {:new_window: target="_blank"}
@@ -19,6 +19,7 @@ lastupdated: "2018-12-06"
 ## 在次要站台上利用抄本磁區的副本進行失效接手
 
 1. 登入 [IBM Cloud 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
+
 
    或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
 2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。

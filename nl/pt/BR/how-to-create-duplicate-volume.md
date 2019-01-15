@@ -21,7 +21,7 @@ As duplicatas podem ser criadas de ambos os volumes, o **primário** e o de **r�
 Os volumes duplicados podem ser acessados por um host para leitura/gravação assim que o armazenamento
 é provisionado. No entanto, capturas instantâneas e replicação não são permitidas até que a cópia de dados do original para a duplicata seja concluída.
 
-Quando a cópia de dados é concluída, a duplicata pode ser gerenciada e usada como um volume completamente independente.
+Quando a cópia de dados for concluída, a duplicata poderá ser gerenciada e usada como um volume independente.
 
 Esse recurso está disponível na maioria dos locais. Clique [aqui](new-ibm-block-and-file-storage-location-and-features.html) para obter a lista de data centers disponíveis.
 
@@ -86,4 +86,4 @@ volume.
 
 ## Gerenciando seu volume duplicado
 
-Enquanto os dados estão sendo copiados do volume original para a duplicata, é possível ver um status na página de detalhes mostrando que a duplicação está em andamento. Durante esse tempo, é possível conectar-se a um host e ler/gravar no volume, mas não é possível criar planejamentos de captura instantânea. Quando o processo de duplicação é concluído, o novo volume fica independente do original e pode ser gerenciado com capturas instantâneas e replicação normalmente.
+Enquanto os dados estão sendo copiados do volume original para a duplicata, é possível ver um status na página de detalhes mostrando que a duplicação está em andamento. Durante esse tempo, é possível conectar-se a um host e ler e gravar no volume, mas não é possível criar planejamentos de captura instantânea. Quando o processo de duplicação é concluído, o novo volume fica independente do original e pode ser gerenciado com capturas instantâneas e replicação normalmente.

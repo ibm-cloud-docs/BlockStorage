@@ -13,7 +13,8 @@ lastupdated: "2018-11-30"
 
 # Configurando o {{site.data.keyword.blockstorageshort}} para backup com o cPanel
 
-Use este artigo para configurar seus backups em cPanel para ser armazenado no {{site.data.keyword.blockstoragefull}}. Supõe-se que o SSH raiz ou
+É possível usar as instruções a seguir para configurar que seus backups no cPanel sejam
+armazenados no {{site.data.keyword.blockstoragefull}}. Supõe-se que o SSH raiz ou
 sudo e o acesso do WebHost Manager (WHM) total estejam disponíveis. Estas instruções se baseiam em um host do **CentOS 7**.
 
 Para obter mais informações, consulte [cPanel: configurando o diretório de backup ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}.

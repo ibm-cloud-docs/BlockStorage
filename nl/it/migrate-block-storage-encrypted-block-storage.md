@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -18,9 +18,9 @@ Il percorso di migrazione preferito consiste nello stabilire una connessione a e
 
 Si presuppone che tu già abbia il tuo LUN non crittografato collegato al tuo host. In caso contrario, per svolgere tale attività, attieniti alle indicazioni adatte al tuo sistema operativo:
 
-- [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html)
-- [Connessione ai LUN iSCSI MPIO su CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connessione ai LUN iSCSI MPIO su Microsoft Windows](accessing-block-storage-windows.html)
+- [Connessione ai LUN iSCSI su Linux](accessing_block_storage_linux.html)
+- [Connessione ai LUN iSCSI su CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connessione ai LUN iSCSI su Microsoft Windows](accessing-block-storage-windows.html)
 
 Tutti i volumi {{site.data.keyword.blockstorageshort}} migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Per assicurarti che stai utilizzando il punto di montaggio corretto per entrambi i volumi di archiviazione, puoi visualizzare le informazioni sui punti di montaggio nella pagina **Volume Details** nella console. Puoi anche accedere al punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -30,44 +30,12 @@ Tutti i volumi {{site.data.keyword.blockstorageshort}} migliorati di cui viene e
 Quando effettui un ordine con la API, specifica il pacchetto "Storage as a Service" per assicurarti che stai ottenendo le funzioni aggiornate con la tua nuova archiviazione.
 {:important}
 
-Le seguenti istruzioni servono ad ordinare un LUN migliorato tramite {{site.data.keyword.slportal}}. Il tuo nuovo LUN deve essere di dimensione pari o superiore a quella del volume originale per facilitare la migrazione.
+Puoi ordinare un LUN migliorato tramite la console IBM Cloud e il {{site.data.keyword.slportal}}. Il tuo nuovo LUN deve essere di dimensione pari o superiore a quella del volume originale per facilitare la migrazione.
 
-### Ordine di un LUN Endurance
+- [Ordinazione di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzato (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. Dal [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE dal catalogo {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
-3. Seleziona **Endurance** dall'elenco **Select Storage Type**.
-4. Seleziona l'ubicazione (**Location**) (data center) della tua distribuzione.
-   - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione del volume precedente.
-5. Seleziona la tua opzione di fatturazione. Puoi scegliere tra fatturazione oraria e mensile.
-6. Seleziona il livello IOPS.
-7. Fai clic su **Select Storage Size** e seleziona la tua dimensione di archiviazione dall'elenco.
-8. Fai clic su **Specify Snapshot Space Size** e seleziona la dimensione di istantanea dall'elenco. Questo spazio è in aggiunta al tuo spazio utilizzabile.
-
-   Per ulteriori informazioni sulle considerazioni sullo spazio dell'istantanea e sui suggerimenti, consulta [Ordinazione di istantanee](ordering-snapshots.html).
-   {:tip}
-9. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.
-10. Fai clic su **Continue**. Ti vengono mostrati gli addebiti mensili e a base proporzionale con una possibilità finale di riesaminare i dettagli dell'ordine.
-11. Fai clic sulla casella di spunta **I have read the Master Service Agreement** e fai clic su **Place Order**.
-
-### Ordine di un LUN Performance
-
-1. Dal [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** OPPURE dal catalogo {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure > Storage > {{site.data.keyword.blockstorageshort}}**.
-2. Sulla destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
-3. Seleziona **Performance** dall'elenco **Select Storage Type**.
-4. Fai clic su **Location** e seleziona il tuo data center.
-
-   Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host che hai ordinato precedentemente.
-   {:important}
-5. Seleziona la tua opzione di fatturazione. Puoi scegliere tra fatturazione oraria e mensile.
-6. Seleziona il valore corretto per **Storage Size**.
-7. Immetti l'IOPS nel campo **Specify IOPS**.
-8. Fai clic su **Continue**. Ti vengono mostrati gli addebiti mensili e a base proporzionale con una possibilità finale di riesaminare i dettagli dell'ordine. Fai clic su **Previous** se vuoi modificare il tuo ordine.
-9. Fai clic sulla casella di spunta **I have read the Master Service Agreement** e fai clic su **Place Order**.
-
-Il provisioning dell'archiviazione viene eseguito in meno di un minuto ed è visibile sulla pagina {{site.data.keyword.blockstorageshort}} del {{site.data.keyword.slportal}}.
-
-
+La tua nuova archiviazione è pronta per essere montata in pochi minuti. Puoi visualizzarla nell'elenco risorse e nell'elenco {{site.data.keyword.blockstorageshort}}.
 
 ## Connessione del nuovo {{site.data.keyword.blockstorageshort}} all'host
 
@@ -93,12 +61,14 @@ Se non è ancora stato eseguito l'upgrade del data center della destinazione di 
    {:tip}
 
 2. Considera quale tipo di dati hai sul LUN {{site.data.keyword.blockstorageshort}} originale e il modo migliore in cui puoi copiarli sul tuo nuovo LUN.
-  - Se hai dei backup, contenuto statico ed elementi di cui non è prevista una modifica durante la copia, non ci sono considerazioni di particolare importanza da fare.
-  - Se stai eseguendo un database o una macchina virtuale sul tuo {{site.data.keyword.blockstorageshort}}, assicurati che i dati sul LUN originale non vengano modificati durante la copia per evitare un loro danneggiamento. Se ha qualche preoccupazione relativa alla larghezza di banda, esegui la migrazione nei periodi non di punta. Se hai bisogno di assistenza con queste considerazioni, apri un ticket di supporto.
+  - Se hai dei backup, contenuto statico ed elementi di cui non è prevista una modifica durante la copia, non ti devi preoccupare troppo.
+  - Se stai eseguendo un database o una macchina virtuale sul tuo {{site.data.keyword.blockstorageshort}}, assicurati che i dati sul LUN originale non vengano modificati durante la copia per evitare un loro danneggiamento. 
+  - Se ha qualche preoccupazione relativa alla larghezza di banda, esegui la migrazione nei periodi non di punta. 
+  - Se hai bisogno di assistenza con queste considerazioni, apri un caso di supporto.
 
 3. Copia i tuoi dati.
    - Per **Microsoft Windows**, formatta la nuova archiviazione e copia i dati dal tuo LUN {{site.data.keyword.blockstorageshort}} originale al tuo nuovo LUN utilizzando Windows Explorer.
-   - Per **Linux**, puoi utilizzare `rsync` per copiare i dati. Ecco un esempio: 
+   - Per **Linux**, puoi utilizzare `rsync` per copiare i dati.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

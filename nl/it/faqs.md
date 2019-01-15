@@ -37,7 +37,7 @@ Quando si crea un LUN, devi specificare il tipo di SO. Il tipo di SO deve essere
 - Il LUN archivia un tipo di disco non elaborato in un disco Windows a partizione singola che utilizza lo stile di partizionamento MBR (Master Boot Record). Utilizza questa opzione solo se il tuo sistema operativo host è Windows 2000 Server, Windows XP o Windows Server 2003 che utilizza il metodo di partizionamento MBR.
 
 **Windows GPT**
--  Il LUN archivia i dati Windows utilizzando lo stile di partizionamento GPT (GUID Partition Type). Utilizza questa opzione se vuoi utilizzare il metodo di partizionamento GPT e il tuo host è in grado di utilizzarlo. Windows Server 2003, Service Pack 1 e successivi possono utilizzare il metodo di partizionamento GPT e tutte le versioni a 64-bit di Windows lo supportano.
+-  Il LUN archivia i dati Windows utilizzando lo stile di partizionamento GPT (GUID Partition Type). Utilizza questa opzione se vuoi utilizzare il metodo di partizionamento GPT e il tuo host può utilizzarlo. Windows Server 2003, Service Pack 1 e successivi possono utilizzare il metodo di partizionamento GPT e tutte le versioni a 64-bit di Windows lo supportano.
 
 ## Il limite dell'IOPS allocato viene implementato in base all'istanza o in base al volume?
 {: faq}

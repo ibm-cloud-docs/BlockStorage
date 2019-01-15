@@ -37,14 +37,16 @@ contêm múltiplos slots de chave.
 ## O que o LUKS não faz
 
 - Permitir que os aplicativos que requerem muitos usuários (mais de oito) tenham chaves de acesso distintas para os mesmos dispositivos.
-- Trabalhar com aplicativos que requerem criptografia de nível de arquivo. [Mais informações ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Trabalhe com aplicativos que requerem criptografia de nível de arquivo. Para obter mais
+informações, veja o [Guia
+de segurança do RHEL ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Configurando um volume criptografado pelo LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
 
 O processo de criptografia de dados cria um carregamento no host que pode potencialmente afetar o desempenho.
 {:note}
 
-1. Digite o seguinte comando em um prompt de shell como raiz para instalar o pacote necessário: <br/>
+1. Digite o seguinte comando em um prompt de shell como raiz para instalar o pacote necessário:   <br/>
    ```
    # yum install cryptsetup-luks
    ```

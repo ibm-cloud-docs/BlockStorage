@@ -33,7 +33,7 @@ lastupdated: "2018-11-30"
 ## LUKS 不會執行的作業
 
 - 容許需要多個（超過 8 個）使用者的應用程式，對相同的裝置具有不同的存取金鑰。
-- 使用需要檔案層次加密的應用程式（[相關資訊 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}）。
+- 使用需要檔案層次加密的應用程式。如需相關資訊，請參閱 [RHEL Security Guide ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}。
 
 ## 使用耐久性 {{site.data.keyword.blockstorageshort}} 來設定 LUKS 加密磁區
 

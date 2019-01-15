@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 擴充 Block Storage 容量
 
@@ -41,3 +46,6 @@ lastupdated: "2018-11-13"
 4. 檢閱您的選取項目及新的定價。
 5. 按一下**我已閱讀主要服務合約...** 勾選框，然後按一下**下訂單**。
 6. 在幾分鐘之後，就可以使用您的新儲存空間配置。
+
+如需在磁區上展開檔案系統（及任何分割區）以使用新空間的相關資訊，請參閱 OS 文件。
+{:tip}

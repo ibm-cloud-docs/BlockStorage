@@ -46,13 +46,13 @@ As capturas instantâneas não são substituições para replicação real de Re
 
 ## Segurança
 
-Todas as capturas instantâneas e réplicas do {{site.data.keyword.filestorage_short}} criptografado também são criptografadas por padrão. Esse recurso não pode ser desativado em uma base de volume. Para obter mais informações sobre a criptografia em repouso gerenciada pelo provedor, consulte [Protegendo os dados](block-file-storage-encryption-rest.html).
+Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorageshort}} criptografado também são criptografadas por padrão. Esse recurso não pode ser desativado em uma base de volume. Para obter mais informações sobre a criptografia em repouso gerenciada pelo provedor, consulte [Protegendo os dados](block-file-storage-encryption-rest.html).
 
 ## Como as capturas instantâneas afetam o espaço em disco
 
-As cópias de captura instantânea minimizam o uso de espaço em disco preservando blocos individuais em vez de arquivos inteiros. As cópias de captura instantânea usam espaço extra somente quando os arquivos no sistema de arquivos ativo são mudados ou excluídos. Quando os arquivos são mudados ou excluídos, os blocos de arquivos originais ainda são preservados como parte de uma ou mais cópias de captura instantânea.
+As cópias de captura instantânea minimizam o consumo de disco ao preservar blocos individuais em vez de arquivos inteiros. As cópias de captura instantânea usam espaço extra somente quando os arquivos no sistema de arquivos ativo são mudados ou excluídos.
 
-No sistema de arquivos ativo, os blocos mudados são regravados em diferentes locais no disco ou removidos como blocos de arquivos ativos inteiramente. Como resultado, além do espaço em disco usado por blocos no sistema de arquivos ativo modificado, o espaço em disco usado pelos blocos originais ainda é reservado para refletir o status do sistema de arquivos ativo antes da mudança.
+No sistema de arquivos ativo, os blocos mudados são regravados em diferentes locais no disco ou removidos como blocos de arquivos ativos inteiramente. Quando os arquivos são mudados ou excluídos, os blocos de arquivos originais são preservados como parte de uma ou mais cópias de captura instantânea. Como resultado, o espaço em disco que é usado pelos blocos originais ainda está reservado para refletir o status do sistema de arquivos ativo antes da mudança. Esse espaço é reservado, além do espaço em disco que é usado por blocos no sistema de arquivos ativo modificado.
 
 <table>
     <colgroup>
@@ -73,5 +73,4 @@ No sistema de arquivos ativo, os blocos mudados são regravados em diferentes lo
       </tr>
 </table>
 
-Para obter mais informações sobre como visualizar quanto de espaço de captura instantânea é usado, consulte
-[Gerenciando as capturas instantâneas](working-with-snapshots.html).
+Para obter mais informações sobre o uso de espaço de captura instantânea, consulte [Gerenciando capturas instantâneas](working-with-snapshots.html)

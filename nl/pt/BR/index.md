@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -279,13 +279,13 @@ O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers
 
 ## Enviando sua Ordem
 
-Quando você estiver pronto para enviar seu pedido, siga as instruções indicadas [aqui](provisioning-block_storage.html).
+Quando você estiver pronto para enviar seu pedido, poderá fazer isso por meio do [Console](provisioning-block_storage.html) ou da [SLCLI](ordering-through-cli.html).
 
 ## Conectando seu novo armazenamento
 
 Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts a acessar o novo armazenamento e configurar sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
-- [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
+- [Conectando-se a LUNs iSCSI no Linux](accessing_block_storage_linux.html)
+- [Conectando-se a LUNs iSCSI no CloudLinux](configure-iscsi-cloudlinux.html)
+- [Conectando-se a LUNs iSCSI no Microsoft Windows](accessing-block-storage-windows.html)
 - [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
 - [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)

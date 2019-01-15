@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-06"
+  years: 2015, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -114,6 +114,9 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 3. Fai clic su **Location** e seleziona il data center che è il tuo sito di ripristino di emergenza (DR, disaster recovery).
 4. Fai clic su **Continue**.
 5. Immetti un codice promozionale (**Promo Code**), se ne hai uno, e fai clic su **Recalculate**. Gli altri campi nella finestra sono completati per impostazione predefinita.
+
+   Gli sconti vengono applicati quando l'ordine viene elaborato.
+   {:note}
 6. Fai clic sulla casella di spunta **I have read the Master Service Agreement…** e su **Place Order**.
 
 
@@ -189,8 +192,8 @@ Per ulteriori informazioni, vedi [Creazione di un volume di blocco duplicato](ho
 
 Quando esegui il failover, stai passando dal tuo volume di archiviazione nel tuo data center primario al volume di destinazione nel tuo data center remoto. Ad esempio, il tuo data center primario si trova a Londra e il tuo data center secondario si trova ad Amsterdam. Se si verifica un evento di malfunzionamento, eseguirai il failover ad Amsterdam, stabilendo una connessione al volume che ora è quello primario da un'istanza di elaborazione ad Amsterdam. Dopo che il tuo volume a Londra sarà stato riparato, verrà acquisita un'istantanea del volume che si trova ad Amsterdam per eseguire il failback a Londra e al volume che ora è nuovamente quello primario da un'istanza di elaborazione a Londra.
 
-* Se l'ubicazione primaria non è in pericolo imminente, consulta [Failover con un volume primario accessibile](dr-accessible-primary.html).
-* Se l'ubicazione primaria è completamente non raggiungibile, consulta [Failover con un volume primario non accessibile](disaster-recovery.html).
+* Se l'ubicazione primaria non è in pericolo imminente o non sta subendo gravi ripercussioni, consulta [Failover con un volume primario accessibile](dr-accessible-primary.html).
+* Se l'ubicazione primaria non è attiva, consulta [Failover con un volume primario non accessibile](disaster-recovery.html).
 
 
 ## Annullamento di una replica esistente

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows
+# Conectando-se a LUNs iSCSI no Microsoft Windows
 
 Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 
@@ -72,18 +72,15 @@ iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
 1. Clique em **Conectar** para conectar-se ao destino.
 2. Marque a caixa de seleção **Ativar caminhos múltiplos** para ativar a E/S de caminhos múltiplos para o destino.
-</br>
-   ![Ativar caminhos múltiplos](/images/Connect_0.png)
+![Ativar caminhos múltiplos](/images/Connect_0.png)
 3. Clique em **Avançado** e selecione **Ativar logon do CHAP**.
-</br>
-   ![Ativar o CHAP](/images/chap_0.png)
+![Ativar o CHAP](/images/chap_0.png)
 4. Insira o nome do usuário no campo Nome e insira a senha no campo Segredo de destino.
 
    Os valores de campo Nome e Segredo de destino podem ser obtidos por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}.
    {:tip}
 5. Clique em **OK** até que a janela **Propriedades do inicializador iSCSI** seja exibida. O status do destino na seção **Destinos descobertos** muda de **Inativo** para **Conectado**.
-</br>
-   ![Status Conectado](/images/Connected.png)
+![Status Conectado](/images/Connected.png)
 
 
 ### Configurando o MPIO no Inicializador iSCSI

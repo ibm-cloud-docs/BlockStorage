@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2018-01-04"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.blockstorageshort}} 的新位置及特性
+# 新位置及特性
 
 {{site.data.keyword.BluSoftlayer_full}} 將引進新版的 {{site.data.keyword.blockstoragefull}}！
 

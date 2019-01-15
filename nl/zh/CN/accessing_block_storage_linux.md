@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# 在 Linux 上连接到 MPIO iSCSI LUN
+# 在 Linux 上连接到 iSCSI LUN
 
 这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
@@ -141,7 +141,7 @@ lastupdated: "2018-11-30"
      ```
     {: pre}
 
-  - 对于其他分发版，请查阅相应的操作系统供应商文档。
+  - 对于其他分发版，请查看相应的操作系统供应商文档。
 
 4. 验证多路径是否生效。
   - RHEL 6
@@ -177,6 +177,9 @@ lastupdated: "2018-11-30"
 
    将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
    {:important}
+   
+   对于 Ubuntu 用户，在查看 `iscsid.conf` 文件时，请检查 `node.startup` 设置是手动还是自动。如果是手动，请更改为自动。
+   {:tip}
 
 7. 将 iSCSI 设置为在引导时启动，并立即将其启动。
   - RHEL 6
@@ -221,7 +224,7 @@ systemctl start iscsid
       ```
     {: pre}
 
-   - 对于其他分发版，请查阅相应的操作系统供应商文档。
+   - 对于其他分发版，请查看相应的操作系统供应商文档。
 
 8. 使用从 {{site.data.keyword.slportal}} 中获取的目标 IP 地址来发现该设备。
 
@@ -263,7 +266,7 @@ systemctl start iscsid
 
 ## 创建文件系统（可选）
 
-您可以通过执行以下步骤，在新安装的卷上创建文件系统。大多数应用程序都需要文件系统才可使用卷。对于小于 2 TB 的驱动器，请使用 `fdisk`；对于大于 2 TB 的磁盘，请使用 `parted`。
+您可以通过执行以下步骤，在新安装的卷上创建文件系统。大多数应用程序都需要文件系统才可使用卷。对于小于 2 TB 的驱动器，请使用 [`fdisk`](#creating-a-file-system-with-fdisk-)；对于大于 2 TB 的磁盘，请使用 [`parted`](#creating-a-file-system-with-parted-)。
 
 ### 使用 `fdisk` 创建文件系统
 

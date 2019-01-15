@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# Conectando-se a LUNs iSCSI de MPIO no Linux
+# Conectando-se a LUNs iSCSI no Linux
 
 Essas instruções são principalmente para o RHEL6 e o Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho.
 {:note}
@@ -141,7 +141,7 @@ O IQN do host, o nome do usuário, a senha e o endereço de destino que são ref
     ```
     {: pre}
 
-  - Para outras distribuições, consulte a documentação do fornecedor do S.O.
+  - Para obter outras distribuições, verifique a documentação do fornecedor do S.O.
 
 4. Verifique se os caminhos múltiplos estão funcionando.
   - RHEL 6
@@ -177,6 +177,11 @@ O IQN do host, o nome do usuário, a senha e o endereço de destino que são ref
 
    Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
    {:important}
+   
+   Usuários do Ubuntu: enquanto vocês estão consultando o arquivo `iscsid.conf`,
+verifiquem se a configuração `node.startup` é manual ou automática. Se ela
+for manual, mudem-na para automática.
+   {:tip}
 
 7. Configure iSCSI para ser iniciado na inicialização e inicie-o agora.
   - RHEL 6
@@ -221,7 +226,7 @@ O IQN do host, o nome do usuário, a senha e o endereço de destino que são ref
     ```
     {: pre}
 
-   - Para outras distribuições, consulte a documentação do fornecedor do S.O.
+   - Para obter outras distribuições, verifique a documentação do fornecedor do S.O.
 
 8. Descubra o dispositivo usando o endereço IP de destino que foi obtido do {{site.data.keyword.slportal}}.
 
@@ -263,7 +268,9 @@ O IQN do host, o nome do usuário, a senha e o endereço de destino que são ref
 
 ## Criando um sistema de arquivos (opcional)
 
-Siga essas etapas para criar um sistema de arquivos no volume recém-montado. Um sistema de arquivos é necessário para que a maioria dos aplicativos use o volume. Use `fdisk` para unidades que sejam menores que 2 TB e `parted` para um disco maior que 2 TB.
+Siga essas etapas para criar um sistema de arquivos no volume recém-montado. Um sistema de arquivos é necessário para que a maioria dos aplicativos use o volume. Use [`fdisk` para unidades
+que têm menos de 2 TB])(#creating-a-file-system-with-fdisk-) e [`parted` para um disco com mais de
+2 TB](#creating-a-file-system-with-parted-).
 
 ### Criando um sistema de arquivos com `fdisk`
 

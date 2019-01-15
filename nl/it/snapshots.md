@@ -30,7 +30,7 @@ Con le istantanee puoi:
 
 Devi acquistare dello spazio di istantanea per il tuo volume prima di poter acquisirne delle istantanee. Lo spazio di istantanea può essere aggiunto durante l'ordinazione iniziale o successivamente tramite la pagina **Volume Details**. Le istantanee pianificate e manuali condividono lo spazio dell'istantanea, quindi assicurati di ordinare abbastanza spazio istantanea. Per ulteriori informazioni, consulta [Ordinazione di istantanee](ordering-snapshots.html).
 
-## Procedure ottimali per le istantanee
+## Prassi ottimali per le istantanee
 
 La progettazione dell'istantanea dipende dall'ambiente del cliente. Le seguenti considerazioni sulla progettazione può aiutarti a pianificare e implementare copie istantanea:
 - Puoi creare fino a 50 istantanee tramite la pianificazione e fino a 50 manualmente su ciascun volume o LUN.
@@ -45,13 +45,13 @@ Le istantanee non sono sostituzioni della replica di ripristino di emergenza (Di
 
 ## Sicurezza
 
-Per impostazione predefinita, vengono crittografate anche tutte le istantanee e le repliche di {{site.data.keyword.filestorage_short}}. Questa funzione non può essere disattivata in base ai singoli volumi. Per ulteriori informazioni sulla crittografia dei dati inattivi gestita dal provider, consulta [Come rendere sicuri i tuoi dati](block-file-storage-encryption-rest.html).
+Per impostazione predefinita, vengono crittografate anche tutte le istantanee e le repliche di {{site.data.keyword.blockstorageshort}}. Questa funzione non può essere disattivata in base ai singoli volumi. Per ulteriori informazioni sulla crittografia dei dati inattivi gestita dal provider, consulta [Come rendere sicuri i tuoi dati](block-file-storage-encryption-rest.html).
 
-## Come le istantanee influiscono sullo spazio su disco
+## In che modo le istantanee influiscono sullo spazio su disco 
 
-Le copie istantanea riducono al minimo l'utilizzo di disco preservando i singoli blocchi invece dei file interi. Le copie istantanea usano spazio extra solo quando i file nel file system attivo vengono modificati o eliminati. Quando i file vengono modificati o eliminati, i blocchi file originali continuano a essere conservati come parte di una o più copie di istantanee.
+Le copie istantanea riducono al minimo il consumo di disco preservando i singoli blocchi invece dei file interi. Le copie istantanea usano spazio extra solo quando i file nel file system attivo vengono modificati o eliminati.
 
-Nel file system attivo, i blocchi modificati vengono riscritti in ubicazioni differenti sul disco oppure completamente rimossi come blocchi file attivi. Di conseguenza, oltre allo spazio su disco utilizzato dai blocchi nel file system attivo modificato, lo spazio su disco utilizzato dai blocchi originali continua a essere conservato per riflettere lo stesso del file system attivo prima della modifica.
+Nel file system attivo, i blocchi modificati vengono riscritti in ubicazioni differenti sul disco oppure completamente rimossi come blocchi file attivi. Quando i file vengono modificati o eliminati, i blocchi file originali vengono conservati come parte di una o più copie di istantanea. Di conseguenza, lo spazio su disco utilizzato dai blocchi originali continua a essere conservato per riflettere lo stesso del file system attivo prima della modifica. Questo spazio viene riservato in aggiunta allo spazio su disco utilizzato dai blocchi nel file system attivo modificato,
 
 <table>
     <colgroup>
@@ -72,4 +72,4 @@ Nel file system attivo, i blocchi modificati vengono riscritti in ubicazioni dif
       </tr>
 </table>
 
-Per ulteriori informazioni su come visualizzare quanto spazio di istantanea è utilizzato, consulta [Gestione delle istantanee](working-with-snapshots.html).
+Per ulteriori informazioni sull'utilizzo dello spazio dell'istantanea, vedi [Gestione delle istantanee](working-with-snapshots.html).

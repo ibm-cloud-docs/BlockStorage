@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-06"
+  years: 2015, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -115,6 +115,9 @@ com capturas instantâneas](snapshots.html) para obter mais detalhes.
 3. Clique em **Local** e selecione o data center que é seu site de DR.
 4. Clique em **Continuar**.
 5. Insira um **Código promocional** se você tiver um e clique em **Recalcular**. Os outros campos na janela são preenchidos por padrão.
+
+   Os descontos são aplicados quando o pedido é processado.
+   {:note}
 6. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços principal…** e clique em **Fazer pedido**.
 
 
@@ -197,8 +200,10 @@ Para obter mais informações, consulte [Criando um volume de bloco duplicado](h
 
 Ao efetuar failover, você está "invertendo o comutador" do volume de armazenamento em seu data center primário para o volume de destino em seu data center remoto. Por exemplo, seu data center primário é Londres e seu data center secundário é Amsterdã. Se um evento de falha ocorresse, você efetuaria failover para Amsterdã - conectando-se ao volume agora primário de uma instância de cálculo em Amsterdã. Depois que seu volume em Londres é reparado, uma captura instantânea é tomada do volume de Amsterdã para efetuar failback para Londres e para o volume novamente primário de uma instância de cálculo em Londres.
 
-* Se a localização primária estiver em perigo iminente, consulte [Failover com um volume primário acessível](dr-accessible-primary.html).
-* Se a localização primária estiver completamente inativa, consulte [Failover com um volume primário inacessível](disaster-recovery.html).
+* Se a localização principal estiver em perigo iminente ou gravemente afetada, veja
+[Failover com um volume primário acessível](dr-accessible-primary.html).
+* Se a localização principal estiver inativa, veja [Failover
+com um volume primário inacessível](disaster-recovery.html).
 
 
 ## Cancelando uma Replicação Existente

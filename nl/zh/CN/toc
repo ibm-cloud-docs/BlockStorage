@@ -8,14 +8,13 @@ IBM Cloud 存储 - Block Storage
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
-    expandable_block_storage.md
-    adjustable-iops.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     {: .topicgroup}
     供应
         provisioning-block_storage.md
+        ordering-through-cli.md
         ordering-snapshots.md
         managing-storage-limits.md
         migrate-block-storage-encrypted-block-storage.md
@@ -30,19 +29,23 @@ IBM Cloud 存储 - Block Storage
         configure-backup-plesk.md
 
     {: .topicgroup}
-    复制
+    管理
+        managing-block-storage.md
+        expandable_block_storage.md
+        adjustable-iops.md
+        how-to-create-duplicate-volume.md
+        working-with-snapshots.md
+
+    {: .topicgroup}
+    复制和灾难恢复
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
 
     {: .topicgroup}
-    安全性
+    保护数据
         block-file-storage-encryption-rest.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-
-    managing-block-storage.md
-    how-to-create-duplicate-volume.md
-    working-with-snapshots.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -50,6 +53,6 @@ IBM Cloud 存储 - Block Storage
     [Python API 客户机信息](https://softlayer-python.readthedocs.io/en/latest/index.html)
 
     {: .topicgroup}
-    Troubleshooting
+    故障诊断
         win12-missing-devices.md
     {: .navgroup-end}

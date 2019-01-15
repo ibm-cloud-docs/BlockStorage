@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-01-07"
 
 ---
 
@@ -14,9 +14,10 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Solucionando problemas: correção de iSCSI do Windows 2012 R2 para ver mais de dois dispositivos
+# Windows 2012 R2 - múltiplos dispositivos iSCSI
 
-Se você vir apenas dois dispositivos no Disk Manager, será necessário se conectar manualmente a cada dispositivo no inicializador iSCSI em cada nó do servidor. Se você usar mais de dois dispositivos iSCSI, poderá achar esse procedimento útil, especialmente se todas as quatro alocações iSCSI forem do mesmo dispositivo NetApp.
+Se você usar mais de dois dispositivos iSCSI, poderá considerar esse procedimento útil,
+especialmente se todas as quatro alocações de iSCSI forem do mesmo dispositivo de armazenamento. Se você vir apenas dois dispositivos no Disk Manager, será necessário se conectar manualmente a cada dispositivo no inicializador iSCSI em cada nó do servidor.
 
 1. Abra o inicializador iSCSI do Windows.
 2. Clique na guia **Destinos** e, em seguida, clique em **Dispositivos**.

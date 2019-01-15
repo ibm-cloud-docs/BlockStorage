@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -270,13 +270,13 @@ lastupdated: "2018-11-30"
 
 ## 提交訂單
 
-當您準備好提交訂單時，請遵循[這裡](provisioning-block_storage.html)的指示。
+當您準備好提交訂單時，可以透過[主控台](provisioning-block_storage.html)或 [SLCLI](ordering-through-cli.html) 下訂單。
 
 ## 連接新的儲存空間
 
 當您的佈建要求完成時，請授權主機存取新的儲存空間，並配置連線。根據主機的作業系統而定，遵循適當的鏈結。
-- [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
+- [在 Linux 上連接至 iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上連接至 iSCSI LUN](configure-iscsi-cloudlinux.html)
+- [在 Microsoft Windows 上連接至 iSCSI LUN](accessing-block-storage-windows.html)
 - [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
 - [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)

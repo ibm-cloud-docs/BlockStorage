@@ -61,8 +61,8 @@ lastupdated: "2018-11-30"
 - [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
 - [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
 - [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [使用 cPanel 配置 Block Storage 进行备份](configure-backup-cpanel.html)
-- [使用 Plesk 配置 Block Storage 进行备份](configure-backup-plesk.html)
+- [在 cPanel 中将 Block Storage 配置用于备份](configure-backup-cpanel.html)
+- [在 Plesk 中将 Block Storage 配置用于备份](configure-backup-plesk.html)
 
 
 ## 撤销主机对 {{site.data.keyword.blockstorageshort}} 的访问权

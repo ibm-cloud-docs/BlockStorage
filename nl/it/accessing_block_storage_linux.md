@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# Connessione ai LUN iSCSI MPIO su Linux
+# Connessione ai LUN iSCSI su Linux
 
 Queste istruzioni sono principalmente per RHEL6 e Centos6. Sono state aggiunte delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione della tua specifica distribuzione e assicurati che il multipath supporti ALUA per la priorità di percorso.
 {:note}
@@ -141,7 +141,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
     ```
     {: pre}
 
-  - Per altre distribuzioni, consulta la documentazione del fornitore del sistema operativo.
+  - Per altre distribuzioni, controlla la documentazione del fornitore del sistema operativo.
 
 4. Verifica che multipath stia funzionando.
   - RHEL 6
@@ -177,6 +177,9 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
 
    Lascia le altre impostazioni CHAP come commenti. L'archiviazione {{site.data.keyword.BluSoftlayer_full}} utilizza solo un'autenticazione unidirezionale. Non abilitare Mutual CHAP.
    {:important}
+   
+   Nota per gli utenti di Ubuntu: mentre state guardando il file `iscsid.conf`, verificate se l'impostazione `node.startup` è manual (manuale) o automatic (automatica). Se è manual, modificatela in automatic.
+   {:tip}
 
 7. Imposta iSCSI per l'avvio all'avvio del computer e avvialo ora.
   - RHEL 6
@@ -221,7 +224,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
     ```
     {: pre}
 
-   - Per altre distribuzioni, consulta la documentazione del fornitore del sistema operativo.
+   - Per altre distribuzioni, controlla la documentazione del fornitore del sistema operativo.
 
 8. Rileva il dispositivo utilizzando l'indirizzo IP di destinazione ottenuto dal {{site.data.keyword.slportal}}.
 
@@ -263,7 +266,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
 
 ## Creazione di un file system (facoltativo)
 
-Segui questa procedura per creare un file system sul volume appena montato. Un file system è necessario perché la maggior parte delle applicazioni utilizzi il volume. Usa `fdisk` per le unità inferiori a 2 TB e `parted` per un disco di dimensione superiore a 2 TB.
+Segui questa procedura per creare un file system sul volume appena montato. Un file system è necessario perché la maggior parte delle applicazioni utilizzi il volume. Utilizza [`fdisk` per le unità di meno di 2 TB])(#creating-a-file-system-with-fdisk-) e [`parted` per un disco più grande di 2 TB](#creating-a-file-system-with-parted-).
 
 ### Creazione di un file system con `fdisk`
 
@@ -455,7 +458,7 @@ Per creare un file system con `parted`, attieniti alla seguente procedura.
    ```
    {: pre}
 
-   È importante selezionare il disco e la partizione corretti quando esegui questo comando. <br />Verifica il risultato stampando la tabella partizioni. Nella colonna del file system, puoi vedere ext3.
+   È importante selezionare il disco e la partizione corretti quando esegui questo comando.<br />Verifica il risultato stampando la tabella partizioni. Nella colonna del file system, puoi vedere ext3.
    {:important}
 
 4. Crea un punto di montaggio per il file system e montalo.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -270,13 +270,13 @@ Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei serv
 
 ## Invio del tuo ordine
 
-Quando sei pronto ad inviare il tuo ordine, segui le istruzioni [qui](provisioning-block_storage.html).
+Quando sei pronto a inviare il tuo ordine, puoi effettuarlo tramite la [Console](provisioning-block_storage.html) o la [SLCLI](ordering-through-cli.html).
 
 ## Connessione alla tua nuova archiviazione
 
 Quando la tua richiesta di provisioning è completa, autorizza i tuoi host ad accedere alla nuova archiviazione e configura la tua connessione. A seconda del sistema operativo del tuo host, segui il link appropriato.
-- [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html)
-- [Connessione ai LUN iSCSI MPIO su CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connessione ai LUN iSCSI MPIO su Microsoft Windows](accessing-block-storage-windows.html)
+- [Connessione ai LUN iSCSI su Linux](accessing_block_storage_linux.html)
+- [Connessione ai LUN iSCSI su CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connessione ai LUN iSCSI su Microsoft Windows](accessing-block-storage-windows.html)
 - [Configurazione di Block Storage per il backup con cPanell](configure-backup-cpanel.html)
 - [Configurazione di Block Storage per il backup con Plesk](configure-backup-plesk.html)

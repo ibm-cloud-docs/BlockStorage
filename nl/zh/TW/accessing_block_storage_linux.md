@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# 在 Linux 上連接至 MPIO iSCSI LUN
+# 在 Linux 上連接至 iSCSI LUN
 
 這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
 {:note}
@@ -177,6 +177,9 @@ lastupdated: "2018-11-30"
 
    請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
    {:important}
+   
+   Ubuntu 使用者，當您查看 `iscsid.conf` 檔案時，請檢查 `node.startup` 設定是 manual 還是 automatic。如果是 manual，請將它變更為 automatic。
+   {:tip}
 
 7. 將 iSCSI 設為在開機時啟動，並立即啟動。
   - RHEL 6
@@ -263,7 +266,7 @@ lastupdated: "2018-11-30"
 
 ## 建立檔案系統（選用）
 
-請遵循這些步驟，以便在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對小於 2 TB 的磁碟使用 `fdisk`，而對大於 2 TB 的磁碟使用 `parted`。
+請遵循這些步驟，以便在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對[小於 2 TB 的磁碟使用 `fdisk`](#creating-a-file-system-with-fdisk-)，而對[大於 2 TB 的磁碟使用 `parted`](#creating-a-file-system-with-parted-)。
 
 ### 使用 `fdisk` 建立檔案系統
 

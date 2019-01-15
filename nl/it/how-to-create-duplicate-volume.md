@@ -20,7 +20,7 @@ I duplicati possono essere creati sia dal volume **primario** che da quello di *
 
 I volumi duplicati solo accessibili da un host per la lettura/scrittura non appena viene seguito il provisioning dell'archiviazione. Tuttavia, le istantanee e le repliche sono consentite solo dopo il completamento della copia dei dati dall'originale al duplicato.
 
-Una volta completata la copia dei dati, il duplicato può essere gestito e utilizzato come un volume del tutto indipendente.
+Una volta completata la copia dei dati, il duplicato può essere gestito e utilizzato come un volume indipendente.
 
 Questa funzione è disponibile nella maggior parte delle ubicazioni. Fai clic [qui](new-ibm-block-and-file-storage-location-and-features.html) per l'elenco dei data center disponibili.
 
@@ -82,4 +82,4 @@ Puoi creare un volume duplicato tramite il [{{site.data.keyword.slportal}} ![Ico
 
 ## Gestione del tuo volume duplicato
 
-Mentre i dati vengono copiati dal volume originale al duplicato, vedi uno stato nella pagina dei dettagli che indica che la duplicazione è in corso. Durante questo lasso di tempo, puoi collegarti a un host e leggere/scrivere sul volume ma non puoi creare pianificazioni delle istantanee. Una volta completato il processo di duplicazione, il nuovo volume è indipendente dall'originale e può essere gestito con le istantanee e la replica normalmente.
+Mentre i dati vengono copiati dal volume originale al duplicato, vedi uno stato nella pagina dei dettagli che indica che la duplicazione è in corso. Durante questo lasso di tempo, puoi collegarti a un host e leggere e scrivere sul volume ma non puoi creare pianificazioni delle istantanee. Una volta completato il processo di duplicazione, il nuovo volume è indipendente dall'originale e può essere gestito con le istantanee e la replica normalmente.

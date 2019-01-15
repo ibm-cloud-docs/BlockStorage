@@ -99,7 +99,7 @@ Se vuoi disconnettere più host da uno specifico LUN, devi ripetere l'azione Rev
 
 ## Annullamento di un LUN di archiviazione
 
-Se non hai più bisogno di uno specifico LUN, puoi annullarlo in qualsiasi momento. 
+Se non hai più bisogno di uno specifico LUN, puoi annullarlo in qualsiasi momento.
 
 Per annullare un LUN di archiviazione, devi prima revocare l'accesso da eventuali host.
 {:important}

@@ -13,7 +13,8 @@ lastupdated: "2018-11-30"
 
 # Configurando o {{site.data.keyword.blockstorageshort}} para backup com o Plesk
 
-Use estas instruções para configurar o {{site.data.keyword.blockstoragefull}} para seus backups no Plesk. Supõe-se que o SSH
+É possível usar as instruções a seguir para configurar o {{site.data.keyword.blockstoragefull}}
+para seus backups no Plesk. Supõe-se que o SSH
 raiz ou sudo e o acesso total ao Plesk no nível de administrador estejam disponíveis. Essas instruções baseiam-se em um host do CentOS7.
 
 Para obter mais informações, consulte a [Documentação do Plesk para backup e restauração ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.

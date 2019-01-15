@@ -14,7 +14,7 @@ lastupdated: "2018-12-10"
 
 # 灾难恢复 - 通过可访问的主卷进行故障转移
 
-如果在主站点上发生灾难性故障或状况并且主存储器仍可访问，客户可以执行以下操作，以快速访问辅助站点上的数据。
+如果主站点上发生灾难性故障或状况，但主存储器仍可访问，客户可以执行以下操作，以快速访问辅助站点上的数据。
 
 在启动故障转移之前，确保所有主机授权已就位。
 
@@ -23,6 +23,7 @@ lastupdated: "2018-12-10"
 
 1. 登录到 [{{site.data.keyword.cloud}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
 {DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+
 
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 在 **{{site.data.keyword.blockstorageshort}}** 页面中，单击源卷或目标卷。

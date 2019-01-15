@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Conectando-se a LUNs do iSCSI de MPIO no CloudLinux
+# Conectando-se a LUNs iSCSI no CloudLinux
 
 Siga estas instruções para instalar seu LUN do iSCSI com caminhos múltiplos no CloudLinux Server liberação 6.10.
 

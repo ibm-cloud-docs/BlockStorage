@@ -37,7 +37,7 @@ lastupdated: "2018-11-30"
 - LUN 在使用主引导记录 (MBR) 分区样式的单一分区的 Windows 磁盘中存储原始磁盘类型。要使用此选项，您的主机操作系统只能是使用 MBR 分区方法的 Windows 2000 Server、Windows XP 或 Windows Server 2003。
 
 **Windows GPT**
--  LUN 使用 GUID 分区类型 (GPT) 分区样式来存储 Windows 数据。如果您想要使用 GPT 分区方法并且您的主机可以使用该方法，请使用此选项。Windows Server 2003 SP1 和更高版本可以使用 GPT 分区方法，而且所有 64 位版本的 Windows 都支持该方法。
+-  LUN 使用 GUID 分区类型 (GPT) 分区样式来存储 Windows 数据。如果您想要使用 GPT 分区方法，并且您的主机可以使用该方法，请使用此选项。Windows Server 2003 SP1 和更高版本可以使用 GPT 分区方法，而且所有 64 位版本的 Windows 都支持该方法。
 
 ## 是按实例还是按卷强制执行分配的 IOPS 限制？
 {: faq}

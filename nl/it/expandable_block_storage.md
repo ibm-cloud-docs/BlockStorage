@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Espansione della capacità di Block Storage
 
@@ -41,3 +46,6 @@ I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di 
 4. Riesamina la tua selezione e la nuova determinazione del prezzo.
 5. Fai clic sulla casella di spunta **I have read the Master Service Agreement...** e fai clic su **Place Order**.
 6. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
+
+Per ulteriori informazioni sull'espansione del filesystem (e delle eventuali partizioni) sul volume per utilizzare il nuovo spazio, consulta la documentazione del sistema operativo da te utilizzato.
+{:tip}

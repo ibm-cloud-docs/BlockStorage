@@ -43,7 +43,7 @@ Se per il volume è implementata la replica, quest'ultima viene aggiornata autom
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
 3. In **Storage IOPS Options**, effettua una nuova selezione.
     - Per Endurance (IOPS a livelli), seleziona un livello IOPS superiore a 0,25 IOPS/GB della tua archiviazione. Puoi aumentare il livello IOPS in qualsiasi momento. Tuttavia, in diminuzione è disponibile solo una volta al mese.
-    - Per Performance (IOPS allocato), specifica la nuova opzione IOPS per la tua archiviazione immettendo un valore compreso tra 100 e 48.000 IOPS. 
+    - Per Performance (IOPS allocato), specifica la nuova opzione IOPS per la tua archiviazione immettendo un valore compreso tra 100 e 48.000 IOPS.
     
     Assicurati di esaminare gli eventuali limiti specifici richiesti in base alla dimensione nel modulo dell'ordine.
     {:tip}

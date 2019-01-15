@@ -11,9 +11,9 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# 使用 cPanel 配置 {{site.data.keyword.blockstorageshort}} 进行备份
+# 在 cPanel 中将 {{site.data.keyword.blockstorageshort}} 配置用于备份
 
-使用此文章以帮助在 cPanel 中配置要存储在 {{site.data.keyword.blockstoragefull}} 中的备份。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的 WebHost Manager (WHM) 访问权。这些指示信息基于 **CentOS 7** 主机。
+使用以下指示信息，可以在 cPanel 中配置您的备份，以将其存储在 {{site.data.keyword.blockstoragefull}} 中。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的 WebHost Manager (WHM) 访问权。这些指示信息基于 **CentOS 7** 主机。
 
 有关更多信息，请参阅 [cPanel - 配置备份目录 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}。
 {:tip}

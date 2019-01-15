@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,14 +13,14 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Ordinazione di {{site.data.keyword.blockstorageshort}}
+# Ordinazione di {{site.data.keyword.blockstorageshort}} tramite la console
 
 Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottimizzare le capacità per soddisfare le tue esigenze di capacità e IOPS. Ottieni il massimo dalla tua archiviazione con due opzioni per la specifica delle prestazioni.
 
 - Puoi scegliere tra i livelli IOPS Endurance che caratterizzano i livelli di prestazioni predefiniti per soddisfare i carichi di lavoro che non hanno requisiti di prestazioni ben definiti.
 - Puoi ottimizzare la tua archiviazione per soddisfare requisiti di prestazione specifici specificando il numero totale di IOPS con Performance.
 
-## Ordine di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)
+## Ordinazione di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)
 
 1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi **{{site.data.keyword.blockstorageshort}}** e fai clic su **Crea**.
 
@@ -46,14 +46,17 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 
    Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](faqs.html).
    {:tip}
-9. A destra, controlla il tuo riepilogo degli ordini e applica il tuo codice promozionale se ne hai uno.
+9. A destra, controlla il tuo riepilogo degli ordini e applica il tuo codice promozionale se ne hai uno. 
+
+   Gli sconti vengono applicati quando l'ordine viene elaborato.
+   {:note}
 10. Dopo aver controllato i termini e le condizioni, seleziona la casella **I have read and agree to the Third-Party Service Agreements**.
 11. Fai clic su **Create**. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
 Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](managing-storage-limits.html).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](faqs.html)
 {:important}
 
-## Ordine di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
+## Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
 
 1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi {{site.data.keyword.blockstorageshort}} e fai clic su **Crea**.
 
@@ -75,6 +78,9 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
    Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](faqs.html).
    {:tip}
 9. A destra, controlla il tuo riepilogo degli ordini e applica il tuo codice promozionale se ne hai uno.
+
+   Gli sconti vengono applicati quando l'ordine viene elaborato.
+   {:note}
 10. Dopo aver controllato i termini e le condizioni, seleziona la casella **I have read and agree to the Third-Party Service Agreements**.
 11. Fai clic su **Create**. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
@@ -84,9 +90,10 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 ## Connessione alla tua nuova archiviazione
 
 Quando la tua richiesta di provisioning è completa, autorizza i tuoi host ad accedere alla nuova archiviazione e configura la tua connessione. A seconda del sistema operativo del tuo host, segui il link appropriato.
-- [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html)
-- [Connessione ai LUN iSCSI MPIO su CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connessione ai LUN iSCSI MPIO su Microsoft Windows](accessing-block-storage-windows.html)
+- [Connessione ai LUN iSCSI su Linux](accessing_block_storage_linux.html)
+- [Connessione ai LUN iSCSI su CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connessione ai LUN iSCSI su Microsoft Windows](accessing-block-storage-windows.html)
+- [Montaggio di un LUN iSCSI in XenServer Shared Storage](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [Configurazione di Block Storage per il backup con cPanell](configure-backup-cpanel.html)
 - [Configurazione di Block Storage per il backup con Plesk](configure-backup-plesk.html)
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,18 +13,18 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# 订购 {{site.data.keyword.blockstorageshort}}
+# 通过控制台订购 {{site.data.keyword.blockstorageshort}}
 
 您可以供应 {{site.data.keyword.blockstorageshort}} 并通过微调来满足您的容量和 IOPS 需求。通过两个指定性能的选项，最充分地利用存储器。
 
 - 可以从具有预定义性能级别的耐久性 IOPS 层中进行选择，以适合没有明确定义性能需求的工作负载。
 - 可以通过指定性能类型的 IOPS 总数来微调存储器，以满足具体的性能需求。
 
-## 订购使用预定义的 IOPS 层的 {{site.data.keyword.blockstorageshort}}（耐久性）
+## 订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}
 
 1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog/){:new_window}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储器** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
+   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 
 2. 选择部署**位置**（数据中心）。
    - 确保将新存储器添加到您拥有的计算主机所在位置。
@@ -46,18 +46,21 @@ lastupdated: "2018-12-13"
 
    此选择基于主机所运行的操作系统，日后无法修改此选择。例如，如果服务器为 Ubuntu 或 RHEL，请选择 Linux。如果主机为 Windows 2012 或 Windows 2016 服务器，请从列表中选择 Windows 2008+ 选项。有关各种 Windows 选项的更多信息，请参阅[常见问题解答](faqs.html)。
    {:tip}
-9. 在右侧，查看订单摘要，并应用促销码（如果有）。
+9. 在右侧，查看订单摘要，并应用促销码（如果有）。 
+
+   处理订单时会应用折扣。
+   {:note}
 10. 阅读条款和条件后，选中**我已阅读并同意第三方服务协议**复选框。
 11. 单击**创建**。新的存储器分配会在几分钟后可用。
 
 缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增加卷的数量，请联系销售代表。请阅读[此处](managing-storage-limits.html)以了解有关增大限制的信息。<br/><br/>有关同时授权的限制，请参阅[常见问题](faqs.html)。
 {:important}
 
-## 订购使用定制 IOPS 的 {{site.data.keyword.blockstorageshort}}（性能）
+## 订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}
 
 1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog/){:new_window}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储器** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
+   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 2. 单击**位置**，然后选择数据中心。
    - 确保将新存储器添加到您拥有的计算主机所在位置。
 3. 计费。如果选择了具有改进功能的数据中心（标记有星号），那么可以选择“按月计费”或“按小时计费”。
@@ -75,6 +78,9 @@ lastupdated: "2018-12-13"
    此选择基于主机所运行的操作系统，日后无法修改此选择。例如，如果服务器为 Ubuntu 或 RHEL，请选择 Linux。如果主机为 Windows 2012 或 Windows 2016 服务器，请从列表中选择 Windows 2008+ 选项。有关各种 Windows 选项的更多信息，请参阅[常见问题解答](faqs.html)。
    {:tip}
 9. 在右侧，查看订单摘要，并应用促销码（如果有）。
+
+   处理订单时会应用折扣。
+   {:note}
 10. 阅读条款和条件后，选中**我已阅读并同意第三方服务协议**复选框。
 11. 单击**创建**。新的存储器分配会在几分钟后可用。
 
@@ -84,11 +90,12 @@ lastupdated: "2018-12-13"
 ## 连接新存储器
 
 完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
-- [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [使用 cPanel 配置 Block Storage 进行备份](configure-backup-cpanel.html)
-- [使用 Plesk 配置 Block Storage 进行备份](configure-backup-plesk.html)
+- [在 Linux 上连接到 iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上连接到 iSCSI LUN](configure-iscsi-cloudlinux.html)
+- [在 Microsoft Windows 上连接到 iSCSI LUN](accessing-block-storage-windows.html)
+- [在 XenServer 共享存储器中安装 iSCSI LUN](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
+- [在 cPanel 中将 Block Storage 配置用于备份](configure-backup-cpanel.html)
+- [在 Plesk 中将 Block Storage 配置用于备份](configure-backup-plesk.html)
 
 ## 灾难恢复注意事项
 

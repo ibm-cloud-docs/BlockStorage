@@ -41,10 +41,10 @@ particionamento MBR e GPT são suportados.
 - O LUN armazena um tipo de disco rígido em um disco do Windows de partição única que usa o estilo de particionamento Master Boot Record (MBR). Use essa opção apenas se o sistema operacional do host for o Windows 2000 Server, o Windows XP ou o Windows Server 2003 que usa o método de particionamento MBR.
 
 **GPT do Windows**
--  O LUN armazena dados do Windows usando o estilo de particionamento GUID Partition Type (GPT). Use essa
-opção se desejar usar o método de particionamento GPT e o host for capaz de usá-lo. O Windows Server 2003,
-Service Pack 1 e posterior são capazes de usar o método de particionamento GPT e todas as versões de 64 bits do Windows
-o suportam.
+-  O LUN armazena dados do Windows usando o estilo de particionamento GUID Partition Type (GPT). Use
+essa opção se você deseja usar o método de particionamento GPT e seu host pode usá-lo. O Windows
+Server 2003, Service Pack 1 e mais recente pode usar o método de particionamento GPT e todas as versões
+de 64 bits do Windows suportam isso.
 
 ## O limite de IOPS alocado é aplicado por instância ou por volume?
 {: faq}

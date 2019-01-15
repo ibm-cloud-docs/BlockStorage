@@ -24,6 +24,9 @@ Per creare le istantanee del tuo volume di archiviazione, in modo automatizzato 
 3. Seleziona la quantità di spazio che ti serve e il metodo di pagamento.
 4. Fai clic su **Continue**.
 5. Immetti l'eventuale codice promozionale (**Promo Code**) a tua disposizione e fai clic su **Recalculate**. Gli addebiti (Charges) per questo ordine e il riesame dell'ordine (Order Review) vengono completati per impostazione predefinita.
+
+   Gli sconti vengono applicati quando l'ordine viene elaborato.
+   {:note}
 6. Seleziona la casella **I have read the Master Service Agreement and agree to the terms therein** e fai clic su **Place Order**. Nel giro di pochi minuti, viene eseguito il provisioning del tuo spazio di istantanea.
 
 ## Determinazione di quanto spazio di istantanea ordinare

@@ -46,13 +46,13 @@ Snapshot 不能取代實際異地「災難回復」抄寫或長時間保留備�
 
 ## 安全
 
-依預設，已加密 {{site.data.keyword.filestorage_short}} 的所有 Snapshot 及抄本也會加密。無法根據磁區來關閉此特性。如需提供者管理的靜態加密的相關資訊，請參閱[保護資料的安全](block-file-storage-encryption-rest.html)。
+依預設，已加密 {{site.data.keyword.blockstorageshort}} 的所有 Snapshot 及抄本也會加密。無法根據磁區來關閉此特性。如需提供者管理的靜態加密的相關資訊，請參閱[保護資料的安全](block-file-storage-encryption-rest.html)。
 
-## Snapshot 對磁碟空間的影響
+## Snapshots 對磁碟空間的影響
 
-Snapshot 副本可使磁碟空間用量降到最低，方法是保留個別區塊，而非整個檔案。只有在變更或刪除作用中檔案系統中的檔案時，Snapshot 副本才會使用額外的空間。當檔案變更或刪除時，仍會在一個以上 Snapshot 副本中保留原始檔案區塊。
+Snapshot 副本可使磁碟耗用量降到最低，方法是保留個別區塊，而非整個檔案。只有在變更或刪除作用中檔案系統中的檔案時，Snapshot 副本才會使用額外的空間。
 
-在作用中檔案系統中，會將已變更的區塊重新寫入至磁碟上的不同位置，或當成作用中檔案區塊完全移除。因此，除了已修改的作用中檔案系統中的區塊所使用的磁碟空間之外，仍會保留原始區塊所使用的磁碟空間，以反映作用中檔案系統在變更之前的狀態。
+在作用中檔案系統中，會將已變更的區塊重新寫入至磁碟上的不同位置，或當成作用中檔案區塊完全移除。當檔案變更或刪除時，會在一個以上 Snapshot 副本中保留原始檔案區塊。因此，仍會保留原始區塊所使用的磁碟空間，以反映作用中檔案系統在變更之前的狀態。此空間的保留是除了已修改的作用中檔案系統中的區塊所使用的磁碟空間之外，額外保留的。
 
 <table>
     <colgroup>
@@ -73,4 +73,4 @@ Snapshot 副本可使磁碟空間用量降到最低，方法是保留個別區�
       </tr>
 </table>
 
-如需如何檢視所使用的 Snapshot 空間量的相關資訊，請參閱[管理 Snapshot](working-with-snapshots.html)。
+如需 Snapshot 空間使用情形的相關資訊，請參閱[管理 Snapshot](working-with-snapshots.html)。

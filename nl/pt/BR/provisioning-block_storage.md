@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Solicitando o {{site.data.keyword.blockstorageshort}}
+# Pedindo o {{site.data.keyword.blockstorageshort}} por meio do Console
 
 É possível fornecer o {{site.data.keyword.blockstorageshort}} e fazer ajustes precisos para atender às suas necessidades de capacidade e de IOPS. Obtenha o máximo de seu armazenamento com duas opções para especificar desempenho.
 
@@ -49,7 +49,10 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 Windows 2016, selecione a opção Windows 2008+ na lista. Para obter mais informações sobre as várias opções do Windows,
 consulte as [Perguntas frequentes](faqs.html).
    {:tip}
-9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um.
+9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um. 
+
+   Os descontos são aplicados quando o pedido é processado.
+   {:note}
 10. Após revisar os termos e as condições, marque a caixa **Eu li e concordo com os
 Contratos de Prestação de Serviços de Terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
@@ -82,6 +85,9 @@ Windows 2016, selecione a opção Windows 2008+ na lista. Para obter mais inform
 consulte as [Perguntas frequentes](faqs.html).
    {:tip}
 9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um.
+
+   Os descontos são aplicados quando o pedido é processado.
+   {:note}
 10. Após revisar os termos e as condições, marque a caixa **Eu li e concordo com os
 Contratos de Prestação de Serviços de Terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
@@ -93,9 +99,10 @@ volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de s
 ## Conectando seu novo armazenamento
 
 Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts a acessar o novo armazenamento e configurar sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
-- [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
+- [Conectando-se a LUNs iSCSI no Linux](accessing_block_storage_linux.html)
+- [Conectando-se a LUNs iSCSI no CloudLinux](configure-iscsi-cloudlinux.html)
+- [Conectando-se a LUNs iSCSI no Microsoft Windows](accessing-block-storage-windows.html)
+- [Montando um LUN iSCSI no armazenamento compartilhado XenServer](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
 - [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)
 

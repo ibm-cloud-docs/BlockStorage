@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Expandindo a capacidade do Block Storage
 
@@ -41,3 +46,7 @@ As limitações de tamanho existentes para o {{site.data.keyword.blockstoragesho
 4. Revise a sua seleção e a nova precificação.
 5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principais...** e clique em **Fazer pedido**.
 6. Sua nova alocação de armazenamento estará disponível em alguns minutos.
+
+Para obter mais informações sobre como expandir o sistema de arquivos (e partições, se houver
+alguma) no volume para usar o novo espaço, verifique a documentação do S.O.
+{:tip}

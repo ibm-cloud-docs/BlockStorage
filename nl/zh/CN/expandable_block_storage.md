@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 扩展 Block Storage 容量
 
@@ -41,3 +46,6 @@ lastupdated: "2018-11-13"
 4. 复查您的选择和新的定价。
 5. 单击**我已阅读主服务协议...** 复选框，然后单击**下订单**。
 6. 新的存储器分配会在几分钟后可用。
+
+有关扩展卷上的文件系统（和分区，如果有）以使用新空间的更多信息，请查看操作系统文档。
+{:tip}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -26,7 +26,7 @@ lastupdated: "2018-11-30"
 每个订单必须具有关联的位置（数据中心）。在订购 {{site.data.keyword.blockstorageshort}} 时，确保在与计算实例相同的位置中进行供应。
 {:important}
 
-您可以使用 `slcli order package-list` 命令以查找想要订购的包。提供了 `–keyword` 选项以用于执行简单搜索和过滤。通过此选项，可以更轻松地查找所需包。
+要查找想要订购的包，可以使用 `slcli order package-list` 命令。提供了 `–keyword` 选项以用于执行简单搜索和过滤。通过此选项，可以更轻松地查找所需包。请查找 **Storage-as-a-Service Package 759**。
 
 ```
 $ slcli order package-list --help
@@ -50,85 +50,81 @@ Options:
   -h, --help      Show this message and exit.
 ```
 
-*需要有关如何查找 Storage-as-a-Service Package 759 的指示信息*
+此外，还可以使用 `slcli block volume-order` 命令。
 
 ```
-$ slcli order package-list --keyword "Storage"
-:.....................:.....................:
-:         name        :       keyName       :
-:.....................:.....................:
-: ???                 : ???                 :
-: ???                 : ???                 :
-:.....................:.....................:
-```
+# slcli block volume-order --help
+Usage: slcli block volume-order [OPTIONS]
 
-```
-$ slcli order category-list STORAGE_AS_A_SERVICE_STAAS --required
-:..................................:...................:............:
-:               name               :    categoryCode   : isRequired :
-:..................................:...................:............:
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:..................................:...................:............:
-```
+ Order a block storage volume.
 
-通过使用 `item-list` 命令，为订单选择其余项。包通常具有众多项以供选择，因此使用 `–category` 选项以仅从感兴趣的类别中检索项。
-
-```
-$ slcli order item-list STORAGE_AS_A_SERVICE_STAAS --category ??
-:..........................:..............................................:
-:         keyName          :                description                   :
-:..........................:..............................................:
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:..........................:..............................................:
+Options:
+ --storage-type [performance|endurance]
+                                 Type of block storage volume  [required]
+ --size INTEGER                  Size of block storage volume in GB.
+                                 Permitted Sizes:
+                                 20, 40, 80, 100, 250, 500,
+                                 1000, 2000, 4000, 8000, 12000  [required]
+ --iops INTEGER                  Performance Storage IOPs, between 100 and
+                                 6000 in multiples of 100  [required for
+                                 storage-type performance]
+ --tier [0.25|2|4|10]            Endurance Storage Tier (IOP per GB)
+                                 [required for storage-type endurance]
+ --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                 Operating System  [required]
+ --location TEXT                 Datacenter short name (e.g.: dal09)
+                                 [required]
+ --snapshot-size INTEGER         Optional parameter for ordering snapshot
+                                 space along with endurance block storage;
+                                 specifies the size (in GB) of snapshot space
+                                 to order
+ --service-offering [storage_as_a_service|enterprise|performance]
+                                 The service offering package to use for
+                                 placing the order [optional, default is
+                                 'storage_as_a_service']
+ --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                 to monthly)
+ -h, --help                      Show this message and exit.
 ```
 
 有关通过 API 订购 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [order_block_volume ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}。
 要能够访问所有新功能，请订购 `Storage-as-a-Service Package 759`。
 {:tip}
 
-## 验证订单
-
-如果您不确定订单中可能缺少的必需类别，可以使用带 `–verify` 标志的 `place` 命令。如果缺少任何类别，会在屏幕上将其打印出来。
-
-
-```
-$ slcli order place --verify blablabla
-:..............................................:.................................................:......:
-:                keyName                       :                   description                   : cost :
-:..............................................:.................................................:......:
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:..............................................:.................................................:......:
-```
-
-输出显示所要订购的每个项以及与该项相关联的成本。如果订单通过验证，那么意味着无冲突项，并且所有必需类别具有在订单中指定的项。
 
 ## 下订单
 
-下一步是下订单。
+以下示例显示了如何订购一个 80 GB 的 {{site.data.keyword.blockstorageshort}} 卷（20 GB 快照空间且 0.25 IOPS/GB）。
 
 ```
-$ slcli order place .....
-
-This action will incur charges on your account. Continue? [y/N]: y
-
-API response
+slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
+Order #15547457 placed successfully!
+ > Endurance Storage
+ > Block Storage
+ > 0.25 IOPS per GB
+ > 80 GB Storage Space
+ > 20 GB Storage Space (Snapshot Space)
 ```
 
-缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增加卷的数量，请联系销售代表。有关提高限制的更多信息，请参阅[管理存储限制](managing-storage-limits.html)。
+缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 卷。要增加卷的数量，请联系销售代表。有关提高限制的更多信息，请参阅[管理存储限制](managing-storage-limits.html)。
 {:important}
 
 ## 授权主机访问新存储器
 
-TBD
+```
+slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+  Authorizes hosts to access a given volume
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 有关通过 API 授权主机访问 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [authorize_host_to_volume ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
@@ -139,8 +135,8 @@ TBD
 ## 连接新存储器
 
 根据主机的操作系统，访问相应的链接。
-- [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [使用 cPanel 配置 Block Storage 进行备份](configure-backup-cpanel.html)
-- [使用 Plesk 配置 Block Storage 进行备份](configure-backup-plesk.html)
+- [在 Linux 上连接到 iSCSI LUN](accessing_block_storage_linux.html)
+- [在 CloudLinux 上连接到 iSCSI LUN](configure-iscsi-cloudlinux.html)
+- [在 Microsoft Windows 上连接到 iSCSI LUN](accessing-block-storage-windows.html)
+- [在 cPanel 中将 Block Storage 配置用于备份](configure-backup-cpanel.html)
+- [在 Plesk 中将 Block Storage 配置用于备份](configure-backup-plesk.html)

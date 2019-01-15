@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# 在 CloudLinux 上連接至 MPIO iSCSI LUN
+# 在 CloudLinux 上連接至 iSCSI LUN
 
 請遵循下列指示，以在 CloudLinux Server 6.10 版上按裝具有多路徑的 iSCSI LUN。
 

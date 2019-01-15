@@ -1,4 +1,4 @@
----
+﻿---
 
 copyright:
   years: 2015, 2018
@@ -14,7 +14,7 @@ lastupdated: "2018-12-10"
 
 # Recuperação de desastre: failover com um volume primário acessível
 
-Se uma falha catastrófica ou desastre ocorreu no site primário e o armazenamento primário ainda estiver acessível, os clientes poderão executar as seguintes ações para acessar rapidamente seus dados no site secundário.
+Se uma falha catastrófica ou desastre ocorrer no site primário e o armazenamento primário ainda estiver acessível, os clientes poderão executar as ações a seguir para acessar rapidamente seus dados no site secundário.
 
 Antes de iniciar o failover, certifique-se de que toda a autorização de host esteja estabelecida.
 
@@ -22,7 +22,7 @@ Os hosts e volumes autorizados devem estar no mesmo data center. Por exemplo, n�
 {:note}
 
 1. Efetue login no [console do {{site.data.keyword.cloud}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://
-{DomainName}/catalog/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
+{DomainName}/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 2. Clique em seu volume de origem ou de destino na página **{{site.data.keyword.blockstorageshort}}**.

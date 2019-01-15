@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Connessione ai LUN iSCSI MPIO su Microsoft Windows
+# Connessione ai LUN iSCSI su Microsoft Windows
 
 Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite il [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 
@@ -70,18 +70,15 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 
 1. Fai clic su **Connetti** per stabilire una connessione alla destinazione.
 2. Seleziona la casella di spunta **Consenti percorsi multipli** per abilitare il Multipath I/O alla destinazione.
-</br>
-   ![Consenti percorsi multipli](/images/Connect_0.png)
+![Consenti percorsi multipli](/images/Connect_0.png)
 3. Fai clic su **Avanzate** e seleziona **Attiva accesso CHAP**.
-</br>
-   ![Attiva CHAP](/images/chap_0.png)
+![Attiva CHAP](/images/chap_0.png)
 4. Immetti il nome utente nel campo Nome e immetti la password nel campo Segreto destinazione.
 
    I valori dei campi Nome e Segreto destinazione possono essere ottenuti dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}}.
    {:tip}
 5. Fai clic su **OK** finché non viene visualizzata la finestra **Proprietà iniziatore iSCSI**. Lo stato della destinazione nella sezione **Destinazioni individuate** cambia da **Inattivo** a **Connesso**.
-</br>
-   ![Stato Connesso](/images/Connected.png)
+![Stato Connesso](/images/Connected.png)
 
 
 ### Configurazione di MPIO nell'iniziatore iSCSI
@@ -104,7 +101,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 7. Nella finestra Impostazioni avanzate,
    - Nell'elenco Adattatore locale, seleziona Iniziatore iSCSI Microsoft.
    - Nell'elenco IP iniziatore, seleziona l'indirizzo IP corrispondente all'host. In questo caso, stai collegando due interfacce di rete sul dispositivo a una sola interfaccia di rete sull'host. Di conseguenza, questa interfaccia è la stessa di quella fornita per la prima sessione.
-   - Nell'elenco IP portale di destinazione, seleziona l'indirizzo IP della seconda interfaccia dati abilitata sul dispositivo. 
+   - Nell'elenco IP portale di destinazione, seleziona l'indirizzo IP della seconda interfaccia dati abilitata sul dispositivo.
    - Fai clic sulla casella di spunta **Attiva accesso CHAP**
    - Immetti i valori Nome e Segreto destinazione ottenuti dal portale e fai clic su **OK**.
    - Fai clic su **OK** nella finestra Connessione alla destinazione per tornare alla finestra Proprietà.

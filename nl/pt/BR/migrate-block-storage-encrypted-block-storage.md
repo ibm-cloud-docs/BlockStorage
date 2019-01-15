@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -16,11 +16,11 @@ O {{site.data.keyword.blockstoragefull}} aprimorado está agora disponível nos 
 
 O caminho de migração preferencial é conectar-se aos dois LUNs simultaneamente e transferir dados diretamente de um LUN para outro. Os detalhes dependerão de seu sistema operacional e se os dados são esperados mudar durante a operação de cópia.
 
-Supõe-se que seu LUN não criptografado já esteja conectado ao seu host. Se não, siga as instruções que se ajustam melhor ao seu sistema operacional para realizar essa tarefa:
+A suposição é que você já tem o LUN não criptografado conectado ao seu host. Se não, siga as instruções que se ajustam melhor ao seu sistema operacional para realizar essa tarefa:
 
-- [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
+- [Conectando-se a LUNs iSCSI no Linux](accessing_block_storage_linux.html)
+- [Conectando-se a LUNs iSCSI no CloudLinux](configure-iscsi-cloudlinux.html)
+- [Conectando-se a LUNs iSCSI no Microsoft Windows](accessing-block-storage-windows.html)
 
 Todos os volumes aprimorados do {{site.data.keyword.blockstorageshort}} provisionados nesses data centers têm um ponto de montagem diferente de volumes não criptografados. Para assegurar que você esteja usando o ponto de montagem correto para os dois volumes de armazenamento, é possível visualizar as informações do ponto de montagem na página **Detalhes do volume** no console. Também é possível acessar o ponto de montagem correto por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -30,48 +30,13 @@ Todos os volumes aprimorados do {{site.data.keyword.blockstorageshort}} provisio
 Ao fazer um pedido com a API, especifique o pacote "Armazenamento como um serviço" para assegurar-se de que esteja obtendo os recursos atualizados com seu novo armazenamento.
 {:important}
 
-As instruções a seguir são para pedir um LUN aprimorado por meio do {{site.data.keyword.slportal}}. Seu novo LUN deve ser do mesmo tamanho ou maior que o volume original para facilitar a migração.
+É possível pedir um LUN aprimorado por meio do console do IBM Cloud e do {{site.data.keyword.slportal}}. Seu novo LUN deve ser do mesmo tamanho ou maior que o volume original para facilitar a migração.
 
-### Pedindo um LUN do Endurance
+- [Pedindo o {{site.data.keyword.blockstorageshort}} com Camadas IOPS predefinidas (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Pedindo o {{site.data.keyword.blockstorageshort}} com IOPS customizado (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. Por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** OU por meio do catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
-2. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
-3. Selecione **Endurance** na lista **Selecionar tipo de armazenamento**.
-4. Selecione seu **Local** de implementação (data center).
-   - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que o volume anterior.
-5. Selecione sua opção de faturamento. É possível escolher entre faturamento por hora e mensal.
-6. Selecione a camada de IOPS.
-7. Clique em **Selecionar tamanho de armazenamento** e selecione seu tamanho de armazenamento na lista.
-8. Clique em **Especificar tamanho do espaço de captura instantânea** e selecione o tamanho da captura instantânea na lista. Esse espaço complementa o seu espaço utilizável.
-
-   Para obter mais informações sobre as considerações e as recomendações de espaço de captura instantânea, consulte
-[Pedindo capturas instantâneas](ordering-snapshots.html).
-   {:tip}
-9. Escolha seu **Tipo de S.O.** na lista.
-10. Clique em **Continuar**. Serão exibidos encargos mensais e rateados
-com uma chance final para revisar os detalhes do pedido.
-11. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principais** e clique em **Fazer pedido**.
-
-### Solicitando um LUN de Desempenho
-
-1. Por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}, clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** OU por meio do catálogo do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura > Armazenamento > {{site.data.keyword.blockstorageshort}}**.
-2. À direita, clique em **Pedir {{site.data.keyword.blockstorageshort}} **.
-3. Selecione **Performance** na lista **Selecionar tipo de armazenamento**.
-4. Clique em **Local** e selecione seu data center.
-
-   Assegure-se de que o novo Armazenamento seja incluído no mesmo local que o host ou hosts pedidos anteriormente.
-   {:important}
-5. Selecione sua opção de faturamento. É possível escolher entre faturamento por hora e mensal.
-6. Selecione o  ** Tamanho de armazenamento ** apropriado.
-7. Insira o número de IOPS no campo **Especifique as IOPS**.
-8. Clique em **Continuar**. Serão exibidos os encargos mensais e rateados
-com uma chance final para revisar os detalhes do pedido. Clique em **Anterior** se você
-desejar mudar seu pedido.
-9. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços principal** e clique em **Fazer pedido**.
-
-O armazenamento é provisionado em menos de um minuto e é visível na página {{site.data.keyword.blockstorageshort}} do {{site.data.keyword.slportal}}.
-
-
+Seu novo armazenamento estará disponível para montagem em alguns minutos. É possível visualizá-lo
+na lista de recursos e na lista do {{site.data.keyword.blockstorageshort}}.
 
 ## Conectando o novo  {{site.data.keyword.blockstorageshort}}  ao host
 
@@ -97,12 +62,15 @@ Se o data center de destino de replicação ainda não tiver sido submetido a up
    {:tip}
 
 2. Considere qual tipo de dados você tem no LUN original do {{site.data.keyword.blockstorageshort}} e como melhor copiá-lo para seu novo LUN.
-  - Se você tiver backups, conteúdo estático e coisas que não devem mudar durante a cópia, não haverá grandes preocupações.
-  - Se você estiver executando um banco de dados ou uma máquina virtual em seu {{site.data.keyword.blockstorageshort}}, certifique-se de que os dados não sejam alterados durante a cópia para evitar distorção de dados. Se você tiver alguma preocupação com a largura de banda, faça a migração durante os horários fora de pico. Se precisar de assistência com essas considerações, abra um chamado de suporte.
+  - Se você tem backups, conteúdo estático e coisas que não se espera que sejam mudadas
+durante a cópia, não precisa se preocupar.
+  - Se você estiver executando um banco de dados ou uma máquina virtual em seu {{site.data.keyword.blockstorageshort}}, certifique-se de que os dados não sejam alterados durante a cópia para evitar distorção de dados. 
+  - Se você tiver alguma preocupação com a largura de banda, faça a migração durante os horários fora de pico. 
+  - Se você precisar de assistência com essas considerações, abra um caso de suporte.
 
 3. Copie os dados em.
    - Para o **Microsoft Windows**, formate o novo armazenamento e copie os dados do seu LUN original do {{site.data.keyword.blockstorageshort}} para seu novo LUN usando o Windows Explorer.
-   - Para o **Linux**, é possível usar `rsync` para copiar sobre os dados. Aqui está um exemplo:
+   - Para o **Linux**, é possível usar `rsync` para copiar sobre os dados.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

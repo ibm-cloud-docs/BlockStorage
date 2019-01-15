@@ -11,9 +11,9 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# 使用 Plesk 配置 {{site.data.keyword.blockstorageshort}} 进行备份
+# 在 Plesk 中将 {{site.data.keyword.blockstorageshort}} 配置用于备份
 
-使用以下指示信息在 Plesk 中配置 {{site.data.keyword.blockstoragefull}} 进行备份。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的管理级别 Plesk 访问权。这些指示信息基于 CentOS7 主机。
+使用以下指示信息，可以在 Plesk 中将 {{site.data.keyword.blockstoragefull}} 配置用于您的备份。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的管理级别 Plesk 访问权。这些指示信息基于 CentOS7 主机。
 
 有关更多信息，请参阅 [Plesk 的备份和复原文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}。
 {:tip}
