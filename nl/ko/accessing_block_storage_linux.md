@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# Linux에서 MPIO iSCSI LUN에 연결
+# Linux에서 iSCSI LUN에 연결
 
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
@@ -21,7 +21,8 @@ lastupdated: "2018-11-30"
 예를 들어 iSCSI 이니시에이터 구성([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}) 및 DM 다중 경로 설정([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
 {: tip}
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 이전에 부여되었는지 확인하십시오.{:important}
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 이전에 부여되었는지 확인하십시오.
+{:important}
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
 2. **호스트 권한 부여**를 클릭하십시오.
@@ -176,6 +177,9 @@ lastupdated: "2018-11-30"
 
    다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.BluSoftlayer_full}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
    {:important}
+   
+   Ubuntu 사용자의 경우 `iscsid.conf` 파일을 확인할 때 `node.startup` 설정이 수동인지 자동인지 확인하십시오. 수동인 경우 자동으로 변경하십시오.
+{:tip}
 
 7. iSCSI가 부팅 시에 시작되도록 설정하고 지금 시작하십시오.
   - RHEL 6
@@ -262,7 +266,7 @@ lastupdated: "2018-11-30"
 
 ## 파일 시스템 작성(선택사항)
 
-다음 단계에 따라 새로 마운트된 볼륨에서 파일 시스템을 작성하십시오. 파일 시스템은 볼륨을 사용하는 대부분의 애플리케이션에서 필요합니다. 2TB 미만의 드라이브에는 `fdisk`를 사용하고 2TB 이상인 디스크에 대해서는 `parted`를 사용하십시오.
+다음 단계에 따라 새로 마운트된 볼륨에서 파일 시스템을 작성하십시오. 파일 시스템은 볼륨을 사용하는 대부분의 애플리케이션에서 필요합니다. 2TB 미만의 드라이브에는 `fdisk`(#creating-a-file-system-with-fdisk-)를 사용하고 [2TB 이상인 디스크에 대해서는 `parted`](#creating-a-file-system-with-parted-)를 사용하십시오.
 
 ### `fdisk`로 파일 시스템 작성
 
@@ -280,7 +284,7 @@ lastupdated: "2018-11-30"
    ```
    {: pre}
 
-   XXX는 1단계에서 리턴된 디스크 이름을 나타냅니다.<br />
+   XXX는 1단계에서 리턴된 디스크 이름을 나타냅니다. <br />
 
    더 아래로 스크롤하여 `fdisk` 명령 표에 나열된 명령 코드를 찾으십시오.
    {: tip}

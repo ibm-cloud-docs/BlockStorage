@@ -2,12 +2,17 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
-# 블록 스토리지 용량 확장
+# Block Storage 용량 확장
 
 이 새 기능을 사용하면 현재 {{site.data.keyword.blockstoragefull}} 사용자는 기존 {{site.data.keyword.blockstorageshort}} 크기를 GB 단위로 최대 12TB까지 바로 확장 가능합니다. 복제본을 작성하거나 수동으로 데이터를 더 큰 볼륨으로 마이그레이션할 필요가 없습니다. 크기 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
 
@@ -38,6 +43,9 @@ Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대�
 1. {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 카탈로그에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
 3. GB 단위로 새 스토리지 크기를 입력하십시오.
-4. 선택사항 및 새 가격 책정을 검토하십시오.
+4. 선택사항 및 새 가격을 검토하십시오.
 5. **마스터 서비스 계약을 읽었습니다...** 선택란을 클릭하고 **주문하기**를 클릭하십시오.
 6. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
+
+새 영역을 사용하기 위해 볼륨에 파일 시스템( 및 파티션이 있는 경우)을 확장하는 자세한 정보는 OS 문서를 참조하십시오.
+{:tip}

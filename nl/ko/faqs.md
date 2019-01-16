@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 ## {{site.data.keyword.blockstorageshort}} 볼륨의 사용을 몇 개의 인스턴스에서 공유할 수 있습니까?
 {: faq}
 
-블록 볼륨당 권한 부여 수에 대한 기본 한계는 8개입니다. 이는 블록 스토리지 LUN에 액세스하도록 최대 8개의 호스트에 권한을 부여할 수 있음을 의미합니다. 한계를 늘리도록 요청하려면 영업 담당자에게 문의하십시오.
+블록 볼륨당 권한 부여 수에 대한 기본 한계는 8개입니다. 이는 Block Storage LUN에 액세스하도록 최대 8개의 호스트에 권한을 부여할 수 있음을 의미합니다. 한계를 늘리도록 요청하려면 영업 담당자에게 문의하십시오.
 
 ## 주문할 수 있는 볼륨은 얼마나 됩니까?
 {: faq}
@@ -25,7 +25,7 @@ lastupdated: "2018-11-30"
 
 호스트 운영 체제에서 처리할 수 있는 항목에 따라 달라지며 {{site.data.keyword.BluSoftlayer_full}}에서 제한하는 것은 아닙니다. 마운트할 수 있는 볼륨 수에 대한 한계는 OS 문서를 참조하십시오.
 
-## 내 블록 스토리지 LUN에 대해 어떤 Windows 버전을 선택해야 합니까? 
+## 내 Block Storage LUN에 대해 어떤 Windows 버전을 선택해야 합니까?
 {: faq}
 
 LUN을 작성할 때 OS 유형을 지정해야 합니다. OS 유형은 LUN에 액세스하는 호스트에서 사용하는 운영 체제를 기반으로 해야 합니다. OS 유형은 LUN 작성 이후 수정될 수 없습니다. LUN의 실제 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다.
@@ -34,10 +34,10 @@ LUN을 작성할 때 OS 유형을 지정해야 합니다. OS 유형은 LUN에 �
 - LUN에서 Windows 2008 이상 버전의 Windows 데이터를 저장합니다. 호스트 운영 체제가 Windows Server 2008, Windows Server 2012, Windows Server 2016인 경우에는 이 OS 옵션을 사용하십시오. MBR 및 GPT 파티셔닝 방법이 둘 다 지원됩니다.
 
 **Windows 2003**
-- LUN에서 MBR(Master Boot Record) 파티셔닝 스타일을 사용하여 단일 파티션 Windows 디스크에 원시 디스크 유형을 저장합니다. 호스트 운영 체제가 MBR 파티셔닝 방법을 사용하는 Windows 2000 Server, Windows XP 또는 Windows Server 2003인 경우에만 이 옵션을 사용하십시오. 
+- LUN에서 MBR(Master Boot Record) 파티셔닝 스타일을 사용하여 단일 파티션 Windows 디스크에 원시 디스크 유형을 저장합니다. 호스트 운영 체제가 MBR 파티셔닝 방법을 사용하는 Windows 2000 Server, Windows XP 또는 Windows Server 2003인 경우에만 이 옵션을 사용하십시오.
 
 **Windows GPT**
--  LUN에서 GPT(GUID Partition Type) 파티셔닝 스타일을 사용하여 Windows 데이터를 저장합니다. GPT 파티셔닝 방법을 사용하고자 하며 호스트가 이를 사용할 수 있는 경우에는 이 옵션을 사용하십시오. Windows Server 2003, 서비스팩 1 이상은 GPT 파티셔닝 방법을 사용할 수 있으며, 모든 64비트 Windows 버전은 이를 지원합니다.
+-  LUN에서 GPT(GUID Partition Type) 파티셔닝 스타일을 사용하여 Windows 데이터를 저장합니다. GPT 파티셔닝 방법을 사용하고자 하며 호스트가 이를 사용할 수 있는 경우에 이 옵션을 사용하십시오. Windows Server 2003, 서비스 팩 1 이상은 GPT 파티셔닝 방법을 사용할 수 있으며, 모든 64비트 Windows 버전은 이를 지원합니다. 
 
 ## 할당된 IOPS 한계는 인스턴스로 적용됩니까, 아니면 볼륨으로 적용됩니까?
 {: faq}

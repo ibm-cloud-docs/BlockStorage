@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -265,17 +265,18 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워�
 
 최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](set-host-queue-depth-settings-performance-and-endurance-storage.html) 및 기타 설정)도 고려해야 합니다.
 
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.{:tip}
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.
+{:tip}
 
 ## 주문 제출
 
-주문을 제출할 준비가 되면 [여기](provisioning-block_storage.html) 지시사항을 따르십시오.
+주문을 제출할 준비가 되면 [콘솔](provisioning-block_storage.html)이나 [SLCLI](ordering-through-cli.html)를 통해 주문을 제출하십시오. 
 
 ## 새 스토리지 연결
 
 프로비저닝 요청이 완료되면 새 스토리지에 액세스하고 연결을 구성하도록 호스트에 권한을 부여하십시오. 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
-- [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)
-- [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
+- [Linux에서 iSCSI LUN에 연결](accessing_block_storage_linux.html)
+- [CloudLinux에서 iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
+- [Microsoft Windows에서 iSCSI LUNS 연결](accessing-block-storage-windows.html)
 - [cPanel을 사용하여 Block Storage 구성](configure-backup-cpanel.html)
 - [cPanel을 사용하여 Block Storage 구성](configure-backup-plesk.html)

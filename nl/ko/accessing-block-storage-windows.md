@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Microsoft Windows에서 MPIO iSCSI LUNS 연결
+# Microsoft Windows에서 iSCSI LUNS 연결
 
 시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 부여되는지 확인하십시오.
 
@@ -26,7 +26,8 @@ lastupdated: "2018-11-30"
 1. 서버 관리자를 시작하고 **관리**, **역할 및 기능 추가**를 찾아보십시오.
 2. **다음**을 클릭하여 기능 메뉴로 이동하십시오.
 3. 아래로 스크롤하여 **다중 경로 I/O**를 선택하십시오.
-4. **설치**를 클릭하여 호스트 서버에서 MPIO를 클릭하십시오. ![서버 관리자의 역할 및 기능 추가](/images/Roles_Features.png)
+4. **설치**를 클릭하여 호스트 서버에서 MPIO를 클릭하십시오.
+![서버 관리자의 역할 및 기능 추가](/images/Roles_Features.png)
 
 ### MPIO에 대한 iSCSI 지원 추가
 
@@ -51,7 +52,8 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
     - **발견** 탭을 클릭하고 **포털 발견**을 클릭하십시오.
     - iSCSI 대상의 IP 주소를 입력하고 포트는 기본값인 3260으로 두십시오.
     - **고급** 탭을 클릭하여 고급 설정 창을 여십시오.
-    - **CHAP 로그온 사용**을 선택하여 CHAP 인증을 켜십시오. ![CHAP 로그인 사용](/images/Advanced_0.png)
+    - **CHAP 로그온 사용**을 선택하여 CHAP 인증을 켜십시오.
+    ![CHAP 로그인 사용](/images/Advanced_0.png)
 
     이름 및 대상 시크릿 필드는 대소문자를 구분합니다.
     {:important}
@@ -68,18 +70,15 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 
 1. **연결**을 클릭하여 대상에 연결하십시오.
 2. **다중 경로 사용** 선택란을 선택하여 대상에 대해 다중 경로 IO가 사용되도록 설정하십시오.
-</br>
-   ![다중 경로 사용](/images/Connect_0.png)
+![다중 경로 사용](/images/Connect_0.png)
 3. **고급**을 클릭하고 **CHAP 로그온 사용**을 선택하십시오.
-</br>
-   ![CHAP 사용](/images/chap_0.png)
+![CHAP 사용](/images/chap_0.png)
 4. 이름 필드에 사용자 이름을 입력하고 대상 시크릿 필드에 비밀번호를 입력하십시오.
 
    이름 및 대상 시크릿 필드 값은 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 가져올 수 있습니다.
    {:tip}
 5. **iSCSI 이니시에이터 특성** 창이 표시될 때까지 **확인**을 클릭하십시오. **발견된 대상** 섹션의 대상 상태는 **비활성**에서 **연결됨**으로 변경됩니다.
-</br>
-   ![연결된 상태](/images/Connected.png)
+![연결된 상태](/images/Connected.png)
 
 
 ### iSCSI 이니시에이터에서 MPIO 구성
@@ -101,14 +100,15 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 6. 대상에 연결 창에서 **다중 경로 사용** 선택란을 선택하십시오. **고급**을 클릭하십시오.
 7. 고급 설정 창에서 다음을 수행하십시오.
    - 로컬 어댑터 목록에서 Microsoft iSCSI 이니시에이터를 선택하십시오.
-   - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결 중입니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다. 
+   - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결 중입니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다.
    - 대상 포털 IP 목록에서, 디바이스에서 사용되는 두 번째 데이터 인터페이스의 IP 주소를 선택하십시오.
    - **CHAP 로그온 사용** 선택란을 클릭하십시오.
    - 포털 창에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
    - 대상 연결 창에서 **확인**을 클릭하여 특성 창으로 돌아가십시오.
 8. 이제 특성 창의 ID 분할창에는 두 개 이상의 세션이 표시됩니다. iSCSI 스토리지에 대해 둘 이상의 세션이 있습니다.
 
-   호스트에 ISCSI 스토리지에 연결될 다수의 인터페이스가 있는 경우에는 이니시에이터 IP 필드에서 기타 NIC의 IP 주소로 다른 연결을 설정할 수 있습니다. 그러나 연결을 시도하기 전에 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 두 번째 이니시에이터 IP 주소에 권한을 부여하십시오. {:note}
+   호스트에 ISCSI 스토리지에 연결될 다수의 인터페이스가 있는 경우에는 이니시에이터 IP 필드에서 기타 NIC의 IP 주소로 다른 연결을 설정할 수 있습니다. 그러나 연결을 시도하기 전에 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 두 번째 이니시에이터 IP 주소에 권한을 부여하십시오.
+   {:note}
 9. 특성 창에서 **디바이스**를 클릭하여 디바이스 창을 여십시오. 디바이스 인터페이스 이름이 `mpio`로 시작됩니다. <br/>
   ![디바이스](/images/Devices.png)
 

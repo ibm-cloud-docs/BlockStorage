@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2018-01-04"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.blockstorageshort}}의 새 위치 및 기능
+# 새 위치 및 기능
 
 {{site.data.keyword.BluSoftlayer_full}}에서는 {{site.data.keyword.blockstoragefull}}의 새 버전을 소개합니다.
 
@@ -37,14 +37,14 @@ lastupdated: "2018-11-30"
 	DAL12<br />
 	DAL13<br />
 	SJC03<br />
-SJC04<br />
+        SJC04<br />
 	WDC04<br />
 	WDC06<br />
 	WDC07<br />
 	<br /><br /><br />
     </td>
     <td>AMS01<br />
-AMS03<br />
+        AMS03<br />
 	FRA02<br />
 	FRA04<br />
 	FRA05<br />
@@ -57,24 +57,24 @@ AMS03<br />
 	PAR01<br />
     </td>
     <td>MEL01<br />
-SYD01<br />
-SYD04<br />
+        SYD01<br />
+        SYD04<br />
         SYD05<br />
         <br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MON01<br />
-TOR01<br />
+        TOR01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>MEX01<br />
-SAO01<br />
+        SAO01<br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </td>
     <td>CHE01<br />
-HKG02<br />
+        HKG02<br />
 	SEO01<br />
 	SNG01<br />
-TOK02<br />
+        TOK02<br />
 	TOK04<br />
 	TOK05<br />
 	<br /><br /><br /><br /><br />
@@ -102,7 +102,6 @@ TOK02<br />
 ## 암호화된 스토리지 볼륨의 새 마운트 위치
 
 이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인하여 올바른 마운트 지점을 사용 중인지 확인하십시오. 또한 API 호출 `SoftLayer_Network_Storage::getNetworkMountAddress()`를 통해 올바른 마운트 위치 정보를 가져올 수 있습니다.
-
 
 새 기능에 모두 액세스할 수 있으려면 API를 통해 주문할 때 `Storage-as-a-Service Package 759`를 선택하십시오. API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 관한 자세한 정보는 [order_block_volume ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}을 참조하십시오.
 {:important}

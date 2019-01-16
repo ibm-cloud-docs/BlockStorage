@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 
 # cPanel로 백업을 위한 {{site.data.keyword.blockstorageshort}} 구성
 
-이 문서를 참조하여 cPanel에서 백업을 {{site.data.keyword.blockstoragefull}}에 저장하도록 구성하십시오. root 또는 sudo SSH 및 전체 WHM(WebHost Manager) 액세스가 사용 가능한 것으로 가정합니다. 해당 지시사항은 **CentOS 7** 호스트를 기반으로 합니다.
+다음 지시사항을 사용하여 cPanel의 백업을 {{site.data.keyword.blockstoragefull}}에 저장하도록 구성하십시오. root 또는 sudo SSH 및 전체 WHM(WebHost Manager) 액세스가 사용 가능한 것으로 가정합니다. 해당 지시사항은 **CentOS 7** 호스트를 기반으로 합니다.
 
 자세한 정보는 [cPanel - 백업 디렉토리 구성 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}을 참조하십시오.
 {:tip}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -12,11 +12,12 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# CloudLinux에서 MPIO iSCSI LUN에 연결
+# CloudLinux에서 iSCSI LUN에 연결
 
 다음 지시사항을 따라 CloudLinux Server 릴리스 6.10에서 다중 경로를 사용하여 iSCSI LUN을 설치하십시오.
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 이전에 부여되었는지 확인하십시오.{:tip}
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 이전에 부여되었는지 확인하십시오.
+{:tip}
 
 1. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인하십시오.
 2. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.

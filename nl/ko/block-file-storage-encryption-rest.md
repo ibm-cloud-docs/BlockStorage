@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-01-04"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-12"
 {:note: .note}
 {:important: .important}
 
-# 데이터 보안 - 제공자 관리 저장 시 암호화
+# 제공자 관리 저장 시 암호화
 
 ## {{site.data.keyword.blockstorageshort}} 저장 시 암호화
 
