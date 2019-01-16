@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -16,11 +16,11 @@ lastupdated: "2018-11-30"
 
 El método de migración recomendado es conectarse a ambos LUN simultáneamente y transferir datos directamente desde un LUN a otro. Los detalles dependen de su sistema operativo y de si se espera que los datos cambien durante la operación de copia.
 
-Se supone que ya tiene su LUN no cifrado conectado al host. Si no es así, siga las directrices correspondientes a su sistema operativo que mejor se ajusten a esta tarea:
+El supuesto es que ya tiene su LUN no cifrado conectado al host. Si no es así, siga las directrices correspondientes a su sistema operativo que mejor se ajusten a esta tarea:
 
-- [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
-- [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
+- [Conexión a los LUN iSCSI en Linux](accessing_block_storage_linux.html)
+- [Conexión a los LUN iSCSI en CloudLinux](configure-iscsi-cloudlinux.html)
+- [Conexión a los LUN iSCSI en Microsoft Windows](accessing-block-storage-windows.html)
 
 Todos los volúmenes de {{site.data.keyword.blockstorageshort}} mejorados suministrados en estos centros de datos tienen un punto de montaje distinto que los volúmenes no cifrados. Para asegurarse de que utiliza el punto de montaje correcto para los volúmenes de almacenamiento, puede consultar la información sobre el punto de montaje en la página **Detalles del volumen** en la consola. También puede acceder al punto de montaje correcto mediante una llamada de API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -30,44 +30,12 @@ Todos los volúmenes de {{site.data.keyword.blockstorageshort}} mejorados sumini
 Cuando realice un pedido con API, especifique el paquete "Almacenamiento como un servicio" para asegurarse de recibir las características actualizadas con el nuevo almacenamiento.
 {:important}
 
-Las siguientes instrucciones son para solicitar un LUN mejorado a través del {{site.data.keyword.slportal}}. El nuevo LUN debe tener el mismo tamaño o mayor que el volumen original para facilitar la migración.
+Puede solicitar un LUN mejorado desde la consola de IBM Cloud y el {{site.data.keyword.slportal}}. El nuevo LUN debe tener el mismo tamaño o mayor que el volumen original para facilitar la migración.
 
-### Solicitud de un LUN de Resistencia
+- [Pedido de {{site.data.keyword.blockstorageshort}} con niveles de IOPS predefinidos (Resistencia)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Pedido de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. En el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
-2. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
-3. Seleccione **Resistencia** en la lista **Seleccionar tipo de almacenamiento**.
-4. Seleccione la **Ubicación** (centro de datos) del despliegue.
-   - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el volumen anterior.
-5. Seleccione la opción de facturación. Puede elegir entre facturación por hora o mensual.
-6. Seleccione el nivel IOPS.
-7. Pulse **Seleccionar tamaño de almacenamiento** y seleccione el tamaño de almacenamiento en la lista.
-8. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable.
-
-   Para obtener más información sobre las consideraciones y recomendaciones del espacio de instantánea, consulte [Solicitud de instantáneas](ordering-snapshots.html).
-   {:tip}
-9. Elija el **Tipo de sistema operativo** en la lista.
-10. Pulse **Continuar**. Se muestran los cargos mensuales y prorrateados, es una última oportunidad para revisar los detalles del pedido.
-11. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro** y pulse **Realizar pedido**.
-
-### Solicitud de un LUN de Rendimiento
-
-1. En el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** O desde el catálogo de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura > Almacenamiento > {{site.data.keyword.blockstorageshort}}**.
-2. En la parte derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
-3. Seleccione **Rendimiento** en la lista **Seleccionar tipo de almacenamiento**.
-4. Pulse **Ubicación** y seleccione el centro de datos.
-
-   Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts pedidos anteriormente.
-   {:important}
-5. Seleccione la opción de facturación. Puede elegir entre facturación por hora o mensual.
-6. Seleccione el **Tamaño de almacenamiento** apropiado.
-7. Especifique las IOPS en el campo **Especificar IOPS**.
-8. Pulse **Continuar**. Se muestran los cargos mensuales y prorrateados, es una última oportunidad para revisar los detalles del pedido. Pulse **Anterior** si desea cambiar el pedido.
-9. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro** y pulse **Realizar pedido**.
-
-El almacenamiento se suministra en menos de un minuto y está visible en la página de {{site.data.keyword.blockstorageshort}} del {{site.data.keyword.slportal}}.
-
-
+Su nuevo almacenamiento está preparado para que se monte en pocos minutos. Puede verlo en la lista de recursos y en la lista de {{site.data.keyword.blockstorageshort}}.
 
 ## Conexión del nuevo {{site.data.keyword.blockstorageshort}} al host
 
@@ -93,12 +61,14 @@ Si su centro de datos de destino de réplica no se ha actualizado aún, no puede
    {:tip}
 
 2. Piense en el tipo de datos que tiene en el LUN de {{site.data.keyword.blockstorageshort}} original y decida la mejor forma de copiarlos en el nuevo LUN.
-  - Si tiene copias de seguridad, contenido estático y cosas que no se espera que cambien durante la copia, no hay ninguna preocupación importante.
-  - Si está ejecutando una base de datos o una máquina virtual en su {{site.data.keyword.blockstorageshort}}, asegúrese de que los datos no se modifiquen durante la copia para evitar que resulten dañados. Si tiene problemas con el ancho de banda, realice la migración fuera de las horas punta. Si necesita ayuda con estas consideraciones, abra una incidencia de soporte.
+  - Si tiene copias de seguridad, contenido estático y cosas que no se espera que cambien durante la copia, no debe preocuparse demasiado.
+  - Si está ejecutando una base de datos o una máquina virtual en su {{site.data.keyword.blockstorageshort}}, asegúrese de que los datos no se modifiquen durante la copia para evitar que resulten dañados. 
+  - Si tiene problemas con el ancho de banda, realice la migración fuera de las horas punta. 
+  - Si necesita ayuda con estas consideraciones, abra un caso de soporte.
 
 3. Copie los datos.
    - Para **Microsoft Windows**, formatee el nuevo almacenamiento y copie los datos del LUN de {{site.data.keyword.blockstorageshort}} original en el nuevo LUN mediante Windows Explorer.
-   - Para **Linux**, puede utilizar `rsync` para copiar los datos. A continuación se muestra un ejemplo:
+   - Para **Linux**, puede utilizar `rsync` para copiar los datos.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

@@ -40,18 +40,18 @@ El diseño de instantáneas depende del entorno del cliente. Las siguientes cons
   El umbral de supresión automática está fijado en 95 por ciento.
   {:note}
 
-Las instantáneas no son sustituciones de la réplica de recuperación tras desastre externa real ni de las copias de seguridad de larga retención.
+Las instantáneas no son sustituciones de la réplica de recuperación en caso de error externa real ni de las copias de seguridad de larga retención.
 {:important}
 
 ## Seguridad
 
-Todas las instantáneas y réplicas de {{site.data.keyword.filestorage_short}} cifrados también se cifran de forma predeterminada. Esta característica no se puede desactivar por volumen. Para obtener más información sobre el cifrado de datos en reposo gestionado por el proveedor, consulte [Protección de los datos](block-file-storage-encryption-rest.html).
+Todas las instantáneas y réplicas de {{site.data.keyword.blockstorageshort}} cifrados también se cifran de forma predeterminada. Esta característica no se puede desactivar por volumen. Para obtener más información sobre el cifrado de datos en reposo gestionado por el proveedor, consulte [Protección de los datos](block-file-storage-encryption-rest.html).
 
 ## Cómo afectan las instantáneas al espacio de disco
 
-Las copias de instantáneas minimizan el uso de espacio de disco conservando bloques individuales en lugar de archivos completos. Las copias de instantáneas solo utilizan espacio adicional cuando se cambian o suprimen archivos en el sistema de archivos activo. Cuando los archivos se modifican o se suprimen, los bloques de archivos originales aún se conservan como parte de una o más copias de instantáneas.
+Las copias de instantáneas minimizan el consumo de disco conservando bloques individuales en lugar de archivos completos. Las copias de instantáneas solo utilizan espacio adicional cuando se cambian o suprimen archivos en el sistema de archivos activo.
 
-En el sistema de archivos activo, los bloques modificados se vuelven a escribir en diferentes ubicaciones del disco o se eliminan como bloques de archivos activos por completo. Como resultado, además del espacio de disco utilizado por los bloques en el sistema de archivos activo modificado, aún se reserva espacio de disco utilizado por los bloques originales para reflejar el estado del sistema de archivos activo antes del cambio.
+En el sistema de archivos activo, los bloques modificados se vuelven a escribir en diferentes ubicaciones del disco o se eliminan como bloques de archivos activos por completo. Cuando los archivos se modifican o se suprimen, los bloques de archivos originales se conservan como parte de una o varias copias de instantáneas. Como resultado, aún se reserva el espacio de disco utilizado por los bloques originales para reflejar el estado del sistema de archivos activo antes del cambio. Este espacio se reserva además del espacio de disco utilizado por los bloques en el sistema de archivos activo modificado.
 
 <table>
     <colgroup>
@@ -72,4 +72,4 @@ En el sistema de archivos activo, los bloques modificados se vuelven a escribir 
       </tr>
 </table>
 
-Para obtener más información sobre cómo ver cuánto espacio de instantáneas se ha utilizado, consulte [Gestión de instantáneas](working-with-snapshots.html).
+Para obtener más información sobre el uso del espacio de instantánea, consulte [Gestión de instantáneas](working-with-snapshots.html).

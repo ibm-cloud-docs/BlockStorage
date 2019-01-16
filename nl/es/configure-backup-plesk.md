@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 
 # Configuración de {{site.data.keyword.blockstorageshort}} para la copia de seguridad con Plesk
 
-Utilice estas instrucciones para configurar {{site.data.keyword.blockstoragefull}} para sus copias de seguridad en Plesk. Suponemos que está disponible el acceso de SSH sudo o root y de Plesk a nivel administrador completo. Estas instrucciones se basan en un host CentOS7.
+Puede utilizar estas instrucciones para configurar {{site.data.keyword.blockstoragefull}} para sus copias de seguridad en Plesk. Suponemos que está disponible el acceso de SSH sudo o root y de Plesk a nivel administrador completo. Estas instrucciones se basan en un host CentOS7.
 
 Para obtener más información, consulte la [documentación de Plesk sobre copia de seguridad y restauración ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
 {:tip}

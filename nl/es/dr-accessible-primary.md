@@ -12,16 +12,16 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Recuperación tras desastre - Migración tras error con un volumen primario accesible
+# Recuperación en caso de error: migración tras error con un volumen primario accesible
 
-Si se ha producido un error catastrófico o un desastre en el sitio primario y el almacenamiento primario todavía está disponible, los clientes pueden llevar a cabo las siguientes acciones para acceder rápidamente a sus datos en el sitio secundario.
+Si se produce un error catastrófico o un desastre en el sitio primario y el almacenamiento primario todavía está disponible, los clientes pueden llevar a cabo las siguientes acciones para acceder rápidamente a sus datos en el sitio secundario.
 
 Antes de iniciar la migración tras error, asegúrese de que todas las autorizaciones de host están en vigor.
 
 Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. Por ejemplo, no puede tener un volumen de réplica en Londres y el host en Ámsterdam. Ambos deben estar en Londres o en Ámsterdam.
 {:note}
 
-1. Inicie sesión en [la consola de {{site.data.keyword.cloud}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** en la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie sesión en la [consola de {{site.data.keyword.cloud}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.

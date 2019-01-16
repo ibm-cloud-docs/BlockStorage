@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Conexión a los LUN de iSCSI de MPIO en Microsoft Windows
+# Conexión a los LUN iSCSI en Microsoft Windows
 
 Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 
@@ -69,18 +69,15 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 ### Activación de destino
 
 1. Pulse **Conectar** para conectarse al destino.
-2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. </br>
-   ![Habilitar multivía de acceso](/images/Connect_0.png)
+2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. ![Habilitar multivía de acceso](/images/Connect_0.png)
 3. Pulse **Avanzado** y seleccione **Habilitar inicio de sesión CHAP**.
-</br>
-   ![Habilitar CHAP](/images/chap_0.png)
+![Habilitar CHAP](/images/chap_0.png)
 4. Especifique el nombre de usuario en el campo Nombre y especifique la contraseña en el campo secreto de destino.
 
    Los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}}.
    {:tip}
 5. Pulse **Aceptar** hasta que aparezca la ventana **Propiedades del iniciador de iSCSI**. El estado del destino en la sección **Destinos descubiertos** pasa de **Inactivo** a **Conectado**.
-</br>
-   ![Estado Conectado](/images/Connected.png)
+![Estado Conectado](/images/Connected.png)
 
 
 ### Configuración de MPIO en el iniciador iSCSI

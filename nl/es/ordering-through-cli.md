@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Solicitudes de {{site.data.keyword.blockstorageshort}} mediante la CLI de SL
+# Solicitud de {{site.data.keyword.blockstorageshort}} mediante la CLI de SL
 
 Puede utilizar la CLI de SL para realizar pedidos de productos que normalmente se solicitan a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}. En la API de SL, un pedido puede consistir en varios contenedores de pedidos. La CLI de pedidos funciona con un solo contenedor de pedidos.
 
@@ -26,7 +26,7 @@ Dentro de un paquete, algunos elementos se subdividen en categorías. Algunos pa
 Cada pedido debe tener una ubicación asociada (centro de datos). Cuando solicite {{site.data.keyword.blockstorageshort}}, asegúrese de que se suministre en la misma ubicación que sus instancias de cálculo.
 {:important}
 
-Puede utilizar el mandato `slcli order package-list` para encontrar el paquete que desea solicitar. Se proporciona una opción `–keyword` para realizar una búsqueda y un filtrado simples. Esta opción hace que sea más fácil encontrar el paquete que necesita.
+Puede utilizar el mandato `slcli order package-list` para encontrar el paquete que desea solicitar. Se proporciona una opción `–keyword` para realizar una búsqueda y un filtrado simples. Esta opción hace que sea más fácil encontrar el paquete que necesita. Busque **Storage-as-a-Service Package 759**.
 
 ```
 $ slcli order package-list --help
@@ -49,85 +49,81 @@ Opciones:
   -h, --help      Mostrar este mensaje y salir.
 ```
 
-*Instrucciones necesarias sobre cómo encontrar el paquete 759 de almacenamiento como servicio*
+También puede utilizar el mandato `slcli block volume-order`.
 
 ```
-$ slcli order package-list --keyword "Storage"
-:.....................:.....................:
-:         name        :       keyName       :
-:.....................:.....................:
-: ???                 : ???                 :
-: ???                 : ???                 :
-:.....................:.....................:
-```
+# slcli block volume-order --help
+Uso: slcli block volume-order [OPTIONS]
 
-```
-$ slcli order category-list STORAGE_AS_A_SERVICE_STAAS --required
-:..................................:...................:............:
-:               name               :    categoryCode   : isRequired :
-:..................................:...................:............:
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:..................................:...................:............:
-```
+ Solicitar un volumen de almacenamiento en bloque.
 
-Seleccione el resto de los elementos del pedido con el mandato `item-list`. Los paquetes suelen tener diversos elementos entre los que elegir; utilice la opción `–category` para recuperar solo los elementos de la categoría en la que está interesado.
-
-```
-$ slcli order item-list STORAGE_AS_A_SERVICE_STAAS --category ??
-:..........................:..............................................:
-:         keyName          :                description                   :
-:..........................:..............................................:
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:..........................:..............................................:
+Opciones:
+ --storage-type [performance|endurance]
+                                 Tipo de volumen de almacenamiento en bloque  [obligatorio]
+ --size INTEGER                  Tamaño del volumen de almacenamiento en bloque en GB.
+                                 Tamaños permitidos:
+                                 20, 40, 80, 100, 250, 500,
+                                 1000, 2000, 4000, 8000, 12000  [obligatorio]
+ --iops INTEGER                  IOPS de almacenamiento de rendimiento, entre 100 y
+                                 6000 en múltiplos de 100 [obligatorio para el tipo de
+                                 almacenamiento de rendimiento]
+ --tier [0.25|2|4|10]            Nivel de almacenamiento de resistencia (IOP por GB)
+                                 [obligatorio para el tipo de almacenamiento de resistencia]
+ --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                 Sistema operativo [obligatorio]
+ --location TEXT                 Nombre abreviado del centro de datos (por ejemplo, dal09)
+                                 [obligatorio]
+ --snapshot-size INTEGER         Parámetro opcional para solicitar espacio de instantáneas
+                                 junto con el almacenamiento en bloque de resistencia;
+                                 especifica el tamaño (en GB) del espacio de instantáneas
+                                 que se va a solicitar
+ --service-offering [storage_as_a_service|enterprise|performance]
+                                 El paquete de oferta de servicio que se va a utilizar
+                                 para realizar el pedido [opcional, el valor predeterminado es
+                                 'storage_as_a_service']
+ --billing [hourly|monthly]      Parámetro opcional correspondiente a la tasa de facturación (el
+                                 valor predeterminado es monthly)
+ -h, --help                      Mostrar este mensaje y salir.
 ```
 
 Para obtener más información sobre cómo solicitar {{site.data.keyword.blockstorageshort}} a través de la API, consulte [order_block_volume ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
 Para poder acceder a todas las nuevas características, solicite `el paquete 759 de almacenamiento como servicio`.
 {:tip}
 
-## Verificación del pedido
-
-Si alguna vez no está seguro de las categorías necesarias que puede que falten en su pedido, puede utilizar el mandato `place` con el distintivo `-verify`. Si falta alguna categoría, se imprime en la pantalla.
-
-
-```
-$ slcli order place --verify blablabla
-:..............................................:.................................................:......:
-:                keyName                       :                   description                   : cost :
-:..............................................:.................................................:......:
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:..............................................:.................................................:......:
-```
-
-La salida muestra cada elemento que se está solicitando, junto con el coste asociado a dicho elemento. Si el pedido supera la verificación, significa que no hay elementos en conflicto y que todas las categorías relacionadas tienen un elemento que está especificado en el pedido.
 
 ## Realización del pedido
 
-El siguiente paso es realizar el pedido.
+En el siguiente ejemplo se muestra cómo solicitar un volumen de {{site.data.keyword.blockstorageshort}} de 80 GB con espacio de instantáneas de 20 GB y 0.25 IOPS por GB.
 
 ```
-$ slcli order place .....
-
-Esta acción implicará cargos en su cuenta. ¿Desea continuar? [s/N]: s
-
-Respuesta de API
+slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
+Order #15547457 placed successfully!
+ > Endurance Storage
+ > Block Storage
+ > 0.25 IOPS per GB
+ > 80 GB Storage Space
+ > 20 GB Storage Space (Snapshot Space)
 ```
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. Para obtener más información sobre el aumento de los límites, consulte [Gestión de límites de almacenamiento](managing-storage-limits.html).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}} y de {{site.data.keyword.filestorage_short}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. Para obtener más información sobre el aumento de los límites, consulte [Gestión de límites de almacenamiento](managing-storage-limits.html).
 {:important}
 
 ## Autorización de los hosts para acceder al nuevo almacenamiento
 
-Por determinar
+```
+slcli block access-authorize --help
+Uso: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+  Autoriza a los hosts a acceder a un volumen determinado
+
+Opciones:
+  -h, --hardware-id TEXT    El id de un SoftLayer_Hardware que se va a autorizar
+  -v, --virtual-id TEXT     El id de un SoftLayer_Virtual_Guest que se va a autorizar
+  -i, --ip-address-id TEXT  El id de una SoftLayer_Network_Subnet_IpAddress
+                            que se va a autorizar
+  --ip-address TEXT         Una dirección IP que se va a autorizar
+  --help                    Mostrar este mensaje y salir.
+```
 
 Para obtener más información sobre la autorización de los hosts para acceder a {{site.data.keyword.blockstorageshort}} mediante la API, consulte [authorize_host_to_volume ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
@@ -138,8 +134,8 @@ Para obtener información sobre el límite en autorizaciones simultáneas, consu
 ## Conexión del nuevo almacenamiento
 
 En función del sistema operativo del host, siga el enlace adecuado.
-- [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
-- [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
+- [Conexión a los LUN iSCSI en Linux](accessing_block_storage_linux.html)
+- [Conexión a los LUN iSCSI en CloudLinux](configure-iscsi-cloudlinux.html)
+- [Conexión a los LUN iSCSI en Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](configure-backup-cpanel.html)
 - [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](configure-backup-plesk.html)

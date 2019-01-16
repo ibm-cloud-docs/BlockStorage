@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,16 +13,16 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Solicitud de {{site.data.keyword.blockstorageshort}}
+# Solicitud de {{site.data.keyword.blockstorageshort}} mediante la consola
 
 Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes para satisfacer sus necesidades de capacidad y de IOPS. Saque el mayor partido de su almacenamiento con dos opciones para especificar el rendimiento.
 
 - Puede elegir entre los niveles de IOPS de Resistencia que incluyen los niveles de rendimiento predefinidos para que se ajusten las cargas de trabajo que no han definido bien los requisitos de rendimiento.
 - Puede ajustar el almacenamiento para que cumpla los requisitos de rendimiento específicos especificando el número total de IOPS con Rendimiento.
 
-## Pedido de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)
+## Pedido de {{site.data.keyword.blockstorageshort}} con niveles de IOPS predefinidos (Resistencia)
 
-1. Inicie una sesión en [el catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
+1. Inicie una sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 
@@ -46,8 +46,11 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 
    Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas frecuentes](faqs.html).
    {:tip}
-9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
-10. Después de revisar los términos y condiciones, marque el recuadro **He leído y acepto los Acuerdos de servicio de terceros**.
+9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene. 
+
+   Los descuentos se aplican cuando se procesa el pedido.
+   {:note}
+10. Después de revisar los términos y condiciones, marque el recuadro de selección **He leído y acepto los acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
 De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](managing-storage-limits.html) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html).
@@ -55,7 +58,7 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 
 ## Pedido de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)
 
-1. Inicie una sesión en [el catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
+1. Inicie una sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 2. Pulse **Ubicación** y seleccione el centro de datos.
@@ -75,7 +78,10 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
    Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas frecuentes](faqs.html).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
-10. Después de revisar los términos y condiciones, marque el recuadro **He leído y acepto los Acuerdos de servicio de terceros**.
+
+   Los descuentos se aplican cuando se procesa el pedido.
+   {:note}
+10. Después de revisar los términos y condiciones, marque el recuadro de selección **He leído y acepto los acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
 De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](managing-storage-limits.html) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html).
@@ -84,13 +90,14 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 ## Conexión del nuevo almacenamiento
 
 Cuando se haya completado la solicitud de suministro, autorice a los hosts a acceder al nuevo almacenamiento y configure la conexión. En función del sistema operativo del host, siga el enlace adecuado.
-- [Conexión a los LUN iSCSI de MPIO en Linux](accessing_block_storage_linux.html)
-- [Conexión a los LUN de iSCSI de MPIO en CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conexión a los LUN de iSCSI de MPIO en Microsoft Windows](accessing-block-storage-windows.html)
+- [Conexión a los LUN iSCSI en Linux](accessing_block_storage_linux.html)
+- [Conexión a los LUN iSCSI en CloudLinux](configure-iscsi-cloudlinux.html)
+- [Conexión a los LUN iSCSI en Microsoft Windows](accessing-block-storage-windows.html)
+- [Montaje de un LUN iSCSI en almacenamiento compartido XenServer](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](configure-backup-cpanel.html)
 - [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](configure-backup-plesk.html)
 
-## Consideraciones sobre la recuperación tras desastre
+## Consideraciones sobre la recuperación en caso de error
 
 Para evitar la pérdida de datos y garantizar la continuidad del negocio, considere la posibilidad de replicar los servidores y el almacenamiento en otro centro de datos. La réplica mantiene los datos en sincronización en dos ubicaciones distintas en función de la planificación de la instantánea. Para obtener más información, consulte [Réplica de datos](replication.html).
 

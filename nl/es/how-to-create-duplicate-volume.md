@@ -20,7 +20,7 @@ Los duplicados pueden crearse a partir de volúmenes **primarios** y **de répli
 
 Se puede acceder a los volúmenes duplicados mediante un host para lectura/escritura siempre y cuando el almacenamiento esté suministrado. Sin embargo, no se permiten instantáneas ni réplicas hasta que se completa la copia de datos del original en el duplicado.
 
-Una vez completada la copia de datos, el duplicado se puede gestionar y utilizar como un volumen completamente independiente.
+Una vez completada la copia de datos, el duplicado se puede gestionar y utilizar como un volumen independiente.
 
 Esta característica está disponible en la mayoría de las ubicaciones. Pulse [aquí](new-ibm-block-and-file-storage-location-and-features.html) para ver la lista de centros de datos disponibles.
 
@@ -28,7 +28,7 @@ Si es un usuario de cuenta dedicada de {{site.data.keyword.containerlong}}, cons
 {:tip}
 
 Algunos usos comunes para un volumen duplicado:
-- **Prueba de recuperación tras desastre**. Cree un duplicado de su volumen de réplica para verificar que los datos estén intactos y puedan utilizarse en caso de desastre, sin interrumpir la réplica.
+- **Prueba de recuperación en caso de error**. Cree un duplicado de su volumen de réplica para verificar que los datos estén intactos y puedan utilizarse en caso de desastre, sin interrumpir la réplica.
 - **Copia de oro**. Utilice un volumen de almacenamiento como copia de oro desde la que puede crear múltiples instancias para varios usos.
 - **Renovaciones de datos**. Cree una copia de los datos de producción para montar en su entorno de no producción para la realización de pruebas.
 - **Restaurar desde instantánea**. Restaure datos en el volumen original con archivos y fechas específicos de una instantánea sin sobrescribir todo el volumen original con una función de restauración de instantáneas.
@@ -82,4 +82,4 @@ Puede crear un volumen duplicado a través del [{{site.data.keyword.slportal}} !
 
 ## Gestión del volumen duplicado
 
-Mientras los datos se estén copiando desde el volumen original en el duplicado, puede ver un estado en la página de detalles que muestra que la duplicación está en curso. Durante este tiempo se puede conectar a un host y leer/escribir en el volumen, pero no puede crear planificaciones de instantáneas. Cuando se complete el proceso de duplicación, el nuevo volumen es independiente del original y se puede gestionar con instantáneas y réplica, como es habitual.
+Mientras los datos se estén copiando desde el volumen original en el duplicado, puede ver un estado en la página de detalles que muestra que la duplicación está en curso. Durante este tiempo se puede conectar a un host y leer y escribir en el volumen, pero no puede crear planificaciones de instantáneas. Cuando se complete el proceso de duplicación, el nuevo volumen es independiente del original y se puede gestionar con instantáneas y réplica, como es habitual.

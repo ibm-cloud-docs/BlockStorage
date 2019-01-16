@@ -16,7 +16,7 @@ lastupdated: "2018-11-30"
 
 Para crear instantáneas de su volumen de almacenamiento, automática o manualmente, necesita adquirir espacio para mantenerlas. Puede adquirir capacidad hasta la cantidad de su volumen de almacenamiento (durante la adquisición de volumen inicial o posteriormente siguiendo los pasos descritos aquí).
 
-1. Inicie sesión en la consola de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de menú en la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie sesión en la [consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de menú de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 2. Acceda a su LUN de almacenamiento a través de **Almacenamiento** >**{{site.data.keyword.blockstorageshort}}**.
@@ -24,6 +24,9 @@ Para crear instantáneas de su volumen de almacenamiento, automática o manualme
 3. Seleccione la cantidad de espacio que necesita y el método de pago.
 4. Pulse **Continuar**.
 5. Especifique cualquier **código promocional** que tenga y pulse **Recalcular**. Los campos Cargos para este pedido y Revisión de pedido contienen información de forma predeterminada.
+
+   Los descuentos se aplican cuando se procesa el pedido.
+   {:note}
 6. Seleccione el recuadro **He leído el Acuerdo de Servicio Maestro y acepto sus condiciones** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
 
 ## Determinación de la cantidad de espacio de instantáneas que se debe pedir

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-06"
+  years: 2015, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -111,9 +111,12 @@ Las réplicas se basan en una planificación de réplica. Primero debe tener un 
 3. Seleccione la planificación de instantáneas existente que quiera que siga su réplica. La lista contiene todas las planificaciones de instantáneas activas. <br />
    Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Consulte [Trabajar con instantáneas](snapshots.html) para obtener más detalles.
    {:important}
-3. Pulse **Ubicación** y seleccione el centro de datos que es su sitio de recuperación tras desastre.
+3. Pulse **Ubicación** y seleccione el centro de datos que es su sitio de recuperación en caso de error.
 4. Pulse **Continuar**.
 5. Especifique un **Código promocional** si tiene uno y pulse **Recalcular**. Los otros campos de la ventana se completan de forma predeterminada.
+
+   Los descuentos se aplican cuando se procesa el pedido.
+   {:note}
 6. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro…** y pulse **Realizar pedido**.
 
 
@@ -189,8 +192,8 @@ Para obtener más información, consulte [Creación de un volumen de bloque dupl
 
 Cuando realiza la migración tras error, está "cambiando el conmutador" de su volumen de almacenamiento del centro de datos primario al volumen de destino del centro de datos remoto. Por ejemplo, su centro de datos primario es Londres y el centro de datos secundario es Ámsterdam. Si se produjera un suceso de error, debería realizar la migración a Ámsterdam, conectando al ahora volumen primario desde una instancia de cálculo en Ámsterdam. Cuando su volumen de Londres se haya reparado, se realizará una instantánea del volumen de Ámsterdam para volver a Londres y al volumen primario de nuevo desde una instancia de cálculo de Londres.
 
-* Si la ubicación primaria está en peligro inminente, consulte [Migración tras error con un volumen primario accesible](dr-accessible-primary.html).
-* Si la ubicación primaria está completamente inactiva, consulte [Migración tras error con un volumen primario inaccesible](disaster-recovery.html).
+* Si la ubicación primaria está en peligro inminente o se ha visto seriamente afectada, consulte [Migración tras error con un volumen primario accesible](dr-accessible-primary.html).
+* Si la ubicación primaria está inactiva, consulte [Migración tras error con un volumen primario inaccesible](disaster-recovery.html).
 
 
 ## Cancelación de una réplica existente

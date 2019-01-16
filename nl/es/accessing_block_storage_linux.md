@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# Conexión a los LUN iSCSI de MPIO en Linux
+# Conexión a los LUN iSCSI en Linux
 
 Estas instrucciones se aplican principalmente a RHEL6 y Centos6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso.
 {:note}
@@ -177,6 +177,9 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
    Deje los otros valores de CHAP que se han comentado. El almacenamiento de {{site.data.keyword.BluSoftlayer_full}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP.
    {:important}
+   
+   Si es usuario de Ubuntu, cuando consulte el archivo `iscsid.conf`, mire si el valor `node.startup` es manual o automatic. Si es manual, cámbielo por automatic.
+   {:tip}
 
 7. Establezca iSCSI para que se inicie al arrancar e inícielo ahora.
   - RHEL 6
@@ -263,7 +266,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
 ## Creación de un sistema de archivos (opcional)
 
-Siga estos pasos para crear un sistema de archivos en el volumen montado recientemente. Un sistema de archivos es necesario para que la mayoría de las aplicaciones utilicen el volumen. Utilice `fdisk` para unidades inferiores a 2 TB y `parted` para discos de más de 2 TB.
+Siga estos pasos para crear un sistema de archivos en el volumen montado recientemente. Un sistema de archivos es necesario para que la mayoría de las aplicaciones utilicen el volumen. Utilice [`fdisk` para unidades que tengan menos de 2 TB])(#creating-a-file-system-with-fdisk-) y [`parted` para discos de más de 2 TB](#creating-a-file-system-with-parted-).
 
 ### Creación de un sistema de archivos con `fdisk`
 

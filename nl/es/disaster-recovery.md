@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-06"
+lastupdated: "2018-12-11"
 
 ---
 {:new_window: target="_blank"}
@@ -12,13 +12,13 @@ lastupdated: "2018-12-06"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Recuperación tras desastre - Migración tras error con un volumen primario inaccesible
+# Recuperación en caso de error: migración tras error con un volumen primario inaccesible
 
 Si un error catastrófico o un desastre ocasionan la caída del sitio principal, los clientes pueden llevar a cabo las siguientes acciones para acceder rápidamente a sus datos en el sitio secundario.
 
 ## Migración tras error con un duplicado de un volumen de réplica en el sitio secundario
 
-1. Inicie sesión en [la consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** en la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie sesión en la [consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
@@ -35,7 +35,7 @@ En cuanto se cree el volumen, se puede adjuntar a un host y realizar operaciones
 
 Si desea devolver la producción al sitio primario original, debe seguir los pasos siguientes.
 
-1. Inicie sesión en [la consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** en la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie sesión en la [consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.

@@ -2,16 +2,21 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Expandir la capacidad de almacenamiento en bloque
 
-Con esta nueva característica, los usuarios actuales de {{site.data.keyword.blockstoragefull}} pueden ampliar el tamaño de su {{site.data.keyword.blockstorageshort}} existente en incrementos de GB de hasta 12 TB inmediatamente. No tienen que crear un duplicado ni migrar manualmente los datos a un volumen más grande. No se producen paradas ni falta de acceso al almacenamiento mientras se realiza el redimensionamiento.
+Con esta nueva característica, los usuarios actuales de {{site.data.keyword.blockstoragefull}} pueden ampliar el tamaño de su {{site.data.keyword.blockstorageshort}} existente en incrementos de GB de hasta 12 TB inmediatamente. No es necesario que creen un duplicado ni que migren los datos manualmente a un volumen más grande. No se producen paradas ni falta de acceso al almacenamiento mientras se realiza el redimensionamiento.
 
-La facturación del volumen se actualizará automáticamente para añadir la diferencia prorrateada del nuevo precio en el ciclo de facturación actual. El nuevo importe completo se factura en el siguiente ciclo de facturación.
+Los datos de facturación del volumen se actualizan automáticamente para añadir al ciclo de facturación actual la diferencia prorrateada del nuevo precio. El nuevo importe completo se factura en el siguiente ciclo de facturación.
 
 Esta característica está disponible en [centros de datos seleccionados](new-ibm-block-and-file-storage-location-and-features.html).
 
@@ -41,3 +46,6 @@ Las limitaciones de tamaño actuales para {{site.data.keyword.blockstorageshort}
 4. Revise su selección y el nuevo precio.
 5. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro...** y pulse **Realizar pedido**.
 6. La nueva asignación de almacenamiento está disponible en pocos minutos.
+
+Para obtener más información sobre cómo ampliar el sistema de archivos (y las particiones, si las hay) en el volumen para utilizar el nuevo espacio, consulte la documentación del sistema operativo.
+{:tip}
