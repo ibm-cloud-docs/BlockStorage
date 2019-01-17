@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -12,11 +12,12 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen
+# Verbindung zu iSCSI-LUNs unter CloudLinux herstellen
 
 Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 zu installieren.
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} zuvor autorisiert wurde.{:tip}
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} zuvor autorisiert wurde.
+{:tip}
 
 1. Melden Sie sich am [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} an.
 2. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.

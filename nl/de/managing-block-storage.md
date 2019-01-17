@@ -101,7 +101,6 @@ Wenn Sie mehrere Host von einer bestimmten LUN trennen möchten, müssen Sie die
 
 Wenn Sie eine bestimmte LUN nicht mehr brauchen, können Sie sie jederzeit abbrechen.
 
-
 Zum Abbrechen einer Speicher-LUN müssen Sie zunächst den Zugriff von allen Hosts widerrufen.
 {:important}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# {{site.data.keyword.blockstorageshort}} bestellen
+# {{site.data.keyword.blockstorageshort}} über die Konsole bestellen
 
 Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entsprechend Ihrer Kapazität und Ihren IOPS-Anforderungen optimieren. Mit zwei Optionen zum Angeben der Leistung können Sie die Nutzung des Speichers optimieren.
 
@@ -46,7 +46,10 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 
    Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](faqs.html).
    {:tip}
-9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
+9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an. 
+
+   Rabatte werden bei der Verarbeitung der Bestellung angewendet.
+   {:note}
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
@@ -75,6 +78,9 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
    Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](faqs.html).
    {:tip}
 9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
+
+   Rabatte werden bei der Verarbeitung der Bestellung angewendet.
+   {:note}
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
@@ -84,9 +90,10 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 ## Neuen Speicher verbinden
 
 Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Hosts, auf den neuen Speicher zuzugreifen und die Verbindung zu konfigurieren. Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
-- [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
+- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
+- [Verbindung zu iSCSI-LUNs unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+- [iSCSI-LUN in XenServer Shared Storage anhängen](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
 - [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)
 

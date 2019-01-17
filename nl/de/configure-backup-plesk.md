@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 
 # {{site.data.keyword.blockstorageshort}} für Sicherung mit Plesk konfigurieren
 
-Verwenden Sie die folgenden Anweisungen zum Konfigurieren von {{site.data.keyword.blockstoragefull}} für Sicherungen in Plesk. Dabei wird angenommen, dass root- oder sudo SSH- sowie ein vollständiger Plesk-Zugriff auf Administratorebene verfügbar ist. Diese Anweisungen basieren auf einem CentOS 7-Host.
+Sie können die folgenden Anweisungen zum Konfigurieren von {{site.data.keyword.blockstoragefull}} für Sicherungen in Plesk verwenden. Dabei wird angenommen, dass root- oder sudo SSH- sowie ein vollständiger Plesk-Zugriff auf Administratorebene verfügbar ist. Diese Anweisungen basieren auf einem CentOS 7-Host.
 
 Weitere Informationen finden Sie in der Dokumentation von Plesk zum Thema Sicherheit und Wiederherstellung unter [Plesk's documentation for backing up and restoration ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
 {:tip}

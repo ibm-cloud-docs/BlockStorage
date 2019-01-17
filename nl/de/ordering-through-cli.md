@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -26,11 +26,11 @@ Innerhalb eines Pakets werden einige Elemente in Kategorien unterteilt. Für ein
 Jede Bestellung muss eine zugeordnete Position (Rechenzentrum) haben. Stellen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} sicher, dass es an derselben Position wie Ihre Berechnungsinstanzen bereitgestellt wird.
 {:important}
 
-Sie können den Befehl `slcli order package-list` verwenden, um das Paket zu suchen, das Sie bestellen möchten. Die Option `-keyword` wird bereitgestellt, um eine einfache Such- und Filterfunktion auszuführen. Diese Option erleichtert die Suche nach dem benötigten Paket.
+Sie können den Befehl `slcli order package-list` verwenden, um das Paket zu suchen, das Sie bestellen möchten. Die Option `-keyword` wird bereitgestellt, um eine einfache Such- und Filterfunktion auszuführen. Diese Option erleichtert die Suche nach dem benötigten Paket. Suchen Sie nach **Storage-as-a-Service Package 759**. 
 
 ```
 $ slcli order package-list --help
-Usage: slcli order package-list [OPTIONS]
+Syntax: slcli order package-list [OPTIONS]
 
   Pakete auflisten, die über die API placeOrder bestellt werden können.
 
@@ -50,85 +50,81 @@ Optionen:
   -h, --help      Diese Nachricht anzeigen und beenden.
 ```
 
-*Benötige Anweisungen zum Suchen von Storage-as-a-Service Package 759*
+Der Befehl `slcli block volume-order` kann ebenfalls verwendet werden. 
 
 ```
-$ slcli order package-list --keyword "Storage"
-:.....................:.....................:
-:         name        :       keyName       :
-:.....................:.....................:
-: ???                 : ???                 :
-: ???                 : ???                 :
-:.....................:.....................:
-```
+# slcli block volume-order --help
+Syntax: slcli block volume-order [OPTIONS]
 
-```
-$ slcli order category-list STORAGE_AS_A_SERVICE_STAAS --required
-:..................................:...................:............:
-:               name               :    categoryCode   : isRequired :
-:..................................:...................:............:
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:..................................:...................:............:
-```
+ Blockspeicherdatenträger bestellen.
 
-Wählen Sie den Rest Ihrer Artikel für die Bestellung aus, indem Sie den Befehl `item-list` verwenden. Bei Paketen stehen normalerweise zahlreiche Elemente zur Auswahl. Verwenden Sie die Option `–category`, um die Artikel nur aus der gewünschten Kategorie abzurufen.
-
-```
-$ slcli order item-list STORAGE_AS_A_SERVICE_STAAS --category ??
-:..........................:..............................................:
-:         keyName          :                description                   :
-:..........................:..............................................:
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:..........................:..............................................:
+Optionen:
+ --storage-type [performance|endurance]
+                                 Typ des Blockspeicherdatenträgers [erforderlich]
+ --size INTEGER                  Größe des Blockspeicherdatenträgers in GB.
+                                 Zulässige Größen:
+                                 20, 40, 80, 100, 250, 500,
+                                 1000, 2000, 4000, 8000, 12000  [erforderlich]
+ --iops INTEGER                  Performance-Speicher-IOPs, zwischen 100 und
+                                 6000 in Vielfachen von 100  [für Speichertyp
+                                 Performance erforderlich]
+ --tier [0.25|2|4|10]            Endurance-Speicher-Tier (IOP pro GB)
+                                 [für Speichertyp Endurance erforderlich]
+ --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                 Betriebssystem [erforderlich]
+ --location TEXT                 Kurzname des Rechenzentrums (z. B.: dal09)
+                                 [erforderlich]
+ --snapshot-size INTEGER         Optionaler Parameter für die Bestellung des
+                                 Snapshotspeicherbereichs mit Endurance-
+                                 Blockspeicher; gibt die Größe (in GB) des zu
+                                 bestellenden Snapshotspeicherbereichs an
+ --service-offering [storage_as_a_service|enterprise|performance]
+                                 Serviceangebotspaket, das für die Bestellung
+                                 verwendet werden soll [optional, Standardwert:
+                                 'storage_as_a_service']
+ --billing [hourly|monthly]      Optionaler Parameter für den Abrechnungssatz
+                                 (Standardwert: monatlich)
+ -h, --help                      Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
 Weitere Informationen zur {{site.data.keyword.blockstorageshort}}-Bestellung finden über die API Sie unter [order_block_volume ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
 Um auf alle neuen Funktionen zugreifen zu können, müssen Sie `Storage-as-a-Service Package 759` bestellen.
 {:tip}
 
-## Bestellung überprüfen
-
-Wenn Sie sich nicht sicher sind, welche Kategorien in Ihrer Bestellung fehlen, können Sie den Befehl `place` mit dem Flag `-verify` verwenden. Wenn Kategorien fehlen, werden diese auf dem Bildschirm angezeigt.
-
-
-```
-$ slcli order place --verify blablabla
-:..............................................:.................................................:......:
-:                keyName                       :                   description                   : cost :
-:..............................................:.................................................:......:
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:..............................................:.................................................:......:
-```
-
-Die Ausgabe zeigt jedes bestellte Element zusammen mit den Kosten, die dem jeweiligen Artikel zugeordnet sind. Wenn die Bestellung überprüft wird, bedeutet dies, dass es keine in Konflikt stehenden Elemente gibt und alle erforderlichen Kategorien über ein Element verfügen, das in der Reihenfolge angegeben ist.
 
 ## Bestellung aufgeben
 
-Der nächste Schritt besteht darin, die Bestellung zu platzieren.
+Das folgende Beispiel veranschaulicht die Bestellung eines 80-GB-{{site.data.keyword.blockstorageshort}}-Datenträgers mit einem 20-GB-Snapshotspeicherbereich und 0,25 IOPS pro GB. 
 
 ```
-$ slcli order place .....
-
-Für diese Aktion fallen Gebühren auf Ihrem Konto an. Soll der Vorgang fortgesetzt werden?[y/N]: y
-
-API-Antwort
+slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
+Order #15547457 placed successfully!
+ > Endurance Storage
+ > Block Storage
+ > 0.25 IOPS per GB
+ > 80 GB Storage Space
+ > 20 GB Storage Space (Snapshot Space)
 ```
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen der Grenzwerte finden Sie in [Speichergrenzwerte verwalten](managing-storage-limits.html).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}- und {{site.data.keyword.filestorage_short}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen der Grenzwerte finden Sie in [Speichergrenzwerte verwalten](managing-storage-limits.html).
 {:important}
 
 ## Hosts für den Zugriff auf den neuen Speicher autorisieren
 
-TBD
+```
+slcli block access-authorize --help
+Syntax: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+  Host für den Zugriff auf einen angegebenen Datenträger berechtigen.
+
+Optionen:
+  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
+  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
+  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
+                            zur Berechtigung
+  --ip-address TEXT         IP-Adresse zur Berechtigung
+  --help                    Diese Nachricht anzeigen und Ausführung beenden.
+```
 
 Weitere Informationen zum Autorisieren von Hosts für den Zugriff auf {{site.data.keyword.blockstorageshort}} über die API finden Sie unter [authorize_host_to_volume ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}.
 {:tip}
@@ -139,8 +135,8 @@ Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abs
 ## Neuen Speicher verbinden
 
 Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
-- [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
+- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
+- [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
 - [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
 - [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)

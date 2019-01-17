@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -18,9 +18,9 @@ Der bevorzugte Migrationspfad ist die gleichzeitige Verbindung zu beiden LUNs un
 
 Es wird davon ausgegangen, dass Sie bereits über eine nicht verschlüsselte LUN verfügen, die mit dem Host verbunden ist. Falls dies nicht der Fall ist, gehen Sie gemäß den Anweisungen vor, die für Ihr Betriebssystem am besten geeignet sind, um die folgende Task auszuführen:
 
-- [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
+- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
+- [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
 
 Alle erweiterten {{site.data.keyword.blockstorageshort}}-Datenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Um sicherzustellen, dass Sie für beide Speicherdatenträger den richtigen Mountpunkt verwenden, können Sie die Mountpunktinformationen auf der Seite **Datenträgerdetails** in der Konsole anzeigen. Sie können auf den korrekten Mountpunkt auch über einen API-Aufruf zugreifen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -30,44 +30,12 @@ Alle erweiterten {{site.data.keyword.blockstorageshort}}-Datenträger, die in di
 Wenn Sie einen Auftrag mit einer API erteilen, geben Sie das Paket 'Storage as a Service' an, um sicherzustellen, dass Sie die aktualisierten Funktionen mit dem neuen Speicher erhalten.
 {:important}
 
-Die folgenden Anweisungen sind für die Bestellung einer erweiterten LUN über das {{site.data.keyword.slportal}} vorgesehen. Die neue LUN muss dieselbe Größe wie der Originaldatenträger aufweisen oder größer als der Originaldatenträger sein, damit die Migration möglich ist.
+Sie können eine erweiterte LUN über die IBM Cloud-Konsole und das {{site.data.keyword.slportal}} bestellen. Die neue LUN muss dieselbe Größe wie der Originaldatenträger aufweisen oder größer als der Originaldatenträger sein, damit die Migration möglich ist.
 
-### Endurance für LUN bestellen
+- [{{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers bestellen (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [{{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Tiers bestellen (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. Klicken Sie im [{{site.data.keyword.slportal}}![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} auf **Speicher** -> **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur > Speicher > {{site.data.keyword.blockstorageshort}}**.
-2. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
-3. Wählen Sie **Endurance** in der Liste **Speichertyp auswählen** aus.
-4. Wählen Sie Ihre Bereitstellungs**position** (Rechenzentrum) aus.
-   - Stellen Sie sicher, dass der neue Speicher an derselben Position wie der frühere Datenträger hinzugefügt wird.
-5. Wählen Sie eine Abrechnungsoption aus. Sie können eine stündlich oder monatliche Abrechnung auswählen.
-6. Wählen Sie das IOPS-Tier aus.
-7. Klicken Sie auf **Speichergröße auswählen** und wählen Sie die Speichergröße aus der Liste aus.
-8. Klicken Sie auf **Größe des Snapshotbereichs angeben** und wählen Sie die Snapshotgröße aus der Liste aus. Dieser Speicherplatz wird zusätzlich zum verwendbaren Speicherplatz hinzugefügt.
-
-   Weitere Informationen zu Überlegungen und Empfehlungen für Snapshotbereiche finden Sie unter [Snapshots bestellen](ordering-snapshots.html).
-   {:tip}
-9. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.
-10. Klicken Sie auf **Weiter**. Ihnen werden die monatlichen und die anteiligen Gebühren angezeigt, sodass Sie die Details des Auftrags prüfen können.
-11. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
-
-### Performance für LUN bestellen
-
-1. Klicken Sie im [ {{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} auf **Speicher**, ** {{site.data.keyword.blockstorageshort}}** ODER im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur** > Speicher > {{site.data.keyword.blockstorageshort}}**.
-2. Klicken Sie rechts auf **{{site.data.keyword.blockstorageshort}} bestellen**.
-3. Wählen Sie in der Liste **Speichertyp auswählen** den Eintrag **Performance** aus.
-4. Klicken Sie auf die Liste **Position** und wählen Sie Ihr Rechenzentrum aus.
-
-   Stellen Sie sicher, dass der neue Speicher an derselben Position wie der Host bzw. die Hosts hinzugefügt wird, für den/die Sie ihn davor bestellt haben.
-   {:important}
-5. Wählen Sie eine Abrechnungsoption aus. Sie können eine stündlich oder monatliche Abrechnung auswählen.
-6. Wählen Sie die passende **Speichergröße** aus.
-7. Geben Sie im Feld **IOPS angeben** die IOPS ein.
-8. Klicken Sie auf **Weiter**. Ihnen werden die monatlichen und die anteiligen Gebühren angezeigt, sodass Sie die Details des Auftrags prüfen können. Klicken Sie auf **Zurück**, wenn Sie Ihren Auftrag ändern möchten.
-9. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
-
-Der Speicher wird in weniger als einer Minute bereitgestellt und im {{site.data.keyword.slportal}} auf der Seite '{{site.data.keyword.blockstorageshort}}' angezeigt.
-
-
+Der neue Speicher ist in einigen Minuten zum Anhängen verfügbar. Er kann in der Ressourcenliste und der {{site.data.keyword.blockstorageshort}}-Liste angezeigt werden. 
 
 ## Neuen {{site.data.keyword.blockstorageshort}} mit Host verbinden
 
@@ -93,12 +61,14 @@ Falls das Rechenzentrum des Replikationsziels noch nicht aktualisiert wurde, kö
    {:tip}
 
 2. Beachten Sie, welchen Datentyp die ursprüngliche {{site.data.keyword.blockstorageshort}}-LUN aufweist und wie Sie die Daten am besten auf die neue LUN kopieren.
-  - Wenn Sie über Sicherungen, statischen Inhalt und andere Daten verfügen, bei denen beim Kopieren keine Änderungen zu erwarten sind, brauchen Sie keine großen Überlegungen anzustellen.
-  - Wenn Sie auf dem {{site.data.keyword.blockstorageshort}} eine Datenbank oder virtuelle Maschine ausführen, stellen Sie sicher, dass die Daten während des Kopiervorgangs nicht geändert werden, um eine Beschädigung von Daten zu vermeiden. Wenn Sie Sorgen wegen der Bandbreite haben, führen Sie die Migration außerhalb der Stoßzeiten durch. Wenn Sie bei diesen Überlegungen Unterstützung benötigen, öffnen Sie ein Support-Ticket.
+  - Wenn Sie über Sicherungen, statischen Inhalt und andere Daten verfügen, bei denen beim Kopieren keine Änderungen zu erwarten sind, sind keine größeren Überlegungen erforderlich. 
+  - Wenn Sie auf dem {{site.data.keyword.blockstorageshort}} eine Datenbank oder virtuelle Maschine ausführen, stellen Sie sicher, dass die Daten während des Kopiervorgangs nicht geändert werden, um eine Beschädigung von Daten zu vermeiden. 
+  - Wenn Sie Sorgen wegen der Bandbreite haben, führen Sie die Migration außerhalb der Stoßzeiten durch. 
+  - Wenn Sie bei diesen Überlegungen Unterstützung benötigen, öffnen Sie einen Support-Fall. 
 
 3. Kopieren Sie die Daten.
    - Formatieren Sie für **Microsoft Windows** den neuen Speicher und kopieren Sie die Daten aus der {{site.data.keyword.blockstorageshort}}-Original-LUN in Ihre neue LUN, indem Sie Windows Explorer verwenden.
-   - Für **Linux** können Sie `rsync` verwenden, um die Daten zu kopieren. Nachfolgend finden Sie ein Beispiel:
+   - Für **Linux** können Sie `rsync` verwenden, um die Daten zu kopieren.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

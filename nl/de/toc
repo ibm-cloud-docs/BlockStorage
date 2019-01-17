@@ -8,14 +8,13 @@ IBM Cloud Storage - Block Storage
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
-    expandable_block_storage.md
-    adjustable-iops.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     {: .topicgroup}
     Bereitstellung
         provisioning-block_storage.md
+        ordering-through-cli.md
         ordering-snapshots.md
         managing-storage-limits.md
         migrate-block-storage-encrypted-block-storage.md
@@ -30,19 +29,23 @@ IBM Cloud Storage - Block Storage
         configure-backup-plesk.md
 
     {: .topicgroup}
-    Replikation
+    Verwaltung
+        managing-block-storage.md
+        expandable_block_storage.md
+        adjustable-iops.md
+        how-to-create-duplicate-volume.md
+        working-with-snapshots.md
+
+    {: .topicgroup}
+    Replikation und Disaster-Recovery
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
 
     {: .topicgroup}
-    Sicherheit
+    Datensicherheit
         block-file-storage-encryption-rest.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-
-    managing-block-storage.md
-    how-to-create-duplicate-volume.md
-    working-with-snapshots.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -50,6 +53,6 @@ IBM Cloud Storage - Block Storage
     [Informationen zum Python-API-Client](https://softlayer-python.readthedocs.io/en/latest/index.html)
 
     {: .topicgroup}
-    Troubleshooting
+    Fehlerbehebung
         win12-missing-devices.md
     {: .navgroup-end}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen
+# Verbindung zu iSCSI-LUNs unter Linux herstellen
 
 Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
 {:note}
@@ -21,7 +21,8 @@ Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar H
 Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
 {: tip}
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} zuvor autorisiert wurde.{:important}
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} zuvor autorisiert wurde.
+{:important}
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
 2. Klicken Sie auf **Host autorisieren**.
@@ -156,7 +157,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
     ```
     {: pre}
 
-    Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden. 
+    Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden.
 
 5. Aktualisieren Sie die Datei `/etc/iscsi/initiatorname.iscsi` mit dem IQN aus dem {{site.data.keyword.slportal}}. Geben Sie den Wert in Kleinbuchstaben ein.
    ```
@@ -176,6 +177,8 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
    Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.BluSoftlayer_full}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
    {:important}
+   
+   Für Ubuntu-Benutzer: Überprüfen Sie in der Datei `iscsid.conf`, ob die Einstellung für `node.startup` 'manuell' oder 'automatisch' lautet. Lautet sie 'manuell', ändern Sie sie in 'automatisch'. {:tip}
 
 7. Legen Sie fest, dass iSCSI beim Booten gestartet wird, und starten Sie das Protokoll jetzt.
   - RHEL 6
@@ -262,7 +265,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
 ## Dateisystem erstellen (optional)
 
-Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehängten Datenträger zu erstellen. Ein Dateisystem ist erforderlich, damit die meisten Anwendungen den Datenträger verwenden können. Verwenden Sie `fdisk` für Laufwerke bis zu 2 TB und `parted` für Datenträger ab 2 TB.
+Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehängten Datenträger zu erstellen. Ein Dateisystem ist erforderlich, damit die meisten Anwendungen den Datenträger verwenden können. Verwenden Sie [`fdisk` für Laufwerke bis zu 2 TB])(#creating-a-file-system-with-fdisk-) und [`parted` für eine Platte mit mehr als 2 TB](#creating-a-file-system-with-parted-). 
 
 ### Dateisystem mit `fdisk` erstellen
 
@@ -454,7 +457,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
    ```
    {: pre}
 
-   Es ist wichtig, die richtige Platte und Partition auszuwählen, wenn Sie diesen Befehl ausführen. <br />Drucken Sie zur Überprüfung des Ergebnisses die Partitionstabelle aus. Unter der Spalte mit den Dateisystemen wird 'ext3' angezeigt.
+   Es ist wichtig, die richtige Platte und Partition auszuwählen, wenn Sie diesen Befehl ausführen.<br />Drucken Sie zur Überprüfung des Ergebnisses die Partitionstabelle aus. Unter der Spalte mit den Dateisystemen wird 'ext3' angezeigt.
    {:important}
 
 4. Erstellen Sie einen Mountpunkt für das Dateisystem und hängen Sie es an.
@@ -552,7 +555,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
 
-1. Hängen Sie das Dateisystem ab. 
+1. Hängen Sie das Dateisystem ab.
    ```
    umount /dev/mapper/XXXlp1 /PerfDisk
    ```

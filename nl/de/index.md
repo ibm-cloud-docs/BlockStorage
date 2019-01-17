@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -265,17 +265,18 @@ Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete
 
 Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](set-host-queue-depth-settings-performance-and-endurance-storage.html) und andere Einstellungen) zu berücksichtigen.
 
-Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die vom Service auferlegt werden können, finden Sie in der [Dokumentation zu virtuellen Servern](https://{/docs/vsi/vsi_public.html#public-virtual-servers).{:tip}
+Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die vom Service auferlegt werden können, finden Sie in der [Dokumentation zu virtuellen Servern](https://{/docs/vsi/vsi_public.html#public-virtual-servers).
+{:tip}
 
-## Auftrag erteilen
+## Bestellung aufgeben
 
-Wenn Sie bereit sind, den Auftrag zu erteilen, befolgen Sie die [hier](provisioning-block_storage.html) aufgeführten Anweisungen.
+Wenn Sie bereit sind, die Bestellung aufzugeben, können Sie dies über die [Konsole](provisioning-block_storage.html) oder die [SLCLI](ordering-through-cli.html) tun. 
 
 ## Neuen Speicher verbinden
 
 Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Hosts, um auf den neuen Speicher zuzugreifen und die Verbindung zu konfigurieren. Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
-- [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu MPIO-iSCSI-LUNs unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
+- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
+- [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
 - [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
 - [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)

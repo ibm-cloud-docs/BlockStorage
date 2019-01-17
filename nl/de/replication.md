@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-06"
+  years: 2015, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -14,7 +14,8 @@ lastupdated: "2018-12-06"
 
 Bei der Replikation werden Snapshots mithilfe eines Ihrer Snapshotpläne automatisch auf einen Zieldatenträger in einem fernen Rechenzentrum kopiert. Im Fall beschädigter Daten oder einer Katastrophe können die Kopien an dem fernen Standort wiederhergestellt werden.
 
-Die Replikation hält Ihre Daten an zwei verschiedenen Positionen synchron. Wenn Sie Ihren Datenträger klonen und unabhängig vom ursprünglichen Datenträger verwenden möchten, lesen Sie den Abschnitt [Duplikat des Blockdatenträgers erstellen](how-to-create-duplicate-volume.html).{:tip}
+Die Replikation hält Ihre Daten an zwei verschiedenen Positionen synchron. Wenn Sie Ihren Datenträger klonen und unabhängig vom ursprünglichen Datenträger verwenden möchten, lesen Sie den Abschnitt [Duplikat des Blockdatenträgers erstellen](how-to-create-duplicate-volume.html).
+{:tip}
 
 Um Replikationen durchführen zu können, müssen Sie einen Snapshotplan erstellen.
 {:important}
@@ -113,7 +114,10 @@ Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen 
 3. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das Sie als Standort für das Disaster-Recovery-Standort verwenden möchten.
 4. Klicken Sie auf **Weiter**.
 5. Geben Sie einen **Werbeaktionscode** ein, sofern vorhanden, und klicken Sie auf **Neu berechnen**. Die anderen Felder im Fenster sind mit den Standardwerten gefüllt.
-6. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
+
+   Rabatte werden bei der Verarbeitung der Bestellung angewendet.
+   {:note}
+6. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Bestellung aufgeben**.
 
 
 ## Vorhandene Replikation bearbeiten
@@ -142,7 +146,7 @@ Der primäre Replikationsbereich und der Replikatsbereich müssen identisch sein
 2. Wählen Sie **Mehr Snapshotbereich hinzufügen** aus.
 3. Wählen Sie in der Liste die Speichergröße aus und klicken Sie auf **Weiter**.
 4. Geben Sie einen **Werbeaktionscode** ein, sofern vorhanden, und klicken Sie auf **Neu berechnen**. Die anderen Felder im Dialogfeld nehmen die Standardwerte an.
-5. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen…** und klicken Sie auf **Auftrag erteilen**.
+5. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen…** und klicken Sie auf **Bestellung aufgeben**.
 
 
 ## Replikatdatenträger in der Datenträgerliste anzeigen
@@ -188,8 +192,8 @@ Weitere Informationen finden Sie unter [Duplikat eines Blockdatenträgers erstel
 
 Beim Failover 'kippen Sie den Schalter' von Ihrem Speicherdatenträger in Ihrem primären Rechenzentrum auf den Zieldatenträger in Ihrem fernen Rechenzentrum. Beispiel: Ihr primäres Rechenzentrum befindet sich in London und Ihr sekundäres Rechenzentrum in Amsterdam. Bei einem Fehlerereignis können Sie ein Failover nach Amsterdam durchführen und von einer Recheninstanz in Amsterdam eine Verbindung zu dem nun primären Datenträger herstellen. Nachdem Ihr Datenträger in London repariert wurde, wird von dem Datenträger in Amsterdam ein Snapshot erstellt, um von einer Recheninstanz in London eine Rückübertragung nach London und auf den nun wieder primären Datenträger durchzuführen.
 
-* Wenn sich die primäre Position in unmittelbarer Gefahr befindet, finden Sie weitere Informationen unter [Failover mit einem zugänglichen Primärdatenträger](dr-accessible-primary.html).
-* Wenn die primäre Position vollständig inaktiv ist, finden Sie weitere Informationen unter [Failover mit einem nicht zugänglichen Primärdatenträger](disaster-recovery.html).
+* Wenn der primäre Standort sich in unmittelbarer Gefahr befindet oder erheblich beeinträchtigt ist, finden Sie weitere Informationen unter [Failover mit einem zugänglichen Primärdatenträger](dr-accessible-primary.html).
+* Wenn der primäre Standort inaktiv ist, finden Sie weitere Informationen unter [Failover mit einem nicht zugänglichen Primärdatenträger](disaster-recovery.html).
 
 
 ## Vorhandene Replikation abbrechen

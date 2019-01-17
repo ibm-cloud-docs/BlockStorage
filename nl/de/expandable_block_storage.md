@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Blockspeicherkapazität erweitern
 
@@ -39,5 +44,8 @@ Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Geben Sie die neue Speichergröße in GB ein.
 4. Prüfen Sie Ihre Auswahl und die neue Preisstruktur.
-5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
+5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Bestellung aufgeben**.
 6. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
+
+Weitere Informationen zur Erweiterung des Dateisystems (und gegebenenfalls der Partitionen) auf dem Datenträger zur Nutzung des neuen Speicherplatzes  finden Sie in der Dokumentation des Betriebssystems.
+{:tip}

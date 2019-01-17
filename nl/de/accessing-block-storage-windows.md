@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen
+# Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen
 
 Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} autorisiert wurde.
 
@@ -70,18 +70,15 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 
 1. Klicken Sie auf **Verbinden**, um eine Verbindung zu dem Ziel herzustellen.
 2. Wählen Sie das Kontrollkästchen **Multipfad aktivieren** aus, um Multipath IO für das Ziel zu aktivieren.
-</br>
-   ![Multipfad aktivieren](/images/Connect_0.png)
+![Multipfad aktivieren](/images/Connect_0.png)
 3. Klicken Sie auf **Erweitert** und wählen Sie **CHAP-Anmeldung aktivieren** aus.
-</br>
-   ![CHAP aktivieren](/images/chap_0.png)
+![CHAP aktivieren](/images/chap_0.png)
 4. Geben Sie in das Feld 'Name' den Benutzernamen und in das Feld 'Zielschlüssel' das Kennwort ein.
 
    Die Werte der Felder 'Name' und 'Zielschlüssel' können aus der Anzeige '{{site.data.keyword.blockstorageshort}} - Details' abgerufen werden.
    {:tip}
 5. Klicken Sie auf **OK**, bis das Fenster **Eigenschaften des iSCSI-Initiators** angezeigt wird. Der Status des Ziels im Abschnitt **Erkannte Ziele** wechselt von **Inaktiv** zu **Verbunden**.
-</br>
-   ![Verbundener Status](/images/Connected.png)
+![Verbundener Status](/images/Connected.png)
 
 
 ### MPIO im iSCSI-Initiator konfigurieren
@@ -104,7 +101,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 7. Im Fenster "Erweiterte Einstellungen"
    - Wählen Sie in der Liste lokaler Adapter den Eintrag 'Microsoft iSCSI Initiator' aus.
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Gerät mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
-   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf der Einheit aktiviert ist. 
+   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf der Einheit aktiviert ist.
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus dem Portal abgerufen haben, und klicken Sie auf **OK**.
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren.

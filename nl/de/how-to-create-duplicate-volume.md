@@ -20,7 +20,7 @@ Duplikate können sowohl für **Primärdatenträger** als auch **Replikatdatentr
 
 Der Lese- und Schreibzugriff auf duplizierte Datenträger kann durch einen Host erfolgen, sobald der Speicher bereitgestellt wurde. Snapshots und Replikation sind dagegen erst zulässig, nachdem die Daten vollständig vom Original auf das Duplikat kopiert wurden.
 
-Sobald die Datenkopie abgeschlossen ist, kann das Duplikat als komplett vom Original unabhängiger Datenträger verwaltet und verwendet werden.
+Sobald die Datenkopie abgeschlossen ist, kann das Duplikat als unabhängiger Datenträger verwaltet und verwendet werden.
 
 Diese Funktion steht an den meisten Standorten zur Verfügung. Klicken Sie [hier](new-ibm-block-and-file-storage-location-and-features.html), um eine Liste mit den verfügbaren Rechenzentren anzuzeigen.
 
@@ -57,7 +57,8 @@ Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slpor
 6. Bei Bedarf können Sie die Größe des neuen Datenträgers aktualisieren, sodass er größer als der Originaldatenträger ist. Die Größe des Originaldatenträgers wird standardmäßig festgelegt.
 
    {{site.data.keyword.blockstorageshort}} kann bis auf das Zehnfache der ursprünglichen Größe des Datenträgers erhöht werden
-. {:tip}
+.
+   {:tip}
 7. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen. Der Snapshotbereich wird für den Originaldatenträger standardmäßig festgelegt.
 8. Klicken Sie auf **Weiter**, um Ihre Bestellung abzusetzen.
 
@@ -75,7 +76,8 @@ Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slpor
 6. Bei Bedarf können Sie die Größe des neuen Datenträgers aktualisieren, sodass er größer als der Originaldatenträger ist. Die Größe des Originaldatenträgers wird standardmäßig festgelegt.
 
    {{site.data.keyword.blockstorageshort}} kann bis auf das Zehnfache der ursprünglichen Größe des Datenträgers erhöht werden
-. {:tip}
+.
+   {:tip}
 7. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen. Der Snapshotbereich wird für den Originaldatenträger standardmäßig festgelegt.
 8. Klicken Sie auf **Weiter**, um Ihre Bestellung des Duplikats abzusetzen.
 

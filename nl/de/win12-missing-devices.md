@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-01-07"
 
 ---
 
@@ -14,9 +14,9 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Fehlerbehebung - iSCSI-Fix für Windows 2012 R2, um mehr als zwei Geräte anzuzeigen
+# Windows 2012 R2 - mehrere iSCSI-Geräte
 
-Wenn in Disk Manager nur zwei Geräte angezeigt werden, müssen Sie auf jedem Serverknoten manuell eine Verbindung zu jedem Gerät im iSCSI-Initiator herstellen. Wenn Sie mehr als zwei iSCSI-Geräte verwenden, finden Sie diese Prozedur möglicherweise nützlich. Dies gilt insbesondere dann, wenn alle vier iSCSI-Kontingente von derselben NetApp-Einheit stammen.
+Wenn Sie mehr als zwei iSCSI-Geräte verwenden, finden Sie diese Prozedur möglicherweise nützlich. Dies gilt insbesondere dann, wenn alle vier iSCSI-Kontingente vom selben Speichermedium stammen. Wenn in Disk Manager nur zwei Geräte angezeigt werden, müssen Sie auf jedem Serverknoten manuell eine Verbindung zu jedem Gerät im iSCSI-Initiator herstellen.
 
 1. Öffnen Sie den Windows iSCSI-Initiator.
 2. Klicken Sie auf die Registerkarte **Ziele** und klicken Sie dann auf **Geräte**.

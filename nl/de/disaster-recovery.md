@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-06"
+lastupdated: "2018-12-11"
 
 ---
 {:new_window: target="_blank"}
@@ -48,7 +48,7 @@ Wenn Sie die Produktion an den ursprünglichen primären Standort zurückgeben m
 5. Wählen Sie einen vorhandenen Snapshotplan aus, den die Replikation befolgen soll. Die Liste enthält alle aktiven Snapshotpläne.
 6. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das der ursprüngliche Produktionsstandort war.
 7. Klicken Sie auf **Weiter**.
-8. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Auftrag erteilen**.
+8. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Bestellung aufgeben**.
 
 Nach Abschluss der Replikation müssen Sie ein Duplikat des Datenträgers des neuen Replikats erstellen.
 {:important}

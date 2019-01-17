@@ -34,10 +34,10 @@ Wenn Sie eine LUN erstellen, müssen Sie den Betriebssystemtyp angeben. Der Betr
 - Die LUN speichert Windows-Daten für Windows 2008 und nachfolgende Versionen. Verwenden Sie diese Betriebssystemoption, wenn Ihr Hostbetriebssystem Windows Server 2008, Windows Server 2012 oder Windows Server 2016 ist. Es wird sowohl die Partitionierungsmethode MBR als auch die Methode GPT unterstützt.
 
 **Windows 2003**
-- Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet. 
+- Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet.
 
 **Windows GPT**
--  Die LUN speichert Windows-Daten unter Verwendung des Partitionierungsstils GUID Partition Type (GPT). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. Windows Server 2003, Service Pack 1 und höher sind in der Lage, die Partitionierungsmethode GPT zu verwenden. Ferner unterstützen alle 64-Bit-Versionen diese Methode.
+-  Die LUN speichert Windows-Daten unter Verwendung des Partitionierungsstils GUID Partition Type (GPT). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. In Windows Server 2003 Service Pack 1 und höher kann die Partitionierungsmethode GPT verwendet werden. Alle 64-Bit-Versionen unterstützen diese Methode. 
 
 ## Wird der zugeordnete IOPS-Grenzwert nach Instanz oder nach Datenträger umgesetzt?
 {: faq}

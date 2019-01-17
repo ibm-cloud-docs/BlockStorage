@@ -24,7 +24,10 @@ Um automatisch oder manuell Snapshots Ihres Speicherdatenträgers zu erstellen, 
 3. Wählen Sie die Menge an benötigtem Speicherplatz und die Zahlungsmethode aus.
 4. Klicken Sie auf **Weiter**.
 5. Geben Sie gegebenenfalls den **Werbeaktionscode** ein und klicken Sie auf **Neu berechnen**. In den Feldern für die Gebühren dieser Bestellung und für die Bestellungsprüfung stehen die Standardwerte.
-6. Wählen Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen und bin mit den darin genannten Bedingungen einverstanden** aus und klicken Sie auf **Auftrag erteilen**. Der Snapshotbereich wird in wenigen Minuten bereitgestellt.
+
+   Rabatte werden bei der Verarbeitung der Bestellung angewendet.
+   {:note}
+6. Wählen Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen und bin mit den darin genannten Bedingungen einverstanden** aus und klicken Sie auf **Bestellung aufgeben**. Der Snapshotbereich wird in wenigen Minuten bereitgestellt.
 
 ## Menge des zu bestellenden Snapshotbereichs ermitteln
 

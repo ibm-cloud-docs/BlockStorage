@@ -45,13 +45,13 @@ Snapshots stellen keinen Ersatz für eine tatsächliche ausgelagerte Disaster-Re
 
 ## Sicherheit
 
-Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.filestorage_short}} werden standardmäßig verschlüsselt. Diese Funktion kann nicht auf einzelnen Datenträgern inaktiviert werden. Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [Daten schützen](block-file-storage-encryption-rest.html).
+Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.blockstorageshort}} werden standardmäßig verschlüsselt. Diese Funktion kann nicht auf einzelnen Datenträgern inaktiviert werden. Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [Daten schützen](block-file-storage-encryption-rest.html).
 
 ## Auswirkungen von Snapshots auf den Plattenspeicher
 
-Snapshotkopien minimieren die Plattenspeicherplatzbelegung, da Sie einzelne Blöcke anstelle von ganzen Dateien beibehalten. Snapshotkopien verbrauchen nur dann zusätzlichen Speicherplatz, wenn Dateien im aktiven Dateisystem geändert oder gelöscht werden. Wenn Dateien geändert oder gelöscht werden, werden die ursprünglichen Dateiblöcke in einer oder mehreren Snapshotkopien beibehalten. 
+Snapshotkopien minimieren die Plattennutzung, da sie einzelne Blöcke anstelle von ganzen Dateien beibehalten. Snapshotkopien verbrauchen nur dann zusätzlichen Speicherplatz, wenn Dateien im aktiven Dateisystem geändert oder gelöscht werden.
 
-Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positionen auf dem Datenträger neu erstellt oder als aktive Dateiblöcke komplett entfernt. Somit wird zusätzlich zu dem von Blöcken im geänderten aktiven Dateisystem verwendeten Plattenspeicher der von den Originalblöcken verwendete Plattenspeicher weiter reserviert, um den Status des aktiven Dateisystems vor der Änderung abzubilden.
+Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positionen auf dem Datenträger neu erstellt oder als aktive Dateiblöcke komplett entfernt. Wenn Dateien geändert oder gelöscht werden, werden die ursprünglichen Dateiblöcke in einer oder mehreren Snapshotkopien beibehalten. Somit wird der von den Originalblöcken verwendete Plattenspeicher weiter reserviert, um den Status des aktiven Dateisystems vor der Änderung abzubilden. Dieser Speicherplatz wird zusätzlich zu dem Plattenspeicher reserviert, der von Blöcken im geänderten aktiven Dateisystem verwendet wird. 
 
 <table>
     <colgroup>
@@ -72,4 +72,4 @@ Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positione
       </tr>
 </table>
 
-Weitere Informationen dazu, wie Sie anzeigen können, wieviel des Snapshotbereichs verwendet wird, finden Sie unter [Snapshots verwalten](working-with-snapshots.html).
+Weitere Informationen zur Speichernutzung von Snapshots finden Sie in [Snapshots verwalten](working-with-snapshots.html). 
