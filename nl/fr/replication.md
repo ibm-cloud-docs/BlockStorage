@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-06"
+  years: 2015, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -114,6 +114,9 @@ Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abo
 3. Cliquez sur **Emplacement** et sélectionnez le centre de données qui est votre site de reprise après incident.
 4. Cliquez sur **Continuer**.
 5. Entrez un **Code promo** le cas échéant et cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
+
+   Les remises sont appliquées lors du traitement de la commande.
+   {:note}
 6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
 
 
@@ -189,8 +192,8 @@ Pour plus d'informations, voir [Création d'un volume de blocs en double](how-to
 
 Lorsque vous effectuez un basculement, vous "basculez l'interrupteur" depuis votre volume de stockage du centre de données principal vers le volume de destination du centre de données distant. Par exemple, votre centre de données principal peut se situer à Londres et votre centre de données secondaire à Amsterdam. Dans le cas d'un événement d'échec, vous basculez vers Amsterdam, en vous connectant au volume qui est désormais devenu principal à partir d'une instance de calcul à Amsterdam. Une fois votre volume de Londres réparé, un instantané du volume d'Amsterdam est pris afin de permettre le retour à Londres avec le volume de Londres à nouveau considéré comme le volume principal à partir d'une instance de traitement située à Londres.
 
-* Si l'emplacement principal est en danger imminent, voir [Basculement avec un volume principal accessible](dr-accessible-primary.html).
-* Si l'emplacement principal est totalement arrêté, voir [Basculement avec un volume principal inaccessible](disaster-recovery.html).
+* Si l'emplacement principal est en danger imminent ou gravement impacté, voir [Basculement avec un volume principal accessible](dr-accessible-primary.html).
+* Si l'emplacement principal est arrêté, voir [Basculement avec un volume principal inaccessible](disaster-recovery.html).
 
 
 ## Annulation d'une réplication existante

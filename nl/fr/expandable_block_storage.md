@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Extension de la capacité de stockage par blocs
 
@@ -41,3 +46,6 @@ Les limitations de taille existantes pour le stockage {{site.data.keyword.blocks
 4. Passez en revue votre sélection et la nouvelle tarification.
 5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
 6. Votre nouvelle allocation de stockage est disponible en quelques minutes.
+
+Pour plus d'informations sur l'extension du système de fichiers (et des partitions, le cas échéant) sur le volume afin d'utiliser le nouvel espace, consultez la documentation de votre système d'exploitation.
+{:tip}

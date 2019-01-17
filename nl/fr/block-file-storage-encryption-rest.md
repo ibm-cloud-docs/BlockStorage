@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-01-04"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-12"
 {:note: .note}
 {:important: .important}
 
-# Sécurisation des données - Chiffrement au repos géré par le fournisseur
+# Chiffrement au repos géré par le fournisseur
 
 ## Chiffrement au repos de {{site.data.keyword.blockstorageshort}}
 

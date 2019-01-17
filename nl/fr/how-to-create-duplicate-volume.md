@@ -20,7 +20,7 @@ Vous pouvez créer des doublons à partir de volumes **principaux** et de **rép
 
 Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès la mise à disposition du stockage. Toutefois, les instantanés et la réplication ne sont pas autorisés tant que la copie des données depuis le volume d'origine vers le doublon n'est pas terminée.
 
-Lorsque la copie de données est terminée, le doublon peut être géré et utilisé en tant que volume complètement indépendant.
+Une fois la copie de données terminée, le doublon peut être géré et utilisé en tant que volume indépendant.
 
 Cette fonctionnalité est disponible dans la plupart des emplacements. Cliquez [ici](new-ibm-block-and-file-storage-location-and-features.html) pour obtenir la liste des centres de données disponibles.
 
@@ -82,4 +82,4 @@ Il existe deux manières de créer un volume dupliqué via le portail [{{site.da
 
 ## Gestion de votre volume en double
 
-Pendant que les données sont copiées depuis le volume d'origine vers le doublon, un statut s'affiche sur la page des détails indiquant que la duplication est en cours. Pendant cette opération, vous pouvez vous connecter à un hôte et lire/écrire sur le volume, mais vous ne pouvez pas créer de planifications de l'image instantanée. Une fois le processus de duplication terminé, le nouveau volume est indépendant du volume d'origine ; il peut être géré avec des instantanés et des réplications comme un volume normal.
+Pendant que les données sont copiées depuis le volume d'origine vers le doublon, un statut s'affiche sur la page des détails indiquant que la duplication est en cours. Pendant cette opération, vous pouvez vous connecter à un hôte et lire et écrire sur le volume, mais vous ne pouvez pas créer de plannings d'instantané. Une fois le processus de duplication terminé, le nouveau volume est indépendant du volume d'origine ; il peut être géré avec des instantanés et des réplications comme un volume normal.

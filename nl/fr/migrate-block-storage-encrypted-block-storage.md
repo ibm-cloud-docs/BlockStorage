@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -18,9 +18,9 @@ Le chemin de migration préféré consiste à se connecter simultanément aux de
 
 Nous supposons que votre LUN non chiffré est déjà connecté à votre hôte. Si tel n'est pas le cas, suivez les instructions qui s'appliquent à votre système d'exploitation pour accomplir cette tâche :
 
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](accessing_block_storage_linux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
 
 Tous les volumes {{site.data.keyword.blockstorageshort}} améliorés mis à disposition dans ces centres de données ont un point de montage différent de celui des volumes non chiffrés. Pour vérifier que vous utilisez le bon point de montage pour les deux types de volume de stockage, vous pouvez afficher les informations sur le point de montage sur la page **Détails du volume** de la console. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -30,44 +30,12 @@ Tous les volumes {{site.data.keyword.blockstorageshort}} améliorés mis à disp
 Lorsque vous passez une commande via l'API, spécifiez le package "Storage as a Service" pour être certain d'obtenir les fonctionnalités mises à jour avec votre nouveau stockage.
 {:important}
 
-Les instructions suivantes concernent la commande d'un numéro d'unité logique amélioré via le portail {{site.data.keyword.slportal}}. Votre nouveau numéro d'unité logique doit être de taille identique ou supérieure à celle du volume d'origine pour faciliter la migration.
+Vous pouvez commander un numéro d'unité logique étendu via la console IBM Cloud ou le portail {{site.data.keyword.slportal}}. Votre nouveau numéro d'unité logique doit être de taille identique ou supérieure à celle du volume d'origine pour faciliter la migration.
 
-### Commande d'un numéro d'unité logique Endurance
+- [Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. Dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
-2. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
-3. Sélectionnez **Endurance** dans la liste **Sélectionner le type de stockage**.
-4. Sélectionnez l'**Emplacement** de votre déploiement (centre de données).
-   - Vérifiez que le nouveau stockage est ajouté dans le même emplacement que le volume précédent.
-5. Sélectionnez votre option de facturation. Vous avez le choix entre une facturation à l'heure ou au mois.
-6. Sélectionnez le niveau d'IOPS.
-7. Cliquez sur **Sélectionner la taille du stockage** et sélectionnez la taille de votre stockage dans la liste.
-8. Cliquez sur **Indiquer la taille de l'espace d'instantané** et sélectionnez la taille de l'image instantanée dans la liste. Cet espace vient en complément de votre espace utilisable.
-
-   Pour plus de remarques et de recommandations en matière d'espace d'image instantanée, voir [Commande d'images instantanés](ordering-snapshots.html).
-   {:tip}
-9. Choisissez votre **Type de système d'exploitation** dans la liste.
-10. Cliquez sur **Continuer**. Les frais mensuels et au prorata s'affichent, avec une dernière possibilité de passer en revue les détails de la commande.
-11. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
-
-### Commande d'un numéro d'unité logique Performance
-
-1. Dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}** OU dans le catalogue {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure > Stockage > {{site.data.keyword.blockstorageshort}}**.
-2. Sur la droite, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
-3. Sélectionnez **Performance** dans la liste **Sélectionner le type de stockage**.
-4. Cliquez sur **Emplacement** et sélectionnez votre centre de données.
-
-   Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes que vous avez précédemment commandés.
-   {:important}
-5. Sélectionnez votre option de facturation. Vous avez le choix entre une facturation à l'heure ou au mois.
-6. Sélectionnez la **taille de stockage** appropriée.
-7. Saisissez les E-S/s dans la zone **Spécifier les IOPS**.
-8. Cliquez sur **Continuer**. Les frais mensuels et au prorata s'affichent, avec une dernière possibilité de passer en revue les détails de la commande. Cliquez sur **Précédent** si vous souhaitez modifier votre commande.
-9. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.
-
-Le stockage est mis à disposition en moins d'une minute et est visible sur la page {{site.data.keyword.blockstorageshort}} du portail {{site.data.keyword.slportal}}.
-
-
+Votre nouveau stockage est disponible pour montage en quelques minutes. Il figure dans la Liste de ressources et dans la liste {{site.data.keyword.blockstorageshort}}.
 
 ## Connexion d'un nouveau {{site.data.keyword.blockstorageshort}} à l'hôte
 
@@ -93,12 +61,14 @@ Si votre centre de données cible de réplication n'a pas encore été mis à ni
    {:tip}
 
 2. Identifiez le type de données figurant sur votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine et pensez à la meilleure façon de copier ces données sur votre nouveau numéro d'unité logique.
-  - Si vous disposez de sauvegardes, d'un contenu statique ou d'autres contenus qui ne sont pas susceptibles d'être modifiés au cours de la copie, le processus s'avère assez simple.
-  - Si vous exécutez une base de données ou une machine virtuelle sur votre service {{site.data.keyword.blockstorageshort}}, vérifiez que les données ne sont pas modifiées lors de la copie pour éviter leur altération. Si vous rencontrez des problèmes liés à la bande passante, procédez à la migration pendant les périodes creuses. Si vous avez besoin d'assistance pour ces questions, ouvrez un ticket de demande de service.
+  - Si vous disposez de sauvegardes, d'un contenu statique ou d'autres contenus qui ne sont pas susceptibles d'être modifiés au cours de la copie, vous n'avez pas à vous inquiéter.
+  - Si vous exécutez une base de données ou une machine virtuelle sur votre service {{site.data.keyword.blockstorageshort}}, vérifiez que les données ne sont pas modifiées lors de la copie pour éviter leur altération. 
+  - Si vous rencontrez des problèmes liés à la bande passante, procédez à la migration pendant les périodes creuses. 
+  - Si vous avez besoin d'aide sur ces questions, ouvrez un cas de support.
 
 3. Copiez vos données.
    - Pour **Microsoft Windows**, formatez le nouveau stockage et copiez les données depuis votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine vers le nouveau numéro à l'aide de l'Explorateur Windows.
-   - Pour **Linux**, vous pouvez utiliser `rsync` pour copier les données. Exemple :
+   - Pour **Linux**, vous pouvez utiliser `rsync` pour copier les données.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

@@ -45,13 +45,13 @@ Les instantanés ne se substituent pas à la réplication de reprise après inci
 
 ## Sécurité
 
-Tous les instantanés et répliques de données chiffrées {{site.data.keyword.filestorage_short}} sont également chiffrés par défaut. Cette fonction ne peut pas être désactivée par volume. Pour plus d'informations sur le chiffrement au repos géré par le fournisseur, voir [Sécurisation de vos données](block-file-storage-encryption-rest.html).
+Tous les instantanés et répliques de données chiffrées {{site.data.keyword.blockstorageshort}} sont également chiffrés par défaut. Cette fonction ne peut pas être désactivée par volume. Pour plus d'informations sur le chiffrement au repos géré par le fournisseur, voir [Sécurisation de vos données](block-file-storage-encryption-rest.html).
 
-## Comment les instantanés affectent-ils l'espace disque ?
+## Répercussions des instantanés sur l'espace disque
 
-Les copies d'image instantanée minimisent l'utilisation de l'espace disque en conservant des blocs individuels plutôt que des fichiers entiers. Les copies d'instantané n'utilisent de l'espace supplémentaire qu'en cas de modification ou de suppression des fichiers situés dans le système de fichiers actif. Lorsque des fichiers sont modifiés ou supprimés, les blocs de fichier d'origine sont toujours conservés dans une ou plusieurs copies d'image instantanée. 
+Les copies d'image instantanée minimisent la consommation du disque en conservant des blocs individuels plutôt que des fichiers entiers. Les copies d'instantané n'utilisent de l'espace supplémentaire qu'en cas de modification ou de suppression des fichiers situés dans le système de fichiers actif.
 
-Dans le système de fichiers actif, les blocs modifiés sont réécrits à des emplacements différents sur le disque ou retirés sous la forme de blocs de fichier complets. Ainsi, outre l'espace disque employé par les blocs dans le système de fichiers actif modifié, l'espace disque qui est utilisé par les blocs d'origine est toujours conservé pour refléter le statut du système de fichiers actif avant la modification.
+Dans le système de fichiers actif, les blocs modifiés sont réécrits à des emplacements différents sur le disque ou retirés sous la forme de blocs de fichier complets. Lorsque des fichiers sont modifiés ou supprimés, les blocs de fichier d'origine sont conservés dans une ou plusieurs copies d'image instantanée. Ainsi, l'espace disque qui est utilisé par les blocs d'origine est conservé pour refléter le statut du système de fichiers actif avant la modification. La réservation de cet espace s'ajoute à l'espace disque employé par les blocs dans le système de fichiers actif modifié.
 
 <table>
     <colgroup>
@@ -72,4 +72,4 @@ Dans le système de fichiers actif, les blocs modifiés sont réécrits à des e
       </tr>
 </table>
 
-Pour voir quelle quantité d'espace d'instantané est utilisée, voir [Gestion des instantanés](working-with-snapshots.html).
+Pour plus d'informations sur l'utilisation de l'espace d'image instantanée, voir [Gestion des instantanés](working-with-snapshots.html).

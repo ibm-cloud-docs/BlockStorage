@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Commande de {{site.data.keyword.blockstorageshort}}
+# Commande de {{site.data.keyword.blockstorageshort}} via la console
 
 Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'ajuster en fonction de vos besoins en termes de capacité et d'E-S/s (IOPS). Profitez pleinement de votre stockage grâce à deux options vous permettant de spécifier les performances.
 
@@ -46,7 +46,10 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 
    Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](faqs.html).
    {:tip}
-9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un.
+9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un. 
+
+   Les remises sont appliquées lors du traitement de la commande.
+   {:note}
 10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**.
 11. Cliquez sur **Créer**. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
@@ -75,6 +78,9 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
    Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](faqs.html).
    {:tip}
 9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un.
+
+   Les remises sont appliquées lors du traitement de la commande.
+   {:note}
 10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**.
 11. Cliquez sur **Créer**. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
@@ -84,9 +90,10 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 ## Connexion de votre nouveau stockage
 
 Lorsque votre demande de mise à disposition est terminée, autorisez vos hôtes à accéder au nouveau stockage et configurez votre connexion. Suivez le lien approprié en fonction du système d'exploitation de votre hôte.
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](accessing_block_storage_linux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+- [Montage d'un numéro d'unité logique iSCSI dans le stockage partagé XenServer](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
 - [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)
 
@@ -95,7 +102,6 @@ Lorsque votre demande de mise à disposition est terminée, autorisez vos hôtes
 Pour éviter toute perte de données et garantir la continuité opérationnelle, prévoyez de répliquer vos serveurs et votre stockage dans un autre centre de données. La réplication permet de synchroniser vos données entre deux emplacements différents selon votre planning d'instantané. Pour plus d'informations, voir [Réplication de données](replication.html).
 
 Si vous voulez cloner votre volume et l'utiliser indépendamment du volume d'origine, voir [Création d'un volume de blocs en double](how-to-create-duplicate-volume.html).
-
 
 ## Identification de {{site.data.keyword.blockstorageshort}} sur votre facture
 

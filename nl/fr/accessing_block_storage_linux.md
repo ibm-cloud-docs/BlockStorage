@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 
-# Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux
+# Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux
 
 Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
 {:note}
@@ -157,7 +157,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
     ```
     {: pre}
 
-    RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, que vous pouvez ignorer. 
+    RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, que vous pouvez ignorer.
 
 5. Mettez à jour le fichier `/etc/iscsi/initiatorname.iscsi` avec le nom qualifié iSCSI provenant du portail {{site.data.keyword.slportal}}. Saisissez la valeur en minuscules.
    ```
@@ -177,6 +177,9 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
    Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
    {:important}
+   
+   Les utilisateurs Ubuntu doivent vérifier dans le fichier `iscsid.conf` si le paramètre `node.startup` est défini sur manual ou automatic. S'il est défini sur manual, ils doivent le redéfinir su automatic.
+   {:tip}
 
 7. Définissez iSCSI pour qu'il démarre à l'amorçage et démarrez-le maintenant.
   - RHEL 6
@@ -263,7 +266,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
 ## Création d'un système de fichiers (facultatif)
 
-Procédez comme indiqué ci-après pour créer un système de fichiers sur le volume récemment monté. Un système de fichiers est nécessaire pour permettre à la plupart des applications d'utiliser le volume. Utilisez `fdisk` pour les unités inférieures à 2 To et `parted` pour un disque supérieur à 2 To.
+Procédez comme indiqué ci-après pour créer un système de fichiers sur le volume récemment monté. Un système de fichiers est nécessaire pour permettre à la plupart des applications d'utiliser le volume. Utilisez [`fdisk` pour les unités inférieures à 2 To])(#creating-a-file-system-with-fdisk-) et [`parted` pour un disque supérieur à 2 To](#creating-a-file-system-with-parted-).
 
 ### Création d'un système de fichiers avec `fdisk`
 

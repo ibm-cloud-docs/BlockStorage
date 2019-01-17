@@ -34,10 +34,10 @@ Lorsque vous créez un numéro d'unité logique, vous devez spécifier le type d
 - Le numéro d'unité logique stocke des données Windows pour Windows 2008 et versions ultérieures. Utilisez cette option de système d'exploitation si votre système d'exploitation hôte est Windows Server 2008, Windows Server 2012, Windows Server 2016. Les méthodes de partitionnement MBR et GPT sont toutes les deux prises en charge.
 
 **Windows 2003**
-- Le numéro d'unité logique stocke un type de disque brut dans un disque Windows à une partition qui utilise le style de partitionnement MBR (Master Boot Record). Utilisez cette option uniquement si votre système d'exploitation hôte est Windows 2000 Server, Windows XP ou Windows Server 2003 qui utilise la méthode de partitionnement MBR. 
+- Le numéro d'unité logique stocke un type de disque brut dans un disque Windows à une partition qui utilise le style de partitionnement MBR (Master Boot Record). Utilisez cette option uniquement si votre système d'exploitation hôte est Windows 2000 Server, Windows XP ou Windows Server 2003 qui utilise la méthode de partitionnement MBR.
 
 **Windows GPT**
--  Le numéro d'unité logique stocke des données Windows en utilisant le style de partitionnement GPT (GUID Partition Type). Utilisez cette option si vous souhaitez adopter la méthode de partitionnement GPT et que votre hôte est capable de l'utiliser. Windows Server 2003, Service Pack 1 et les niveaux ultérieurs peuvent utiliser la méthode de partitionnement GPT, et toutes les versions 64 bits de Windows la prennent en charge.
+-  Le numéro d'unité logique stocke des données Windows en utilisant le style de partitionnement GPT (GUID Partition Type). Utilisez cette option si vous voulez adopter la méthode de partitionnement GPT et que votre hôte est peut l'utiliser. Windows Server 2003, Service Pack 1 et les niveaux ultérieurs peuvent utiliser la méthode de partitionnement GPT, et toutes les versions 64 bits de Windows la prenne en charge.
 
 ## La limite du nombre d'IOPS est-elle imposée par instance ou par volume ?
 {: faq}

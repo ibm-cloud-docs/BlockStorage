@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,10 +10,9 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows
+# Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows
 
 Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
-
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
 2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
@@ -71,18 +70,15 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 
 1. Cliquez sur **Connexion** pour vous connecter à la cible.
 2. Cochez la case **Activer la prise en charge de plusieurs chemins d'accès** pour activer la fonction MPIO sur la cible.
-</br>
-   ![Activer la prise en charge de plusieurs chemins d'accès](/images/Connect_0.png)
+![Activer la prise en charge de plusieurs chemins d'accès](/images/Connect_0.png)
 3. Cliquez sur **Avancé** et sélectionnez **Activer l'ouverture de session CHAP**.
-</br>
-   ![Activer l'ouverture de session CHAP](/images/chap_0.png)
+![Activer l'ouverture de session CHAP](/images/chap_0.png)
 4. Saisissez le nom d'utilisateur dans la zone Nom et le mot de passe dans la zone Secret de la cible.
 
    Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}}.
    {:tip}
 5. Cliquez sur **OK** jusqu'à ce que la fenêtre **Propriétés de l'initiateur iSCSI** s'affiche. Le statut de la cible dans la section **Cibles découvertes** passe d'**Inactif** à **Connecté**.
-</br>
-   ![Statut Connecté](/images/Connected.png)
+![Statut Connecté](/images/Connected.png)
 
 
 ### Configuration de la fonction MPIO dans l'initiateur iSCSI
@@ -103,8 +99,8 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 5. Cliquez sur **Propriétés**. Dans la boîte de dialogue Propriétés, cliquez de nouveau sur **Ajouter une session** pour ajouter le second chemin d'accès.
 6. Dans la fenêtre Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
 7. Dans la fenêtre Paramètres avancés,
-   - Dans la liste Adaptateur local, sélectionnez iSCSI Microsoft Initiator.
-   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session. 
+   - Dans la liste Adaptateur local, sélectionnez Microsoft iSCSI Initiator.
+   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session.
    - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique.
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.

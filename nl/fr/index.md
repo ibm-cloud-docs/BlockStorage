@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -266,17 +266,18 @@ vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement l
 
 Pour atteindre le nombre maximal d'IOPS, vous devez mettre en place les ressources réseau adéquates. Vous devez également tenir compte de l'utilisation du réseau privé en dehors du stockage, ainsi que des réglages côté hôte et spécifiques aux applications (pile IP ou [nombre de lignes de file d'attente](set-host-queue-depth-settings-performance-and-endurance-storage.html), etc.).
 
-Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Pour plus d'informations sur les limites que peut imposer le service, voir la [documentation sur les serveurs virtuels](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).{:tip}
+Le trafic de stockage est inclus dans le total de l'utilisation du réseau des serveurs virtuels publics. Pour plus d'informations sur les limites que peut imposer le service, voir la [documentation sur les serveurs virtuels](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).
+{:tip}
 
 ## Soumission de votre commande
 
-Lorsque vous êtes prêt à soumettre votre commande, suivez les instructions [décrites ici](provisioning-block_storage.html).
+Lorsque vous êtes prêt à passer votre commande, utilisez la [console](provisioning-block_storage.html) ou [SLCLI](ordering-through-cli.html).
 
 ## Connexion de votre nouveau stockage
 
 Lorsque votre demande de mise à disposition est terminée, autorisez vos hôtes à accéder au nouveau stockage et configurez votre connexion. Suivez le lien approprié en fonction du système d'exploitation de votre hôte.
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](accessing_block_storage_linux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
 - [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)

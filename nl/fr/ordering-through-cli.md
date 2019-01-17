@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -26,7 +26,7 @@ Dans un package, certains éléments sont subdivisés en catégories. Certains p
 A chaque commande doit être associé un emplacement (centre de données). Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, veillez à ce que sa mise disposition s'effectue dans le même emplacement que vos instances de traitement.
 {:important}
 
-Vous pouvez utiliser la commande `slcli order package-list` pour rechercher le package que vous voulez commander. Une option `–keyword` est fournie pour effectuer une recherche et un filtrage simples. Cette option facilite la recherche du package dont vous avez besoin.
+Vous pouvez utiliser la commande `slcli order package-list` pour rechercher le package que vous voulez commander. Une option `–keyword` est fournie pour effectuer une recherche et un filtrage simples. Cette option facilite la recherche du package dont vous avez besoin. Recherchez **Storage-as-a-Service Package 759**.
 
 ```
 $ slcli order package-list --help
@@ -50,85 +50,81 @@ Options:
   -h, --help      Show this message and exit.
 ```
 
-*Need instructions for how to find Storage-as-a-Service Package 759*
+Vous pouvez également utiliser la commande `slcli block volume-order`.
 
 ```
-$ slcli order package-list --keyword "Storage"
-:.....................:.....................:
-:         name        :       keyName       :
-:.....................:.....................:
-: ???                 : ???                 :
-: ???                 : ???                 :
-:.....................:.....................:
-```
+# slcli block volume-order --help
+Usage: slcli block volume-order [OPTIONS]
 
-```
-$ slcli order category-list STORAGE_AS_A_SERVICE_STAAS --required
-:..................................:...................:............:
-:               name               :    categoryCode   : isRequired :
-:..................................:...................:............:
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:              Example             :        ???        :     Y      :
-:..................................:...................:............:
-```
+ Permet de commander un volume de stockage par blocs.
 
-Sélectionnez les autres éléments de votre commande à l'aide de la commande `item-list`. Les packages nécessitant en général de sélectionner de nombreux éléments, utilisez l'option `–category` pour extraire les éléments uniquement de la catégorie qui vous intéresse.
-
-```
-$ slcli order item-list STORAGE_AS_A_SERVICE_STAAS --category ??
-:..........................:..............................................:
-:         keyName          :                description                   :
-:..........................:..............................................:
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:           ???            :                    ????                      :
-:..........................:..............................................:
+Options:
+ --storage-type [performance|endurance]
+                                 Type of block storage volume  [required]
+ --size INTEGER                  Size of block storage volume in GB.
+                                 Permitted Sizes:
+                                 20, 40, 80, 100, 250, 500,
+                                 1000, 2000, 4000, 8000, 12000  [required]
+ --iops INTEGER                  Performance Storage IOPs, between 100 and
+                                 6000 in multiples of 100  [required for
+                                 storage-type performance]
+ --tier [0.25|2|4|10]            Endurance Storage Tier (IOP per GB)
+                                 [required for storage-type endurance]
+ --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                 Operating System  [required]
+ --location TEXT                 Datacenter short name (e.g.: dal09)
+                                 [required]
+ --snapshot-size INTEGER         Optional parameter for ordering snapshot
+                                 space along with endurance block storage;
+                                 specifies the size (in GB) of snapshot space
+                                 to order
+ --service-offering [storage_as_a_service|enterprise|performance]
+                                 The service offering package to use for
+                                 placing the order [optional, default is
+                                 'storage_as_a_service']
+ --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                 to monthly)
+ -h, --help                      Show this message and exit.
 ```
 
 Pour plus d'informations sur les commande {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
 Pour pouvoir accéder à toutes les nouvelles fonctions, commandez `Storage-as-a-Service Package 759`.
 {:tip}
 
-## Vérification de la commande
-
-Si vous avez un doute concernant les catégories requises que vous pourriez avoir omises dans votre commande, vous pouvez exécuter la commande `place` avec l'indicateur `–verify`. Les catégories éventuellement manquantes s'affichent à l'écran.
-
-
-```
-$ slcli order place --verify blablabla
-:..............................................:.................................................:......:
-:                keyName                       :                   description                   : cost :
-:..............................................:.................................................:......:
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:                  ???                         :                 yadi yadi yada                  :  0   :
-:..............................................:.................................................:......:
-```
-
-La sortie indique chaque élément commandé ainsi que le coût associé à chaque élément. Si la vérification de la commande réussit, cela signifie qu'il n'existe aucun conflit entre les éléments et qu'un élément de chacune des catégories requises est spécifié dans la commande.
 
 ## Passation de la commande
 
-La prochaine étape consiste à passer la commande.
+L'exemple suivant illustre la commande d'un volume {{site.data.keyword.blockstorageshort}} de 80 Go avec 20 Go d'espace d'image instantanée et 0,25 E-S/s par Go.
 
 ```
-$ slcli order place .....
-
-This action will incur charges on your account. Continue? [y/N]: y
-
-API response
+slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
+Order #15547457 placed successfully!
+ > Endurance Storage
+ > Block Storage
+ > 0.25 IOPS per GB
+ > 80 GB Storage Space
+ > 20 GB Storage Space (Snapshot Space)
 ```
 
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour plus d'informations sur l'augmentation des limites, voir [Gestion des limites de stockage](managing-storage-limits.html).
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}} et {{site.data.keyword.filestorage_short}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour plus d'informations sur l'augmentation des limites, voir [Gestion des limites de stockage](managing-storage-limits.html).
 {:important}
 
 ## Autorisation des hôtes pour l'accès au nouveau stockage
 
-TBD
+```
+slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+  Authorizes hosts to access a given volume
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 Pour plus d'informations sur l'autorisation des hôtes à accéder à {{site.data.keyword.blockstorageshort}} via l'API, voir [authorize_host_to_volume ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
@@ -139,8 +135,8 @@ Pour connaître la limite des autorisations simultanées, reportez-vous à la [F
 ## Connexion de votre nouveau stockage
 
 Suivez le lien approprié en fonction du système d'exploitation de votre hôte.
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](accessing_block_storage_linux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
+- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
 - [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
 - [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)

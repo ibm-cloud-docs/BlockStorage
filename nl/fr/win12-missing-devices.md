@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-01-07"
 
 ---
 
@@ -14,9 +14,9 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Traitement des incidents - Windows 2012 correctif iSCSI R2 pour visualiser plus de deux périphériques
+# Windows 2012 R2 - unités iSCSI multiples
 
-Si le gestionnaire de disque n'affiche que deux périphériques, vous devez vous connecter manuellement chaque périphérique dans l'initiateur iSCSI sur chaque noeud de serveur. S'il affiche plus de deux périphériques iSCSI, cette procédure peut vous être utile, notamment si les 4 allocations iSCSI proviennent du même périphérique NetApp.
+Si vous utilisez plus de deux périphériques iSCSI, cette procédure peut vous être utile, notamment si les 4 allocations iSCSI proviennent du même périphérique de stockage. Si le gestionnaire de disque n'affiche que deux périphériques, vous devez vous connecter manuellement chaque périphérique dans l'initiateur iSCSI sur chaque noeud de serveur.
 
 1. Ouvrez l'initiateur iSCSI Windows.
 2. Cliquez sur l'onglet **Cibles**, puis sur **Périphériques**.

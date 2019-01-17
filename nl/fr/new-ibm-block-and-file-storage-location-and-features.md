@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2018-01-04"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Nouveaux emplacements et fonctions de {{site.data.keyword.blockstorageshort}}
+# Nouveaux emplacements et fonctions
 
 {{site.data.keyword.BluSoftlayer_full}} présente une nouvelle version d'{{site.data.keyword.blockstoragefull}} !
 
