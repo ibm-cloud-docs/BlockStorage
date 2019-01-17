@@ -2,10 +2,15 @@
 
 copyright:
   years: 2014, 2018
-lastupdated: "2018-11-13"
+lastupdated: "2018-12-20"
 
 ---
 {:new_window: target="_blank"}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # ブロック・ストレージ容量の拡張
 
@@ -41,3 +46,6 @@ lastupdated: "2018-11-13"
 4. 選択内容と新しい価格設定を確認します。
 5. **「マスター・サービス契約を読み ... (I have read the Master Service Agreement ...)」**チェック・ボックスをクリックし、**「注文する (Place Order)」**をクリックします。
 6. 新規ストレージ割り振りは数分後に使用可能になります。
+
+ボリューム上のファイル・システム (さらに、ある場合はパーティション) を拡張して新しいスペースを使用する方法に関して詳しくは、ご使用の OS の資料を参照してください。
+{:tip}

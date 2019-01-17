@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-06"
+lastupdated: "2018-12-11"
 
 ---
 {:new_window: target="_blank"}
@@ -12,13 +12,13 @@ lastupdated: "2018-12-06"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# 災害復旧 - アクセス不能 1 次ボリュームを使用したフェイルオーバー
+# 災害復旧 - 1 次ボリュームがアクセス不能になった場合のフェイルオーバー
 
 1 次サイトで壊滅的な障害や災害が発生し、1 次サイトが停止した場合は、以下の操作を実行して、2 次サイトのデータに速やかにアクセスできます。
 
 ## 2 次サイトにあるレプリカ・ボリュームの複製を使用するフェイルオーバー
 
-1. [IBM Cloud コンソール ![External link icon](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [IBM Cloud コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
 
    または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。
@@ -35,7 +35,7 @@ lastupdated: "2018-12-06"
 
 元の 1 次サイトに実動を戻す場合は、以下のステップを実行する必要があります。
 
-1. [IBM Cloud コンソール ![External link icon](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [IBM Cloud コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
 
    または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。

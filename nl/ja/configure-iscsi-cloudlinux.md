@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# CloudLinux での MPIO iSCSI LUN への接続
+# CloudLinux での iSCSI LUN への接続
 
 以下の手順に従って、CloudLinux Server リリース 6.10 にマルチパスを使用して iSCSI LUN をインストールします。
 

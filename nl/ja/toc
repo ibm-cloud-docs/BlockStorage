@@ -8,14 +8,13 @@ IBM Cloud Storage - ブロック・ストレージ
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
-    expandable_block_storage.md
-    adjustable-iops.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     {: .topicgroup}
     プロビジョニング
         provisioning-block_storage.md
+        ordering-through-cli.md
         ordering-snapshots.md
         managing-storage-limits.md
         migrate-block-storage-encrypted-block-storage.md
@@ -25,25 +24,28 @@ IBM Cloud Storage - ブロック・ストレージ
         accessing_block_storage_linux.md
         configure-iscsi-cloudlinux.md
         accessing-block-storage-windows.md
-        win12-missing-devices.md
         set-host-queue-depth-settings-performance-and-endurance-storage.md
         configure-backup-cpanel.md
         configure-backup-plesk.md
 
     {: .topicgroup}
-    レプリケーション
+    管理
+        managing-block-storage.md
+        expandable_block_storage.md
+        adjustable-iops.md
+        how-to-create-duplicate-volume.md
+        working-with-snapshots.md
+
+    {: .topicgroup}
+    レプリケーションおよび災害復旧
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
 
     {: .topicgroup}
-    セキュリティー
+    データの保護
         block-file-storage-encryption-rest.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-
-    managing-block-storage.md
-    how-to-create-duplicate-volume.md
-    working-with-snapshots.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -51,6 +53,6 @@ IBM Cloud Storage - ブロック・ストレージ
     [Python API Client 情報](https://softlayer-python.readthedocs.io/en/latest/index.html)
 
     {: .topicgroup}
-    Troubleshooting
+    トラブルシューティング
         win12-missing-devices.md
     {: .navgroup-end}

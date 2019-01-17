@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -16,57 +16,26 @@ lastupdated: "2018-11-30"
 
 推奨されるマイグレーション・パスは、両方の LUN に同時に接続し、一方の LUN からもう一方にデータを直接転送することです。 詳細は、ご使用のオペレーティング・システム、およびコピー操作中にデータの変更が想定されるかどうかによって異なります。
 
-ご使用のホストに、非暗号化 LUN が既に接続されていることが前提です。 接続されていない場合は、ご使用のオペレーティング・システムに最適な指示に従って、このタスクを実行してください。
+ホストに非暗号化 LUN が既に接続されていることを前提としています。接続されていない場合は、ご使用のオペレーティング・システムに最適な指示に従って、このタスクを実行してください。
 
-- [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
+- [Linux での iSCSI LUN への接続](accessing_block_storage_linux.html)
+- [CloudLinux での iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
+- [Microsoft Windows での iSCSI LUN への接続](accessing-block-storage-windows.html)
 
-これらのデータ・センターでプロビジョンされる拡張{{site.data.keyword.blockstorageshort}}・ボリュームはすべて、非暗号化ボリュームとは異なるマウント・ポイントになります。 両方のストレージ・ボリュームに正しいマウント・ポイントを使用するために、コンソールの**「ボリュームの詳細」**ページでマウント・ポイント情報を確認することができます。API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイントを取得することもできます。{:tip}
+これらのデータ・センターでプロビジョンされる拡張{{site.data.keyword.blockstorageshort}}・ボリュームはすべて、非暗号化ボリュームとは異なるマウント・ポイントになります。 両方のストレージ・ボリュームに正しいマウント・ポイントを使用するために、コンソールの**「ボリュームの詳細」**ページでマウント・ポイント情報を確認することができます。 API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイントを取得することもできます。
+{:tip}
 
 ## {{site.data.keyword.blockstorageshort}}の作成
 
 API を使用して注文する場合は、「Storage as a Service」パッケージを指定して、更新済みの機能を新規ストレージと一緒に取得してください。
 {:important}
 
-以下の手順は、{{site.data.keyword.slportal}}から拡張 LUN を注文する場合のものです。 マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
+拡張 LUN は IBM Cloud Console および {{site.data.keyword.slportal}} を通して注文することができます。マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
 
-### エンデュランス LUN の注文
+- [定義済み IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
 
-1. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} から**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-2. 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
-3. **「ストレージ・タイプの選択」**リストから**「エンデュランス」**を選択します。
-4. デプロイメント・**ロケーション** (データ・センター) を選択します。
-   - 新規ストレージは、必ず前のボリュームと同じロケーションに追加してください。
-5. 請求オプションを選択します。 時間単位と月単位の請求から選択できます。
-6. IOPS ティアを選択します。
-7. **「ストレージ・サイズの選択」**をクリックし、リストから目的のストレージ・サイズを選択します。
-8. **「スナップショット・スペース・サイズの指定」**をクリックし、リストからスナップショット・サイズを選択します。 このスペースは、使用可能なスペースに加算されます。
-
-   スナップショット・スペースの考慮事項および推奨について詳しくは、[スナップショットの注文](ordering-snapshots.html)を参照してください。
-   {:tip}
-9. リストからご使用の**「OS タイプ (OS Type)」**を選択します。
-10. **「続行」**をクリックします。 月額課金と日割り計算額が表示されます。これが注文の詳細を確認できる最後の機会となります。
-11. **「マスター・サービス契約を読み ...」**チェック・ボックスをクリックし、**「注文」**をクリックします。
-
-### パフォーマンス LUN の注文
-
-1. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} から**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックするか、または  {{site.data.keyword.BluSoftlayer_full}} カタログから、**「インフラストラクチャー」>「ストレージ」>「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-2. 右側で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
-3. **「ストレージ・タイプの選択 (Select Storage Type)」**リストから、**「パフォーマンス」**を選択します。
-4. **「ロケーション」**をクリックして、データ・センターを選択します。
-
-   新規ストレージは、以前に注文したホストと同じロケーションに追加するようにしてください。
-   {:important}
-5. 請求オプションを選択します。 時間単位と月単位の請求から選択できます。
-6. 適切な**ストレージ・サイズ**を選択します。
-7. **「IOPS の指定 (Specify IOPS)」**フィールドに IOPS を入力します。
-8. **「続行」**をクリックします。 月額課金と日割り計算額が表示されます。これが注文の詳細を確認できる最後の機会となります。 注文を変更する場合は、**「戻る」**をクリックします。
-9. **「マスター・サービス契約を読み ...」**チェック・ボックスをクリックし、**「注文」**をクリックします。
-
-ストレージは 1 分もしないうちにプロビジョンされ、{{site.data.keyword.slportal}}の「{{site.data.keyword.blockstorageshort}}」ページに表示されます。
-
-
+新しいストレージが数分後にマウント可能になります。そのストレージは「リソース・リスト」と「{{site.data.keyword.blockstorageshort}} リスト」に表示されます。
 
 ## 新規 {{site.data.keyword.blockstorageshort}} のホストへの接続
 
@@ -88,16 +57,18 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 1. 元と新規の両方の {{site.data.keyword.blockstorageshort}} LUN に接続します。
 
-   2 つの LUN をホストに接続する際に支援が必要な場合は、サポート・ケースをオープンしてください。
+   2 つの LUN をホストに接続する際に支援が必要な場合は、サポート Case をオープンしてください。
    {:tip}
 
 2. 元の {{site.data.keyword.blockstorageshort}} LUN にはどのようなタイプのデータがあり、そのデータを新しい LUN にコピーするにはどういう方法が最善かを検討してください。
-  - バックアップや静的コンテンツがあり、コピー中に変更が想定されないものなら、重要な考慮事項は何もありません。
-  - {{site.data.keyword.blockstorageshort}} 上でデータベースまたは仮想マシンを実行している場合は、データ破壊を避けるため、コピー中にデータが変更されないようにしてください。 帯域幅に少しでも不安がある場合は、マイグレーションは非ピーク時に実行してください。 これらの考慮事項について支援が必要な場合は、サポート・チケットをオープンしてください。
+  - バックアップや静的コンテンツがあり、コピー中に変更が想定されないものなら、あまり心配する必要はありません。
+  - {{site.data.keyword.blockstorageshort}} 上でデータベースまたは仮想マシンを実行している場合は、データ破壊を避けるため、コピー中にデータが変更されないようにしてください。  
+  - 帯域幅に少しでも不安がある場合は、マイグレーションは非ピーク時に実行してください。  
+  - これらの考慮事項について支援が必要な場合は、サポート Case をオープンしてください。
 
 3. データ全体をコピーします。
    - **Microsoft Windows** の場合、新しいストレージをフォーマットしてから、Windows エクスプローラーを使用して元の {{site.data.keyword.blockstorageshort}} LUN から新しい LUN にデータをコピーします。
-   - **Linux** の場合、`rsync` を使用してデータをコピーできます。次に例を示します。
+   - **Linux** の場合、`rsync` を使用してデータをコピーできます。
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```

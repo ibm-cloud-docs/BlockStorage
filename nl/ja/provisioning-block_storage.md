@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-13"
+  years: 2014, 2019
+lastupdated: "2019-01-08"
 
 ---
 {:new_window: target="_blank"}
@@ -13,9 +13,9 @@ lastupdated: "2018-12-13"
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# {{site.data.keyword.blockstorageshort}} の注文
+# コンソールを使用した {{site.data.keyword.blockstorageshort}} の注文
 
-容量および IOPS のニーズを満たすように、{{site.data.keyword.blockstorageshort}} をプロビジョンして微調整を行うことができます。パフォーマンスを指定するための 2 つのオプションを使用して、ストレージを最大限に活用します。
+容量および IOPS のニーズを満たすように、{{site.data.keyword.blockstorageshort}} をプロビジョンして微調整を行うことができます。 パフォーマンスを指定するための 2 つのオプションを使用して、ストレージを最大限に活用します。
 
 - パフォーマンス要件が明確に定義されていないワークロードに合わせて、事前定義されたパフォーマンス・レベルを備えたエンデュランス IOP 層から選択できます。
 - 「パフォーマンス」で IOPS の合計数を指定することで、特定のパフォーマンス要件を満たすようにストレージを微調整できます。
@@ -24,7 +24,7 @@ lastupdated: "2018-12-13"
 
 1. [IBM Cloud カタログ](https://{DomainName}/catalog/){:new_window}にログインし、**「ストレージ」**をクリックします。 次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
 
-   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 
 2. デプロイメント・**ロケーション** (データ・センター) を選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
@@ -46,7 +46,9 @@ lastupdated: "2018-12-13"
 
    この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](faqs.html)を参照してください。
    {:tip}
-9. 右方で発注要約を確認し、割引コードがある場合は適用します。
+9. 右方で発注要約を確認し、割引コードがある場合は適用します。 
+
+   注文の処理時に割引が適用されます。{:note}
 10. ご使用条件を確認したら、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを入れます。
 11. **「作成」**をクリックします。 新規ストレージ割り振りは数分後に使用可能になります。
 
@@ -57,7 +59,7 @@ lastupdated: "2018-12-13"
 
 1. [IBM Cloud カタログ](https://{DomainName}/catalog/){:new_window}にログインし、**「ストレージ」**をクリックします。 次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
 
-   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 2. **「ロケーション」**をクリックして、データ・センターを選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
 3. 請求処理。 機能が改善されたデータ・センター (アスタリスクでマークされている) を選択した場合は、月次請求と毎時請求のいずれかを選択できます。
@@ -75,6 +77,8 @@ lastupdated: "2018-12-13"
    この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](faqs.html)を参照してください。
    {:tip}
 9. 右方で発注要約を確認し、割引コードがある場合は適用します。
+
+   注文の処理時に割引が適用されます。{:note}
 10. ご使用条件を確認したら、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを入れます。
 11. **「作成」**をクリックします。 新規ストレージ割り振りは数分後に使用可能になります。
 
@@ -84,15 +88,16 @@ lastupdated: "2018-12-13"
 ## 新規ストレージの接続
 
 プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
-- [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
+- [Linux での iSCSI LUN への接続](accessing_block_storage_linux.html)
+- [CloudLinux での iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
+- [Microsoft Windows での iSCSI LUN への接続](accessing-block-storage-windows.html)
+- [XenServer 共有ストレージでの iSCSI LUN のマウント](/docs/infrastructure/virtualization/set-and-mount-iscsi-node-xenserver-shared-storage.html)
 - [cPanel を使用したバックアップ用のブロック・ストレージの構成](configure-backup-cpanel.html)
 - [Plesk を使用したバックアップ用のブロック・ストレージの構成](configure-backup-plesk.html)
 
 ## 災害復旧の際の考慮事項
 
-データ損失を防ぎ、事業継続性を確保するために、サーバーおよびストレージを別のデータ・センターにレプリケーションすることを検討してください。レプリケーションすることで、データはスナップショット・スケジュールに従い 2 つの異なる場所で同期されます。詳しくは、[データのレプリケーション](replication.html)を参照してください。
+データ損失を防ぎ、事業継続性を確保するために、サーバーおよびストレージを別のデータ・センターにレプリケーションすることを検討してください。 レプリケーションすることで、データはスナップショット・スケジュールに従い 2 つの異なる場所で同期されます。 詳しくは、[データのレプリケーション](replication.html)を参照してください。
 
 使用しているボリュームを複製したものを元のボリュームとは独立して使用する場合は、[複製ブロック・ボリュームの作成](how-to-create-duplicate-volume.html)を参照してください。
 

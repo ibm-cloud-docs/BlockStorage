@@ -13,7 +13,7 @@ lastupdated: "2018-11-30"
 
 # cPanel を使用してバックアップするための {{site.data.keyword.blockstorageshort}} の構成
 
-この記事は、{{site.data.keyword.blockstoragefull}} に保管される、cPanel でのバックアップを構成するために使用します。 root または sudo SSH でのアクセスが可能であり、WebHost Manager (WHM) のフル・アクセス権限があることを前提としています。 ここでの説明は、**CentOS 7** ホストに基づいています。
+以下の指示に従って、{{site.data.keyword.blockstoragefull}} に保管される、cPanel でのバックアップを構成することができます。root または sudo SSH でのアクセスが可能であり、WebHost Manager (WHM) のフル・アクセス権限があることを前提としています。 ここでの説明は、**CentOS 7** ホストに基づいています。
 
 詳しくは、[cPanel - バックアップ・ディレクトリーの構成 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window} を参照してください。
 {:tip}

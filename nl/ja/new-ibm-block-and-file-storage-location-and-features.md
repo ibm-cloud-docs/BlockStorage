@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2018-01-04"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.blockstorageshort}} の新しいロケーションと機能
+# 新しい場所および新機能
 
 {{site.data.keyword.BluSoftlayer_full}} では、{{site.data.keyword.blockstoragefull}} の新規バージョンが導入されています。
 
@@ -101,10 +101,9 @@ lastupdated: "2018-11-30"
 
 ## 暗号化ストレージ・ボリュームの新規マウント・ポイント
 
-これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を確認して、正しいマウント・ポイントを使用していることを確認してください。API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイント情報を取得することもできます。
+これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を確認して、正しいマウント・ポイントを使用していることを確認してください。 API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイント情報を取得することもできます。
 
-
-すべての新規機能を利用できるようにするには、API を使用して発注する場合に「`Storage-as-a-Service Package 759`」を選択してください。API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}を参照してください。
+すべての新規機能を利用できるようにするには、API を使用して発注する場合に「`Storage-as-a-Service Package 759`」を選択してください。 API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}を参照してください。
 {:important}
 
 追加のデータ・センターがアップグレードされていないか確認したり、新しいフィーチャーや機能が {{site.data.keyword.blockstorageshort}} に追加されていないか確認したりするには、このページをもう一度参照してください。

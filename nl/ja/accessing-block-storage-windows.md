@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -10,7 +10,7 @@ lastupdated: "2018-11-30"
 {:note: .note}
 {:important: .important}
 
-# Microsoft Windows での MPIO iSCSI LUN への接続
+# Microsoft Windows での iSCSI LUN への接続
 
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して許可されていることを確認してください。
 
@@ -68,19 +68,16 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 ### ターゲットのアクティブ化
 
 1. **「接続」**をクリックして、ターゲットに接続します。
-2. **「複数パスを有効にする」**チェック・ボックスを選択して、ターゲットへのマルチパス IO を有効にします。
-</br>
-   ![複数パスを有効にする](/images/Connect_0.png)
+2. **「マルチパスを有効にする」**チェック・ボックスを選択して、ターゲットへのマルチパス IO を有効にします。
+![マルチパスを有効にする](/images/Connect_0.png)
 3. **「詳細設定」**をクリックし、**「CHAP ログオンを有効にする」**を選択します。
-</br>
-   ![CHAP ログオンを有効にする](/images/chap_0.png)
+![CHAP ログオンを有効にする](/images/chap_0.png)
 4. 「名前」フィールドにユーザー名を入力し、「ターゲット シークレット」フィールドにパスワードを入力します。
 
    「名前」および「ターゲット シークレット」フィールドの値は、「{{site.data.keyword.blockstorageshort}} 詳細」画面から取得できます。
    {:tip}
 5. **「iSCSI イニシエーターのプロパティ」**ウィンドウが表示されるまで**「OK」**をクリックします。 **「検出されたターゲット」**セクションのターゲットの状況が、**「非アクティブ」**から**「接続完了」**に変わります。
-</br>
-   ![「接続完了」状況](/images/Connected.png)
+![「接続完了」状況](/images/Connected.png)
 
 
 ### iSCSI イニシエーターでの MPIO の構成
@@ -130,7 +127,7 @@ Windows MPIO が構成されているかどうかを検証するには、まず 
 再始動が完了し、ストレージ・デバイスが追加されると、MPIO が構成済みで機能しているかどうかを検証できます。 これを行うには、ターゲットの**「デバイスの詳細」**を参照し、**「MPIO」**をクリックします。
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-MPIO が正しく構成されていないと、ネットワーク障害が発生した場合や、{{site.data.keyword.BluSoftlayer_full}} チームが保守を実行するときに、ストレージ・デバイスが切断され、使用不可と表示されます。MPIO では、そのようなイベントが発生しても追加の接続レベルが保証され、LUN への読み取り/書き込み操作がアクティブな状態で、確立済みセッションが保持されます。
+MPIO が正しく構成されていないと、ネットワーク障害が発生した場合や、{{site.data.keyword.BluSoftlayer_full}} チームが保守を実行するときに、ストレージ・デバイスが切断され、使用不可と表示されます。 MPIO では、そのようなイベントが発生しても追加の接続レベルが保証され、LUN への読み取り/書き込み操作がアクティブな状態で、確立済みセッションが保持されます。
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
 

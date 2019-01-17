@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-01-07"
 
 ---
 {:new_window: target="_blank"}
@@ -270,13 +270,13 @@ lastupdated: "2018-11-30"
 
 ## 注文の送信
 
-注文を送信する準備ができたら、[ここ](provisioning-block_storage.html) に記載されている手順に従ってください。
+注文を送信する準備ができたら、[コンソール](provisioning-block_storage.html)または [SLCLI](ordering-through-cli.html) を通してその注文を出すことができます。
 
 ## 新規ストレージの接続
 
 プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
-- [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
+- [Linux での iSCSI LUN への接続](accessing_block_storage_linux.html)
+- [CloudLinux での iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
+- [Microsoft Windows での iSCSI LUN への接続](accessing-block-storage-windows.html)
 - [cPanel を使用したバックアップ用のブロック・ストレージの構成](configure-backup-cpanel.html)
 - [Plesk を使用したバックアップ用のブロック・ストレージの構成](configure-backup-plesk.html)
