@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # CloudLinux에서 iSCSI LUN에 연결
+{: #mountingCloudLinux}
 
 다음 지시사항을 따라 CloudLinux Server 릴리스 6.10에서 다중 경로를 사용하여 iSCSI LUN을 설치하십시오.
 
@@ -24,6 +24,21 @@ lastupdated: "2019-01-07"
 3. **호스트 권한 부여**를 클릭하십시오.
 4. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
 5. 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소를 기록해 두십시오.
+
+또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
+```
+# slcli block access-authorize --help
+사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+옵션:
+  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
+  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
+  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
+                            ID
+  --ip-address TEXT         권한 부여할 IP 주소
+  --help                    이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
 {:important}

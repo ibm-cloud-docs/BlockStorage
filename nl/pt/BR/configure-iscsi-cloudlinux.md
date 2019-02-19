@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Conectando-se a LUNs iSCSI no CloudLinux
+{: #mountingCloudLinux}
 
 Siga estas instruções para instalar seu LUN do iSCSI com caminhos múltiplos no CloudLinux Server liberação 6.10.
 
@@ -24,6 +24,20 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume {{sit
 3. Clique em **Autorizar host**.
 4. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
 5. Anote o IQN do host, o nome do usuário, a senha e o endereço de destino.
+
+Como alternativa, é possível autorizar o host por meio do SLCLI.
+```
+# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
 {:important}

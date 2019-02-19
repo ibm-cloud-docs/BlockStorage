@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,8 +11,20 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Gestion des limites de stockage
+{: #managingstoragelimits}
 
-Vous pouvez, par défaut, mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}} globalement.
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}} et {{site.data.keyword.filestorage_short}} globalement.
+
+Si vous ne savez pas combien de volumes vous possédez, vous pouvez afficher une liste de vos volumes pour chaque centre de données à l'aide de la commande `slcli` suivante.
+```
+# slcli block volume-count --help
+Usage: slcli block volume-count [OPTIONS]
+
+Options:
+  -d, --datacenter TEXT  Datacenter shortname
+  --sortby TEXT          Column to sort by
+  -h, --help             Show this message and exit.
+```
 
 Vous pouvez demander une augmentation de cette limite en soumettant un ticket dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}. Lorsque la demande est approuvée, une limite de volume est définie pour un centre de données spécifique.  
 

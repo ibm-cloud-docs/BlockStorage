@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Replica dei dati
+{: #replication}
 
 La replica usa una delle tue pianificazioni delle istantanee per copiare automaticamente le istantanee su un volume di destinazione in un data center remoto. Le copie possono essere ripristinate nel sito remoto se si verifica un evento catastrofico o un danneggiamento dei dati.
 
-La replica mantiene i tuoi dati sincronizzati in due diverse ubicazioni. Se vuoi clonare il tuo volume e utilizzarlo in modo indipendente dal volume originale, consulta [Creazione di un volume di blocco duplicato](how-to-create-duplicate-volume.html).
+La replica mantiene i tuoi dati sincronizzati in due diverse ubicazioni. Se vuoi clonare il tuo volume e utilizzarlo in modo indipendente dal volume originale, consulta [Creazione di un volume di blocco duplicato](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 {:tip}
 
 Prima di poter eseguire la replica, è necessario creare una pianificazione delle istantanee.
@@ -108,8 +109,8 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 
 1. Fai clic sul tuo volume di archiviazione.
 2. Fai clic su **Replica** e fai clic su **Purchase a replication**.
-3. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla tua replica. L'elenco contiene tutte le pianificazioni delle istantanee attive. <br />
-   Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Vedi il documento relativo alla [gestione delle istanze](snapshots.html) per ulteriori dettagli.
+3. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla tua replica. L'elenco contiene tutte le tue pianificazioni delle istantanee attive. <br />
+   Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Vedi il documento relativo alla [gestione delle istanze](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) per ulteriori dettagli.
    {:important}
 3. Fai clic su **Location** e seleziona il data center che è il tuo sito di ripristino di emergenza (DR, disaster recovery).
 4. Fai clic su **Continue**.
@@ -163,7 +164,7 @@ Puoi visualizzare i dettagli del volume di replica nella scheda **Replica** in *
 
 Le dimensioni dei tuoi volumi devono essere le stesse per i volumi di archiviazione primario e di replica. L'uno non può essere più grande dell'altro. Quando aumenti il tuo spazio di istantanea per il tuo volume primario, lo spazio di replica viene aumentato automaticamente. L'aumento dello spazio dell'istantanea attiva un aggiornamento di replica immediato. L'aumento per entrambi i volumi viene visualizzato come delle voci di riga nella tua fattura ed è a base proporzionale come necessario.
 
-Per ulteriori informazioni sulle considerazioni sullo spazio dell'istantanea, consulta [Ordinazione di istantanee](ordering-snapshots.html).
+Per ulteriori informazioni sulle considerazioni sullo spazio dell'istantanea, consulta [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:tip}
 
 
@@ -186,14 +187,14 @@ I duplicati possono essere creati sia dal volume primario che da quello di repli
 
 I volumi duplicati solo accessibili da un host per la lettura/scrittura non appena viene seguito il provisioning dell'archiviazione. Tuttavia, le istantanee e le repliche sono consentite solo dopo il completamento della copia dei dati dall'originale al duplicato.
 
-Per ulteriori informazioni, vedi [Creazione di un volume di blocco duplicato](how-to-create-duplicate-volume.html).
+Per ulteriori informazioni, vedi [Creazione di un volume di blocco duplicato](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Utilizzo delle repliche per eseguire il failover quando si verifica un'emergenza
 
 Quando esegui il failover, stai passando dal tuo volume di archiviazione nel tuo data center primario al volume di destinazione nel tuo data center remoto. Ad esempio, il tuo data center primario si trova a Londra e il tuo data center secondario si trova ad Amsterdam. Se si verifica un evento di malfunzionamento, eseguirai il failover ad Amsterdam, stabilendo una connessione al volume che ora è quello primario da un'istanza di elaborazione ad Amsterdam. Dopo che il tuo volume a Londra sarà stato riparato, verrà acquisita un'istantanea del volume che si trova ad Amsterdam per eseguire il failback a Londra e al volume che ora è nuovamente quello primario da un'istanza di elaborazione a Londra.
 
-* Se l'ubicazione primaria non è in pericolo imminente o non sta subendo gravi ripercussioni, consulta [Failover con un volume primario accessibile](dr-accessible-primary.html).
-* Se l'ubicazione primaria non è attiva, consulta [Failover con un volume primario non accessibile](disaster-recovery.html).
+* Se l'ubicazione primaria non è in pericolo imminente o non sta subendo gravi ripercussioni, consulta [Failover con un volume primario accessibile](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible).
+* Se l'ubicazione primaria non è attiva, consulta [Failover con un volume primario non accessibile](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible).
 
 
 ## Annullamento di una replica esistente
@@ -215,3 +216,72 @@ Quando un volume primario viene annullato, la pianificazione replica e il volume
  2. Fai clic su **Actions** e seleziona **Cancel {{site.data.keyword.blockstorageshort}}**.
  3. Seleziona quando annullare. Scegli **Immediately** o **Anniversary Date** e fai clic su **Continue**.
  4. Fai clic su **I acknowledge that due to cancellation, data loss may occur** e fai clic su **Cancel**.
+
+## Comandi correlati alla replica nella CLI SL
+{: #clicommands}
+
+* Elenca i datacenter di replica appropriati per un volume specifico.
+  ```
+  # slcli block replica-locations --help
+  Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
+  -h, --help      Show this message and exit.
+  ```
+
+* Ordina un volume di replica dell'archiviazione blocchi.
+  ```
+  # slcli block replica-order --help
+  Usage: slcli block replica-order [OPTIONS] VOLUME_ID
+
+  Options:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  Snapshot schedule to use for replication,
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [required]
+  -l, --location TEXT             Short name of the data center for the
+                                  replicant (e.g.: dal09)  [required]
+  --tier [0.25|2|4|10]            Endurance Storage Tier (IOPS per GB) of the
+                                  primary volume for which a replicant is
+                                  ordered [optional]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  Operating System Type (e.g.: LINUX) of the
+                                  primary volume for which a replica is
+                                  ordered [optional]
+  -h, --help                      Show this message and exit.
+  ```
+
+* Elenca i volumi di replica esistenti per un volume di blocchi.
+  ```
+  # slcli block replica-partners --help
+  Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Username, Account ID,
+                  Capacity (GB), Hardware ID, Guest ID, Host ID
+  -h, --help      Show this message and exit.
+  ```
+
+* Failover di un volume di blocchi in un volume di replica specifico.
+  ```
+  # slcli block replica-failover --help
+  Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  --immediate          Failover to replicant immediately.
+  -h, --help      Show this message and exit.
+  ```
+
+* Failback di un volume di blocchi da un volume di replica specifico.
+  ```
+  # slcli block replica-failback --help
+  Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  -h, --help           Show this message and exit.
+  ```

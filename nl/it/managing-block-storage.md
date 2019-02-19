@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Gestione di {{site.data.keyword.blockstorageshort}}
+{: #managingstorage}
 
 Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite il [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 
@@ -20,6 +21,15 @@ Puoi visualizzare un riepilogo delle informazioni chiave per il LUN di archiviaz
 
 1. Fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Fai clic sul nome LUN appropriato all'elenco.
+
+In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+```
+# slcli block volume-detail --help
+Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
 
 ## Autorizzazione degli host ad accedere a {{site.data.keyword.blockstorageshort}}
 
@@ -32,7 +42,19 @@ Puoi autorizzare e connettere gli host che si trovano nello stesso data center d
 2. Scorri alla sezione **Authorized Hosts** della pagina
 3. Sulla destra, fai clic su **Authorize Host**. Seleziona gli host che possono accedere allo specifico LUN.
 
+In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 ## Visualizzazione dell'elenco di host che sono autorizzati ad accedere a un LUN {{site.data.keyword.blockstorageshort}}
 
@@ -41,7 +63,18 @@ Puoi autorizzare e connettere gli host che si trovano nello stesso data center d
 
 Qui puoi vedere un elenco di host che sono attualmente autorizzati ad accedere al LUN. Puoi inoltre vedere le informazioni di autenticazione necessarie per stabilire una connessione – nome utente, password e IQN host. L'indirizzo di destinazione è elencato nella pagina **Storage Detail**. Per NFS, l'indirizzo di destinazione è descritto come un nome DNS e, per iSCSI, è l'indirizzo IP dell'individuazione del portale di destinazione.
 
+In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+```
+# slcli block access-list --help
+Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      Show this message and exit.
+```
 
 ## Visualizzazione del {{site.data.keyword.blockstorageshort}} a cui è autorizzato un host
 
@@ -52,17 +85,15 @@ Puoi visualizzare i LUN a cui un host ha accesso, comprese le informazioni neces
 
 Ti viene presentato un elenco di LUN di archiviazione a cui questo specifico host ha accesso. L'elenco è raggruppato in base al tipo di archiviazione (blocco, file, altro). Puoi autorizzare ulteriore archiviazione oppure rimuovere l'accesso facendo clic su **Actions**.
 
-
-
 ## Montaggio e smontaggio di {{site.data.keyword.blockstorageshort}}
 
 In base al sistema operativo del tuo host, segui le istruzioni appropriate.
 
-- [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html)
-- [Connessione ai LUN iSCSI MPIO su CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connessione ai LUN iSCSI MPIO su Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurazione di Block Storage per il backup con cPanell](configure-backup-cpanel.html)
-- [Configurazione di Block Storage per il backup con Plesk](configure-backup-plesk.html)
+- [Connessione ai LUN su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connessione ai LUN su CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connessione ai LUN su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configurazione di Block Storage per il backup con cPanell](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configurazione di Block Storage per il backup con Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## Revoca dell'accesso di un host a {{site.data.keyword.blockstorageshort}}
@@ -95,7 +126,23 @@ Se vuoi disconnettere più LUN da uno specifico host, devi ripetere l'azione Rev
 Se vuoi disconnettere più host da uno specifico LUN, devi ripetere l'azione Revoke Access per ciascun host.
 {:tip}
 
+### Revoca dell'accesso tramite la CLI SL.
 
+In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+```
+# slcli block access-revoke --help
+Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
+                            authorization
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
+                            authorization
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to revoke authorization
+  --ip-address TEXT         An IP address to revoke authorization
+  --help                    Show this message and exit.
+```
 
 ## Annullamento di un LUN di archiviazione
 
@@ -112,3 +159,15 @@ Per annullare un LUN di archiviazione, devi prima revocare l'accesso da eventual
    {:tip}
 4. Fai clic su **Continue** o su **Close**.
 5. Fai clic sulla casella di spunta **Acknowledgment** e fai clic su **Confirm**.
+
+In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+```
+# slcli block volume-cancel --help
+Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+Options:
+  --reason TEXT  An optional reason for cancellation
+  --immediate    Cancels the block storage volume immediately instead of on
+                 the billing anniversary
+  -h, --help     Show this message and exit.
+```

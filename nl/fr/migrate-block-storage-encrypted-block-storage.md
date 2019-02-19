@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Mise à niveau d'un service {{site.data.keyword.blockstorageshort}} vers un service {{site.data.keyword.blockstorageshort}} amélioré
+{: #migratestorage}
 
-Le service {{site.data.keyword.blockstoragefull}} amélioré est désormais disponible dans certains centres de données. Pour afficher la liste des centres de données mis à niveau et des fonctions disponibles telles que les débits d'E-S/s ajustables et les volumes extensibles, cliquez [ici](new-ibm-block-and-file-storage-location-and-features.html). Pour plus d'informations sur le stockage chiffré géré par un fournisseur, voir [Chiffrement au repos pour {{site.data.keyword.blockstorageshort}}](block-file-storage-encryption-rest.html).
+Le service {{site.data.keyword.blockstoragefull}} amélioré est désormais disponible dans certains centres de données. Pour afficher la liste des centres de données mis à niveau et des fonctions disponibles telles que les débits d'E-S/s ajustables et les volumes extensibles, cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Pour plus d'informations sur le stockage chiffré géré par un fournisseur, voir [Chiffrement au repos pour {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 Le chemin de migration préféré consiste à se connecter simultanément aux deux numéros d'unité logique et à transférer les données directement d'un LUN à l'autre. Les spécificités dépendent de votre système d'exploitation et du fait que les données doivent changer ou non lors de l'opération de copie.
 
 Nous supposons que votre LUN non chiffré est déjà connecté à votre hôte. Si tel n'est pas le cas, suivez les instructions qui s'appliquent à votre système d'exploitation pour accomplir cette tâche :
 
-- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
+- [Connexion à des numéros d'unité logique (LUN) sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connexion à des numéros d'unité logique (LUN) sous CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connexion à des numéros d'unité logique (LUN) sous Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Tous les volumes {{site.data.keyword.blockstorageshort}} améliorés mis à disposition dans ces centres de données ont un point de montage différent de celui des volumes non chiffrés. Pour vérifier que vous utilisez le bon point de montage pour les deux types de volume de stockage, vous pouvez afficher les informations sur le point de montage sur la page **Détails du volume** de la console. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -32,8 +33,8 @@ Lorsque vous passez une commande via l'API, spécifiez le package "Storage as a 
 
 Vous pouvez commander un numéro d'unité logique étendu via la console IBM Cloud ou le portail {{site.data.keyword.slportal}}. Votre nouveau numéro d'unité logique doit être de taille identique ou supérieure à celle du volume d'origine pour faciliter la migration.
 
-- [Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
 Votre nouveau stockage est disponible pour montage en quelques minutes. Il figure dans la Liste de ressources et dans la liste {{site.data.keyword.blockstorageshort}}.
 
@@ -62,8 +63,8 @@ Si votre centre de données cible de réplication n'a pas encore été mis à ni
 
 2. Identifiez le type de données figurant sur votre numéro d'unité logique {{site.data.keyword.blockstorageshort}} d'origine et pensez à la meilleure façon de copier ces données sur votre nouveau numéro d'unité logique.
   - Si vous disposez de sauvegardes, d'un contenu statique ou d'autres contenus qui ne sont pas susceptibles d'être modifiés au cours de la copie, vous n'avez pas à vous inquiéter.
-  - Si vous exécutez une base de données ou une machine virtuelle sur votre service {{site.data.keyword.blockstorageshort}}, vérifiez que les données ne sont pas modifiées lors de la copie pour éviter leur altération. 
-  - Si vous rencontrez des problèmes liés à la bande passante, procédez à la migration pendant les périodes creuses. 
+  - Si vous exécutez une base de données ou une machine virtuelle sur votre service {{site.data.keyword.blockstorageshort}}, vérifiez que les données ne sont pas modifiées lors de la copie pour éviter leur altération.
+  - Si vous rencontrez des problèmes liés à la bande passante, procédez à la migration pendant les périodes creuses.
   - Si vous avez besoin d'aide sur ces questions, ouvrez un cas de support.
 
 3. Copiez vos données.

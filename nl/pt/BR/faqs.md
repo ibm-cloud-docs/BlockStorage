@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
+{: #faqs}
 
 ## Quantas instâncias podem compartilhar o uso de um volume do {{site.data.keyword.blockstorageshort}}?
 {: faq}
@@ -19,7 +20,7 @@ O limite padrão do número de autorizações por volume de bloco é oito. Isso 
 {: faq}
 
 Por padrão, é possível provisionar um total combinado de 250
-volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar seu limite de volume, entre em contato com o representante de vendas. Para obter mais informações, veja [Gerenciando limites de armazenamento](managing-storage-limits.html).
+volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar seu limite de volume, entre em contato com o representante de vendas. Para obter mais informações, veja [Gerenciando limites de armazenamento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Quantos volumes do {{site.data.keyword.blockstorageshort}} podem ser montados em um host?
 {: faq}
@@ -92,7 +93,7 @@ A latência de destino dentro do armazenamento é <1 ms. O armazenamento é cone
 
 A camada de 10 IOPS/GB do Endurance tipo {{site.data.keyword.blockstorageshort}} está disponível somente em data centers selecionados e novos data centers estão sendo incluídos gradualmente. É possível localizar uma lista completa de
 data centers submetidos a upgrade e de recursos disponíveis
-[aqui](new-ibm-block-and-file-storage-location-and-features.html).
+[aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Como podemos dizer quais volumes do {{site.data.keyword.blockstorageshort}} são criptografados?
 {: faq}
@@ -104,7 +105,7 @@ Ao olhar para a sua lista do {{site.data.keyword.blockstorageshort}} no [{{site.
 
 Ao pedir o {{site.data.keyword.blockstorageshort}}, todos os data centers submetidos a upgrade são denotados com um asterisco (`*`) no formulário de pedido e uma indicação de que você está prestes a provisionar armazenamento com criptografia. Quando o armazenamento é provisionado, é possível ver um ícone na lista de armazenamento mostrando esse armazenamento como criptografado. Todos os volumes criptografados e os LUNs são provisionados somente em data centers submetidos a upgrade. É possível localizar uma lista completa de
 data centers submetidos a upgrade e de recursos disponíveis
-[aqui](new-ibm-block-and-file-storage-location-and-features.html).
+[aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Se possuímos um {{site.data.keyword.blockstorageshort}} não criptografado em um data center que tenha sido submetido a upgrade recentemente, podemos criptografar esse {{site.data.keyword.blockstorageshort}}?
 {: faq}

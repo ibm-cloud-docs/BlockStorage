@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Connessione ai LUN iSCSI su CloudLinux
+{: #mountingCloudLinux}
 
 Segui queste istruzioni per installare la tua LUN iSCSI con multipath su CloudLinux Server release 6.10.
 
@@ -22,8 +22,23 @@ Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data
 1. Accedi al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 2. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
 3. Fai clic su **Authorize Host**.
-4. Dall'elenco, seleziona l'host o gli host che può accedere al volume e fai clic su **Submit**.
+4. Dall'elenco, seleziona l'host o gli host che possono accedere al volume e fai clic su **Submit**.
 5. Prendi nota dell'IQN host, del nome utente, della password e dell'indirizzo di destinazione.
+
+In alternativa, puoi autorizzare l'host tramite la CLI SL.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
 {:important}

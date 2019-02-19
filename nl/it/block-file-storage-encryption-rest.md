@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # Crittografia dei dati inattivi gestita dal provider
+{: #encryption}
 
 ## Crittografia dei dati inattivi {{site.data.keyword.blockstorageshort}}
 
@@ -28,7 +29,7 @@ Per impostazione predefinita, vengono crittografate anche tutte le istantanee e 
 
 ## Provisioning di archiviazione con la crittografia
 
-La funzione di crittografia dei dati inattivi gestita dal provider è disponibile per il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html). Tutta l'archiviazione ordinata in questi data center è automaticamente dotata della crittografia.
+La funzione di crittografia dei dati inattivi gestita dal provider è disponibile per il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Tutta l'archiviazione ordinata in questi data center è automaticamente dotata della crittografia.
 
 Quando ordini {{site.data.keyword.blockstorageshort}}, seleziona un data center indicato con un asterisco (`*`). Vedi un'icona di blocco a destra del campo LUN/Volume Name che indica che il volume è crittografato.
 
@@ -37,5 +38,5 @@ Quando ordini {{site.data.keyword.blockstorageshort}}, seleziona un data center 
 
 
 
-L'archiviazione non crittografata di cui viene eseguito il provisioning prima dell'upgrade del data center **non viene** crittografata automaticamente. Se hai la tua archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade e vuoi che venga crittografata, devi creare un nuovo volume e migrare i tuoi dati. Per ulteriori informazioni, vedi [Migrazione di {{site.data.keyword.blockstorageshort}} in data center di cui è stato eseguito l'upgrade](migrate-block-storage-encrypted-block-storage.html).
+L'archiviazione non crittografata di cui viene eseguito il provisioning prima dell'upgrade del data center **non viene** crittografata automaticamente. Se hai la tua archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade e vuoi che venga crittografata, devi creare un nuovo volume e migrare i tuoi dati. Per ulteriori informazioni, vedi [Migrazione di {{site.data.keyword.blockstorageshort}} in data center di cui è stato eseguito l'upgrade](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}

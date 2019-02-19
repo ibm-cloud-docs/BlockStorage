@@ -1,13 +1,14 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 
 # Modifica delle impostazioni della profondità di coda dell'host
+{: #hostqueuesettings}
 
 {{site.data.keyword.BluSoftlayer_full}} consiglia una profondità massima di coda I/O (input/output) di applicazioni e host per ciascun livello Performance.
 

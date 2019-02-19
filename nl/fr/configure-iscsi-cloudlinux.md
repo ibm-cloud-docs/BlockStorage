@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux
+{: #mountingCloudLinux}
 
 Suivez ces instructions pour installer votre numéro d'unité logique iSCSI avec multi-accès sur CloudLinux Server 6.10.
 
@@ -24,6 +24,21 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accé
 3. Cliquez sur **Hôte autorisé**.
 4. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
 5. Notez le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible.
+
+Vous pouvez également autoriser l'hôte via l'interface SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
 {:important}

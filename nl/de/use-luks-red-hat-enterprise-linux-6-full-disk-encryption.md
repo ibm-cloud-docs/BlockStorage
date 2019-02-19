@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Vollständige Plattenverschlüsselung mit LUKS in Red Hat Enterprise Linux erzielen
+{: #LUKSencryption}
 
 Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Plattenformat (LUKS - Linux Unified Key Setup-on-disk-format) verschlüsseln, was für tragbare Computer und und Wechseldatenträger von Bedeutung ist. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
 
-Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html).
+Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{site.data.keyword.blockstorageshort}} wird in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) automatisch durch providerseits verwaltete Verschlüsselung ruhender Daten bereitgestellt. Weitere Informationen finden Sie im Abschnitt [Daten schützen - durch providerseits verwaltete Verschlüsselung ruhender Daten](block-file-storage-encryption-rest.html).
+{site.data.keyword.blockstorageshort}} wird in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) automatisch durch providerseits verwaltete Verschlüsselung ruhender Daten bereitgestellt. Weitere Informationen finden Sie im Abschnitt [Daten schützen - durch providerseits verwaltete Verschlüsselung ruhender Daten](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Möglichkeiten bei Verwendung von LUKS
@@ -33,7 +34,7 @@ Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht ver
 ## Was LUKS nicht bietet
 
 - Bereitstellung unterschiedlicher Zugriffsschlüssel für dieselben Geräte in Anwendungen, in denen dies für viele Benutzer (mehr als acht) erforderlich ist
-- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist. Weitere Informationen finden Sie in der Veröffentlichung [RHEL Security Guide ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}. 
+- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist. Weitere Informationen finden Sie in der Veröffentlichung [RHEL Security Guide ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
 
 ## Mit LUKS verschlüsselten Datenträger mit Endurance für {{site.data.keyword.blockstorageshort}} konfigurieren
 

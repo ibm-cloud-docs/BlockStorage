@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,13 +13,17 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Atingindo a criptografia total de disco com LUKS no Red Hat Enterprise Linux
+{: #LUKSencryption}
 
 É possível criptografar partições no servidor Red Hat Enterprise Linux 6 com Linux Unified Key Setup-on-disk-format (LUKS), que é importante quando se trata de computadores móveis e de mídia removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
 que é usada para a criptografia em massa da partição.
 
-Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Para obter mais informações sobre como conectar o {{site.data.keyword.blockstorageshort}} a um host Linux, consulte [Conectando-se aos LUNs iSCSI MPIO no Linux](accessing_block_storage_linux.html).
+Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Para
+obter mais informações sobre como conectar o {{site.data.keyword.blockstorageshort}} a um host do Linux,
+consulte [Conectando-se aos LUNs do iSCSI
+em Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-O {site.data.keyword.blockstorageshort}} que é fornecido em [Selecionar data centers](new-ibm-block-and-file-storage-location-and-features.html) é fornecido automaticamente com criptografia em repouso gerenciada pelo provedor. Para obter mais informações, consulte [Protegendo seus dados: criptografia em repouso gerenciada pelo provedor](block-file-storage-encryption-rest.html).
+O {site.data.keyword.blockstorageshort}} que é fornecido em [Selecionar data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) é fornecido automaticamente com criptografia em repouso gerenciada pelo provedor. Para obter mais informações, consulte [Protegendo seus dados: criptografia em repouso gerenciada pelo provedor](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## O que o LUKS faz

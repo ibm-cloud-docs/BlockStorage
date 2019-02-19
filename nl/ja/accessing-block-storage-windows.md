@@ -2,20 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Microsoft Windows での iSCSI LUN への接続
+{: #mountingWindows}
 
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して許可されていることを確認してください。
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。 **「ホストの許可」**をクリックします。
 2. リストから、ボリュームにアクセスするホストを選択し、**「送信」**をクリックします。
+
+あるいは、SLCLI を使用してホストを許可できます。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 
@@ -68,10 +84,12 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 ### ターゲットのアクティブ化
 
 1. **「接続」**をクリックして、ターゲットに接続します。
-2. **「マルチパスを有効にする」**チェック・ボックスを選択して、ターゲットへのマルチパス IO を有効にします。
-![マルチパスを有効にする](/images/Connect_0.png)
+2. **「複数パスを有効にする」**チェック・ボックスを選択して、ターゲットへのマルチパス IO を有効にします。
+<br/>
+   ![複数パスを有効にする](/images/Connect_0.png)
 3. **「詳細設定」**をクリックし、**「CHAP ログオンを有効にする」**を選択します。
-![CHAP ログオンを有効にする](/images/chap_0.png)
+</br>
+   ![CHAP ログオンを有効にする](/images/chap_0.png)
 4. 「名前」フィールドにユーザー名を入力し、「ターゲット シークレット」フィールドにパスワードを入力します。
 
    「名前」および「ターゲット シークレット」フィールドの値は、「{{site.data.keyword.blockstorageshort}} 詳細」画面から取得できます。
@@ -99,8 +117,11 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 6. 「ターゲットへの接続」ダイアログ・ボックスで、**「複数パスを有効にする」**チェック・ボックスを選択します。 **「詳細設定」**をクリックします。
 7. 「詳細設定」ウィンドウで、以下のようにします。
    - 「ローカル アダプタ」リストで、「Microsoft iSCSI イニシエーター」を選択します。
-   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
-   - 「ターゲット ポータル IP」リストで、デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
+   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
+   - 「ターゲット ポータル IP」リストで、ストレージ・デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
+
+     2 番目の IP アドレスは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} の「{{site.data.keyword.blockstorageshort}}詳細」画面にあります。
+      {: tip}
    - **「CHAP ログオンを有効にする」**チェック・ボックスをクリックします。
    - ポータルから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
    - 「ターゲットへの接続」ウィンドウで**「OK」**をクリックして、「プロパティ」ウィンドウに戻ります。
@@ -119,6 +140,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 
 
 ## Windows オペレーティング・システムで MPIO が正しく構成されているかどうかの検証
+{: #verifyMPIOWindows}
 
 Windows MPIO が構成されているかどうかを検証するには、まず MPIO アドオンが使用可能であることを確認し、サーバーを再始動します。
 
@@ -130,6 +152,7 @@ Windows MPIO が構成されているかどうかを検証するには、まず 
 MPIO が正しく構成されていないと、ネットワーク障害が発生した場合や、{{site.data.keyword.BluSoftlayer_full}} チームが保守を実行するときに、ストレージ・デバイスが切断され、使用不可と表示されます。 MPIO では、そのようなイベントが発生しても追加の接続レベルが保証され、LUN への読み取り/書き込み操作がアクティブな状態で、確立済みセッションが保持されます。
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
+{: #unmounting}
 
 以下は、MPIO iSCSI LUN から Windows ベースの {{site.data.keyword.Bluemix_short}} コンピューティング・インスタンスを切断するために必要なステップです。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、OS ベンダーの資料に従って、ステップを調整してください。
 

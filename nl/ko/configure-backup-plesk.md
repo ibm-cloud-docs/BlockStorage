@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +12,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Plesk로 백업을 위한 {{site.data.keyword.blockstorageshort}} 구성
+{: #PleskBackups}
 
 이 지시사항을 사용하여 Plesk를 통해 백업하도록 {{site.data.keyword.blockstoragefull}}를 구성할 수 있습니다. root 또는 sudo SSH 및 전체 관리 레벨 Plesk 액세스가 사용 가능한 것으로 가정합니다. 해당 지시사항은 CentOS 7 호스트를 기반으로 합니다.
 

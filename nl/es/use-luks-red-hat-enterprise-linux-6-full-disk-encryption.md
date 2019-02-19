@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Cómo conseguir el cifrado de disco completo con LUKS en Red Hat Enterprise Linux
+{: #LUKSencryption}
 
 Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el formato denominado Linux Unified Key Setup-on-disk (LUKS), que es importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
 
-En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Para obtener más información sobre cómo conectar {{site.data.keyword.blockstorageshort}} a un host Linux, consulte [Conexión a LUN MPIO iSCSI en Linux](accessing_block_storage_linux.html).
+En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Para obtener más información sobre cómo conectar {{site.data.keyword.blockstorageshort}} a un host Linux, consulte [Conexión a LUN iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{site.data.keyword.blockstorageshort}} que se suministra en [determinados centros de datos](new-ibm-block-and-file-storage-location-and-features.html) se suministra automáticamente con cifrado en reposo gestionado por el proveedor. Para obtener más información, consulte [Protección de los datos: cifrado en reposo gestionado por el proveedor](block-file-storage-encryption-rest.html).
+{site.data.keyword.blockstorageshort}} que se suministra en [determinados centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) se suministra automáticamente con cifrado en reposo gestionado por el proveedor. Para obtener más información, consulte [Protección de los datos: cifrado en reposo gestionado por el proveedor](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Qué hace LUKS

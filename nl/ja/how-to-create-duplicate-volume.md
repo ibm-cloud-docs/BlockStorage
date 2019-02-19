@@ -1,20 +1,23 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # 複製ブロック・ボリュームの作成
+{: #duplicatevolume}
 
 既存の {{site.data.keyword.blockstoragefull}} の複製を作成できます。 複製ボリュームは元のボリュームの容量とパフォーマンスのオプションをデフォルトで継承し、スナップショットの時点までのデータの複製を保管します。   
 
-複製は特定時点のスナップショットのデータに基づいているため、複製を作成するには、元のボリュームにスナップショット・スペースが必要です。 スナップショットの詳細、およびスナップショット・スペースの注文方法については、[スナップショット](snapshots.html)の説明を参照してください。  
+複製は特定時点のスナップショットのデータに基づいているため、複製を作成するには、元のボリュームにスナップショット・スペースが必要です。 スナップショットの詳細、およびスナップショット・スペースの注文方法については、[スナップショット](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)の説明を参照してください。  
 
 複製は、**1 次**ボリュームからでも**レプリカ**・ボリュームからでも作成できます。 新規の複製は元のボリュームと同じデータ・センターに作成されます。 レプリカ・ボリュームから複製を作成すると、レプリカ・ボリュームと同じデータ・センターに新規ボリュームが作成されます。
 
@@ -22,9 +25,9 @@ lastupdated: "2018-11-30"
 
 データ・コピーが完了すると、複製は、完全に独立したボリュームとして管理したり使用したりできるようになります。
 
-この機能は、ほとんどのロケーションで使用できます。 使用可能なデータ・センターのリストについては、[ここ](new-ibm-block-and-file-storage-location-and-features.html)をクリックしてください。
+この機能は、ほとんどのロケーションで使用できます。 使用可能なデータ・センターのリストについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)をクリックしてください。
 
-{{site.data.keyword.containerlong}} の「専用」アカウント・ユーザーである場合は、[{{site.data.keyword.containerlong_notm}} 資料](/docs/containers/cs_storage_file.html#backup_restore)にある、ボリュームを複製するためのオプションを参照してください。
+{{site.data.keyword.containerlong}} の「専用」アカウント・ユーザーである場合は、[{{site.data.keyword.containerlong_notm}} 資料](/docs/containers?topic=containers-backup_restore#backup_restore)にある、ボリュームを複製するためのオプションを参照してください。
 {:tip}
 
 複製ボリュームの一般的な使用例を以下に示します。
@@ -61,8 +64,6 @@ lastupdated: "2018-11-30"
 7. 新規ボリュームのスナップショット・スペースを更新して、スナップショット・スペースを追加、縮小、またはスナップショット・スペースなしにすることができます。 元のボリュームのスナップショット・スペースが、デフォルトで設定されています。
 8. **「続行」**をクリックして、注文します。
 
-
-
 ## 特定スナップショットからの複製の作成
 
 1. {{site.data.keyword.blockstorageshort}}のリストに進みます。
@@ -80,6 +81,61 @@ lastupdated: "2018-11-30"
 8. **「続行」**をクリックして、複製を注文します。
 
 
+## SLCLI を使用した複製の作成
+SLCLI の次のコマンドを使用すると、{{site.data.keyword.blockstorageshort}}・ボリュームの複製を作成できます。
+
+```
+# slcli block volume-duplicate --help
+Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
+
+Options:
+  -o, --origin-snapshot-id INTEGER
+                                  ID of an origin volume snapshot to use for
+                                  duplcation.
+  -c, --duplicate-size INTEGER    Size of duplicate block volume in GB. ***If
+                                  no size is specified, the size of the origin
+                                  volume will be used.***
+                                  Potential Sizes:
+                                  [20, 40, 80, 100, 250, 500, 1000, 2000,
+                                  4000, 8000, 12000] Minimum: [the size of the
+                                  origin volume]
+  -i, --duplicate-iops INTEGER    Performance Storage IOPS, between 100 and
+                                  6000 in multiples of 100 [only used for
+                                  performance volumes] ***If no IOPS value is
+                                  specified, the IOPS value of the origin
+                                  volume will be used.***
+                                  Requirements: [If
+                                  IOPS/GB for the origin volume is less than
+                                  0.3, IOPS/GB for the duplicate must also be
+                                  less than 0.3. If IOPS/GB for the origin
+                                  volume is greater than or equal to 0.3,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than or equal to 0.3.]
+  -t, --duplicate-tier [0.25|2|4|10]
+                                  Endurance Storage Tier (IOPS per GB) [only
+                                  used for endurance volumes] ***If no tier is
+                                  specified, the tier of the origin volume
+                                  will be used.***
+                                  Requirements: [If IOPS/GB
+                                  for the origin volume is 0.25, IOPS/GB for
+                                  the duplicate must also be 0.25. If IOPS/GB
+                                  for the origin volume is greater than 0.25,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than 0.25.]
+  -s, --duplicate-snapshot-size INTEGER
+                                  The size of snapshot space to order for the
+                                  duplicate. ***If no snapshot space size is
+                                  specified, the snapshot space size of the
+                                  origin block volume will be used.***
+                                  Input
+                                  "0" for this parameter to order a duplicate
+                                  volume with no snapshot space.
+  --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                  to monthly)
+  -h, --help                      Show this message and exit.
+```
+{:codeblock}
+
 ## 複製ボリュームの管理
 
-元のボリュームから複製ボリュームにデータが複製されている間、複製が進行中であることを示す状況が詳細ページに表示されます。 この間、ホストに接続してボリュームへの読み取りと書き込みを行うことはできますが、スナップショット・スケジュールを作成することはできません。複製処理が完了すると、新規ボリュームは元のボリュームから独立し、スナップショットとレプリケーションを使用して通常どおりに管理できます。
+元のボリュームから複製ボリュームにデータが複製されている間、複製が進行中であることを示す状況が詳細ページに表示されます。 この間、ホストに接続してボリュームへの読み取りと書き込みを行うことはできますが、スナップショット・スケジュールを作成することはできません。 複製処理が完了すると、新規ボリュームは元のボリュームから独立し、スナップショットとレプリケーションを使用して通常どおりに管理できます。

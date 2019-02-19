@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Conectando-se a LUNs iSCSI no Linux
+{: #mountingLinux}
 
 Essas instruções são principalmente para o RHEL6 e o Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho.
 {:note}
@@ -27,6 +27,20 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume {{sit
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
 2. Clique em **Autorizar host**.
 3. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
+
+Como alternativa, é possível autorizar o host por meio do SLCLI.
+```
+# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
 
@@ -177,7 +191,7 @@ O IQN do host, o nome do usuário, a senha e o endereço de destino que são ref
 
    Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
    {:important}
-   
+
    Usuários do Ubuntu: enquanto vocês estão consultando o arquivo `iscsid.conf`,
 verifiquem se a configuração `node.startup` é manual ou automática. Se ela
 for manual, mudem-na para automática.
@@ -268,11 +282,10 @@ for manual, mudem-na para automática.
 
 ## Criando um sistema de arquivos (opcional)
 
-Siga essas etapas para criar um sistema de arquivos no volume recém-montado. Um sistema de arquivos é necessário para que a maioria dos aplicativos use o volume. Use [`fdisk` para unidades
-que têm menos de 2 TB])(#creating-a-file-system-with-fdisk-) e [`parted` para um disco com mais de
-2 TB](#creating-a-file-system-with-parted-).
+Siga essas etapas para criar um sistema de arquivos no volume recém-montado. Um sistema de arquivos é necessário para que a maioria dos aplicativos use o volume. Use [`fdisk` para unidades com menos de 2 TB](#fdisk) e [`parted` para um disco com mais de 2 TB](#parted).
 
 ### Criando um sistema de arquivos com `fdisk`
+{: #fdisk}
 
 1. Obtenha o nome do disco.
    ```
@@ -392,6 +405,7 @@ que têm menos de 2 TB])(#creating-a-file-system-with-fdisk-) e [`parted` para u
   (`**`) Digite L para listar os códigos hexadecimais
 
 ### Criando um sistema de arquivos com `parted`
+{: #parted}
 
 Em muitas distribuições Linux, `parted` vem pré-instalado. Se não estiver incluído em sua distribuição, será possível instalá-lo com:
 - Debian e Ubuntu
@@ -499,6 +513,7 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
 
 
 ## Verificando a configuração do MPIO
+{: #verifyMPIOLinux}
 
 1. Para verificar se os caminhos múltiplos estão detectando os dispositivos, liste os dispositivos. Se ele estiver configurado corretamente, apenas dois dispositivos NETAPP serão mostrados.
 
@@ -559,6 +574,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## Desmontando volumes  {{site.data.keyword.blockstorageshort}}
+{: #unmounting}
 
 1. Desmonte o sistema de arquivos.
    ```

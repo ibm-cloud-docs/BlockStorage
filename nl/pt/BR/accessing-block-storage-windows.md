@@ -2,20 +2,35 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Conectando-se a LUNs iSCSI no Microsoft Windows
+{: #mountingWindows}
 
 Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**. Clique em **Autorizar host**.
 2. Na lista, selecione o host ou os hosts que devem acessar o volume e clique em **Enviar**.
+
+Como alternativa, é possível autorizar o host por meio do SLCLI.
+```
+# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## Montando  {{site.data.keyword.blockstorageshort}}  Volumes
 
@@ -72,9 +87,11 @@ iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
 1. Clique em **Conectar** para conectar-se ao destino.
 2. Marque a caixa de seleção **Ativar caminhos múltiplos** para ativar a E/S de caminhos múltiplos para o destino.
-![Ativar caminhos múltiplos](/images/Connect_0.png)
+<br/>
+   ![Ativar caminhos múltiplos](/images/Connect_0.png)
 3. Clique em **Avançado** e selecione **Ativar logon do CHAP**.
-![Ativar o CHAP](/images/chap_0.png)
+</br>
+   ![Ativar o CHAP](/images/chap_0.png)
 4. Insira o nome do usuário no campo Nome e insira a senha no campo Segredo de destino.
 
    Os valores de campo Nome e Segredo de destino podem ser obtidos por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}.
@@ -104,9 +121,14 @@ sessão** novamente para incluir o segundo caminho.
 6. Na janela Conectar ao destino, selecione a caixa de opção **Ativar caminhos múltiplos**. Clique em **Avançado**.
 7. Na janela Configurações avançadas,
    - Na lista Adaptador local, selecione Inicializador iSCSI da Microsoft.
-   - Na lista IP do inicializador, selecione o endereço IP correspondente ao host. Nesse caso, você está
-conectando duas interfaces de rede no dispositivo a uma interface de rede única no host. Portanto, essa interface é a mesma que foi fornecida para a primeira sessão.
-   - Na lista IP do portal de destino, selecione o endereço IP para a segunda interface de dados que está ativada no dispositivo.
+   - Na lista IP do inicializador, selecione o endereço IP correspondente ao host. Nesse caso, você está conectando duas
+interfaces de rede no dispositivo de armazenamento a uma única interface de rede no host. Portanto, essa interface é a mesma que foi fornecida para a primeira sessão.
+   - Na lista IP do portal de destino, selecione o endereço IP para a segunda interface de dados que é permitida no dispositivo de armazenamento.
+
+     É possível localizar o segundo endereço IP na tela Detalhes do {{site.data.keyword.blockstorageshort}}
+no [{{site.data.keyword.slportal}}
+![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+      {: tip}
    - Clique na caixa de seleção **Ativar logon do CHAP**
    - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
    - Clique em **OK** na janela Conectar-se ao destino para voltar para a janela
@@ -128,6 +150,7 @@ configurar outra conexão com o endereço IP do outro NIC no campo IP do inicial
 
 
 ## Verificando se o MPIO está configurado corretamente em sistemas operacionais Windows
+{: #verifyMPIOWindows}
 
 Para verificar se o MPIO do Windows está configurado, deve-se primeiro assegurar que o Complemento MPIO esteja ativado e reiniciar o servidor.
 
@@ -140,6 +163,7 @@ dispositivo de destino** e clique em **MPIO**:
 Se o MPIO não foi configurado corretamente, o dispositivo de armazenamento poderá ser desconectado e aparecer desativado quando ocorrer uma indisponibilidade de rede ou quando as equipes do {{site.data.keyword.BluSoftlayer_full}} executarem a manutenção. O MPIO assegura um nível extra de conectividade durante esses eventos e mantém uma sessão estabelecida com operações de leitura/gravação ativas indo para o LUN.
 
 ## Desmontando volumes  {{site.data.keyword.blockstorageshort}}
+{: #unmounting}
 
 A seguir estão as etapas necessárias para desconectar uma instância de cálculo do {{site.data.keyword.Bluemix_short}} baseada no Windows de um LUN do iSCSI de MPIO. O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do S.O.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,8 +11,20 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Gestione dei limiti di archiviazione
+{: #managingstoragelimits}
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 {{site.data.keyword.blockstorageshort}} volumi globalmente.
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}} a livello globale.
+
+Se non sei sicuro di quanti volumi disponi, puoi elencare i tuoi volumi per ciascun data center utilizzando il seguente comando `slcli`.
+```
+# slcli block volume-count --help
+Usage: slcli block volume-count [OPTIONS]
+
+Options:
+  -d, --datacenter TEXT  Datacenter shortname
+  --sortby TEXT          Column to sort by
+  -h, --help             Show this message and exit.
+```
 
 Puoi richiedere un aumento del limite inoltrando un ticket nel [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}. Una volta approvata la richiesta, ottieni un limite di volumi impostato per uno specifico data center.  
 

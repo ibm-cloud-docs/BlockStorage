@@ -2,20 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-14"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Connecting to iSCSI LUNS on Microsoft Windows
+{: #mountingWindows}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**. Click **Authorize Host**.
 2. From the list, select the host or hosts that are to access the volume and click **Submit**.
+
+Alternatively, you can authorize the host through the SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 
@@ -123,6 +139,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
 
 ## Verifying whether MPIO is configured correctly in Windows Operating systems
+{: #verifyMPIOWindows}
 
 To verify whether Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and restart the server.
 
@@ -134,6 +151,7 @@ When the restart is complete and the Storage Device is added, you can verify whe
 If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.BluSoftlayer_full}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active read/write operations going to the LUN.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
+{: #unmounting}
 
 Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the OS vendor documentation.
 

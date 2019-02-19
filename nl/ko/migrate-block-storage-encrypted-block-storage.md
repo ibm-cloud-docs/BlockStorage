@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # 기존 {{site.data.keyword.blockstorageshort}}을 개선된 {{site.data.keyword.blockstorageshort}}로 업그레이드
+{: #migratestorage}
 
-개선된 {{site.data.keyword.blockstoragefull}}는 이제 데이터 센터 선택에서 사용할 수 있습니다. 업그레이드된 데이터 센터 및 사용 가능한 기능(예: 조정 가능한 IOPS 속도 및 확장 가능한 볼륨) 목록을 보려면 [여기](new-ibm-block-and-file-storage-location-and-features.html)를 클릭하십시오. 제공자 관리 암호화된 스토리지에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 저장 시 암호화](block-file-storage-encryption-rest.html)를 참조하십시오.
+개선된 {{site.data.keyword.blockstoragefull}}는 이제 데이터 센터 선택에서 사용할 수 있습니다. 업그레이드된 데이터 센터 및 사용 가능한 기능(예: 조정 가능한 IOPS 속도 및 확장 가능한 볼륨) 목록을 보려면 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)를 클릭하십시오. 제공자 관리 암호화된 스토리지에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 저장 시 암호화](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)를 참조하십시오.
 
 선호하는 마이그레이션 경로는 두 LUN 모두에 동시 연결되고 임의의 LUN에서 다른 LUN으로 데이터를 직접 전송합니다. 스펙은 운영 체제 및 데이터가 복사 오퍼레이션 중에 변경되는지 여부에 따라 다릅니다.
 
 이 경우, 이미 호스트에 암호화되지 않은 LUN을 연결했다고 가정합니다. 그렇지 않으면, 이 태스크를 완료하기 위해 운영 체제에 가장 적합한 지시사항에 따라 수행하십시오.
 
-- [Linux에서 iSCSI LUN에 연결](accessing_block_storage_linux.html)
-- [CloudLinux에서 iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows에서 iSCSI LUNS 연결](accessing-block-storage-windows.html)
+- [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 이러한 데이터 센터에서 프로비저닝된 모든 개선된 {{site.data.keyword.blockstorageshort}} 볼륨에는 암호화되지 않은 볼륨과는 다른 마운트 지점이 있습니다. 두 스토리지 볼륨에 올바른 마운트 지점을 사용 중임을 확인하기 위해 콘솔의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 볼 수 있습니다. 또한 API 호출(`SoftLayer_Network_Storage::getNetworkMountAddress()`)을 통해 올바른 마운트 지점에 액세스할 수도 있습니다.
 {:tip}
@@ -32,10 +33,10 @@ API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 �
 
 IBM Cloud 콘솔 및 {{site.data.keyword.slportal}}을 통해 향상된 LUN을 주문할 수 있습니다. 새 LUN은 마이그레이션을 수행하기 위해 원본 볼륨 크기 이상이어야 합니다.
 
-- 사전 정의된 IOPS 티어(Endurance)가 있는 [{{site.data.keyword.blockstorageshort}} 주문](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [사용자 정의 IOPS(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [사전 정의된 IOPS 티어(Endurance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [사용자 정의 IOPS(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
-몇 분 내에 새 스토리지가 마운트할 수 있게 제공됩니다. 리소스 목록과 {{site.data.keyword.blockstorageshort}} 목록에서 새 스토리지를 볼 수 있습니다. 
+몇 분 내에 새 스토리지가 마운트할 수 있게 제공됩니다. 리소스 목록과 {{site.data.keyword.blockstorageshort}} 목록에서 새 스토리지를 볼 수 있습니다.
 
 ## 호스트에 새 {{site.data.keyword.blockstorageshort}} 연결
 
@@ -62,8 +63,8 @@ IBM Cloud 콘솔 및 {{site.data.keyword.slportal}}을 통해 향상된 LUN을 �
 
 2. 원본 {{site.data.keyword.blockstorageshort}} LUN에 있는 데이터 유형 및 새 LUN에 복사하기 위한 최선의 방법을 고려하십시오.
   - 백업, 정적 컨텐츠, 기타 항목이 복사 중에 변경될 것으로 예상하지 않는 경우, 특별히 고려해야 할 사항은 없습니다.
-  - {{site.data.keyword.blockstorageshort}}에서 데이터베이스 또는 가상 머신을 실행 중인 경우, 데이터 손상이 발생하지 않도록 데이터가 복사 중에 수정되지 않도록 하십시오. 
-  - 대역폭 관련 문제가 있는 경우, 최대 활동 시간이 아닌 시간에 마이그레이션을 수행하십시오. 
+  - {{site.data.keyword.blockstorageshort}}에서 데이터베이스 또는 가상 머신을 실행 중인 경우, 데이터 손상이 발생하지 않도록 데이터가 복사 중에 수정되지 않도록 하십시오.
+  - 대역폭 관련 문제가 있는 경우, 최대 활동 시간이 아닌 시간에 마이그레이션을 수행하십시오.
   - 이러한 고려사항에 관련된 도움이 필요한 경우에는 지원 케이스를 여십시오.
 
 3. 데이터를 복사하십시오.

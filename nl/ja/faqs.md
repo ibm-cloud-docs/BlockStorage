@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
+{: #faqs}
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームを共有できるインスタンスの数はいくつですか?
 {: faq}
@@ -18,7 +19,7 @@ lastupdated: "2018-11-30"
 ## 注文できるボリュームの数はいくつですか?
 {: faq}
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](managing-storage-limits.html)を参照してください。
+デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
 
 ## ホストにマウントできる {{site.data.keyword.blockstorageshort}} ボリュームの数はいくつですか?
 {: faq}
@@ -37,7 +38,7 @@ LUN を作成するときに、OS タイプを指定する必要があります�
 - LUN は、マスター・ブート・レコード (MBR、Master Boot Record) パーティショニング・スタイルを使用して、単一パーティションの Windows ディスクにロー・ディスク・タイプを保管します。 このオプションは、ホスト・オペレーティング・システムが、MBR パーティショニング方式を使用する Windows 2000 Server、Windows Server XP、または Windows Server 2003 である場合にのみ使用します。
 
 **Windows GPT**
--  LUN は、GUID パーティション・タイプ (GPT、GUID Partition Type) パーティショニング・スタイルを使用して、Windows データを保管します。 このオプションは、GPT パーティショニング方式を使用しようとしていて、ホストでその方式の使用が可能な場合に使用します。Windows Server 2003 (Service Pack 1 以降) では GPT パーティショニング方式を使用でき、64 ビット版のすべての Windows はこの方式をサポートしています。
+-  LUN は、GUID パーティション・タイプ (GPT、GUID Partition Type) パーティショニング・スタイルを使用して、Windows データを保管します。 このオプションは、GPT パーティショニング方式を使用しようとしていて、ホストでその方式の使用が可能な場合に使用します。 Windows Server 2003 (Service Pack 1 以降) では GPT パーティショニング方式を使用でき、64 ビット版のすべての Windows はこの方式をサポートしています。
 
 ## 割り振られる IOPS の制限はインスタンスとボリュームのいずれに従って適用されますか?
 {: faq}
@@ -81,7 +82,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## エンデュランス 10 IOPS/GB 層の {{site.data.keyword.blockstorageshort}} を注文できるデータ・センターと、できないデータ・センターがあるのはなぜですか?
 {: faq}
 
-エンデュランス・タイプの 10 IOPS/GB 層 {{site.data.keyword.blockstorageshort}} は、限定されたデータ・センターのみで使用可能ですが、使用可能な新しいデータ・センターが徐々に追加されています。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](new-ibm-block-and-file-storage-location-and-features.html)で見つけることができます。
+エンデュランス・タイプの 10 IOPS/GB 層 {{site.data.keyword.blockstorageshort}} は、限定されたデータ・センターのみで使用可能ですが、使用可能な新しいデータ・センターが徐々に追加されています。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)で見つけることができます。
 
 ## どの {{site.data.keyword.blockstorageshort}} ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
@@ -91,7 +92,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} を注文すると、アップグレードされたデータ・センターはすべて、注文フォームにアスタリスク (`*`) が表示されるほか、暗号化機能を備えたストレージをプロビジョンしようとしていることが示されます。 ストレージがプロビジョンされると、ストレージ・リストに、そのストレージが暗号化されていることを示すアイコンが表示されます。 暗号化された LUN はすべて、アップグレードされたデータ・センターでのみプロビジョンされます。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](new-ibm-block-and-file-storage-location-and-features.html)で見つけることができます。
+{{site.data.keyword.blockstorageshort}} を注文すると、アップグレードされたデータ・センターはすべて、注文フォームにアスタリスク (`*`) が表示されるほか、暗号化機能を備えたストレージをプロビジョンしようとしていることが示されます。 ストレージがプロビジョンされると、ストレージ・リストに、そのストレージが暗号化されていることを示すアイコンが表示されます。 暗号化された LUN はすべて、アップグレードされたデータ・センターでのみプロビジョンされます。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)で見つけることができます。
 
 ## 最近アップグレードされたデータ・センターに暗号化されていない {{site.data.keyword.blockstorageshort}} を所有している場合は、その {{site.data.keyword.blockstorageshort}} を暗号化できますか?
 {: faq}

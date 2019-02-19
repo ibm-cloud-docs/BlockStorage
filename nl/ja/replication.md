@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # データのレプリケーション
+{: #replication}
 
 レプリケーションでは、いずれかのスナップショット・スケジュールを使用して、スナップショットが自動的にリモート・データ・センター内の宛先ボリュームにコピーされます。 壊滅的なイベントが発生した場合やデータが破損した場合、コピーをリモート・サイトでリカバリーすることができます。
 
-レプリケーションによって、データは 2 つの異なる場所で同期されます。 使用しているボリュームを複製したものを元のボリュームとは独立して使用する場合は、[複製ブロック・ボリュームの作成](how-to-create-duplicate-volume.html)を参照してください。
+レプリケーションによって、データは 2 つの異なる場所で同期されます。 使用しているボリュームを複製したものを元のボリュームとは独立して使用する場合は、[複製ブロック・ボリュームの作成](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)を参照してください。
 {:tip}
 
 レプリケーションを行うには、事前に、まずスナップショット・スケジュールを作成しておく必要があります。
@@ -110,13 +111,14 @@ lastupdated: "2019-01-08"
 1. ストレージ・ボリュームをクリックします。
 2. **「レプリカ」**をクリックし、**「レプリケーションの購入 (Purchase a replication)」**をクリックします。
 3. レプリケーションに使用する既存のスナップショット・スケジュールを選択します。 リストに、アクティブなすべてのスナップショット・スケジュールが示されます。 <br />
-   時間単位、日単位、および週単位が混在する場合でも、選択できるスケジュールは 1 つだけです。 前回のレプリケーション・サイクル以降に収集されたすべてのスナップショットが、それらを生成したスケジュールに関係なく複製されます。<br />スナップショットのセットアップが済んでいない場合は、レプリケーションを注文する前にセットアップを行うよう、プロンプトが表示されます。 詳しくは、[スナップショットの処理](snapshots.html)を参照してください。
+   時間単位、日単位、および週単位が混在する場合でも、選択できるスケジュールは 1 つだけです。 前回のレプリケーション・サイクル以降に収集されたすべてのスナップショットが、それらを生成したスケジュールに関係なく複製されます。<br />スナップショットのセットアップが済んでいない場合は、レプリケーションを注文する前にセットアップを行うよう、プロンプトが表示されます。 詳しくは、[スナップショットの処理](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)を参照してください。
    {:important}
 3. **「ロケーション」**をクリックして、DR サイトであるデータ・センターを選択します。
 4. **「続行」**をクリックします。
 5. **プロモーション・コード**を入力して (ある場合)、**「再計算」**をクリックします。 ウィンドウのその他のフィールドは、デフォルトで入力されています。
 
-   注文の処理時に割引が適用されます。{:note}
+   注文の処理時に割引が適用されます。
+   {:note}
 6. **「マスター・サービス契約を読み... (I have read the Master Service Agreement…)」**チェック・ボックスをクリックして、**「注文する (Place Order)」**をクリックします。
 
 
@@ -164,7 +166,7 @@ lastupdated: "2019-01-08"
 
 プライマリーとレプリカのストレージ・ボリュームで、ボリューム・サイズが同じであることが必要です。 一方をもう一方より大きくすることはできません。 プライマリー・ボリュームのスナップショット・スペースを増やすと、レプリカ・スペースも自動的に増えます。 スナップショット・スペースを増やすと、レプリケーションの即時更新がトリガーされます。 両方のボリュームの増加は、請求書に行項目として表示され、必要に応じて日割り計算されます。
 
-スナップショット・スペースの増加について詳しくは、[スナップショットの注文](ordering-snapshots.html)を参照してください。
+スナップショット・スペースの増加について詳しくは、[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)を参照してください。
 {:tip}
 
 
@@ -187,14 +189,14 @@ lastupdated: "2019-01-08"
 
 ストレージがプロビジョンされるとすぐに、ホストは複製ボリュームにアクセスして、読み取り/書き込みを行うことができます。 ただし、元のボリュームから複製へのデータ・コピーが完了するまで、スナップショットおよびレプリケーションは許可されません。
 
-詳しくは、[複製ブロック・ボリュームの作成](how-to-create-duplicate-volume.html)を参照してください。
+詳しくは、[複製ブロック・ボリュームの作成](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)を参照してください。
 
 ## 災害発生時にフェイルオーバーするためのレプリカの使用
 
 フェイルオーバーすると、プライマリー・データ・センター内のストレージ・ボリュームからリモート・データ・センター内の宛先ボリュームへの「反転切り替え」が行われます。 例えば、プライマリー・データ・センターがロンドンにあり、2 次データ・センターがアムステルダムにあるとします。 障害が発生した場合は、アムステルダムにフェイルオーバーします。つまり、アムステルダムにあるコンピューティング・インスタンスの新しいプライマリー・ボリュームに接続することになります。 ロンドンのボリュームが修復された後は、ロンドンにフェイルバックするためにアムステルダムのボリュームのスナップショットが作成され、ロンドンのコンピューティング・インスタンスに含まれる再びプライマリーになったボリュームに接続します。
 
-* 1 次ロケーションに危険が差し迫っているか、大きな影響を受けた場合は、[アクセス可能 1 次ボリュームを使用したフェイルオーバー](dr-accessible-primary.html)を参照してください。
-* 1 次ロケーションがダウンしている場合は、[アクセス不能 1 次ボリュームを使用したフェイルオーバー](disaster-recovery.html)を参照してください。
+* 1 次ロケーションに危険が差し迫っているか、大きな影響を受けた場合は、[アクセス可能 1 次ボリュームを使用したフェイルオーバー](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible)を参照してください。
+* 1 次ロケーションがダウンしている場合は、[アクセス不能 1 次ボリュームを使用したフェイルオーバー](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible)を参照してください。
 
 
 ## 既存のレプリケーションのキャンセル
@@ -216,3 +218,72 @@ lastupdated: "2019-01-08"
  2. **「アクション」**をクリックして、**「 {{site.data.keyword.blockstorageshort}}のキャンセル」**を選択します。
  3. キャンセルするタイミングを選択します。 **「即時」**または**「請求料金の確定日」**を選択し、**「続行」**をクリックします。
  4. **「私は、キャンセルによりデータ損失が生じる可能性があることを了解します」**をクリックして、**「キャンセル」**をクリックします。
+
+## SLCLI のレプリケーション関連コマンド
+{: #clicommands}
+
+* 指定されたボリュームに適したレプリケーション・データ・センターをリストします。
+  ```
+  # slcli block replica-locations --help
+  Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
+  -h, --help      Show this message and exit.
+  ```
+
+* Block Storage レプリカ・ボリュームを注文します。
+  ```
+  # slcli block replica-order --help
+  Usage: slcli block replica-order [OPTIONS] VOLUME_ID
+
+  Options:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  Snapshot schedule to use for replication,
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [required]
+  -l, --location TEXT             Short name of the data center for the
+                                  replicant (e.g.: dal09)  [required]
+  --tier [0.25|2|4|10]            Endurance Storage Tier (IOPS per GB) of the
+                                  primary volume for which a replicant is
+                                  ordered [optional]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  Operating System Type (e.g.: LINUX) of the
+                                  primary volume for which a replica is
+                                  ordered [optional]
+  -h, --help                      Show this message and exit.
+  ```
+
+* ブロック・ボリュームの既存レプリカ・ボリュームをリストします。
+  ```
+  # slcli block replica-partners --help
+  Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Username, Account ID,
+                  Capacity (GB), Hardware ID, Guest ID, Host ID
+  -h, --help      Show this message and exit.
+  ```
+
+* ブロック・ボリュームを特定のレプリカ・ボリュームにフェイルオーバーします。
+  ```
+  # slcli block replica-failover --help
+  Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  --immediate          Failover to replicant immediately.
+  -h, --help           Show this message and exit.
+  ```
+
+* ブロック・ボリュームを特定のレプリカ・ボリュームからフェイルオーバーします。
+  ```
+  # slcli block replica-failback --help
+  Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  -h, --help           Show this message and exit.
+  ```

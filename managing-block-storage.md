@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Managing {{site.data.keyword.blockstorageshort}}
+{: #managingstorage}
 
 You can manage your {{site.data.keyword.blockstoragefull}} volumes through [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
@@ -20,6 +21,15 @@ You can view a summary the key information for the selected storage LUN includin
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate LUN Name from the list.
+
+Alternatively, you can use the following command in SL CLI.
+```
+# slcli block volume-detail --help
+Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
 
 ## Authorizing hosts to access to {{site.data.keyword.blockstorageshort}}
 
@@ -32,7 +42,19 @@ You can authorize and connect hosts that are located in the same data center as 
 2. Scroll to the **Authorized Hosts** section of the page.
 3. On the right, click **Authorize Host**. Select the hosts that can access that particular LUN.
 
+Alternatively, you can use the following command in SL CLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN
 
@@ -41,7 +63,18 @@ You can authorize and connect hosts that are located in the same data center as 
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – user name, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
+Alternatively, you can use the following command in SL CLI.
+```
+# slcli block access-list --help
+Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      Show this message and exit.
+```
 
 ## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized
 
@@ -52,17 +85,15 @@ You can view the LUNs to which a host has access to, including information that 
 
 You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
 
-
-
 ## Mounting and unmounting {{site.data.keyword.blockstorageshort}}
 
 Based on the Operating System of your host, follow the appropriate instructions.
 
-- [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuring Block Storage for backup with cPanel](configure-backup-cpanel.html)
-- [Configuring Block Storage for backup with Plesk](configure-backup-plesk.html)
+- [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting to LUNs on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connecting to LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configuring Block Storage for backup with cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configuring Block Storage for backup with Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## Revoking a host's access to {{site.data.keyword.blockstorageshort}}
@@ -95,7 +126,23 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 If you want to disconnect multiple hosts from a specific LUN, you need to repeat the Revoke Access action for each host.
 {:tip}
 
+### Revoking access through the SL CLI.
 
+Alternatively, you can use the following command in SL CLI.
+```
+# slcli block access-revoke --help
+Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
+                            authorization
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
+                            authorization
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to revoke authorization
+  --ip-address TEXT         An IP address to revoke authorization
+  --help                    Show this message and exit.
+```
 
 ## Canceling a storage LUN
 
@@ -112,3 +159,15 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
    {:tip}
 4. Click **Continue** or **Close**.
 5. Click the **Acknowledgment** check box and click **Confirm**.
+
+Alternatively, you can use the following command in SL CLI.
+```
+# slcli block volume-cancel --help
+Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+Options:
+  --reason TEXT  An optional reason for cancellation
+  --immediate    Cancels the block storage volume immediately instead of on
+                 the billing anniversary
+  -h, --help     Show this message and exit.
+```

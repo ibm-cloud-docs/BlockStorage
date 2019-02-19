@@ -1,13 +1,14 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 
 # ホスト・キュー項目数の設定の調整
+{: #hostqueuesettings}
 
 {{site.data.keyword.BluSoftlayer_full}} では、パフォーマンス層ごとに最大ホストおよびアプリケーション入出力 (I/O) キュー項目数を示しています。
 

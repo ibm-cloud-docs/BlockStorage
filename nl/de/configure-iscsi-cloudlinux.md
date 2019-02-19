@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Verbindung zu iSCSI-LUNs unter CloudLinux herstellen
+{: #mountingCloudLinux}
 
 Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 zu installieren.
 
@@ -24,6 +24,21 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 3. Klicken Sie auf **Host autorisieren**.
 4. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
 5. Notieren Sie Host-IQN, Benutzername, Kennwort und Zieladresse.
+
+Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen. 
+```
+# slcli block access-authorize --help
+Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
+
+Optionen:
+  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
+  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
+  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
+                            zur Berechtigung
+  --ip-address TEXT         IP-Adresse zur Berechtigung
+  --help                    Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
 {:important}

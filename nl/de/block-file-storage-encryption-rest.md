@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # Vom Provider verwaltete Verschlüsselung ruhender Daten
+{: #encryption}
 
 ## {{site.data.keyword.blockstorageshort}} - Verschlüsselung ruhender Daten
 
@@ -28,7 +29,7 @@ Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.blo
 
 ## Speicher mit Verschlüsselung bereitstellen
 
-Die anbietergesteuerte ruhende Verschlüsselungsfunktion ist für {{site.data.keyword.blockstorageshort}}-Instanzen verfügbar, die in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt werden. Der gesamte in diesen Rechenzentren bestellte Speicher wird automatisch mit Verschlüsselung für ruhende Daten bereitgestellt.
+Die anbietergesteuerte ruhende Verschlüsselungsfunktion ist für {{site.data.keyword.blockstorageshort}}-Instanzen verfügbar, die in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt werden. Der gesamte in diesen Rechenzentren bestellte Speicher wird automatisch mit Verschlüsselung für ruhende Daten bereitgestellt.
 
 Wählen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} ein Rechenzentrum aus, das mit einem Stern (`*`) markiert ist. Rechts neben dem Feld mit der LUN bzw. dem Datenträgernamen wird ein Sperrsymbol für die Verschlüsselung des Datenträgers angezeigt.
 
@@ -37,5 +38,5 @@ Wählen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} ein R
 
 
 
-Nicht verschlüsselter Speicher, der vor dem Upgrade des Rechenzentrums bereitgestellt wurde, **wird nicht** automatisch verschlüsselt. Wenn Sie in einem Rechenzentrum nach einem Upgrade über nicht verschlüsselten Speicher verfügen und den Speicher verschlüsseln möchten, müssen Sie einen neuen Datenträger erstellen und eine Datenmigration durchführen. Weitere Informationen finden Sie im Abschnitt [{{site.data.keyword.blockstorageshort}}-Migration in Rechenzentren nach Upgrades](migrate-block-storage-encrypted-block-storage.html).
+Nicht verschlüsselter Speicher, der vor dem Upgrade des Rechenzentrums bereitgestellt wurde, **wird nicht** automatisch verschlüsselt. Wenn Sie in einem Rechenzentrum nach einem Upgrade über nicht verschlüsselten Speicher verfügen und den Speicher verschlüsseln möchten, müssen Sie einen neuen Datenträger erstellen und eine Datenmigration durchführen. Weitere Informationen finden Sie im Abschnitt [{{site.data.keyword.blockstorageshort}}-Migration in Rechenzentren nach Upgrades](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}

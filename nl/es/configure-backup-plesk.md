@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +12,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Configuración de {{site.data.keyword.blockstorageshort}} para la copia de seguridad con Plesk
+{: #PleskBackups}
 
 Puede utilizar estas instrucciones para configurar {{site.data.keyword.blockstoragefull}} para sus copias de seguridad en Plesk. Suponemos que está disponible el acceso de SSH sudo o root y de Plesk a nivel administrador completo. Estas instrucciones se basan en un host CentOS7.
 

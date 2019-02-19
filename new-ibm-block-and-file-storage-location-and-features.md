@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2018-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,15 +11,17 @@ lastupdated: "2018-01-04"
 {:important: .important}
 
 # New Locations and Features
+{: #news}
 
 {{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}!
 
 The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest. All storage that is provisioned in the upgraded data centers is automatically created with the new version.
 
-The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. For more information, see the [New mount point for encrypted {{site.data.keyword.blockstorageshort}} volumes](#new-mount-point-for-encrypted-storage-volumes) section.
+The NFS mount point for new volumes differs from the mount point of non-encrypted volumes. For more information, see the [New mount point for encrypted {{site.data.keyword.blockstorageshort}} volumes](#mountpoints) section.
 {:important}
 
 ## New locations
+{: #new-locations}
 
 The new {{site.data.keyword.blockstorageshort}} is available in the following regions and data centers.
 <table role="presentation">
@@ -85,8 +87,9 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 *Table 1 shows our Data Center Availability. Each region has its own column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers.*
 
 ## New features and capabilities
+{: #features}
 
-- **[Provider-managed encryption for data-at-rest](block-file-storage-encryption-rest.html)**.
+- **[Provider-managed encryption for data-at-rest](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)**.
   All {{site.data.keyword.blockstorageshort}} is automatically provisioned as encrypted at no extra charge.
 - **10 IOPS per GB tier option**.
   A new tier is available with the Endurance type {{site.data.keyword.blockstorageshort}} to support the most demanding workloads.
@@ -95,11 +98,12 @@ The new {{site.data.keyword.blockstorageshort}} is available in the following re
 - **Snapshot and Replication** support with {{site.data.keyword.blockstorageshort}}
 - **Hourly Billing** option is available for storage that is planned to be used for less than a full month.
 - **Up to 48,000 IOPS** for {{site.data.keyword.blockstorageshort}} that is provisioned with Performance.
-- **IOPS rates are adjustable** to improve performance during seasonal load changes. Read more about this feature [here](adjustable-iops.html).
-- Create a clone of your data with the **[{{site.data.keyword.blockstorageshort}} Volume Duplication feature](how-to-create-duplicate-volume.html)**.
-- **Storage is expandable** in GB increments up to 12 TB, without the need to create a duplicate or manually moving data to a larger volume. Read more about this feature [here](expandable_block_storage.html).
+- **IOPS rates are adjustable** to improve performance during seasonal load changes. Read more about this feature [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS).
+- Create a clone of your data with the **[{{site.data.keyword.blockstorageshort}} Volume Duplication feature](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)**.
+- **Storage is expandable** in GB increments up to 12 TB, without the need to create a duplicate or manually moving data to a larger volume. Read more about this feature [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity).
 
 ## New mount point for encrypted storage volumes
+{: #mountpoints}
 
 All enhanced storage volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. Check the mount point information on the **Volume Details** page in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} to ensure that you're using the correct mount point. You can also get the correct mount point information through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 

@@ -1,13 +1,14 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 
 # Einstellungen der Hostwarteschlangenlänge anpassen
+{: #hostqueuesettings}
 
 Für {{site.data.keyword.BluSoftlayer_full}} wird für jedes Leistungstier ein maximaler Wert für die Ein-/Ausgabe-Warteschlangenlänge für Host und Anwendungen empfohlen.
 

@@ -1,8 +1,8 @@
-﻿---
+---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,13 +13,14 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Recuperação de desastre: failover com um volume primário inacessível
+{: #dr-inaccessible}
 
 No caso de uma falha catastrófica ou de um desastre que cause uma indisponibilidade no site primário, os clientes podem executar as seguintes ações para acessar rapidamente seus dados no site secundário.
 
 ## Failover com uma duplicata de um volume de réplica no site secundário
 
 1. Efetue login no [console do IBM Cloud ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://
-{DomainName}/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
+{DomainName}/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
@@ -36,13 +37,13 @@ Assim que o volume é criado, ele pode ser anexado a um host e executar operaç�
 Se você deseja retornar a produção para o site primário original, execute as seguintes etapas.
 
 1. Efetue login no [console do IBM Cloud ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://
-{DomainName}/catalog/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
+{DomainName}/){:new_window} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 3. Clique no nome do LUN e crie um planejamento de captura instantânea (se ainda não existir um).
 
-   Para obter mais informações sobre os planejamentos de captura instantânea, consulte [Gerenciando as capturas instantâneas](working-with-snapshots.html#adding-a-snapshot-schedule).
+   Para obter mais informações sobre os planejamentos de captura instantânea, consulte [Gerenciando as capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
 4. Clique em **Réplica** e em **Comprar uma replicação**.
 5. Selecione o planejamento de captura instantânea existente que você deseja que a replicação siga. A lista contém todos os planejamentos de captura instantânea ativos.

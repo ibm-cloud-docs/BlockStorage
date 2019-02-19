@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2018-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,17 +11,18 @@ lastupdated: "2018-01-04"
 {:important: .important}
 
 # Novos locais e recursos
+{: #news}
 
 O {{site.data.keyword.BluSoftlayer_full}} está introduzindo uma nova versão do
 {{site.data.keyword.blockstoragefull}}.
 
-O novo armazenamento está disponível nos data centers de seleção e é suportado pelo armazenamento
-flash a níveis de IOPS mais altos com criptografia de nível de disco para dados em repouso. Todo o armazenamento provisionado nos data centers submetidos a upgrade é criado automaticamente com a nova versão.
+O novo armazenamento está disponível nos data centers de seleção e é suportado pelo armazenamento flash a níveis de IOPS mais altos com criptografia de nível de disco para dados em repouso. Todo o armazenamento provisionado nos data centers submetidos a upgrade é criado automaticamente com a nova versão.
 
-O ponto de montagem do NFS para novos volumes é diferente do ponto de montagem de volumes não criptografados. Para obter mais informações, consulte a seção [Novo ponto de montagem para volumes criptografados do {{site.data.keyword.blockstorageshort}}](#new-mount-point-for-encrypted-storage-volumes).
+O ponto de montagem do NFS para novos volumes é diferente do ponto de montagem de volumes não criptografados. Para obter mais informações, consulte a seção [Novo ponto de montagem para volumes {{site.data.keyword.blockstorageshort}} criptografados](#mountpoints).
 {:important}
 
 ## Novas localizações
+{: #new-locations}
 
 O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões e nos data centers a seguir.
 <table role="presentation">
@@ -87,8 +88,9 @@ O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões e 
 *A Tabela 1 mostra nossa disponibilidade do data center. Cada região possui sua própria coluna. Algumas cidades, como Dallas, São José, Washington DC, Amsterdã, Frankfurt, Londres e Sydney, têm múltiplos data centers.*
 
 ## Novos recursos e habilidades
+{: #features}
 
-- **[Criptografia gerenciada por provedor para dados em repouso](block-file-storage-encryption-rest.html)**.
+- **[Criptografia gerenciada por provedor para dados em repouso](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)**.
   Todo {{site.data.keyword.blockstorageshort}} é provisionado automaticamente como criptografado sem encargo extra.
 - **Opção de camada de 10 IOPS por GB**.
   Uma nova camada está disponível com o {{site.data.keyword.blockstorageshort}} do tipo Endurance para suportar as cargas de trabalho mais exigentes.
@@ -97,12 +99,14 @@ O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões e 
 - Suporte de **captura instantânea e replicação** com o {{site.data.keyword.blockstorageshort}}
 - A opção **Faturamento por hora** está disponível para armazenamento que é planejado para ser usado por menos de um mês integral.
 - **Até 48.000 IOPS** para o {{site.data.keyword.blockstorageshort}} que é provisionado com o Performance.
-- **As taxas de IOPS são ajustáveis** para melhorar o desempenho durante mudanças sazonais de carga. Leia mais sobre esse recurso [aqui](adjustable-iops.html).
-- Crie um clone de seus dados com o **recurso de duplicação de volume do [{{site.data.keyword.blockstorageshort}}](how-to-create-duplicate-volume.html)**.
-- **O armazenamento é expansível** em incrementos de GB até 12 TB, sem a necessidade de criar uma duplicata ou mover manualmente os dados para um volume maior. Leia mais sobre esse recurso
-[aqui](expandable_block_storage.html).
+- **As taxas de IOPS são ajustáveis** para melhorar o desempenho durante mudanças sazonais de carga. Leia mais sobre esse recurso [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS).
+- Crie um clone de seus dados com o
+**[
+recurso Duplicação de volume do {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
+- **O armazenamento é expansível** em incrementos de GB até 12 TB, sem a necessidade de criar uma duplicata ou mover manualmente os dados para um volume maior. Leia mais sobre esse recurso [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity).
 
 ## Novo ponto de montagem para volumes de armazenamento criptografados
+{: #mountpoints}
 
 Todos os volumes de armazenamento aprimorado que são provisionados nesses data centers têm um ponto de montagem diferente dos volumes não criptografados. Verifique as informações do ponto de montagem na página **Detalhes do volume** no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window} para assegurar-se de que esteja usando o ponto de montagem correto. Também é possível obter as informações corretas do ponto de montagem por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 

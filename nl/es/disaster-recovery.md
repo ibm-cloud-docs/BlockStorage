@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,13 +12,14 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Recuperación en caso de error: migración tras error con un volumen primario inaccesible
+# Recuperación tras desastre: migración tras error con un volumen primario inaccesible
+{: #dr-inaccessible}
 
 Si un error catastrófico o un desastre ocasionan la caída del sitio principal, los clientes pueden llevar a cabo las siguientes acciones para acceder rápidamente a sus datos en el sitio secundario.
 
 ## Migración tras error con un duplicado de un volumen de réplica en el sitio secundario
 
-1. Inicie sesión en la [consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie la sesión en la [consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
@@ -35,20 +36,20 @@ En cuanto se cree el volumen, se puede adjuntar a un host y realizar operaciones
 
 Si desea devolver la producción al sitio primario original, debe seguir los pasos siguientes.
 
-1. Inicie sesión en la [consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie la sesión en la [consola de IBM Cloud ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 2. Pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 3. Pulse el nombre de la LUN y cree una planificación de instantánea (si no hay ya una).
 
-   Para obtener más información sobre planificaciones de instantánea, consulte [Gestión de instantáneas](working-with-snapshots.html#adding-a-snapshot-schedule).
+   Para obtener más información sobre la planificación de instantáneas, consulte [Gestión de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
 4. Pulse **Réplica** y pulse **Adquirir una réplica**.
 5. Seleccione la planificación de instantáneas existente que quiera que siga la réplica. La lista contiene todas las planificaciones de instantáneas activas.
 6. Pulse **Ubicación** y seleccione el centro de datos que era el sitio de producción original.
 7. Pulse **Continuar**.
-8. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro…** y pulse **Realizar pedido**.
+8. Marque el recuadro de selección **He leído el Acuerdo de servicio maestro…** y pulse **Realizar pedido**.
 
 Una vez finalizada la réplica, tiene que crear un volumen duplicado de la nueva réplica.
 {:important}

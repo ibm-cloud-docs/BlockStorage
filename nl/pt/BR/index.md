@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2019-01-07"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Introdução ao {{site.data.keyword.blockstorageshort}}
+{: #GettingStarted}
 
 O {{site.data.keyword.blockstoragefull}} é um armazenamento iSCSI persistente e de alto desempenho provisionado e gerenciado independentemente de instâncias de cálculo. Os LUNs do {{site.data.keyword.blockstorageshort}} baseados em iSCSI são conectados a dispositivos autorizados por meio de conexões Multi-path I/O (MPIO).
 
@@ -26,13 +27,13 @@ Aproveite os recursos do {{site.data.keyword.blockstorageshort}} a seguir:
    - Fornecido por meio da alocação de IOPS de nível de protocolo para volumes individuais.
 - **Altamente durável e resiliente**
    - Protege a integridade dos dados e mantém a disponibilidade por meio dos eventos de manutenção e de falhas não planejadas sem a necessidade de criar e gerenciar matrizes Redundant Array of Independent Disks (RAID) no nível do sistema operacional.
-- **Criptografia de dados em repouso** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
+- **Criptografia de dados em repouso** ([Disponível em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Criptografia gerenciada por provedor para dados em repouso sem custo adicional.
-- **Todo armazenamento suportado em flash** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
+- **Todo armazenamento suportado em flash** ([Disponível em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Armazenamento totalmente em flash para volumes provisionados com o Endurance ou o Performance em níveis de 2 IOPS/GB ou mais altos.
-- **Capturas instantâneas** ([Disponíveis em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
+- **Capturas instantâneas** ([Disponíveis em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Obtém capturas instantâneas de dados de um momento de modo ininterrupto.
-- **Replicação** ([Disponível em data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html))
+- **Replicação** ([Disponível em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Copia capturas instantâneas automaticamente para um data center parceiro do {{site.data.keyword.BluSoftlayer_full}}.
 - **Conectividade altamente disponível**
    - Usa conexões de rede redundantes para maximizar a disponibilidade
@@ -46,7 +47,7 @@ Aproveite os recursos do {{site.data.keyword.blockstorageshort}} a seguir:
 
 É possível selecionar o faturamento por hora ou mensal para um LUN de bloco. O tipo de faturamento selecionado para um LUN aplica-se a seu espaço de captura instantânea e réplicas. Por exemplo, se você provisionar um LUN com o faturamento por hora, quaisquer taxas de capturas instantâneas ou de réplica serão faturadas por hora. Se você provisionar um LUN com faturamento mensal, quaisquer taxas de capturas instantâneas ou de réplicas serão faturadas mensalmente.
 
-Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível para o armazenamento provisionado somente em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html).
+Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível para o armazenamento provisionado somente em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
 
 Com o **faturamento mensal**, o cálculo do preço é rateado a partir da data
 de criação até o término do ciclo de faturamento e é cobrado imediatamente. Se um LUN for excluído antes do término do ciclo de faturamento, não haverá reembolso. O faturamento mensal é uma boa opção para o armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais).
@@ -110,7 +111,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 
 - **4 IOPS por GB** é projetado para cargas de trabalho com maior intensidade. Essas cargas de trabalho geralmente são caracterizadas por ter uma alta porcentagem de dados ativos a qualquer momento. Aplicativos de exemplo incluem bancos de dados transacionais e outros sensíveis a desempenho.
 
-- **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento provisionado até 4 TB em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html) apenas.
+- **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento provisionado até 4 TB em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) apenas.
 
 Até 48.000 IOPS estão disponíveis com um volume do Endurance de 12 TB.
 
@@ -271,21 +272,21 @@ que o rendimento máximo esperado de seu volume. Em geral, não espere saturar s
 
 Para obter o máximo de IOPS, recursos de rede adequados precisam estar em vigor. Outras considerações incluem o uso
 de rede privada fora do armazenamento e os ajustes específicos do aplicativo e do lado do host (pilha
-IP ou [profundidades da fila](set-host-queue-depth-settings-performance-and-endurance-storage.html) e
+IP ou [profundidades da fila](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) e
 outras configurações).
 
-O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Para obter mais informações sobre os limites que podem ser impostos pelo serviço, consulte a [Documentação do Virtual Server](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).
+O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Para obter mais informações sobre os limites que podem ser impostos pelo serviço, consulte a [Documentação do Virtual Server](/docs/vsi?topic=virtual-servers-public-virtual-servers).
 {:tip}
 
 ## Enviando sua Ordem
 
-Quando você estiver pronto para enviar seu pedido, poderá fazer isso por meio do [Console](provisioning-block_storage.html) ou da [SLCLI](ordering-through-cli.html).
+Quando você estiver pronto para enviar seu pedido, poderá fazer isso por meio do [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) ou da [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI).
 
 ## Conectando seu novo armazenamento
 
 Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts a acessar o novo armazenamento e configurar sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
-- [Conectando-se a LUNs iSCSI no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs iSCSI no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se a LUNs iSCSI no Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
-- [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)
+- [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configurando o Block Storage para backup com cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configurando o Block Storage para backup com Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

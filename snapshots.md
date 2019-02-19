@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-13"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-13"
 {:important: .important}
 
 # Snapshots
+{: #snapshots}
 
 Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space. Snapshots are considered your first line of defense for data protection. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy.
 
@@ -28,7 +29,7 @@ With snapshots, you can:
 - Non-disruptively create point-in-time recovery points,
 - Revert volumes to previous points-in-time.
 
-You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](ordering-snapshots.html).
+You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 
 ## Snapshot best practices
 
@@ -45,7 +46,7 @@ Snapshots are not replacements for actual off-site Disaster Recovery replication
 
 ## Security
 
-All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](block-file-storage-encryption-rest.html).
+All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 ## How Snapshots affect the disk space
 
@@ -72,4 +73,4 @@ In the active file system, the changed blocks are rewritten to different locatio
       </tr>
 </table>
 
-For more information about snapshot space usage, see [Managing Snapshots](working-with-snapshots.html).
+For more information about snapshot space usage, see [Managing Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots).

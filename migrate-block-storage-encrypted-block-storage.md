@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
+{: #migratestorage}
 
-Enhanced {{site.data.keyword.blockstoragefull}} is now available in select data centers. To see the list of upgraded data centers and available features such as adjustable IOPS rates and expandable volumes, click [here](new-ibm-block-and-file-storage-location-and-features.html). For more information about provider-managed encrypted storage, see [{{site.data.keyword.blockstorageshort}} Encryption-At-Rest](block-file-storage-encryption-rest.html).
+Enhanced {{site.data.keyword.blockstoragefull}} is now available in select data centers. To see the list of upgraded data centers and available features such as adjustable IOPS rates and expandable volumes, click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). For more information about provider-managed encrypted storage, see [{{site.data.keyword.blockstorageshort}} Encryption-At-Rest](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
-- [Connecting to iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connecting to iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
+- [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting to LUNs on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connecting to LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 All enhanced {{site.data.keyword.blockstorageshort}} volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you're using the correct mount point for both storage volumes, you can view the mount point information in the **Volume Details** page in the console. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -32,8 +33,8 @@ When you place an order with API, specify the "Storage as a Service" package to 
 
 You can order an enhanced LUN through the IBM Cloud Console and the {{site.data.keyword.slportal}}. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
-- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 
@@ -62,8 +63,8 @@ If your replication target data center is not upgraded yet, you can't establish 
 
 2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
   - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
-  - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption. 
-  - If you have any bandwidth concerns, do the migration during off peak times. 
+  - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption.
+  - If you have any bandwidth concerns, do the migration during off peak times.
   - If you need assistance with these considerations, open a support case.
 
 3. Copy your data across.

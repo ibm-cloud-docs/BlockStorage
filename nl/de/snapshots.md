@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-13"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-13"
 {:important: .important}
 
 # Snapshots
+{: #snapshots}
 
 Snapshots sind eine Funktion von {{site.data.keyword.blockstoragefull}}. Ein Snapshot stellt den Inhalt eines Datenträgers zu einem bestimmten Zeitpunkt dar. Mit Snapshots können Sie Ihre Daten ohne Leistungseinflüsse und minimalem Platzbedarf schützen. Snapshots gelten als erste Verteidigungslinie beim Datenschutz. Mit der Snapshotfunktion können Daten schnell und bequem von einer Snapshotkopie wiederhergestellt werden, wenn ein Benutzer wichtige Daten auf einem Datenträger versehentlich ändert oder löscht.
 
@@ -28,7 +29,7 @@ Snapshots bieten Ihnen folgende Möglichkeiten:
 - Zeitpunktgesteuerte Wiederherstellungspunkte ohne Betriebsunterbrechung erstellen
 - Datenträger auf einen früheren Zeitpunkt zurücksetzen
 
-Sie müssen zunächst für Ihren Datenträger einen bestimmten Snapshotbereich kaufen, um Snapshots davon machen zu können. Der Snapshotbereich kann bei der Erstbestellung oder danach über **Datenträgerdetails** hinzugefügt werden. Geplante und manuelle Snapshots nutzen den Snapshotbereich gemeinsam; stellen Sie deswegen sicher, dass Sie ausreichend Speicherplatz bestellen. Weitere Informationen finden Sie unter [Snapshots bestellen](ordering-snapshots.html).
+Sie müssen zunächst für Ihren Datenträger einen bestimmten Snapshotbereich kaufen, um Snapshots davon machen zu können. Der Snapshotbereich kann bei der Erstbestellung oder danach über **Datenträgerdetails** hinzugefügt werden. Geplante und manuelle Snapshots nutzen den Snapshotbereich gemeinsam; stellen Sie deswegen sicher, dass Sie ausreichend Speicherplatz bestellen. Weitere Informationen finden Sie unter [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 
 ## Bewährte Verfahren für Snapshots
 
@@ -45,13 +46,13 @@ Snapshots stellen keinen Ersatz für eine tatsächliche ausgelagerte Disaster-Re
 
 ## Sicherheit
 
-Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.blockstorageshort}} werden standardmäßig verschlüsselt. Diese Funktion kann nicht auf einzelnen Datenträgern inaktiviert werden. Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [Daten schützen](block-file-storage-encryption-rest.html).
+Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.blockstorageshort}} werden standardmäßig verschlüsselt. Diese Funktion kann nicht auf einzelnen Datenträgern inaktiviert werden. Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [Daten schützen](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 ## Auswirkungen von Snapshots auf den Plattenspeicher
 
 Snapshotkopien minimieren die Plattennutzung, da sie einzelne Blöcke anstelle von ganzen Dateien beibehalten. Snapshotkopien verbrauchen nur dann zusätzlichen Speicherplatz, wenn Dateien im aktiven Dateisystem geändert oder gelöscht werden.
 
-Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positionen auf dem Datenträger neu erstellt oder als aktive Dateiblöcke komplett entfernt. Wenn Dateien geändert oder gelöscht werden, werden die ursprünglichen Dateiblöcke in einer oder mehreren Snapshotkopien beibehalten. Somit wird der von den Originalblöcken verwendete Plattenspeicher weiter reserviert, um den Status des aktiven Dateisystems vor der Änderung abzubilden. Dieser Speicherplatz wird zusätzlich zu dem Plattenspeicher reserviert, der von Blöcken im geänderten aktiven Dateisystem verwendet wird. 
+Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positionen auf dem Datenträger neu erstellt oder als aktive Dateiblöcke komplett entfernt. Wenn Dateien geändert oder gelöscht werden, werden die ursprünglichen Dateiblöcke in einer oder mehreren Snapshotkopien beibehalten. Somit wird der von den Originalblöcken verwendete Plattenspeicher weiter reserviert, um den Status des aktiven Dateisystems vor der Änderung abzubilden. Dieser Speicherplatz wird zusätzlich zu dem Plattenspeicher reserviert, der von Blöcken im geänderten aktiven Dateisystem verwendet wird.
 
 <table>
     <colgroup>
@@ -72,4 +73,4 @@ Die geänderten Blöcke werden im aktiven Dateisystem an verschiedenen Positione
       </tr>
 </table>
 
-Weitere Informationen zur Speichernutzung von Snapshots finden Sie in [Snapshots verwalten](working-with-snapshots.html). 
+Weitere Informationen zur Speichernutzung von Snapshots finden Sie in [Snapshots verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots).

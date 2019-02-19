@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Solicitud de {{site.data.keyword.blockstorageshort}} mediante la CLI de SL
+{: #orderingthroughCLI}
 
 Puede utilizar la CLI de SL para realizar pedidos de productos que normalmente se solicitan a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}. En la API de SL, un pedido puede consistir en varios contenedores de pedidos. La CLI de pedidos funciona con un solo contenedor de pedidos.
 
@@ -30,7 +31,7 @@ Puede utilizar el mandato `slcli order package-list` para encontrar el paquete q
 
 ```
 $ slcli order package-list --help
-Uso: slcli order package-list [OPTIONS]
+Uso: slcli order package-list [OPCIONES]
 
   Listar paquetes que se pueden solicitar mediante la API placeOrder.
 
@@ -45,7 +46,7 @@ Uso: slcli order package-list [OPTIONS]
       slcli order package-list --keyword server
 
 Opciones:
-  --keyword TEXT  Una palabra (o serie) que se utiliza para filtrar nombres de paquetes.
+  --keyword TEXTO  Una palabra (o serie) que se utiliza para filtrar nombres de paquetes.
   -h, --help      Mostrar este mensaje y salir.
 ```
 
@@ -53,27 +54,27 @@ También puede utilizar el mandato `slcli block volume-order`.
 
 ```
 # slcli block volume-order --help
-Uso: slcli block volume-order [OPTIONS]
+Uso: slcli block volume-order [OPCIONES]
 
  Solicitar un volumen de almacenamiento en bloque.
 
 Opciones:
  --storage-type [performance|endurance]
                                  Tipo de volumen de almacenamiento en bloque  [obligatorio]
- --size INTEGER                  Tamaño del volumen de almacenamiento en bloque en GB.
+ --size ENTERO                  Tamaño del volumen de almacenamiento en bloque en GB.
                                  Tamaños permitidos:
                                  20, 40, 80, 100, 250, 500,
                                  1000, 2000, 4000, 8000, 12000  [obligatorio]
- --iops INTEGER                  IOPS de almacenamiento de rendimiento, entre 100 y
+ --iops ENTERO                  IOPS de almacenamiento de rendimiento, entre 100 y
                                  6000 en múltiplos de 100 [obligatorio para el tipo de
                                  almacenamiento de rendimiento]
  --tier [0.25|2|4|10]            Nivel de almacenamiento de resistencia (IOP por GB)
                                  [obligatorio para el tipo de almacenamiento de resistencia]
  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
                                  Sistema operativo [obligatorio]
- --location TEXT                 Nombre abreviado del centro de datos (por ejemplo, dal09)
+ --location TEXTO                 Nombre abreviado del centro de datos (por ejemplo, dal09)
                                  [obligatorio]
- --snapshot-size INTEGER         Parámetro opcional para solicitar espacio de instantáneas
+ --snapshot-size ENTERO         Parámetro opcional para solicitar espacio de instantáneas
                                  junto con el almacenamiento en bloque de resistencia;
                                  especifica el tamaño (en GB) del espacio de instantáneas
                                  que se va a solicitar
@@ -93,7 +94,7 @@ Para poder acceder a todas las nuevas características, solicite `el paquete 759
 
 ## Realización del pedido
 
-En el siguiente ejemplo se muestra cómo solicitar un volumen de {{site.data.keyword.blockstorageshort}} de 80 GB con espacio de instantáneas de 20 GB y 0.25 IOPS por GB.
+En el siguiente ejemplo se muestra cómo solicitar un volumen de {{site.data.keyword.blockstorageshort}} de 80 GB con espacio de instantáneas de 20 GB y 0,25 IOPS por GB.
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
@@ -105,37 +106,37 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}} y de {{site.data.keyword.filestorage_short}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. Para obtener más información sobre el aumento de los límites, consulte [Gestión de límites de almacenamiento](managing-storage-limits.html).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}} y de {{site.data.keyword.filestorage_short}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. Para obtener más información sobre el aumento de los límites, consulte [Gestión de límites de almacenamiento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {:important}
 
 ## Autorización de los hosts para acceder al nuevo almacenamiento
 
 ```
 slcli block access-authorize --help
-Uso: slcli block access-authorize [OPTIONS] VOLUME_ID
+Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
   Autoriza a los hosts a acceder a un volumen determinado
 
 Opciones:
-  -h, --hardware-id TEXT    El id de un SoftLayer_Hardware que se va a autorizar
-  -v, --virtual-id TEXT     El id de un SoftLayer_Virtual_Guest que se va a autorizar
-  -i, --ip-address-id TEXT  El id de una SoftLayer_Network_Subnet_IpAddress
+  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
+  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
+  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
                             que se va a autorizar
-  --ip-address TEXT         Una dirección IP que se va a autorizar
+  --ip-address TEXTO         Una dirección IP que se va a autorizar
   --help                    Mostrar este mensaje y salir.
 ```
 
 Para obtener más información sobre la autorización de los hosts para acceder a {{site.data.keyword.blockstorageshort}} mediante la API, consulte [authorize_host_to_volume ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
 
-Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](faqs.html).
+Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Conexión del nuevo almacenamiento
 
 En función del sistema operativo del host, siga el enlace adecuado.
-- [Conexión a los LUN iSCSI en Linux](accessing_block_storage_linux.html)
-- [Conexión a los LUN iSCSI en CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conexión a los LUN iSCSI en Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](configure-backup-cpanel.html)
-- [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](configure-backup-plesk.html)
+- [Conexión a LUN en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Conexión a LUN en CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Conexión a LUN en Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configuración de almacenamiento en bloque para la copia de seguridad con Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

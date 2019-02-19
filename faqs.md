@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # FAQs
+{: #faqs}
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: faq}
@@ -18,7 +19,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 ## How many volumes can be ordered?
 {: faq}
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](managing-storage-limits.html).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: faq}
@@ -81,7 +82,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: faq}
 
-The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is only available in select data centers, and new data centers are being added gradually. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
+The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is only available in select data centers, and new data centers are being added gradually. You can find a full list of upgraded data centers and available features [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
@@ -91,7 +92,7 @@ When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
 
-When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](new-ibm-block-and-file-storage-location-and-features.html).
+When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## If we own non-encrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}

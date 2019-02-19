@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,8 +13,9 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 재해 복구 - 액세스 가능한 1차 볼륨으로 장애 복구
+{: #dr-accessible}
 
-1차 사이트에서 파국적 장애나 재해가 발생하고 기본 스토리지에는 여전히 액세스할 수 있는 경우 고객은 다음의 조치를 취하여 2차 사이트의 데이터에 빠르게 액세스할 수 있습니다. 
+1차 사이트에서 파국적 장애나 재해가 발생하고 기본 스토리지에는 여전히 액세스할 수 있는 경우 고객은 다음의 조치를 취하여 2차 사이트의 데이터에 빠르게 액세스할 수 있습니다.
 
 장애 복구를 시작하기 전에 모든 호스트 권한 부여가 준비되어 있는지 확인하십시오.
 
@@ -48,7 +49,7 @@ lastupdated: "2018-12-10"
    {:note}
 4. **모두 보기({{site.data.keyword.blockstorageshort}})**를 클릭하십시오.
 5. 활성 LUN(이전의 대상 볼륨)을 클릭하십시오.
-6. 스토리지 볼륨을 호스트에 마운트하고 접속하십시오. 자세한 내용은 [여기](provisioning-block_storage.html)를 참조하십시오.
+6. 스토리지 볼륨을 호스트에 마운트하고 접속하십시오. 자세한 내용은 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)를 참조하십시오.
 
 
 ## 볼륨에서 복제본으로 장애 조치 시작
@@ -73,4 +74,4 @@ lastupdated: "2018-12-10"
    {:note}
 4. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 모두 보기**를 클릭하십시오.
 5. 활성 LUN("소스")을 클릭하십시오.
-6. 스토리지 볼륨을 호스트에 마운트하고 접속하십시오. 자세한 내용은 [여기](provisioning-block_storage.html)를 참조하십시오.
+6. 스토리지 볼륨을 호스트에 마운트하고 접속하십시오. 자세한 내용은 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)를 참조하십시오.

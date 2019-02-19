@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-13"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-13"
 {:important: .important}
 
 # Instantanés
+{: #snapshots}
 
 Les instantanés sont une fonctionnalité d'{{site.data.keyword.blockstoragefull}}. Un instantané représente le contenu d'un volume à un point précis dans le temps. Les instantanés vous permettent de protéger vos données sans impact sur les performances et avec une consommation minimale de l'espace. Ils sont considérés comme votre première ligne de défense dans le cadre de la protection des données. Si un utilisateur modifie ou supprime par erreur des données critiques d'un volume, les données peuvent être facilement et rapidement restaurées à partir d'une copie d'instantané.
 
@@ -19,7 +20,7 @@ Les instantanés sont une fonctionnalité d'{{site.data.keyword.blockstoragefull
 * La première via un planning d'instantané configurable qui crée et supprime automatiquement des copies d'instantané pour chaque volume de stockage. Vous pouvez également créer des plannings d'instantané supplémentaires, supprimer des copies manuellement et gérer les plannings en fonction de vos besoins.
 * La seconde méthode consiste à prendre un instantané manuel.
 
-Une copie d'instantané est une image en lecture seule d'un numéro d'unité logique {{site.data.keyword.blockstorageshort}}, qui capture l'état du volume à un moment donné. Les copies d'image instantanée sont efficaces en termes de durée de création et d'espace de stockage. La création d'une copie d'instantané {{site.data.keyword.blockstorageshort}} ne prend que quelques secondes, en général moins d'une, quelle que soit la taille du volume ou le niveau d'activité sur le stockage. Une fois une copie d'image instantanée créée, les modifications apportées aux objets de données sont reflétées dans les mises à jour de la version en cours des objets, comme s'il n'existait pas de copies d'image instantanée. Pendant ce temps, la copie des données reste stable.
+Une copie d'instantané est une image en lecture seule d'un numéro d'unité logique {{site.data.keyword.blockstorageshort}}, qui capture l'état du volume à un moment donné. Les copies d'image instantanée sont efficaces en termes de durée de création et d'espace de stockage. La création d'une copie d'instantané {{site.data.keyword.blockstorageshort}} ne prend que quelques secondes, en général moins d'une seconde, quelle que soit la taille du volume ou le niveau d'activité sur le stockage. Une fois une copie d'image instantanée créée, les modifications apportées aux objets de données sont reflétées dans les mises à jour de la version en cours des objets, comme s'il n'existait pas de copies d'image instantanée. Pendant ce temps, la copie des données reste stable.
 
 Une copie d'image instantanée n'entraîne aucune baisse de performances. Les utilisateurs peuvent facilement stocker jusqu'à 50 instantanés planifiés et 50 instantanés manuels par volume {{site.data.keyword.blockstorageshort}}, qui sont tous accessibles en tant que versions en ligne et en lecture seule des données.
 
@@ -28,7 +29,7 @@ Les images instantanées vous permettent :
 - de créer de manière transparente des points de récupération à un point de cohérence,
 - de restaurer des volumes ponctuels antérieurs.
 
-Vous devez d'abord acheter une certaine quantité d'espace d'image instantanée pour votre volume avant de pouvoir prendre des instantanés de celui-ci. Il est possible d'ajouter de l'espace d'image instantanée lors de la commande initiale ou après via la page des **détails sur le volume**. Les images instantanées planifiées et manuelles partagent l'espace d'image instantanée ; veillez à commander l'espace en conséquence. Pour plus d'informations, voir [Commande d'instantanés](ordering-snapshots.html).
+Vous devez d'abord acheter une certaine quantité d'espace d'image instantanée pour votre volume avant de pouvoir prendre des instantanés de celui-ci. Il est possible d'ajouter de l'espace d'image instantanée lors de la commande initiale ou après via la page des **détails sur le volume**. Les images instantanées planifiées et manuelles partagent l'espace d'image instantanée ; veillez à commander l'espace en conséquence. Pour plus d'informations, voir [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 
 ## Meilleures pratiques concernant les instantanés
 
@@ -45,7 +46,7 @@ Les instantanés ne se substituent pas à la réplication de reprise après inci
 
 ## Sécurité
 
-Tous les instantanés et répliques de données chiffrées {{site.data.keyword.blockstorageshort}} sont également chiffrés par défaut. Cette fonction ne peut pas être désactivée par volume. Pour plus d'informations sur le chiffrement au repos géré par le fournisseur, voir [Sécurisation de vos données](block-file-storage-encryption-rest.html).
+Tous les instantanés et répliques de données chiffrées {{site.data.keyword.blockstorageshort}} sont également chiffrés par défaut. Cette fonction ne peut pas être désactivée par volume. Pour plus d'informations sur le chiffrement au repos géré par le fournisseur, voir [Sécurisation de vos données](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 ## Répercussions des instantanés sur l'espace disque
 
@@ -72,4 +73,4 @@ Dans le système de fichiers actif, les blocs modifiés sont réécrits à des e
       </tr>
 </table>
 
-Pour plus d'informations sur l'utilisation de l'espace d'image instantanée, voir [Gestion des instantanés](working-with-snapshots.html).
+Pour plus d'informations sur l'utilisation de l'espace d'image instantanée, voir [Gestion des instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots).

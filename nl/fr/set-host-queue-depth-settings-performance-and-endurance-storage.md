@@ -1,13 +1,14 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 
 # Ajustement des paramètres de nombre de lignes de file d'attente de l'hôte
+{: #hostqueuesettings}
 
 {{site.data.keyword.BluSoftlayer_full}} suggère un nombre de lignes de file d'attente d'E-S maximal pour l'hôte et l'application pour chaque niveau de performance.
 

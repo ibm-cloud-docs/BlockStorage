@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # {{site.data.keyword.blockstorageshort}}の管理
+{: #managingstorage}
 
 {{site.data.keyword.blockstoragefull}} のボリュームは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}で管理できます。
 
@@ -20,6 +21,15 @@ lastupdated: "2018-11-30"
 
 1. **「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから適切な LUN 名をクリックします。
+
+あるいは、次の SL CLI コマンドを使用できます。
+```
+# slcli block volume-detail --help
+Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
 
 ## {{site.data.keyword.blockstorageshort}}にアクセスするホストの許可
 
@@ -32,7 +42,19 @@ lastupdated: "2018-11-30"
 2. 当該ページの**「許可ホスト (Authorized Hosts)」**セクションにスクロールします。
 3. 右側で、**「ホストの許可」**をクリックします。 その特定の LUN にアクセスできるホストを選択します。
 
+あるいは、次の SL CLI コマンドを使用できます。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 ## {{site.data.keyword.blockstorageshort}} LUN へのアクセスを許可されたホストのリストの表示
 
@@ -41,7 +63,18 @@ lastupdated: "2018-11-30"
 
 LUN へのアクセスが現在許可されているホストのリストが表示されます。 また、接続を確立するために必要な認証情報 (ユーザー名、パスワード、ホスト IQN) も表示されます。 ターゲット・アドレスは、**「ストレージの詳細」**ページにリストされます。 NFS の場合、ターゲット・アドレスは DNS 名として示され、iSCSI の場合は「ターゲット ポータルの探索」の IP アドレスとして示されます。
 
+あるいは、次の SL CLI コマンドを使用できます。
+```
+# slcli block access-list --help
+Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      Show this message and exit.
+```
 
 ## ホストに許可された{{site.data.keyword.blockstorageshort}}の表示
 
@@ -52,17 +85,15 @@ LUN へのアクセスが現在許可されているホストのリストが表�
 
 この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 **「アクション」**をクリックすると、追加のストレージを許可したり、アクセス権を削除したりできます。
 
-
-
 ## {{site.data.keyword.blockstorageshort}} のマウントとアンマウント
 
 ホストのオペレーティング・システムに基づいて、該当する手順に従います。
 
-- [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
-- [cPanel を使用したバックアップ用のブロック・ストレージの構成](configure-backup-cpanel.html)
-- [Plesk を使用したバックアップ用のブロック・ストレージの構成](configure-backup-plesk.html)
+- [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [cPanel を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Plesk を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## {{site.data.keyword.blockstorageshort}}に対するホストのアクセス権の取り消し
@@ -96,7 +127,23 @@ LUN へのアクセスが現在許可されているホストのリストが表�
 特定の LUN から複数のホストを切断する場合は、ホストごとに「アクセス権の取り消し」アクションを繰り返す必要があります。
 {:tip}
 
+### SL CLI を使用したアクセス権の取り消し
 
+あるいは、次の SL CLI コマンドを使用できます。
+```
+# slcli block access-revoke --help
+Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
+                            authorization
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
+                            authorization
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to revoke authorization
+  --ip-address TEXT         An IP address to revoke authorization
+  --help                    Show this message and exit.
+```
 
 ## ストレージ LUN のキャンセル
 
@@ -113,3 +160,15 @@ LUN へのアクセスが現在許可されているホストのリストが表�
    {:tip}
 4. **「続行」**または**「閉じる」**をクリックします。
 5. **「確認応答」**チェック・ボックスをクリックし、**「確認」**をクリックします。
+
+あるいは、次の SL CLI コマンドを使用できます。
+```
+# slcli block volume-cancel --help
+Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+Options:
+  --reason TEXT  An optional reason for cancellation
+  --immediate    Cancels the block storage volume immediately instead of on
+                 the billing anniversary
+  -h, --help     Show this message and exit.
+```

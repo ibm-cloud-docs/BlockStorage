@@ -1,20 +1,23 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Creating a duplicate Block Volume
+{: #duplicatevolume}
 
 You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.   
 
-Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](snapshots.html).  
+Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).  
 
 Duplicates can be created from both **primary** and **replica** volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
 
@@ -22,9 +25,9 @@ Duplicate volumes can be accessed by a host for read/write as soon as the storag
 
 When the data copy is complete, the duplicate can be managed and used as an independent volume.
 
-This feature is available in most locations. Click [here](new-ibm-block-and-file-storage-location-and-features.html) for the list of available data centers.
+This feature is available in most locations. Click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) for the list of available data centers.
 
-If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers/cs_storage_file.html#backup_restore).
+If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-backup_restore#backup_restore).
 {:tip}
 
 Some common uses for a duplicate volume:
@@ -61,11 +64,9 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}} ![
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default.
 8. Click **Continue** to place your order.
 
-
-
 ## Creating a duplicate from a specific Snapshot
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}}
+1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
 3. Scroll down and select an existing snapshot from the list on the details page and click **Actions** > **Duplicate**.   
 4. Storage Type (Endurance or Performance) and Location remain the same as the original volume.
@@ -79,6 +80,61 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}} ![
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default.
 8. Click **Continue** to place your order for the duplicate.
 
+
+## Creating a duplicate through the SLCLI
+You can use the following command in the SLCLI to create a duplicate {{site.data.keyword.blockstorageshort}} volume.
+
+```
+# slcli block volume-duplicate --help
+Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
+
+Options:
+  -o, --origin-snapshot-id INTEGER
+                                  ID of an origin volume snapshot to use for
+                                  duplcation.
+  -c, --duplicate-size INTEGER    Size of duplicate block volume in GB. ***If
+                                  no size is specified, the size of the origin
+                                  volume will be used.***
+                                  Potential Sizes:
+                                  [20, 40, 80, 100, 250, 500, 1000, 2000,
+                                  4000, 8000, 12000] Minimum: [the size of the
+                                  origin volume]
+  -i, --duplicate-iops INTEGER    Performance Storage IOPS, between 100 and
+                                  6000 in multiples of 100 [only used for
+                                  performance volumes] ***If no IOPS value is
+                                  specified, the IOPS value of the origin
+                                  volume will be used.***
+                                  Requirements: [If
+                                  IOPS/GB for the origin volume is less than
+                                  0.3, IOPS/GB for the duplicate must also be
+                                  less than 0.3. If IOPS/GB for the origin
+                                  volume is greater than or equal to 0.3,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than or equal to 0.3.]
+  -t, --duplicate-tier [0.25|2|4|10]
+                                  Endurance Storage Tier (IOPS per GB) [only
+                                  used for endurance volumes] ***If no tier is
+                                  specified, the tier of the origin volume
+                                  will be used.***
+                                  Requirements: [If IOPS/GB
+                                  for the origin volume is 0.25, IOPS/GB for
+                                  the duplicate must also be 0.25. If IOPS/GB
+                                  for the origin volume is greater than 0.25,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than 0.25.]
+  -s, --duplicate-snapshot-size INTEGER
+                                  The size of snapshot space to order for the
+                                  duplicate. ***If no snapshot space size is
+                                  specified, the snapshot space size of the
+                                  origin block volume will be used.***
+                                  Input
+                                  "0" for this parameter to order a duplicate
+                                  volume with no snapshot space.
+  --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                  to monthly)
+  -h, --help                      Show this message and exit.
+```
+{:codeblock}
 
 ## Managing your duplicate volume
 

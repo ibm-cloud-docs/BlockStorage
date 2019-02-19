@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,17 +12,33 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Conexión a los LUN iSCSI en CloudLinux
+{: #mountingCloudLinux}
 
 Siga estas instrucciones para instalar el LUN de iSCSI con la multivía de acceso en el release 6.10 de CloudLinux Server.
 
 Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 {:tip}
 
-1. Inicie la sesión en [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+1. Inicie la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 2. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
 3. Pulse **Autorizar host**.
 4. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
 5. Anote el nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino.
+
+De manera alternativa, puede autorizar el host a través de la SLCLI.
+```
+# slcli block access-authorize --help
+Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
+
+Opciones:
+  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
+  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
+  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
+                            que se va a autorizar
+  --ip-address TEXTO         Una dirección IP que se va a autorizar
+  --help                    Mostrar este mensaje y salir.
+```
+{:codeblock}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.
 {:important}

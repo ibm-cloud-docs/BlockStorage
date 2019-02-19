@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2019-01-07"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Einführung in {{site.data.keyword.blockstorageshort}}
+{: #GettingStarted}
 
 Bei {{site.data.keyword.blockstoragefull}} handelt es sich um persistenten iSCSI-Speicher mit hoher Leistung, der unabhängig von Recheninstanzen bereitgestellt und verwaltet wird. iSCSI-basierte {{site.data.keyword.blockstorageshort}}-LUNs sind über MPIO-Verbindungen (MPIO - Multipath I/O) mit autorisierten Geräten verbunden.
 
@@ -26,13 +27,13 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
    - Wird durch die Zuordnung von IOPS auf Protokollebene zu einzelnen Datenträgern erreicht.
 - **Äußerst dauerhaft und ausfallsicher**
    - Schützt bei Wartungsereignissen und ungeplanten Ausfällen die Integrität der Daten, hält die Verfügbarkeit aufrecht und stellt gleichzeitig eine konsistente Leistungsbasis bereit.
-- **Verschlüsselung ruhender Daten** ([in ausgewählten Rechenzentren verfügbar](new-ibm-block-and-file-storage-location-and-features.html))
+- **Verschlüsselung ruhender Daten** ([in ausgewählten Rechenzentren verfügbar](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Anbietergesteuerte Verschlüsselung ruhender Daten ohne Zusatzkosten.
-- **Gesamter durch Flashspeicher gestützter Speicher** ([in ausgewählten Rechenzentren verfügbar](new-ibm-block-and-file-storage-location-and-features.html))
+- **Gesamter durch Flashspeicher gestützter Speicher** ([in ausgewählten Rechenzentren verfügbar](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Bereitstellung des gesamten Flashspeichers für Datenträger mit Endurance oder Performance mit 2 IOPS/GB oder höheren Stufen.
-- **Snapshots** ([in ausgewählten Rechenzentren verfügbar](new-ibm-block-and-file-storage-location-and-features.html))
+- **Snapshots** ([in ausgewählten Rechenzentren verfügbar](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Erfasst zeitpunktgesteuerte Datensnapshots ohne Betriebsunterbrechung
-- **Replikation** ([in ausgewählten Rechenzentren verfügbar](new-ibm-block-and-file-storage-location-and-features.html))
+- **Replikation** ([in ausgewählten Rechenzentren verfügbar](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Kopiert Snapshots automatisch an ein Partner-{{site.data.keyword.BluSoftlayer_full}}-Rechenzentrum.
 - **Hoch verfügbare Konnektivität**
    - Verwendet redundante Netzbetriebsverbindungen zum Maximieren der Verfügbarkeit
@@ -46,7 +47,7 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
 
 Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für ihren Snapshotbereich und zugehörige Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet.
 
-Bei **stündlicher Abrechnung** wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
+Bei **stündlicher Abrechnung** wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) bereitgestellt wird.
 
 Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger).
 
@@ -101,13 +102,13 @@ Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der E
 
 Endurance-{{site.data.keyword.blockstorageshort}} ist in vier IOPS-Performance-Tiers verfügbar und unterstützt wechselnde Anwendungsbedürfnisse. <br />
 
-- **0,25 IOPS pro GB** ist für Workloads mit niedriger Ein-/Ausgabeintensität gedacht. Bei diesen Workloads ist in der Regel zu jedem Zeitpunkt ein großer Prozentsatz der Daten inaktiv. Beispielanwendungen sind Speichermailboxen oder Dateifreigaben auf Abteilungsebene.
+- **0,25 IOPS pro GB** ist für Workloads mit niedriger Ein-/Ausgabeintensität gedacht. Bei diesen Workloads ist in der Regel zu jedem Zeitpunkt ein großer Prozentsatz der Daten inaktiv. Beispielanwendungen sind Speichermailboxen oder gemeinsam genutzte Dateiressourcen auf Abteilungsebene.
 
 - **2 IOPS pro GB**  ist für die meisten allgemeinen Verwendungszwecke gedacht. Beispielanwendungen sind Hostings kleiner Datenbanken, Sicherungen von Webanwendungen oder Plattenimages virtueller Maschinen für einen Hypervisor.
 
 - **4 IOPS pro GB** ist für Workloads mit höherer Intensität gedacht. Bei diesen Workloads ist in der Regel zu jedem Zeitpunkt ein hoher Prozentsatz der Daten aktiv. Beispielanwendungen sind transaktionsorientierte und andere leistungskritische Datenbanken.
 
-- **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse. Dieses Tier ist für Speicher bis zu 4 TB verfügbar, der nur in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
+- **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse. Dieses Tier ist für Speicher bis zu 4 TB verfügbar, der nur in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) bereitgestellt wird.
 
 Bis zu 48.000 IOPS sind bei einem 12-TB-Endurance-Datenträger verfügbar.
 
@@ -263,20 +264,20 @@ Ein anderer zu berücksichtigender Faktor ist die Anzahl der Hosts, die den Date
 
 Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete maximale Durchsatz auf Ihrem Datenträger. Generell sollten Sie nicht erwarten, Ihre Ethernet-Verbindung über 70 % der verfügbaren Bandbreite hinaus auszulasten. Wenn Sie beispielsweise über 6.000 IOPS verfügen und eine Blockgröße von 16 KB verwenden, sind auf dem Datenträger etwa 94 MBps möglich. Bei einer Ethernet-Verbindung von 1 Gb/s zu einer LUN wird diese Verbindung zu einem Engpass, wenn die Server versuchen, den maximal verfügbaren Durchsatz zu nutzen. Ursache hierfür ist, dass 70 Prozent des theoretischen Grenzwerts von einer Ethernet-Verbindung mit 1 Gb/s (125 MB pro Sekunde) nur 88 MB pro Sekunde zulassen würden.
 
-Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](set-host-queue-depth-settings-performance-and-endurance-storage.html) und andere Einstellungen) zu berücksichtigen.
+Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) und andere Einstellungen) zu berücksichtigen.
 
-Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die vom Service auferlegt werden können, finden Sie in der [Dokumentation zu virtuellen Servern](https://{/docs/vsi/vsi_public.html#public-virtual-servers).
+Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die für die Verwendung des Service gelten können, finden Sie in der [Dokumentation zu virtuellen Servern](/docs/vsi?topic=virtual-servers-public-virtual-servers).
 {:tip}
 
 ## Bestellung aufgeben
 
-Wenn Sie bereit sind, die Bestellung aufzugeben, können Sie dies über die [Konsole](provisioning-block_storage.html) oder die [SLCLI](ordering-through-cli.html) tun. 
+Wenn Sie bereit sind, die Bestellung aufzugeben, können Sie dies über die [Konsole](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) oder die [SL-CLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) tun.
 
 ## Neuen Speicher verbinden
 
 Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Hosts, um auf den neuen Speicher zuzugreifen und die Verbindung zu konfigurieren. Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
-- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
-- [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
-- [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)
+- [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Blockspeicher für Sicherung mit cPanel konfigurieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Blockspeicher für Sicherung mit Plesk konfigurieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

@@ -1,30 +1,33 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Création d'un volume de blocs en double
+{: #duplicatevolume}
 
-Vous pouvez créer un doublon d'un {{site.data.keyword.blockstoragefull}} existant. Le volume en double hérite par défaut des options de capacité et de performance du volume d'origine et contient une copie des données jusqu'au point de cohérence d'un instantané.   
+Vous pouvez créer un doublon d'un {{site.data.keyword.blockstoragefull}} existant. Le volume dupliqué hérite par défaut des options de capacité et de performance du volume d'origine et contient une copie des données jusqu'au point de cohérence d'un instantané.   
 
-Etant donné que le volume dupliqué est basé sur les données d'un instantané de point de cohérence, vous devez disposer d'un espace d'image instantanée sur le volume d'origine avant de créer un doublon. Pour plus d'informations sur les instantanés et la commande d'espace d'instantané, voir la [documentation relative aux instantanés](snapshots.html).  
+Etant donné que le volume dupliqué est basé sur les données d'un instantané de point de cohérence, vous devez disposer d'un espace d'instantané sur le volume d'origine avant de créer un doublon. Pour plus d'informations sur les instantanés et la commande d'espace d'instantané, voir la [documentation relative aux instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).  
 
-Vous pouvez créer des doublons à partir de volumes **principaux** et de **réplique**. Le nouveau doublon est créé dans le même centre de données que le volume d'origine. Si vous créez un doublon à partir d'un volume de réplique, le nouveau volume est créé dans le même centre de données que le volume de réplique.
+Vous pouvez créer des doublons à partir d'un volume **principal** et d'un volume de **réplique**. Le nouveau doublon est créé dans le même centre de données que le volume d'origine. Si vous créez un doublon à partir d'un volume de réplique, le nouveau volume est créé dans le même centre de données que le volume de réplique.
 
 Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès la mise à disposition du stockage. Toutefois, les instantanés et la réplication ne sont pas autorisés tant que la copie des données depuis le volume d'origine vers le doublon n'est pas terminée.
 
 Une fois la copie de données terminée, le doublon peut être géré et utilisé en tant que volume indépendant.
 
-Cette fonctionnalité est disponible dans la plupart des emplacements. Cliquez [ici](new-ibm-block-and-file-storage-location-and-features.html) pour obtenir la liste des centres de données disponibles.
+Cette fonctionnalité est disponible dans la plupart des emplacements. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour obtenir la liste des centres de données disponibles.
 
-Si vous êtes un utilisateur de compte Dedicated d'{{site.data.keyword.containerlong}}, consultez vos options de duplication d'un volume dans la [documentation {{site.data.keyword.containerlong_notm}}](/docs/containers/cs_storage_file.html#backup_restore).
+Si vous êtes utilisateur d'un compte Dedicated d'{{site.data.keyword.containerlong}}, consultez les options de duplication d'un volume dans la [documentation d'{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-backup_restore#backup_restore).
 {:tip}
 
 Voici quelques exemples d'utilisation courante d'un volume dupliqué :
@@ -61,11 +64,9 @@ Il existe deux manières de créer un volume dupliqué via le portail [{{site.da
 7. Vous pouvez mettre à jour l'espace d'instantané pour le nouveau volume en ajoutant plus, moins ou pas du tout d'espace d'instantané. L'espace d'instantané du volume d'origine est défini par défaut.
 8. Cliquez sur **Continuer** pour passer commande.
 
-
-
 ## Création d'un doublon à partir d'un instantané spécifique
 
-1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
+1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}.
 2. Cliquez sur un numéro d'unité logique dans la liste pour afficher la page des détails. (Il peut s'agir d'un volume de réplique ou non).
 3. Faites défiler l'écran et sélectionnez un instantané existant sur la page des détails, puis cliquez sur **Actions** > **Dupliquer**.   
 4. Le type de stockage (Endurance ou Performance) et l'emplacement restent identiques à ce qui est indiqué pour le volume d'origine.
@@ -79,6 +80,61 @@ Il existe deux manières de créer un volume dupliqué via le portail [{{site.da
 7. Vous pouvez mettre à jour l'espace d'instantané pour le nouveau volume en ajoutant plus, moins ou pas du tout d'espace d'instantané. L'espace d'instantané du volume d'origine est défini par défaut.
 8. Cliquez sur **Continuer** pour passer votre commande du doublon.
 
+
+## Création d'un doublon via l'interface SLCLI
+Vous pouvez utiliser la commande suivante dans l'interface SLCLI pour créer un doublon du volume {{site.data.keyword.blockstorageshort}}.
+
+```
+# slcli block volume-duplicate --help
+Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
+
+Options:
+  -o, --origin-snapshot-id INTEGER
+                                  ID of an origin volume snapshot to use for
+                                  duplcation.
+  -c, --duplicate-size INTEGER    Size of duplicate block volume in GB. ***If
+                                  no size is specified, the size of the origin
+                                  volume will be used.***
+                                  Potential Sizes:
+                                  [20, 40, 80, 100, 250, 500, 1000, 2000,
+                                  4000, 8000, 12000] Minimum: [the size of the
+                                  origin volume]
+  -i, --duplicate-iops INTEGER    Performance Storage IOPS, between 100 and
+                                  6000 in multiples of 100 [only used for
+                                  performance volumes] ***If no IOPS value is
+                                  specified, the IOPS value of the origin
+                                  volume will be used.***
+                                  Requirements: [If
+                                  IOPS/GB for the origin volume is less than
+                                  0.3, IOPS/GB for the duplicate must also be
+                                  less than 0.3. If IOPS/GB for the origin
+                                  volume is greater than or equal to 0.3,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than or equal to 0.3.]
+  -t, --duplicate-tier [0.25|2|4|10]
+                                  Endurance Storage Tier (IOPS per GB) [only
+                                  used for endurance volumes] ***If no tier is
+                                  specified, the tier of the origin volume
+                                  will be used.***
+                                  Requirements: [If IOPS/GB
+                                  for the origin volume is 0.25, IOPS/GB for
+                                  the duplicate must also be 0.25. If IOPS/GB
+                                  for the origin volume is greater than 0.25,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than 0.25.]
+  -s, --duplicate-snapshot-size INTEGER
+                                  The size of snapshot space to order for the
+                                  duplicate. ***If no snapshot space size is
+                                  specified, the snapshot space size of the
+                                  origin block volume will be used.***
+                                  Input
+                                  "0" for this parameter to order a duplicate
+                                  volume with no snapshot space.
+  --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                  to monthly)
+  -h, --help                      Show this message and exit.
+```
+{:codeblock}
 
 ## Gestion de votre volume en double
 

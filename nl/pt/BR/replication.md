@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Dados de Replicação
+{: #replication}
 
 A replicação usa um de seus planejamentos de captura instantânea para copiar automaticamente capturas instantâneas para um volume de destino em um data center remoto. As cópias poderão ser recuperadas no site remoto se ocorrer um evento catastrófico ou se os dados forem corrompidos.
 
-A replicação mantém os dados em sincronia em duas localizações diferentes. Se desejar clonar seu volume e utilizá-lo independentemente do volume original, consulte [Criando um volume de bloco duplicado](how-to-create-duplicate-volume.html).
+A replicação mantém os dados em sincronia em duas localizações diferentes. Se desejar clonar seu volume e utilizá-lo independentemente do volume original, consulte [Criando um volume de bloco duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 {:tip}
 
 Antes de replicar, deve-se criar um planejamento de captura instantânea.
@@ -110,7 +111,7 @@ As replicações funcionam com base em um planejamento de captura instantânea. 
 2. Clique em **Réplica** e em **Comprar uma replicação**.
 3. Selecione o planejamento de captura instantânea existente que você deseja que sua replicação siga. A lista contém todos os seus planejamentos de captura instantânea ativa. <br />
    É possível selecionar apenas um planejamento mesmo se você tiver uma combinação de horário, diário e semanal. Todas as capturas instantâneas que foram capturadas desde o ciclo de replicação anterior são replicadas independentemente do planejamento que as originou.<br />Se você não tiver Capturas instantâneas configuradas, será solicitado que faça isso antes de poder pedir replicação. Consulte [Trabalhando
-com capturas instantâneas](snapshots.html) para obter mais detalhes.
+com capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) para obter mais detalhes.
    {:important}
 3. Clique em **Local** e selecione o data center que é seu site de DR.
 4. Clique em **Continuar**.
@@ -170,7 +171,7 @@ Os tamanhos de volume devem ser os mesmos para os volumes de armazenamento prim�
 primário, o espaço de réplica é aumentado automaticamente. Aumentar o espaço de captura instantânea aciona uma atualização de replicação imediata. O aumento em ambos os volumes é mostrado como itens de linha em sua fatura e é rateado conforme necessário.
 
 Para obter mais informações sobre o aumento do espaço de captura instantânea, consulte
-[Pedindo capturas instantâneas](ordering-snapshots.html).
+[Pedindo capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:tip}
 
 
@@ -194,16 +195,16 @@ As duplicatas podem ser criadas de ambos os volumes, o primário e o de réplica
 Os volumes duplicados podem ser acessados por um host para leitura/gravação assim que o armazenamento
 é provisionado. No entanto, capturas instantâneas e replicação não são permitidas até que a cópia de dados do original para a duplicata seja concluída.
 
-Para obter mais informações, consulte [Criando um volume de bloco duplicado](how-to-create-duplicate-volume.html).
+Para obter mais informações, consulte [Criando um volume de bloco duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Usando réplicas para failover quando ocorre um desastre
 
 Ao efetuar failover, você está "invertendo o comutador" do volume de armazenamento em seu data center primário para o volume de destino em seu data center remoto. Por exemplo, seu data center primário é Londres e seu data center secundário é Amsterdã. Se um evento de falha ocorresse, você efetuaria failover para Amsterdã - conectando-se ao volume agora primário de uma instância de cálculo em Amsterdã. Depois que seu volume em Londres é reparado, uma captura instantânea é tomada do volume de Amsterdã para efetuar failback para Londres e para o volume novamente primário de uma instância de cálculo em Londres.
 
 * Se a localização principal estiver em perigo iminente ou gravemente afetada, veja
-[Failover com um volume primário acessível](dr-accessible-primary.html).
+[Failover com um volume primário acessível](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible).
 * Se a localização principal estiver inativa, veja [Failover
-com um volume primário inacessível](disaster-recovery.html).
+com um volume primário inacessível](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible).
 
 
 ## Cancelando uma Replicação Existente
@@ -225,3 +226,72 @@ Quando um volume primário é cancelado, o planejamento de replicação e o volu
  2. Clique em **Ações** e selecione **Cancelar {{site.data.keyword.blockstorageshort}}**.
  3. Selecione quando cancelar. Escolha **Imediatamente** ou **Data de aniversário** e clique em **Continuar**.
  4. Clique em **Eu reconheço que, devido ao cancelamento, a perda de dados pode ocorrer** e clique em **Cancelar**.
+
+## Comandos relacionados à replicação na CLI do SL
+{: #clicommands}
+
+* Listar data centers de replicação adequados para um volume específico.
+  ```
+  # slcli block replica-locations --help
+  Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
+  -h, --help      Show this message and exit.
+  ```
+
+* Pedir um volume de réplica de armazenamento de bloco.
+  ```
+  # slcli block replica-order --help
+  Usage: slcli block replica-order [OPTIONS] VOLUME_ID
+
+  Options:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  Snapshot schedule to use for replication,
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [required]
+  -l, --location TEXT             Short name of the data center for the
+                                  replicant (e.g.: dal09)  [required]
+  --tier [0.25|2|4|10]            Endurance Storage Tier (IOPS per GB) of the
+                                  primary volume for which a replicant is
+                                  ordered [optional]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  Operating System Type (e.g.: LINUX) of the
+                                  primary volume for which a replica is
+                                  ordered [optional]
+  -h, --help                      Show this message and exit.
+  ```
+
+* Listar volumes replicantes existentes para um volume de bloco.
+  ```
+  # slcli block replica-partners --help
+  Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Username, Account ID,
+                  Capacity (GB), Hardware ID, Guest ID, Host ID
+  -h, --help      Show this message and exit.
+  ```
+
+* Faça failover de um volume de bloco para um volume replicado específico.
+  ```
+  # slcli block replica-failover --help
+  Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  --immediate          Failover to replicant immediately.
+  -h, --help      Show this message and exit.
+```
+
+* Faça failover de um volume de bloco por meio de um volume replicado específico.
+  ```
+  # slcli block replica-failback --help
+  Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  -h, --help           Show this message and exit.
+  ```

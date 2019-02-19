@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ (Foire aux questions)
+{: #faqs}
 
 ## Combien d'instances peuvent partager l'utilisation d'un volume {{site.data.keyword.blockstorageshort}} ?
 {: faq}
@@ -18,7 +19,7 @@ Le nombre d'autorisations par volume de blocs est limité par défaut à 8. Cela
 ## Combien de volumes peuvent être commandés ?
 {: faq}
 
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter votre limite, contactez votre commercial. Pour plus d'informations, voir [Gestion des limites de stockage](managing-storage-limits.html).
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter votre limite, contactez votre commercial. Pour plus d'informations, voir [Gestion des limites de stockage](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Combien de volumes {{site.data.keyword.blockstorageshort}} peuvent être montés sur un hôte ?
 {: faq}
@@ -81,7 +82,7 @@ Le temps d'attente cible dans le stockage est < 1 ms. Le stockage est connecté 
 ## Pourquoi {{site.data.keyword.blockstorageshort}} avec un niveau Endurance de 10 IOPS peut-il être commandé dans certains centres de données et pas dans d'autres ?
 {: faq}
 
-Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}} Endurance est uniquement disponible dans certains centres de données, mais la liste de ces centres va bientôt être enrichie. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](new-ibm-block-and-file-storage-location-and-features.html).
+Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}} Endurance est uniquement disponible dans certains centres de données, mais la liste de ces centres va bientôt être enrichie. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Comment savoir quels volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
@@ -91,7 +92,7 @@ Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorages
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}
 
-Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres de données mis à niveau sont signalés par un astérisque (`*`) dans le formulaire de commande, ainsi que par un message indiquant que vous êtes sur le point de mettre à disposition un stockage avec chiffrement. Une fois le stockage mis à disposition, une icône apparaît dans la liste de stockage pour indiquer que le stockage est chiffré. Tous les volumes et numéros d'unité logique chiffrés sont mis à disposition uniquement dans des centres de données mis à niveau. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](new-ibm-block-and-file-storage-location-and-features.html).
+Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres de données mis à niveau sont signalés par un astérisque (`*`) dans le formulaire de commande, ainsi que par un message indiquant que vous êtes sur le point de mettre à disposition un stockage avec chiffrement. Une fois le stockage mis à disposition, une icône apparaît dans la liste de stockage pour indiquer que le stockage est chiffré. Tous les volumes et numéros d'unité logique chiffrés sont mis à disposition uniquement dans des centres de données mis à niveau. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Si nous possédons un stockage {{site.data.keyword.blockstorageshort}} non chiffré dans un centre de données qui a été récemment mis à jour, pouvons-nous chiffrer ce stockage {{site.data.keyword.blockstorageshort}} ?
 {: faq}

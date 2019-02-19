@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Daten replizieren
+{: #replication}
 
 Bei der Replikation werden Snapshots mithilfe eines Ihrer Snapshotpläne automatisch auf einen Zieldatenträger in einem fernen Rechenzentrum kopiert. Im Fall beschädigter Daten oder einer Katastrophe können die Kopien an dem fernen Standort wiederhergestellt werden.
 
-Die Replikation hält Ihre Daten an zwei verschiedenen Positionen synchron. Wenn Sie Ihren Datenträger klonen und unabhängig vom ursprünglichen Datenträger verwenden möchten, lesen Sie den Abschnitt [Duplikat des Blockdatenträgers erstellen](how-to-create-duplicate-volume.html).
+Die Replikation hält Ihre Daten an zwei verschiedenen Positionen synchron. Wenn Sie Ihren Datenträger klonen und unabhängig vom ursprünglichen Datenträger verwenden möchten, lesen Sie den Abschnitt [Duplikat des Blockdatenträgers erstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 {:tip}
 
 Um Replikationen durchführen zu können, müssen Sie einen Snapshotplan erstellen.
@@ -109,7 +110,7 @@ Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen 
 1. Klicken Sie auf Ihren Speicherdatenträger.
 2. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
 3. Wählen Sie einen vorhandenen Snapshotplan für Ihre Replikationen aus. Die Liste enthält alle Ihre aktiven Snapshotpläne. <br />
-   Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus stündlicher, täglicher und wöchentlicher Rechnungsstellung haben. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Genauere Informationen hierzu finden Sie im Abschnitt [Mit Snapshots arbeiten](snapshots.html).
+   Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus stündlicher, täglicher und wöchentlicher Rechnungsstellung haben. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Genauere Informationen hierzu finden Sie im Abschnitt [Mit Snapshots arbeiten](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das Sie als Standort für das Disaster-Recovery-Standort verwenden möchten.
 4. Klicken Sie auf **Weiter**.
@@ -163,7 +164,7 @@ Sie können die Details des Replikatdatenträgers unter **Speicher**, **{{site.d
 
 Ihr primärer Datenträger und der Replikatspeicherdatenträger müssen dieselbe Datenträgergröße aufweisen. Der eine darf nicht größer sein als der andere. Wenn Sie Ihren Snapshotbereich für Ihren Primärdatenträger erhöhen, wird der Replikatbereich automatisch erhöht. Wird der Snapshotbereich vergrößert, wird eine sofortige Aktualisierung der Replikation ausgelöst. Die Erhöhung der beiden Datenträger wird auf Ihrer Rechnung als Artikelposition angezeigt und bei Bedarf anteilig berechnet.
 
-Weitere Informationen zum Vergrößern des Snapschotbereichs finden Sie unter [Snapshots bestellen](ordering-snapshots.html).
+Weitere Informationen zum Vergrößern des Snapschotbereichs finden Sie unter [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:tip}
 
 
@@ -186,14 +187,14 @@ Duplikate können sowohl für den Primär- als auch für den Replikatdatenträge
 
 Der Lese- und Schreibzugriff auf duplizierte Datenträger kann durch einen Host erfolgen, sobald der Speicher bereitgestellt wurde. Snapshots und Replikation sind dagegen erst zulässig, nachdem die Daten vollständig vom Original auf das Duplikat kopiert wurden.
 
-Weitere Informationen finden Sie unter [Duplikat eines Blockdatenträgers erstellen](how-to-create-duplicate-volume.html).
+Weitere Informationen finden Sie unter [Duplikat eines Blockdatenträgers erstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Verwenden von Replikaten für ein Failover bei einem Ausfall
 
 Beim Failover 'kippen Sie den Schalter' von Ihrem Speicherdatenträger in Ihrem primären Rechenzentrum auf den Zieldatenträger in Ihrem fernen Rechenzentrum. Beispiel: Ihr primäres Rechenzentrum befindet sich in London und Ihr sekundäres Rechenzentrum in Amsterdam. Bei einem Fehlerereignis können Sie ein Failover nach Amsterdam durchführen und von einer Recheninstanz in Amsterdam eine Verbindung zu dem nun primären Datenträger herstellen. Nachdem Ihr Datenträger in London repariert wurde, wird von dem Datenträger in Amsterdam ein Snapshot erstellt, um von einer Recheninstanz in London eine Rückübertragung nach London und auf den nun wieder primären Datenträger durchzuführen.
 
-* Wenn der primäre Standort sich in unmittelbarer Gefahr befindet oder erheblich beeinträchtigt ist, finden Sie weitere Informationen unter [Failover mit einem zugänglichen Primärdatenträger](dr-accessible-primary.html).
-* Wenn der primäre Standort inaktiv ist, finden Sie weitere Informationen unter [Failover mit einem nicht zugänglichen Primärdatenträger](disaster-recovery.html).
+* Wenn der primäre Standort sich in unmittelbarer Gefahr befindet oder erheblich beeinträchtigt ist, finden Sie weitere Informationen unter [Failover mit einem zugänglichen Primärdatenträger](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible).
+* Wenn der primäre Standort inaktiv ist, finden Sie weitere Informationen unter [Failover mit einem nicht zugänglichen Primärdatenträger](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible).
 
 
 ## Vorhandene Replikation abbrechen
@@ -215,3 +216,72 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
  2. Klicken Sie auf **Aktionen** und wählen Sie **{{site.data.keyword.blockstorageshort}} abbrechen** aus.
  3. Wählen Sie den Zeitpunkt des Abbruchs aus. Wählen Sie **Sofort** oder **Stichtag** aus und klicken Sie auf **Weiter**.
  4. Aktivieren Sie **Ich bestätige, dass der Abbruch einen Datenverlust zur Folge haben kann** und klicken Sie auf **Abbrechen**.
+
+## SL-CLI-Befehle im Zusammenhang mit der Replikation
+{: #clicommands}
+
+* Geeignete Replikationsrechenzentren für einen bestimmten Datenträger auflisten. 
+  ```
+  # slcli block replica-locations --help
+  Syntax: slcli block replica-locations [OPTIONEN] DATENTRÄGER_ID
+
+  Optionen:
+  --sortby TEXT   Spalten für die Sortierung
+  --columns TEXT  Spalten für die Anzeige. Optionen: ID, langer Name, kurzer Name
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
+  ```
+
+* Blockspeicherreplikatdatenträger bestellen. 
+  ```
+  # slcli block replica-order --help
+  Syntax: slcli block replica-order [OPTIONEN] DATENTRÄGER-ID
+
+  Optionen:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  Snapshotplan für die Replikation,
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [erforderlich]
+  -l, --location TEXT             Kurzname des Rechenzentrums für den
+                                  Replikatdatenträger (z. B. dal09)  [erforderlich]
+  --tier [0.25|2|4|10]            Endurance-Speichertier (IOPS pro GB) des primären
+                                  Datenträgers, für den ein Replikatdatenträger
+                                  bestellt wird [optional]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  Betriebssystemtyp (z. B. LINUX) des primären
+                                  Datenträgers, für den ein Replikat bestellt
+                                  wird [optional]
+  -h, --help                      Diese Nachricht anzeigen und Ausführung beenden.
+  ```
+
+* Vorhandene Replikatdatenträger für einen Blockspeicherdatenträger auflisten. 
+  ```
+  # slcli block replica-partners --help
+  Syntax: slcli block replica-partners [OPTIONEN] DATENTRÄGER-ID
+
+  Optionen:
+  --sortby TEXT   Spalten für die Sortierung
+  --columns TEXT  Spalten für die Anzeige. Optionen: ID, Benutzername, Konto-ID,
+                  Kapazität (GB), Hardware-ID, Gastsystem-ID, Host-ID
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
+  ```
+
+* Failover eines Dateidatenträgers auf einen bestimmten Replikatdatenträger durchführen. 
+  ```
+  # slcli block replica-failover --help
+  Syntax: slcli block replica-failover [OPTIONEN] DATENTRÄGER-ID
+
+  Optionen:
+  --replicant-id TEXT  ID des Replikatdatenträgers
+  --immediate          Sofortige Funktionsübernahme durch den Replikatdatenträger.
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
+  ```
+
+* Failback eines Blockdatenträgers von einem bestimmten Replikatdatenträger durchführen. 
+  ```
+  # slcli block replica-failback --help
+  Syntax: slcli block replica-failback [OPTIONEN] DATENTRÄGER-ID
+
+  Optionen:
+  --replicant-id TEXT  ID des Replikatdatenträgers
+  -h, --help           Diese Nachricht anzeigen und Ausführung beenden.
+  ```

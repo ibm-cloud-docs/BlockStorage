@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # 제공자 관리 저장 시 암호화
+{: #encryption}
 
 ## {{site.data.keyword.blockstorageshort}} 저장 시 암호화
 
@@ -28,7 +29,7 @@ lastupdated: "2019-01-04"
 
 ## 암호화를 사용하여 스토리지 프로비저닝
 
-제공자 관리 저장 시 암호화 기능은 [데이터 센터](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 사용할 수 있습니다. 해당 데이터 센터에서 주문되는 모든 스토리지는 암호화를 사용하여 자동으로 프로비저닝됩니다.
+제공자 관리 저장 시 암호화 기능은 [데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)에서 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 사용할 수 있습니다. 해당 데이터 센터에서 주문되는 모든 스토리지는 암호화를 사용하여 자동으로 프로비저닝됩니다.
 
 {{site.data.keyword.blockstorageshort}} 주문 시, 별표(`*`)가 있는 데이터 센터를 선택하십시오. 볼륨이 암호화되어 있음을 나타내는 잠금 아이콘이 LUN/볼륨 이름 필드의 오른쪽에 표시됩니다.
 
@@ -37,5 +38,5 @@ lastupdated: "2019-01-04"
 
 
 
-데이터 센터가 업그레이드되기 전에 프로비저닝된 암호화되지 않은 스토리지는 자동으로 암호화되지 **않습니다**. 업그레이드된 데이터 센터에 암호화되지 않은 스토리지가 있지만 암호화된 스토리지를 원하는 경우, 새 볼륨을 작성하고 데이터를 마이그레이션해야 합니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 업그레이드된 데이터 센터에서 마이그레이션](migrate-block-storage-encrypted-block-storage.html)을 참조하십시오.
+데이터 센터가 업그레이드되기 전에 프로비저닝된 암호화되지 않은 스토리지는 자동으로 암호화되지 **않습니다**. 업그레이드된 데이터 센터에 암호화되지 않은 스토리지가 있지만 암호화된 스토리지를 원하는 경우, 새 볼륨을 작성하고 데이터를 마이그레이션해야 합니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 업그레이드된 데이터 센터에서 마이그레이션](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage)을 참조하십시오.
 {:important}

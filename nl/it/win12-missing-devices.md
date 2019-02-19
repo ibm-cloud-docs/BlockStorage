@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2019-01-07"
 
 
 # Windows 2012 R2 - più dispositivi iSCSI
+{: #troubleshootingWin12}
 
 Se utilizzi più di due dispositivi iSCSI, potresti trovare utile questa procedura; specialmente se tutte le 4 assegnazioni iSCSI provengono dallo stesso dispositivo di archiviazione. Se visualizzi solo due dispositivi in Gestione del disco, devi collegare manualmente ogni dispositivo nell'iniziatore iSCSI su ogni nodo del server.
 

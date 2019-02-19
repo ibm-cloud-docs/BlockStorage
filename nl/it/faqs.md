@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # Domande frequenti
+{: #faqs}
 
 ## Quante istanze possono condividere l'uso di un volume {{site.data.keyword.blockstorageshort}}?
 {: faq}
@@ -18,7 +19,7 @@ Il limite predefinito per il numero di autorizzazioni per volume di blocchi è o
 ## Quanti volumi possono essere ordinati?
 {: faq}
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il tuo limite di volumi, contatta il rappresentante di vendita. Per ulteriori informazioni, vedi [Gestione dei limiti di archiviazione](managing-storage-limits.html).
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il tuo limite di volumi, contatta il rappresentante di vendita. Per ulteriori informazioni, vedi [Gestione dei limiti di archiviazione](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Quanti volumi {{site.data.keyword.blockstorageshort}} possono essere montati su un host?
 {: faq}
@@ -81,7 +82,7 @@ La latenza di destinazione nell'archiviazione è di <1 ms. L'archiviazione è co
 ## Perché posso ordinare {{site.data.keyword.blockstorageshort}} con un livello Endurance 10 IOPS/GB in alcuni data center e non in altri?
 {: faq}
 
-Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Endurance è disponibile solo in data center selezionati; a tale selezione verranno gradualmente aggiunti dei nuovi data center. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](new-ibm-block-and-file-storage-location-and-features.html).
+Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Endurance è disponibile solo in data center selezionati; a tale selezione verranno gradualmente aggiunti dei nuovi data center. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Come faccio a capire quali volumi {{site.data.keyword.blockstorageshort}} sono crittografati?
 {: faq}
@@ -91,7 +92,7 @@ Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [
 ## Come facciamo a sapere se stiamo eseguendo il provisioning di {{site.data.keyword.blockstorageshort}} in un data center di cui è stato eseguito l'upgrade?
 {: faq}
 
-Quando ordini {{site.data.keyword.blockstorageshort}}, tutti i data center di cui è stato eseguito l'upgrade sono segnalati da un asterisco (`*`) nel modulo dell'ordine e da un'indicazione che ti avvisa che stai eseguendo il provisioning dell'archiviazione con la crittografia. Una volta eseguito il provisioning dell'archiviazione, puoi vedere un'icona nell'elenco archiviazioni che mostra tale archiviazione come crittografata. Il provisioning di tutti i volumi crittografati e di tutti i LUN viene eseguito solo nei data center di cui è stato eseguito l'upgrade. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](new-ibm-block-and-file-storage-location-and-features.html).
+Quando ordini {{site.data.keyword.blockstorageshort}}, tutti i data center di cui è stato eseguito l'upgrade sono segnalati da un asterisco (`*`) nel modulo dell'ordine e da un'indicazione che ti avvisa che stai eseguendo il provisioning dell'archiviazione con la crittografia. Una volta eseguito il provisioning dell'archiviazione, puoi vedere un'icona nell'elenco archiviazioni che mostra tale archiviazione come crittografata. Il provisioning di tutti i volumi crittografati e di tutti i LUN viene eseguito solo nei data center di cui è stato eseguito l'upgrade. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Se siamo i proprietari di {{site.data.keyword.blockstorageshort}} non crittografato in un data center di cui è stato appena eseguito l'upgrade, possiamo crittografare tale {{site.data.keyword.blockstorageshort}}?
 {: faq}

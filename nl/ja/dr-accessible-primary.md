@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 災害復旧 - 1 次ボリュームがアクセス可能である場合のフェイルオーバー
+{: #dr-accessible}
 
 1 次サイトで致命的な障害または災害が発生したものの、1 次ストレージにまだアクセスできる場合、お客様は以下の操作を実行して 2 次サイトのデータにすぐにアクセスすることができます。
 
@@ -48,7 +49,7 @@ lastupdated: "2018-12-10"
    {:note}
 4. **「すべて表示 ({{site.data.keyword.blockstorageshort}})」**をクリックします。
 5. アクティブな LUN (以前のターゲット・ボリューム) をクリックします。
-6. ストレージ・ボリュームをホストにマウントして、接続します。 手順については、[ここ](provisioning-block_storage.html)をクリックしてください。
+6. ストレージ・ボリュームをホストにマウントして、接続します。 手順については、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)をクリックしてください。
 
 
 ## ボリュームからそのレプリカへのフェイルバックの開始
@@ -63,7 +64,7 @@ lastupdated: "2018-12-10"
 
 フェイルバックが開始されると、レプリケーションの関係が再び反転します。 ソース・ボリュームがソース・ボリュームとして復元され、ターゲット・ボリュームは、再度、**「LUN 名」**の後に **REP** を付けて示されるターゲット・ボリュームになります。
 
-フェイルオーバーは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
+フェイルバックは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
 
 1. アクティブな LUN (「ターゲット」) をクリックします。
 2. 右上にある**「レプリカ」**をクリックし、**「アクション」** をクリックします。
@@ -73,4 +74,4 @@ lastupdated: "2018-12-10"
    {:note}
 4. 右上で、**「すべて表示 {{site.data.keyword.blockstorageshort}}」**リンクをクリックします。
 5. アクティブな LUN (「ソース」) をクリックします。
-6. ストレージ・ボリュームをホストにマウントして、接続します。 手順については、[ここ](provisioning-block_storage.html)をクリックしてください。
+6. ストレージ・ボリュームをホストにマウントして、接続します。 手順については、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)をクリックしてください。

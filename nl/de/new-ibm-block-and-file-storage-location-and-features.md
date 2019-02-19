@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2018-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,15 +11,17 @@ lastupdated: "2018-01-04"
 {:important: .important}
 
 # Neue Standorte und Features
+{: #news}
 
 {{site.data.keyword.BluSoftlayer_full}} führt eine neue Version von {{site.data.keyword.blockstoragefull}} ein!
 
 Der neue Speicher ist in ausgewählten Rechenzentren verfügbar und wird durch Flashspeicher auf höherem IOPS-Niveau mit Verschlüsselung ruhender Daten auf Datenträgerebene gesichert. Der gesamte in den aktualisierten Rechenzentren bereitgestellte Speicher wird automatisch mit der neuen Version erstellt.
 
-Der NFS-Mountpunkt für neue Datenträger unterscheidet sich vom Mountpunkt für nicht verschlüsselte Datenträger. Weitere Informationen finden Sie im Abschnitt [Neuer Mountpunkt für verschlüsselte {{site.data.keyword.blockstorageshort}}-Datenträger](#new-mount-point-for-encrypted-storage-volumes).
+Der NFS-Mountpunkt für neue Datenträger unterscheidet sich vom Mountpunkt für nicht verschlüsselte Datenträger. Weitere Informationen finden Sie im Abschnitt [Neuer Mountpunkt für verschlüsselte {{site.data.keyword.blockstorageshort}}-Datenträger](#mountpoints).
 {:important}
 
 ## Neue Standorte
+{: #new-locations}
 
 Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen bzw. Rechenzentren verfügbar.
 <table role="presentation">
@@ -85,8 +87,9 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 *In Tabelle 1 wird die Verfügbarkeit von Rechenzentren aufgeführt. Jede Region weist eine eigene Spalte auf. In manchen Städten, wie zum Beispiel Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London und Sydney, befinden sich mehrere Rechenzentren.*
 
 ## Neue Funktionen und Leistungsmerkmale
+{: #features}
 
-- **[Anbietergesteuerte Verschlüsselung ruhender Daten](block-file-storage-encryption-rest.html)**.
+- **[Anbietergesteuerte Verschlüsselung ruhender Daten](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)**.
   Alle {{site.data.keyword.blockstorageshort}}-Instanzen werden automatisch ohne Zusatzkosten verschlüsselt bereitgestellt.
 - **Option für 10 IOPS/GB-Tier**.
   Für den Endurance-Typ von {{site.data.keyword.blockstorageshort}} ist ein neues Tier verfügbar, das die anspruchsvollsten Workloads unterstützt.
@@ -95,11 +98,12 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 - **Snapshot- und Replikationsunterstützung** mit {{site.data.keyword.blockstorageshort}}
 - **Option für stündliche Abrechnung**, verfügbar für Speicher, dessen Verwendung für weniger als einen kompletten Monat geplant ist.
 - **Bis zu 48.000 IOPS** für {{site.data.keyword.blockstorageshort}}, der mit Performance bereitgestellt wird.
-- **IOPS-Raten können angepasst werden**, um die Leistung bei saisonalen Lastschwankungen zu verbessern. Weitere Informationen zu dieser Funktion finden Sie [hier](adjustable-iops.html).
-- Erstellen Sie mit der **[Funktion von {{site.data.keyword.blockstorageshort}} zur Datenträgerduplizierung](how-to-create-duplicate-volume.html)** einen Klon Ihrer Daten.
-- **Speichererweiterung** ist in GB-Schritten von bis zu 12 TB möglich, ohne ein Duplikat erstellen zu müssen oder Daten manuell auf einen größeren Datenträger verschieben zu müssen. Weitere Informationen zu dieser Funktion finden Sie [hier](expandable_block_storage.html).
+- **IOPS-Raten können angepasst werden**, um die Leistung bei saisonalen Lastschwankungen zu verbessern. Weitere Informationen zu dieser Funktion finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS).
+- Erstellen Sie einen Klon Ihrer Daten mit dem **[{{site.data.keyword.blockstorageshort}}-Feature zur Datenträgerduplizierung](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)**. 
+- **Speichererweiterung** ist in GB-Schritten von bis zu 12 TB möglich, ohne ein Duplikat erstellen zu müssen oder Daten manuell auf einen größeren Datenträger verschieben zu müssen. Weitere Informationen zu dieser Funktion finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity).
 
 ## Neuer Mountpunkt für verschlüsselten Speicherdatenträger
+{: #mountpoints}
 
 Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Überprüfen Sie die Informationen zum Mountpunkt auf der Seite **Datenträger-Details** im [ {{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://control.softlayer.com/){:new_window}, um sicherzustellen, dass Sie den korrekten Mountpunkt verwenden. Sie können die richtigen Mountpunktinformationen auch über einen API-Aufruf abrufen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 

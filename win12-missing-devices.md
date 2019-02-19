@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2019-01-07"
 
 
 # Windows 2012 R2 - multiple iSCSI devices
+{: #troubleshootingWin12}
 
 If you use more than two iSCSI devices, you might find this procedure useful; especially if all 4 iSCSI allotments are from the same Storage device. If you see only two devices in Disk Manager, then you need to manually connect to each device in iSCSI Initiator on every server node.
 

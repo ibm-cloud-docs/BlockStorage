@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Pedindo o {{site.data.keyword.blockstorageshort}} por meio da CLI do SL
+{: #orderingthroughCLI}
 
 É possível usar a CLI do SL para fazer pedidos para produtos que normalmente são pedidos por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
 
@@ -45,9 +46,9 @@ Uso: slcli order package-list [OPTIONS]
      # Listar todos os pacotes com "servidor" no nome
       slcli order package-list --keyword server
 
-Opções:
-  --keyword TEXT  Uma palavra (ou sequência) usada para filtrar nomes de pacote.
-  -h, --help      Mostrar essa mensagem e sair.
+Options:
+  --keyword TEXT  A word (or string) used to filter package names.
+  -h, --help      Show this message and exit.
 ```
 
 Também é possível usar o comando `slcli block volume-order`.
@@ -107,7 +108,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Para obter mais informações sobre o aumento dos limites, consulte [Gerenciando os limites de armazenamento](managing-storage-limits.html).
+Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Para obter mais informações sobre o aumento dos limites, consulte [Gerenciando os limites de armazenamento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {:important}
 
 ## Autorizando o acesso dos hosts ao novo armazenamento
@@ -130,14 +131,14 @@ Options:
 Para obter mais informações sobre como autorizar o acesso dos hosts ao {{site.data.keyword.blockstorageshort}} por meio da API, consulte [authorize_host_to_volume![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
 
-Para o limite de autorizações simultâneas, veja as [FAQs](faqs.html).
+Para o limite de autorizações simultâneas, veja as [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Conectando seu novo armazenamento
 
 Dependendo do sistema operacional do seu host, siga o link apropriado.
-- [Conectando-se a LUNs iSCSI no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs iSCSI no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se a LUNs iSCSI no Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
-- [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)
+- [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configurando o Block Storage para backup com cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configurando o Block Storage para backup com Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

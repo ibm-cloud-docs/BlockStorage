@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,8 +11,20 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Speichergrenzwerte verwalten
+{: #managingstoragelimits}
 
-Standardmäßig können Sie global insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen.
+Standardmäßig können Sie global insgesamt 250 {{site.data.keyword.blockstorageshort}}- und {{site.data.keyword.filestorage_short}}-Datenträger bereitstellen. 
+
+Wenn Sie die Anzahl Ihrer Datenträger ermitteln möchten, können Sie mit dem folgenden `slcli`-Befehl Ihre Datenträger für die einzelnen Rechenzentren auflisten. 
+```
+# slcli block volume-count --help
+Syntax: slcli block volume-count [OPTIONEN]
+
+Optionen:
+  -d, --datacenter TEXT  Kurzname des Rechnzentrums
+  --sortby TEXT          Spalten für die Sortierung
+  -h, --help             Diese Nachricht anzeigen und Ausführung beenden.
+```
 
 Sie können eine Erhöhung der Begrenzung anfordern, indem Sie ein Ticket beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} einreichen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
 

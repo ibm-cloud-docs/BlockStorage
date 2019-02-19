@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Connecting to iSCSI LUNs on Linux
+{: #mountingLinux}
 
 These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
 {:note}
@@ -27,6 +27,21 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 2. Click **Authorize Host**.
 3. From the list, select the host or hosts that can access the volume and click **Submit**.
+
+Alternatively, you can authorize the host through the SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 
@@ -177,7 +192,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
    {:important}
-   
+
    Ubuntu users, while you are looking at the `iscsid.conf` file, check whether the `node.startup` setting is manual or automatic. If it's manual, change it to automatic.
    {:tip}
 
@@ -266,9 +281,10 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 ## Creating a file system (optional)
 
-Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB])(#creating-a-file-system-with-fdisk-)  and [`parted` for a disk bigger than 2 TB](#creating-a-file-system-with-parted-).
+Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdisk) and [`parted` for a disk bigger than 2 TB](#parted).
 
 ### Creating a file system with `fdisk`
+{: #fdisk}
 
 1. Get the disk name.
    ```
@@ -388,6 +404,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
   (`**`) Type L to list the hex codes
 
 ### Creating a file system with `parted`
+{: #parted}
 
 On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian and Ubuntu
@@ -495,6 +512,7 @@ To create a file system with `parted`, follow these steps.
 
 
 ## Verifying MPIO configuration
+{: #verifyMPIOLinux}
 
 1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
 
@@ -555,6 +573,7 @@ To create a file system with `parted`, follow these steps.
    ```
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
+{: #unmounting}
 
 1. Unmount the file system.
    ```

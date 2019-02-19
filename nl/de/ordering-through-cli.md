@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} über die SL-Befehlszeilenschnittstelle bestellen
+{: #orderingthroughCLI}
 
-Sie können die SL-Befehlszeilenschnittstelle verwenden, um Bestellungen für Produkte zu platzieren, die normalerweise über das [ {{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://control.softlayer.com/){:new_window} bestellt werden. In der SL-API kann eine Bestellung aus mehreren Bestellungscontainern bestehen. Die Bestell-Befehlszeilenschnittstelle funktioniert nur mit einem Bestellcontainer.
+Sie können die SL-CLI verwenden, um Bestellungen für Produkte zu platzieren, die normalerweise über das [ {{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://control.softlayer.com/){:new_window} bestellt werden. In der SL-API kann eine Bestellung aus mehreren Bestellungscontainern bestehen. Die Bestell-Befehlszeilenschnittstelle funktioniert nur mit einem Bestellcontainer.
 
-Weitere Informationen zur Installation und Verwendung der SL-Befehlszeilenschnittstelle finden Sie unter [Python-API-Client ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Weitere Informationen zur Installation und Verwendung der SL-CLI finden Sie unter [Python-API-Client ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
 ## Nach verfügbaren {{site.data.keyword.blockstorageshort}}-Angeboten suchen
@@ -26,7 +27,7 @@ Innerhalb eines Pakets werden einige Elemente in Kategorien unterteilt. Für ein
 Jede Bestellung muss eine zugeordnete Position (Rechenzentrum) haben. Stellen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} sicher, dass es an derselben Position wie Ihre Berechnungsinstanzen bereitgestellt wird.
 {:important}
 
-Sie können den Befehl `slcli order package-list` verwenden, um das Paket zu suchen, das Sie bestellen möchten. Die Option `-keyword` wird bereitgestellt, um eine einfache Such- und Filterfunktion auszuführen. Diese Option erleichtert die Suche nach dem benötigten Paket. Suchen Sie nach **Storage-as-a-Service Package 759**. 
+Sie können den Befehl `slcli order package-list` verwenden, um das Paket zu suchen, das Sie bestellen möchten. Die Option `-keyword` wird bereitgestellt, um eine einfache Such- und Filterfunktion auszuführen. Diese Option erleichtert die Suche nach dem benötigten Paket. Suchen Sie nach **Storage-as-a-Service Package 759**.
 
 ```
 $ slcli order package-list --help
@@ -47,10 +48,10 @@ Syntax: slcli order package-list [OPTIONS]
 
 Optionen:
   --keyword TEXT  Ein Wort (oder eine Zeichenfolge) zum Filtern von Paketnamen.
-  -h, --help      Diese Nachricht anzeigen und beenden.
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
-Der Befehl `slcli block volume-order` kann ebenfalls verwendet werden. 
+Der Befehl `slcli block volume-order` kann ebenfalls verwendet werden.
 
 ```
 # slcli block volume-order --help
@@ -66,7 +67,7 @@ Optionen:
                                  20, 40, 80, 100, 250, 500,
                                  1000, 2000, 4000, 8000, 12000  [erforderlich]
  --iops INTEGER                  Performance-Speicher-IOPs, zwischen 100 und
-                                 6000 in Vielfachen von 100  [für Speichertyp
+                                 6000 in Vielfachen von 100 [für Speichertyp
                                  Performance erforderlich]
  --tier [0.25|2|4|10]            Endurance-Speicher-Tier (IOP pro GB)
                                  [für Speichertyp Endurance erforderlich]
@@ -94,7 +95,7 @@ Um auf alle neuen Funktionen zugreifen zu können, müssen Sie `Storage-as-a-Ser
 
 ## Bestellung aufgeben
 
-Das folgende Beispiel veranschaulicht die Bestellung eines 80-GB-{{site.data.keyword.blockstorageshort}}-Datenträgers mit einem 20-GB-Snapshotspeicherbereich und 0,25 IOPS pro GB. 
+Das folgende Beispiel veranschaulicht die Bestellung eines 80-GB-{{site.data.keyword.blockstorageshort}}-Datenträgers mit einem 20-GB-Snapshotspeicherbereich und 0,25 E/A-Operationen pro Sekunde/GB.
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
@@ -106,7 +107,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}- und {{site.data.keyword.filestorage_short}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen der Grenzwerte finden Sie in [Speichergrenzwerte verwalten](managing-storage-limits.html).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}- und {{site.data.keyword.filestorage_short}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen der Grenzwerte finden Sie in [Speichergrenzwerte verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {:important}
 
 ## Hosts für den Zugriff auf den neuen Speicher autorisieren
@@ -129,14 +130,14 @@ Optionen:
 Weitere Informationen zum Autorisieren von Hosts für den Zugriff auf {{site.data.keyword.blockstorageshort}} über die API finden Sie unter [authorize_host_to_volume ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}.
 {:tip}
 
-Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](faqs.html).
+Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Neuen Speicher verbinden
 
 Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
-- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
-- [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
-- [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)
+- [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Blockspeicher für Sicherung mit cPanel konfigurieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Blockspeicher für Sicherung mit Plesk konfigurieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

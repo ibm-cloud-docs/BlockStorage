@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # Chiffrement au repos géré par le fournisseur
+{: #encryption}
 
 ## Chiffrement au repos de {{site.data.keyword.blockstorageshort}}
 
@@ -18,17 +19,17 @@ lastupdated: "2019-01-04"
 
 La fonction de chiffrement au repos géré par le fournisseur utilise les protocoles conformes aux normes de l'industrie suivants :
 
-* Chiffrement conforme à la norme de l'industrie AES-256
-* Les clés sont gérées en interne avec le protocole conforme à la norme de l'industrie KMIP (Key Management Interoperability Protocol)
+* Chiffrement AES-256 conforme aux normes de l'industrie
+* Gestion en interne des clés via le protocole conforme aux normes de l'industrie KMIP (Key Management Interoperability Protocol)
 * Le stockage est validé pour la norme FIPS (Federal Information Processing Standard) Publication 140-2, la loi Federal Information Security Management Act (FISMA) et la loi Health Insurance Portability and Accountability Act (HIPAA). Il est également validé pour la norme PCI (Payment Card Industry), Bâle II, la loi California Security Breach Information Act (SB 1386) et la directive européenne relative à la protection des données 95/46/EC.
 
 ## Fourniture du chiffrement au repos pour les instantanés ou le stockage répliqué  
 
 Tous les instantanés et répliques de données chiffrées {{site.data.keyword.blockstorageshort}} sont également chiffrés par défaut. Cette fonction ne peut pas être désactivée par volume.
 
-## Mise à disposition de stockage avec chiffrement
+## Mise à disposition du stockage avec chiffrement
 
-La fonction de chiffrement au repos géré par le fournisseur est uniquement disponible pour le service {{site.data.keyword.blockstorageshort}} qui est mis à disposition dans [certains centres de données](new-ibm-block-and-file-storage-location-and-features.html). La totalité du stockage qui est commandé dans ces centres de données est automatiquement doté du chiffrement.
+La fonction de chiffrement au repos géré par le fournisseur est uniquement disponible pour le service {{site.data.keyword.blockstorageshort}} qui est mis à disposition dans [certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). La totalité du stockage qui est commandé dans ces centres de données est automatiquement doté du chiffrement.
 
 Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, sélectionnez un centre de données signalé par un astérisque (`*`). Une icône en forme de verrou figure à droite de la zone Numéro d'unité logique/nom de volume pour indiquer que le volume est chiffré.
 
@@ -37,5 +38,5 @@ Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, sélectionnez un
 
 
 
-Un stockage non chiffré qui a été mis à disposition avant la mise à niveau du centre de données **n'est pas** automatiquement chiffré. Si vous disposez d'un stockage non chiffré dans un centre de données mis à niveau et que vous souhaitez le chiffrer, vous devrez créer un nouveau numéro volume et faire migrer vos données. Pour plus d'informations, voir [{{site.data.keyword.blockstorageshort}} Migration dans des centres de données mis à niveau](migrate-block-storage-encrypted-block-storage.html).
+Un stockage non chiffré qui a été mis à disposition avant la mise à niveau du centre de données **n'est pas** automatiquement chiffré. Si vous disposez d'un stockage non chiffré dans un centre de données mis à niveau et que vous souhaitez le chiffrer, vous devrez créer un nouveau numéro volume et faire migrer vos données. Pour plus d'informations, voir [{{site.data.keyword.blockstorageshort}} Migration dans des centres de données mis à niveau](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}

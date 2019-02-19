@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Gerenciando {{site.data.keyword.blockstorageshort}}
+{: #managingstorage}
 
 É possível gerenciar seus {{site.data.keyword.blockstoragefull}} volumes por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 
@@ -20,6 +21,15 @@ lastupdated: "2018-11-30"
 
 1. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}**.
 2. Clique no nome do LUN apropriado na lista.
+
+Como alternativa, é possível usar o comando a seguir na CLI do SL.
+```
+# slcli block volume-detail --help
+Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
 
 ## Autorizando hosts para acessar o  {{site.data.keyword.blockstorageshort}}
 
@@ -34,7 +44,18 @@ múltiplas contas, mas não é possível autorizar um host de uma conta a acessa
 3. À direita, clique em **Autorizar host**. Selecione os hosts
 que podem acessar esse LUN específico.
 
+Como alternativa, é possível usar o comando a seguir na CLI do SL.
+```
+# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 ## Visualizando a lista de hosts autorizados a acessar um LUN do {{site.data.keyword.blockstorageshort}}
 
@@ -43,7 +64,18 @@ que podem acessar esse LUN específico.
 
 Lá é possível ver a lista dos hosts que estão atualmente autorizados a acessar o LUN. Também é possível ver as informações sobre autenticação que são necessárias para fazer uma conexão - nome de usuário, senha e Host do IQN. O endereço de Destino é listado na página **Detalhe de armazenamento**. Para NFS, o endereço de destino é descrito como um nome DNS e, para iSCSI, é o endereço IP do portal de destino de descoberta.
 
+Como alternativa, é possível usar o comando a seguir na CLI do SL.
+```
+# slcli block access-list --help
+Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      Show this message and exit.
+```
 
 ## Visualizando o {{site.data.keyword.blockstorageshort}} ao qual um host está autorizado
 
@@ -54,17 +86,15 @@ Lá é possível ver a lista dos hosts que estão atualmente autorizados a acess
 
 É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). É possível autorizar mais armazenamento ou remover o acesso clicando em **Ações**.
 
-
-
 ## Montando e desmontando o {{site.data.keyword.blockstorageshort}}
 
 Com base no sistema operacional do host, siga as instruções apropriadas.
 
-- [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurando o Block Storage para backup com cPanel](configure-backup-cpanel.html)
-- [Configurando o Block Storage para backup com Plesk](configure-backup-plesk.html)
+- [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configurando o Block Storage para backup com cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configurando o Block Storage para backup com Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## Revogando o acesso de um host ao  {{site.data.keyword.blockstorageshort}}
@@ -102,7 +132,23 @@ Se você desejar desconectar múltiplos hosts de um LUN específico, será neces
 para cada host.
 {:tip}
 
+### Revogando o acesso por meio da CLI do SL.
 
+Como alternativa, é possível usar o comando a seguir na CLI do SL.
+```
+# slcli block access-revoke --help
+Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
+                            authorization
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
+                            authorization
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to revoke authorization
+  --ip-address TEXT         An IP address to revoke authorization
+  --help                    Show this message and exit.
+```
 
 ## Cancelando um LUN de armazenamento
 
@@ -120,3 +166,15 @@ de cancelamento antes da data de aniversário.
    {:tip}
 4. Clique em **Continuar** ou em **Fechar**.
 5. Clique na caixa de seleção **Confirmação** e clique em **Confirmar**.
+
+Como alternativa, é possível usar o comando a seguir na CLI do SL.
+```
+# slcli block volume-cancel --help
+Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+Options:
+  --reason TEXT  An optional reason for cancellation
+  --immediate    Cancels the block storage volume immediately instead of on
+                 the billing anniversary
+  -h, --help     Show this message and exit.
+```

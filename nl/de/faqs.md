@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # Häufig gestellte Fragen
+{: #faqs}
 
 ## Wie viele Instanzen können einen bereitgestellten {{site.data.keyword.blockstorageshort}}-Datenträger gemeinsam nutzen?
 {: faq}
@@ -18,7 +19,7 @@ Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger i
 ## Wie viele Datenträger können bestellt werden?
 {: faq}
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](managing-storage-limits.html).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Wie viele {{site.data.keyword.blockstorageshort}}-Datenträger können an einen Host angehängt werden?
 {: faq}
@@ -37,7 +38,7 @@ Wenn Sie eine LUN erstellen, müssen Sie den Betriebssystemtyp angeben. Der Betr
 - Die LUN speichert einen unformatierte Plattentyp auf einer Windows-Platte mit nur einer Partition und verwendet dabei den MBR-Partitionierungsstil (Master Boot Record). Verwenden Sie diese Option nur dann, wenn Ihr Hostbetriebssystem Windows 2000 Server, Windows XP oder Windows Server 2003 ist und die Partitionierungsmethode MBR verwendet.
 
 **Windows GPT**
--  Die LUN speichert Windows-Daten unter Verwendung des Partitionierungsstils GUID Partition Type (GPT). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. In Windows Server 2003 Service Pack 1 und höher kann die Partitionierungsmethode GPT verwendet werden. Alle 64-Bit-Versionen unterstützen diese Methode. 
+-  Die LUN speichert Windows-Daten unter Verwendung des Partitionierungsstils GUID Partition Type (GPT). Verwenden Sie diese Option, wenn Sie die Partitionierungsmethode GPT verwenden wollen und Ihr Host diese Partitionierungsmethode verwenden kann. In Windows Server 2003 Service Pack 1 und höher kann die Partitionierungsmethode GPT verwendet werden. Alle 64-Bit-Versionen unterstützen diese Methode.
 
 ## Wird der zugeordnete IOPS-Grenzwert nach Instanz oder nach Datenträger umgesetzt?
 {: faq}
@@ -81,7 +82,7 @@ Die Ziellatenz im Speicher beträgt <1 ms. Da der vorliegende Speicher mit Reche
 ## Warum kann {{site.data.keyword.blockstorageshort}} in manchen Rechenzentren mit einem Endurance-10/GB-IOPS-Tier bestellt werden und in anderen nicht?
 {: faq}
 
-Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichertyps 10 ist nur in ausgewählten Rechenzentren verfügbar, weitere Rechenzentren folgende nach und nach. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](new-ibm-block-and-file-storage-location-and-features.html).
+Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichertyps 10 ist nur in ausgewählten Rechenzentren verfügbar, weitere Rechenzentren folgende nach und nach. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-Datenträger verschlüsselt sind?
 {: faq}
@@ -91,7 +92,7 @@ Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.d
 ## Wie weiß ich, dass ich {{site.data.keyword.blockstorageshort}} in einem aktualisierten Rechenzentrum bereitstelle?
 {: faq}
 
-Bei der Bestellung von {{site.data.keyword.blockstorageshort}} werden alle aktualisierten Rechenzentren mit einem Stern (`*`) im Bestellformular und mit einem Hinweis gekennzeichnet, dass Sie dabei sind, Speicher mit Verschlüsselung bereitzustellen. Sobald der Speicher bereitgestellt wird, wird in der Speicherliste ein Symbol angezeigt, das auf die Verschlüsselung des Speichers hinweist. Alle verschlüsselten Datenträger und LUNs werden nur in aktualisierten Rechenzentren bereitgestellt. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](new-ibm-block-and-file-storage-location-and-features.html).
+Bei der Bestellung von {{site.data.keyword.blockstorageshort}} werden alle aktualisierten Rechenzentren mit einem Stern (`*`) im Bestellformular und mit einem Hinweis gekennzeichnet, dass Sie dabei sind, Speicher mit Verschlüsselung bereitzustellen. Sobald der Speicher bereitgestellt wird, wird in der Speicherliste ein Symbol angezeigt, das auf die Verschlüsselung des Speichers hinweist. Alle verschlüsselten Datenträger und LUNs werden nur in aktualisierten Rechenzentren bereitgestellt. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Wenn ich über nicht verschlüsselten {{site.data.keyword.blockstorageshort}} in einem Rechenzentrum verfüge, der vor kurzem aktualisiert wurde, kann dieser {{site.data.keyword.blockstorageshort}} dann verschlüsselt werden?
 {: faq}

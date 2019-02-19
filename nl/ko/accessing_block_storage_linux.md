@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Linux에서 iSCSI LUN에 연결
+{: #mountingLinux}
 
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
@@ -27,6 +27,21 @@ lastupdated: "2019-01-07"
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
 2. **호스트 권한 부여**를 클릭하십시오.
 3. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
+
+또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
+```
+# slcli block access-authorize --help
+사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+옵션:
+  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
+  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
+  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
+                            ID
+  --ip-address TEXT         권한 부여할 IP 주소
+  --help                    이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 
@@ -177,9 +192,9 @@ lastupdated: "2019-01-07"
 
    다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.BluSoftlayer_full}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
    {:important}
-   
+
    Ubuntu 사용자의 경우 `iscsid.conf` 파일을 확인할 때 `node.startup` 설정이 수동인지 자동인지 확인하십시오. 수동인 경우 자동으로 변경하십시오.
-{:tip}
+   {:tip}
 
 7. iSCSI가 부팅 시에 시작되도록 설정하고 지금 시작하십시오.
   - RHEL 6
@@ -266,9 +281,10 @@ lastupdated: "2019-01-07"
 
 ## 파일 시스템 작성(선택사항)
 
-다음 단계에 따라 새로 마운트된 볼륨에서 파일 시스템을 작성하십시오. 파일 시스템은 볼륨을 사용하는 대부분의 애플리케이션에서 필요합니다. 2TB 미만의 드라이브에는 `fdisk`(#creating-a-file-system-with-fdisk-)를 사용하고 [2TB 이상인 디스크에 대해서는 `parted`](#creating-a-file-system-with-parted-)를 사용하십시오.
+다음 단계에 따라 새로 마운트된 볼륨에서 파일 시스템을 작성하십시오. 파일 시스템은 볼륨을 사용하는 대부분의 애플리케이션에서 필요합니다. [2TB 미만인 드라이브의 경우 `fdisk`](#fdisk)를 사용하고 [2TB보다 큰 디스크의 경우 `parted`](#parted)를 사용하십시오.
 
 ### `fdisk`로 파일 시스템 작성
+{: #fdisk}
 
 1. 디스크 이름을 가져오십시오.
    ```
@@ -388,6 +404,7 @@ lastupdated: "2019-01-07"
   (`**`)16진 코드를 나열하려면 L을 입력하십시오.
 
 ### `parted`로 파일 시스템 작성
+{: #parted}
 
 많은 Linux 배포판에서 `parted`는 미리 설치되어 제공됩니다. distro에 포함되어 있지 않다면 다음으로 설치할 수 있습니다.
 - Debian 및 Ubuntu
@@ -495,6 +512,7 @@ lastupdated: "2019-01-07"
 
 
 ## MPIO 구성 확인
+{: #verifyMPIOLinux}
 
 1. 다중 경로에서 디바이스를 선택하는지 확인하려면 디바이스를 나열하십시오. 올바르게 구성된 경우 두 개의 NETAPP 디바이스만 표시됩니다.
 
@@ -555,6 +573,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    ```
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트 해제
+{: #unmounting}
 
 1. 파일 시스템을 마운트 해제하십시오.
    ```

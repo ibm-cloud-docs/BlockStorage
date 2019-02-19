@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2019-01-07"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # {{site.data.keyword.blockstorageshort}}入門
+{: #GettingStarted}
 
 {{site.data.keyword.blockstoragefull}} は、コンピューティング・インスタンスから独立してプロビジョンおよび管理される、永続的で高性能な iSCSI ストレージです。 iSCSI ベースの {{site.data.keyword.blockstorageshort}} LUN は、冗長マルチパス入出力 (MPIO) 接続を介して、許可されたデバイスに接続されます。
 
@@ -26,13 +27,13 @@ lastupdated: "2019-01-07"
    - 個々のボリュームに対するプロトコル・レベルの IOPS の割り振りによって提供されます。
 - **強力な耐久性と回復力**
    - データの保全性を保護し、保守イベントおよび計画外の障害の際に可用性を維持します。そのため、独立ディスク (RAID) アレイを使用してオペレーティング・システム・レベルの冗長アレイを作成および管理する必要はありません。
-- **Data at Rest 暗号化** ([選択データ・センターで使用可能](new-ibm-block-and-file-storage-location-and-features.html))
+- **Data at Rest 暗号化** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Data at Rest (保存されたデータ) のためのプロバイダー管理の暗号化を追加コストなしで利用できます。
-- **オール・フラッシュ・ストレージによるバッキング** ([選択データ・センターで使用可能](new-ibm-block-and-file-storage-location-and-features.html))
+- **オール・フラッシュ・ストレージによるバッキング** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - 2 IOPS/GB 以上のレベルの「エンデュランス」または「パフォーマンス」でプロビジョンされるボリューム用のオール・フラッシュ・ストレージ。
-- **スナップショット** ([選択データ・センターで使用可能](new-ibm-block-and-file-storage-location-and-features.html))
+- **スナップショット** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - 処理を中断せずに、特定時点のデータ・スナップショットをキャプチャーします。
-- **レプリケーション** ([選択データ・センターで使用可能](new-ibm-block-and-file-storage-location-and-features.html))
+- **レプリケーション** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - パートナーの {{site.data.keyword.BluSoftlayer_full}} データ・センターにスナップショットを自動的にコピーします。
 - **可用性の高い接続**
    - 冗長ネットワーキング接続を使用して可用性を最大化します。
@@ -46,7 +47,7 @@ lastupdated: "2019-01-07"
 
 ブロック LUN に対して、1 時間ごとまたは月ごとの請求処理を選択できます。 LUN に対して選択した請求のタイプは、その LUN のスナップショット・スペースおよびレプリカに適用されます。 例えば、毎時請求を指定して LUN をプロビジョンすると、スナップショット料金またはレプリカ料金は時間単位で請求されます。 月次請求を指定して LUN をプロビジョンすると、スナップショット料金またはレプリカ料金は月単位で請求されます。
 
-**毎時請求**では、ブロック LUN がアカウント上に存在していた時間数は、LUN が削除された時点、または請求サイクルの終了時の、どちらか早い方の時点で計算されます。 使用期間が数日ないし 1 カ月未満のストレージには毎時請求が適しています。 毎時請求は、[限定されたデータ・センター](new-ibm-block-and-file-storage-location-and-features.html)にプロビジョンされたストレージに対してのみ使用可能です。
+**毎時請求**では、ブロック LUN がアカウント上に存在していた時間数は、LUN が削除された時点、または請求サイクルの終了時の、どちらか早い方の時点で計算されます。 使用期間が数日ないし 1 カ月未満のストレージには毎時請求が適しています。 毎時請求は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)にプロビジョンされたストレージに対してのみ使用可能です。
 
 **月次請求**では、作成日から請求サイクルの終了までの料金が日割りで計算され、 即時に請求されます。 請求サイクルの終了前に LUN が削除された場合、返金はありません。 月次請求は、長期間 (1 カ月以上) の保管およびアクセスが必要なデータを利用する実動ワークロードに使用するストレージに適しています。
 
@@ -107,7 +108,7 @@ lastupdated: "2019-01-07"
 
 - **4 IOPS/GB** は、高負荷ワークロード用に設計されています。 通常、これらのワークロードには、いつも大部分のデータがアクティブであるという特徴があります。 アプリケーションの例として、トランザクション・データベースやその他の高いパフォーマンスを必要とするデータベースが挙げられます。
 
-- **10 IOPS/GB** は、NoSQL データベースや Analytics のデータ処理などで作成される最も厳しいワークロード用に設計されています。 この層は、[限定されたデータ・センター](new-ibm-block-and-file-storage-location-and-features.html)にプロビジョンされた最大サイズ 4 TB のストレージに対してのみ使用可能です。
+- **10 IOPS/GB** は、NoSQL データベースや Analytics のデータ処理などで作成される最も厳しいワークロード用に設計されています。 この層は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)にプロビジョンされた最大サイズ 4 TB のストレージに対してのみ使用可能です。
 
 12 TB のエンデュランス・ボリュームでは、最大 48,000 IOPS が使用可能です。
 
@@ -263,20 +264,20 @@ lastupdated: "2019-01-07"
 
 イーサネット接続の速度は、ボリュームから予想される最大スループットよりも高速でなければなりません。 一般的に、イーサネット接続が、使用可能な帯域幅の 70% を超えることはありません。 例えば、6,000 IOPS で 16 KB ブロック・サイズを使用している場合、ボリュームは約 94 MB/秒のスループットを処理できます。 LUN への 1 Gbps イーサネット接続がある場合、使用可能な最大スループットをサーバーが使用しようとすると、ボトルネックが発生します。 その理由は、1 Gbps イーサネット接続の理論上の限度 (125 MB/秒) の 70% では、88 MB/秒しか使用できないからです。
 
-最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、[キュー項目数](set-host-queue-depth-settings-performance-and-endurance-storage.html)、およびその他の設定) があります。
+最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、[キュー項目数](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)、およびその他の設定) があります。
 
-ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 このサービスで設定されている制限について詳しくは、[Virtual Server の資料](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)を参照してください。
+ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 このサービスで設定されている制限について詳しくは、[Virtual Server の資料](/docs/vsi?topic=virtual-servers-public-virtual-servers)を参照してください。
 {:tip}
 
 ## 注文の送信
 
-注文を送信する準備ができたら、[コンソール](provisioning-block_storage.html)または [SLCLI](ordering-through-cli.html) を通してその注文を出すことができます。
+注文を送信する準備ができたら、[コンソール](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)または [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) を通してその注文を出すことができます。
 
 ## 新規ストレージの接続
 
 プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
-- [Linux での iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での iSCSI LUN への接続](accessing-block-storage-windows.html)
-- [cPanel を使用したバックアップ用のブロック・ストレージの構成](configure-backup-cpanel.html)
-- [Plesk を使用したバックアップ用のブロック・ストレージの構成](configure-backup-plesk.html)
+- [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [cPanel を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Plesk を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

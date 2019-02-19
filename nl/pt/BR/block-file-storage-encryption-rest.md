@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # Criptografia em repouso gerenciada pelo provedor
+{: #encryption}
 
 ## Criptografia em repouso do {{site.data.keyword.blockstorageshort}}
 
@@ -28,7 +29,7 @@ Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorages
 
 ## Fornecimento de armazenamento com criptografia
 
-O recurso de criptografia em repouso gerenciada por provedor está disponível para o {{site.data.keyword.blockstorageshort}} que é provisionado em [data centers selecionados](new-ibm-block-and-file-storage-location-and-features.html). Todo o armazenamento pedido nesses data centers é provisionado automaticamente com criptografia.
+O recurso de criptografia em repouso gerenciada por provedor está disponível para o {{site.data.keyword.blockstorageshort}} que é provisionado em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Todo o armazenamento pedido nesses data centers é provisionado automaticamente com criptografia.
 
 Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center anotado com um asterisco (`*`). É possível ver um ícone de bloqueio à direita do campo Nome do LUN/Volume indicando que o volume está criptografado.
 
@@ -37,5 +38,7 @@ Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center ano
 
 
 
-O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você tiver armazenamento não criptografado em um data center atualizado e desejar armazenamento criptografado, será necessário criar um novo volume e migrar seus dados. Para obter mais informações, consulte [Migração do {{site.data.keyword.blockstorageshort}} em data centers submetidos a upgrade](migrate-block-storage-encrypted-block-storage.html).
+O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você tiver armazenamento não criptografado em um data center atualizado e desejar armazenamento criptografado, será necessário criar um novo volume e migrar seus dados. Para obter mais informações, consulte
+[Migração
+do {{site.data.keyword.blockstorageshort}} em data centers com upgrade](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}

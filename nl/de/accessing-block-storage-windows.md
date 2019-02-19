@@ -2,20 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen
+{: #mountingWindows}
 
 Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} autorisiert wurde.
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
 2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
+
+Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen. 
+```
+# slcli block access-authorize --help
+Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
+
+Optionen:
+  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
+  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
+  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
+                            zur Berechtigung
+  --ip-address TEXT         IP-Adresse zur Berechtigung
+  --help                    Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 
@@ -70,9 +86,11 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 
 1. Klicken Sie auf **Verbinden**, um eine Verbindung zu dem Ziel herzustellen.
 2. Wählen Sie das Kontrollkästchen **Multipfad aktivieren** aus, um Multipath IO für das Ziel zu aktivieren.
-![Multipfad aktivieren](/images/Connect_0.png)
+<br/>
+   ![Multipfad aktivieren](/images/Connect_0.png)
 3. Klicken Sie auf **Erweitert** und wählen Sie **CHAP-Anmeldung aktivieren** aus.
-![CHAP aktivieren](/images/chap_0.png)
+</br>
+   ![CHAP aktivieren](/images/chap_0.png)
 4. Geben Sie in das Feld 'Name' den Benutzernamen und in das Feld 'Zielschlüssel' das Kennwort ein.
 
    Die Werte der Felder 'Name' und 'Zielschlüssel' können aus der Anzeige '{{site.data.keyword.blockstorageshort}} - Details' abgerufen werden.
@@ -91,7 +109,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 4. Im Fenster 'Erweiterte Einstellungen' ![Einstellungen](/images/Settings.png)
    - Wählen Sie in der Liste lokaler Adapter den Eintrag 'Microsoft iSCSI Initiator' aus.
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse des lokalen Hosts aus.
-   - Wählen Sie in der Liste mit Zielportal-IPs die IP der Einheitenschnittstelle aus.
+   - Wählen Sie in der Liste mit Zielportal-IPs die IP der Geräteschnittstelle aus.
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus dem Portal abgerufen haben, und klicken Sie auf **OK**.
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren.
@@ -100,8 +118,11 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 6. Wählen Sie im Fenster 'Verbindung mit Ziel herstellen' das Kontrollkästchen **Multipfad aktivieren** aus. Klicken Sie auf **Erweitert**.
 7. Im Fenster "Erweiterte Einstellungen"
    - Wählen Sie in der Liste lokaler Adapter den Eintrag 'Microsoft iSCSI Initiator' aus.
-   - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Gerät mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
-   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf der Einheit aktiviert ist.
+   - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Speichermedium mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
+   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf dem Speichermedium aktiviert ist. 
+
+     Die zweite IP-Adresse finden Sie in der Detailanzeige von {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window}.
+      {: tip}
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus dem Portal abgerufen haben, und klicken Sie auf **OK**.
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren.
@@ -120,17 +141,19 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 
 
 ## Korrekte Konfiguration von MPIO auf Windows-Betriebssystemen prüfen
+{: #verifyMPIOWindows}
 
 Wenn Sie überprüfen möchten, ob MPIO für Windows konfiguriert ist, müssen Sie zuerst sicherstellen, dass das MPIO-Add-on aktiviert ist und den Server erneut starten.
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
-Wenn der Neustart abgeschlossen ist und die Speichereinheit hinzugefügt wurde, können Sie überprüfen, ob MPIO konfiguriert ist und ordnungsgemäß funktioniert. Öffnen Sie dazu das Fenster **Zielgerätdetails** und klicken Sie auf **MPIO**:
+Wenn der Neustart abgeschlossen ist und das Speichermedium hinzugefügt wurde, können Sie überprüfen, ob MPIO konfiguriert ist und ordnungsgemäß funktioniert. Öffnen Sie dazu das Fenster **Zielgerätdetails** und klicken Sie auf **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zur Speichereinheit getrennt und ist nicht inaktiviert, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.BluSoftlayer_full}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
+Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zum Speichermedium getrennt und ist nicht inaktiviert, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.BluSoftlayer_full}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
+{: #unmounting}
 
 Nachfolgend werden die Schritte aufgeführt, die zum Trennen der Verbindung von einer Windows-basierten {{site.data.keyword.Bluemix_short}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind. Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
 

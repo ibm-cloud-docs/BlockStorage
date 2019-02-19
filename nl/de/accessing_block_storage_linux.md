@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Verbindung zu iSCSI-LUNs unter Linux herstellen
+{: #mountingLinux}
 
 Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
 {:note}
@@ -27,6 +27,21 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
 2. Klicken Sie auf **Host autorisieren**.
 3. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
+
+Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen. 
+```
+# slcli block access-authorize --help
+Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
+
+Optionen:
+  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
+  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
+  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
+                            zur Berechtigung
+  --ip-address TEXT         IP-Adresse zur Berechtigung
+  --help                    Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 
@@ -177,8 +192,9 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
    Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.BluSoftlayer_full}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
    {:important}
-   
-   Für Ubuntu-Benutzer: Überprüfen Sie in der Datei `iscsid.conf`, ob die Einstellung für `node.startup` 'manuell' oder 'automatisch' lautet. Lautet sie 'manuell', ändern Sie sie in 'automatisch'. {:tip}
+
+   Für Ubuntu-Benutzer: Überprüfen Sie in der Datei `iscsid.conf`, ob die Einstellung für `node.startup` 'manuell' oder 'automatisch' lautet. Lautet sie 'manuell', ändern Sie sie in 'automatisch'.
+   {:tip}
 
 7. Legen Sie fest, dass iSCSI beim Booten gestartet wird, und starten Sie das Protokoll jetzt.
   - RHEL 6
@@ -265,9 +281,10 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
 ## Dateisystem erstellen (optional)
 
-Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehängten Datenträger zu erstellen. Ein Dateisystem ist erforderlich, damit die meisten Anwendungen den Datenträger verwenden können. Verwenden Sie [`fdisk` für Laufwerke bis zu 2 TB])(#creating-a-file-system-with-fdisk-) und [`parted` für eine Platte mit mehr als 2 TB](#creating-a-file-system-with-parted-). 
+Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehängten Datenträger zu erstellen. Ein Dateisystem ist erforderlich, damit die meisten Anwendungen den Datenträger verwenden können. Verwenden Sie [`fdisk` für Laufwerke mit weniger als 2 TB](#fdisk) und [`parted` für eine Platte mit mehr als 2 TB](#parted).
 
 ### Dateisystem mit `fdisk` erstellen
+{: #fdisk}
 
 1. Rufen Sie den Namen des Datenträgers ab.
    ```
@@ -387,6 +404,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehäng
   (`**`)Geben Sie L ein, um die hexadezimalen Codes aufzulisten.
 
 ### Dateisystem mit `parted` erstellen
+{: #parted}
 
 Bei vielen Linux-Distributionen ist `parted` vorinstalliert. Wenn das Programm nicht in Ihrer Distribution enthalten ist, können Sie es wie folgt installieren:
 - Debian und Ubuntu
@@ -494,6 +512,7 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem mit `parted` zu erste
 
 
 ## MPIO-Konfiguration überprüfen
+{: #verifyMPIOLinux}
 
 1. Listen Sie nur die Geräte auf, um zu überprüfen, ob die Geräte von Multipath ausgewählt werden. Wenn die Konfiguration korrekt ist, werden nur zwei NETAPP-Geräte angezeigt.
 
@@ -554,6 +573,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
+{: #unmounting}
 
 1. Hängen Sie das Dateisystem ab.
    ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # 既存の {{site.data.keyword.blockstorageshort}} の拡張 {{site.data.keyword.blockstorageshort}} へのアップグレード
+{: #migratestorage}
 
-限定されたデータ・センターで、拡張 {{site.data.keyword.blockstoragefull}} が使用可能になりました。 アップグレードされたデータ・センターと、調整可能な IOPS レートや拡張可能なボリュームなどの使用可能な機能のリストを確認するには、[ここ](new-ibm-block-and-file-storage-location-and-features.html)をクリックしてください。 プロバイダー管理の暗号化ストレージについて詳しくは、[{{site.data.keyword.blockstorageshort}} 保存データの暗号化](block-file-storage-encryption-rest.html)を参照してください。
+限定されたデータ・センターで、拡張 {{site.data.keyword.blockstoragefull}} が使用可能になりました。 アップグレードされたデータ・センターと、調整可能な IOPS レートや拡張可能なボリュームなどの使用可能な機能のリストを確認するには、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)をクリックしてください。 プロバイダー管理の暗号化ストレージについて詳しくは、[{{site.data.keyword.blockstorageshort}} 保存データの暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)を参照してください。
 
 推奨されるマイグレーション・パスは、両方の LUN に同時に接続し、一方の LUN からもう一方にデータを直接転送することです。 詳細は、ご使用のオペレーティング・システム、およびコピー操作中にデータの変更が想定されるかどうかによって異なります。
 
-ホストに非暗号化 LUN が既に接続されていることを前提としています。接続されていない場合は、ご使用のオペレーティング・システムに最適な指示に従って、このタスクを実行してください。
+ホストに非暗号化 LUN が既に接続されていることを前提としています。 接続されていない場合は、ご使用のオペレーティング・システムに最適な指示に従って、このタスクを実行してください。
 
-- [Linux での iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での iSCSI LUN への接続](accessing-block-storage-windows.html)
+- [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 これらのデータ・センターでプロビジョンされる拡張{{site.data.keyword.blockstorageshort}}・ボリュームはすべて、非暗号化ボリュームとは異なるマウント・ポイントになります。 両方のストレージ・ボリュームに正しいマウント・ポイントを使用するために、コンソールの**「ボリュームの詳細」**ページでマウント・ポイント情報を確認することができます。 API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイントを取得することもできます。
 {:tip}
@@ -30,12 +31,12 @@ lastupdated: "2019-01-08"
 API を使用して注文する場合は、「Storage as a Service」パッケージを指定して、更新済みの機能を新規ストレージと一緒に取得してください。
 {:important}
 
-拡張 LUN は IBM Cloud Console および {{site.data.keyword.slportal}} を通して注文することができます。マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
+拡張 LUN は IBM Cloud Console および {{site.data.keyword.slportal}} を通して注文することができます。 マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
 
-- [定義済み IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [定義済み IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
-新しいストレージが数分後にマウント可能になります。そのストレージは「リソース・リスト」と「{{site.data.keyword.blockstorageshort}} リスト」に表示されます。
+新しいストレージが数分後にマウント可能になります。 そのストレージは「リソース・リスト」と「{{site.data.keyword.blockstorageshort}} リスト」に表示されます。
 
 ## 新規 {{site.data.keyword.blockstorageshort}} のホストへの接続
 
@@ -62,8 +63,8 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 2. 元の {{site.data.keyword.blockstorageshort}} LUN にはどのようなタイプのデータがあり、そのデータを新しい LUN にコピーするにはどういう方法が最善かを検討してください。
   - バックアップや静的コンテンツがあり、コピー中に変更が想定されないものなら、あまり心配する必要はありません。
-  - {{site.data.keyword.blockstorageshort}} 上でデータベースまたは仮想マシンを実行している場合は、データ破壊を避けるため、コピー中にデータが変更されないようにしてください。  
-  - 帯域幅に少しでも不安がある場合は、マイグレーションは非ピーク時に実行してください。  
+  - {{site.data.keyword.blockstorageshort}} 上でデータベースまたは仮想マシンを実行している場合は、データ破壊を避けるため、コピー中にデータが変更されないようにしてください。
+  - 帯域幅に少しでも不安がある場合は、マイグレーションは非ピーク時に実行してください。
   - これらの考慮事項について支援が必要な場合は、サポート Case をオープンしてください。
 
 3. データ全体をコピーします。

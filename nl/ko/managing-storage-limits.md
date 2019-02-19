@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,8 +11,20 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 스토리지 한계 관리
+{: #managingstoragelimits}
 
-기본적으로 글로벌하게 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다.
+기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 및 {{site.data.keyword.filestorage_short}} 볼륨을 전 세계적으로 프로비저닝할 수 있습니다.
+
+보유하고 있는 볼륨이 얼마인지 잘 모르는 경우 다음 `slcli` 명령을 사용하여 각 데이터 센터의 볼륨을 나열할 수 있습니다.
+```
+# slcli block volume-count --help
+사용법: slcli block volume-count [OPTIONS]
+
+옵션:
+  -d, --datacenter TEXT  데이터 센터 단축 이름
+  --sortby TEXT          열 정렬 기준
+  -h, --help             이 메시지를 표시하고 종료합니다.
+```
 
 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 티켓을 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
 

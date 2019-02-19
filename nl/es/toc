@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html" path="infrastructure/BlockStorage"}
+{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted" path="infrastructure/BlockStorage"}
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
@@ -37,7 +37,7 @@ IBM Cloud Storage - Block Storage
         working-with-snapshots.md
 
     {: .topicgroup}
-    Réplica y recuperación en caso de error
+    Réplica y recuperación tras desastre
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
@@ -50,7 +50,8 @@ IBM Cloud Storage - Block Storage
 
     {: .navgroup id="help"}
     faqs.md
-    [Información de cliente de API de Python](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    [Información del cliente de API de Python](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    slcli-usage.md
 
     {: .topicgroup}
     Resolución de problemas

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2018-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,15 +11,17 @@ lastupdated: "2018-01-04"
 {:important: .important}
 
 # 新しい場所および新機能
+{: #news}
 
 {{site.data.keyword.BluSoftlayer_full}} では、{{site.data.keyword.blockstoragefull}} の新規バージョンが導入されています。
 
 この新しいストレージは限られたデータ・センターで使用可能で、Data at Rest (保存されたデータ) に対してディスク・レベルで暗号化でき IOPS レベルがより高いフラッシュ・ストレージに基づいています。 アップグレードされたデータ・センターにプロビジョンされるストレージはすべて、新規バージョンで自動的に作成されます。
 
-新規ボリュームの NFS マウント・ポイントは、非暗号化ボリュームのマウント・ポイントとは異なります。 詳しくは、[暗号化 {{site.data.keyword.blockstorageshort}} ボリュームの新規マウント・ポイント](#new-mount-point-for-encrypted-storage-volumes)セクションを参照してください。
+新規ボリュームの NFS マウント・ポイントは、非暗号化ボリュームのマウント・ポイントとは異なります。 詳しくは、[暗号化 {{site.data.keyword.blockstorageshort}} ボリュームの新規マウント・ポイント](#mountpoints)セクションを参照してください。
 {:important}
 
 ## 新しい場所
+{: #new-locations}
 
 新しい {{site.data.keyword.blockstorageshort}} は、以下の地域およびデータ・センターにあります。
 <table role="presentation">
@@ -85,8 +87,9 @@ lastupdated: "2018-01-04"
 *表 1 は、IBM のデータ・センターの可用性を示しています。 地域ごとに独自の列があります。 一部の都市 (ダラス、サンノゼ、ワシントン DC、アムステルダム、フランクフルト、ロンドン、シドニーなど) には複数のデータ・センターがあります。*
 
 ## 新機能および能力
+{: #features}
 
-- **[Data at Rest (保存されたデータ) に対するプロバイダー管理の暗号化](block-file-storage-encryption-rest.html)**。
+- **[Data at Rest (保存されたデータ) に対するプロバイダー管理の暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)**。
   すべての {{site.data.keyword.blockstorageshort}} が、追加料金なしに、自動的に暗号化されてプロビジョンされます。
 - **10 IOPS/GB ティア・オプション**。
   最も厳しいワークロードに対応するために、エンデュランス・タイプの {{site.data.keyword.blockstorageshort}} で新しいティアが使用可能になりました。
@@ -95,11 +98,12 @@ lastupdated: "2018-01-04"
 - {{site.data.keyword.blockstorageshort}} の**スナップショットとレプリケーション**のサポート
 - 予定使用期間が 1 カ月未満のストレージには**時間単位の請求**オプションを使用可能。
 - パフォーマンスがプロビジョンされた {{site.data.keyword.blockstorageshort}} には、**最大 48,000 IOPS**。
-- 季節的な負荷の変動時にパフォーマンスを改善するために **IOPS レートを調整可能**。 この機能について詳しくは、[ここ](adjustable-iops.html)を参照してください。
-- **[{{site.data.keyword.blockstorageshort}} ボリューム複写機能](how-to-create-duplicate-volume.html)**を使用して、データのクローンを作成します。
-- 複製を作成したり、より大きなボリュームに手動でデータを移動したりする必要なしに、GB 単位で最大 12 TB まで**ストレージを拡張可能**。 この機能について詳しくは、[ここ](expandable_block_storage.html)を参照してください。
+- 季節的な負荷の変動時にパフォーマンスを改善するために **IOPS レートを調整可能**。 この機能について詳しくは、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS)を参照してください。
+- **[{{site.data.keyword.blockstorageshort}} ボリューム複写機能](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)**を使用して、データのクローンを作成します。
+- 複製を作成したり、より大きなボリュームに手動でデータを移動したりする必要なしに、GB 単位で最大 12 TB まで**ストレージを拡張可能**。 この機能について詳しくは、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity)を参照してください。
 
 ## 暗号化ストレージ・ボリュームの新規マウント・ポイント
+{: #mountpoints}
 
 これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}の**「ボリュームの詳細」**ページでマウント・ポイント情報を確認して、正しいマウント・ポイントを使用していることを確認してください。 API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイント情報を取得することもできます。
 

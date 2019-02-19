@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # 데이터 복제
+{: #replication}
 
 복제 중에는 스냅샷 스케줄 중 하나를 사용하여 자동으로 스냅샷을 원격 데이터 센터의 대상 볼륨으로 복사합니다. 사본은 재해가 발생하거나 데이터가 손상된 경우 원격 사이트에서 복구 가능합니다.
 
-복제는 서로 다른 두 위치에 동기화된 데이터를 보관합니다. 볼륨을 복제한 후에 이를 원래 볼륨과 독립적으로 사용하려면 [중복 블록 볼륨 작성](how-to-create-duplicate-volume.html)을 참조하십시오.
+복제는 서로 다른 두 위치에 동기화된 데이터를 보관합니다. 볼륨을 복제한 후에 이를 원래 볼륨과 독립적으로 사용하려면 [복제 블록 볼륨 작성](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)을 참조하십시오.
 {:tip}
 
 복제하려면 먼저 스냅샷 스케줄을 작성해야 합니다.
@@ -109,7 +110,7 @@ MEL01<br />
 1. 스토리지 볼륨을 클릭하십시오.
 2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
 3. 복제에서 사용하려는 기존 스냅샷 스케줄을 선택하십시오. 목록에는 모든 활성 스냅샷 스케줄이 포함됩니다. <br />
-   시간별, 일별, 주별이 혼합되어 있어도 스케줄은 하나만 선택할 수 있습니다. 이전 복제 주기 이후에 캡처된 모든 스냅샷은 이를 생성한 스케줄에 상관없이 복제됩니다.<br />설정된 스냅샷이 없는 경우, 복제 주문 전에 이를 수행하도록 프롬프트됩니다. 세부사항은 [스냅샷 관련 작업](snapshots.html)을 참조하십시오.
+   시간별, 일별, 주별이 혼합되어 있어도 스케줄은 하나만 선택할 수 있습니다. 이전 복제 주기 이후에 캡처된 모든 스냅샷은 이를 생성한 스케줄에 상관없이 복제됩니다.<br />설정된 스냅샷이 없는 경우, 복제 주문 전에 이를 수행하도록 프롬프트됩니다. 세부사항은 [스냅샷 관련 작업](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)을 참조하십시오.
    {:important}
 3. **위치**를 클릭하고 DR 사이트가 되는 데이터 센터를 선택하십시오.
 4. **계속**을 클릭하십시오.
@@ -163,7 +164,7 @@ MEL01<br />
 
 볼륨 크기는 기본 및 복제본 스토리지 볼륨에 대해 동일해야 합니다. 크기가 서로 다를 수 없습니다. 기본 볼륨에 대한 스냅샷 영역을 늘리면 복제본 영역도 자동으로 늘어납니다. 스냅샷 영역을 늘리면 즉시 복제 업데이트가 트리거됩니다. 두 볼륨 모두 증가되면 송장의 품목으로 표시되어 필요에 따라 비례 배분됩니다.
 
-스냅샷 영역 늘리기에 대한 자세한 정보는 [스냅샷 주문](ordering-snapshots.html)을 참조하십시오.
+스냅샷 영역 늘리기에 대한 자세한 정보는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 {:tip}
 
 
@@ -186,14 +187,14 @@ MEL01<br />
 
 복제 볼륨은 스토리지가 프로비저닝되는 즉시 읽기/쓰기를 위해 호스트에서 액세스 가능합니다. 그러나 원본에서 복제까지 데이터 복사가 완료되지 않으면 스냅샷 및 복제가 허용되지 않습니다.
 
-자세한 정보는 [중복 블록 볼륨 작성](how-to-create-duplicate-volume.html)을 참조하십시오.
+자세한 정보는 [복제 블록 볼륨 작성](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)을 참조하십시오.
 
 ## 재해 발생 시 복제본을 사용하여 장애 복구
 
 장애 복구 시에, 기본 데이터 센터의 스토리지 볼륨에서 원격 데이터 센터의 대상 볼륨으로 "스위치를 돌립니다". 예를 들어, 기본 데이터 센터가 런던이고 보조 데이터 센터는 암스테르담입니다. 장애가 발생하는 경우 암스테르담의 컴퓨팅 인스턴스에서 현재 기본인 볼륨으로 연결하여 암스테르담으로 장애 복구합니다. 런던의 볼륨이 복구되면 런던 및 런던의 컴퓨팅 인스턴스의 기본 볼륨으로 장애 조치할 수 있도록 암스테르담 볼륨의 스냅샷이 작성됩니다.
 
-* 1차 위치에 위험이 임박하거나 심각하게 충격을 받은 경우 [액세스 가능한 1차 볼륨으로 장애 복구](dr-accessible-primary.html)를 참조하십시오.
-* 1차 위치가 작동 중지된 경우 [액세스할 수 없는 1차 볼륨으로 장애 복구](disaster-recovery.html)를 참조하십시오.
+* 1차 위치에 위험이 임박하거나 심각하게 충격을 받은 경우 [액세스 가능한 1차 볼륨으로 장애 복구](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible)를 참조하십시오.
+* 1차 위치가 작동 중지된 경우 [액세스할 수 없는 1차 볼륨으로 장애 복구](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible)를 참조하십시오.
 
 
 ## 기존 복제본 취소
@@ -215,3 +216,72 @@ MEL01<br />
  2. **조치**에서 **{{site.data.keyword.blockstorageshort}} 취소**를 선택하십시오.
  3. 취소 시기를 선택하십시오. **즉시** 또는 **매년 지정일**을 선택하고 **계속**을 클릭하십시오.
  4. **취소로 인해 데이터 유실이 발생할 수 있음을 인지합니다.**를 클릭하고 **취소**를 클릭하십시오.
+
+## SLCLI의 복제 관련 명령
+{: #clicommands}
+
+* 특정 볼륨에 적합한 복제 데이터 센터를 나열합니다.
+  ```
+  # slcli block replica-locations --help
+  사용법: slcli block replica-locations [OPTIONS] VOLUME_ID
+
+  옵션:
+  --sortby TEXT   열 정렬 기준
+  --columns TEXT  열 표시. 옵션: ID, Long Name, Short Name
+  -h, --help      이 메시지를 표시하고 종료합니다.
+  ```
+
+* 블록 스토리지 복제본 볼륨을 주문합니다.
+  ```
+  # slcli block replica-order --help
+  사용법: slcli block replica-order [OPTIONS] VOLUME_ID
+
+  옵션:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  복제에 사용할 스냅샷 스케줄
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [필수]
+  -l, --location TEXT             복제를 위한 데이터 센터의 단축 이름
+                                  (예: dal09)  [필수]
+  --tier [0.25|2|4|10]            복제를 주문하는 기본 볼륨의 Endurance
+                                  스토리지 티어(IOPS/GB)
+                                  [선택적]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  복제를 주문하는 기본 볼륨의 운영 체제
+                                  유형(예: LINUX)
+                                  [선택적]
+  -h, --help                      이 메시지를 표시하고 종료합니다.
+  ```
+
+* 블록 볼륨에 대한 기존의 복제 볼륨을 나열합니다.
+  ```
+  # slcli block replica-partners --help
+  사용법: slcli block replica-partners [OPTIONS] VOLUME_ID
+
+  옵션:
+  --sortby TEXT   열 정렬 기준
+  --columns TEXT  열 표시. 옵션: ID, Username, Account ID,
+                  Capacity (GB), Hardware ID, Guest ID, Host ID
+  -h, --help      이 메시지를 표시하고 종료합니다.
+  ```
+
+* 특정 복제 볼륨에 블록 볼륨의 장애 복구를 수행합니다.
+  ```
+  # slcli block replica-failover --help
+  사용법: slcli block replica-failover [OPTIONS] VOLUME_ID
+
+  옵션:
+  --replicant-id TEXT  복제 볼륨의 ID
+  --immediate          복제 볼륨으로 즉시 장애 복구를 수행합니다.
+  -h, --help           이 메시지를 표시하고 종료합니다.
+  ```
+
+* 특정 복제 볼륨에서 블록 볼륨의 장애 조치를 수행합니다.
+  ```
+  # slcli block replica-failback --help
+  사용법: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+  옵션:
+  --replicant-id TEXT  복제 볼륨의 ID
+  -h, --help           이 메시지를 표시하고 종료합니다.
+  ```

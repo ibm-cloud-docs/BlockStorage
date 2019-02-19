@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -10,11 +10,12 @@ lastupdated: "2019-01-07"
 {:note: .note}
 {:important: .important}
 
-# Commande de {{site.data.keyword.blockstorageshort}} via l'interface de ligne de commande SL
+# Commande de {{site.data.keyword.blockstorageshort}} via l'interface SLCLI
+{: #orderingthroughCLI}
 
-Vous pouvez utiliser l'interface de ligne de commande SL pour commander des produits qui se commandent normalement via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}. Dans l'API SL, une commande peut se composer de plusieurs conteneurs de commandes. L'interface de ligne de commande pour les commandes fonctionne avec un seul conteneur de commandes.
+Vous pouvez utiliser l'interface SLCLI pour commander des produits qui se commandent normalement via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}. Dans l'API SL, une commande peut se composer de plusieurs conteneurs de commandes. L'interface de ligne de commande pour les commandes fonctionne avec un seul conteneur de commandes.
 
-Pour plus d'informations sur la manière d'installer et d'utiliser l'interface de ligne de commande SL, voir [Client API Python![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCLI, voir [Client API Python ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
 ## Recherche des offres {{site.data.keyword.blockstorageshort}} disponibles
@@ -106,7 +107,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}} et {{site.data.keyword.filestorage_short}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour plus d'informations sur l'augmentation des limites, voir [Gestion des limites de stockage](managing-storage-limits.html).
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}} et {{site.data.keyword.filestorage_short}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour plus d'informations sur l'augmentation des limites, voir [Gestion des limites de stockage](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {:important}
 
 ## Autorisation des hôtes pour l'accès au nouveau stockage
@@ -129,14 +130,14 @@ Options:
 Pour plus d'informations sur l'autorisation des hôtes à accéder à {{site.data.keyword.blockstorageshort}} via l'API, voir [authorize_host_to_volume ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
 
-Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](faqs.html).
+Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Connexion de votre nouveau stockage
 
 Suivez le lien approprié en fonction du système d'exploitation de votre hôte.
-- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
-- [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)
+- [Connexion à des numéros d'unité logique (LUN) sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connexion à des numéros d'unité logique (LUN) sous CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connexion à des numéros d'unité logique (LUN) sous Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configuration de Block Storage pour une sauvegarde avec cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configuration de Block Storage pour une sauvegarde avec Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

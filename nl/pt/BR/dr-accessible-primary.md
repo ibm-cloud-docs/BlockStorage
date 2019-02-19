@@ -1,8 +1,8 @@
-﻿---
+---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Recuperação de desastre: failover com um volume primário acessível
+{: #dr-accessible}
 
 Se uma falha catastrófica ou desastre ocorrer no site primário e o armazenamento primário ainda estiver acessível, os clientes poderão executar as ações a seguir para acessar rapidamente seus dados no site secundário.
 
@@ -48,7 +49,7 @@ Os failovers são iniciados em **Armazenamento**, **{{site.data.keyword.blocksto
    {:note}
 4. Clique em **Visualizar todos ({{site.data.keyword.blockstorageshort}})**.
 5. Clique em seu LUN ativo (anteriormente seu volume de destino).
-6. Monte e conecte o seu volume de armazenamento no host. Clique [aqui](provisioning-block_storage.html) para obter instruções.
+6. Monte e conecte o seu volume de armazenamento no host. Clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) para obter instruções.
 
 
 ## Iniciando um failback de um volume para sua réplica
@@ -73,4 +74,4 @@ Os failbacks são iniciados em **Armazenamento**, **{{site.data.keyword.blocksto
    {:note}
 4. No canto superior direito, clique no link **Visualizar todo o {{site.data.keyword.blockstorageshort}}**.
 5. Clique em seu LUN ativo ("origem").
-6. Monte e conecte o seu volume de armazenamento no host. Clique [aqui](provisioning-block_storage.html) para obter instruções.
+6. Monte e conecte o seu volume de armazenamento no host. Clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) para obter instruções.

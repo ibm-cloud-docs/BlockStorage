@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2019-01-07"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # {{site.data.keyword.blockstorageshort}} 시작하기
+{: #GettingStarted}
 
 {{site.data.keyword.blockstoragefull}}는 컴퓨팅 인스턴스와 상관없이 프로비저닝 및 관리되는 지속적인 고성능 iSCSI 스토리지입니다. iSCSI 기반의 {{site.data.keyword.blockstorageshort}} LUN은 중복 다중 경로 I/O(MPIO) 연결을 통해 권한 부여된 디바이스에 연결됩니다.
 
@@ -26,13 +27,13 @@ lastupdated: "2019-01-07"
    - 개별 볼륨에 대해 프로토콜 레벨의 IOPS 할당을 통해 제공됩니다.
 - **뛰어난 내구성 및 복원성**
    - 데이터 무결성을 보호하고 개별 디스크(RAID) 배열에 대한 운영 체제 레벨의 중복 배열을 작성 및 관리할 필요없이 유지보수 이벤트 및 플랜되지 않은 실패를 통해 가용성을 유지보수합니다.
-- **비활성 데이터(Data-At-Rest) 암호화**([데이터 센터 선택 시 사용 가능](new-ibm-block-and-file-storage-location-and-features.html))
+- **비활성 데이터(Data-At-Rest) 암호화**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - 비활성 데이터(Data-At-Rest)에 대한 제공자 관리 암호화
-- **모든 플래시 지원 스토리지**([데이터 센터 선택 시 사용 가능](new-ibm-block-and-file-storage-location-and-features.html))
+- **모든 플래시 지원 스토리지**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - 2 IOPS/GB 이상 레벨로 Endurance및 Performance를 사용하여 프로비저닝된 볼륨에 대한 모든 플래시 스토리지
-- **스냅샷**([데이터 센터 선택 시 사용 가능](new-ibm-block-and-file-storage-location-and-features.html))
+- **스냅샷**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - 중단 없이 특정 시점의 데이터 스냅샷 캡처
-- **복제**([데이터 센터 선택 시 사용 가능](new-ibm-block-and-file-storage-location-and-features.html))
+- **복제**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - 파트너 {{site.data.keyword.BluSoftlayer_full}} 데이터 센터에 스냅샷 자동 복사
 - **고가용성의 연결**
    - 가용성을 극대화하기 위해 중복 네트워킹 연결 사용
@@ -46,7 +47,7 @@ lastupdated: "2019-01-07"
 
 블록 LUN에 대해 시간별 또는 월별 비용 청구를 선택할 수 있습니다. LUN에 대해 선택한 비용 청구 유형은 해당 스냅샷 영역 및 복제본에 적용됩니다. 예를 들어, LUN을 시간별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 시간별로 청구됩니다. LUN을 월별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 월별로 청구됩니다.
 
-**시간별 비용 청구**를 사용하면 계정에서 블록 LUN이 존재하는 시간은 LUN이 삭제되는 시점 또는 비용 청구 주기 종료 시점(둘 중 빠른 경우)에 계산합니다. 시간별 비용 청구는 며칠 정도 또는 한 달 미만으로 사용되는 스토리지에 적합합니다. 시간별 비용 청구는 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html)에서 프로비저닝된 스토리지에만 사용할 수 있습니다.
+**시간별 비용 청구**를 사용하면 계정에서 블록 LUN이 존재하는 시간은 LUN이 삭제되는 시점 또는 비용 청구 주기 종료 시점(둘 중 빠른 경우)에 계산합니다. 시간별 비용 청구는 며칠 정도 또는 한 달 미만으로 사용되는 스토리지에 적합합니다. 시간별 비용 청구는 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)에서 프로비저닝된 스토리지에만 사용할 수 있습니다.
 
 **월별 비용 청구**를 사용하는 경우, 비용 계산은 작성 날짜부터 비용 청구 주기 종료 시점까지 비례 배분되며 즉시 청구됩니다. 비용 청구 주기 종료 전에 LUN이 삭제되는 경우에는 환불되지 않습니다. 월별 비용 청구는 장시간(한달 이상) 저장 및 액세스해야 하는 데이터를 사용하는 프로덕션 워크로드에서 사용되는 스토리지에 적합합니다.
 
@@ -107,7 +108,7 @@ Endurance{{site.data.keyword.blockstorageshort}}는 다양한 애플리케이션
 
 - **4 IOPS/GB**는 집약도 높은 워크로드를 대상으로 디자인되었습니다. 일반적으로 해당 워크로드는 임의 시점에 활성 데이터의 비율이 높은 특성이 있습니다. 예를 들어, 트랜잭션 데이터베이스 또는 그 외 성능에 민감한 데이터베이스가 이에 해당합니다.
 
-- **10 IOPS/GB**는 NoSQL 데이터베이스로 작성된 워크로드 및 분석을 위한 데이터 처리와 같이 가장 수요가 많은 워크로드를 대상으로 디자인되었습니다. 이 티어는 [데이터 센터 선택](new-ibm-block-and-file-storage-location-and-features.html) 시에만 최대 4TB의 스토리지 프로비저닝에 사용할 수 있습니다.
+- **10 IOPS/GB**는 NoSQL 데이터베이스로 작성된 워크로드 및 분석을 위한 데이터 처리와 같이 가장 수요가 많은 워크로드를 대상으로 디자인되었습니다. 이 티어는 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) 시에만 최대 4TB의 스토리지 프로비저닝에 사용할 수 있습니다.
 
 12TB Endurance 볼륨으로 최대 48,000IOPS까지 사용 가능합니다.
 
@@ -263,20 +264,20 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워�
 
 이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, IOPS가 6,000이며 16KB 블록 크기를 사용하는 경우 볼륨은 약 94MBps의 처리량을 처리할 수 있습니다. LUN에 대해 1Gbps의 이더넷 연결을 보유하고 있는 경우 서버가 사용 가능한 최대 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 이는 1Gbps 이더넷 연결(초당 125MB)에 대한 70퍼센트 이론적 한계가 초당 88MB까지만 허용하기 때문입니다.
 
-최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](set-host-queue-depth-settings-performance-and-endurance-storage.html) 및 기타 설정)도 고려해야 합니다.
+최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) 및 기타 설정)도 고려해야 합니다.
 
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers)를 참조하십시오.
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](/docs/vsi?topic=virtual-servers-public-virtual-servers)를 참조하십시오.
 {:tip}
 
 ## 주문 제출
 
-주문을 제출할 준비가 되면 [콘솔](provisioning-block_storage.html)이나 [SLCLI](ordering-through-cli.html)를 통해 주문을 제출하십시오. 
+주문을 제출할 준비가 되면 [콘솔](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)이나 [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)를 통해 주문을 제출하십시오.
 
 ## 새 스토리지 연결
 
 프로비저닝 요청이 완료되면 새 스토리지에 액세스하고 연결을 구성하도록 호스트에 권한을 부여하십시오. 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
-- [Linux에서 iSCSI LUN에 연결](accessing_block_storage_linux.html)
-- [CloudLinux에서 iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows에서 iSCSI LUNS 연결](accessing-block-storage-windows.html)
-- [cPanel을 사용하여 Block Storage 구성](configure-backup-cpanel.html)
-- [cPanel을 사용하여 Block Storage 구성](configure-backup-plesk.html)
+- [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [cPanel을 사용하여 Block Storage 구성](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [cPanel을 사용하여 Block Storage 구성](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

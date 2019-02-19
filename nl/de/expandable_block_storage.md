@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-12-20"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-12-20"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Blockspeicherkapazität erweitern
+{: #expandingcapacity}
 
 Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung.
 
 Die Abrechnung für den Datenträger wird so aktualisiert, dass die anteilige Differenz des neuen Preises zum aktuellen Abrechnungszyklus hinzugefügt wird. Der gesamte neue Betrag wird dann beim nächsten Abrechnungszyklus abgerechnet.
 
-Diese Funktion ist in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) verfügbar.
+Diese Funktion ist in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) verfügbar.
 
 ## Vorteile des erweiterbaren Speichers
 
@@ -32,20 +33,61 @@ Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenä
 
 ## Einschränkungen
 
-Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](new-ibm-block-and-file-storage-location-and-features.html) bereitgestellt wird.
+Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt wird.
 
 Speicher, der vor der Freigabe dieser Funktion (**April 2017 - 14. Dezember 2017**) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach dem **14. Dezember 2017** bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden.
 
 Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.data.keyword.blockstorageshort}} gelten weiterhin (bis zu 4 TB für das 10-IOPS-Tier und bis zu 12 TB für alle anderen Tiers).
 
 ## Größe des Speichers ändern
+{: #steps}
 
-1. Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie im {{site.data.keyword.BluSoftlayer_full}}-Katalog auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+1. Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie in der {{site.data.keyword.BluSoftlayer_full}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Geben Sie die neue Speichergröße in GB ein.
 4. Prüfen Sie Ihre Auswahl und die neue Preisstruktur.
 5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Bestellung aufgeben**.
 6. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
+
+Alternativ dazu könne Sie die Größe des Datenträgers auch über die SL-CLI ändern. 
+
+```
+# slcli block volume-modify --help
+Syntax: slcli block volume-modify [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  -c, --new-size INTEGER        Neue Größe des Blockspeicherdatenträgers in GB. 
+                                ***Wird keine Größe angegeben, wird die ursprüngliche
+                                Größe des Datenträgers verwendet.***
+                                Mögliche Größen: [20, 40, 80, 100,
+                                250, 500, 1000, 2000, 4000, 8000, 12000]
+                                Minimum: [ursprüngliche Größe des Datenträgers]
+  -i, --new-iops INTEGER        Performance-Speicher-IOPS, zwischen 100 und 6000
+                                in Vielfachen von 100 [nur für Performance-
+                                Datenträger] ***Wird kein IOPS-Wert angegeben,
+                                wird der ursprüngliche IOPS-Wert des Datenträgers
+                                verwendet.***
+                                Voraussetzungen: [Wenn der ursprüngliche IOPS/GB-
+                                Wert für den Datenträger geringer als 0,3 ist, muss
+                                der neue IOPS/GB-Wert ebenfalls geringer als 0,3 sein.
+                                Wenn der ursprüngliche IOPS/GB-Wert für den
+                                Datenträger größer-gleich 0,3 ist, muss der neue
+                                IOPS/GB-Wert für den Datenträger ebenfalls
+                                größer-gleich 0,3 sein.]
+  -t, --new-tier [0.25|2|4|10]  Endurance-Speichertier (IOPS pro GB) [nur
+                                für Endurance-Datenträger] ***Wird kein Tier
+                                angegeben, wird das ursprüngliche Tier des
+                                Datenträgers verwendet.***
+                                Voraussetzungen: [Wenn der ursprüngliche IOPS/GB-
+                                Wert für den Datenträger 0,25 ist, muss der neue
+                                IOPS/GB-Wert für Datenträger ebenfalls 0,25 sein.
+                                Wenn der ursprüngliche IOPS/GB-Wert für den
+                                Datenträger größer als 0,25 ist, muss der neue
+                                IOPS/GB-Wert für den Datenträger ebenfalls
+                                größer als 0,25 sein. ]
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
 
 Weitere Informationen zur Erweiterung des Dateisystems (und gegebenenfalls der Partitionen) auf dem Datenträger zur Nutzung des neuen Speicherplatzes  finden Sie in der Dokumentation des Betriebssystems.
 {:tip}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,8 +12,9 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Plesk を使用してバックアップするための {{site.data.keyword.blockstorageshort}} の構成
+{: #PleskBackups}
 
-以下の手順を使用することにより、Plesk でのバックアップ用に {{site.data.keyword.blockstoragefull}} を構成することができます。root または sudo SSH でのアクセスが可能であり、管理者レベルの Plesk フル・アクセス権限があることを前提としています。ここでの説明は、CentOS7 ホストに基づいています。
+以下の手順を使用することにより、Plesk でのバックアップ用に {{site.data.keyword.blockstoragefull}} を構成することができます。 root または sudo SSH でのアクセスが可能であり、管理者レベルの Plesk フル・アクセス権限があることを前提としています。 ここでの説明は、CentOS7 ホストに基づいています。
 
 詳しくは、[バックアップとリストアに関する Plesk の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window} を参照してください。
 {:tip}

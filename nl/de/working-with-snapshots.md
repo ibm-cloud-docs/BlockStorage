@@ -1,25 +1,29 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Snapshots verwalten
+{: #managingSnapshots}
 
 ## Snapshotplan erstellen
 
 Sie entscheiden, wie oft und wann eine Referenz mit Zeitangabe des Speicherdatenträgers mit Snapshotplänen erstellt werden soll. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Zeitpläne werden über die Registerkarte **Speicher** > **{{site.data.keyword.blockstorageshort}}** des [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} verwaltet.
 
-Damit Sie einen ersten Plan konfigurieren können, müssen Sie vorher einen Snapshotbereich kaufen, sofern Sie noch keinen während der Ersteinrichtung des Speicherdatenträgers gekauft haben.
+Damit Sie einen ersten Plan konfigurieren können, müssen Sie vorher einen Snapshotbereich kaufen, sofern Sie noch keinen während der Ersteinrichtung des Speicherdatenträgers gekauft haben. Weitere Informationen finden Sie unter [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
 
 ### Snapshotplan hinzufügen
+{: #addingschedule}
 
 Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle und einen bestimmten Aufbewahrungszyklus eingerichtet werden. Pro Speicherdatenträger besteht ein Grenzwert von maximal 50 (kann eine Mischung aus stündlichen, täglichen und wöchentlichen Zeitplänen) und manuellen Snapshots.
 
@@ -38,6 +42,16 @@ Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle 
 
 Die Liste der Snapshots wird in der Reihenfolge ihrer Ausführung im Abschnitt **Snapshots** der Seite **Details** angezeigt.
 
+Mit dem folgenden Befehl können Sie die Liste der Snapshotpläne auch über die SL-CLI anzeigen. 
+```
+# slcli block snapshot-schedule-list --help
+Syntax: slcli block snapshot-schedule-list [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  -h, --help  Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
+
 ## Manuellen Snapshot erstellen
 
 Manuelle Snapshots können an verschiedenen Punkten während der Aktualisierung oder Wartung einer Anwendung gemacht werden. Sie können auch Snapshots für mehrere Server erstellen, die temporär auf der Anwendungsebene inaktiviert wurden.
@@ -49,6 +63,17 @@ Die Anzahl der Snapshots ist auf maximal 50 pro Speicherdatenträger begrenzt.
 3. Klicken Sie auf **Manuellen Snapshot machen**.
 Der Snapshot wird erstellt und im Abschnitt **Snapshots** der Seite **Details** angezeigt. Für seinen Plan ist 'Manuell' festgelegt.
 
+Alternativ dazu können Sie mit dem folgenden Befehl einen Snapshot über die SL-CLI erstellen. 
+```
+# slcli block snapshot-create --help
+Syntax: slcli block snapshot-create [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  -n, --notes TEXT  Anmerkungen für den neuen Snapshot
+  -h, --help        Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
+
 ## Alle Snapshots mit den Funktionen für belegten Speicherplatz und die Verwaltung auflisten
 
 Eine Liste mit den aufbewahrten Snapshots und dem belegten Speicherplatz kann auf der Seite **Details** angezeigt werden.  Verwaltungsfunktionen (Bearbeiten von Plänen und Hinzufügen von zusätzlichem Speicherplatz) können auf der Seite 'Details' mithilfe des Menüs **Aktionen** oder Links im unterschiedlichen Abschnitten auf der Seite ausgeführt werden.
@@ -56,6 +81,18 @@ Eine Liste mit den aufbewahrten Snapshots und dem belegten Speicherplatz kann au
 ## Liste der aufbewahrten Snapshots anzeigen
 
 Aufbewahrte Snapshot basieren auf der Nummer, die Sie in das Feld **Letzte aufbewahren** beim Konfigurieren der Pläne eingegeben haben. Sie können die Snapshots anzeigen, die im Abschnitt **Snapshot** erstellt wurden. Die Snapshots werden entsprechend dem Plan aufgelistet.
+
+Alternativ dazu können Sie mit dem folgenden SL-CLI-Befehl die verfügbaren Snapshots anzeigen. 
+```
+# slcli block snapshot-list --help
+Syntax: slcli block snapshot-list [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  --sortby TEXT   Spalten für die Sortierung
+  --columns TEXT  Spalten für die Anzeige. Optionen: ID, Name, Erstellungsdatum, Größe in Byte
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
 
 ## Menge des belegten Snapshotbereichs anzeigen
 
@@ -91,7 +128,7 @@ Snapshotpläne können über **Speicher** > **{{site.data.keyword.blockstoragesh
 1. Klicken Sie im Rahmen **Snapshotpläne** auf der Seite **Details** auf den Plan, der gelöscht werden soll.
 2. Klicken Sie auf das Kontrollkästchen neben dem zu löschenden Plan und klicken Sie auf **Speichern**.<br />
 
-Wenn Sie die Replikationsfunktion verwenden, müssen Sie sicherstellen, dass der Zeitplan, den Sie löschen, nicht der von der Replikation verwendete Zeitplan ist. Weitere Informationen zum Löschen eines Replikationszeitplans finden Sie unter [Daten replizieren](replication.html).
+Wenn Sie die Replikationsfunktion verwenden, müssen Sie sicherstellen, dass der Zeitplan, den Sie löschen, nicht der von der Replikation verwendete Zeitplan ist. Weitere Informationen zum Löschen eines Replikationszeitplans finden Sie unter [Daten replizieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
 {:important}
 
 ## Snapshot löschen
@@ -103,13 +140,27 @@ Snapshots, die nicht mehr benötigt werden, können manuell entfernt werden, um 
 
 Manuelle Snapshots, die nicht manuell im Portal gelöscht werden, werden automatisch (älteste zuerst) gelöscht, wenn Sie den Grenzwert des Speicherbereichs erreichen.
 
+Mit dem folgenden Befehl können Sie einen Datenträger über die SL-CLI löschen. 
+```
+# slcli block snapshot-delete
+Syntax: slcli block snapshot-delete [OPTIONEN] SNAPSHOT-ID
+
+Optionen:
+  -h, --help  Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}
+
+
 ## Speicherdatenträger mit einem Snapshot auf dem Stand eines bestimmten Zeitpunkts wiederherstellen
 
 Es kann vorkommen, dass Sie Ihren Speicherdatenträger aufgrund eines Benutzerfehlers oder einer Datenbeschädigung auf einen bestimmten Zeitpunkt zurücksetzen müssen.
 
+Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach dem für das Zurücksetzen verwendeten Snapshot erstellt wurden.
+{:important}
+
 1. Hängen Sie Ihren Speicherdatenträger vom Host ab.
-   - [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
-   - [Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
+   - [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Klicken Sie auf **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window}.
 3. Blättern Sie nach unten und klicken Sie auf den Datenträger, der wiederhergestellt werden soll. Im Abschnitt **Snapshots** der Seite **Details** wird die Liste aller gespeicherten Snapshots mit Angabe ihrer Größe und ihres Erstellungsdatums angezeigt.
 4. Klicken Sie auf **Aktionen** neben dem Snapshot, der verwendet werden soll, und klicken Sie auf **Wiederherstellen**. <br/>
@@ -121,9 +172,20 @@ Es kann vorkommen, dass Sie Ihren Speicherdatenträger aufgrund eines Benutzerfe
    Quer über den Bereich der Seite wird die Nachricht angezeigt, dass der Datenträger mit dem ausgewählten Snapshot wiederhergestellt wird. Außerdem wird neben Ihrem Datenträger auf dem {{site.data.keyword.blockstorageshort}} ein Symbol angezeigt, das angibt, dass eine aktive Transaktion läuft. Wenn Sie den Mauszeiger über das Symbol bewegen, wird ein Fenster mit Angaben zur Transaktion angezeigt. Sobald die Transaktion abgeschlossen ist, wird das Symbol ausgeblendet.
    {:note}
 6. Hängen Sie Ihren Speicherdatenträger wieder an den Host an und verbinden Sie ihn erneut.
-   - [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-   - [Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-   - [Verbindung zu MPIO-iSCSI-LUNs unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+   - [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach dem für das Zurücksetzen verwendeten Snapshot erstellt wurden.
-{:important}
+Alternativ dazu können Sie nach dem Abhängen des Datenträgers vom Host den folgenden Befehl in der SL-CLI verwenden um eine Wiederherstellung zu starten. 
+```
+# slcli block snapshot-restore --help
+Syntax: slcli block snapshot-restore [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  -s, --snapshot-id TEXT  ID des Snapshots, der zur Wiederherstellung des
+                          Blockspeicherdatenträgers verwendet werden soll.
+  -h, --help              Diese Nachricht anzeigen und Ausführung beenden.
+```
+{:codeblock}  
+
+Hängen Sie den Speicherdatenträger nach dem Abschluss der Wiederherstellung wieder an den Host an und verbinden Sie ihn erneut. 

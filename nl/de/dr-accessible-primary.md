@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Disaster-Recovery - Failover mit einem zugänglichen Primärdatenträger
+{: #dr-accessible}
 
 Wenn eine Betriebsunterbrechung oder einer Katastrophe, die einen Ausfall am primären Standort verursacht, auftritt und der primäre Speicher noch zugänglich ist, können Kunden die folgenden Aktionen ausführen, um schnell am sekundären Standort auf ihre Daten zuzugreifen.
 
@@ -48,7 +49,7 @@ Failovers werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}**
    {:note}
 4. Klicken Sie auf **Alles anzeigen ({{site.data.keyword.blockstorageshort}})**.
 5. Klicken Sie auf Ihre aktive LUN (zuvor Ihr Zieldatenträger).
-6. Hängen Sie Ihren Speicherdatenträger an und verbinden Sie ihn mit dem Host. Die Anweisungen dazu finden Sie [hier](provisioning-block_storage.html).
+6. Hängen Sie Ihren Speicherdatenträger an und verbinden Sie ihn mit dem Host. Die Anweisungen dazu finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole).
 
 
 ## Rückübertragung von einem Datenträger auf dessen Replikat starten
@@ -73,4 +74,4 @@ Failbacks werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}**
    {:note}
 4. Klicken Sie rechts oben auf den Link **Alles anzeigen ({{site.data.keyword.blockstorageshort}})**.
 5. Klicken Sie auf Ihre aktive LUN ('Quelle').
-6. Hängen Sie Ihren Speicherdatenträger an und verbinden Sie ihn mit dem Host. Die Anweisungen dazu finden Sie [hier](provisioning-block_storage.html).
+6. Hängen Sie Ihren Speicherdatenträger an und verbinden Sie ihn mit dem Host. Die Anweisungen dazu finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole).

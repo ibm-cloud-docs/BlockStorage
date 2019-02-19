@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Ottenere la crittografia totale del disco con LUKS in Red Hat Enterprise Linux
+{: #LUKSencryption}
 
 Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con il formato su disco LUKS (Linux Unified Key Setup), cosa importante nel caso di computer mobili e supporti rimovibili. LUKS consente a più chiavi utente di decrittografare una chiave master che viene utilizzata per la crittografia di massa della partizione.
 
-Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, consulta [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html).
+Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, vedi [Connessione ai LUN iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html) viene automaticamente fornito con la crittografia dei dati inattivi gestita dal provider. Per ulteriori informazioni, consulta [Protezione dei tuoi dati - crittografia dei dati inattivi gestita dal provider](block-file-storage-encryption-rest.html).
+Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) viene automaticamente fornito con la crittografia dei dati inattivi gestita dal provider. Per ulteriori informazioni, consulta [Protezione dei tuoi dati - crittografia dei dati inattivi gestita dal provider](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Cosa fa LUKS

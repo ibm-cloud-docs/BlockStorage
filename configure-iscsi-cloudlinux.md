@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Connecting to iSCSI LUNs on CloudLinux
+{: #mountingCloudLinux}
 
 Follow these instructions to install your iSCSI LUN with multipath on CloudLinux Server release 6.10.
 
@@ -24,6 +24,21 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 3. Click **Authorize Host**.
 4. From the list, select the host or hosts that can access the volume and click **Submit**.
 5. Take note of the Host IQN, user name, password, and target address.
+
+Alternatively, you can authorize the host through the SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 {:important}

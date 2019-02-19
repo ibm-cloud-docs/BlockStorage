@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Upgrade für vorhandenen {{site.data.keyword.blockstorageshort}} auf erweiterten {{site.data.keyword.blockstorageshort}} durchführen
+{: #migratestorage}
 
-In ausgewählten Rechenzentren ist jetzt erweiterter {{site.data.keyword.blockstoragefull}} verfügbar. Wenn Sie eine Liste der aktualisierten Rechenzentren und verfügbaren Funktionen anzeigen möchten, zum Beispiel konfigurierbare IOPS-Raten und erweiterbare Datenträger, klicken Sie [hier](new-ibm-block-and-file-storage-location-and-features.html). Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [{{site.data.keyword.blockstorageshort}}-Verschlüsselung ruhender Daten](block-file-storage-encryption-rest.html).
+In ausgewählten Rechenzentren ist jetzt erweiterter {{site.data.keyword.blockstoragefull}} verfügbar. Wenn Sie eine Liste der aktualisierten Rechenzentren und verfügbaren Funktionen anzeigen möchten, zum Beispiel konfigurierbare IOPS-Raten und erweiterbare Datenträger, klicken Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [{{site.data.keyword.blockstorageshort}}-Verschlüsselung ruhender Daten](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 Der bevorzugte Migrationspfad ist die gleichzeitige Verbindung zu beiden LUNs und die direkte Übertragung der Daten von einer LUN zur anderen. Die jeweiligen technischen Daten hängen vom Betriebssystem ab und ob erwartet wird, dass die Daten während der Kopieroperation geändert werden.
 
 Es wird davon ausgegangen, dass Sie bereits über eine nicht verschlüsselte LUN verfügen, die mit dem Host verbunden ist. Falls dies nicht der Fall ist, gehen Sie gemäß den Anweisungen vor, die für Ihr Betriebssystem am besten geeignet sind, um die folgende Task auszuführen:
 
-- [Verbindung zu iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
+- [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Alle erweiterten {{site.data.keyword.blockstorageshort}}-Datenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Um sicherzustellen, dass Sie für beide Speicherdatenträger den richtigen Mountpunkt verwenden, können Sie die Mountpunktinformationen auf der Seite **Datenträgerdetails** in der Konsole anzeigen. Sie können auf den korrekten Mountpunkt auch über einen API-Aufruf zugreifen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -32,10 +33,10 @@ Wenn Sie einen Auftrag mit einer API erteilen, geben Sie das Paket 'Storage as a
 
 Sie können eine erweiterte LUN über die IBM Cloud-Konsole und das {{site.data.keyword.slportal}} bestellen. Die neue LUN muss dieselbe Größe wie der Originaldatenträger aufweisen oder größer als der Originaldatenträger sein, damit die Migration möglich ist.
 
-- [{{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers bestellen (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [{{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Tiers bestellen (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [{{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers (Endurance) bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [{{site.data.keyword.blockstorageshort}} mit angepassten IOPS (Performance) bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
-Der neue Speicher ist in einigen Minuten zum Anhängen verfügbar. Er kann in der Ressourcenliste und der {{site.data.keyword.blockstorageshort}}-Liste angezeigt werden. 
+Der neue Speicher ist in einigen Minuten zum Anhängen verfügbar. Er kann in der Ressourcenliste und der {{site.data.keyword.blockstorageshort}}-Liste angezeigt werden.
 
 ## Neuen {{site.data.keyword.blockstorageshort}} mit Host verbinden
 
@@ -61,10 +62,10 @@ Falls das Rechenzentrum des Replikationsziels noch nicht aktualisiert wurde, kö
    {:tip}
 
 2. Beachten Sie, welchen Datentyp die ursprüngliche {{site.data.keyword.blockstorageshort}}-LUN aufweist und wie Sie die Daten am besten auf die neue LUN kopieren.
-  - Wenn Sie über Sicherungen, statischen Inhalt und andere Daten verfügen, bei denen beim Kopieren keine Änderungen zu erwarten sind, sind keine größeren Überlegungen erforderlich. 
-  - Wenn Sie auf dem {{site.data.keyword.blockstorageshort}} eine Datenbank oder virtuelle Maschine ausführen, stellen Sie sicher, dass die Daten während des Kopiervorgangs nicht geändert werden, um eine Beschädigung von Daten zu vermeiden. 
-  - Wenn Sie Sorgen wegen der Bandbreite haben, führen Sie die Migration außerhalb der Stoßzeiten durch. 
-  - Wenn Sie bei diesen Überlegungen Unterstützung benötigen, öffnen Sie einen Support-Fall. 
+  - Wenn Sie über Sicherungen, statischen Inhalt und andere Daten verfügen, bei denen beim Kopieren keine Änderungen zu erwarten sind, sind keine größeren Überlegungen erforderlich.
+  - Wenn Sie auf dem {{site.data.keyword.blockstorageshort}} eine Datenbank oder virtuelle Maschine ausführen, stellen Sie sicher, dass die Daten während des Kopiervorgangs nicht geändert werden, um eine Beschädigung von Daten zu vermeiden.
+  - Wenn Sie Sorgen wegen der Bandbreite haben, führen Sie die Migration außerhalb der Stoßzeiten durch.
+  - Wenn Sie bei diesen Überlegungen Unterstützung benötigen, öffnen Sie einen Support-Fall.
 
 3. Kopieren Sie die Daten.
    - Formatieren Sie für **Microsoft Windows** den neuen Speicher und kopieren Sie die Daten aus der {{site.data.keyword.blockstorageshort}}-Original-LUN in Ihre neue LUN, indem Sie Windows Explorer verwenden.

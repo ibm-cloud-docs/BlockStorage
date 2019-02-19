@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Gestion de {{site.data.keyword.blockstorageshort}}
+{: #managingstorage}
 
 Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 
@@ -20,6 +21,15 @@ Vous pouvez afficher un récapitulatif des principales informations du numéro d
 
 1. Cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur le nom LUN approprié dans la liste.
+
+Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
+```
+# slcli block volume-detail --help
+Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
 
 ## Autorisation des hôtes pour l'accès à {{site.data.keyword.blockstorageshort}}
 
@@ -32,7 +42,19 @@ Vous pouvez autoriser et connecter des hôtes qui se trouvent dans le même cent
 2. Faites défiler la page jusqu'à la section** Hôtes autorisés**.
 3. A droite, cliquez sur **Hôte autorisé**. Sélectionnez les hôtes qui peuvent accéder à ce numéro d'unité logique spécifique.
 
+Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 ## Affichage de la liste des hôtes autorisés à accéder à un numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
@@ -41,7 +63,18 @@ Vous pouvez autoriser et connecter des hôtes qui se trouvent dans le même cent
 
 Cette section affiche la liste des hôtes actuellement autorisés à accéder au numéro d'unité logique. Sont également affichées les informations d'authentification nécessaires pour établir une connexion : nom d'utilisateur, mot de passe et nom qualifié iSCSI hôte. L'adresse cible figure sur la page contenant les détails du stockage. Pour NFS, elle est décrite sous forme de DNS, tandis que pour iSCSI, il s'agit de l'adresse IP du portail cible Discover.
 
+Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
+```
+# slcli block access-list --help
+Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      Show this message and exit.
+```
 
 ## Affichage du service {{site.data.keyword.blockstorageshort}} auquel un hôte est autorisé à accéder
 
@@ -52,17 +85,15 @@ Vous pouvez afficher les numéros d'unité logique auxquels un hôte a accès, n
 
 Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). Vous pouvez autoriser davantage de stockage ou supprimer l'accès en cliquant sur **Actions**.
 
-
-
 ## Montage et démontage de {{site.data.keyword.blockstorageshort}}
 
 En fonction du système d'exploitation de votre hôte, suivez les instructions appropriées.
 
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html)
-- [Connexion à des numéros d'unité logique MPIO iSCSI sous CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuration de Block Storage pour une sauvegarde avec cPanel](configure-backup-cpanel.html)
-- [Configuration de Block Storage pour une sauvegarde avec Plesk](configure-backup-plesk.html)
+- [Connexion à des numéros d'unité logique (LUN) sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connexion à des numéros d'unité logique (LUN) sous CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connexion à des numéros d'unité logique (LUN) sous Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configuration de Block Storage pour une sauvegarde avec cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configuration de Block Storage pour une sauvegarde avec Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## Révocation de l'accès d'un hôte à {{site.data.keyword.blockstorageshort}}
@@ -95,7 +126,23 @@ Si vous souhaitez déconnecter plusieurs numéros d'unité logique d'un hôte sp
 Si vous souhaitez déconnecter plusieurs hôtes d'un numéro d'unité logique spécifique, vous devez répéter l'action Révoquer le droit d'accès pour chaque hôte.
 {:tip}
 
+### Révocation de l'accès via l'interface SLCLI.
 
+Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
+```
+# slcli block access-revoke --help
+Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
+                            authorization
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
+                            authorization
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to revoke authorization
+  --ip-address TEXT         An IP address to revoke authorization
+  --help                    Show this message and exit.
+```
 
 ## Annulation d'un numéro d'unité logique de stockage
 
@@ -112,3 +159,15 @@ Pour ce faire, vous devez d'abord révoquer l'accès à partir de tous les hôte
    {:tip}
 4. Cliquez sur **Continuer** ou sur **Fermer**.
 5. Cochez la case d'accusé de réception et cliquez sur **Confirmer**.
+
+Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
+```
+# slcli block volume-cancel --help
+Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+Options:
+  --reason TEXT  An optional reason for cancellation
+  --immediate    Cancels the block storage volume immediately instead of on
+                 the billing anniversary
+  -h, --help     Show this message and exit.
+```

@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Conexión a los LUN iSCSI en Linux
+{: #mountingLinux}
 
 Estas instrucciones se aplican principalmente a RHEL6 y Centos6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso.
 {:note}
@@ -27,6 +27,21 @@ Antes de empezar, asegúrese de que el host que está accediendo al volumen de {
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
 2. Pulse **Autorizar host**.
 3. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
+
+De manera alternativa, puede autorizar el host a través de la SLCLI.
+```
+# slcli block access-authorize --help
+Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
+
+Opciones:
+  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
+  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
+  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
+                            que se va a autorizar
+  --ip-address TEXTO         Una dirección IP que se va a autorizar
+  --help                    Mostrar este mensaje y salir.
+```
+{:codeblock}
 
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 
@@ -177,7 +192,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
    Deje los otros valores de CHAP que se han comentado. El almacenamiento de {{site.data.keyword.BluSoftlayer_full}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP.
    {:important}
-   
+
    Si es usuario de Ubuntu, cuando consulte el archivo `iscsid.conf`, mire si el valor `node.startup` es manual o automatic. Si es manual, cámbielo por automatic.
    {:tip}
 
@@ -266,9 +281,10 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
 ## Creación de un sistema de archivos (opcional)
 
-Siga estos pasos para crear un sistema de archivos en el volumen montado recientemente. Un sistema de archivos es necesario para que la mayoría de las aplicaciones utilicen el volumen. Utilice [`fdisk` para unidades que tengan menos de 2 TB])(#creating-a-file-system-with-fdisk-) y [`parted` para discos de más de 2 TB](#creating-a-file-system-with-parted-).
+Siga estos pasos para crear un sistema de archivos en el volumen montado recientemente. Un sistema de archivos es necesario para que la mayoría de las aplicaciones utilicen el volumen. Utilice [`fdisk` para unidades inferiores a 2 TB](#fdisk) y [`parted` para discos de más de 2 TB](#parted).
 
 ### Creación de un sistema de archivos con `fdisk`
+{: #fdisk}
 
 1. Obtenga el nombre de disco.
    ```
@@ -388,6 +404,7 @@ Siga estos pasos para crear un sistema de archivos en el volumen montado recient
   (`**`)Escriba L para ver la lista de códigos hexadecimales
 
 ### Creación de un sistema de archivos con `parted`
+{: #parted}
 
 En muchas distribuciones Linux, la opción `parted` viene preinstalada. Si no se incluye en su distribución, puede instalarla con:
 - Debian y Ubuntu
@@ -495,6 +512,7 @@ Para crear un sistema de archivos con `parted`, siga estos pasos.
 
 
 ## Verificación de la configuración de MPIO
+{: #verifyMPIOLinux}
 
 1. Para comprobar si la multivía está recogiendo dispositivos, liste los dispositivos. Si se ha configurado correctamente, solo se mostrarán dos dispositivos NETAPP.
 
@@ -555,6 +573,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## Desmontaje de volúmenes de {{site.data.keyword.blockstorageshort}}
+{: #unmounting}
 
 1. Desmonte el sistema de archivos.
    ```

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +12,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Configuration de {{site.data.keyword.blockstorageshort}} pour une sauvegarde avec cPanel
+{: #cPanelBackups}
 
 Suivez les instructions suivantes pour configurer vos sauvegardes dans cPanel en vue d'un stockage dans {{site.data.keyword.blockstoragefull}}. Nous supposons ici que root ou sudo SSH et un accès complet à WebHost Manager (WHM) sont disponibles. Ces instructions se fondent sur un hôte **CentOS 7**.
 

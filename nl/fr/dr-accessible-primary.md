@@ -1,8 +1,8 @@
 ﻿---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Reprise après incident - Basculement avec un volume principal accessible
+{: #dr-accessible}
 
 En cas de défaillance catastrophique ou d'un incident entraînant une indisponibilité sur le site principal avec le stockage principal toujours accessible, les clients peuvent effectuer les actions suivantes pour accéder rapidement à leurs données sur le site secondaire.
 
@@ -23,6 +24,7 @@ Les hôtes et les volumes autorisés doivent figurer dans le même centre de don
 
 1. Connectez-vous à la [console {{site.data.keyword.cloud}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://
 {DomainName}/catalog/){:new_window}, puis cliquez sur l'icône **Menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+
 
    Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 2. Cliquez sur votre volume source ou cible à partir de la page **{{site.data.keyword.blockstorageshort}}**.
@@ -48,7 +50,7 @@ Les basculements sont lancés sous **Stockage**, **{{site.data.keyword.blockstor
    {:note}
 4. Cliquez sur **Tout afficher ({{site.data.keyword.blockstorageshort}})**.
 5. Cliquez sur votre numéro d'unité logique actif (anciennement votre volume cible).
-6. Montez votre volume de stockage sur l'hôte et associez-les. Cliquez [ici](provisioning-block_storage.html) pour obtenir des instructions.
+6. Montez votre volume de stockage sur l'hôte et associez-les. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) pour obtenir des instructions.
 
 
 ## Démarrage d'une reprise par restauration depuis un volume vers sa réplique
@@ -73,4 +75,4 @@ Les reprises par restauration sont lancées sous **Stockage**, **{{site.data.key
    {:note}
 4. Dans l'angle supérieur droit, cliquez sur le lien **Afficher tout {{site.data.keyword.blockstorageshort}}**.
 5. Cliquez sur votre numéro d'unité logique actif ("source").
-6. Montez votre volume de stockage sur l'hôte et associez-les. Cliquez [ici](provisioning-block_storage.html) pour obtenir des instructions.
+6. Montez votre volume de stockage sur l'hôte et associez-les. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) pour obtenir des instructions.

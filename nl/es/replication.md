@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Réplica de datos
+{: #replication}
 
 La réplica utiliza una de sus planificaciones de instantáneas para copiar automáticamente las instantáneas a un volumen de destino de un centro de datos remoto. Las copias se pueden recuperar en el sitio remoto si se produce un suceso catastrófico o los datos resultan dañados.
 
-La réplica conserva sus datos sincronizados en dos ubicaciones diferentes. Si desea clonar su volumen y utilizarlo independientemente del volumen original, consulte [Creación de un volumen de bloque duplicado](how-to-create-duplicate-volume.html).
+La réplica mantiene sus datos sincronizados entre dos ubicaciones distintas. Si desea clonar su volumen y utilizarlo independientemente del volumen original, consulte [Creación de un volumen de bloque duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 {:tip}
 
 Antes de poder replicar, debe crear una planificación de instantáneas.
@@ -109,15 +110,15 @@ Las réplicas se basan en una planificación de réplica. Primero debe tener un 
 1. Pulse el volumen de almacenamiento.
 2. Pulse **Réplica** y pulse **Adquirir una réplica**.
 3. Seleccione la planificación de instantáneas existente que quiera que siga su réplica. La lista contiene todas las planificaciones de instantáneas activas. <br />
-   Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Consulte [Trabajar con instantáneas](snapshots.html) para obtener más detalles.
+   Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Consulte [Trabajar con instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) para obtener más detalles.
    {:important}
-3. Pulse **Ubicación** y seleccione el centro de datos que es su sitio de recuperación en caso de error.
+3. Pulse **Ubicación** y seleccione el centro de datos que es su sitio de recuperación tras desastre.
 4. Pulse **Continuar**.
 5. Especifique un **Código promocional** si tiene uno y pulse **Recalcular**. Los otros campos de la ventana se completan de forma predeterminada.
 
    Los descuentos se aplican cuando se procesa el pedido.
    {:note}
-6. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro…** y pulse **Realizar pedido**.
+6. Marque el recuadro de selección **He leído el Acuerdo de servicio maestro…** y pulse **Realizar pedido**.
 
 
 ## Edición de una réplica existente
@@ -146,7 +147,7 @@ El espacio de instantáneas primario y el espacio de réplica deben ser el mismo
 2. Seleccione **Añadir más espacio de instantáneas**.
 3. Seleccione el tamaño de almacenamiento de la lista y pulse **Continuar**.
 4. Especifique un **Código promocional** si tiene uno y pulse **Recalcular**. Los otros campos del recuadro de diálogo contienen información de forma predeterminada.
-5. Marque el recuadro de selección **He leído el Acuerdo de Servicio Maestro…** y pulse **Realizar pedido**.
+5. Marque el recuadro de selección **He leído el Acuerdo de servicio maestro…** y pulse **Realizar pedido**.
 
 
 ## Visualización de los volúmenes de réplica en la lista de volúmenes
@@ -163,7 +164,7 @@ Puede visualizar los detalles de un volumen de réplica en el separador **Répli
 
 Los tamaños de volumen deben ser los mismos para sus volúmenes de almacenamiento primario y de réplica. No puede haber uno mayor que otro. Cuando aumenta el espacio de instantáneas para su volumen primario, el espacio de réplica se aumenta automáticamente. El aumento del espacio de instantáneas desencadena una actualización de réplica inmediata. El aumento en ambos volúmenes se muestra como elementos de línea en su factura, y se prorratea en caso necesario.
 
-Para obtener más información sobre cómo aumentar el espacio de instantáneas, consulte [Solicitud de instantáneas](ordering-snapshots.html).
+Para obtener más información sobre cómo aumentar el espacio de instantáneas, consulte [Solicitud de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:tip}
 
 
@@ -186,14 +187,14 @@ Los duplicados pueden crearse a partir de volúmenes primarios y de réplica. El
 
 Se puede acceder a los volúmenes duplicados mediante un host para lectura/escritura siempre y cuando el almacenamiento esté suministrado. Sin embargo, no se permiten instantáneas ni réplicas hasta que se completa la copia de datos del original en el duplicado.
 
-Para obtener más información, consulte [Creación de un volumen de bloque duplicado](how-to-create-duplicate-volume.html).
+Para obtener más información, consulte [Creación de un volumen de bloque duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Uso de réplicas para migración tras error en caso de desastre
 
 Cuando realiza la migración tras error, está "cambiando el conmutador" de su volumen de almacenamiento del centro de datos primario al volumen de destino del centro de datos remoto. Por ejemplo, su centro de datos primario es Londres y el centro de datos secundario es Ámsterdam. Si se produjera un suceso de error, debería realizar la migración a Ámsterdam, conectando al ahora volumen primario desde una instancia de cálculo en Ámsterdam. Cuando su volumen de Londres se haya reparado, se realizará una instantánea del volumen de Ámsterdam para volver a Londres y al volumen primario de nuevo desde una instancia de cálculo de Londres.
 
-* Si la ubicación primaria está en peligro inminente o se ha visto seriamente afectada, consulte [Migración tras error con un volumen primario accesible](dr-accessible-primary.html).
-* Si la ubicación primaria está inactiva, consulte [Migración tras error con un volumen primario inaccesible](disaster-recovery.html).
+* Si la ubicación primaria está en peligro inminente o se ha visto seriamente afectada, consulte [Migración tras error con un volumen primario accesible](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible).
+* Si la ubicación primaria está inactiva, consulte [Migración tras error con un volumen primario inaccesible](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible).
 
 
 ## Cancelación de una réplica existente
@@ -215,3 +216,72 @@ Cuando se cancela un volumen primario, la planificación de réplica y el volume
  2. Pulse **Acciones** y seleccione **Cancelar {{site.data.keyword.blockstorageshort}}**.
  3. Seleccione cuándo desea cancelarla. Elija **Inmediatamente** o **Fecha de aniversario**, y pulse **Continuar**.
  4. Pulse **Reconozco que a causa de la cancelación, es posible que se pierdan datos** y pulse **Cancelar**.
+
+## Mandatos relacionados con la replicación en SLCLI
+{: #clicommands}
+
+* Listar los centros de datos de replicación disponibles para un volumen específico.
+  ```
+  # slcli block replica-locations --help
+Uso: slcli block replica-locations [OPCIONES] ID_VOLUMEN
+
+  Opciones:
+  --sortby TEXTO  Columna por la que se debe ordenar
+  --columns TEXTO Columnas que se deben visualizar. Opciones: ID, Long Name, Short Name
+  -h, --help      Mostrar este mensaje y salir.
+  ```
+
+* Pedir un volumen de réplica de almacenamiento en bloque.
+  ```
+  # slcli block replica-order --help
+  Uso: slcli block replica-order [OPCIONES] ID_VOLUMEN
+
+  Opciones:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  Planificación de instantáneas que usar en la réplica,
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [necesario]
+  -l, --location TEXTO            Nombre corto del centro de datos para el replicante
+                                  (por ejemplo, dal09)  [necesario]
+  --tier [0.25|2|4|10]            Nivel de almacenamiento resistente (IOPS por GB)
+                                  del volumen primario para el que se pide un replicante
+                                  [opcional]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  Tipo de sistema operativo (por ejemplo: LINUX) del
+                                  volumen primario para el que se pide una réplica
+                                  [opcional]
+  -h, --help                      Mostrar este mensaje y salir.
+  ```
+
+* Listar volúmenes existentes replicantes para un volumen de bloque.
+  ```
+  # slcli block replica-partners --help
+  Uso: slcli block replica-partners [OPCIONES] ID_VOLUMEN
+
+  Opciones:
+  --sortby TEXTO  Columna por la que se debe ordenar
+  --columns TEXTO Columnas que se deben visualizar. Opciones: ID, Username, Account ID,
+                  Capacity (GB), Hardware ID, Guest ID, Host ID
+  -h, --help      Mostrar este mensaje y salir.
+  ```
+
+* Realizar la migración tras error de un volumen de bloques a un volumen replicante específico.
+  ```
+  # slcli block replica-failover --help
+  Uso: slcli block replica-failover [OPCIONES] ID_VOLUMEN
+
+  Opciones:
+  --replicant-id TEXTO ID del volumen replicante
+  --immediate          Migrar tras error al replicante de inmediato.
+  -h, --help      Mostrar este mensaje y salir.
+  ```
+
+* Restablecer un volumen de bloques desde un volumen replicante específico.
+  ```
+  # slcli block replica-failback --help
+  Uso: slcli block replica-failback [OPCIONES] ID_VOLUMEN
+
+  Opciones:
+  --replicant-id TEXTO ID del volumen replicante
+  -h, --help           Mostrar este mensaje y salir.
+  ```

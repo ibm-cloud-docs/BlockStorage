@@ -1,8 +1,8 @@
 ﻿---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,13 +13,15 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Reprise après incident - Basculement avec un volume principal inaccessible
+{: #dr-inaccessible}
 
 En cas de défaillance catastrophique ou d'un incident entraînant une indisponibilité sur le site principal, les clients peuvent effectuer les actions suivantes pour accéder rapidement à leurs données sur le site secondaire.
 
 ## Basculement avec un doublon d'un volume de réplique sur le site secondaire
 
 1. Connectez-vous à la [console IBM Cloud ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://
-{DomainName}/catalog/){:new_window}, puis cliquez sur l'icône **Menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+{DomainName}/){:new_window}, puis cliquez sur l'icône **Menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+
 
    Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -36,13 +38,14 @@ Dès que le volume est créé, il peut être associé à un hôte et effectuer d
 Si vous souhaitez renvoyer la production au site principal d'origine, vous devez effectuer les étapes ci-après.
 
 1. Connectez-vous à la [console IBM Cloud ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://
-{DomainName}/catalog/){:new_window}, puis cliquez sur l'icône **Menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+{DomainName}/){:new_window}, puis cliquez sur l'icône **Menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+
 
    Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Cliquez sur le nom du numéro d'unité logique et créez un planning d'instantané (le cas échéant).
 
-   Pour plus d'informations sur les plannings d'instantané, voir [Gestion des instantanés](working-with-snapshots.html#adding-a-snapshot-schedule).
+   Pour plus d'informations sur les plannings d'instantané, voir [Gestion des instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
 4. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
 5. Sélectionnez le planning d'instantané existant que vous souhaitez que votre réplication suive. La liste contient tous les plannings d'instantané actifs.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Fazendo upgrade do {{site.data.keyword.blockstorageshort}} existente para o {{site.data.keyword.blockstorageshort}} aprimorado
+{: #migratestorage}
 
-O {{site.data.keyword.blockstoragefull}} aprimorado está agora disponível nos data centers selecionados. Para ver a lista de data centers submetidos a upgrade e recursos disponíveis, como taxas de IOPS ajustáveis e volumes expansíveis, clique [aqui](new-ibm-block-and-file-storage-location-and-features.html). Para obter mais informações sobre o armazenamento criptografado gerenciado pelo provedor, consulte [{{site.data.keyword.blockstorageshort}}Criptografia em repouso](block-file-storage-encryption-rest.html).
+O {{site.data.keyword.blockstoragefull}} aprimorado está agora disponível nos data centers selecionados. Para ver a lista de data centers submetidos a upgrade e recursos disponíveis, como taxas de IOPS ajustáveis e volumes expansíveis, clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Para obter mais informações sobre o armazenamento criptografado gerenciado pelo provedor, consulte [{{site.data.keyword.blockstorageshort}}Criptografia em repouso](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 O caminho de migração preferencial é conectar-se aos dois LUNs simultaneamente e transferir dados diretamente de um LUN para outro. Os detalhes dependerão de seu sistema operacional e se os dados são esperados mudar durante a operação de cópia.
 
 A suposição é que você já tem o LUN não criptografado conectado ao seu host. Se não, siga as instruções que se ajustam melhor ao seu sistema operacional para realizar essa tarefa:
 
-- [Conectando-se a LUNs iSCSI no Linux](accessing_block_storage_linux.html)
-- [Conectando-se a LUNs iSCSI no CloudLinux](configure-iscsi-cloudlinux.html)
-- [Conectando-se a LUNs iSCSI no Microsoft Windows](accessing-block-storage-windows.html)
+- [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Todos os volumes aprimorados do {{site.data.keyword.blockstorageshort}} provisionados nesses data centers têm um ponto de montagem diferente de volumes não criptografados. Para assegurar que você esteja usando o ponto de montagem correto para os dois volumes de armazenamento, é possível visualizar as informações do ponto de montagem na página **Detalhes do volume** no console. Também é possível acessar o ponto de montagem correto por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 {:tip}
@@ -32,8 +33,8 @@ Ao fazer um pedido com a API, especifique o pacote "Armazenamento como um servi�
 
 É possível pedir um LUN aprimorado por meio do console do IBM Cloud e do {{site.data.keyword.slportal}}. Seu novo LUN deve ser do mesmo tamanho ou maior que o volume original para facilitar a migração.
 
-- [Pedindo o {{site.data.keyword.blockstorageshort}} com Camadas IOPS predefinidas (Endurance)](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Pedindo o {{site.data.keyword.blockstorageshort}} com IOPS customizado (Performance)](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [Pedindo o {{site.data.keyword.blockstorageshort}} com Camadas IOPS predefinidas (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [Pedindo o {{site.data.keyword.blockstorageshort}} com IOPS customizado (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
 Seu novo armazenamento estará disponível para montagem em alguns minutos. É possível visualizá-lo
 na lista de recursos e na lista do {{site.data.keyword.blockstorageshort}}.
@@ -64,8 +65,8 @@ Se o data center de destino de replicação ainda não tiver sido submetido a up
 2. Considere qual tipo de dados você tem no LUN original do {{site.data.keyword.blockstorageshort}} e como melhor copiá-lo para seu novo LUN.
   - Se você tem backups, conteúdo estático e coisas que não se espera que sejam mudadas
 durante a cópia, não precisa se preocupar.
-  - Se você estiver executando um banco de dados ou uma máquina virtual em seu {{site.data.keyword.blockstorageshort}}, certifique-se de que os dados não sejam alterados durante a cópia para evitar distorção de dados. 
-  - Se você tiver alguma preocupação com a largura de banda, faça a migração durante os horários fora de pico. 
+  - Se você estiver executando um banco de dados ou uma máquina virtual em seu {{site.data.keyword.blockstorageshort}}, certifique-se de que os dados não sejam alterados durante a cópia para evitar distorção de dados.
+  - Se você tiver alguma preocupação com a largura de banda, faça a migração durante os horários fora de pico.
   - Se você precisar de assistência com essas considerações, abra um caso de suporte.
 
 3. Copie os dados em.

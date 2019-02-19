@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +12,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Configurazione di {{site.data.keyword.blockstorageshort}} per il backup con cPanel
+{: #cPanelBackups}
 
 Puoi utilizzare le seguenti istruzioni per configurare i tuoi backup in cPanel da archiviare in {{site.data.keyword.blockstoragefull}}. Il presupposto è che siano disponibili SSH root o sudo e un accesso VHM (WebHost Manager) completo. Queste istruzioni sono basate su un host **CentOS 7**.
 

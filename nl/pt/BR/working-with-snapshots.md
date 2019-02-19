@@ -1,26 +1,30 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Gerenciando capturas instantâneas
+{: #managingSnapshots}
 
 ## Criando um planejamento de captura instantânea
 
 Você decide com que frequência e quando deseja criar uma referência de momento de seu volume de armazenamento com planejamentos de Captura instantânea. É possível ter um máximo de 50 capturas
 instantâneas por volume de armazenamento. Os planejamentos são gerenciados por meio da guia **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 
-Para poder configurar seu planejamento inicial, deve-se primeiramente comprar um espaço de captura instantânea, caso você não tenha comprado durante o fornecimento inicial do volume de armazenamento.
+Para poder configurar seu planejamento inicial, deve-se primeiramente comprar um espaço de captura instantânea, caso você não tenha comprado durante o fornecimento inicial do volume de armazenamento. Para obter mais informações, consulte [Pedindo capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
 
 ### Incluindo um planejamento de captura instantânea
+{: #addingschedule}
 
 Os planejamentos de capturas instantâneas podem ser configurados em intervalos, como por hora,
 diários e semanais, cada um com um ciclo de retenção diferente. O limite máximo de capturas instantâneas é 50 por volume de armazenamento, que pode ser uma combinação de planejamentos por hora, diários e semanais e capturas instantâneas manuais.
@@ -41,6 +45,16 @@ instantânea abrangente.
 
 A lista de capturas instantâneas é exibida conforme obtida na seção **Capturas instantâneas** da página **Detalhe**.
 
+Também é possível ver a lista dos planejamentos de captura instantânea por meio da CLI do SL com o comando a seguir.
+```
+# slcli block snapshot-schedule-list --help
+Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
 ## Obtendo uma Captura Instantânea
 
 Capturas instantâneas manuais podem ser obtidas em vários pontos durante um upgrade ou
@@ -53,6 +67,17 @@ O limite máximo de capturas instantâneas por volume de armazenamento é 50.
 3. Clique em **Executar captura instantânea manual**.
 A captura instantânea é tomada e exibida na seção **Capturas instantâneas** da página **Detalhe**. Seu planejamento aparece Manual.
 
+Como alternativa, é possível usar o comando a seguir para criar uma captura instantânea por meio da CLI do SL.
+```
+# slcli block snapshot-create --help
+Usage: slcli block snapshot-create [OPTIONS] VOLUME_ID
+
+Options:
+  -n, --notes TEXT  Notes to set on the new snapshot
+  -h, --help        Show this message and exit.
+```
+{:codeblock}
+
 ## Listando todas as capturas instantâneas com informações de espaço usado e funções de gerenciamento
 
 Uma lista de capturas instantâneas retidas e o espaço que é usado podem ser vistos na página
@@ -61,6 +86,18 @@ de **Detalhes**.  As funções de gerenciamento (editando planejamentos e inclui
 ## Visualizando a lista de Capturas instantâneas retidas
 
 As capturas instantâneas retidas baseiam-se no número inserido no campo **Manter o último** ao configurar seus planejamentos. É possível visualizar as capturas instantâneas que foram tiradas na seção **Captura instantânea**. As capturas instantâneas são listadas por planejamento.
+
+Como alternativa, é possível usar o comando a seguir na CLI do SL para exibir as capturas instantâneas disponíveis.
+```
+# slcli block snapshot-list --help
+Usage: slcli block snapshot-list [OPTIONS] VOLUME_ID
+
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, created, size_bytes
+  -h, --help      Show this message and exit.
+```
+{:codeblock}
 
 ## Visualizando a quantia de espaço de Captura instantânea usado
 
@@ -100,7 +137,7 @@ Os planejamentos de captura instantânea podem ser cancelados por meio de **Arma
 
 Se você estiver usando o recurso de replicação, certifique-se de que o planejamento que está sendo excluído não
 seja o planejamento usado pela replicação. Para obter mais informações sobre a exclusão de um planejamento de
-replicação, consulte [Replicando dados](replication.html).
+replicação, consulte [Replicando dados](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
 {:important}
 
 ## Excluindo uma captura instantânea
@@ -113,13 +150,28 @@ espaço para capturas instantâneas futuras. A exclusão é feita por meio de **
 
 As capturas instantâneas manuais que não são excluídas manualmente no portal, são excluídas automaticamente quando você atinge as limitações de espaço (a mais antiga primeiro).
 
+É possível usar o comando a seguir para excluir um volume por meio da CLI do SL.
+```
+# slcli block snapshot-delete
+Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
+
 ## Restaurando o volume de armazenamento para um momento específico usando uma captura instantânea
 
 Talvez seja necessário retornar o seu volume de armazenamento para um momento específico devido a um erro do usuário ou a uma distorção de dados.
 
+A restauração de um volume resulta na exclusão de todas as capturas instantâneas que foram obtidas após a
+captura instantânea que foi usada para a restauração.
+{:important}
+
 1. Desmonte e separe seu volume de armazenamento do host.
-   - [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
-   - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
+   - [Conectando-se a LUNs iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Conectando-se a LUNs iSCSI no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
 3. Role para baixo e clique no seu volume a ser restaurado. A seção **Capturas instantâneas** da página **Detalhes** exibe a lista de todas as capturas instantâneas salvas juntamente com seu tamanho e data de criação.
 4. Clique em **Ações** próximo à captura instantânea a ser usada e clique em **Restaurar**. <br/>
@@ -132,10 +184,21 @@ instantânea foi obtida. Essa perda de dados ocorre porque seu volume de armazen
    Espere uma mensagem na página indicando que o volume está sendo restaurado usando a captura instantânea selecionada. Além disso, aparece um ícone próximo ao seu volume no {{site.data.keyword.blockstorageshort}} indicando que uma transação ativa está em andamento. Passar o mouse sobre o ícone produz uma janela que mostra a transação. O ícone desaparece quando a transação está concluída.
    {:note}
 6. Monte e reconecte seu volume de armazenamento ao host.
-   - [Conectando-se a LUNs iSCSI de MPIO no Linux](accessing_block_storage_linux.html)
-   - [Conectando-se a LUNs do iSCSI de MPIO no CloudLinux](configure-iscsi-cloudlinux.html)
-   - [Conectando-se às LUNs iSCSI de MPIO no Microsoft Windows](accessing-block-storage-windows.html)
+   - [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-A restauração de um volume resulta na exclusão de todas as capturas instantâneas que foram obtidas após a
-captura instantânea que foi usada para a restauração.
-{:important}
+Como alternativa, depois que o volume for removido do host, será possível usar o comando a seguir na CLI do SL para
+iniciar uma restauração.
+```
+# slcli block snapshot-restore --help
+Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+
+Options:
+  -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
+                          the block volume
+  -h, --help              Show this message and exit.
+```
+{:codeblock}  
+
+Após a conclusão da restauração, monte e reconecte seu volume de armazenamento para o host.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2019-01-07"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Introduzione a {{site.data.keyword.blockstorageshort}}
+{: #GettingStarted}
 
 {{site.data.keyword.blockstoragefull}} è un'archiviazione iSCSI persistente e ad elevate prestazioni di cui viene eseguito il provisioning e la gestione indipendentemente dalle istanze di elaborazione. I LUN {{site.data.keyword.blockstorageshort}} basati su iSCSI sono connessi ai dispositivi autorizzati tramite connessioni MPIO (multi-path I/O) ridondanti.
 
@@ -26,13 +27,13 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
    - Fornita tramite l'allocazione di IOPS a livello di protocollo ai singoli volumi.
 - **Altamente durevole e resiliente**
    - Protegge l'integrità dei dati e mantiene la disponibilità durante gli eventi di manutenzione e i malfunzionamenti non pianificati senza che occorra creare e gestire un array ridondante a livello di sistema operativo di array di dischi indipendenti (RAID).
-- **Crittografia dei dati inattivi** ([Disponibile in data center selezionati](new-ibm-block-and-file-storage-location-and-features.html))
+- **Crittografia dei dati inattivi** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Crittografia gestita dal provider per i dati inattivi senza costi aggiuntivi.
-- **Archiviazione con supporto All-Flash** ([Disponibile in data center selezionati](new-ibm-block-and-file-storage-location-and-features.html))
+- **Archiviazione con supporto All-Flash** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Archiviazione All-Flash per i volumi di cui viene eseguito il provisioning con Endurance o Performance a 2 IOPS/GB o a livelli superiori.
-- **Istantanee** ([Disponibile in data center selezionati](new-ibm-block-and-file-storage-location-and-features.html))
+- **Istantanee** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Acquisisce istantanee di dati con punto temporale in modo non distruttivo.
-- **Replica** ([Disponibile in data center selezionati](new-ibm-block-and-file-storage-location-and-features.html))
+- **Replica** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Copia automaticamente le istantanee in un data center {{site.data.keyword.BluSoftlayer_full}} partner.
 - **Connettività altamente disponibile**
    - Utilizza le connessioni di rete ridondanti per massimizzare la disponibilità
@@ -46,7 +47,7 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
 
 Puoi selezionare la fatturazione mensile o oraria per un LUN di blocchi. Il tipo di fatturazione selezionato per un LUN si applica al suo spazio di istantanea e alle sue repliche. Ad esempio, se esegui il provisioning di un LUN con fatturazione oraria, eventuali addebiti di istantanee o replica vengono fatturati in modo orario. Se esegui il provisioning di un LUN con fatturazione mensile, eventuali addebiti di istantanee o replica vengono fatturati in modo mensile.
 
-Con la **fatturazione oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione, a seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
+Con la **fatturazione oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione, a seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
 
 Con la **fatturazione mensile**, il calcolo per il prezzo è a base proporzionale dalla data di creazione alla fine del ciclo di fatturazione e viene fatturato immediatamente. Non è previsto alcun rimborso se un LUN viene eliminato prima della fine del ciclo di fatturazione. La fatturazione mensile è una buona scelta per l'archiviazione utilizzata nei carichi di lavoro di produzione che usano dati che devono essere archiviati e a cui bisogna accedere per lunghi periodi di tempo (un mese o più).
 
@@ -107,7 +108,7 @@ Endurance {{site.data.keyword.blockstorageshort}} è disponibile in quattro live
 
 - **4 IOPS per GB** è progettato per i carichi di lavoro a maggiore intensità. Questi carichi di lavoro sono di norma caratterizzati dall'avere un'elevata percentuale di dati attivi in qualsiasi momento. Delle applicazioni di esempio includono i database transazionali e altri database sensibili alle prestazioni.
 
-- **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB in [data center selezionati](new-ibm-block-and-file-storage-location-and-features.html).
+- **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
 
 Sono disponibili fino a 48.000 IOPS con un volume Endurance di 12-TB.
 
@@ -263,20 +264,20 @@ Un altro fattore da considerare è il numero di host che sta utilizzando il tuo 
 
 La velocità della tua connessione Ethernet deve essere più veloce della velocità effettiva massima prevista dal tuo volume. In generale, non prevedi di saturare la connessione Ethernet oltre il 70% della larghezza di banda disponibile. Ad esempio, se hai 6.000 IOPS e stai utilizzando una dimensione del blocco di 16-KB, il volume può gestire una velocità effettiva di circa 94-MBps. Se hai una connessione Ethernet da 1-Gbps al tuo LUN, diventa un collo di bottiglia quando i tuoi server proveranno a utilizzare la velocità effettiva massima disponibile. Ciò è dovuto al fatto che il 70 percento del limite teorico di una connessione Ethernet da 1-Gbps (125 MB al secondo) consentirebbe solo 88 MB al secondo.
 
-Per raggiungere l'IOPS massimo, è necessario che siano implementate delle risorse di rete adeguate. Altre considerazioni includono l'utilizzo della rete privata esternamente al lato archiviazione e host e le regolazioni specifiche per le applicazioni (stack di IP o [profondità di coda](set-host-queue-depth-settings-performance-and-endurance-storage.html) e altre impostazioni).
+Per raggiungere l'IOPS massimo, è necessario che siano implementate delle risorse di rete adeguate. Altre considerazioni includono l'utilizzo della rete privata esternamente al lato archiviazione e host e le regolazioni specifiche per le applicazioni (stack di IP o [profondità di coda](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) e altre impostazioni).
 
-Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Per ulteriori informazioni sui limiti che possono essere imposti dal servizio, consulta la [documentazione di Virtual Server](https://{DomainName}/docs/vsi/vsi_public.html#public-virtual-servers).
+Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Per ulteriori informazioni sui limiti che possono essere imposti dal servizio, consulta la [documentazione di Virtual Server](/docs/vsi?topic=virtual-servers-public-virtual-servers).
 {:tip}
 
 ## Invio del tuo ordine
 
-Quando sei pronto a inviare il tuo ordine, puoi effettuarlo tramite la [Console](provisioning-block_storage.html) o la [SLCLI](ordering-through-cli.html).
+Quando sei pronto a inviare il tuo ordine, puoi effettuarlo tramite la [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) o la [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI).
 
 ## Connessione alla tua nuova archiviazione
 
 Quando la tua richiesta di provisioning è completa, autorizza i tuoi host ad accedere alla nuova archiviazione e configura la tua connessione. A seconda del sistema operativo del tuo host, segui il link appropriato.
-- [Connessione ai LUN iSCSI su Linux](accessing_block_storage_linux.html)
-- [Connessione ai LUN iSCSI su CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connessione ai LUN iSCSI su Microsoft Windows](accessing-block-storage-windows.html)
-- [Configurazione di Block Storage per il backup con cPanell](configure-backup-cpanel.html)
-- [Configurazione di Block Storage per il backup con Plesk](configure-backup-plesk.html)
+- [Connessione ai LUN su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connessione ai LUN su CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connessione ai LUN su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configurazione di Block Storage per il backup con cPanell](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configurazione di Block Storage per il backup con Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # SL CLI を使用した {{site.data.keyword.blockstorageshort}} の注文
+{: #orderingthroughCLI}
 
 通常は、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して注文する製品を、SL CLI を使用して発注することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
 
@@ -26,7 +27,7 @@ SL CLI をインストールして使用する方法について詳しくは、[
 注文ごとに、関連付けられたロケーション (データ・センター) が必要です。 {{site.data.keyword.blockstorageshort}} を注文する場合、コンピューティング・インスタンスと同じ場所にプロビジョンされることを確認してください。
 {:important}
 
-`slcli order package-list` コマンドを使用すると、発注するパッケージを見つけることができます。簡単に検索やフィルター操作を行うための `–keyword` オプションが提供されています。 このオプションを使用すると、必要なパッケージを見つけやすくなります。**Storage-as-a-Service Package 759** を探します。
+`slcli order package-list` コマンドを使用すると、発注するパッケージを見つけることができます。 簡単に検索やフィルター操作を行うための `–keyword` オプションが提供されています。 このオプションを使用すると、必要なパッケージを見つけやすくなります。 **Storage-as-a-Service Package 759** を探します。
 
 ```
 $ slcli order package-list --help
@@ -106,7 +107,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} および {{site.data.keyword.filestorage_short}} ボリュームをプロビジョンできます。ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについて詳しくは、[ストレージ制限の管理](managing-storage-limits.html)を参照してください。
+デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} および {{site.data.keyword.filestorage_short}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについて詳しくは、[ストレージ制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
 {:important}
 
 ## 新規ストレージにアクセスするためのホストの許可
@@ -129,14 +130,14 @@ Options:
 API を使用した {{site.data.keyword.blockstorageshort}} にアクセスするためのホストの許可について詳しくは、[authorize_host_to_volume ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}を参照してください。
 {:tip}
 
-同時許可の制限については、[FAQ](faqs.html) を参照してください。
+同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs) を参照してください。
 {:important}
 
 ## 新規ストレージの接続
 
 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
-- [Linux での iSCSI LUN への接続](accessing_block_storage_linux.html)
-- [CloudLinux での iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows での iSCSI LUN への接続](accessing-block-storage-windows.html)
-- [cPanel を使用したバックアップ用のブロック・ストレージの構成](configure-backup-cpanel.html)
-- [Plesk を使用したバックアップ用のブロック・ストレージの構成](configure-backup-plesk.html)
+- [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [cPanel を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Plesk を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

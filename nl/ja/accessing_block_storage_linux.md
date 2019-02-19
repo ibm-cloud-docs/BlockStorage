@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Linux での iSCSI LUN への接続
+{: #mountingLinux}
 
 ここでの説明は、主に RHEL6 および Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
@@ -27,6 +27,21 @@ lastupdated: "2019-01-07"
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
 2. **「ホストの許可」**をクリックします。
 3. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
+
+あるいは、SLCLI を使用してホストを許可できます。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 
@@ -177,8 +192,8 @@ lastupdated: "2019-01-07"
 
    その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと。
    {:important}
-   
-   Ubuntu ユーザーの場合、`iscsid.conf` ファイルを確認する際に、`node.startup` の設定が 手動と自動のどちらになっているかを調べてください。手動になっている場合は、自動に変更してください。
+
+   Ubuntu ユーザーの場合、`iscsid.conf` ファイルを確認する際に、`node.startup` の設定が 手動と自動のどちらになっているかを調べてください。 手動になっている場合は、自動に変更してください。
    {:tip}
 
 7. ブート時に開始するように iSCSI を設定し、今すぐ開始します。
@@ -266,9 +281,10 @@ lastupdated: "2019-01-07"
 
 ## ファイル・システムの作成 (オプション)
 
-新しくマウントされたボリュームにファイル・システムを作成するには、以下の手順に従います。 ファイル・システムは、ほとんどのアプリケーションでボリュームを使用するために必要です。 [2 TB より小さいドライブの場合は `fdisk`])(#creating-a-file-system-with-fdisk-) を使用し、2 TB より大きいディスクの場合は [`parted` を使用します](#creating-a-file-system-with-parted-)。
+新しくマウントされたボリュームにファイル・システムを作成するには、以下の手順に従います。 ファイル・システムは、ほとんどのアプリケーションでボリュームを使用するために必要です。 2 TB より小さいドライブの場合は [`fdisk` を使用し](#fdisk)、2 TB より大きいディスクの場合は [`parted` を使用します](#parted)。
 
 ### `fdisk` を使用したファイル・システムの作成
+{: #fdisk}
 
 1. ディスク名を取得します。
    ```
@@ -388,6 +404,7 @@ lastupdated: "2019-01-07"
   (`**`) 16 進コードをリストするには、L を入力します。
 
 ### `parted` を使用したファイル・システムの作成
+{: #parted}
 
 多くの Linux ディストリビューションで、`parted` はプリインストールされています。 ご使用のディストリビューションに含まれていない場合、以下のようにしてインストールできます。
 - Debian および Ubuntu
@@ -495,6 +512,7 @@ lastupdated: "2019-01-07"
 
 
 ## MPIO 構成の検証
+{: #verifyMPIOLinux}
 
 1. マルチパスがデバイスをピックアップしているかどうかを確認するには、デバイスをリストします。 構成が正しい場合は、2 つの NETAPP デバイスのみが表示されます。
 
@@ -555,6 +573,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
+{: #unmounting}
 
 1. ファイル・システムをアンマウントします。
    ```

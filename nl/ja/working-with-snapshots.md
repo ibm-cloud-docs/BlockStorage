@@ -1,26 +1,30 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # スナップショットの管理
+{: #managingSnapshots}
 
 ## スナップショット・スケジュールの作成
 
 スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}
  の**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**タブから行います。
 
-初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。
+初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。詳しくは、[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)を参照してください。
 {:important}
 
 ### スナップショット・スケジュールの追加
+{: #addingschedule}
 
 スナップショット・スケジュールは、時間単位、日単位、週単位の間隔でセットアップでき、それぞれに異なる保存期間を指定できます。 ストレージ・ボリュームごとのスナップショットの最大数は 50 個です。これは時間単位、日単位、週単位のスケジュールによるスナップショットと手動のスナップショットが混在していても構いません。
 
@@ -39,6 +43,16 @@ lastupdated: "2018-11-30"
 
 取得されたスナップショットのリストは、**「詳細」**ページの**「スナップショット」**セクションに表示されます。
 
+SLCLI で次のコマンドを使用して、スナップショット・スケジュールのリストを参照することもできます。
+```
+# slcli block snapshot-schedule-list --help
+Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
 ## 手動によるスナップショットの取得
 
 アプリケーションのアップグレードや保守の実行中に、さまざまな時点で手動スナップショットを取得できます。 また、一時的に非アクティブ化された複数のサーバーを対象に、アプリケーション・レベルでスナップショットを取得することもできます。
@@ -50,6 +64,17 @@ lastupdated: "2018-11-30"
 3. **「手動スナップショットの取得 (Take Manual Snapshot)」**をクリックします。
 スナップショットが取得され、**「詳細」**ページの**「スナップショット」**セクションに表示されます。 そのスケジュールは、手動として表示されます。
 
+あるいは、次のコマンドを使用して、SLCLI でスナップショットを作成できます。
+```
+# slcli block snapshot-create --help
+Usage: slcli block snapshot-create [OPTIONS] VOLUME_ID
+
+Options:
+  -n, --notes TEXT  Notes to set on the new snapshot
+  -h, --help        Show this message and exit.
+```
+{:codeblock}
+
 ## すべてのスナップショット (使用スペース情報付き) のリスト、および管理機能のリスト
 
 **「詳細」**」ページに、保持されているスナップショットと使用されているスペースのリストを表示できます。  管理機能 (スケジュールの編集とスペースの追加) は、「詳細」ページで**「アクション」**メニューを使用するか、ページのさまざまなセクションにあるリンクを使用して実施します。
@@ -57,6 +82,18 @@ lastupdated: "2018-11-30"
 ## 保存スナップショットのリストの表示
 
 保持されるスナップショットは、スケジュールのセットアップ時に**「保持する最新の件数」**フィールドに入力した数が基礎となります。 **「スナップショット」**セクションで、取得されたスナップショットを表示できます。 スナップショットは、スケジュール別にリストされます。
+
+あるいは、SLCLI の次のコマンドを使用して、使用可能なスナップショットを表示できます。
+```
+# slcli block snapshot-list --help
+Usage: slcli block snapshot-list [OPTIONS] VOLUME_ID
+
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, created, size_bytes
+  -h, --help      Show this message and exit.
+```
+{:codeblock}
 
 ## 使用されているスナップショット・スペースの量の表示
 
@@ -81,9 +118,9 @@ lastupdated: "2018-11-30"
 
 3 つの異なるスペースしきい値 (75%、90%、および 95%) に達すると、アカウントのマスター・ユーザーにサポート・チケットから通知が送信されます。
 
-- **容量の 75%** では、スナップショット・スペースの使用率が 75% を超えたことを示す警告が送信されます。警告を受け入れて、手動でスペースを追加するか、保持している不要なスナップショットを削除すると、そのアクションが認識され、チケットがクローズされます。 何もしなかった場合は、手動でチケットを確認してクローズする必要があります。
-- **容量の 90%** では、スナップショット・スペースの使用率が 90% を超えると、2 番目の警告が送信されます。容量の 75% に達した場合と同様に、使用済みスペースを減らすために必要なアクションを実行すると、アクションが認識され、チケットはクローズされます。 何もしなかった場合は、手動でチケットを確認してクローズする必要があります。
-- **容量の 95%** では、最終警告が送信されます。スペース使用率がしきい値を下回るようなアクションを実行しなかった場合は、通知が生成され、今後もスナップショットを作成できるよう、自動削除が実行されます。 スケジュールされたスナップショットは、最も古いものから順番に、使用率が 95% を下回るまで削除されます。 スナップショットは、使用率が 95% を超えるたび、使用率がしきい値を下回るまで削除が続行されます。 スペースが手動で増やされるか、スナップショットが削除されると、警告はリセットされ、再びしきい値を超えた場合に再び発行されます。 アクションを実行しなかった場合は、この通知が、受信する唯一の警告になります。
+- **容量の 75%** では、スナップショット・スペースの使用率が 75% を超えたことを示す警告が送信されます。 警告を受け入れて、手動でスペースを追加するか、保持している不要なスナップショットを削除すると、そのアクションが認識され、チケットがクローズされます。 何もしなかった場合は、手動でチケットを確認してクローズする必要があります。
+- **容量の 90%** では、スナップショット・スペースの使用率が 90% を超えると、2 番目の警告が送信されます。 容量の 75% に達した場合と同様に、使用済みスペースを減らすために必要なアクションを実行すると、アクションが認識され、チケットはクローズされます。 何もしなかった場合は、手動でチケットを確認してクローズする必要があります。
+- **容量の 95%** では、最終警告が送信されます。 スペース使用率がしきい値を下回るようなアクションを実行しなかった場合は、通知が生成され、今後もスナップショットを作成できるよう、自動削除が実行されます。 スケジュールされたスナップショットは、最も古いものから順番に、使用率が 95% を下回るまで削除されます。 スナップショットは、使用率が 95% を超えるたび、使用率がしきい値を下回るまで削除が続行されます。 スペースが手動で増やされるか、スナップショットが削除されると、警告はリセットされ、再びしきい値を超えた場合に再び発行されます。 アクションを実行しなかった場合は、この通知が、受信する唯一の警告になります。
 
 ## スナップショット・スケジュールの削除
 
@@ -92,7 +129,7 @@ lastupdated: "2018-11-30"
 1. **「詳細」**ページの**「スナップショットのスケジュール」**フレームで、削除するスケジュールをクリックします。
 2. 削除するスケジュールの横にあるチェック・ボックスをクリックして、**「保存」**をクリックします。<br />
 
-レプリケーション機能を使用している場合は、削除するスケジュールがレプリケーションで使用されるスケジュールでないことを確認してください。 レプリケーション・スケジュールの削除について詳しくは、[データのレプリケーション](replication.html)を参照してください。
+レプリケーション機能を使用している場合は、削除するスケジュールがレプリケーションで使用されるスケジュールでないことを確認してください。 レプリケーション・スケジュールの削除について詳しくは、[データのレプリケーション](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication)を参照してください。
 {:important}
 
 ## スナップショットの削除
@@ -104,13 +141,27 @@ lastupdated: "2018-11-30"
 
 ポータルで手動により削除されなかった手動スナップショットは、スペースの制限に達すると自動的に (古いもの順に) 削除されます。
 
+次のコマンドを使用して、SLCLI でボリュームを削除できます。
+```
+# slcli block snapshot-delete
+Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
+
 ## スナップショットを使用した、特定のポイント・イン・タイムへのストレージ・ボリュームの復元
 
 ユーザー・エラーやデータ破損のために、ストレージ・ボリュームを特定のポイント・イン・タイムまで戻すことが必要になる場合があります。
 
+ボリュームを復元すると、復元に使用されたスナップショットの後に実行されたすべてのスナップショットが削除されます。
+{:important}
+
 1. ストレージ・ボリュームをホストからアンマウントして、切り離します。
-   - [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
-   - [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
+   - [Linux での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Microsoft Windows での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. スクロールダウンして、復元するボリュームをクリックします。 **「詳細」**ページの**「スナップショット」**セクションに、保存されているすべてのスナップショットのリストがサイズと作成日とともに表示されます。
 4. 使用するスナップショットの横の**「アクション」**をクリックし、**「復元」** をクリックします。 <br/>
@@ -122,9 +173,20 @@ lastupdated: "2018-11-30"
    選択したスナップショットを使用してボリュームが復元されることを示すメッセージが、ページに表示されます。 また、{{site.data.keyword.blockstorageshort}} 上のボリュームの横に、アクティブなトランザクションが進行中であることを示すアイコンが表示されます。 アイコンの上にカーソルを移動すると、トランザクションを示すウィンドウが生成されます。 アイコンは、トランザクションが完了すると表示されなくなります。
    {:note}
 6. ストレージ・ボリュームをホストにマウントして、再接続します。
-   - [Linux での MPIO iSCSI LUN への接続](accessing_block_storage_linux.html)
-   - [CloudLinux での MPIO iSCSI LUN への接続](configure-iscsi-cloudlinux.html)
-   - [Microsoft Windows での MPIO iSCSI LUN への接続](accessing-block-storage-windows.html)
+   - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-ボリュームを復元すると、復元に使用されたスナップショットの後に実行されたすべてのスナップショットが削除されます。
-{:important}
+あるいは、ホストからボリュームが切り離された後で、SLCLI の次のコマンドを使用して、復元を開始できます。
+```
+# slcli block snapshot-restore --help
+Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+
+Options:
+  -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
+                          the block volume
+  -h, --help              Show this message and exit.
+```
+{:codeblock}  
+
+復元が完了したら、ストレージ・ボリュームをマウントして、ホストに再接続します。

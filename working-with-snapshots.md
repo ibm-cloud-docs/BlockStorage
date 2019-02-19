@@ -1,25 +1,29 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Managing Snapshots
+{: #managingSnapshots}
 
 ## Creating a Snapshot schedule
 
 You decide how often and when you want to create a point-in-time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
-Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume.
+Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
 
 ### Adding a Snapshot schedule
+{: #addingschedule}
 
 Snapshots schedules can be set up for hourly, daily, and weekly intervals, each with a distinct retention cycle. The maximum limit of snapshots is 50 per storage volume, which can be a mix of hourly, daily, and weekly schedules, and manual snapshots.
 
@@ -38,6 +42,16 @@ Snapshots schedules can be set up for hourly, daily, and weekly intervals, each 
 
 The list of the snapshots is displayed as they're taken in the **Snapshots** section of the **Detail** page.
 
+You can also see the list of your snapshot schedules through the SLCLI with the following command.
+```
+# slcli block snapshot-schedule-list --help
+Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
 ## Taking a manual Snapshot
 
 Manual snapshots can be taken at various points during an application upgrade or maintenance. You can also take snapshots across multiple servers that were temporarily deactivated at the application level.
@@ -49,6 +63,17 @@ The maximum limit of snapshots per storage volume is 50.
 3. Click **Take Manual Snapshot**.
 The snapshot is taken and displayed in the **Snapshots** section of the **Detail** page. Its schedule appears Manual.
 
+Alternatively, you can use the following command to create a snapshot through the SLCLI.
+```
+# slcli block snapshot-create --help
+Usage: slcli block snapshot-create [OPTIONS] VOLUME_ID
+
+Options:
+  -n, --notes TEXT  Notes to set on the new snapshot
+  -h, --help        Show this message and exit.
+```
+{:codeblock}
+
 ## Listing all Snapshots with Space Used Information and Management functions
 
 A list of retained snapshots and space that is used can be seen on the **Detail** page.  Management functions (editing schedules and adding more space) are conducted on the Detail page by using the **Actions** menu or links in the various sections on the page.
@@ -56,6 +81,18 @@ A list of retained snapshots and space that is used can be seen on the **Detail*
 ## Viewing the list of retained Snapshots
 
 Retained snapshots are based on the number you entered in the **Keep the last** field when you set up your schedules. You can view the snapshots that were taken under the **Snapshot** section. Snapshots are listed by schedule.
+
+Alternatively, you can use the following command in SLCLI to display the available snapshots.
+```
+# slcli block snapshot-list --help
+Usage: slcli block snapshot-list [OPTIONS] VOLUME_ID
+
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, created, size_bytes
+  -h, --help      Show this message and exit.
+```
+{:codeblock}
 
 ## Viewing the amount of Snapshot space that is used
 
@@ -91,7 +128,7 @@ Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.b
 1. Click the schedule to be deleted in the **Snapshot Schedules** frame on the **Details** page.
 2. Click the check box next to the schedule to be deleted and click **Save**.<br />
 
-If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](replication.html).
+If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
 {:important}
 
 ## Deleting a snapshot
@@ -103,13 +140,27 @@ Snapshots that are no longer needed can be manually removed to free up space for
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 
+You can use the following command to delete a volume through the SLCLI.
+```
+# slcli block snapshot-delete
+Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
+
 ## Restoring storage volume to a specific point-in-time by using a snapshot
 
 You might need to take your storage volume back to a specific point-in-time because of user-error or data corruption.
 
+Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
+{:important}
+
 1. Unmount and detach your storage volume from the host.
-   - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
-   - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
+   - [Connecting to iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Connecting to iSCSI LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
@@ -121,9 +172,20 @@ You might need to take your storage volume back to a specific point-in-time beca
    Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {:note}
 6. Mount and reattach your storage volume to the host.
-   - [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-   - [Connecting to MPIO iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-   - [Connecting to MPIO iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
+   - [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Connecting to LUNs on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Connecting to LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
-{:important}
+Alternatively, after the volume was detached from the host, you can use the following command in the SLCLI to start a restore.
+```
+# slcli block snapshot-restore --help
+Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+
+Options:
+  -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
+                          the block volume
+  -h, --help              Show this message and exit.
+```
+{:codeblock}  
+
+After the restore is complete, mount and reattach your storage volume to the host.

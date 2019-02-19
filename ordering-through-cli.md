@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # Ordering {{site.data.keyword.blockstorageshort}} through the SL CLI
+{: #orderingthroughCLI}
 
 You can use the SL CLI to place orders for products that are normally ordered through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. In the SL API, an order can consist of multiple order containers. The order CLI works with one order container only.
 
@@ -106,7 +107,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](managing-storage-limits.html).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {:important}
 
 ## Authorizing the hosts to access the new storage
@@ -129,14 +130,14 @@ Options:
 For more information about authorizing hosts to access the {{site.data.keyword.blockstorageshort}} through the API, see [authorize_host_to_volume ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
 
-For the limit on simultaneous authorizations, see the [FAQs](faqs.html).
+For the limit on simultaneous authorizations, see the [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Connecting your new storage
 
 Depending on your host's operating system, follow the appropriate link.
-- [Connecting to iSCSI LUNs on Linux](accessing_block_storage_linux.html)
-- [Connecting to iSCSI LUNs on CloudLinux](configure-iscsi-cloudlinux.html)
-- [Connecting to iSCSI LUNS on Microsoft Windows](accessing-block-storage-windows.html)
-- [Configuring Block Storage for backup with cPanel](configure-backup-cpanel.html)
-- [Configuring Block Storage for backup with Plesk](configure-backup-plesk.html)
+- [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting to LUNs on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connecting to LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Configuring Block Storage for backup with cPanel](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configuring Block Storage for backup with Plesk](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

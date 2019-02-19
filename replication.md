@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,10 +11,11 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # Replicating Data
+{: #replication}
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
 
-Replication keeps your data in sync in two different locations. If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
+Replication keeps your data in sync in two different locations. If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 {:tip}
 
 Before you can replicate, you must create a snapshot schedule.
@@ -109,7 +110,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 1. Click your storage volume.
 2. Click **Replica** and click **Purchase a replication**.
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
-   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](snapshots.html) for more details.
+   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) for more details.
    {:important}
 3. Click **Location**, and select the data center that is your DR site.
 4. Click **Continue**.
@@ -163,7 +164,7 @@ You can view the replica volume details on the **Replica** tab under **Storage**
 
 Your volume sizes must be the same for your primary and replica storage volumes. One can't be larger than the other. When you increase your snapshot space for your primary volume, the replica space is automatically increased. Increasing snapshot space triggers an immediate replication update. The increase to both volumes shows as line items on your invoice and is prorated as necessary.
 
-For more information about increasing Snapshot space, see [Ordering Snapshots](ordering-snapshots.html).
+For more information about increasing Snapshot space, see [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:tip}
 
 
@@ -186,14 +187,14 @@ Duplicates can be created from both primary and replica volumes. The new duplica
 
 Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete.
 
-For more information, see [Creating a duplicate Block Volume](how-to-create-duplicate-volume.html).
+For more information, see [Creating a duplicate Block Volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Using replicas to failover when disaster strikes
 
 When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
 
-* If the primary location is in imminent danger or severely impacted, see [Failover with an accessible Primary volume](dr-accessible-primary.html).
-* If the primary location is down, see [Failover with an inaccessible Primary volume](disaster-recovery.html).
+* If the primary location is in imminent danger or severely impacted, see [Failover with an accessible Primary volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-accessible).
+* If the primary location is down, see [Failover with an inaccessible Primary volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-dr-inaccessible).
 
 
 ## Canceling an existing replication
@@ -215,3 +216,72 @@ When a primary volume is canceled, the replication schedule and the volume in th
  2. Click **Actions** and select **Cancel {{site.data.keyword.blockstorageshort}}**.
  3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
  4. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel**.
+
+## Replication related commands in SLCLI
+{: #clicommands}
+
+* List suitable replication datacenters for a specific volume.
+  ```
+  # slcli block replica-locations --help
+  Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
+  -h, --help      Show this message and exit.
+  ```
+
+* Order a block storage replica volume.
+  ```
+  # slcli block replica-order --help
+  Usage: slcli block replica-order [OPTIONS] VOLUME_ID
+
+  Options:
+  -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
+                                  Snapshot schedule to use for replication,
+                                  (INTERVAL | HOURLY | DAILY | WEEKLY)
+                                  [required]
+  -l, --location TEXT             Short name of the data center for the
+                                  replicant (e.g.: dal09)  [required]
+  --tier [0.25|2|4|10]            Endurance Storage Tier (IOPS per GB) of the
+                                  primary volume for which a replicant is
+                                  ordered [optional]
+  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
+                                  Operating System Type (e.g.: LINUX) of the
+                                  primary volume for which a replica is
+                                  ordered [optional]
+  -h, --help                      Show this message and exit.
+  ```
+
+* List existing replicant volumes for a block volume.
+  ```
+  # slcli block replica-partners --help
+  Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
+
+  Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Username, Account ID,
+                  Capacity (GB), Hardware ID, Guest ID, Host ID
+  -h, --help      Show this message and exit.
+  ```
+
+* Failover a block volume to a specific replicant volume.
+  ```
+  # slcli block replica-failover --help
+  Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  --immediate          Failover to replicant immediately.
+  -h, --help           Show this message and exit.
+  ```
+
+* Failback a block volume from a specific replicant volume.
+  ```
+  # slcli block replica-failback --help
+  Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  -h, --help           Show this message and exit.
+  ```

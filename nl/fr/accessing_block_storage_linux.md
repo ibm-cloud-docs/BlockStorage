@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux
+{: #mountingLinux}
 
 Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
 {:note}
@@ -27,6 +27,21 @@ Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accé
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
 2. Cliquez sur **Hôte autorisé**.
 3. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
+
+Vous pouvez également autoriser l'hôte via l'interface SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 
@@ -177,7 +192,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
    Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
    {:important}
-   
+
    Les utilisateurs Ubuntu doivent vérifier dans le fichier `iscsid.conf` si le paramètre `node.startup` est défini sur manual ou automatic. S'il est défini sur manual, ils doivent le redéfinir su automatic.
    {:tip}
 
@@ -266,9 +281,10 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
 ## Création d'un système de fichiers (facultatif)
 
-Procédez comme indiqué ci-après pour créer un système de fichiers sur le volume récemment monté. Un système de fichiers est nécessaire pour permettre à la plupart des applications d'utiliser le volume. Utilisez [`fdisk` pour les unités inférieures à 2 To])(#creating-a-file-system-with-fdisk-) et [`parted` pour un disque supérieur à 2 To](#creating-a-file-system-with-parted-).
+Procédez comme indiqué ci-après pour créer un système de fichiers sur le volume récemment monté. Un système de fichiers est nécessaire pour permettre à la plupart des applications d'utiliser le volume. Utilisez [`fdisk` pour les unités inférieures à 2 To](#fdisk) et [`parted` pour un disque supérieur à 2 To](#parted).
 
 ### Création d'un système de fichiers avec `fdisk`
+{: #fdisk}
 
 1. Obtenez le nom du disque.
    ```
@@ -388,6 +404,7 @@ Procédez comme indiqué ci-après pour créer un système de fichiers sur le vo
   (`**`)Saisissez L pour obtenir la liste des codes hexadécimaux.
 
 ### Création d'un système de fichiers avec `parted`
+{: #parted}
 
 Sur de nombreuses distributions Linux, `parted` est préinstallé. S'il n'est pas inclus dans votre distribution, vous pouvez l'installer avec :
 - Debian et Ubuntu
@@ -495,6 +512,7 @@ Pour créer un système de fichiers avec `parted`, procédez comme suit :
 
 
 ## Vérification de la configuration MPIO (E-S multi-accès)
+{: #verifyMPIOLinux}
 
 1. Pour vérifier si le multi-accès sélectionne les périphériques, affichez la liste des périphériques. Si la configuration est correcte, seuls deux périphériques NETAPP sont affichés.
 
@@ -555,6 +573,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## Démontage de volumes {{site.data.keyword.blockstorageshort}}
+{: #unmounting}
 
 1. Démontez le système de fichiers.
    ```

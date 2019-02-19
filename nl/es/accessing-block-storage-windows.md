@@ -2,20 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Conexión a los LUN iSCSI en Microsoft Windows
+{: #mountingWindows}
 
 Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**. Pulse **Autorizar host**.
 2. En la lista, seleccione el host o los hosts que accederán al volumen y pulse **Enviar**.
+
+De manera alternativa, puede autorizar el host a través de la SLCLI.
+```
+# slcli block access-authorize --help
+Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
+
+Opciones:
+  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
+  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
+  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
+                            que se va a autorizar
+  --ip-address TEXTO         Una dirección IP que se va a autorizar
+  --help                    Mostrar este mensaje y salir.
+```
+{:codeblock}
 
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 
@@ -69,9 +85,11 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 ### Activación de destino
 
 1. Pulse **Conectar** para conectarse al destino.
-2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. ![Habilitar multivía de acceso](/images/Connect_0.png)
+2. Marque el recuadro de selección **Habilitar multivía de acceso** para habilitar la E/S de multivía de acceso en el destino. <br/>
+   ![Habilitar multivía de acceso](/images/Connect_0.png)
 3. Pulse **Avanzado** y seleccione **Habilitar inicio de sesión CHAP**.
-![Habilitar CHAP](/images/chap_0.png)
+</br>
+   ![Habilitar CHAP](/images/chap_0.png)
 4. Especifique el nombre de usuario en el campo Nombre y especifique la contraseña en el campo secreto de destino.
 
    Los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}}.
@@ -99,8 +117,11 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 6. En la ventana Conectar con destino, marque el recuadro de selección **Habilitar multivía**. Pulse **Avanzado**.
 7. En la ventana Configuración avanzada,
    - En la lista de adaptadores locales, seleccione Microsoft iSCSI Initiator.
-   - En la lista de IP de iniciador, seleccione la dirección IP correspondiente al host. En este caso, va a conectar dos interfaces de red del dispositivo a una sola interfaz de red del host. Por lo tanto, la interfaz es la misma que la proporcionada para la primera sesión.
-   - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos que está habilitada en el dispositivo.
+   - En la lista de IP de iniciador, seleccione la dirección IP correspondiente al host. En este caso, va a conectar dos interfaces de red del dispositivo de almacenamiento a una sola interfaz de red del host. Por lo tanto, la interfaz es la misma que la proporcionada para la primera sesión.
+   - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos que está habilitada en el dispositivo de almacenamiento.
+
+     Puede encontrar la segunda dirección IP en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+      {: tip}
    - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
    - Escriba los valores secretos Nombre y Destino obtenidos en el portal y pulse **Aceptar**.
    - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades.
@@ -119,6 +140,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 
 
 ## Verificación de si MPIO se ha configurado correctamente en sistemas operativos Windows
+{: #verifyMPIOWindows}
 
 Para verificar si MPIO de Windows está configurado, primero debe asegurarse de que el complemento MPIO esté habilitado y debe reiniciar el servidor.
 
@@ -130,6 +152,7 @@ Una vez completado el reinicio y añadido el dispositivo de almacenamiento, pued
 Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se puede desconectar y aparecer inhabilitado cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.BluSoftlayer_full}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con operaciones de lectura/escritura activas en el LUN.
 
 ## Desmontaje de volúmenes de {{site.data.keyword.blockstorageshort}}
+{: #unmounting}
 
 A continuación se describen los pasos necesarios para desconectar una instancia de cálculo de {{site.data.keyword.Bluemix_short}} basada en Windows a un LUN de iSCSI de MPIO. El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo.
 

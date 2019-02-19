@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,8 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Recuperación en caso de error: migración tras error con un volumen primario accesible
+# Recuperación tras desastre: migración tras error con un volumen primario accesible
+{: #dr-accessible}
 
 Si se produce un error catastrófico o un desastre en el sitio primario y el almacenamiento primario todavía está disponible, los clientes pueden llevar a cabo las siguientes acciones para acceder rápidamente a sus datos en el sitio secundario.
 
@@ -21,14 +22,14 @@ Antes de iniciar la migración tras error, asegúrese de que todas las autorizac
 Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. Por ejemplo, no puede tener un volumen de réplica en Londres y el host en Ámsterdam. Ambos deben estar en Londres o en Ámsterdam.
 {:note}
 
-1. Inicie sesión en la [consola de {{site.data.keyword.cloud}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie la sesión en la [consola de {{site.data.keyword.cloud}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
 2. Pulse el volumen de origen o de destino en la página de **{{site.data.keyword.blockstorageshort}}**.
 3. Pulse **Réplica**.
 4. Desplácese hacia abajo hasta el marco **Autorizar hosts** y pulse **Autorizar hosts** en la parte derecha.
-5. Marque el host que se va a autorizar para las réplicas. Para seleccionar varios hosts, utilice la tecla CTRL y pulse los hosts aplicables.
+5. Marque el host que se va a autorizar para las réplicas. Para seleccionar varios hosts, utilice la tecla Control y pulse los hosts aplicables.
 6. Pulse **Enviar**. Si no tiene ningún host disponible, se le solicitará comprar recursos de cálculo en el mismo centro de datos.
 
 
@@ -48,7 +49,7 @@ Las migraciones tras error se inician en **Almacenamiento**, **{{site.data.keywo
    {:note}
 4. Pulse **Ver todos ({{site.data.keyword.blockstorageshort}})**.
 5. Pulse el LUN activo (anteriormente volumen de destino).
-6. Monte y conecte el volumen de almacenamiento al host. Pulse [aquí](provisioning-block_storage.html) para obtener instrucciones.
+6. Monte y conecte el volumen de almacenamiento al host. Pulse [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) para obtener instrucciones.
 
 
 ## Inicio de un restablecimiento desde un volumen a su réplica
@@ -73,4 +74,4 @@ Los restablecimientos se inician en **Almacenamiento**, **{{site.data.keyword.bl
    {:note}
 4. En la parte superior derecha, pulse el enlace **Ver todo {{site.data.keyword.blockstorageshort}}**.
 5. Pulse el LUN activo ("origen").
-6. Monte y conecte el volumen de almacenamiento al host. Pulse [aquí](provisioning-block_storage.html) para obtener instrucciones.
+6. Monte y conecte el volumen de almacenamiento al host. Pulse [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) para obtener instrucciones.

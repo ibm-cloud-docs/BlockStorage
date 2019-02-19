@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} 관리
+{: #managingstorage}
 
 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
 
@@ -20,6 +21,15 @@ lastupdated: "2018-11-30"
 
 1. **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 해당 LUN 이름을 클릭하십시오.
+
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
+```
+# slcli block volume-detail --help
+사용법: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+옵션:
+  -h, --help  이 메시지를 표시하고 종료합니다.
+```
 
 ## {{site.data.keyword.blockstorageshort}}에 액세스하도록 호스트 권한 부여
 
@@ -32,7 +42,19 @@ lastupdated: "2018-11-30"
 2. 페이지의 **권한 부여된 호스트** 섹션으로 스크롤하십시오.
 3. 오른쪽에 있는 **호스트 권한 부여**를 클릭하십시오. 특정 LUN에 액세스할 수 있는 호스트를 선택하십시오.
 
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
+```
+# slcli block access-authorize --help
+사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+옵션:
+  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
+  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
+  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
+                            ID
+  --ip-address TEXT         권한 부여할 IP 주소
+  --help                    이 메시지를 표시하고 종료합니다.
+```
 
 ## {{site.data.keyword.blockstorageshort}} LUN에 액세스할 권한 부여된 호스트 목록 보기
 
@@ -41,7 +63,18 @@ lastupdated: "2018-11-30"
 
 여기에 현재 LUN에 액세스하도록 권한 부여된 호스트 목록이 표시됩니다. 연결하는 데 필요한 인증 정보(사용자 이름, 비밀번호 및 IQN 호스트)도 표시됩니다. 대상 주소는 **스토리지 세부사항** 페이지에 나열되어 있습니다. NFS의 경우 대상 주소는 DNS 이름으로 설명되고, iSCSI의 경우 대상 발견 포털의 IP 주소로 설명됩니다.
 
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
+```
+# slcli block access-list --help
+사용법: slcli block access-list [OPTIONS] VOLUME_ID
 
+옵션:
+  --sortby TEXT   열 정렬 기준
+  --columns TEXT  열 표시. 옵션: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      이 메시지를 표시하고 종료합니다.
+```
 
 ## 호스트가 권한 부여된 {{site.data.keyword.blockstorageshort}} 보기
 
@@ -52,17 +85,15 @@ lastupdated: "2018-11-30"
 
 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. **조치**를 클릭하여 추가 스토리지를 권한 부여하거나 액세스 권한을 제거할 수 있습니다.
 
-
-
 ## {{site.data.keyword.blockstorageshort}} 마운트 및 마운트 해제
 
 호스트의 운영 체제에 따라 해당되는 지시사항을 따르십시오.
 
-- [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)
-- [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
-- [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
-- [cPanel을 사용하여 Block Storage 구성](configure-backup-cpanel.html)
-- [cPanel을 사용하여 Block Storage 구성](configure-backup-plesk.html)
+- [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [cPanel을 사용하여 Block Storage 구성](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [cPanel을 사용하여 Block Storage 구성](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## {{site.data.keyword.blockstorageshort}}에 대한 호스트 액세스 권한 취소
@@ -95,7 +126,23 @@ lastupdated: "2018-11-30"
 특정 LUN에서 여러 호스트의 연결을 끊으려면 각 호스트에 대해 액세스 취소 조치를 반복 수행해야 합니다.
 {:tip}
 
+### SL CLI를 통해 액세스 권한 취소
 
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
+```
+# slcli block access-revoke --help
+사용법: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+옵션:
+  -h, --hardware-id TEXT    권한을 취소할 하나의 SoftLayer_Hardware ID
+
+  -v, --virtual-id TEXT     권한을 취소할 하나의 SoftLayer_Virtual_Guest ID
+
+  -i, --ip-address-id TEXT  권한을 취소할 하나의 SoftLayer_Network_Subnet_IpAddress ID
+
+  --ip-address TEXT         권한을 취소할 IP 주소
+  --help                    이 메시지를 표시하고 종료합니다.
+```
 
 ## 스토리지 LUN 취소
 
@@ -112,3 +159,14 @@ lastupdated: "2018-11-30"
    {:tip}
 4. **계속** 또는 **닫기**를 클릭하십시오.
 5. **수신확인** 선택란을 클릭하고 **확인**을 클릭하십시오.
+
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
+```
+# slcli block volume-cancel --help
+사용법: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+옵션:
+  --reason TEXT  취소에 대한 선택적 이유
+  --immediate    청구일 대신에 즉시 블록 스토리지 볼륨 취소
+  -h, --help     이 메시지를 표시하고 종료합니다.
+```

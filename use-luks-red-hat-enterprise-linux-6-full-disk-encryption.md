@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # Achieving Full Disk Encryption with LUKS in Red Hat Enterprise Linux
+{: #LUKSencryption}
 
 You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
 
-These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux host, see [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html).
+These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux host, see [Connecting to iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{site.data.keyword.blockstorageshort}} that is provisioned in [select data centers](new-ibm-block-and-file-storage-location-and-features.html) is automatically provisioned with  provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](block-file-storage-encryption-rest.html).
+{site.data.keyword.blockstorageshort}} that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) is automatically provisioned with  provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## What LUKS does

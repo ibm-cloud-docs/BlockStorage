@@ -2,20 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Microsoft Windows에서 iSCSI LUNS 연결
+{: #mountingWindows}
 
 시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 부여되는지 확인하십시오.
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오. **호스트 권한 부여**를 클릭하십시오.
 2. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
+
+또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
+```
+# slcli block access-authorize --help
+사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+옵션:
+  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
+  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
+  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
+                            ID
+  --ip-address TEXT         권한 부여할 IP 주소
+  --help                    이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 
@@ -69,10 +85,10 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 ### 대상 활성화
 
 1. **연결**을 클릭하여 대상에 연결하십시오.
-2. **다중 경로 사용** 선택란을 선택하여 대상에 대해 다중 경로 IO가 사용되도록 설정하십시오.
-![다중 경로 사용](/images/Connect_0.png)
-3. **고급**을 클릭하고 **CHAP 로그온 사용**을 선택하십시오.
-![CHAP 사용](/images/chap_0.png)
+2. **다중 경로 사용** 선택란을 선택하여 대상에 대해 다중 경로 IO가 사용되도록 설정하십시오.<br/>
+   ![다중 경로 사용](/images/Connect_0.png)
+3. **고급**을 클릭하고 **CHAP 로그온 사용**을 선택하십시오.</br>
+   ![CHAP 사용](/images/chap_0.png)
 4. 이름 필드에 사용자 이름을 입력하고 대상 시크릿 필드에 비밀번호를 입력하십시오.
 
    이름 및 대상 시크릿 필드 값은 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 가져올 수 있습니다.
@@ -100,8 +116,11 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 6. 대상에 연결 창에서 **다중 경로 사용** 선택란을 선택하십시오. **고급**을 클릭하십시오.
 7. 고급 설정 창에서 다음을 수행하십시오.
    - 로컬 어댑터 목록에서 Microsoft iSCSI 이니시에이터를 선택하십시오.
-   - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결 중입니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다.
-   - 대상 포털 IP 목록에서, 디바이스에서 사용되는 두 번째 데이터 인터페이스의 IP 주소를 선택하십시오.
+   - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 스토리지 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결합니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다.
+   - 대상 포털 IP 목록에서 스토리지 디바이스에서 사용으로 설정되어 있는 두 번째 데이터 인터페이스의 IP 주소를 선택하십시오. 
+
+     [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 두 번째 IP 주소를 찾을 수 있습니다.
+      {: tip}
    - **CHAP 로그온 사용** 선택란을 클릭하십시오.
    - 포털 창에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
    - 대상 연결 창에서 **확인**을 클릭하여 특성 창으로 돌아가십시오.
@@ -120,6 +139,7 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 
 
 ## Windows 운영 체제에서 MPIO가 제대로 구성되었는지 확인
+{: #verifyMPIOWindows}
 
 Windows MPIO가 제대로 구성되었는지 확인하려면 우선 MPIO 추가 기능이 사용 가능한지 확인한 후 서버를 다시 시작해야 합니다.
 
@@ -131,6 +151,7 @@ Windows MPIO가 제대로 구성되었는지 확인하려면 우선 MPIO 추가 
 MPIO가 올바르지 않게 구성되면, 네트워크 가동 중단이 발생하거나 {{site.data.keyword.BluSoftlayer_full}} 팀이 유지보수를 수행하는 경우 스토리지 디바이스는 연결이 끊어지고 사용 안함으로 표시될 수 있습니다. MPIO를 사용하면 이런 상황에서도 추가 레벨의 연결이 가능하며 LUN에 대해 읽기/쓰기 조작이 활성화된 세션이 계속 유지됩니다.
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트 해제
+{: #unmounting}
 
 다음은 MPIO iSCSI LUN에 대해 Windows 기반의 {{site.data.keyword.Bluemix_short}} 컴퓨팅 인스턴스 연결을 끊기 위해 필요한 단계입니다. 예제는 Windows Server 2012를 기반으로 합니다. 단계는 OS 공급업체 문서에 따라 다른 Windows 버전에 대해 조정 가능합니다.
 

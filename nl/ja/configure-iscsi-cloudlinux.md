@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # CloudLinux での iSCSI LUN への接続
+{: #mountingCloudLinux}
 
 以下の手順に従って、CloudLinux Server リリース 6.10 にマルチパスを使用して iSCSI LUN をインストールします。
 
@@ -24,6 +24,21 @@ lastupdated: "2019-01-07"
 3. **「ホストの許可」**をクリックします。
 4. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
 5. ホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスを書き留めます。
+
+あるいは、SLCLI を使用してホストを許可できます。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
 {:important}

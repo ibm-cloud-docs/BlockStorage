@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # {{site.data.keyword.blockstorageshort}} verwalten
+{: #managingstorage}
 
 Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} verwalten.
 
@@ -20,6 +21,15 @@ Sie können eine Zusammenfassung der wichtigsten Informationen für die ausgewä
 
 1. Klicken Sie auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
 2. Klicken Sie in der Liste auf den entsprechenden LUN-Namen.
+
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+```
+# slcli block volume-detail --help
+Syntax: slcli block volume-detail [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  -h, --help  Diese Nachricht anzeigen und Ausführung beenden.
+```
 
 ## Hosts für den Zugriff auf {{site.data.keyword.blockstorageshort}} autorisieren
 
@@ -32,7 +42,19 @@ Sie können Hosts autorisieren und verbinden, die sich in demselben Rechenzentru
 2. Blättern Sie zum Bereich **Autorisierte Hosts** der Seite.
 3. Klicken Sie auf der rechten Seite auf **Host autorisieren**. Wählen Sie die Hosts aus, die auf die entsprechende LUN zugreifen können.
 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+```
+# slcli block access-authorize --help
+Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
 
+Optionen:
+  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
+  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
+  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
+                            zur Berechtigung
+  --ip-address TEXT         IP-Adresse zur Berechtigung
+  --help                    Diese Nachricht anzeigen und Ausführung beenden.
+```
 
 ## Liste der Hosts anzeigen, die für Zugriff auf {{site.data.keyword.blockstorageshort}}-LUN autorisiert sind
 
@@ -41,7 +63,18 @@ Sie können Hosts autorisieren und verbinden, die sich in demselben Rechenzentru
 
 Dort wird eine Liste der Hosts angezeigt, die derzeit für den Zugriff auf die LUN berechtigt sind. Außerdem werden die Authentifizierungsdaten aufgeführt, die zum Herstellen einer Verbindung erforderlich sind - Benutzername, Kennwort und IQN-Host. Die Zieladresse wird auf der Seite **Speicherdetails** aufgelistet. Die Zieladresse wird für NFS als DNS-Name beschrieben, für iSCSI ist es die IP-Adresse von 'Zielportal ermitteln'.
 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+```
+# slcli block access-list --help
+Syntax: slcli block access-list [OPTIONEN] DATENTRÄGER-ID
 
+Optionen:
+  --sortby TEXT   Spalten für die Sortierung
+  --columns TEXT  Spalten für die Anzeige. Optionen: ID, Name, Typ,
+                  private IP-Adresse, Quellenteilnetz, Host-IQN,
+                  Benutzername, Kennwort, zulässige Host-ID
+  -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
+```
 
 ## {{site.data.keyword.blockstorageshort}} anzeigen, für den ein Host autorisiert ist
 
@@ -52,17 +85,15 @@ Sie können die LUNs anzeigen, auf die ein Host Zugriff hat, sowie die Informati
 
 Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Durch Klicken auf **Aktionen** können Sie weiteren Speicher autorisieren oder Zugriff widerrufen.
 
-
-
 ## {{site.data.keyword.blockstorageshort}} anhängen und abhängen
 
 Befolgen Sie auf der Basis des Betriebssystems Ihres Hosts die entsprechenden Anweisungen.
 
-- [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html)
-- [Verbindung zu MPIO-iSCSI-LUNs unter CloudLinux herstellen](configure-iscsi-cloudlinux.html)
-- [Verbindung zu MPIO-iSCSI-LUNS unter Microsoft Windows herstellen](accessing-block-storage-windows.html)
-- [Blockspeicher für Sicherung mit cPanel konfigurieren](configure-backup-cpanel.html)
-- [Blockspeicher für Sicherung mit Plesk konfigurieren](configure-backup-plesk.html)
+- [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Blockspeicher für Sicherung mit cPanel konfigurieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Blockspeicher für Sicherung mit Plesk konfigurieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## Zugriff eines Hosts auf {{site.data.keyword.blockstorageshort}} widerrufen
@@ -95,7 +126,23 @@ Wenn Sie mehrere LUNS von einem bestimmten Host trennen möchten, müssen Sie di
 Wenn Sie mehrere Host von einer bestimmten LUN trennen möchten, müssen Sie die Aktion 'Zugriff widerrufen' für jeden Host wiederholen.
 {:tip}
 
+### Zugriff über die SL-CLI widerrufen
 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+```
+# slcli block access-revoke --help
+Syntax: slcli block access-revoke [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zum Widerrufen der
+                            Berechtigung
+  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zum
+                            Widerrufen der Berechtigung
+  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
+                            zum Widerrufen der Berechtigung
+  --ip-address TEXT         IP-Adresse zum Widerrufen der Berechtigung
+  --help                    Diese Nachricht anzeigen und Ausführung beenden.
+```
 
 ## Speicher-LUN abbrechen
 
@@ -112,3 +159,15 @@ Zum Abbrechen einer Speicher-LUN müssen Sie zunächst den Zugriff von allen Hos
    {:tip}
 4. Klicken Sie auf **Weiter** oder **Schließen**.
 5. Klicken Sie auf das Kontrollkästchen **Bestätigung** und klicken Sie auf **Bestätigen**.
+
+Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden. 
+```
+# slcli block volume-cancel --help
+Syntax: slcli block volume-cancel [OPTIONEN] DATENTRÄGER-ID
+
+Optionen:
+  --reason TEXT  Optionaler Grund für die Stornierung
+  --immediate    Storniert den Blockspeicherdatenträger sofort, nicht
+                 am Abrechnungsstichtag.
+  -h, --help     Diese Nachricht anzeigen und Ausführung beenden.
+```

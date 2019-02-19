@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # Preguntas más frecuentes
+{: #faqs}
 
 ## ¿Cuántas instancias pueden compartir el uso de un volumen de {{site.data.keyword.blockstorageshort}}?
 {: faq}
@@ -18,7 +19,7 @@ El límite predeterminado de número de autorizaciones por volumen de bloque es 
 ## ¿Cuántos volúmenes se pueden pedir?
 {: faq}
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el límite de volumen, póngase en contacto con su representante de ventas. Para obtener más información, consulte [Gestión de los límites de almacenamiento](managing-storage-limits.html).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el límite de volumen, póngase en contacto con su representante de ventas. Para obtener más información, consulte [Gestión de los límites de almacenamiento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## ¿Cuántos volúmenes de {{site.data.keyword.blockstorageshort}} se pueden montar en un host?
 {: faq}
@@ -81,7 +82,7 @@ La latencia de destino en el almacenamiento es de <1 ms. El almacenamiento está
 ## ¿Por qué se puede solicitar {{site.data.keyword.blockstorageshort}} con un nivel 10 de IOPS/GB de Resistencia en algunos centros de datos y no en otros?
 {: faq}
 
-El nivel 10 de IOPS/GB de tipo Resistencia {{site.data.keyword.blockstorageshort}} solo está disponible en centros de datos seleccionados, y se están añadiendo nuevos centros de datos gradualmente. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](new-ibm-block-and-file-storage-location-and-features.html).
+El nivel 10 de IOPS/GB de tipo Resistencia {{site.data.keyword.blockstorageshort}} solo está disponible en centros de datos seleccionados, y se están añadiendo nuevos centros de datos gradualmente. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## ¿Cómo podemos saber cuáles de los volúmenes de {{site.data.keyword.blockstorageshort}} están cifrados?
 {: faq}
@@ -91,7 +92,7 @@ Al consultar la lista de {{site.data.keyword.blockstorageshort}} en el [{{site.d
 ## ¿Cómo sabemos cuándo estamos suministrando {{site.data.keyword.blockstorageshort}} en un centro de datos actualizado?
 {: faq}
 
-Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos actualizados se marcan con un asterisco (`*`) en el formulario de pedido y una indicación de que está a punto de suministrar almacenamiento con cifrado. Una vez suministrado el almacenamiento, puede ver un icono en la lista de almacenamiento que muestra que dicho almacenamiento está cifrado. Todos los volúmenes cifrados y LUN se suministran únicamente en centros de datos actualizados. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](new-ibm-block-and-file-storage-location-and-features.html).
+Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos actualizados se marcan con un asterisco (`*`) en el formulario de pedido y una indicación de que está a punto de suministrar almacenamiento con cifrado. Una vez suministrado el almacenamiento, puede ver un icono en la lista de almacenamiento que muestra que dicho almacenamiento está cifrado. Todos los volúmenes cifrados y LUN se suministran únicamente en centros de datos actualizados. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 ## Si tenemos {{site.data.keyword.blockstorageshort}} no cifrado en un centro de datos actualizado recientemente, ¿podemos cifrar dicho {{site.data.keyword.blockstorageshort}}?
 {: faq}

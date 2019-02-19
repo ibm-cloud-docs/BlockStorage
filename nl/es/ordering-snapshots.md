@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,21 +13,9 @@ lastupdated: "2018-11-30"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Realizar pedidos de instantáneas
+{: #orderingsnapshots}
 
 Para crear instantáneas de su volumen de almacenamiento, automática o manualmente, necesita adquirir espacio para mantenerlas. Puede adquirir capacidad hasta la cantidad de su volumen de almacenamiento (durante la adquisición de volumen inicial o posteriormente siguiendo los pasos descritos aquí).
-
-1. Inicie sesión en la [consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de menú de la parte superior izquierda. Seleccione **Infraestructura clásica**.
-
-   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
-2. Acceda a su LUN de almacenamiento a través de **Almacenamiento** >**{{site.data.keyword.blockstorageshort}}**.
-2. Pulse **Cambiar espacio de instantáneas** en el marco Instantáneas.
-3. Seleccione la cantidad de espacio que necesita y el método de pago.
-4. Pulse **Continuar**.
-5. Especifique cualquier **código promocional** que tenga y pulse **Recalcular**. Los campos Cargos para este pedido y Revisión de pedido contienen información de forma predeterminada.
-
-   Los descuentos se aplican cuando se procesa el pedido.
-   {:note}
-6. Seleccione el recuadro **He leído el Acuerdo de Servicio Maestro y acepto sus condiciones** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
 
 ## Determinación de la cantidad de espacio de instantáneas que se debe pedir
 
@@ -53,3 +41,34 @@ Por el contrario, si en estos 500 GB de datos reales, con 12 instantáneas por h
 Por tanto, a la hora de determinar cuánto espacio de instantáneas necesita, preste atención a la tasa de cambio. Influye mucho sobre el espacio de instantáneas necesario. Un volumen más grande es más probable que cambie más a menudo. Sin embargo, un volumen de 500 GB con 5 GB de tasa de cambio y un volumen de 10 TB con 5 GB de tasa de cambio utilizan la misma cantidad de espacio de instantáneas.
 
 Además, para la mayoría de las cargas de trabajo, cuanto mayor sea un volumen, menor será el espacio inicial necesario. Esto es debido principalmente a la eficiencia de los datos subyacentes, así como al modo en que las instantáneas funcionan en el entorno.
+
+## Realización de pedidos de espacio de instantáneas a través de la consola de {{site.data.keyword.cloud_notm}}
+
+1. Inicie la sesión en la [consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de menú de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+
+   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+2. Acceda a su LUN de almacenamiento a través de **Almacenamiento** >**{{site.data.keyword.blockstorageshort}}**.
+2. Pulse **Cambiar espacio de instantáneas** en el marco Instantáneas.
+3. Seleccione la cantidad de espacio que necesita y el método de pago.
+4. Pulse **Continuar**.
+5. Especifique cualquier **código promocional** que tenga y pulse **Recalcular**. Los campos Cargos para este pedido y Revisión de pedido contienen información de forma predeterminada.
+
+   Los descuentos se aplican cuando se procesa el pedido.
+   {:note}
+6. Seleccione el recuadro **He leído el Acuerdo de servicio maestro y acepto sus condiciones** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
+
+## Realización de pedidos de espacio de instantáneas a través de la SL CLI
+
+```
+# slcli block snapshot-order --help
+Uso: slcli block snapshot-order [OPCIONES] ID_VOLUMEN
+
+Opciones:
+  --capacity ENTERO     Tamaño del espacio de instantáneas que debe crearse [necesario]
+  --tier [0.25|2|4|10]  Nivel de almacenamiento resistente (IOPS por GB) del volumen de
+                        bloque para el que se pide el espacio [opcional, y válido solamente
+                        para volúmenes de almacenamiento resistente]
+  --upgrade             Distintivo para indicar que el pedido es una actualización
+  -h, --help            Mostrar este mensaje y salir.
+```
+{codeblock}

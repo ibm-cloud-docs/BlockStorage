@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 災害復旧 - 1 次ボリュームがアクセス不能になった場合のフェイルオーバー
+{: #dr-inaccessible}
 
 1 次サイトで壊滅的な障害や災害が発生し、1 次サイトが停止した場合は、以下の操作を実行して、2 次サイトのデータに速やかにアクセスできます。
 
 ## 2 次サイトにあるレプリカ・ボリュームの複製を使用するフェイルオーバー
 
-1. [IBM Cloud コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [IBM Cloud コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
 
    または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。
@@ -35,14 +36,14 @@ lastupdated: "2018-12-11"
 
 元の 1 次サイトに実動を戻す場合は、以下のステップを実行する必要があります。
 
-1. [IBM Cloud コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [IBM Cloud コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
 
    または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. LUN 名をクリックし、スナップショット・スケジュールを作成します (まだ存在していない場合)。
 
-   スナップショット・スケジュールについて詳しくは、[スナップショットの管理](working-with-snapshots.html#adding-a-snapshot-schedule)を参照してください。
+   スナップショット・スケジュールについて詳しくは、[スナップショットの管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule)を参照してください。
    {:tip}
 4. **「レプリカ」**をクリックし、**「レプリケーションの購入 (Purchase a replication)」**をクリックします。
 5. レプリケーションに使用する既存のスナップショット・スケジュールを選択します。 リストに、アクティブなすべてのスナップショット・スケジュールが示されます。

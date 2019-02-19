@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2019-01-07"
 
 
 # Windows 2012 R2 - unités iSCSI multiples
+{: #troubleshootingWin12}
 
 Si vous utilisez plus de deux périphériques iSCSI, cette procédure peut vous être utile, notamment si les 4 allocations iSCSI proviennent du même périphérique de stockage. Si le gestionnaire de disque n'affiche que deux périphériques, vous devez vous connecter manuellement chaque périphérique dans l'initiateur iSCSI sur chaque noeud de serveur.
 

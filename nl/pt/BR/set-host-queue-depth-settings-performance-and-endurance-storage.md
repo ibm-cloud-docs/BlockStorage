@@ -1,13 +1,14 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-12"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 
 # Ajustando as configurações de profundidade da fila do host
+{: #hostqueuesettings}
 
 O {{site.data.keyword.BluSoftlayer_full}} sugere uma profundidade máxima de fila de entrada/saída (E/S) do host e do aplicativo para cada camada de desempenho.
 

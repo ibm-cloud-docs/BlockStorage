@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-13"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-13"
 {:important: .important}
 
 # Captura Instantânea
+{: #snapshots}
 
 As capturas instantâneas são um recurso do {{site.data.keyword.blockstoragefull}}. Uma captura instantânea representa o conteúdo de um volume em um determinado momento. Com as capturas instantâneas, é possível proteger seus dados sem afetar o desempenho e com consumo de espaço mínimo. As capturas instantâneas são consideradas sua primeira linha de defesa para a proteção de dados. Se um usuário modifica ou exclui acidentalmente dados cruciais de um volume, os dados podem ser restaurados de forma fácil e rápida por meio de uma cópia de captura instantânea.
 
@@ -29,7 +30,7 @@ Com capturas instantâneas, é possível:
 - Criar ininterruptamente pontos de recuperação point-in-time,
 - Reverter os volumes para momentos anteriores.
 
-Deve-se comprar alguma quantia de espaço de captura instantânea para seu volume primeiro para que você possa tirar capturas instantâneas dele. O espaço de captura instantânea pode ser incluído durante o pedido inicial ou mais tarde por meio da página **Detalhes do volume**. As capturas instantâneas planejadas e manuais compartilham o espaço de captura instantânea, portanto, certifique-se de pedir espaço de Captura instantânea suficiente. Para obter mais informações, consulte [Pedindo capturas instantâneas](ordering-snapshots.html).
+Deve-se comprar alguma quantia de espaço de captura instantânea para seu volume primeiro para que você possa tirar capturas instantâneas dele. O espaço de captura instantânea pode ser incluído durante o pedido inicial ou mais tarde por meio da página **Detalhes do volume**. As capturas instantâneas planejadas e manuais compartilham o espaço de captura instantânea, portanto, certifique-se de pedir espaço de Captura instantânea suficiente. Para obter mais informações, consulte [Pedindo capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 
 ## Melhores práticas de captura instantânea
 
@@ -46,7 +47,7 @@ As capturas instantâneas não são substituições para replicação real de Re
 
 ## Segurança
 
-Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorageshort}} criptografado também são criptografadas por padrão. Esse recurso não pode ser desativado em uma base de volume. Para obter mais informações sobre a criptografia em repouso gerenciada pelo provedor, consulte [Protegendo os dados](block-file-storage-encryption-rest.html).
+Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorageshort}} criptografado também são criptografadas por padrão. Esse recurso não pode ser desativado em uma base de volume. Para obter mais informações sobre a criptografia em repouso gerenciada pelo provedor, consulte [Protegendo os dados](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 
 ## Como as capturas instantâneas afetam o espaço em disco
 
@@ -73,4 +74,4 @@ No sistema de arquivos ativo, os blocos mudados são regravados em diferentes lo
       </tr>
 </table>
 
-Para obter mais informações sobre o uso de espaço de captura instantânea, consulte [Gerenciando capturas instantâneas](working-with-snapshots.html)
+Para obter mais informações sobre o uso de espaço de captura instantânea, consulte [Gerenciando capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Disaster-Recovery - Failover mit einem nicht zugänglichen Primärdatenträger
+{: #dr-inaccessible}
 
 Wenn eine Betriebsunterbrechung oder eine Katastrophe einen Ausfall am primären Standort verursachen, können Kunden die folgenden Aktionen ausführen, um schnell am sekundären Standort auf ihre Daten zuzugreifen.
 
 ## Failover mit dem Duplikat eines Replikatdatenträgers am sekundären Standort
 
-1. Melden Sie sich an [der IBM Cloud-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
+1. Melden Sie sich an [der IBM Cloud-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
 
    Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.
@@ -35,14 +36,14 @@ Sobald der Datenträger erstellt wurde, kann er einem Host zugeordnet werden und
 
 Wenn Sie die Produktion an den ursprünglichen primären Standort zurückgeben möchten, müssen Sie die folgenden Schritte ausführen.
 
-1. Melden Sie sich an [der IBM Cloud-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
+1. Melden Sie sich an [der IBM Cloud-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/){:new_window} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
 
    Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.
 2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 3. Klicken Sie auf den LUN-Namen und erstellen Sie einen Snapshotplan (falls noch keiner vorhanden ist).
 
-   Weitere Informationen zu Snapshotplänen finden Sie unter [Snapshots verwalten](working-with-snapshots.html#adding-a-snapshot-schedule).
+   Weitere Informationen zu Snapshotplänen finden Sie unter [Snapshots verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
 4. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
 5. Wählen Sie einen vorhandenen Snapshotplan aus, den die Replikation befolgen soll. Die Liste enthält alle aktiven Snapshotpläne.

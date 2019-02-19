@@ -2,20 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows
+{: #mountingWindows}
 
 Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
 2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
+
+Vous pouvez également autoriser l'hôte via l'interface SLCLI.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 
@@ -70,9 +86,11 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 
 1. Cliquez sur **Connexion** pour vous connecter à la cible.
 2. Cochez la case **Activer la prise en charge de plusieurs chemins d'accès** pour activer la fonction MPIO sur la cible.
-![Activer la prise en charge de plusieurs chemins d'accès](/images/Connect_0.png)
+<br/>
+   ![Activer la prise en charge de plusieurs chemins d'accès](/images/Connect_0.png)
 3. Cliquez sur **Avancé** et sélectionnez **Activer l'ouverture de session CHAP**.
-![Activer l'ouverture de session CHAP](/images/chap_0.png)
+</br>
+   ![Activer l'ouverture de session CHAP](/images/chap_0.png)
 4. Saisissez le nom d'utilisateur dans la zone Nom et le mot de passe dans la zone Secret de la cible.
 
    Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}}.
@@ -100,8 +118,11 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 6. Dans la fenêtre Se connecter à la cible, cochez la case **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
 7. Dans la fenêtre Paramètres avancés,
    - Dans la liste Adaptateur local, sélectionnez Microsoft iSCSI Initiator.
-   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session.
-   - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique.
+   - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique de stockage à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session.
+   - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique de stockage.
+
+     Vous pouvez trouver la seconde adresse IP dans l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+      {: tip}
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
@@ -120,6 +141,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 
 
 ## Vérification que MPIO est correctement configuré dans les systèmes d'exploitation Windows
+{: #verifyMPIOWindows}
 
 Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer que le module complémentaire MPIO est activé et redémarrer le serveur.
 
@@ -131,6 +153,7 @@ Une fois le redémarrage terminé et le périphérique de stockage ajouté, vous
 Si MPIO n'a pas été configuré correctement, votre périphérique de stockage est déconnecté et apparaît comme étant désactivé en cas de panne réseau ou de maintenance par les équipes {{site.data.keyword.BluSoftlayer_full}}. MPIO garantit un niveau supplémentaire de connectivité au cours de ces événements et conserve une session établie avec des opérations de lecture/écriture actives à destination du numéro d'unité logique (LUN).
 
 ## Démontage de volumes {{site.data.keyword.blockstorageshort}}
+{: #unmounting}
 
 Vous trouverez ci-dessous la procédure à suivre pour déconnecter une instance de calcul {{site.data.keyword.Bluemix_short}} basée sur Windows d'un numéro d'unité logique MPIO iSCSI. L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 

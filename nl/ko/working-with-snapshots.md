@@ -1,25 +1,29 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # 스냅샷 관리
+{: #managingSnapshots}
 
 ## 스냅샷 스케줄 작성
 
 스냅샷 스케줄을 사용하여 스토리지 볼륨에 대한 특정 시점의 참조를 작성하는 빈도 및 시기를 결정합니다. 스토리지 볼륨별로 최대 50개의 스냅샷이 가능합니다. 스케줄은 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **스토리지** > **{{site.data.keyword.blockstorageshort}}** 탭을 통해 관리합니다.
 
-스토리지 볼륨의 초기 프로비저닝 중에 스냅샷 영역을 구매하지 않은 경우에는 초기 스케줄을 설정하기 전에 우선 이를 구매해야 합니다.
+스토리지 볼륨의 초기 프로비저닝 중에 스냅샷 영역을 구매하지 않은 경우에는 초기 스케줄을 설정하기 전에 우선 이를 구매해야 합니다. 자세한 정보는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 {:important}
 
 ### 스냅샷 스케줄 추가
+{: #addingschedule}
 
 스냅샷 스케줄은 시간별, 일별, 주별 간격으로 설정할 수 있으며 이들 각각에는 개별적인 보유 주기가 있습니다. 스토리지 볼륨당 스냅샷의 최대 한계는 50개이며, 이는 시간별, 일별 및 주별 스케줄을 혼합할 수 있고 수동 스냅샷입니다.
 
@@ -38,6 +42,16 @@ lastupdated: "2018-11-30"
 
 스냅샷이 작성되면 **세부사항** 페이지의 **스냅샷** 섹션에 스냅샷 목록이 표시됩니다.
 
+또한 다음 명령을 사용하여 SLCLI를 통해 스냅샷 스케줄 목록을 볼 수 있습니다.
+```
+# slcli block snapshot-schedule-list --help
+사용법: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
+
+옵션:
+  -h, --help  이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
+
 ## 수동 스냅샷 작성
 
 수동 스냅샷은 애플리케이션 업그레이드 또는 유지보수 중에 다양한 시점에서 작성할 수 있습니다. 또한 애플리케이션 레벨에서 임시로 비활성화된 여러 서버에서도 스냅샷을 작성할 수 있습니다.
@@ -49,6 +63,17 @@ lastupdated: "2018-11-30"
 3. **수동 스냅샷 작성**을 클릭하십시오.
 스냅샷이 작성되고 **세부사항** 페이지의 **스냅샷** 섹션에 표시됩니다. 해당 스케줄은 수동입니다.
 
+또는 다음 명령을 사용하여 SLCLI를 통해 스냅샷을 작성할 수 있습니다.
+```
+# slcli block snapshot-create --help
+사용법: slcli block snapshot-create [OPTIONS] VOLUME_ID
+
+옵션:
+  -n, --notes TEXT  새 스냅샷에 설정되는 참고사항
+  -h, --help        이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
+
 ## 사용된 영역 정보 및 관리 기능이 포함된 모든 스냅샷 나열
 
 유지된 스냅샷 및 사용된 영역의 목록은 **세부사항** 페이지에서 볼 수 있습니다.  관리 기능(스케줄 편집 및 추가 영역 추가)은 **조치** 메뉴 또는 페이지에 있는 다양한 섹션의 링크를 사용하여 세부사항 페이지에서 수행됩니다.
@@ -56,6 +81,18 @@ lastupdated: "2018-11-30"
 ## 유지된 스냅샷 목록 보기
 
 유지된 스냅샷은 스케줄 설정 시에 **마지막 보존** 필드에 입력한 수를 기반으로 합니다. **스냅샷** 섹션에서 작성된 스냅샷을 볼 수 있습니다. 스냅샷은 스케줄로 나열됩니다.
+
+또는 SLCLI에서 다음 명령을 사용하여 사용 가능한 스냅샷을 표시할 수 있습니다.
+```
+# slcli block snapshot-list --help
+사용법: slcli block snapshot-list [OPTIONS] VOLUME_ID
+
+옵션:
+  --sortby TEXT   열 정렬 기준
+  --columns TEXT  열 표시. 옵션: id, name, created, size_bytes
+  -h, --help      이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
 
 ## 사용된 스냅샷 영역의 크기 보기
 
@@ -91,7 +128,7 @@ lastupdated: "2018-11-30"
 1. **세부사항** 페이지의 **스냅샷 스케줄** 프레임에서 삭제할 스케줄을 클릭하십시오.
 2. 삭제되는 스케줄 옆에 있는 선택란을 클릭하고 **저장**을 클릭하십시오.<br />
 
-복제 기능을 사용 중인 경우에는 삭제 중인 스케줄이 복제에서 사용하는 스케줄이 아닌지 확인하십시오. 복제 스케줄의 삭제에 대한 자세한 정보는 [데이터 복제](replication.html)를 참조하십시오.
+복제 기능을 사용 중인 경우에는 삭제 중인 스케줄이 복제에서 사용하는 스케줄이 아닌지 확인하십시오. 복제 스케줄의 삭제에 대한 자세한 정보는 [데이터 복제](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication)를 참조하십시오.
 {:important}
 
 ## 스냅샷 삭제
@@ -103,13 +140,27 @@ lastupdated: "2018-11-30"
 
 포털에서 수동으로 삭제되지 않은 수동 스냅샷은 영역 한계에 도달하면 가장 오래된 스냅샷부터 자동으로 삭제됩니다.
 
+다음 명령을 사용하여 SLCLI를 통해 볼륨을 삭제할 수 있습니다.
+```
+# slcli block snapshot-delete
+사용법: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
+
+옵션:
+  -h, --help  이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}
+
+
 ## 스냅샷을 사용하여 특정 시점으로 내 스토리지 볼륨 복원
 
 사용자 오류 또는 데이터 손상으로 인해 특정 시점으로 스토리지 볼륨을 다시 돌려야 할 수도 있습니다.
 
+볼륨을 복원하면 복원에 사용된 스냅샷 이후 작성된 모든 스냅샷이 삭제됩니다.
+{:important}
+
 1. 호스트에서 스토리지 볼륨을 마운트 해제하고 분리하십시오.
-   - [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
-   - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
+   - [Linux에서 iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Microsoft Windows에서 iSCSI LUNS 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 3. 아래로 스크롤한 후에 복원되는 볼륨을 클릭하십시오. **세부사항** 페이지의 **스냅샷** 섹션에 해당 크기 및 작성 날짜와 같이 저장된 모든 스냅샷 목록이 표시됩니다.
 4. 사용되는 스냅샷 옆에 있는 **조치**를 클릭하고 **복원**을 클릭하십시오. <br/>
@@ -121,9 +172,19 @@ lastupdated: "2018-11-30"
    선택된 스냅샷을 사용하여 볼륨이 복원되고 있음을 알리는 메시지가 페이지에 표시됩니다. 또한, 활성 트랜잭션이 진행 중임을 나타내는 아이콘이 {{site.data.keyword.blockstorageshort}}의 볼륨 옆에 표시됩니다. 아이콘 위에 마우스 커서를 두면 트랜잭션을 표시하는 창이 작성됩니다. 아이콘은 트랜잭션이 완료되면 없어집니다.
    {:note}
 6. 스토리지 볼륨을 호스트에 마운트하고 다시 접속하십시오.
-   - [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)
-   - [CloudLinux에서 MPIO iSCSI LUN에 연결](configure-iscsi-cloudlinux.html)
-   - [Microsoft Windows에서 MPIO iSCSI LUNS 연결](accessing-block-storage-windows.html)
+   - [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-볼륨을 복원하면 복원에 사용된 스냅샷 이후 작성된 모든 스냅샷이 삭제됩니다.
-{:important}
+또는 호스트에서 볼륨이 분리된 후에 SLCLI에서 다음 명령을 사용하여 복원을 시작할 수 있습니다.
+```
+# slcli block snapshot-restore --help
+사용법: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+
+옵션:
+  -s, --snapshot-id TEXT  블록 볼륨을 복원하는 데 사용될 스냅샷의 ID
+  -h, --help              이 메시지를 표시하고 종료합니다.
+```
+{:codeblock}  
+
+복원이 완료되고 나면 스토리지 볼륨을 호스트로 마운트하여 다시 연결하십시오.
