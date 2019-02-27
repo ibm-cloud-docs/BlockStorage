@@ -42,7 +42,7 @@ Clients can't switch between Endurance and Performance when they adjust their IO
 If the volume has replication in place, the replica is automatically updated to match the IOPS selection of the primary.
 
 ## Adjusting the IOPS on your Storage
-{: #steps}
+{: #adjustingsteps}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}
    - From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**

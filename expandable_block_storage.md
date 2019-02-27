@@ -45,7 +45,7 @@ Storage that was provisioned in these data centers before the release of this fe
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
 
 ## Resizing storage
-{: #steps}
+{: #resizingsteps}
 
 1. From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from {{site.data.keyword.BluSoftlayer_full}} console click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the LUN from the list and click **Actions** > **Modify LUN**
