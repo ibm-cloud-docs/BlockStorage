@@ -12,15 +12,15 @@ lastupdated: "2019-02-05"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.blockstorageshort}} 的 SL CLI 命令
+# {{site.data.keyword.blockstorageshort}} 的 SLCLI 命令
 {: #SLCLIcommands}
 
-您可以使用 SL CLI 来执行操作，例如为新卷、快照空间和复制下订单，更新授权，取消卷等等，这些操作通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 来进行处理。
+您可以使用 SLCLI 来执行操作，例如为新卷、快照空间和复制下订单，更新授权，取消卷等等，这些操作通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 来进行处理。
 
-有关如何安装和使用 SL CLI 的更多信息，请参阅 [Python API 客户机 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
+有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
 {:tip}
 
-## 与访问权相关的 SL CLI 命令
+## 与访问权相关的 SLCLI 命令
 * [管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -29,9 +29,9 @@ lastupdated: "2019-02-05"
   slcli block access-revoke
   ```
 
-## 与复制相关的 SL CLI 命令
+## 与复制相关的 SLCLI 命令
 
-* [与复制相关的 SL CLI 命令](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [与复制相关的 SLCLI 命令](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -41,7 +41,7 @@ lastupdated: "2019-02-05"
   slcli block replica-partners
   ```
 
-## 与快照相关的 SL CLI 命令
+## 与快照相关的 SLCLI 命令
 
 * [订购快照](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -59,7 +59,7 @@ lastupdated: "2019-02-05"
   slcli block snapshot-enable
   ```
 
-## 与卷相关的 SL CLI 命令
+## 与卷相关的 SLCLI 命令
 
 * [订购 {{site.data.keyword.blockstorageshort}} 卷](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [创建复制卷](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)

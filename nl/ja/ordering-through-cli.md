@@ -10,12 +10,12 @@ lastupdated: "2019-02-05"
 {:note: .note}
 {:important: .important}
 
-# SL CLI を使用した {{site.data.keyword.blockstorageshort}} の注文
+# SLCLI を使用した {{site.data.keyword.blockstorageshort}} の注文
 {: #orderingthroughCLI}
 
-通常は、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して注文する製品を、SL CLI を使用して発注することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
+通常は、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して注文する製品を、SLCLI を使用して発注することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
 
-SL CLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}を参照してください。
+SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}を参照してください。
 {:tip}
 
 ## 入手可能な {{site.data.keyword.blockstorageshort}} オファーの検索

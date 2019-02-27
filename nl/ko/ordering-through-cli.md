@@ -10,12 +10,12 @@ lastupdated: "2019-02-05"
 {:note: .note}
 {:important: .important}
 
-# SL CLI를 통해 {{site.data.keyword.blockstorageshort}} 주문
+# SLCLI를 통해 {{site.data.keyword.blockstorageshort}} 주문
 {: #orderingthroughCLI}
 
-일반적으로 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 주문하는 제품을 주문하는 데 SL CLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
+일반적으로 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 주문하는 제품을 주문하는 데 SLCLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
 
-SL CLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라이언트 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}를 참조하십시오.
+SLCLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라이언트 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}를 참조하십시오.
 {:tip}
 
 ## 사용 가능한 {{site.data.keyword.blockstorageshort}} 오퍼 검색

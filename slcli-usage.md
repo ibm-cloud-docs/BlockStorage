@@ -16,15 +16,15 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# SL CLI commands for {{site.data.keyword.blockstorageshort}}
+# SLCLI commands for {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-You can use the SL CLI to take actions such as placing orders for new volumes, snapshot space and replication, updating authorizations, cancelling volumes, and so on that are normally handled through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+You can use the SLCLI to take actions such as placing orders for new volumes, snapshot space and replication, updating authorizations, cancelling volumes, and so on that are normally handled through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
-For more information about how to install and use the SL CLI, see [Python API Client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+For more information about how to install and use the SLCLI, see [Python API Client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
-## Access related SL CLI commands
+## Access related SLCLI commands
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ For more information about how to install and use the SL CLI, see [Python API Cl
   slcli block access-revoke
   ```
 
-## Replication related SL CLI commands
+## Replication related SLCLI commands
 
-* [Replication related SL CLI commands](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [Replication related SLCLI commands](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ For more information about how to install and use the SL CLI, see [Python API Cl
   slcli block replica-partners
   ```
 
-## Snapshots related SL CLI commands
+## Snapshots related SLCLI commands
 
 * [Ordering Snapshots](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,7 +63,7 @@ For more information about how to install and use the SL CLI, see [Python API Cl
   slcli block snapshot-enable
   ```
 
-## Volume related SL CLI commands
+## Volume related SLCLI commands
 
 * [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [Creating a duplicate volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)

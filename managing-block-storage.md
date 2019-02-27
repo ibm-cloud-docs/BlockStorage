@@ -26,7 +26,7 @@ You can view a summary the key information for the selected storage LUN includin
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate LUN Name from the list.
 
-Alternatively, you can use the following command in SL CLI.
+Alternatively, you can use the following command in SLCLI.
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -46,7 +46,7 @@ You can authorize and connect hosts that are located in the same data center as 
 2. Scroll to the **Authorized Hosts** section of the page.
 3. On the right, click **Authorize Host**. Select the hosts that can access that particular LUN.
 
-Alternatively, you can use the following command in SL CLI.
+Alternatively, you can use the following command in SLCLI.
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -67,7 +67,7 @@ Options:
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – user name, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
-Alternatively, you can use the following command in SL CLI.
+Alternatively, you can use the following command in SLCLI.
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -130,9 +130,9 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 If you want to disconnect multiple hosts from a specific LUN, you need to repeat the Revoke Access action for each host.
 {:tip}
 
-### Revoking access through the SL CLI.
+### Revoking access through the SLCLI.
 
-Alternatively, you can use the following command in SL CLI.
+Alternatively, you can use the following command in SLCLI.
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -164,7 +164,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 4. Click **Continue** or **Close**.
 5. Click the **Acknowledgment** check box and click **Confirm**.
 
-Alternatively, you can use the following command in SL CLI.
+Alternatively, you can use the following command in SLCLI.
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

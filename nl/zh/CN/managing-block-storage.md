@@ -22,7 +22,7 @@ lastupdated: "2019-02-05"
 1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 2. 单击列表中相应的 LUN 名称。
 
-或者，您可以在 SL CLI 中使用以下命令。
+或者，您可以在 SLCLI 中使用以下命令。
 ```
 # slcli block volume-detail --help
 用法：slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -42,7 +42,7 @@ lastupdated: "2019-02-05"
 2. 滚动到页面的**已授权主机**部分。
 3. 在右侧，单击**授权主机**。选择可以访问该特定 LUN 的主机。
 
-或者，您可以在 SL CLI 中使用以下命令。
+或者，您可以在 SLCLI 中使用以下命令。
 ```
 # slcli block access-authorize --help
 用法：slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -62,7 +62,7 @@ lastupdated: "2019-02-05"
 
 在此，您可以看到当前已授权访问 LUN 的主机的列表。还可以看到建立连接所需的认证信息 - 用户名、密码和 IQN 主机。“目标地址”在**存储器详细信息**页面上列出。对于 NFS，会将“目标地址”描述为 DNS 名称，对于 iSCSI，会描述为“发现目标门户网站”的 IP 地址。
 
-或者，您可以在 SL CLI 中使用以下命令。
+或者，您可以在 SLCLI 中使用以下命令。
 ```
 # slcli block access-list --help
 用法：slcli block access-list [OPTIONS] VOLUME_ID
@@ -125,9 +125,9 @@ lastupdated: "2019-02-05"
 如果要断开一个特定 LUN 与多个主机的连接，需要对每个主机重复“撤销访问权”操作。
 {:tip}
 
-### 通过 SL CLI 撤销访问权。
+### 通过 SLCLI 撤销访问权。
 
-或者，您可以在 SL CLI 中使用以下命令。
+或者，您可以在 SLCLI 中使用以下命令。
 ```
 # slcli block access-revoke --help
 用法：slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -157,7 +157,7 @@ lastupdated: "2019-02-05"
 
 5. 单击**确认**复选框，然后单击**确认**。
 
-或者，您可以在 SL CLI 中使用以下命令。
+或者，您可以在 SLCLI 中使用以下命令。
 ```
 # slcli block volume-cancel --help
 用法：slcli block volume-cancel [OPTIONS] VOLUME_ID

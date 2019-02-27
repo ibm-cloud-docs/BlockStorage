@@ -14,12 +14,12 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Ordering {{site.data.keyword.blockstorageshort}} through the SL CLI
+# Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
 {: #orderingthroughCLI}
 
-You can use the SL CLI to place orders for products that are normally ordered through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. In the SL API, an order can consist of multiple order containers. The order CLI works with one order container only.
+You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. In the SL API, an order can consist of multiple order containers. The order CLI works with one order container only.
 
-For more information about how to install and use the SL CLI, see [Python API Client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+For more information about how to install and use the SLCLI, see [Python API Client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
 ## Searching for available {{site.data.keyword.blockstorageshort}} offers
