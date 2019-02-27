@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # 通过 SL CLI 订购 {{site.data.keyword.blockstorageshort}}
+{: #orderingthroughCLI}
 
 您可以使用 SL CLI 以针对通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
 
@@ -106,7 +107,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 卷。要增加卷的数量，请联系销售代表。有关提高限制的更多信息，请参阅[管理存储限制](managing-storage-limits.html)。
+缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 卷。要增加卷的数量，请联系销售代表。有关提高限制的更多信息，请参阅[管理存储限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 {:important}
 
 ## 授权主机访问新存储器
@@ -117,26 +118,25 @@ Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
   Authorizes hosts to access a given volume
 
-Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
-  --help                    Show this message and exit.
+选项：
+  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
+  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
+  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
+  --ip-address TEXT         要授权的 IP 地址
+  --help                    显示此消息并退出。
 ```
 
 有关通过 API 授权主机访问 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [authorize_host_to_volume ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}
 {:tip}
 
-有关同时授权的限制，请参阅[常见问题](faqs.html)。
+有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
 {:important}
 
 ## 连接新存储器
 
 根据主机的操作系统，访问相应的链接。
-- [在 Linux 上连接到 iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上连接到 iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上连接到 iSCSI LUN](accessing-block-storage-windows.html)
-- [在 cPanel 中将 Block Storage 配置用于备份](configure-backup-cpanel.html)
-- [在 Plesk 中将 Block Storage 配置用于备份](configure-backup-plesk.html)
+- [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [使用 cPanel 配置 Block Storage 进行备份](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [使用 Plesk 配置 Block Storage 进行备份](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

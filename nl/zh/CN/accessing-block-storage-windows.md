@@ -2,21 +2,36 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # 在 Microsoft Windows 上连接到 iSCSI LUN
+{: #mountingWindows}
 
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 授权。
 
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。单击**授权主机**。
 2. 从列表中选择将访问该卷的一个或多个主机，然后单击**提交**。
+
+或者，可以通过 SLCLI 来授权主机。
+```
+# slcli block access-authorize --help
+用法：slcli block access-authorize [OPTIONS] VOLUME_ID
+
+选项：
+  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
+  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
+  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
+  --ip-address TEXT         要授权的 IP 地址
+  --help                    显示此消息并退出。
+```
+{:codeblock}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 
@@ -69,9 +84,11 @@ lastupdated: "2019-01-07"
 
 1. 单击**连接**以连接到目标。
 2. 选中**启用多路径**复选框以启用到目标的多路径 IO。
-![启用多路径](/images/Connect_0.png)
+<br/>
+   ![启用多路径](/images/Connect_0.png)
 3. 单击**高级**，然后选择**启用 CHAP 登录**。
-![启用 CHAP](/images/chap_0.png)
+</br>
+   ![启用 CHAP](/images/chap_0.png)
 4. 在“名称”字段中输入用户名，然后在“目标私钥”字段中输入密码。
 
    “名称”和“目标私钥”字段值可以从“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取。
@@ -99,8 +116,11 @@ lastupdated: "2019-01-07"
 6. 在“连接到目标”窗口中，选中**启用多路径**复选框。单击**高级**。
 7. 在“高级设置”窗口中：
    - 在“本地适配器”列表中，选择“Microsoft iSCSI 启动器”。
-   - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与为第一个会话提供的接口相同。
-   - 在“目标门户网站 IP”列表中，为设备上启用的第二个数据接口选择 IP 地址。
+   - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将存储设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与为第一个会话提供的接口相同。
+   - 在“目标门户网站 IP”列表中，为存储设备上启用的第二个数据接口选择 IP 地址。
+
+     您可以在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 的 {{site.data.keyword.blockstorageshort}}“详细信息”屏幕中找到第二个 IP 地址。
+      {: tip}
    - 单击**启用 CHAP 登录**复选框。
    - 输入从门户网站中获取的“名称”和“目标私钥”值，然后单击**确定**。
    - 在“连接到目标”窗口上，单击**确定**以返回到“属性”窗口。
@@ -119,6 +139,7 @@ lastupdated: "2019-01-07"
 
 
 ## 验证是否在 Windows 操作系统中正确配置了 MPIO
+{: #verifyMPIOWindows}
 
 要验证是否已配置 Windows MPIO，必须先确保已启用 MPIO 附加组件，然后重新启动服务器。
 
@@ -130,6 +151,7 @@ lastupdated: "2019-01-07"
 如果未正确配置 MPIO，那么当发生网络中断或 {{site.data.keyword.BluSoftlayer_full}} 团队执行维护时，存储设备可能断开连接并显示为已禁用。MPIO 将确保在发生这些事件期间获得额外级别的连接，并且会保留已建立的会话，使活动读/写操作转至 LUN。
 
 ## 卸装 {{site.data.keyword.blockstorageshort}} 卷
+{: #unmounting}
 
 下面是断开基于 Windows 的 {{site.data.keyword.Bluemix_short}} 计算实例与 MPIO iSCSI LUN 的连接所需的步骤。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统供应商文档来调整这些步骤。
 

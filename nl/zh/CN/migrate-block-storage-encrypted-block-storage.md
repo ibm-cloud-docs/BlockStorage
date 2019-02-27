@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +11,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # 将现有 {{site.data.keyword.blockstorageshort}} 升级到增强型 {{site.data.keyword.blockstorageshort}}
+{: #migratestorage}
 
-现在，增强型 {{site.data.keyword.blockstoragefull}} 在精选数据中心内提供。要查看已升级的数据中心和可用功能（例如，可调整 IOPS 速率和可扩展卷）的列表，请单击[此处](new-ibm-block-and-file-storage-location-and-features.html)。有关提供者管理的加密存储器的更多信息，请参阅 [{{site.data.keyword.blockstorageshort}} 静态加密](block-file-storage-encryption-rest.html)。
+现在，增强型 {{site.data.keyword.blockstoragefull}} 在精选数据中心内提供。要查看已升级的数据中心和可用功能（例如，可调整 IOPS 速率和可扩展卷）的列表，请单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。有关提供者管理的加密存储器的更多信息，请参阅 [{{site.data.keyword.blockstorageshort}} 静态加密](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 
 首选迁移路径是同时连接两个 LUN，并将数据从一个 LUN 直接传输到另一个 LUN。具体操作取决于您的操作系统以及在复制操作期间数据是否会更改。
 
 假定您已将非加密 LUN 连接到主机。如果尚未连接，请按照最适合您操作系统的指示信息来完成此任务：
 
-- [在 Linux 上连接到 iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上连接到 iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上连接到 iSCSI LUN](accessing-block-storage-windows.html)
+- [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 这些数据中心内供应的所有增强型 {{site.data.keyword.blockstorageshort}} 卷的安装点与非加密卷不同。要确保对两个存储卷使用正确的安装点，可以在控制台的**卷详细信息**页面中查看安装点信息。还可以通过 API 调用来访问正确的安装点：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 {:tip}
@@ -32,8 +33,8 @@ lastupdated: "2019-01-08"
 
 要订购增强型 LUN，可以通过 IBM Cloud 控制台和 {{site.data.keyword.slportal}} 来完成此操作。新 LUN 的大小应该等于或大于原始卷的大小，以便于迁移。
 
-- [订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
 几分钟后即可安装新存储器。在资源列表和 {{site.data.keyword.blockstorageshort}} 列表中，可以查看该存储器。
 
@@ -62,8 +63,8 @@ lastupdated: "2019-01-08"
 
 2. 请考虑原始 {{site.data.keyword.blockstorageshort}} LUN 上有什么类型的数据，以及如何以最佳方式将其复制到新 LUN。
   - 如果您有备份、静态内容以及您不希望在复制期间发生更改的内容，那么无需太担心。
-  - 如果是在 {{site.data.keyword.blockstorageshort}} 上运行数据库或虚拟机，请确保数据在复制期间不会发生变更，以免发生数据损坏。 
-  - 如果您担心任何带宽问题，请在非高峰时段执行迁移。 
+  - 如果是在 {{site.data.keyword.blockstorageshort}} 上运行数据库或虚拟机，请确保数据在复制期间不会发生变更，以免发生数据损坏。
+  - 如果您担心任何带宽问题，请在非高峰时段执行迁移。
   - 如果需要有关这些注意事项的帮助，请开立支持案例。
 
 3. 复制数据。

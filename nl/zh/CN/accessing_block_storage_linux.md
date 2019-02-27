@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -14,6 +13,7 @@ lastupdated: "2019-01-07"
 
 
 # 在 Linux 上连接到 iSCSI LUN
+{: #mountingLinux}
 
 这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
@@ -27,6 +27,20 @@ lastupdated: "2019-01-07"
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
 2. 单击**授权主机**。
 3. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
+
+或者，可以通过 SLCLI 来授权主机。
+```
+# slcli block access-authorize --help
+用法：slcli block access-authorize [OPTIONS] VOLUME_ID
+
+选项：
+  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
+  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
+  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
+  --ip-address TEXT         要授权的 IP 地址
+  --help                    显示此消息并退出。
+```
+{:codeblock}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 
@@ -177,7 +191,7 @@ lastupdated: "2019-01-07"
 
    将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
    {:important}
-   
+
    对于 Ubuntu 用户，在查看 `iscsid.conf` 文件时，请检查 `node.startup` 设置是手动还是自动。如果是手动，请更改为自动。
    {:tip}
 
@@ -266,9 +280,10 @@ systemctl start iscsid
 
 ## 创建文件系统（可选）
 
-您可以通过执行以下步骤，在新安装的卷上创建文件系统。大多数应用程序都需要文件系统才可使用卷。对于小于 2 TB 的驱动器，请使用 [`fdisk`](#creating-a-file-system-with-fdisk-)；对于大于 2 TB 的磁盘，请使用 [`parted`](#creating-a-file-system-with-parted-)。
+您可以通过执行以下步骤，在新安装的卷上创建文件系统。大多数应用程序都需要文件系统才可使用卷。[对于小于 2 TB 的驱动器，请使用 `fdisk`](#fdisk)；[对于大于 2 TB 的磁盘，请使用 `parted`](#parted)。
 
 ### 使用 `fdisk` 创建文件系统
+{: #fdisk}
 
 1. 获取磁盘名称。
    ```
@@ -388,6 +403,7 @@ systemctl start iscsid
   (`**`) 输入 L 可列出十六进制代码
 
 ### 使用 `parted` 创建文件系统
+{: #parted}
 
 许多 Linux 分发版上已预安装 `parted`。如果您的分发版中不包含 parted，可以通过以下方式进行安装：
 - Debian 和 Ubuntu
@@ -495,6 +511,7 @@ systemctl start iscsid
 
 
 ## 验证 MPIO 配置
+{: #verifyMPIOLinux}
 
 1. 要检查多路径是否在选取设备，请列出设备。如果配置正确，将仅显示两个 NETAPP 设备。
 
@@ -555,6 +572,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 ```
 
 ## 卸装 {{site.data.keyword.blockstorageshort}} 卷
+{: #unmounting}
 
 1. 卸装文件系统。
    ```

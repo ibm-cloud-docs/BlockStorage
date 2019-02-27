@@ -1,20 +1,23 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # 创建复制块卷
+{: #duplicatevolume}
 
 可以创建现有 {{site.data.keyword.blockstoragefull}} 的复制项。缺省情况下，复制卷将继承原始卷的容量和性能选项，并且会包含截至快照时间点的数据的副本。   
 
-因为复制项基于时间点快照中的数据，所以原始卷上需要有快照空间，然后您才能创建复制项。有关快照以及如何订购快照空间的更多信息，请参阅[快照文档](snapshots.html)。  
+因为复制项基于时间点快照中的数据，所以原始卷上需要有快照空间，然后您才能创建复制项。有关快照以及如何订购快照空间的更多信息，请参阅[快照文档](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)。  
 
 复制项可以基于**主卷**和**副本卷**创建。新复制项会在原始卷所在的数据中心内创建。如果基于副本卷创建复制项，那么新卷将在副本卷所在的数据中心内创建。
 
@@ -22,9 +25,9 @@ lastupdated: "2018-11-30"
 
 数据复制完成后，就可以将复制项作为独立卷进行管理和使用。
 
-此功能在大多数位置中提供。单击[此处](new-ibm-block-and-file-storage-location-and-features.html)以获取可用数据中心的列表。
+此功能在大多数位置中提供。单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)以获取可用数据中心的列表。
 
-如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers/cs_storage_file.html#backup_restore)中有关复制卷的选项。
+如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers?topic=containers-backup_restore#backup_restore)中有关复制卷的选项。
 {:tip}
 
 复制卷的一些常见用途：
@@ -61,8 +64,6 @@ lastupdated: "2018-11-30"
 7. 可以更新新卷的快照空间，以添加更多或更少的快照空间，或者不添加快照空间。缺省情况下设置了原始卷的快照空间。
 8. 单击**继续**以下订单。
 
-
-
 ## 基于特定快照创建复制项
 
 1. 转至 {{site.data.keyword.blockstorageshort}} 的列表。
@@ -79,6 +80,43 @@ lastupdated: "2018-11-30"
 7. 可以更新新卷的快照空间，以添加更多或更少的快照空间，或者不添加快照空间。缺省情况下设置了原始卷的快照空间。
 8. 单击**继续**，以下订单购买复制卷。
 
+
+## 通过 SLCLI 创建副本
+您可以在 SLCLI 中使用以下命令来创建复制 {{site.data.keyword.blockstorageshort}} 卷。
+
+```
+# slcli block volume-duplicate --help
+用法：slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
+
+选项：
+  -o, --origin-snapshot-id INTEGER
+                                  用于复制的原始卷快照的标识。
+  -c, --duplicate-size INTEGER    复制块卷的大小（以 GB 为单位）。
+                                  ***如果未指定大小，那么将使用原始卷的大小。***
+                                  可能的大小为：
+                                  [20, 40, 80, 100, 250, 500, 1000, 2000,
+                                  4000, 8000, 12000] 最小值为：[原始卷的大小]
+  -i, --duplicate-iops INTEGER    性能存储器 IOPS，介于 100 到 6000 之间，且为 100 的倍数 [仅用于性能卷]
+                                  ***如果未指定 IOPS 值，
+                                  那么将使用原始卷的 IOPS 值。***
+                                  要求：[如果原始卷的 IOPS/GB 小于
+                                  0.3，那么复制卷的 IOPS/GB 也必须小于 0.3。
+                                  如果原始卷的 IOPS/GB 大于或者等于 0.3，
+                                  那么复制卷的 IOPS/GB 也必须大于或者等于 0.3。]
+  -t, --duplicate-tier [0.25|2|4|10]
+                                  耐久性存储器层 (IOPS/GB) [仅用于耐久性卷]
+                                  ***如果未指定层，那么将使用原始卷的层。***
+                                  要求：[如果原始卷的 IOPS/GB 为 0.25，那么复制卷的
+                                  IOPS/GB 也必须为 0.25。如果原始卷的 IOPS/GB
+                                  大于 0.25，那么复制卷的 IOPS/GB 也必须大于 0.25。]
+  -s, --duplicate-snapshot-size INTEGER
+                                  要为复制卷订购的快照空间的大小。
+                                  ***如果未指定快照空间大小，那么将使用原始块卷的
+                                  快照空间大小。*** 为此参数输入“0”表示将订购没有快照空间的复制卷。
+  --billing [hourly|monthly]      计费费率的可选参数（缺省为 monthly）
+  -h, --help                      显示此消息并退出。
+```
+{:codeblock}
 
 ## 管理复制卷
 

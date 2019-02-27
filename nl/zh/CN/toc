@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html" path="infrastructure/BlockStorage"}
+{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted" path="infrastructure/BlockStorage"}
 IBM Cloud 存储 - Block Storage
 
     {: .navgroup id="learn"}
@@ -51,6 +51,7 @@ IBM Cloud 存储 - Block Storage
     {: .navgroup id="help"}
     faqs.md
     [Python API 客户机信息](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    slcli-usage.md
 
     {: .topicgroup}
     故障诊断

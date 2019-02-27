@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +12,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 在 cPanel 中将 {{site.data.keyword.blockstorageshort}} 配置用于备份
+{: #cPanelBackups}
 
 使用以下指示信息，可以在 cPanel 中配置您的备份，以将其存储在 {{site.data.keyword.blockstoragefull}} 中。假定以 root 用户或 sudo 用户身份通过 SSH 登录到系统，并且有完整的 WebHost Manager (WHM) 访问权。这些指示信息基于 **CentOS 7** 主机。
 
@@ -41,7 +42,7 @@ lastupdated: "2018-11-30"
     - 通过输入新位置的绝对路径来取代 /backup/ 目录，从而更改缺省备份目录。
     - 选择**启用以安装备份驱动器**。此设置会使备份配置过程检查 `/etc/fstab` 文件中是否有备份安装 (`/backup2`)。<br />
 
-    如果某个安装与编译打包目录同名，那么备份配置过程会安装驱动器并将信息备份到该驱动器上。备份过程完成后，会卸装该驱动器。
+    如果某个安装与暂存目录同名，那么备份配置过程会安装驱动器并将信息备份到该驱动器上。备份过程完成后，会卸装该驱动器。
     {:note}
 
 7. 通过单击**保存配置**来应用更改。

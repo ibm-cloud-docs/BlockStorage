@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-13"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-13"
 {:important: .important}
 
 # 快照
+{: #snapshots}
 
 快照是 {{site.data.keyword.blockstoragefull}} 的一项功能。快照表示特定时间点的卷内容。利用快照，您可以保护数据而不影响性能且使空间消耗降至最低。快照被视为数据保护的第一道防线。如果用户意外修改或删除了卷中的关键数据，可以轻松、快速地从快照副本复原数据。
 
@@ -28,7 +29,7 @@ lastupdated: "2018-11-13"
 - 以非破坏性方式创建时间点恢复点，
 - 将卷还原到先前的时间点。
 
-您必须先为卷购买一些快照空间量才能生成该卷的快照。在初始订购期间或订购后，可以通过**卷详细信息**页面添加快照空间。安排的快照和手动快照共享该快照空间，因此请确保订购足够的快照空间。有关更多信息，请参阅[订购快照](ordering-snapshots.html)。
+您必须先为卷购买一些快照空间量才能生成该卷的快照。在初始订购期间或订购后，可以通过**卷详细信息**页面添加快照空间。安排的快照和手动快照共享该快照空间，因此请确保订购足够的快照空间。有关更多信息，请参阅[订购快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 
 ## 快照最佳实践
 
@@ -45,7 +46,7 @@ lastupdated: "2018-11-13"
 
 ## 安全
 
-缺省情况下，加密 {{site.data.keyword.blockstorageshort}} 的所有快照和副本也都已加密。此功能无法逐个卷加以禁用。有关提供者管理的静态加密的更多信息，请参阅[确保数据安全](block-file-storage-encryption-rest.html)。
+缺省情况下，加密 {{site.data.keyword.blockstorageshort}} 的所有快照和副本也都已加密。此功能无法逐个卷加以禁用。有关提供者管理的静态加密的更多信息，请参阅[确保数据安全](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 
 ## 快照如何影响磁盘空间
 
@@ -72,4 +73,4 @@ lastupdated: "2018-11-13"
       </tr>
 </table>
 
-有关快照空间使用情况的更多信息，请参阅[管理快照](working-with-snapshots.html)。
+有关快照空间使用情况的更多信息，请参阅[管理快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots)。

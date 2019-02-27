@@ -1,14 +1,15 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 
 # 常见问题
+{: #faqs}
 
 ## 一个 {{site.data.keyword.blockstorageshort}} 卷可以由多少个实例共享使用？
 {: faq}
@@ -18,7 +19,7 @@ lastupdated: "2018-11-30"
 ## 可以订购多少个卷？
 {: faq}
 
-缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增大卷限制，请联系销售代表。有关更多信息，请参阅[管理存储限制](managing-storage-limits.html)。
+缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增大卷限制，请联系销售代表。有关更多信息，请参阅[管理存储限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 
 ## 在一个主机上可以安装多少个 {{site.data.keyword.blockstorageshort}} 卷？
 {: faq}
@@ -81,7 +82,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 为什么可以在一些数据中心内订购耐久性 10 IOPS/GB 层的 {{site.data.keyword.blockstorageshort}}，而在其他数据中心内不行？
 {: faq}
 
-“耐久性”类型的 {{site.data.keyword.blockstorageshort}} 的 10 IOPS/GB 层仅在精选数据中心内提供，会逐渐增加新的数据中心。您可以在[此处](new-ibm-block-and-file-storage-location-and-features.html)找到已升级的数据中心和可用功能的完整列表。
+“耐久性”类型的 {{site.data.keyword.blockstorageshort}} 的 10 IOPS/GB 层仅在精选数据中心内提供，会逐渐增加新的数据中心。您可以在[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)找到已升级的数据中心和可用功能的完整列表。
 
 ## 如何判断哪些 {{site.data.keyword.blockstorageshort}} 卷已加密？
 {: faq}
@@ -91,7 +92,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 怎样知道是在已升级的数据中心内供应 {{site.data.keyword.blockstorageshort}}？
 {: faq}
 
-订购 {{site.data.keyword.blockstorageshort}} 时，在订购表单中会用星号 (`*`) 表示所有已升级的数据中心，并指示即将供应使用加密的存储器。供应存储器后，在存储器列表中会看到相应图标，指示该存储器已加密。所有加密卷和 LUN 仅在已升级的数据中心内供应。您可以在[此处](new-ibm-block-and-file-storage-location-and-features.html)找到已升级的数据中心和可用功能的完整列表。
+订购 {{site.data.keyword.blockstorageshort}} 时，在订购表单中会用星号 (`*`) 表示所有已升级的数据中心，并指示即将供应使用加密的存储器。供应存储器后，在存储器列表中会看到相应图标，指示该存储器已加密。所有加密卷和 LUN 仅在已升级的数据中心内供应。您可以在[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)找到已升级的数据中心和可用功能的完整列表。
 
 ## 如果在最近升级的数据中心内拥有非加密 {{site.data.keyword.blockstorageshort}}，可以加密该 {{site.data.keyword.blockstorageshort}} 吗？
 {: faq}

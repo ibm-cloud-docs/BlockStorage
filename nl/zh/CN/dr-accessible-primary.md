@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-10"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +13,7 @@ lastupdated: "2018-12-10"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 灾难恢复 - 通过可访问的主卷进行故障转移
+{: #dr-accessible}
 
 如果主站点上发生灾难性故障或状况，但主存储器仍可访问，客户可以执行以下操作，以快速访问辅助站点上的数据。
 
@@ -50,7 +51,7 @@ lastupdated: "2018-12-10"
    {:note}
 4. 单击**全部查看 ({{site.data.keyword.blockstorageshort}})**。
 5. 单击活动 LUN（原先的目标卷）。
-6. 安装存储卷并将其连接到主机。单击[此处](provisioning-block_storage.html)以获取指示信息。
+6. 安装存储卷并将其连接到主机。单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)以获取指示信息。
 
 
 ## 启动从卷到其副本的故障恢复
@@ -76,4 +77,4 @@ lastupdated: "2018-12-10"
    {:note}
 4. 单击右上角的**查看所有 {{site.data.keyword.blockstorageshort}}** 链接。
 5. 单击活动的 LUN（“源”）。
-6. 安装存储卷并将其连接到主机。单击[此处](provisioning-block_storage.html)以获取指示信息。
+6. 安装存储卷并将其连接到主机。单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)以获取指示信息。

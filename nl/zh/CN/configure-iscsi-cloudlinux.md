@@ -2,8 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
-
+lastupdated: "2019-02-05"
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -13,6 +12,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # 在 CloudLinux 上连接到 iSCSI LUN
+{: #mountingCloudLinux}
 
 遵循以下指示信息在 CloudLinux Server R6.10 上安装使用多路径的 iSCSI LUN。
 
@@ -24,6 +24,20 @@ lastupdated: "2019-01-07"
 3. 单击**授权主机**。
 4. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
 5. 记下主机 IQN、用户名、密码和目标地址。
+
+或者，可以通过 SLCLI 来授权主机。
+```
+# slcli block access-authorize --help
+用法：slcli block access-authorize [OPTIONS] VOLUME_ID
+
+选项：
+  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
+  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
+  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
+  --ip-address TEXT         要授权的 IP 地址
+  --help                    显示此消息并退出。
+```
+{:codeblock}
 
 最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
 {:important}

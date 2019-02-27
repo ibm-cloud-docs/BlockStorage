@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 管理 {{site.data.keyword.blockstorageshort}}
+{: #managingstorage}
 
 您可以通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 来管理 {{site.data.keyword.blockstoragefull}} 卷。
 
@@ -20,6 +21,15 @@ lastupdated: "2018-11-30"
 
 1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 2. 单击列表中相应的 LUN 名称。
+
+或者，您可以在 SL CLI 中使用以下命令。
+```
+# slcli block volume-detail --help
+用法：slcli block volume-detail [OPTIONS] VOLUME_ID
+
+选项：
+  -h, --help  显示此消息并退出。
+```
 
 ## 授权主机访问 {{site.data.keyword.blockstorageshort}}
 
@@ -32,7 +42,18 @@ lastupdated: "2018-11-30"
 2. 滚动到页面的**已授权主机**部分。
 3. 在右侧，单击**授权主机**。选择可以访问该特定 LUN 的主机。
 
+或者，您可以在 SL CLI 中使用以下命令。
+```
+# slcli block access-authorize --help
+用法：slcli block access-authorize [OPTIONS] VOLUME_ID
 
+选项：
+  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
+  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
+  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
+  --ip-address TEXT         要授权的 IP 地址
+  --help                    显示此消息并退出。
+```
 
 ## 查看有权访问 {{site.data.keyword.blockstorageshort}} LUN 的主机的列表
 
@@ -41,7 +62,18 @@ lastupdated: "2018-11-30"
 
 在此，您可以看到当前已授权访问 LUN 的主机的列表。还可以看到建立连接所需的认证信息 - 用户名、密码和 IQN 主机。“目标地址”在**存储器详细信息**页面上列出。对于 NFS，会将“目标地址”描述为 DNS 名称，对于 iSCSI，会描述为“发现目标门户网站”的 IP 地址。
 
+或者，您可以在 SL CLI 中使用以下命令。
+```
+# slcli block access-list --help
+用法：slcli block access-list [OPTIONS] VOLUME_ID
 
+选项：
+  --sortby TEXT   要作为排序依据的列
+  --columns TEXT  要显示的列。选项：id、name、type、
+                  private_ip_address、source_subnet、host_iqn、username、
+                  password、allowed_host_id
+  -h, --help      显示此消息并退出。
+```
 
 ## 查看授权主机访问的 {{site.data.keyword.blockstorageshort}}
 
@@ -52,17 +84,15 @@ lastupdated: "2018-11-30"
 
 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。您可以通过单击**操作**来授予对更多存储器的访问权或除去访问权。
 
-
-
 ## 安装和卸装 {{site.data.keyword.blockstorageshort}}
 
 根据主机的操作系统，遵循相应的指示信息来执行操作。
 
-- [在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上连接到 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上连接到 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [在 cPanel 中将 Block Storage 配置用于备份](configure-backup-cpanel.html)
-- [在 Plesk 中将 Block Storage 配置用于备份](configure-backup-plesk.html)
+- [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [使用 cPanel 配置 Block Storage 进行备份](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [使用 Plesk 配置 Block Storage 进行备份](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## 撤销主机对 {{site.data.keyword.blockstorageshort}} 的访问权
@@ -95,7 +125,20 @@ lastupdated: "2018-11-30"
 如果要断开一个特定 LUN 与多个主机的连接，需要对每个主机重复“撤销访问权”操作。
 {:tip}
 
+### 通过 SL CLI 撤销访问权。
 
+或者，您可以在 SL CLI 中使用以下命令。
+```
+# slcli block access-revoke --help
+用法：slcli block access-revoke [OPTIONS] VOLUME_ID
+
+选项：
+  -h, --hardware-id TEXT    要撤销授权的某个 SoftLayer_Hardware 的标识
+  -v, --virtual-id TEXT     要撤销授权的某个 SoftLayer_Virtual_Guest 的标识
+  -i, --ip-address-id TEXT  要撤销授权的某个 SoftLayer_Network_Subnet_IpAddress 的标识
+  --ip-address TEXT         要撤销授权的某个 IP 地址
+  --help                    显示此消息并退出。
+```
 
 ## 取消存储器 LUN
 
@@ -113,3 +156,14 @@ lastupdated: "2018-11-30"
 4. 单击**继续**或**关闭**。
 
 5. 单击**确认**复选框，然后单击**确认**。
+
+或者，您可以在 SL CLI 中使用以下命令。
+```
+# slcli block volume-cancel --help
+用法：slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+选项：
+  --reason TEXT  可选的取消原因
+  --immediate    立即取消块存储卷，而不是在计费周年时取消
+  -h, --help     显示此消息并退出。
+```

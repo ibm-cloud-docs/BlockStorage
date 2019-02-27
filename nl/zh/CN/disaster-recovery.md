@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,13 +13,14 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 灾难恢复 - 通过不可访问的主卷进行故障转移
+{: #dr-inaccessible}
 
 如果发生导致主站点停运的灾难性故障或状况，客户可以执行以下操作，以快速访问辅助站点上的数据。
 
 ## 在辅助站点上通过复制副本卷实现故障转移
 
 1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
-{DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+{DomainName}/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
 
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
@@ -37,14 +38,14 @@ lastupdated: "2018-12-11"
 如果要将生产返回给原始主站点，那么必须执行以下步骤。
 
 1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
-{DomainName}/catalog/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+{DomainName}/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
 
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击 LUN 名称，然后创建快照安排（如果尚不存在）。
 
-   有关快照安排的更多信息，请参阅[管理快照](working-with-snapshots.html#adding-a-snapshot-schedule)。
+   有关快照安排的更多信息，请参阅[管理快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule)。
    {:tip}
 4. 单击**副本**，然后单击**购买复制**。
 5. 选择复制要遵循的现有快照安排。列表中包含所有有效的快照安排。

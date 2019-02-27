@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +11,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # 提供者管理的静态加密
+{: #encryption}
 
 ## {{site.data.keyword.blockstorageshort}} 静态加密
 
@@ -28,7 +29,7 @@ lastupdated: "2019-01-04"
 
 ## 为存储器供应加密
 
-提供者管理的静态加密功能可用于在[精选数据中心](new-ibm-block-and-file-storage-location-and-features.html)内供应的 {{site.data.keyword.blockstorageshort}}。对于在这些数据中心内订购的所有存储器，都自动供应了加密。
+提供者管理的静态加密功能可用于在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内供应的 {{site.data.keyword.blockstorageshort}}。对于在这些数据中心内订购的所有存储器，都自动供应了加密。
 
 订购 {{site.data.keyword.blockstorageshort}} 时，请选择标有星号 (`*`) 的数据中心。您可以在“LUN/卷名”字段右侧看到“锁定”图标，指示已对该卷进行加密。
 
@@ -37,5 +38,5 @@ lastupdated: "2019-01-04"
 
 
 
-在升级数据中心之前供应的非加密存储器**不会**自动加密。如果在已升级的数据中心内拥有非加密存储器，并且需要加密的存储器，那么需要创建新的卷，然后迁移数据。有关更多信息，请参阅[在已升级的数据中心内执行 {{site.data.keyword.blockstorageshort}} 迁移](migrate-block-storage-encrypted-block-storage.html)。
+在升级数据中心之前供应的非加密存储器**不会**自动加密。如果在已升级的数据中心内拥有非加密存储器，并且需要加密的存储器，那么需要创建新的卷，然后迁移数据。有关更多信息，请参阅[在已升级的数据中心内进行 {{site.data.keyword.blockstorageshort}} 迁移](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage)。
 {:important}

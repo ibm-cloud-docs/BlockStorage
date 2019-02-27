@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2019-01-07"
 
 
 # Windows 2012 R2 - 多个 iSCSI 设备
+{: #troubleshootingWin12}
 
 如果使用两个以上的 iSCSI 设备，您可能会发现此过程很有用；尤其是，当所有 4 个 iSCSI 分配都来自相同存储设备的时候。如果在“磁盘管理器”中只能看到两个设备，那么需要手动连接到每个服务器节点上 iSCSI 启动器中的每个设备。
 
