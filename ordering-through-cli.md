@@ -138,6 +138,7 @@ For the limit on simultaneous authorizations, see the [FAQs](/docs/infrastructur
 {:important}
 
 ## Connecting your new storage
+{: #mountingCLI}
 
 Depending on your host's operating system, follow the appropriate link.
 - [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

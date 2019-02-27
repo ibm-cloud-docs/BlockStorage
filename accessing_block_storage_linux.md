@@ -49,6 +49,7 @@ Options:
 {:codeblock}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
+{: #mountLin}
 
 Following are the steps that are required to connect a Linux-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
@@ -578,7 +579,7 @@ To create a file system with `parted`, follow these steps.
    ```
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
-{: #unmounting}
+{: #unmountingLin}
 
 1. Unmount the file system.
    ```

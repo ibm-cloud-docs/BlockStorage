@@ -49,6 +49,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {:important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
+{: #mountingCloudLin}
 
 1. Install the iSCSI and multipath utilities on your host and activate them.
    ```

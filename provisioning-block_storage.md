@@ -93,6 +93,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 {:important}
 
 ## Connecting your new storage
+{: #mountingnewLUN}
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
 - [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

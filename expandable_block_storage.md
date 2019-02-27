@@ -36,6 +36,7 @@ This feature is available in [select data centers](/docs/infrastructure/BlockSto
 The expand action on the primary storage results in automatic resizing of the replica.
 
 ## Limitations
+{: #limitsofexpandingstorage}
 
 This feature is available for storage that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
