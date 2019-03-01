@@ -1,8 +1,13 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -25,7 +30,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 4. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
 5. Notieren Sie Host-IQN, Benutzername, Kennwort und Zieladresse.
 
-Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen. 
+Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```
 # slcli block access-authorize --help
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
@@ -44,6 +49,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 {:important}
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
+{: #mountingCloudLin}
 
 1. Installieren Sie die iSCSI- und Multipath-Dienstprogramme auf dem Host und aktivieren Sie sie.
    ```

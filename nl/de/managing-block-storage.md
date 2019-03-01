@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -22,7 +26,7 @@ Sie können eine Zusammenfassung der wichtigsten Informationen für die ausgewä
 1. Klicken Sie auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
 2. Klicken Sie in der Liste auf den entsprechenden LUN-Namen.
 
-Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden.
 ```
 # slcli block volume-detail --help
 Syntax: slcli block volume-detail [OPTIONEN] DATENTRÄGER-ID
@@ -42,7 +46,7 @@ Sie können Hosts autorisieren und verbinden, die sich in demselben Rechenzentru
 2. Blättern Sie zum Bereich **Autorisierte Hosts** der Seite.
 3. Klicken Sie auf der rechten Seite auf **Host autorisieren**. Wählen Sie die Hosts aus, die auf die entsprechende LUN zugreifen können.
 
-Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden.
 ```
 # slcli block access-authorize --help
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
@@ -63,7 +67,7 @@ Optionen:
 
 Dort wird eine Liste der Hosts angezeigt, die derzeit für den Zugriff auf die LUN berechtigt sind. Außerdem werden die Authentifizierungsdaten aufgeführt, die zum Herstellen einer Verbindung erforderlich sind - Benutzername, Kennwort und IQN-Host. Die Zieladresse wird auf der Seite **Speicherdetails** aufgelistet. Die Zieladresse wird für NFS als DNS-Name beschrieben, für iSCSI ist es die IP-Adresse von 'Zielportal ermitteln'.
 
-Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden.
 ```
 # slcli block access-list --help
 Syntax: slcli block access-list [OPTIONEN] DATENTRÄGER-ID
@@ -128,7 +132,7 @@ Wenn Sie mehrere Host von einer bestimmten LUN trennen möchten, müssen Sie die
 
 ### Zugriff über die SL-CLI widerrufen
 
-Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden. 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden.
 ```
 # slcli block access-revoke --help
 Syntax: slcli block access-revoke [OPTIONEN] DATENTRÄGER-ID
@@ -160,7 +164,7 @@ Zum Abbrechen einer Speicher-LUN müssen Sie zunächst den Zugriff von allen Hos
 4. Klicken Sie auf **Weiter** oder **Schließen**.
 5. Klicken Sie auf das Kontrollkästchen **Bestätigung** und klicken Sie auf **Bestätigen**.
 
-Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden. 
+Alternativ dazu können Sie den folgenden Befehl in der SL-CLI verwenden.
 ```
 # slcli block volume-cancel --help
 Syntax: slcli block volume-cancel [OPTIONEN] DATENTRÄGER-ID

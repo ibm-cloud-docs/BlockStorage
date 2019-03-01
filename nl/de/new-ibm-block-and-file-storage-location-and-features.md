@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -99,7 +103,7 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 - **Option für stündliche Abrechnung**, verfügbar für Speicher, dessen Verwendung für weniger als einen kompletten Monat geplant ist.
 - **Bis zu 48.000 IOPS** für {{site.data.keyword.blockstorageshort}}, der mit Performance bereitgestellt wird.
 - **IOPS-Raten können angepasst werden**, um die Leistung bei saisonalen Lastschwankungen zu verbessern. Weitere Informationen zu dieser Funktion finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS).
-- Erstellen Sie einen Klon Ihrer Daten mit dem **[{{site.data.keyword.blockstorageshort}}-Feature zur Datenträgerduplizierung](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)**. 
+- Erstellen Sie einen Klon Ihrer Daten mit dem **[{{site.data.keyword.blockstorageshort}}-Feature zur Datenträgerduplizierung](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)**.
 - **Speichererweiterung** ist in GB-Schritten von bis zu 12 TB möglich, ohne ein Duplikat erstellen zu müssen oder Daten manuell auf einen größeren Datenträger verschieben zu müssen. Weitere Informationen zu dieser Funktion finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity).
 
 ## Neuer Mountpunkt für verschlüsselten Speicherdatenträger

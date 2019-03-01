@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -89,6 +93,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 {:important}
 
 ## Neuen Speicher verbinden
+{: #mountingnewLUN}
 
 Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Hosts, auf den neuen Speicher zuzugreifen und die Verbindung zu konfigurieren. Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
 - [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

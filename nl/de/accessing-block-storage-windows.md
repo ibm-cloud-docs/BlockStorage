@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -18,7 +23,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
 2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
 
-Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen. 
+Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```
 # slcli block access-authorize --help
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
@@ -34,6 +39,7 @@ Optionen:
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
+{: #mountWin}
 
 Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
 
@@ -119,7 +125,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 7. Im Fenster "Erweiterte Einstellungen"
    - Wählen Sie in der Liste lokaler Adapter den Eintrag 'Microsoft iSCSI Initiator' aus.
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Speichermedium mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
-   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf dem Speichermedium aktiviert ist. 
+   - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf dem Speichermedium aktiviert ist.
 
      Die zweite IP-Adresse finden Sie in der Detailanzeige von {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window}.
       {: tip}
@@ -153,7 +159,7 @@ Wenn der Neustart abgeschlossen ist und das Speichermedium hinzugefügt wurde, k
 Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zum Speichermedium getrennt und ist nicht inaktiviert, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.BluSoftlayer_full}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
-{: #unmounting}
+{: #unmountingWin}
 
 Nachfolgend werden die Schritte aufgeführt, die zum Trennen der Verbindung von einer Windows-basierten {{site.data.keyword.Bluemix_short}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind. Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
 

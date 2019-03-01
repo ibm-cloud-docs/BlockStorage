@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}_
 {:tip: .tip}
@@ -42,7 +46,7 @@ Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle 
 
 Die Liste der Snapshots wird in der Reihenfolge ihrer Ausführung im Abschnitt **Snapshots** der Seite **Details** angezeigt.
 
-Mit dem folgenden Befehl können Sie die Liste der Snapshotpläne auch über die SL-CLI anzeigen. 
+Mit dem folgenden Befehl können Sie die Liste der Snapshotpläne auch über die SL-CLI anzeigen.
 ```
 # slcli block snapshot-schedule-list --help
 Syntax: slcli block snapshot-schedule-list [OPTIONEN] DATENTRÄGER-ID
@@ -63,7 +67,7 @@ Die Anzahl der Snapshots ist auf maximal 50 pro Speicherdatenträger begrenzt.
 3. Klicken Sie auf **Manuellen Snapshot machen**.
 Der Snapshot wird erstellt und im Abschnitt **Snapshots** der Seite **Details** angezeigt. Für seinen Plan ist 'Manuell' festgelegt.
 
-Alternativ dazu können Sie mit dem folgenden Befehl einen Snapshot über die SL-CLI erstellen. 
+Alternativ dazu können Sie mit dem folgenden Befehl einen Snapshot über die SL-CLI erstellen.
 ```
 # slcli block snapshot-create --help
 Syntax: slcli block snapshot-create [OPTIONEN] DATENTRÄGER-ID
@@ -82,7 +86,7 @@ Eine Liste mit den aufbewahrten Snapshots und dem belegten Speicherplatz kann au
 
 Aufbewahrte Snapshot basieren auf der Nummer, die Sie in das Feld **Letzte aufbewahren** beim Konfigurieren der Pläne eingegeben haben. Sie können die Snapshots anzeigen, die im Abschnitt **Snapshot** erstellt wurden. Die Snapshots werden entsprechend dem Plan aufgelistet.
 
-Alternativ dazu können Sie mit dem folgenden SL-CLI-Befehl die verfügbaren Snapshots anzeigen. 
+Alternativ dazu können Sie mit dem folgenden SL-CLI-Befehl die verfügbaren Snapshots anzeigen.
 ```
 # slcli block snapshot-list --help
 Syntax: slcli block snapshot-list [OPTIONEN] DATENTRÄGER-ID
@@ -140,7 +144,7 @@ Snapshots, die nicht mehr benötigt werden, können manuell entfernt werden, um 
 
 Manuelle Snapshots, die nicht manuell im Portal gelöscht werden, werden automatisch (älteste zuerst) gelöscht, wenn Sie den Grenzwert des Speicherbereichs erreichen.
 
-Mit dem folgenden Befehl können Sie einen Datenträger über die SL-CLI löschen. 
+Mit dem folgenden Befehl können Sie einen Datenträger über die SL-CLI löschen.
 ```
 # slcli block snapshot-delete
 Syntax: slcli block snapshot-delete [OPTIONEN] SNAPSHOT-ID
@@ -176,7 +180,7 @@ Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach
    - [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-Alternativ dazu können Sie nach dem Abhängen des Datenträgers vom Host den folgenden Befehl in der SL-CLI verwenden um eine Wiederherstellung zu starten. 
+Alternativ dazu können Sie nach dem Abhängen des Datenträgers vom Host den folgenden Befehl in der SL-CLI verwenden um eine Wiederherstellung zu starten.
 ```
 # slcli block snapshot-restore --help
 Syntax: slcli block snapshot-restore [OPTIONEN] DATENTRÄGER-ID
@@ -188,4 +192,4 @@ Optionen:
 ```
 {:codeblock}  
 
-Hängen Sie den Speicherdatenträger nach dem Abschluss der Wiederherstellung wieder an den Host an und verbinden Sie ihn erneut. 
+Hängen Sie den Speicherdatenträger nach dem Abschluss der Wiederherstellung wieder an den Host an und verbinden Sie ihn erneut.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +27,7 @@ Die Abrechnung für den Speicher wird so aktualisiert, dass die anteilige Differ
 - Kostenmanagement - Einige Kunden benötigen ein hohes IOPS-Kontingent möglicherweise nur in Zeiten mit maximaler Nutzung. Ein großes Einzelhandelsgeschäft beispielsweise hat in den Ferien eine hohe Auslastung und braucht dann möglicherweise höhere IOPS-Raten für seinen Speicher. In der Mitte des Sommers sind die höheren IOPS-Raten dagegen nicht erforderlich. Dank dieser Funktion kann es seine Kosten steuern und zahlt für die höheren IOPS-Raten, wenn es sie braucht.
 
 ## Einschränkungen
+{: #limitsofIOPSadjustment}
 
 Diese Funktion ist nur in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) verfügbar.
 
@@ -37,7 +42,7 @@ Kunden können beim Anpassen ihrer IOPS nicht zwischen Endurance und Performance
 Wenn die Replikation auf dem Datenträger eingerichtet wurde, wird das Replikat automatisch so aktualisiert, dass es mit der IOPS-Auswahl des Primärdatenträgers übereinstimmt.
 
 ## IOPS im Speicher anpassen
-{: #steps}
+{: #adjustingsteps}
 
 1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste:
    - Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
@@ -54,14 +59,13 @@ Wenn die Replikation auf dem Datenträger eingerichtet wurde, wird das Replikat 
 6. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
 
-Alternativ dazu können Sie die IOPS über die SL-CLI anpassen. 
+Alternativ dazu können Sie die IOPS über die SL-CLI anpassen.
 ```
 # slcli block volume-modify --help
 Syntax: slcli block volume-modify [OPTIONEN] DATENTRÄGER-ID
 
 Optionen:
-  -c, --new-size INTEGER        Neue Größe des Blockspeicherdatenträgers in GB. 
-                                ***Wird keine Größe angegeben, wird die ursprüngliche
+  -c, --new-size INTEGER        Neue Größe des Blockspeicherdatenträgers in GB. ***Wird keine Größe angegeben, wird die ursprüngliche
                                 Größe des Datenträgers verwendet.***
                                 Mögliche Größen: [20, 40, 80, 100,
                                 250, 500, 1000, 2000, 4000, 8000, 12000]
@@ -73,8 +77,7 @@ Optionen:
                                 verwendet.***
                                 Voraussetzungen: [Wenn der ursprüngliche IOPS/GB-
                                 Wert für den Datenträger geringer als 0,3 ist, muss
-                                der neue IOPS/GB-Wert ebenfalls geringer als 0,3 sein.
-                                Wenn der ursprüngliche IOPS/GB-Wert für den
+                                der neue IOPS/GB-Wert ebenfalls geringer als 0,3 sein. Wenn der ursprüngliche IOPS/GB-Wert für den
                                 Datenträger größer-gleich 0,3 ist, muss der neue
                                 IOPS/GB-Wert für den Datenträger ebenfalls
                                 größer-gleich 0,3 sein.]
@@ -84,8 +87,7 @@ Optionen:
                                 Datenträgers verwendet.***
                                 Voraussetzungen: [Wenn der ursprüngliche IOPS/GB-
                                 Wert für den Datenträger 0,25 ist, muss der neue
-                                IOPS/GB-Wert für Datenträger ebenfalls 0,25 sein.
-                                Wenn der ursprüngliche IOPS/GB-Wert für den
+                                IOPS/GB-Wert für Datenträger ebenfalls 0,25 sein. Wenn der ursprüngliche IOPS/GB-Wert für den
                                 Datenträger größer als 0,25 ist, muss der neue
                                 IOPS/GB-Wert für den Datenträger ebenfalls
                                 größer als 0,25 sein. ]

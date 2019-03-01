@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ Diese Funktion ist in [ausgewählten Rechenzentren](/docs/infrastructure/BlockSt
 Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenänderung des Replikats zur Folge.
 
 ## Einschränkungen
+{: #limitsofexpandingstorage}
 
 Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt wird.
 
@@ -40,7 +45,7 @@ Speicher, der vor der Freigabe dieser Funktion (**April 2017 - 14. Dezember 2017
 Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.data.keyword.blockstorageshort}} gelten weiterhin (bis zu 4 TB für das 10-IOPS-Tier und bis zu 12 TB für alle anderen Tiers).
 
 ## Größe des Speichers ändern
-{: #steps}
+{: #resizingsteps}
 
 1. Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie in der {{site.data.keyword.BluSoftlayer_full}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
@@ -49,15 +54,14 @@ Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.
 5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Bestellung aufgeben**.
 6. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
-Alternativ dazu könne Sie die Größe des Datenträgers auch über die SL-CLI ändern. 
+Alternativ dazu könne Sie die Größe des Datenträgers auch über die SL-CLI ändern.
 
 ```
 # slcli block volume-modify --help
 Syntax: slcli block volume-modify [OPTIONEN] DATENTRÄGER-ID
 
 Optionen:
-  -c, --new-size INTEGER        Neue Größe des Blockspeicherdatenträgers in GB. 
-                                ***Wird keine Größe angegeben, wird die ursprüngliche
+  -c, --new-size INTEGER        Neue Größe des Blockspeicherdatenträgers in GB. ***Wird keine Größe angegeben, wird die ursprüngliche
                                 Größe des Datenträgers verwendet.***
                                 Mögliche Größen: [20, 40, 80, 100,
                                 250, 500, 1000, 2000, 4000, 8000, 12000]
@@ -69,8 +73,7 @@ Optionen:
                                 verwendet.***
                                 Voraussetzungen: [Wenn der ursprüngliche IOPS/GB-
                                 Wert für den Datenträger geringer als 0,3 ist, muss
-                                der neue IOPS/GB-Wert ebenfalls geringer als 0,3 sein.
-                                Wenn der ursprüngliche IOPS/GB-Wert für den
+                                der neue IOPS/GB-Wert ebenfalls geringer als 0,3 sein. Wenn der ursprüngliche IOPS/GB-Wert für den
                                 Datenträger größer-gleich 0,3 ist, muss der neue
                                 IOPS/GB-Wert für den Datenträger ebenfalls
                                 größer-gleich 0,3 sein.]
@@ -80,8 +83,7 @@ Optionen:
                                 Datenträgers verwendet.***
                                 Voraussetzungen: [Wenn der ursprüngliche IOPS/GB-
                                 Wert für den Datenträger 0,25 ist, muss der neue
-                                IOPS/GB-Wert für Datenträger ebenfalls 0,25 sein.
-                                Wenn der ursprüngliche IOPS/GB-Wert für den
+                                IOPS/GB-Wert für Datenträger ebenfalls 0,25 sein. Wenn der ursprüngliche IOPS/GB-Wert für den
                                 Datenträger größer als 0,25 ist, muss der neue
                                 IOPS/GB-Wert für den Datenträger ebenfalls
                                 größer als 0,25 sein. ]

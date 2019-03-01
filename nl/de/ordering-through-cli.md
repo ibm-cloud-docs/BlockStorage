@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -134,6 +138,7 @@ Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abs
 {:important}
 
 ## Neuen Speicher verbinden
+{: #mountingCLI}
 
 Verwenden abhängig vom Betriebssystem des Hosts den entsprechenden Link.
 - [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

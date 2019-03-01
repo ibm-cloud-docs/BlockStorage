@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2017, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -67,7 +71,7 @@ Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slpor
 
 ## Duplikat aus einem bestimmten Snapshot erstellen
 
-1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste. 
+1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste.
 2. Klicken Sie in der Liste auf ein LUN, um die Detailseite anzuzeigen. (Es kann sich um einen Replikatdatenträger oder einen Nichtreplikatdatenträger handeln.)
 3. Blättern Sie abwärts, wählen Sie in der Liste auf der Detailseite einen vorhandenen Snapshot aus und klicken Sie auf **Aktionen** > **Duplikate**.   
 4. Speichertyp (Endurance oder Performance) und Position bleiben mit dem Originaldatenträger identisch.
@@ -84,7 +88,7 @@ Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slpor
 
 
 ## Duplikat über die SL-CLI erstellen
-Mit dem folgenden SL-CLI-Befehl können Sie ein Duplikat eines {{site.data.keyword.blockstorageshort}}-Datenträgers erstellen. 
+Mit dem folgenden SL-CLI-Befehl können Sie ein Duplikat eines {{site.data.keyword.blockstorageshort}}-Datenträgers erstellen.
 
 ```
 # slcli block volume-duplicate --help
@@ -94,8 +98,7 @@ Optionen:
   -o, --origin-snapshot-id INTEGER
                                   ID eines Ausgangsdatenträgersnapshots
                                   für die Duplizierung.
-  -c, --duplicate-size INTEGER    Größe des Duplikats des Blockspeicherdatenträgers in GB. 
-                                  ***Wird keine Größe angegeben, wird die Größe des
+  -c, --duplicate-size INTEGER    Größe des Duplikats des Blockspeicherdatenträgers in GB. ***Wird keine Größe angegeben, wird die Größe des
                                   Ausgangsdatenträgers verwendet.***
                                   Mögliche Größen:
                                   [20, 40, 80, 100, 250, 500, 1000, 2000,
@@ -132,7 +135,7 @@ Optionen:
                                   datenträgers verwendet.***
                                   Den Wert "0" für diesen Parameter angeben, um ein
                                   Duplikat ohne Snapshotbereich zu bestellen.
---billing [hourly|monthly]        Optionaler Parameter für den Abrechnungssatz
+  --billing [hourly|monthly]        Optionaler Parameter für den Abrechnungssatz
                                   (Standardwert: monatlich)
   -h, --help                      Diese Nachricht anzeigen und Ausführung beenden.
 ```

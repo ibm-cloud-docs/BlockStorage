@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -28,7 +33,7 @@ Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.key
 2. Klicken Sie auf **Host autorisieren**.
 3. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
 
-Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen. 
+Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```
 # slcli block access-authorize --help
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
@@ -44,6 +49,7 @@ Optionen:
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
+{: #mountLin}
 
 Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
 
@@ -573,7 +579,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
-{: #unmounting}
+{: #unmountingLin}
 
 1. Hängen Sie das Dateisystem ab.
    ```

@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -15,12 +19,12 @@ lastupdated: "2019-02-05"
 # SL-CLI-Befehle für {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-Sie können die SL-CLI verwenden, um Aktionen, wie z. B. das Bestellen neuer Datenträger, eines Snapshotbereichs oder einer Replikation, das Aktualisieren von Berechtigungen, das Stornieren von Datenträgern usw., auszuführen, die normalerweise über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} vorgenommen werden. 
+Sie können die SL-CLI verwenden, um Aktionen, wie z. B. das Bestellen neuer Datenträger, eines Snapshotbereichs oder einer Replikation, das Aktualisieren von Berechtigungen, das Stornieren von Datenträgern usw., auszuführen, die normalerweise über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} vorgenommen werden.
 
 Weitere Informationen zur Installation und Verwendung der SL-CLI finden Sie unter [Python-API-Client ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
-## SL-CLI-Befehl im Zusammenhang mit der Zugriffssteuerung
+## SL-CLI-Befehle im Zusammenhang mit der Zugriffssteuerung
 * [{{site.data.keyword.blockstorageshort}} verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize

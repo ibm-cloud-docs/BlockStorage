@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2019
+  years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -220,7 +224,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
 ## SL-CLI-Befehle im Zusammenhang mit der Replikation
 {: #clicommands}
 
-* Geeignete Replikationsrechenzentren für einen bestimmten Datenträger auflisten. 
+* Geeignete Replikationsrechenzentren für einen bestimmten Datenträger auflisten.
   ```
   # slcli block replica-locations --help
   Syntax: slcli block replica-locations [OPTIONEN] DATENTRÄGER_ID
@@ -231,7 +235,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
   -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
   ```
 
-* Blockspeicherreplikatdatenträger bestellen. 
+* Blockspeicherreplikatdatenträger bestellen.
   ```
   # slcli block replica-order --help
   Syntax: slcli block replica-order [OPTIONEN] DATENTRÄGER-ID
@@ -253,7 +257,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
   -h, --help                      Diese Nachricht anzeigen und Ausführung beenden.
   ```
 
-* Vorhandene Replikatdatenträger für einen Blockspeicherdatenträger auflisten. 
+* Vorhandene Replikatdatenträger für einen Blockspeicherdatenträger auflisten.
   ```
   # slcli block replica-partners --help
   Syntax: slcli block replica-partners [OPTIONEN] DATENTRÄGER-ID
@@ -265,7 +269,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
   -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
   ```
 
-* Failover eines Dateidatenträgers auf einen bestimmten Replikatdatenträger durchführen. 
+* Failover eines Dateidatenträgers auf einen bestimmten Replikatdatenträger durchführen.
   ```
   # slcli block replica-failover --help
   Syntax: slcli block replica-failover [OPTIONEN] DATENTRÄGER-ID
@@ -276,7 +280,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
   -h, --help      Diese Nachricht anzeigen und Ausführung beenden.
   ```
 
-* Failback eines Blockdatenträgers von einem bestimmten Replikatdatenträger durchführen. 
+* Failback eines Blockdatenträgers von einem bestimmten Replikatdatenträger durchführen.
   ```
   # slcli block replica-failback --help
   Syntax: slcli block replica-failback [OPTIONEN] DATENTRÄGER-ID
