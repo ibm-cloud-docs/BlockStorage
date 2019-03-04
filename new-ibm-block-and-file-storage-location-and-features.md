@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: new features, new locations, Block Storage, mount point changes, select data centers, ISCSI, 
 
 subcollection: BlockStorage
 
