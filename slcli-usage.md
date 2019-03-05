@@ -24,7 +24,7 @@ You can use the SLCLI to take actions that are normally handled through the [{{s
 For more information about how to install and use the SLCLI, see [Python API Client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
-## Access related SLCLI commands
+## Access-related SLCLI commands
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   slcli block access-revoke
   ```
 
-## Replication related SLCLI commands
+## Replication-related SLCLI commands
 
-* [Replication related SLCLI commands](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [Replication-related SLCLI commands](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   slcli block replica-partners
   ```
 
-## Snapshots related SLCLI commands
+## Snapshots-related SLCLI commands
 
 * [Ordering Snapshots](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,7 +63,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   slcli block snapshot-enable
   ```
 
-## Volume related SLCLI commands
+## Volume-related SLCLI commands
 
 * [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [Creating a duplicate volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)
