@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords: block storage, secondary storage, missing routes, mpio, multipath, windows, troubleshooting
+keywords: Block storage, secondary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
@@ -21,13 +21,13 @@ subcollection: BlockStorage
 # Windows 2012 R2 - multiple iSCSI devices
 {: #troubleshootingWin12}
 
-If you use more than two iSCSI devices, you might find this procedure useful; especially if all 4 iSCSI allotments are from the same Storage device. If you see only two devices in Disk Manager, then you need to manually connect to each device in iSCSI Initiator on every server node.
+If you use more than two iSCSI devices, you might find this procedure useful; especially if all four iSCSI allotments are from the same Storage device. If you see only two devices in Disk Manager, then you need to manually connect to each device in iSCSI Initiator on every server node.
 
 1. Open the Windows iSCSI Initiator.
 2. Click the **Targets** tab, then click **Devices**.
 
    ![iSCSI Initiator properties](/images/win12-ts1.png)
-3. Confirm the number of devices that are shown. If you see 2 devices, instead of 4 that were authorized, continue to the next step.
+3. Confirm the number of devices that are shown. If you see two devices, instead of the four that were authorized, continue to the next step.
 4. Click **Targets**, then **Connect**.
 5. Select **Multipath**, then **Advanced**.
 6. Select Microsoft iSCSI Initiator as the Local Adapter. The Initiator IP belongs to your server.
@@ -44,7 +44,7 @@ If you use more than two iSCSI devices, you might find this procedure useful; es
 9. Click **OK**.
 10. Repeat steps 5-9 for every IP that you entered in the iSCSI Initiator. When you're done, click the **Devices** tab and review the results. Expect to see every LUN that you set up listed twice.
 
-    ![Devices tab](/images/win12-ts5.png)
+    ![Devices Tab](/images/win12-ts5.png)
 11. Click **OK**.
 12. Open Disk Manager, and verify that your drives are now showing.
 
