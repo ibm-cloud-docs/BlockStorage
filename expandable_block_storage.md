@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords: block storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
+keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
 subcollection: BlockStorage
 

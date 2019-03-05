@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords: use of a Block Storage volume, LUN, Block Storage
+keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
 subcollection: BlockStorage
 
