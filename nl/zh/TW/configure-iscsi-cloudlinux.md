@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-01-07"
+  years: 2018, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -13,6 +17,7 @@ lastupdated: "2019-01-07"
 {:important: .important}
 
 # 在 CloudLinux 上連接至 iSCSI LUN
+{: #mountingCloudLinux}
 
 請遵循下列指示，以在 CloudLinux Server 6.10 版上按裝具有多路徑的 iSCSI LUN。
 
@@ -25,10 +30,26 @@ lastupdated: "2019-01-07"
 4. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
 5. 記下「主機 IQN」、使用者名稱、密碼及目標位址。
 
+或者，您可以透過 SLCLI 來授權主機。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
+
 最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
 {:important}
 
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
+{: #mountingCloudLin}
 
 1. 在主機上安裝 iSCSI 和多路徑公用程式，並啟動它們。
    ```

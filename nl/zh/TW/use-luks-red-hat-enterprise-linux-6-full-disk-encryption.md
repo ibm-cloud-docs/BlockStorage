@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +13,13 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 使用 Red Hat Enterprise Linux 中的 LUKS 進行全磁碟加密
+{: #LUKSencryption}
 
 您可以將具有 Linux Unified Key Setup-on-disk-format (LUKS) 之 Red Hat Enterprise Linux 6 伺服器上的分割區加密，這在涉及行動電腦及抽取式媒體時很重要。LUKS 容許使用多個使用者金鑰來解密用於分割區大量加密的主要金鑰。
 
-這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接到 Linux 主機的相關資訊，請參閱[連接至 Linux 上的 MPIO iSCSI LUN](accessing_block_storage_linux.html)。
+這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接至 Linux 主機的相關資訊，請參閱，請參閱[在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)。
 
-佈建在[選取資料中心](new-ibm-block-and-file-storage-location-and-features.html)的 {{site.data.keyword.blockstorageshort}}，會使用提供者管理的靜態加密自動佈建。如需相關資訊，請參閱[保護資料安全 - 提供者管理的靜態加密 (Encryption-At-Rest)](block-file-storage-encryption-rest.html)。
+[選取資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)中佈建的 {{site.data.keyword.blockstorageshort}}，會使用提供者管理的靜態加密自動佈建。如需相關資訊，請參閱[保護資料安全 - 提供者管理的靜態加密 (Encryption-At-Rest)](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 {:note}
 
 ## LUKS 可以執行的作業

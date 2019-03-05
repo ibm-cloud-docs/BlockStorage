@@ -1,10 +1,11 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage/index.html" path="infrastructure/BlockStorage"}
+{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted" path="infrastructure/BlockStorage"}
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
+    getting-started.md
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md
@@ -51,6 +52,7 @@ IBM Cloud Storage - Block Storage
     {: .navgroup id="help"}
     faqs.md
     [Python API 用戶端資訊](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    slcli-usage.md
 
     {: .topicgroup}
     疑難排解

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -13,21 +17,9 @@ lastupdated: "2018-11-30"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 訂購 Snapshot
+{: #orderingsnapshots}
 
 若要自動或手動建立儲存空間磁區的 Snapshot，您需要購買空間來保留它們。您可以購買最多達到儲存空間磁區量的容量（在起始磁區購買期間購買，或之後使用此處說明的步驟購買）。
-
-1. 登入 [{{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的功能表圖示。選取**標準基礎架構**。
-
-   或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
-2. 透過**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 存取「儲存空間 LUN」。
-2. 按一下 Snapshot 頁框中的**變更 Snapshot 空間**。
-3. 選取您需要的空間量和付款方法。
-4. 按一下**繼續**。
-5. 輸入您有的任何**促銷代碼**，然後按一下**重新計算**。依預設，會完成「此訂單的計費」及「訂單檢閱」欄位。
-
-   折扣會在處理訂單時套用。
-   {:note}
-6. 勾選**我已閱讀主要服務合約，並同意其中的條款**勾選框，然後按**下訂單**。在幾分鐘之後，即會佈建您的 Snapshot 空間。
 
 ## 判定要訂購的 Spanshot 空間量
 
@@ -53,3 +45,34 @@ lastupdated: "2018-11-30"
 因此，在決定您需要多少 Snapshot 空間時，請仔細考慮變更率。它對您需要多少 Snapshot 空間有巨大影響。磁區越大越可能更頻繁地變更。不過，具有 5 GB 變更的 500 GB 磁區，與具有 5 GB 變更的 10 TB 磁區，兩者會使用相同的 Snapshot 空間量。
 
 此外，對於大部分工作負載而言，磁區越大，一開始需要特意保留的空間就越少。這主要是由於基礎資料效率，以及 Snapshot 在環境中如何運作的本質所致。
+
+## 透過 {{site.data.keyword.cloud_notm}} 主控台訂購 Snapshot 空間
+
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的功能表圖示。選取**標準基礎架構**。
+
+   或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
+2. 透過**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 存取「儲存空間 LUN」。
+2. 按一下 Snapshot 頁框中的**變更 Snapshot 空間**。
+3. 選取您需要的空間量和付款方法。
+4. 按一下**繼續**。
+5. 輸入您有的任何**促銷代碼**，然後按一下**重新計算**。依預設，會完成「此訂單的計費」及「訂單檢閱」欄位。
+
+   折扣會在處理訂單時套用。
+   {:note}
+6. 勾選**我已閱讀主要服務合約，並同意其中的條款**勾選框，然後按**下訂單**。在幾分鐘之後，即會佈建您的 Snapshot 空間。
+
+## 透過 SL CLI 訂購 Snapshot 空間
+
+```
+# slcli block snapshot-order --help
+Usage: slcli block snapshot-order [OPTIONS] VOLUME_ID
+
+Options:
+  --capacity INTEGER    Size of snapshot space to create in GB  [required]
+  --tier [0.25|2|4|10]  Endurance Storage Tier (IOPS per GB) of the block
+                        volume for which space is ordered [optional, and only
+                        valid for endurance storage volumes]
+  --upgrade             Flag to indicate that the order is an upgrade
+  -h, --help            Show this message and exit.
+```
+{codeblock}

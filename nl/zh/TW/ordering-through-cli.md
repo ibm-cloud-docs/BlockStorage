@@ -2,7 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -10,11 +14,12 @@ lastupdated: "2019-01-07"
 {:note: .note}
 {:important: .important}
 
-# 透過 SLCLI 訂購 {{site.data.keyword.blockstorageshort}}
+# 透過 SL CLI 訂購 {{site.data.keyword.blockstorageshort}}
+{: #orderingthroughCLI}
 
-您可以使用 SLCLI 來訂購通常是透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 來訂購的產品。在 SL API 中，一張訂單可能是由多重訂單容器所組成。訂單 CLI 只能用於一個訂單容器。
+您可以使用 SL CLI 來訂購通常是透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 來訂購的產品。在 SL API 中，一張訂單可能是由多重訂單容器所組成。訂單 CLI 只能用於一個訂單容器。
 
-若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
+若要進一步瞭解如何安裝及使用 SL CLI，請參閱 [Python API 用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
 {:tip}
 
 ## 搜尋可用的 {{site.data.keyword.blockstorageshort}} 供應項目
@@ -105,7 +110,7 @@ Order #15547457 placed successfully!
  > 20 GB Storage Space (Snapshot Space)
 ```
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 磁區。若要增加磁區數目，請與業務代表聯絡。如需增加限制的相關資訊，請參閱[管理儲存空間限制](managing-storage-limits.html)。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 磁區。若要增加磁區數目，請與業務代表聯絡。如需增加限制的相關資訊，請參閱[管理儲存空間限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 {:important}
 
 ## 授權主機存取新的儲存空間
@@ -128,14 +133,15 @@ Options:
 若要進一步瞭解如何授權主機透過 API 來存取 {{site.data.keyword.blockstorageshort}}，請參閱 [authorize_host_to_volume ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}。
 {:tip}
 
-如需同時授權的限制，請參閱[常見問題](faqs.html)。
+如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
 {:important}
 
 ## 連接新的儲存空間
+{: #mountingCLI}
 
 根據主機的作業系統而定，遵循適當的鏈結。
-- [在 Linux 上連接至 iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上連接至 iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上連接至 iSCSI LUN](accessing-block-storage-windows.html)
-- [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
-- [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)
+- [在 Linux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上連接至 LUNS](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [配置 Block Storage 以便使用 cPanel 進行備份](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [配置 Block Storage 以便使用 Plesk 進行備份](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

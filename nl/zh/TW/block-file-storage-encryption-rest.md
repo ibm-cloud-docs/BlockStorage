@@ -2,7 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +15,7 @@ lastupdated: "2019-01-04"
 {:important: .important}
 
 # 提供者管理的靜態加密
+{: #encryption}
 
 ## {{site.data.keyword.blockstorageshort}} 靜態加密
 
@@ -28,7 +33,7 @@ lastupdated: "2019-01-04"
 
 ## 佈建具有加密的儲存空間
 
-提供者管理的靜態加密特性適用於[精選資料中心](new-ibm-block-and-file-storage-location-and-features.html)內所佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內訂購的所有儲存空間，佈建時都會自動具有加密。
+提供者管理的靜態加密特性適用於[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內所佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內訂購的所有儲存空間，佈建時都會自動具有加密。
 
 訂購 {{site.data.keyword.blockstorageshort}} 時，請選取已註記星號 (`*`) 的資料中心。您可以看到「LUN/磁區名稱」欄位的右側有一個鎖定圖示，這表示磁區已加密。
 
@@ -37,5 +42,5 @@ lastupdated: "2019-01-04"
 
 
 
-資料中心升級之前佈建的未加密儲存空間都**不會**自動加密。如果您在已升級的資料中心內擁有未加密的儲存空間，並且想要加密的儲存空間，則需要建立新的磁區並移轉資料。如需相關資訊，請參閱[已升級資料中心內的 {{site.data.keyword.blockstorageshort}} 移轉](migrate-block-storage-encrypted-block-storage.html)。
+資料中心升級之前佈建的未加密儲存空間都**不會**自動加密。如果您在已升級的資料中心內擁有未加密的儲存空間，並且想要加密的儲存空間，則需要建立新的磁區並移轉資料。如需相關資訊，請參閱[已升級資料中心內的 {{site.data.keyword.blockstorageshort}} 移轉](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage)。
 {:important}

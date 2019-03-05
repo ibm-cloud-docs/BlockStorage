@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-13"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +15,7 @@ lastupdated: "2018-11-13"
 {:important: .important}
 
 # Snapshot
+{: #snapshots}
 
 Snapshot 是 {{site.data.keyword.blockstoragefull}} 的特性。Snapshot 代表磁區在特定時間點的內容。Snapshot 可讓您保護資料而不影響效能，且耗用的空間極小。Snapshot 可視為資料保護的第一線防線。如果使用者意外修改或刪除磁區中的重要資料，則可以輕鬆且快速地從 Snapshot 副本中還原資料。
 
@@ -29,7 +34,7 @@ Snapshot 副本不會造成任何效能減少。使用者可以輕鬆地針對�
 - 不中斷地建立時間點回復點
 - 將磁區回復到前一個時間點
 
-您必須先購買磁區所需的部分 Snapshot 空間量，才能擷取其 Snapshot。可以透過**磁區詳細資料**頁面在起始訂購期間或之後新增 Snapshot 空間。已排定及手動 Snapshot 會共用 Snapshot 空間，因此請務必訂購足夠的 Snapshot 空間。如需相關資訊，請參閱[訂購 Snapshot](ordering-snapshots.html)。
+您必須先購買磁區所需的部分 Snapshot 空間量，才能擷取其 Snapshot。可以透過**磁區詳細資料**頁面在起始訂購期間或之後新增 Snapshot 空間。已排定及手動 Snapshot 會共用 Snapshot 空間，因此請務必訂購足夠的 Snapshot 空間。如需相關資訊，請參閱[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 
 ## Snapshot 最佳作法
 
@@ -46,7 +51,7 @@ Snapshot 不能取代實際異地「災難回復」抄寫或長時間保留備�
 
 ## 安全
 
-依預設，已加密 {{site.data.keyword.blockstorageshort}} 的所有 Snapshot 及抄本也會加密。無法根據磁區來關閉此特性。如需提供者管理的靜態加密的相關資訊，請參閱[保護資料的安全](block-file-storage-encryption-rest.html)。
+依預設，已加密 {{site.data.keyword.blockstorageshort}} 的所有 Snapshot 及抄本也會加密。無法根據磁區來關閉此特性。如需提供者管理的靜態加密的相關資訊，請參閱[保護資料的安全](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 
 ## Snapshots 對磁碟空間的影響
 
@@ -73,4 +78,4 @@ Snapshot 副本可使磁碟耗用量降到最低，方法是保留個別區塊�
       </tr>
 </table>
 
-如需 Snapshot 空間使用情形的相關資訊，請參閱[管理 Snapshot](working-with-snapshots.html)。
+如需 Snapshot 空間使用情形的相關資訊，請參閱[管理 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots)。

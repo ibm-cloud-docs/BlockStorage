@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-01-07"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 
@@ -15,6 +19,7 @@ lastupdated: "2019-01-07"
 
 
 # Windows 2012 R2 - 多台 iSCSI 裝置
+{: #troubleshootingWin12}
 
 如果您使用兩個以上的 iSCSI 裝置，可能會發現此程序很實用；尤其是如果所有 4 個 iSCSI 分配項目都是來自相同的儲存裝置時。如果您在「磁碟管理程式」中只看到兩個裝置，則需要手動連接至每部伺服器上的「iSCSI 起始器」中的每個裝置。
 

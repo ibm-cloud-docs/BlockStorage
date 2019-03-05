@@ -2,7 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -11,16 +15,17 @@ lastupdated: "2019-01-08"
 {:important: .important}
 
 # 將現有的 {{site.data.keyword.blockstorageshort}} 升級至加強型 {{site.data.keyword.blockstorageshort}}
+{: #migratestorage}
 
-精選資料中心內現在提供加強型 {{site.data.keyword.blockstoragefull}}。若要查看已升級資料中心及可用特性（例如可調整的 IOPS 速率及可擴充的磁區）的清單，請按一下[這裡](new-ibm-block-and-file-storage-location-and-features.html)。如需提供者管理的已加密儲存空間的相關資訊，請參閱 [{{site.data.keyword.blockstorageshort}} 靜態加密](block-file-storage-encryption-rest.html)。
+精選資料中心內現在提供加強型 {{site.data.keyword.blockstoragefull}}。若要查看已升級資料中心及可用特性（例如可調整的 IOPS 速率及可擴充的磁區）的清單，請按一下[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。如需提供者管理的已加密儲存空間的相關資訊，請參閱 [{{site.data.keyword.blockstorageshort}} 靜態加密](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 
 偏好的移轉路徑是同時連接至兩個 LUN，並將資料直接從某個 LUN 傳送至另一個 LUN。細節會取決於作業系統，以及是否預期在複製作業期間變更資料。
 
 我們假設您已將未加密 LUN 連接至主機。若否，請遵循最適合您作業系統的指示來完成此作業：
 
-- [在 Linux 上連接至 iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上連接至 iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上連接至 iSCSI LUN](accessing-block-storage-windows.html)
+- [在 Linux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上連接至 LUNS](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 這些資料中心內佈建的所有加強型 {{site.data.keyword.blockstorageshort}} 磁區，都有不同於未加密磁區的裝載點。為了確保兩個儲存空間磁區都是使用正確的裝載點，您可以在主控台的**磁區詳細資料**頁面中檢視裝載點資訊。您也可以透過 API 呼叫來存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 {:tip}
@@ -32,8 +37,8 @@ lastupdated: "2019-01-08"
 
 您可以透過 IBM Cloud 主控台及 {{site.data.keyword.slportal}} 訂購加強的 LUN。新 LUN 的大小必須等於或大於原始磁區，以促進移轉。
 
-- [訂購具有預先定義 IOPS 層級（耐久性）的 {{site.data.keyword.blockstorageshort}}](provisioning-block_storage.html#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [訂購具有自訂 IOPS（效能）的 {{site.data.keyword.blockstorageshort}}](provisioning-block_storage.html#ordering-block-storage-with-custom-iops-performance-)
+- [訂購具有預先定義 IOPS 層級（耐久性）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
+- [訂購具有自訂 IOPS（效能）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
 
 在幾分鐘之後，您的新儲存空間就可以裝載。您可以在「資源清單」和 {{site.data.keyword.blockstorageshort}} 清單中檢視它。
 
@@ -62,8 +67,8 @@ lastupdated: "2019-01-08"
 
 2. 考量您在原始 {{site.data.keyword.blockstorageshort}} LUN 上具有的資料類型，以及如何最適當地將資料複製到新的 LUN。
   - 如果您有備份、靜態內容，以及在複製期間預期不會變更的事物，您不需要太過擔心。
-  - 如果您正在 {{site.data.keyword.blockstorageshort}} 上執行資料庫或虛擬機器，請確定在複製期間未變更資料，以避免資料毀損。 
-  - 如果您有任何頻寬考量，請在離峰時間執行移轉。 
+  - 如果您正在 {{site.data.keyword.blockstorageshort}} 上執行資料庫或虛擬機器，請確定在複製期間未變更資料，以避免資料毀損。
+  - 如果您有任何頻寬考量，請在離峰時間執行移轉。
   - 如果您需要這些考量的協助，請開立支援案例。
 
 3. 複製您的資料。

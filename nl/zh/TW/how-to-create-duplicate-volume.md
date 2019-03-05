@@ -1,20 +1,27 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2017, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # 建立重複的區塊磁區
+{: #duplicatevolume}
 
 您可以建立現有 {{site.data.keyword.blockstoragefull}} 的重複項目。依預設，重複磁區會繼承原始磁區的容量及效能選項，而且會有到達 Snapshot 中該時間點之前的資料副本。   
 
-因為重複磁區的基礎是時間點 Snapshot 中的資料，所以原始磁區上需要有 Snapshot 空間，您才能建立重複磁區。如需 Snapshot 以及如何訂購 Snapshot 空間的相關資訊，請參閱 [Snapshot 文件](snapshots.html)。  
+因為重複磁區的基礎是時間點 Snapshot 中的資料，所以原始磁區上需要有 Snapshot 空間，您才能建立重複磁區。如需 Snapshot 以及如何訂購 Snapshot 空間的相關資訊，請參閱 [Snapshot 文件](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)。  
 
 您可以從**主要**及**抄本**磁區建立重複磁區。新的重複磁區會建立在與原始磁區相同的資料中心內。如果您建立抄本磁區的重複磁區，則新的磁區會建立在與抄本磁區相同的資料中心內。
 
@@ -22,9 +29,9 @@ lastupdated: "2018-11-30"
 
 資料複製完成時，就可以管理重複磁區，並用來作為獨立的磁區。
 
-此特性適用於大部分位置。如需可用的資料中心清單，請按一下[這裡](new-ibm-block-and-file-storage-location-and-features.html)。
+此特性適用於大部分位置。如需可用的資料中心清單，請按一下[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。
 
-如果您是 {{site.data.keyword.containerlong}} 的「專用」帳戶使用者，請參閱 [{{site.data.keyword.containerlong_notm}} 文件](/docs/containers/cs_storage_file.html#backup_restore)中您用於複製磁區的選項。
+如果您是 {{site.data.keyword.containerlong}} 的「專用」帳戶使用者，請參閱 [{{site.data.keyword.containerlong_notm}} 文件](/docs/containers?topic=containers-backup_restore#backup_restore)中您用於複製磁區的選項。
 {:tip}
 
 重複磁區的一些常見用途：
@@ -61,11 +68,9 @@ lastupdated: "2018-11-30"
 7. 您可以更新新磁區的 Snapshot 空間，以新增更多、更少 Snapshot 空間，或不新增 Snapshot 空間。依預設，會設定原始磁區的 Snapshot 空間。
 8. 按一下**繼續**，以下訂單。
 
-
-
 ## 建立特定 Snapshot 的重複項目
 
-1. 移至您的 {{site.data.keyword.blockstorageshort}} 清單：
+1. 移至您的 {{site.data.keyword.blockstorageshort}} 清單。
 2. 按一下清單中的 LUN，以檢視詳細資料頁面。（它可以是抄本或非抄本磁區。）
 3. 向下捲動並從詳細資料頁面的清單中選取現有 Snapshot，然後按一下**動作** > **複製**。   
 4. 「儲存空間類型」（「耐久性」或「效能」）及「位置」會維持與原始磁區相同。
@@ -79,6 +84,61 @@ lastupdated: "2018-11-30"
 7. 您可以更新新磁區的 Snapshot 空間，以新增更多、更少 Snapshot 空間，或不新增 Snapshot 空間。依預設，會設定原始磁區的 Snapshot 空間。
 8. 按一下**繼續**，以訂購重複項目。
 
+
+## 透過 SLCLI 建立重複項目
+您可以在 SLCLI 中使用下列指令，以建立重複的 {{site.data.keyword.blockstorageshort}} 磁區。
+
+```
+# slcli block volume-duplicate --help
+Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
+
+Options:
+  -o, --origin-snapshot-id INTEGER
+                                  ID of an origin volume snapshot to use for
+                                  duplcation.
+  -c, --duplicate-size INTEGER    Size of duplicate block volume in GB. ***If
+                                  no size is specified, the size of the origin
+                                  volume will be used.***
+                                  Potential Sizes:
+                                  [20, 40, 80, 100, 250, 500, 1000, 2000,
+                                  4000, 8000, 12000] Minimum: [the size of the
+                                  origin volume]
+  -i, --duplicate-iops INTEGER    Performance Storage IOPS, between 100 and
+                                  6000 in multiples of 100 [only used for
+                                  performance volumes] ***If no IOPS value is
+                                  specified, the IOPS value of the origin
+                                  volume will be used.***
+                                  Requirements: [If
+                                  IOPS/GB for the origin volume is less than
+                                  0.3, IOPS/GB for the duplicate must also be
+                                  less than 0.3. If IOPS/GB for the origin
+                                  volume is greater than or equal to 0.3,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than or equal to 0.3.]
+  -t, --duplicate-tier [0.25|2|4|10]
+                                  Endurance Storage Tier (IOPS per GB) [only
+                                  used for endurance volumes] ***If no tier is
+                                  specified, the tier of the origin volume
+                                  will be used.***
+                                  Requirements: [If IOPS/GB
+                                  for the origin volume is 0.25, IOPS/GB for
+                                  the duplicate must also be 0.25. If IOPS/GB
+                                  for the origin volume is greater than 0.25,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than 0.25.]
+  -s, --duplicate-snapshot-size INTEGER
+                                  The size of snapshot space to order for the
+                                  duplicate. ***If no snapshot space size is
+                                  specified, the snapshot space size of the
+                                  origin block volume will be used.***
+                                  Input
+                                  "0" for this parameter to order a duplicate
+                                  volume with no snapshot space.
+  --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                  to monthly)
+  -h, --help                      Show this message and exit.
+```
+{:codeblock}
 
 ## 管理重複磁區
 

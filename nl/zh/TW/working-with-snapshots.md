@@ -1,25 +1,33 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # 管理 Snapshot
+{: #managingSnapshots}
 
 ## 建立 Snapshot 排程
 
 您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤來管理。
 
 您必須先購買 Snapshot 空間（如果未在起始佈建儲存空間磁區期間購買的話），才能設定起始排程。
-{:important}
+如需相關資訊，請參閱[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。{:important}
 
 ### 新增 Snapshot 排程
+{: #addingschedule}
 
 Snapshot 排程可以設定為每小時、每日及每週間隔，且各有不同的保留週期。Snapshot 的上限為每個儲存空間磁區各 50 個 Snapshot（可以混合每小時、每日和每週排程）以及手動 Snapshot。
 
@@ -38,6 +46,16 @@ Snapshot 排程可以設定為每小時、每日及每週間隔，且各有不�
 
 所擷取之 Snapshot 的清單會顯示在**詳細資料**頁面的 **Snapshot** 區段中。
 
+您也可以使用下列指令，透過 SLCLI 來查看 Snapshot 排程清單。
+```
+# slcli block snapshot-schedule-list --help
+Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
 ## 擷取手動 Snapshot
 
 在應用程式升級或維護期間的各種時間點，都可以擷取手動 Snapshot。您也可以跨多部伺服器擷取 Snapshot，這些伺服器已在應用程式層次暫時予以取消啟動。
@@ -48,6 +66,17 @@ Snapshot 排程可以設定為每小時、每日及每週間隔，且各有不�
 2. 按一下**動作**。
 3. 按一下**擷取手動 Snapshot**。Snapshot 會建立並顯示在**詳細資料**頁面的 **Snapshot** 區段中。它的排程顯示為「手動」。
 
+或者，您可以使用下列指令，透過 SLCLI 來建立 Snapshot。
+```
+# slcli block snapshot-create --help
+Usage: slcli block snapshot-create [OPTIONS] VOLUME_ID
+
+Options:
+  -n, --notes TEXT  Notes to set on the new snapshot
+  -h, --help        Show this message and exit.
+```
+{:codeblock}
+
 ## 列出具有已使用空間資訊和管理功能的所有 Snapshot
 
 您可以在**詳細資料**頁面上看到所保留的 Snapshot 及所使用空間的清單。使用**動作**功能表或頁面上各種區段中的鏈結，以在「詳細資料」頁面上處理管理功能（編輯排程以及新增其他空間）。
@@ -55,6 +84,18 @@ Snapshot 排程可以設定為每小時、每日及每週間隔，且各有不�
 ## 檢視已保留 Snapshot 清單
 
 保留的 Snapshot 是根據您在設定排程時於**保留最後一個**欄位中輸入的數字。您可以在 **Snapshot** 區段下檢視所擷取的 Snapshot。Snapshot 會依排程列出。
+
+或者，您可以在 SLCLI 中使用下列指令，以顯示可用的 Snapshot。
+```
+# slcli block snapshot-list --help
+Usage: slcli block snapshot-list [OPTIONS] VOLUME_ID
+
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, created, size_bytes
+  -h, --help      Show this message and exit.
+```
+{:codeblock}
 
 ## 檢視已使用的 Snapshot 空間量
 
@@ -90,7 +131,7 @@ Snapshot 排程可以透過**儲存空間** > **{{site.data.keyword.blockstorage
 1. 在**詳細資料**頁面的 **Snapshot 排程**頁框中，按一下要刪除的排程。
 2. 按一下要刪除之排程旁的勾選框，然後按一下**儲存**。<br />
 
-如果您要使用抄寫特性，請確定您要刪除的排程不是抄寫所使用的排程。如需刪除抄寫排程的相關資訊，請參閱[抄寫資料](replication.html)。
+如果您要使用抄寫特性，請確定您要刪除的排程不是抄寫所使用的排程。如需刪除抄寫排程的相關資訊，請參閱[抄寫資料](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication)。
 {:important}
 
 ## 刪除 Snapshot
@@ -102,13 +143,27 @@ Snapshot 排程可以透過**儲存空間** > **{{site.data.keyword.blockstorage
 
 當您達到空間限制時，會自動刪除入口網站中未手動刪除的手動 Snapshot（最舊的最先刪除）。
 
+您可以使用下列指令，透過 SLCLI 來刪除磁區。
+```
+# slcli block snapshot-delete
+Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
+{:codeblock}
+
+
 ## 使用 Snapshot 將儲存空間磁區還原至特定時間點
 
 因為使用者錯誤或資料毀損，所以您可能需要將儲存空間磁區還原至特定時間點。
 
+還原磁區會導致刪除在用於還原的 Snapshot 之後擷取的所有 Snapshot。
+{:important}
+
 1. 從主機中卸載並分離您的儲存空間磁區。
-   - [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html#unmounting-block-storage-volumes)
-   - [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html#unmounting-block-storage-volumes)
+   - [在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [在 Microsoft Windows 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. 按一下 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
 3. 向下捲動，並按一下要還原的磁區。**詳細資料**頁面的 **Snapshot** 區段會顯示所有已儲存 Snapshot 的清單及其大小和建立日期。
 4. 按一下要使用之 Snapshot 旁的**動作**，然後按一下**還原**。<br/>
@@ -120,9 +175,20 @@ Snapshot 排程可以透過**儲存空間** > **{{site.data.keyword.blockstorage
    預期頁面上會出現一則訊息，指出正在使用所選取的 Snapshot 來還原磁區。此外，{{site.data.keyword.blockstorageshort}} 上的磁區旁會出現一個圖示，指出正在進行作用中交易。將游標移至圖示上方會產生一個視窗，顯示交易。完成交易時，圖示即會消失。
    {:note}
 6. 將儲存空間磁區裝載並重新連接至主機。
-   - [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-   - [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-   - [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
+   - [在 Linux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [在 CloudLinux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [在 Microsoft Windows 上連接至 LUNS](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
-還原磁區會導致刪除在用於還原的 Snapshot 之後擷取的所有 Snapshot。
-{:important}
+或者，磁區與主機分離之後，您可以在 SLCLI 中使用下列指令來開始還原。
+```
+# slcli block snapshot-restore --help
+Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+
+Options:
+  -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
+                          the block volume
+  -h, --help              Show this message and exit.
+```
+{:codeblock}  
+
+還原完成之後，請將儲存空間磁區裝載並重新連接至主機。

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2014, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -11,6 +15,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 管理 {{site.data.keyword.blockstorageshort}}
+{: #managingstorage}
 
 您可以透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
 
@@ -20,6 +25,15 @@ lastupdated: "2018-11-30"
 
 1. 按一下**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中按一下適當的「LUN 名稱」。
+
+或者，您可以在 SL CLI 中使用下列指令。
+```
+# slcli block volume-detail --help
+Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --help  Show this message and exit.
+```
 
 ## 授權主機存取 {{site.data.keyword.blockstorageshort}}
 
@@ -32,7 +46,19 @@ lastupdated: "2018-11-30"
 2. 捲動至頁面的**授權主機**區段。
 3. 在右側，按一下**授權主機**。選取可以存取該特定 LUN 的主機。
 
+或者，您可以在 SL CLI 中使用下列指令。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
 
 ## 檢視獲授權存取 {{site.data.keyword.blockstorageshort}} LUN 的主機清單
 
@@ -41,7 +67,18 @@ lastupdated: "2018-11-30"
 
 在這裡，您可以看到目前已獲授權存取 LUN 的主機清單。您也可以看到建立連線所需的鑑別資訊 - 使用者名稱、密碼和 IQN 主機。「目標」位址列在**儲存空間詳細資料**頁面。若為 NFS，「目標」位址會描述為 DNS 名稱，若為 iSCSI，它是「探索目標入口網站」的 IP 位址。
 
+或者，您可以在 SL CLI 中使用下列指令。
+```
+# slcli block access-list --help
+Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
+Options:
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: id, name, type,
+                  private_ip_address, source_subnet, host_iqn, username,
+                  password, allowed_host_id
+  -h, --help      Show this message and exit.
+```
 
 ## 檢視主機已獲授權的 {{site.data.keyword.blockstorageshort}}
 
@@ -52,17 +89,15 @@ lastupdated: "2018-11-30"
 
 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。您可以按一下**動作**來授權更多儲存空間或移除存取權。
 
-
-
 ## 裝載及卸載 {{site.data.keyword.blockstorageshort}}
 
 請根據您主機的「作業系統」來遵循適當的指示。
 
-- [在 Linux 上連接至 MPIO iSCSI LUN](accessing_block_storage_linux.html)
-- [在 CloudLinux 上連接至 MPIO iSCSI LUN](configure-iscsi-cloudlinux.html)
-- [在 Microsoft Windows 上連接至 MPIO iSCSI LUN](accessing-block-storage-windows.html)
-- [配置 Block Storage 以便使用 cPanel 進行備份](configure-backup-cpanel.html)
-- [配置 Block Storage 以便使用 Plesk 進行備份](configure-backup-plesk.html)
+- [在 Linux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上連接至 LUNS](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [配置 Block Storage 以便使用 cPanel 進行備份](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [配置 Block Storage 以便使用 Plesk 進行備份](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## 撤銷主機對 {{site.data.keyword.blockstorageshort}} 的存取權
@@ -95,7 +130,23 @@ lastupdated: "2018-11-30"
 如果您要中斷多個 LUN 與特定主機的連線，則需要針對每一個主機重複「撤銷存取權」動作。
 {:tip}
 
+### 透過 SL CLI 撤銷存取權。
 
+或者，您可以在 SL CLI 中使用下列指令。
+```
+# slcli block access-revoke --help
+Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
+                            authorization
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
+                            authorization
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to revoke authorization
+  --ip-address TEXT         An IP address to revoke authorization
+  --help                    Show this message and exit.
+```
 
 ## 取消儲存空間 LUN
 
@@ -112,3 +163,15 @@ lastupdated: "2018-11-30"
    {:tip}
 4. 按一下**繼續**或**關閉**。
 5. 按一下**確認通知**勾選框，然後按一下**確認**。
+
+或者，您可以在 SL CLI 中使用下列指令。
+```
+# slcli block volume-cancel --help
+Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
+
+Options:
+  --reason TEXT  An optional reason for cancellation
+  --immediate    Cancels the block storage volume immediately instead of on
+                 the billing anniversary
+  -h, --help     Show this message and exit.
+```

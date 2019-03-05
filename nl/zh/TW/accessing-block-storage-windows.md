@@ -2,22 +2,44 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:codeblock: .codeblock}
 
 # 在 Microsoft Windows 上連接至 iSCSI LUN
+{: #mountingWindows}
 
 開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機已透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 獲得授權。
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。按一下**授權主機**。
 2. 從清單中，選取要存取磁區的主機，然後按一下**提交**。
 
+或者，您可以透過 SLCLI 來授權主機。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
+
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
+{: #mountWin}
 
 以下是將 Windows 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 的供應商文件來調整其他 Windows 版本的步驟。
 
@@ -68,9 +90,11 @@ lastupdated: "2019-01-07"
 
 1. 按一下**連接**來連接至目標。
 2. 選取**啟用多路徑**勾選框，以啟用目標的多路徑 IO。
-![啟用多路徑](/images/Connect_0.png)
+<br/>
+   ![啟用多路徑](/images/Connect_0.png)
 3. 按一下**進階**，然後選取**啟用 CHAP 登入**。
-![啟用 CHAP](/images/chap_0.png)
+</br>
+   ![啟用 CHAP](/images/chap_0.png)
 4. 在「名稱」欄位中輸入使用者名稱，然後在「目標密碼」欄位中輸入密碼。
 
    您可以從「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面取得「名稱」及「目標密碼」欄位值。
@@ -98,8 +122,11 @@ lastupdated: "2019-01-07"
 6. 在「連接至目標」視窗中，選取**啟用多路徑**勾選框。按一下**進階**。
 7. 在「進階設定」視窗中，
    - 在「本端配接卡」清單中，選取「Microsoft iSCSI 起始器」。
-   - 在「起始器 IP」清單中，選取對應於主機的 IP 位址。在此情況下，您會將裝置上的兩個網路介面連接至主機上的單一網路介面。因此，這個介面與為第一個階段作業所提供的介面相同。
-   - 在「目標入口網站 IP」清單中，選取裝置上已啟用之第二個資料介面的 IP 位址。
+   - 在「起始器 IP」清單中，選取對應於主機的 IP 位址。在此情況下，您會將儲存裝置上的兩個網路介面連接至主機上的單一網路介面。因此，這個介面與為第一個階段作業所提供的介面相同。
+   - 在「目標入口網站 IP」清單上，選取儲存裝置上已啟用之第二個資料介面的 IP 位址。
+
+     您可以在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面中找到第二個 IP 位址。
+      {: tip}
    - 按一下**啟用 CHAP 登入**勾選框。
    - 輸入從入口網站取得的「名稱」及「目標密碼」值，然後按一下**確定**。
    - 在「連接至目標」視窗上按一下**確定**，以回到「內容」視窗。
@@ -118,6 +145,7 @@ lastupdated: "2019-01-07"
 
 
 ## 驗證是否在 Windows 作業系統中正確地設置 MPIO
+{: #verifyMPIOWindows}
 
 若要驗證是否已配置 Windows MPIO，您必須先確定已啟用「MPIO 附加程式」，並重新啟動伺服器。
 
@@ -129,6 +157,7 @@ lastupdated: "2019-01-07"
 如果未正確配置 MPIO，則在發生網路中斷或「{{site.data.keyword.BluSoftlayer_full}} 團隊」執行維護時，儲存裝置可能會中斷連線並且看似已停用。MPIO 可確保在那些事件發生期間，有多一層連線功能，並保持已建立的階段作業對 LUN 持續進行讀取/寫入作業。
 
 ## 卸載 {{site.data.keyword.blockstorageshort}} 磁區
+{: #unmountingWin}
 
 以下是將 Windows 型 {{site.data.keyword.Bluemix_short}} 運算實例與 MPIO iSCSI LUN 中斷連線所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據 OS 供應商文件來調整其他 Windows 版本的步驟。
 

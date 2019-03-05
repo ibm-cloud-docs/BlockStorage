@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2018, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +16,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 使用 cPanel 配置 {{site.data.keyword.blockstorageshort}} 進行備份
+{: #cPanelBackups}
 
 您可以使用下列指示，在 cPanel 中配置要儲存在 {{site.data.keyword.blockstoragefull}} 中的備份。我們假設可以使用 root 或 sudo SSH 及完整 WebHost Manager (WHM) 存取權。這些指示以 **CentOS 7** 主機為基礎。
 

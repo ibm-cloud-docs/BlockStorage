@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2018
-lastupdated: "2018-11-30"
+  years: 2018, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -12,6 +16,7 @@ lastupdated: "2018-11-30"
 {:important: .important}
 
 # 配置 {{site.data.keyword.blockstorageshort}} 以便使用 Plesk 進行備份
+{: #PleskBackups}
 
 您可以使用下列指示，配置 {{site.data.keyword.blockstoragefull}} 以便在 Plesk 裡進行備份。我們假設可以使用 root 或 sudo SSH 及完整管理層次 Plesk 存取權。這些指示以 CentOS7 主機為基礎。
 

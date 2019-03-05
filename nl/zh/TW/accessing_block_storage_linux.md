@@ -2,7 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -14,6 +18,7 @@ lastupdated: "2019-01-07"
 
 
 # 在 Linux 上連接至 iSCSI LUN
+{: #mountingLinux}
 
 這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
 {:note}
@@ -28,7 +33,23 @@ lastupdated: "2019-01-07"
 2. 按一下**授權主機**。
 3. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
 
+或者，您可以透過 SLCLI 來授權主機。
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
+  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
+  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
+                            to authorize
+  --ip-address TEXT         An IP address to authorize
+  --help                    Show this message and exit.
+```
+{:codeblock}
+
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
+{: #mountLin}
 
 以下是將 Linux 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
@@ -152,7 +173,7 @@ lastupdated: "2019-01-07"
 
     如果傳回空白，表示它正在運作中。
   - CentOS 7
-     ```
+    ```
      multipath -ll
      ```
     {: pre}
@@ -177,7 +198,7 @@ lastupdated: "2019-01-07"
 
    請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
    {:important}
-   
+
    Ubuntu 使用者，當您查看 `iscsid.conf` 檔案時，請檢查 `node.startup` 設定是 manual 還是 automatic。如果是 manual，請將它變更為 automatic。
    {:tip}
 
@@ -266,9 +287,10 @@ lastupdated: "2019-01-07"
 
 ## 建立檔案系統（選用）
 
-請遵循這些步驟，以便在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對[小於 2 TB 的磁碟使用 `fdisk`](#creating-a-file-system-with-fdisk-)，而對[大於 2 TB 的磁碟使用 `parted`](#creating-a-file-system-with-parted-)。
+請遵循這些步驟，以便在新裝載的磁區上建立檔案系統。大部分應用程式都需要檔案系統，才能使用磁區。請對[小於 2 TB 的磁碟機使用 `fdisk`](#fdisk)，而對[大於 2 TB 的磁碟使用 `parted`](#parted)。
 
 ### 使用 `fdisk` 建立檔案系統
+{: #fdisk}
 
 1. 取得磁碟名稱。
    ```
@@ -388,6 +410,7 @@ lastupdated: "2019-01-07"
   (`**`) 鍵入 L 以列出十六進位碼。
 
 ### 使用 `parted` 建立檔案系統
+{: #parted}
 
 在許多 Linux 發行套件上，會預先安裝 `parted`。若其未包含在您的發行套件中，則可以使用下列方式來安裝它：
 - Debian 及 Ubuntu
@@ -495,6 +518,7 @@ lastupdated: "2019-01-07"
 
 
 ## 驗證 MPIO 配置
+{: #verifyMPIOLinux}
 
 1. 若要檢查多路徑是否正在挑選裝置，請列出裝置。如果配置正確，則只會顯示兩台 NETAPP 裝置。
 
@@ -555,6 +579,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 ```
 
 ## 卸載 {{site.data.keyword.blockstorageshort}} 磁區
+{: #unmountingLin}
 
 1. 卸載檔案系統。
    ```

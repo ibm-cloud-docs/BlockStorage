@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2018, 2019
+lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -13,12 +17,13 @@ lastupdated: "2018-12-11"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # 災難回復 - 使用無法存取的主要磁區進行失效接手
+{: #dr-inaccessible}
 
 如果發生災難性失效或災難而導致主要站台停電，客戶可以執行下列動作，以在次要站台上快速存取其資料。
 
 ## 在次要站台上利用抄本磁區的副本進行失效接手
 
-1. 登入 [IBM Cloud 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
+1. 登入 [IBM Cloud 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/){:new_window}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
 
 
    或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
@@ -35,14 +40,14 @@ lastupdated: "2018-12-11"
 
 如果您想要使正式作業回到原始主要站台，您必須執行下列步驟。
 
-1. 登入 [IBM Cloud 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
+1. 登入 [IBM Cloud 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/){:new_window}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
 
 
    或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
 2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 3. 按一下 LUN 名稱，並建立 Snapshot 排程（如果尚無排程）。
 
-   如需 Snapshot 排程的相關資訊，請參閱[管理 Snapshot](working-with-snapshots.html#adding-a-snapshot-schedule)。
+   如需 Snapshot 排程的相關資訊，請參閱[管理 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule)。
    {:tip}
 4. 按一下**抄本**，然後按一下**購買抄寫**。
 
