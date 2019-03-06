@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +27,7 @@ O faturamento para o armazenamento é atualizado para incluir a diferença ratea
 - Gerenciamento de custo - Alguns clientes podem precisar de IOPS alto somente durante os horários de pico de uso. Por exemplo, uma grande loja de varejo tem pico de uso durante os feriados e pode então precisar de uma taxa mais alta de IOPS em seu armazenamento. No entanto, eles não precisam de IOPS mais alto no meio do verão. Esse recurso permite que eles gerenciem seus custos e paguem por IOPS mais alto quando precisarem dele.
 
 ## Limitações
+{: #limitsofIOPSadjustment}
 
 Esse recurso está disponível somente em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
@@ -37,7 +42,7 @@ Os clientes não podem alternar entre Endurance e Performance ao ajustarem sua I
 Se o volume tiver a replicação em vigor, a réplica será atualizada automaticamente para corresponder à seleção de IOPS do primário.
 
 ## Ajustando o IOPS em seu Armazenamento
-{: #steps}
+{: #adjustingsteps}
 
 1. Vá para a sua lista de  {{site.data.keyword.blockstorageshort}}
    - A partir do  {{site.data.keyword.slportal}}, clique em  ** Armazenamento **  >  ** {{site.data.keyword.blockstorageshort}} **

@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -43,6 +48,7 @@ Options:
 {:codeblock}
 
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
+{: #mountLin}
 
 A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada em Linux a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO).
 
@@ -574,7 +580,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## Desmontando volumes  {{site.data.keyword.blockstorageshort}}
-{: #unmounting}
+{: #unmountingLin}
 
 1. Desmonte o sistema de arquivos.
    ```

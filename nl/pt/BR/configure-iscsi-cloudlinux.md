@@ -1,8 +1,13 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -43,6 +48,7 @@ Options:
 {:important}
 
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
+{: #mountingCloudLin}
 
 1. Instale os utilitários iSCSI e de caminhos múltiplos no host e ative-os.
    ```

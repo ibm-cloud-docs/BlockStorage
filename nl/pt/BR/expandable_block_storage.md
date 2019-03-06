@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ Esse recurso está disponível em [data centers selecionados](/docs/infrastructu
 A ação de expansão nos resultados de armazenamento primário resulta no redimensionamento automático da réplica.
 
 ## Limitações
+{: #limitsofexpandingstorage}
 
 Esse recurso está disponível para armazenamentos provisionados em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
@@ -40,7 +45,7 @@ O armazenamento que foi fornecido nesses data centers antes da liberação desse
 As limitações de tamanho existentes para o {{site.data.keyword.blockstorageshort}} que foram provisionadas com o Endurance ainda se aplicam (até 4 TB para a camada de 10 IOPS e até 12 TB para todas as outras camadas).
 
 ## Redimensionando o
-{: #steps}
+{: #resizingsteps}
 
 1. No {{site.data.keyword.slportal}}, clique em **Armazenamento** >
 **{{site.data.keyword.blockstorageshort}}** OU no console do

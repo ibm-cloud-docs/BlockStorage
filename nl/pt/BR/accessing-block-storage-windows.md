@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -33,6 +38,7 @@ Options:
 {:codeblock}
 
 ## Montando  {{site.data.keyword.blockstorageshort}}  Volumes
+{: #mountWin}
 
 A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada no Windows a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
 
@@ -163,7 +169,7 @@ dispositivo de destino** e clique em **MPIO**:
 Se o MPIO não foi configurado corretamente, o dispositivo de armazenamento poderá ser desconectado e aparecer desativado quando ocorrer uma indisponibilidade de rede ou quando as equipes do {{site.data.keyword.BluSoftlayer_full}} executarem a manutenção. O MPIO assegura um nível extra de conectividade durante esses eventos e mantém uma sessão estabelecida com operações de leitura/gravação ativas indo para o LUN.
 
 ## Desmontando volumes  {{site.data.keyword.blockstorageshort}}
-{: #unmounting}
+{: #unmountingWin}
 
 A seguir estão as etapas necessárias para desconectar uma instância de cálculo do {{site.data.keyword.Bluemix_short}} baseada no Windows de um LUN do iSCSI de MPIO. O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do S.O.
 
