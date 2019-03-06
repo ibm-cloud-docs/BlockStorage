@@ -2,7 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-02-28"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -12,14 +16,15 @@ lastupdated: "2019-02-05"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# {{site.data.keyword.blockstorageshort}} 시작하기
-{: #GettingStarted}
+# {{site.data.keyword.blockstorageshort}} 정보
+{: #About}
 
 {{site.data.keyword.blockstoragefull}}는 컴퓨팅 인스턴스와 상관없이 프로비저닝 및 관리되는 지속적인 고성능 iSCSI 스토리지입니다. iSCSI 기반의 {{site.data.keyword.blockstorageshort}} LUN은 중복 다중 경로 I/O(MPIO) 연결을 통해 권한 부여된 디바이스에 연결됩니다.
 
 {{site.data.keyword.blockstorageshort}}는 일치하지 않는 기능 세트를 사용하여 최고의 내구성 및 가용성을 제공합니다. 업계 표준 및 우수 사례를 사용하여 빌드되었습니다. {{site.data.keyword.blockstorageshort}}는 일관성 있는 성능 기준을 제공하여 데이터 무결성을 보호하고 유지보수 이벤트 및 플랜되지 않은 실패를 통해 가용성은 유지하도록 디자인되었습니다.
 
 ## 핵심 기능
+{: #corefeatures}
 
 {{site.data.keyword.blockstorageshort}}의 다음 기능을 사용해 보십시오.
 
@@ -44,6 +49,7 @@ lastupdated: "2019-02-05"
    - 클러스터된 데이터베이스와 같은 고급 유스 케이스를 지원합니다.
 
 ## 비용 청구
+{: #billing}
 
 블록 LUN에 대해 시간별 또는 월별 비용 청구를 선택할 수 있습니다. LUN에 대해 선택한 비용 청구 유형은 해당 스냅샷 영역 및 복제본에 적용됩니다. 예를 들어, LUN을 시간별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 시간별로 청구됩니다. LUN을 월별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 월별로 청구됩니다.
 
@@ -93,12 +99,14 @@ lastupdated: "2019-02-05"
 
 
 ## 프로비저닝
+{: #provisioning}
 
 {{site.data.keyword.blockstorageshort}} LUN은 20GB부터 12TB까지 프로비저닝 가능하며 다음과 같은 두 개의 옵션이 있습니다. <br/>
 - 사전 정의된 성능 레벨과 스냅샷 및 복제와 같은 기타 기능을 제공하는 **Endurance** 티어를 프로비저닝합니다.
 - 초당 할당된 입출력(I/O) 오퍼레이션(IOPS)이 있는 강력한 **Performance** 환경을 빌드합니다.
 
 ### Endurance 티어를 사용하여 프로비저닝
+{: #provendurance}
 
 Endurance{{site.data.keyword.blockstorageshort}}는 다양한 애플리케이션의 요구를 지원하기 위해 4개의 IOPS 성능 티어에서 사용할 수 있습니다. <br />
 
@@ -116,6 +124,7 @@ Endurance{{site.data.keyword.blockstorageshort}}는 다양한 애플리케이션
 
 
 ### Performance를 사용하여 프로비저닝
+{: #provperformance}
 
 Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항이 있는 높은 I/O의 애플리케이션을 지원하도록 설계된 {{site.data.keyword.blockstorageshort}}의 클래스입니다. 예측 가능한 성능은 프로토콜 레벨의 IOPS를 개별 볼륨에 할당하여 얻을 수 있습니다. 100 - 48,000의 다양한 IOPS 속도는 20GB - 12TB 범위의 스토리지 크기로 프로비저닝할 수 있습니다.
 
@@ -193,91 +202,3 @@ Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항�
 
 
 Performance 볼륨은 프로비저닝된 IOPS 레벨과 계속 근접하게 작동하도록 디자인되었습니다. 일관성이 있으며 특정 성능 레벨로 애플리케이션 환경을 크기 조정하고 스케일링하기 쉬워집니다. 또한 이상적인 가격 대 성능 비율의 볼륨을 빌드하여 환경을 최적화할 수 있습니다.
-
-### 프로비저닝 고려사항
-
-**블록 크기**
-
-Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워크로드의 16KB 블록 크기를 기반으로 합니다. 16KB 블록은 볼륨에 한 번 쓰기와 동등합니다.
-{:important}
-
-애플리케이션에서 사용하는 블록 크기는 스토리지 성능에 직접적인 영향을 줍니다. 애플리케이션에서 사용하는 블록 크기가 16KB보다 작은 경우, IOPS 한계가 처리량 한계 이전에 실현됩니다. 반대로, 애플리케이션에서 사용하는 블록 크기가 16KB보다 큰 경우, 처리량 한계가 IOPS 한계 이전에 실현됩니다.
-
-<table>
-  <caption>표 4에는 블록 크기와 IOPS가 처리량에 미치는 영향을 보여주는 예가 있습니다.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>블록 크기(KB)</th>
-            <th>IOPS</th>
-            <th>처리량(MB/s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4(일반적으로 Linux용)</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8(일반적으로 Oracle용)</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32(일반적으로 SQL Server용)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
-
-**권한 부여된 호스트**
-
-또한, 볼륨을 사용 중인 호스트 수도 고려해야 합니다. 볼륨에 액세스하는 단일 호스트가 있는 경우, 사용 가능한 최대 IOPS를 실현하는 것은 어려울 수 있으며 특히 10,000과 같이 IOPS 수가 큰 경우에는 더욱 그렇습니다. 워크로드에 높은 처리량이 요구되는 경우, 단일 서버 병목 현상을 방지하기 위해 최소한 두서너 개의 서버가 볼륨에 액세스하도록 구성하는 것이 바람직합니다.
-
-**네트워크 연결**
-
-이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, IOPS가 6,000이며 16KB 블록 크기를 사용하는 경우 볼륨은 약 94MBps의 처리량을 처리할 수 있습니다. LUN에 대해 1Gbps의 이더넷 연결을 보유하고 있는 경우 서버가 사용 가능한 최대 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 이는 1Gbps 이더넷 연결(초당 125MB)에 대한 70퍼센트 이론적 한계가 초당 88MB까지만 허용하기 때문입니다.
-
-최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) 및 기타 설정)도 고려해야 합니다.
-
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](/docs/vsi?topic=virtual-servers-public-virtual-servers)를 참조하십시오.
-{:tip}
-
-## 주문 제출
-
-주문을 제출할 준비가 되면 [콘솔](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)이나 [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)를 통해 주문을 제출하십시오.
-
-## 새 스토리지 연결
-
-프로비저닝 요청이 완료되면 새 스토리지에 액세스하고 연결을 구성하도록 호스트에 권한을 부여하십시오. 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
-- [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-- [cPanel을 사용하여 Block Storage 구성](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [cPanel을 사용하여 Block Storage 구성](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

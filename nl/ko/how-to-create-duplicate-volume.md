@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2017, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -111,12 +115,10 @@ SLCLI에서 다음 명령을 사용하여 복제 {{site.data.keyword.blockstorag
                                   볼륨에만 사용됨] ***티어가 지정되지 않은 경우
                                   원래 볼륨의 티어가 사용됩니다.***
                                   요구사항: [원래 볼륨의 IOPS/GB가 0.25인 경우
-                                  복제 볼륨의 IOPS/GB도 0.25여야 합니다.
-                                  원래 볼륨의 IOPS/GB가 0.25보다 큰 경우
+                                  복제 볼륨의 IOPS/GB도 0.25여야 합니다. 원래 볼륨의 IOPS/GB가 0.25보다 큰 경우
                                   복제 볼륨의 IOPS/GB도 0.25보다 커야 합니다.
   -s, --duplicate-snapshot-size INTEGER
-                                  복제를 위해 주문할 스냅샷 영역의 크기.
-                                  *** 스냅샷 영역 크기가 지정되지 않은 경우
+                                  복제를 위해 주문할 스냅샷 영역의 크기. *** 스냅샷 영역 크기가 지정되지 않은 경우
                                   원래 블록 볼륨의 스냅샷 영역 크기가
                                   사용됩니다.***
                                   스냅샷 영역이 없는 복제 볼륨을 주문하려면

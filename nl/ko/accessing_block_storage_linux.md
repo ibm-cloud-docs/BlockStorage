@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -44,6 +49,7 @@ lastupdated: "2019-02-05"
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
+{: #mountLin}
 
 다음은 Linux 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
 
@@ -573,7 +579,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    ```
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트 해제
-{: #unmounting}
+{: #unmountingLin}
 
 1. 파일 시스템을 마운트 해제하십시오.
    ```

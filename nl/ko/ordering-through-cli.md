@@ -4,23 +4,27 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 
-# SLCLI를 통해 {{site.data.keyword.blockstorageshort}} 주문
+# SL CLI를 통해 {{site.data.keyword.blockstorageshort}} 주문
 {: #orderingthroughCLI}
 
-일반적으로 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 주문하는 제품을 주문하는 데 SLCLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
+일반적으로 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 주문하는 제품을 주문하는 데 SL CLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
 
-SLCLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라이언트 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}를 참조하십시오.
+SL CLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라이언트 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}를 참조하십시오.
 {:tip}
 
 ## 사용 가능한 {{site.data.keyword.blockstorageshort}} 오퍼 검색
 
-주문할 때 검색하는 첫 번째 컴포넌트가 패키지입니다. 패키지는 {{site.data.keyword.BluSoftlayer_full}}에서 주문하는 데 사용할 수 있는 다양한 최상위 레벨 제품으로 구분됩니다. 몇 가지 예제 패키지는 VSI의 경우 CLOUD_SERVER, Bare Metal Server의 경우 BARE_METAL_SERVER, {{site.data.keyword.blockstorageshort}} 및 {{site.data.keyword.filestorage_short}}의 경우 STORAGE_AS_A_SERVICE_STAAS입니다.
+주문할 때 검색하는 첫 번째 컴포넌트가 패키지입니다. 패키지는 {{site.data.keyword.BluSoftlayer_full}}에서 주문하는 데 사용할 수 있는 다양한 최상위 레벨 제품으로 구분됩니다. 몇 가지 예제 패키지는 VSI의 경우 CLOUD_SERVER, 베어메탈 서버의 경우 BARE_METAL_SERVER, {{site.data.keyword.blockstorageshort}} 및 {{site.data.keyword.filestorage_short}}의 경우 STORAGE_AS_A_SERVICE_STAAS입니다.
 
 패키지에서 일부 항목은 카테고리로 분할됩니다. 일부 패키지에는 편의를 위한 사전 설정 세트가 있으며 다른 패키지에서는 항목을 개별적으로 지정해야 합니다. 패키지의 카테고리가 필요한 경우, 패키지를 주문하려면 해당 카테고리의 항목을 선택해야 합니다. 카테고리에 따라 카테고리에 있는 일부 항목은 상호 배타적일 수 있습니다.
 
@@ -134,6 +138,7 @@ slcli block access-authorize --help
 {:important}
 
 ## 새 스토리지 연결
+{: #mountingCLI}
 
 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
 - [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

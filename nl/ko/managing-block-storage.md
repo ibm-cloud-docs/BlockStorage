@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -22,7 +26,7 @@ lastupdated: "2019-02-05"
 1. **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 해당 LUN 이름을 클릭하십시오.
 
-또는 SLCLI에서 다음 명령을 사용할 수 있습니다.
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
 ```
 # slcli block volume-detail --help
 사용법: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -42,7 +46,7 @@ lastupdated: "2019-02-05"
 2. 페이지의 **권한 부여된 호스트** 섹션으로 스크롤하십시오.
 3. 오른쪽에 있는 **호스트 권한 부여**를 클릭하십시오. 특정 LUN에 액세스할 수 있는 호스트를 선택하십시오.
 
-또는 SLCLI에서 다음 명령을 사용할 수 있습니다.
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
 ```
 # slcli block access-authorize --help
 사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -63,7 +67,7 @@ lastupdated: "2019-02-05"
 
 여기에 현재 LUN에 액세스하도록 권한 부여된 호스트 목록이 표시됩니다. 연결하는 데 필요한 인증 정보(사용자 이름, 비밀번호 및 IQN 호스트)도 표시됩니다. 대상 주소는 **스토리지 세부사항** 페이지에 나열되어 있습니다. NFS의 경우 대상 주소는 DNS 이름으로 설명되고, iSCSI의 경우 대상 발견 포털의 IP 주소로 설명됩니다.
 
-또는 SLCLI에서 다음 명령을 사용할 수 있습니다.
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
 ```
 # slcli block access-list --help
 사용법: slcli block access-list [OPTIONS] VOLUME_ID
@@ -126,9 +130,9 @@ lastupdated: "2019-02-05"
 특정 LUN에서 여러 호스트의 연결을 끊으려면 각 호스트에 대해 액세스 취소 조치를 반복 수행해야 합니다.
 {:tip}
 
-### SLCLI를 통해 액세스 권한 취소
+### SL CLI를 통해 액세스 권한 취소
 
-또는 SLCLI에서 다음 명령을 사용할 수 있습니다.
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
 ```
 # slcli block access-revoke --help
 사용법: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -160,7 +164,7 @@ lastupdated: "2019-02-05"
 4. **계속** 또는 **닫기**를 클릭하십시오.
 5. **수신확인** 선택란을 클릭하고 **확인**을 클릭하십시오.
 
-또는 SLCLI에서 다음 명령을 사용할 수 있습니다.
+또는 SL CLI에서 다음 명령을 사용할 수 있습니다.
 ```
 # slcli block volume-cancel --help
 사용법: slcli block volume-cancel [OPTIONS] VOLUME_ID

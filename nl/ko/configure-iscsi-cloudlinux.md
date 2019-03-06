@@ -1,8 +1,13 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -44,6 +49,7 @@ lastupdated: "2019-02-05"
 {:important}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
+{: #mountingCloudLin}
 
 1. 호스트에서 iSCSI 및 다중 경로 유틸리티를 설치하고 활성화하십시오.
    ```

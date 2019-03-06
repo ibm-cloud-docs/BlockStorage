@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -24,6 +28,7 @@ lastupdated: "2019-02-05"
 
 1. [{{site.data.keyword.cloud}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://
 {DomainName}/catalog/){:new_window}에 로그인하고 왼쪽 상단에서 **메뉴** 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
+
 
    또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인할 수 있습니다.
 2. **{{site.data.keyword.blockstorageshort}}** 페이지에서 소스 또는 대상 볼륨을 클릭하십시오.

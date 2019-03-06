@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +27,7 @@ lastupdated: "2019-02-05"
 - 비용 관리 - 일부 클라이언트에는 최대 사용 시간 중에 높은 IOPS만 필요할 수 있습니다. 예를 들어, 대형 마트의 경우 휴일에 최대 사용량이 발생하고 스토리지에서 더 큰 IOPS 속도가 필요할 수도 있습니다. 그러나 한여름에는 더 큰 iOPS가 필요하지 않습니다. 이 기능을 사용하여 비용을 관리하고 필요할 때 더 높은 IOPS 비용을 지불할 수 있습니다.
 
 ## 제한사항
+{: #limitsofIOPSadjustment}
 
 이 기능은 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)에서만 사용할 수 있습니다.
 
@@ -37,7 +42,7 @@ lastupdated: "2019-02-05"
 볼륨에 복제본이 있는 경우, 복제본은 기본의 IOPS 선택에 일치하도록 자동 업데이트됩니다.
 
 ## 스토리지에서 IOPS 조정
-{: #steps}
+{: #adjustingsteps}
 
 1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
    - {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
@@ -70,15 +75,13 @@ lastupdated: "2019-02-05"
                                 ***IOPS 값이 지정되지 않은 경우 볼륨의
                                 원래 IOPS 값이 사용됩니다.***
                                 요구사항: [볼륨의 원래 IOPS/GB가 0.3 미만인
-                                경우 새 IOPS/GB도 0.3 미만이어야 합니다.
-                                볼륨의 원래 IOPS/GB가 0.3 이상인 경우 볼륨의
+                                경우 새 IOPS/GB도 0.3 미만이어야 합니다. 볼륨의 원래 IOPS/GB가 0.3 이상인 경우 볼륨의
                                 새 IOPS/GB도 0.3 이상이어야 합니다.]
   -t, --new-tier [0.25|2|4|10]  Endurance 스토리지 티어(IOPS/GB) [Endurance
                                 볼륨에만 해당] ***티어가 지정되지 않은 경우
                                 볼륨의 원래 티어가 사용됩니다.***
                                 요구사항: [볼륨의 원래 IOPS/GB가 0.25인 경우
-                                볼륨의 새 IOPS/GB도 0.25여야 합니다.
-                                볼륨의 원래 IOPS/GB가 0.25보다 큰 경우
+                                볼륨의 새 IOPS/GB도 0.25여야 합니다. 볼륨의 원래 IOPS/GB가 0.25보다 큰 경우
                                 볼륨의 새 IOPS/GB도 0.25보다 커야 합니다.]
   -h, --help                    이 메시지를 표시하고 종료합니다.
 ```
