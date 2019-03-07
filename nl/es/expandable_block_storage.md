@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ Esta característica está disponible en [centros de datos seleccionados](/docs/
 La acción de ampliar el almacenamiento primario genera un redimensionamiento automático de la réplica.
 
 ## Limitaciones
+{: #limitsofexpandingstorage}
 
 Esta característica está disponible para el almacenamiento suministrado en [determinados centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
@@ -40,7 +45,7 @@ El almacenamiento suministrado a estos centros de datos antes de sacar al mercad
 Las limitaciones de tamaño actuales para {{site.data.keyword.blockstorageshort}} suministrado con Resistencia aún se aplican (hasta 4 TB para IOPS de nivel 10 y hasta 12 TB para los demás niveles).
 
 ## Redimensionamiento de almacenamiento
-{: #steps}
+{: #resizingsteps}
 
 1. En el portal de {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**, o bien desde la consola de {{site.data.keyword.BluSoftlayer_full}} pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleccione el LUN de la lista y pulse **Acciones** > **Modificar LUN**

@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -67,7 +71,7 @@ En el sistema de archivos activo, los bloques modificados se vuelven a escribir 
         <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle3.png" alt="Después de una copia de instantánea"></td>
         <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle2.png" alt="Cambios después de una copia de instantánea"></td>
      </tr><tr>
- <td style="border: 0.0px;">Antes de crear una copia de instantánea, solo el sistema de archivos activo utiliza el espacio de disco.</td>
+        <td style="border: 0.0px;">Antes de crear una copia de instantánea, solo el sistema de archivos activo utiliza el espacio de disco.</td>
         <td style="border: 0.0px;">Después de crear una copia de instantánea, el sistema de archivos activo y la copia de instantánea apuntan a los mismos bloques de discos. La copia de instantánea no utiliza espacio de disco adicional.</td>
         <td style="border: 0.0px;">Tras suprimir <i>myfile.txt</i> del sistema de archivos activo, la copia de instantánea aún incluye el archivo y hace referencia a sus bloques de discos. Por este motivo, el hecho de suprimir los datos del sistema de archivos activo no siempre libera espacio de disco.</td>
       </tr>

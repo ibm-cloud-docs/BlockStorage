@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -133,6 +137,7 @@ Para obtener información sobre el límite en autorizaciones simultáneas, consu
 {:important}
 
 ## Conexión del nuevo almacenamiento
+{: #mountingCLI}
 
 En función del sistema operativo del host, siga el enlace adecuado.
 - [Conexión a LUN en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

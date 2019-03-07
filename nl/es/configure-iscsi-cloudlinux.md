@@ -1,8 +1,13 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -44,6 +49,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 {:important}
 
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
+{: #mountingCloudLin}
 
 1. Instale los programas de utilidad multivía e iSCSI en el host y actívelos.
    ```

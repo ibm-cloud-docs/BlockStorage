@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +27,7 @@ La facturación del almacenamiento se actualiza para añadir la diferencia prorr
 - Gestión de costes – Algunos clientes pueden necesitar alta IOPS solo durante picos de uso. Por ejemplo, un almacén de una tienda de gran tamaño tiene picos de uso durante las vacaciones y podría necesitar más IOPS en el almacenamiento en ese momento. Sin embargo, no necesitan más IOPS a mediados de verano. Esta característica les permite gestionar sus costes y pagar más IOPS cuando lo necesitan.
 
 ## Limitaciones
+{: #limitsofIOPSadjustment}
 
 Esta característica solo está disponible en [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
@@ -37,7 +42,7 @@ Los clientes no pueden cambiar entre Resistencia y Rendimiento al ajustar su IOP
 Si el volumen tiene réplica, la réplica se actualiza automáticamente para coincidir con la selección de IOPS de la primaria.
 
 ## Ajuste de IOPS en el almacenamiento
-{: #steps}
+{: #adjustingsteps}
 
 1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}
    - En el {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**
