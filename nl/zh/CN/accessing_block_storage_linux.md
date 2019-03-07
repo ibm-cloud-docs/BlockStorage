@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -43,6 +48,7 @@ lastupdated: "2019-02-05"
 {:codeblock}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
+{: #mountLin}
 
 下面是将基于 Linux 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
 
@@ -572,7 +578,7 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
 ```
 
 ## 卸装 {{site.data.keyword.blockstorageshort}} 卷
-{: #unmounting}
+{: #unmountingLin}
 
 1. 卸装文件系统。
    ```

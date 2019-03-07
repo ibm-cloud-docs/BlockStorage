@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -134,6 +138,7 @@ Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs
 {:important}
 
 ## Connessione alla tua nuova archiviazione
+{: #mountingCLI}
 
 A seconda del sistema operativo del tuo host, segui il link appropriato.
 - [Connessione ai LUN su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

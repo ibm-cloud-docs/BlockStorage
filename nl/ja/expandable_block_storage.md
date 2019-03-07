@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ lastupdated: "2019-02-05"
 1 次ストレージに対する拡張アクションによって、レプリカのサイズ変更が自動的に行われます。
 
 ## 制限
+{: #limitsofexpandingstorage}
 
 この機能は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)にプロビジョンされたストレージに対して使用可能です。
 
@@ -40,7 +45,7 @@ lastupdated: "2019-02-05"
 エンデュランスを指定してプロビジョンされた{{site.data.keyword.blockstorageshort}}に関する既存のサイズ制限 (10 IOPS ティアでは最大 4 TB、他のすべてのティアでは最大 12 TB) は、引き続き適用されます。
 
 ## ストレージのサイズ変更
-{: #steps}
+{: #resizingsteps}
 
 1. {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックするか、{{site.data.keyword.BluSoftlayer_full}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。

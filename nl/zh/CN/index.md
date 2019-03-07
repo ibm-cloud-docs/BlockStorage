@@ -2,7 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-02-28"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -12,14 +16,15 @@ lastupdated: "2019-02-05"
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# {{site.data.keyword.blockstorageshort}} 入门
-{: #GettingStarted}
+# 关于 {{site.data.keyword.blockstorageshort}}
+{: #About}
 
 {{site.data.keyword.blockstoragefull}} 是独立于计算实例进行供应和管理的持久性高性能 iSCSI 存储器。基于 iSCSI 的 {{site.data.keyword.blockstorageshort}} LUN 通过冗余多路径 I/O (MPIO) 连接来连接到授权设备。
 
 {{site.data.keyword.blockstorageshort}} 通过一组无与伦比的功能，实现了同类最优水平的耐久性和可用性。它使用业界标准和最佳实践进行构建。{{site.data.keyword.blockstorageshort}} 旨在发生维护事件和意外故障期间保护数据完整性并保持可用性，同时提供一致的性能基线。
 
 ## 核心功能
+{: #corefeatures}
 
 可利用 {{site.data.keyword.blockstorageshort}} 的以下功能：
 
@@ -44,6 +49,7 @@ lastupdated: "2019-02-05"
    - 支持高级用例，例如集群数据库。
 
 ## 计费
+{: #billing}
 
 可以选择按小时或按月对块 LUN 计费。为 LUN 选择的计费类型将应用于其快照空间和副本。例如，如果供应的 LUN 按小时计费，那么任何快照或副本费用都会按小时记帐。如果供应的 LUN 按月计费，那么任何快照或副本费用都会按月记帐。
 
@@ -93,12 +99,14 @@ lastupdated: "2019-02-05"
 
 
 ## 供应
+{: #provisioning}
 
 通过以下两个选项，可以供应从 20 GB 到 12 TB 的 {{site.data.keyword.blockstorageshort}} LUN：<br/>
 - 供应**耐久性**层，具有预定义的性能级别和功能，如快照和复制。
 - 通过分配的每秒输入/输出操作数 (IOPS) 来构建强大的**性能**环境。
 
 ### 通过耐久性层供应
+{: #provendurance}
 
 耐久性 {{site.data.keyword.blockstorageshort}} 有四个 IOPS 性能层，以支持各种不同的应用需求。<br />
 
@@ -116,6 +124,7 @@ lastupdated: "2019-02-05"
 
 
 ### 通过性能供应
+{: #provperformance}
 
 “性能”是一类 {{site.data.keyword.blockstorageshort}}，旨在支持具有不太适合“耐久性”层的已知性能需求的高 I/O 应用。通过为各个卷分配协议级别 IOPS，可实现可预测的性能。可以使用大小范围在 20 GB 到 12 TB 的存储器来供应各种 IOPS 速率 (100 - 48,000)。
 
@@ -193,91 +202,3 @@ lastupdated: "2019-02-05"
 
 
 性能卷旨在以一致地接近所供应 IOPS 级别的方式来运行。通过一致性，能更轻松地调整特定性能级别的应用程序环境的大小和扩展此环境。此外，通过构建具有理想的价格/性能比率的卷，可以优化环境。
-
-### 供应注意事项
-
-**块大小**
-
-“耐久性”和“性能”的 IOPS 基于 16 KB 的块大小，其中读/写随机工作负载的比例为 50/50。一个 16 KB 的块相当于对卷执行一次写操作。
-{:important}
-
-应用程序使用的块大小会直接影响存储器性能。如果应用程序使用的块大小小于 16 KB，那么在达到吞吐量限制之前，会先达到 IOPS 限制。相反，如果应用程序使用的块大小大于 16 KB，那么在达到 IOPS 限制之前，会先达到吞吐量限制。
-
-<table>
-  <caption>表 4 显示了块大小和 IOPS 如何影响吞吐量的示例。</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>块大小 (KB)</th>
-            <th>IOPS</th>
-            <th>吞吐量（MB/秒）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4（Linux 的典型值）</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8（Oracle 的典型值）</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32（SQL Server 的典型值）</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
-
-**已授权主机**
-
-另一个要考虑的因素是使用卷的主机数。如果是单个主机在访问卷，那么可能很难实现可用的最大 IOPS，尤其是在极端 IOPS 计数（10,000 以上）的情况下。如果工作负载需要高吞吐量，那么最好配置至少两台服务器来访问卷，以避免出现单服务器瓶颈。
-
-**网络连接**
-
-以太网连接速度必须快于卷的预期最大吞吐量。一般情况下，不要指望以太网连接饱和到超过可用带宽的 70%。例如，如果您有 6,000 IOPS 并且使用的是 16 KB 块大小，那么卷可以处理约 94 MBps 的吞吐量。如果与 LUN 之间存在 1 Gbps 以太网连接，那么当服务器尝试使用最大可用吞吐量时，此连接会成为瓶颈。这是因为 1 Gbps 以太网连接的理论限制（125 MB/秒）的 70% 仅允许 88 MB/秒。
-
-要实现最大 IOPS，需要落实足够的网络资源。其他注意事项包括在存储器外部使用的专用网络、主机端以及特定于应用程序的调整（IP 堆栈或[队列深度](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)以及其他设置）。
-
-存储流量包含在公共虚拟服务器的总网络使用量之内。有关服务可能施加的限制的更多信息，请参阅[虚拟服务器文档](/docs/vsi?topic=virtual-servers-public-virtual-servers)。
-{:tip}
-
-## 提交订单
-
-准备好提交订单时，可以通过[控制台](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)或 [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) 来完成此操作。
-
-## 连接新存储器
-
-完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
-- [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [在 CloudLinux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [在 Microsoft Windows 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-- [使用 cPanel 配置 Block Storage 进行备份](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [使用 Plesk 配置 Block Storage 进行备份](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)

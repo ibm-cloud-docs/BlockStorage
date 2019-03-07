@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +27,7 @@ lastupdated: "2019-02-05"
 - コスト管理 – 一部のお客様は、ピーク使用時にのみ高い IOPS を必要とする可能性があります。 例えば、大規模な小売店のピーク使用は年末のセール期間であり、その後、ストレージに高い IOPS レートが必要になる場合があります。 しかし、真夏に高い IOPS は必要ありません。 この機能により、そのような小売店はコストを管理し、必要なときに、高い IOPS のためにコストを払うことができます。
 
 ## 制限
+{: #limitsofIOPSadjustment}
 
 この機能は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)でのみ使用可能です。
 
@@ -37,7 +42,7 @@ lastupdated: "2019-02-05"
 ボリュームに複製が設定されている場合、1 次の IOPS の選択に一致するようにレプリカが自動的に更新されます。
 
 ## ストレージの IOPS の調整
-{: #steps}
+{: #adjustingsteps}
 
 1. {{site.data.keyword.blockstorageshort}}のリストに進みます。
    - {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。

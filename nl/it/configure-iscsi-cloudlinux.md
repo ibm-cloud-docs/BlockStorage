@@ -1,8 +1,13 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -44,6 +49,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
 {:important}
 
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
+{: #mountingCloudLin}
 
 1. Installa iSCSI e i programmi di utilità multipath sul tuo host e attivali.
    ```

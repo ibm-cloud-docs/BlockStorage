@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ Cette fonctionnalité est disponible uniquement dans des [centres de données s�
 L'extension de l'espace de stockage principal entraîne un redimensionnement automatique de la réplique.
 
 ## Limitations
+{: #limitsofexpandingstorage}
 
 Cette fonction est disponible pour le stockage mis à disposition dans [certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
@@ -40,7 +45,7 @@ Le stockage qui a été mis à disposition dans ces centres de données avant la
 Les limitations de taille existantes pour le stockage {{site.data.keyword.blockstorageshort}} qui a été mis à disposition avec l'option Endurance sont toujours applicables (jusqu'à 4 To pour un niveau de 10 IOPS et jusqu'à 12 To pour tous les autres niveaux).
 
 ## Redimensionnement du stockage
-{: #steps}
+{: #resizingsteps}
 
 1. A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU, à partir de la console {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.

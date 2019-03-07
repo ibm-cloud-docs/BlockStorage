@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -34,6 +39,7 @@ Options:
 {:codeblock}
 
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
+{: #mountWin}
 
 Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Windows à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI). L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 
@@ -153,7 +159,7 @@ Une fois le redémarrage terminé et le périphérique de stockage ajouté, vous
 Si MPIO n'a pas été configuré correctement, votre périphérique de stockage est déconnecté et apparaît comme étant désactivé en cas de panne réseau ou de maintenance par les équipes {{site.data.keyword.BluSoftlayer_full}}. MPIO garantit un niveau supplémentaire de connectivité au cours de ces événements et conserve une session établie avec des opérations de lecture/écriture actives à destination du numéro d'unité logique (LUN).
 
 ## Démontage de volumes {{site.data.keyword.blockstorageshort}}
-{: #unmounting}
+{: #unmountingWin}
 
 Vous trouverez ci-dessous la procédure à suivre pour déconnecter une instance de calcul {{site.data.keyword.Bluemix_short}} basée sur Windows d'un numéro d'unité logique MPIO iSCSI. L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 

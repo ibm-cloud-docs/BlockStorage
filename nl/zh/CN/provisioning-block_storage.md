@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -89,6 +93,7 @@ lastupdated: "2019-02-05"
 {:important}
 
 ## 连接新存储器
+{: #mountingnewLUN}
 
 完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
 - [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

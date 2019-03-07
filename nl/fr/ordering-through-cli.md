@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -134,6 +138,7 @@ Pour connaître la limite des autorisations simultanées, reportez-vous à la [F
 {:important}
 
 ## Connexion de votre nouveau stockage
+{: #mountingCLI}
 
 Suivez le lien approprié en fonction du système d'exploitation de votre hôte.
 - [Connexion à des numéros d'unité logique (LUN) sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)

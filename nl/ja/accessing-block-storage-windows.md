@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -34,6 +39,7 @@ Options:
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
+{: #mountWin}
 
 以下に、Windows ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
 
@@ -117,7 +123,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 6. 「ターゲットへの接続」ダイアログ・ボックスで、**「複数パスを有効にする」**チェック・ボックスを選択します。 **「詳細設定」**をクリックします。
 7. 「詳細設定」ウィンドウで、以下のようにします。
    - 「ローカル アダプタ」リストで、「Microsoft iSCSI イニシエーター」を選択します。
-   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
+   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
    - 「ターゲット ポータル IP」リストで、ストレージ・デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
 
      2 番目の IP アドレスは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} の「{{site.data.keyword.blockstorageshort}}詳細」画面にあります。
@@ -152,7 +158,7 @@ Windows MPIO が構成されているかどうかを検証するには、まず 
 MPIO が正しく構成されていないと、ネットワーク障害が発生した場合や、{{site.data.keyword.BluSoftlayer_full}} チームが保守を実行するときに、ストレージ・デバイスが切断され、使用不可と表示されます。 MPIO では、そのようなイベントが発生しても追加の接続レベルが保証され、LUN への読み取り/書き込み操作がアクティブな状態で、確立済みセッションが保持されます。
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
-{: #unmounting}
+{: #unmountingWin}
 
 以下は、MPIO iSCSI LUN から Windows ベースの {{site.data.keyword.Bluemix_short}} コンピューティング・インスタンスを切断するために必要なステップです。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、OS ベンダーの資料に従って、ステップを調整してください。
 

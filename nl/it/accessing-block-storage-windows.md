@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -34,6 +39,7 @@ Options:
 {:codeblock}
 
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
+{: #mountWin}
 
 Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.BluSoftlayer_full}} basata su Windows a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
 
@@ -153,7 +159,7 @@ Dopo il completamento del riavvio e l'aggiunta del dispositivo di archiviazione,
 Se MPIO non è stato configurato correttamente, il tuo dispositivo di archiviazione può venire disconnesso e essere visualizzato come non disponibile quando si verifica un'interruzione di rete o quando i team di {{site.data.keyword.BluSoftlayer_full}} eseguono la manutenzione. MPIO garantisce un livello supplementare di connettività durante tali eventi e mantiene una sessione stabilita con le operazioni di lettura/scrittura attive che vanno al LUN.
 
 ## Smontaggio dei volumi {{site.data.keyword.blockstorageshort}}
-{: #unmounting}
+{: #unmountingWin}
 
 Viene qui di seguito riportata la procedura necessaria per disconnettere un'istanza di elaborazione {{site.data.keyword.Bluemix_short}} basata su Windows a un LUN iSCSI MPIO. L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
 

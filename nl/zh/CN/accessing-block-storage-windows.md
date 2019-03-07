@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -34,6 +39,7 @@ lastupdated: "2019-02-05"
 {:codeblock}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
+{: #mountWin}
 
 下面是将基于 Windows 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
 
@@ -151,7 +157,7 @@ lastupdated: "2019-02-05"
 如果未正确配置 MPIO，那么当发生网络中断或 {{site.data.keyword.BluSoftlayer_full}} 团队执行维护时，存储设备可能断开连接并显示为已禁用。MPIO 将确保在发生这些事件期间获得额外级别的连接，并且会保留已建立的会话，使活动读/写操作转至 LUN。
 
 ## 卸装 {{site.data.keyword.blockstorageshort}} 卷
-{: #unmounting}
+{: #unmountingWin}
 
 下面是断开基于 Windows 的 {{site.data.keyword.Bluemix_short}} 计算实例与 MPIO iSCSI LUN 的连接所需的步骤。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统供应商文档来调整这些步骤。
 

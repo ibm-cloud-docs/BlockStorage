@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}_
 {:tip: .tip}
@@ -20,7 +24,7 @@ lastupdated: "2019-02-05"
 スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}
  の**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**タブから行います。
 
-初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。詳しくは、[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)を参照してください。
+初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。 詳しくは、[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)を参照してください。
 {:important}
 
 ### スナップショット・スケジュールの追加

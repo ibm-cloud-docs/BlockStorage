@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ Questa funzione è disponibile in [data center selezionati](/docs/infrastructure
 L'azione di espansione sull'archiviazione primaria determina una modifica automatica della dimensione della replica.
 
 ## Limitazioni
+{: #limitsofexpandingstorage}
 
 Questa funzione è disponibile per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
@@ -40,7 +45,7 @@ L'archiviazione di cui era stato eseguito il provisioning in questi data center 
 I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning con Endurance continuano a essere validi (fino a 4 TB per un livello 10 IOPS e fino a 12 TB per tutti gli altri livelli).
 
 ## Ridimensionamento dell'archiviazione
-{: #steps}
+{: #resizingsteps}
 
 1. Dal {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE dalla console {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +27,7 @@ lastupdated: "2019-02-05"
 - 成本管理 - 某些客户可能只在峰值使用时间内需要高 IOPS。例如，大型零售店在假期使用量达到峰值，因此在假期其存储器上可能需要更高的 IOPS 速率。然而，在仲夏时节并不需要更高的 IOPS。通过此功能，零售店可以管理其成本，并在需要时为更高的 IOPS 付费。
 
 ## 限制
+{: #limitsofIOPSadjustment}
 
 此功能仅在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内提供。
 
@@ -37,7 +42,7 @@ lastupdated: "2019-02-05"
 如果卷已复制到位，那么将自动更新该副本以与主卷的 IOPS 选择相匹配。
 
 ## 调整存储器上的 IOPS
-{: #steps}
+{: #adjustingsteps}
 
 1. 转至 {{site.data.keyword.blockstorageshort}} 的列表。
    - 在 {{site.data.keyword.slportal}} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**。

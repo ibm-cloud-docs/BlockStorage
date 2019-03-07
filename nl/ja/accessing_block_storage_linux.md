@@ -3,6 +3,11 @@
 copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -44,6 +49,7 @@ Options:
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
+{: #mountLin}
 
 以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
@@ -573,7 +579,7 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
-{: #unmounting}
+{: #unmountingLin}
 
 1. ファイル・システムをアンマウントします。
    ```

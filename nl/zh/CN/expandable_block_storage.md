@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2018, 2019
 lastupdated: "2019-02-05"
+
+keywords:
+
+subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
@@ -32,6 +36,7 @@ lastupdated: "2019-02-05"
 对主存储器执行扩展操作将会自动调整副本大小。
 
 ## 限制
+{: #limitsofexpandingstorage}
 
 此功能可用于在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内供应的存储器。
 
@@ -40,7 +45,7 @@ lastupdated: "2019-02-05"
 使用“耐久性”类型供应的 {{site.data.keyword.blockstorageshort}} 的现有大小限制仍然适用（对于 10 IOPS 层，最高为 4 TB，对于其他所有层，最高为 12 TB）。
 
 ## 调整存储器大小
-{: #steps}
+{: #resizingsteps}
 
 1. 在 {{site.data.keyword.slportal}} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}} 控制台中单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
 2. 从列表中选择 LUN，然后单击**操作** > **修改 LUN**。

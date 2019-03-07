@@ -5,6 +5,7 @@
 IBM Cloud 存储 - Block Storage
 
     {: .navgroup id="learn"}
+    getting-started.md
     index.md
     new-ibm-block-and-file-storage-location-and-features.md
     snapshots.md

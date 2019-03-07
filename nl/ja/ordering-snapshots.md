@@ -4,6 +4,10 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
+keywords:
+
+subcollection: BlockStorage
+
 ---
 {:new_window: target="_blank"}
 {:tip: .tip}
@@ -57,7 +61,7 @@ lastupdated: "2019-02-05"
    {:note}
 6. **「マスター・サービス契約を読み、その契約条件に同意します」**ボックスにチェック・マークを付け、**「注文の実行」**をクリックします。 スナップショット・スペースは数分後にプロビジョンされます。
 
-## SLCLI を使用したスナップショット・スペースの注文
+## SL CLI を使用したスナップショット・スペースの注文
 
 ```
 # slcli block snapshot-order --help
