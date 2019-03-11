@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -130,16 +130,15 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 You can edit your replication schedule, and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 
 
-
 ## Editing the replication schedule
 
-The replication schedule is based on an existing snapshot schedule. To change the replica schedule, for example from Hourly to Weekly, you must cancel the replication schedule and set up a new one.
+The replication schedule is based on an existing snapshot schedule. To change the replica schedule from Hourly to Daily or Weekly or vice versa, you must cancel the replica volume and set up a new one.
 
-Changing the schedule can be done on the Primary or Replica tab.
+However, if you want to change the time of day when your **Daily** replication occurs, you can adjust the existing schedule on the Primary or Replica tab.
 
 1. Click **Actions** on either the **Primary** or **Replica** tab.
 2. Select **Edit Snapshot Schedule**.
-3. Look in the **Snapshot** frame under **Schedule** to determine which schedule you're using for replication. Change the schedule that you want. For example, if your replication schedule is **Daily**, you can change the time of day when replication is to take place.
+3. Look in the **Snapshot** frame under **Schedule** to determine which schedule you're using for replication. Change the schedule that you want.
 4. Click **Save**.
 
 
