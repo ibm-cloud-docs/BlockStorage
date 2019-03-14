@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-14"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -179,12 +179,12 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
             <td>6,000 or 20,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
-            <td>2,000-3,000</td>
+            <td>2,000</td>
             <td>200</td>
             <td>6,000 or 40,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
-            <td>4,000-7,000</td>
+            <td>3,000-7,000</td>
             <td>300</td>
             <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
