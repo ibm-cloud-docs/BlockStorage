@@ -10,6 +10,7 @@ subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}

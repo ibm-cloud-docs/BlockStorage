@@ -535,7 +535,7 @@ To create a file system with `parted`, follow these steps.
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. Check that the disks are present. There must be two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+2. Check that the disks are present. Expect to see two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
   ```
   fdisk -l | grep Disk
   ```

@@ -171,7 +171,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
           <tr>
             <td>500</td>
             <td>100</td>
-            <td>6,000 or 10,000 <sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6,000 or 10,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
           </tr>
           <tr>
             <td>1,000</td>

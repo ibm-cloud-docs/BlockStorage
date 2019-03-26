@@ -220,7 +220,7 @@ When a primary volume is canceled, the replication schedule and the volume in th
  3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
  4. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel**.
 
-## Replication related commands in SLCLI
+## Replication-related commands in SLCLI
 {: #clicommands}
 
 * List suitable replication datacenters for a specific volume.

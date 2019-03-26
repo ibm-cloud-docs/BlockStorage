@@ -99,7 +99,7 @@ To be able to access all the new features, order `Storage-as-a-Service Package 7
 
 ## Placing the order
 
-The following example shows how to order a 80-GB {{site.data.keyword.blockstorageshort}} volume with 20-GB Snapshot space and 0.25 IOPS per GB.
+The following example shows how to order an 80-GB {{site.data.keyword.blockstorageshort}} volume with 20-GB Snapshot space and 0.25 IOPS per GB.
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20

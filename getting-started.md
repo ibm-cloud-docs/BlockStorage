@@ -126,4 +126,4 @@ When your provisioning request is complete, authorize your hosts to access the n
 
 ## Managing your new Storage
 
-Through the portal or the SLCLI you can manage various aspects of your File Storage such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Through the portal or the SLCLI, you can manage various aspects of your File Storage such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
