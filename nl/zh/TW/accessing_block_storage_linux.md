@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
 subcollection: BlockStorage
 
@@ -204,7 +204,7 @@ Options:
 
 7. 將 iSCSI 設為在開機時啟動，並立即啟動。
   - RHEL 6
-     ```
+    ```
     chkconfig iscsi on
     ```
     {: pre}
@@ -523,19 +523,19 @@ Options:
 1. 若要檢查多路徑是否正在挑選裝置，請列出裝置。如果配置正確，則只會顯示兩台 NETAPP 裝置。
 
   ```
-   multipath -l
-   ```
+  multipath -l
+  ```
   {: pre}
 
   ```
-root@server:~# multipath -l
-3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
-|-+- policy='round-robin 0' prio=-1 status=active`
-6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
-7:0:0:101 sde 8:64 active undef running
-```
+  root@server:~# multipath -l
+  3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
+  |-+- policy='round-robin 0' prio=-1 status=active`
+  6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
+  7:0:0:101 sde 8:64 active undef running
+  ```
 
-2. 檢查磁碟是否存在。必須有兩個具有相同 ID 的磁碟，以及大小相同且具有相同 ID 的 `/dev/mapper` 清單。`/dev/mapper` 裝置是多路徑設定的裝置。
+2. 檢查磁碟是否存在。請預期會看到兩個具有相同 ID 的磁碟，以及大小相同且具有相同 ID 的 `/dev/mapper` 清單。`/dev/mapper` 裝置是多路徑設定的裝置。
   ```
   fdisk -l | grep Disk
   ```
@@ -545,23 +545,23 @@ root@server:~# multipath -l
 
     ```
     root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+    Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+    Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
   - 不正確配置的輸出範例。
 
     ```
-No multipath output root@server:~# multipath -l root@server:~#
-```
+    No multipath output root@server:~# multipath -l root@server:~#
+    ```
 
     ```
-root@server:~# fdisk -l | grep Disk
-Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
-Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
-```
+    root@server:~# fdisk -l | grep Disk
+    Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+    Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
 
 3. 確認本端磁碟未包含在多路徑裝置中。下列指令顯示列入黑名單的裝置。
    ```
@@ -570,13 +570,13 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    {: pre}
 
    ```
-root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
-| sda: device node name blacklisted Feb 17 19:55:02
-| sdb: device node name blacklisted Feb 17 19:55:02
-| sdc: device node name blacklisted Feb 17 19:55:02
-| sdd: device node name blacklisted Feb 17 19:55:02
-| sde: device node name blacklisted Feb 17 19:55:02
-```
+   root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
+   | sda: device node name blacklisted Feb 17 19:55:02
+   | sdb: device node name blacklisted Feb 17 19:55:02
+   | sdc: device node name blacklisted Feb 17 19:55:02
+   | sdd: device node name blacklisted Feb 17 19:55:02
+   | sde: device node name blacklisted Feb 17 19:55:02
+   ```
 
 ## 卸載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #unmountingLin}

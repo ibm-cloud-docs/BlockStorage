@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
-keywords:
+keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
 subcollection: BlockStorage
 
@@ -129,16 +129,15 @@ MEL01<br />
 您可以從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤編輯抄寫排程，以及變更抄寫空間。
 
 
-
 ## 編輯抄寫排程
 
-您的抄寫排程是以現有的 Snapshot 排程為基礎。若要將抄本排程從「每小時」變更為「每週」，您必須取消抄寫排程並設定新的排程。
+您的抄寫排程是以現有的 Snapshot 排程為基礎。若要將抄本排程從「每小時」變更為「每日」或「每週」（反之亦然），您必須取消抄本磁區並設定新的磁區。
 
-變更排程可以在「主要」或「抄本」標籤上進行。
+不過，如果您想要在**每日**抄寫發生時變更當日時間，可以在「主要」或「抄本」標籤上調整現有的排程。
 
 1. 在**主要**或**抄本**標籤上，按一下**動作**。
 2. 選取**編輯 Snapshot 排程**。
-3. 查看**排程**下的 **Snapshot** 頁框，以判定您要用於抄寫的排程。變更所需的排程。例如，如果您的抄寫排程是**每日**，則您可以變更進行抄寫的時間。
+3. 查看**排程**下的 **Snapshot** 頁框，以判定您要用於抄寫的排程。變更所需的排程。
 4. 按一下**儲存**。
 
 

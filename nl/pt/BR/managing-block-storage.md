@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -26,7 +26,7 @@ subcollection: BlockStorage
 1. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}**.
 2. Clique no nome do LUN apropriado na lista.
 
-Como alternativa, é possível usar o comando a seguir na CLI do SL.
+Como alternativa, é possível usar o comando a seguir no SLCLI.
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -48,7 +48,7 @@ múltiplas contas, mas não é possível autorizar um host de uma conta a acessa
 3. À direita, clique em **Autorizar host**. Selecione os hosts
 que podem acessar esse LUN específico.
 
-Como alternativa, é possível usar o comando a seguir na CLI do SL.
+Como alternativa, é possível usar o comando a seguir no SLCLI.
 ```
 # slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -68,7 +68,7 @@ Options:
 
 Lá é possível ver a lista dos hosts que estão atualmente autorizados a acessar o LUN. Também é possível ver as informações sobre autenticação que são necessárias para fazer uma conexão - nome de usuário, senha e Host do IQN. O endereço de Destino é listado na página **Detalhe de armazenamento**. Para NFS, o endereço de destino é descrito como um nome DNS e, para iSCSI, é o endereço IP do portal de destino de descoberta.
 
-Como alternativa, é possível usar o comando a seguir na CLI do SL.
+Como alternativa, é possível usar o comando a seguir no SLCLI.
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -136,9 +136,9 @@ Se você desejar desconectar múltiplos hosts de um LUN específico, será neces
 para cada host.
 {:tip}
 
-### Revogando o acesso por meio da CLI do SL.
+### Revogando o acesso por meio do SLCLI.
 
-Como alternativa, é possível usar o comando a seguir na CLI do SL.
+Como alternativa, é possível usar o comando a seguir no SLCLI.
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -171,7 +171,7 @@ de cancelamento antes da data de aniversário.
 4. Clique em **Continuar** ou em **Fechar**.
 5. Clique na caixa de seleção **Confirmação** e clique em **Confirmar**.
 
-Como alternativa, é possível usar o comando a seguir na CLI do SL.
+Como alternativa, é possível usar o comando a seguir no SLCLI.
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

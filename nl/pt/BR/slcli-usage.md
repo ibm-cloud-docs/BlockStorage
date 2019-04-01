@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
 subcollection: BlockStorage
 
@@ -16,18 +16,15 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Comandos da CLI do SL para {{site.data.keyword.blockstorageshort}}
+# Comandos SLCLI para o {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-É possível usar a CLI do SL para ações como fazer pedidos para novos volumes, espaço e replicação de captura
-instantânea, atualização de autorizações, cancelamento de volumes e assim por diante, que normalmente são
-manipuladas por meio do [{{site.data.keyword.slportal}}
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+É possível usar o SLCLI para executar ações que normalmente são manipuladas por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}. Por exemplo, com o SLCLI, é possível fazer pedidos de volumes, espaço de captura instantânea, replicação, atualizar autorizações, cancelar volumes e assim por diante.
 
-Para obter mais informações sobre como instalar e usar a CLI do SL, consulte [Cliente da API da Python ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Cliente da API de Python ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
-## Acesso relacionado aos comandos da CLI do SL
+## Comandos do SLCLI relacionados a acesso
 * [Gerenciando o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -36,10 +33,9 @@ Para obter mais informações sobre como instalar e usar a CLI do SL, consulte [
   slcli block access-revoke
   ```
 
-## Replicação relacionada aos comandos da CLI do SL
+## Comandos do SLCLI relacionados a replicação
 
-* [Replicação relacionada aos
-comandos da CLI do SL](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [Comandos do SLCLI relacionados a replicação](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -49,7 +45,7 @@ comandos da CLI do SL](/docs/infrastructure/BlockStorage?topic=BlockStorage-repl
   slcli block replica-partners
   ```
 
-## Capturas instantâneas relacionadas aos comandos da CLI do SL
+## Comandos do SLCLI relacionados a capturas instantâneas
 
 * [Solicitando capturas instantâneas](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -67,7 +63,7 @@ comandos da CLI do SL](/docs/infrastructure/BlockStorage?topic=BlockStorage-repl
   slcli block snapshot-enable
   ```
 
-## Volume relacionado aos comandos da CLI do SL
+## Comandos do SLCLI relacionados a volume
 
 * [Pedindo um volume do {{site.data.keyword.blockstorageshort}} ](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [Criando um volume duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)

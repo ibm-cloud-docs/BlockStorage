@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
 subcollection: BlockStorage
 
@@ -16,15 +16,15 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.blockstorageshort}} 的 SL CLI 指令
+# {{site.data.keyword.blockstorageshort}} 的 SLCLI 指令
 {: #SLCLIcommands}
 
-您可以使用 SL CLI 採取通常透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 處理的動作，例如訂購新磁區、Snapshot 空間及抄寫、更新授權、取消磁區等等。
+您可以使用 SLCLI 採取通常透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 處理的動作。例如，使用 SLCLI 您可以針對磁區、Snapshot 空間、抄寫、更新授權、取消磁區等等而下訂單。
 
-若要進一步瞭解如何安裝及使用 SL CLI，請參閱 [Python API 用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
+若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
 {:tip}
 
-## 存取相關的 SL CLI 指令
+## 存取相關的 SLCLI 指令
 * [管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ subcollection: BlockStorage
   slcli block access-revoke
   ```
 
-## 抄寫相關的 SL CLI 指令
+## 抄寫相關的 SLCLI 指令
 
-* [抄寫相關的 SL CLI 指令](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [抄寫相關的 SLCLI 指令](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ subcollection: BlockStorage
   slcli block replica-partners
   ```
 
-## Snapshot 相關的 SL CLI 指令
+## Snapshot 相關的 SLCLI 指令
 
 * [訂購 Snapshot](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,7 +63,7 @@ subcollection: BlockStorage
   slcli block snapshot-enable
   ```
 
-## 磁區相關的 SL CLI 指令
+## 磁區相關的 SLCLI 指令
 
 * [訂購 {{site.data.keyword.blockstorageshort}} 磁區](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [建立重複磁區](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)

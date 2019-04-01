@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-07"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -36,11 +36,11 @@ entrada/saída por segundo (IOPS) alocadas.
 
 Para obter mais informações sobre a oferta do {{site.data.keyword.blockstorageshort}}, consulte [Sobre o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
-### Considerações de Fornecimento
+## Considerações de Fornecimento
 
-** Tamanho do bloco **
+### Tamanho do bloco
 
-O IOPS para o Endurance e o Performance tem como base um tamanho de bloco de 16 KB com uma carga de trabalho aleatória de 50%, 50/50 de leitura/gravação. Um bloco de 16 KB equivale a uma gravação no volume.
+O IOPS para Duração e Desempenho é baseado em um tamanho de bloco de 16 KB com uma carga de trabalho aleatória/sequencial 50/50 de leitura/gravação 50/50. Um bloco de 16 KB equivale a uma gravação no volume.
 {:important}
 
 O tamanho do bloco usado por seu aplicativo afetará diretamente o desempenho do armazenamento. Se o tamanho do bloco usado por seu aplicativo for menor que 16 KB, o limite do IOPS será realizado antes do limite do rendimento. Por outro lado, se o tamanho do bloco usado por seu aplicativo for maior que 16 KB, o limite de rendimento será realizado antes do limite do IOPS.
@@ -98,11 +98,11 @@ O tamanho do bloco usado por seu aplicativo afetará diretamente o desempenho do
         </tbody>
 </table>
 
-** Hosts autorizados **
+### Hosts autorizados
 
 Outro fator a ser considerado é o número de hosts que estão usando seu volume. Se houver um único host acessando o volume, poderá ser difícil realizar o IOPS máximo disponível, especialmente em contagens extremas de IOPS (10.000s). Se a sua carga de trabalho requerer alto rendimento, será melhor configurar pelo menos alguns servidores para acessar seu volume para evitar um gargalo de servidor único.
 
-** Conexão de rede **
+### Conexão de rede
 
 A velocidade da sua conexão de Ethernet deve ser mais rápida do
 que o rendimento máximo esperado de seu volume. Em geral, não espere saturar sua conexão Ethernet além de 70% da largura de banda disponível. Por exemplo, se você tiver 6.000 IOPS e estiver usando um tamanho de bloco de 16 KB, o volume poderá manipular o rendimento de aproximadamente 94 MBps. Se você tiver uma conexão Ethernet de 1 Gbps com seu LUN, ela se tornará um gargalo quando seus servidores tentarem usar o rendimento máximo disponível. Isso porque 70% do limite teórico de uma conexão Ethernet de 1 Gbps (125 MB por segundo) permitiria 88 MB por segundo apenas.
@@ -132,4 +132,4 @@ Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts
 
 ## Gerenciando seu novo Armazenamento
 
-Por meio do portal ou do SLCLI, é possível gerenciar vários aspectos de seu File Storage, como autorizações de host e cancelamentos. Para obter mais informações, consulte [Gerenciando o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Por meio do portal ou do SLCLI, é possível gerenciar vários aspectos de seu Armazenamento de arquivos, tais como autorizações e cancelamentos do host. Para obter mais informações, consulte [Gerenciando o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

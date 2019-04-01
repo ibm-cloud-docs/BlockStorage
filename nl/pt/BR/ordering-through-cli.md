@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
 subcollection: BlockStorage
 
@@ -14,12 +14,12 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Pedindo o {{site.data.keyword.blockstorageshort}} por meio da CLI do SL
+# Pedindo o {{site.data.keyword.blockstorageshort}} por meio do SLCLI
 {: #orderingthroughCLI}
 
-É possível usar a CLI do SL para fazer pedidos para produtos que normalmente são pedidos por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
+É possível usar o SLCLI para fazer pedidos de produtos que normalmente são pedidos por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
 
-Para obter mais informações sobre como instalar e usar a CLI do SL, consulte [Cliente da API da Python ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Cliente da API de Python ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
 ## Procurando ofertas disponíveis do {{site.data.keyword.blockstorageshort}}
@@ -99,8 +99,7 @@ Para poder acessar todos os novos recursos, peça o `Storage-as-a-Service Packag
 
 ## Fazendo o pedido
 
-O exemplo a seguir mostra como pedir um volume {{site.data.keyword.blockstorageshort}}
-de 80 GB com espaço de captura instantânea de 20 GB e 0,25 IOPS por GB.
+O exemplo a seguir mostra como solicitar um volume do {{site.data.keyword.blockstorageshort}} de 80 GB com espaço de captura instantânea de 20 GB e 0,25 IOPS por GB.
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20

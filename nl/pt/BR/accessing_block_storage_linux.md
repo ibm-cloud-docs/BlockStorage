@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
 subcollection: BlockStorage
 
@@ -536,7 +536,7 @@ Para criar um sistema de arquivos com `parted`, siga estas etapas.
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. Verifique se os discos estão presentes. Deve haver dois discos com o mesmo identificador e uma listagem `/dev/mapper` do mesmo tamanho com o mesmo identificador. O dispositivo `/dev/mapper` é aquele que os caminhos múltiplos configuram.
+2. Verifique se os discos estão presentes. Espere ver dois discos com o mesmo identificador e uma listagem `/dev/mapper` do mesmo tamanho com o mesmo identificador. O dispositivo `/dev/mapper` é aquele que os caminhos múltiplos configuram.
   ```
   fdisk -l | grep Disk
   ```

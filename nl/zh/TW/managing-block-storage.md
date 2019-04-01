@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -26,7 +26,7 @@ subcollection: BlockStorage
 1. 按一下**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中按一下適當的「LUN 名稱」。
 
-或者，您可以在 SL CLI 中使用下列指令。
+或者，您可以在 SLCLI 中使用下列指令。
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -46,7 +46,7 @@ Options:
 2. 捲動至頁面的**授權主機**區段。
 3. 在右側，按一下**授權主機**。選取可以存取該特定 LUN 的主機。
 
-或者，您可以在 SL CLI 中使用下列指令。
+或者，您可以在 SLCLI 中使用下列指令。
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -67,7 +67,7 @@ Options:
 
 在這裡，您可以看到目前已獲授權存取 LUN 的主機清單。您也可以看到建立連線所需的鑑別資訊 - 使用者名稱、密碼和 IQN 主機。「目標」位址列在**儲存空間詳細資料**頁面。若為 NFS，「目標」位址會描述為 DNS 名稱，若為 iSCSI，它是「探索目標入口網站」的 IP 位址。
 
-或者，您可以在 SL CLI 中使用下列指令。
+或者，您可以在 SLCLI 中使用下列指令。
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -130,9 +130,9 @@ Options:
 如果您要中斷多個 LUN 與特定主機的連線，則需要針對每一個主機重複「撤銷存取權」動作。
 {:tip}
 
-### 透過 SL CLI 撤銷存取權。
+### 透過 SLCLI 撤銷存取權。
 
-或者，您可以在 SL CLI 中使用下列指令。
+或者，您可以在 SLCLI 中使用下列指令。
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -164,7 +164,7 @@ Options:
 4. 按一下**繼續**或**關閉**。
 5. 按一下**確認通知**勾選框，然後按一下**確認**。
 
-或者，您可以在 SL CLI 中使用下列指令。
+或者，您可以在 SLCLI 中使用下列指令。
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

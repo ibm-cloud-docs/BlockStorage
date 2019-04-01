@@ -4,12 +4,13 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -62,7 +63,7 @@ Além disso, para a maioria das cargas de trabalho, quanto maior for um volume, 
    {:note}
 6. Marque a caixa **Eu li o Contrato de Prestação de Serviços Principal e concorde com os termos contidos nele** e clique em **Fazer pedido**. Seu espaço de captura instantânea será provisionado em alguns minutos.
 
-## Pedindo o espaço de captura instantânea por meio do CLI do SL
+## Pedindo Espaço de captura instantânea por meio do SLCLI
 
 ```
 # slcli block snapshot-order --help

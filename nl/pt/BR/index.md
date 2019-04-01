@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-14"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -176,7 +176,7 @@ e contagens de IOPS maiores. Os volumes do Performance podem ser pedidos de acor
           <tr>
             <td>500</td>
             <td>100</td>
-            <td>6.000 ou 10.000<sup><img src="/images/numberone.png" alt="nota de rodapé" /></sup></td>
+            <td>6.000 ou 10.000 <sup><img src="/images/numberone.png" alt="Nota de rodapé" /></sup></td>
           </tr>
           <tr>
             <td>1.000</td>
@@ -184,12 +184,12 @@ e contagens de IOPS maiores. Os volumes do Performance podem ser pedidos de acor
             <td>6.000 ou 20.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
           <tr>
-            <td>2.000 a 3.000</td>
+            <td>2.000</td>
             <td>200</td>
             <td>6.000 ou 40.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>
           <tr>
-            <td>4.000 a 7.000</td>
+            <td>3.000-7.000</td>
             <td>300</td>
             <td>6.000 ou 48.000 <sup> <img src="/images/numberone.png" alt="Footnote" /> </sup></td>
           </tr>

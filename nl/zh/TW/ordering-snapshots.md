@@ -4,12 +4,13 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -61,7 +62,7 @@ subcollection: BlockStorage
    {:note}
 6. 勾選**我已閱讀主要服務合約，並同意其中的條款**勾選框，然後按**下訂單**。在幾分鐘之後，即會佈建您的 Snapshot 空間。
 
-## 透過 SL CLI 訂購 Snapshot 空間
+## 透過 SLCLI 訂購 Snapshot 空間
 
 ```
 # slcli block snapshot-order --help
