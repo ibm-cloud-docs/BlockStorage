@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -26,7 +26,7 @@ subcollection: BlockStorage
 1. **「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから適切な LUN 名をクリックします。
 
-あるいは、次の SL CLI コマンドを使用できます。
+あるいは、次の SLCLI コマンドを使用できます。
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -46,7 +46,7 @@ Options:
 2. 当該ページの**「許可ホスト (Authorized Hosts)」**セクションにスクロールします。
 3. 右側で、**「ホストの許可」**をクリックします。 その特定の LUN にアクセスできるホストを選択します。
 
-あるいは、次の SL CLI コマンドを使用できます。
+あるいは、次の SLCLI コマンドを使用できます。
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -67,7 +67,7 @@ Options:
 
 LUN へのアクセスが現在許可されているホストのリストが表示されます。 また、接続を確立するために必要な認証情報 (ユーザー名、パスワード、ホスト IQN) も表示されます。 ターゲット・アドレスは、**「ストレージの詳細」**ページにリストされます。 NFS の場合、ターゲット・アドレスは DNS 名として示され、iSCSI の場合は「ターゲット ポータルの探索」の IP アドレスとして示されます。
 
-あるいは、次の SL CLI コマンドを使用できます。
+あるいは、次の SLCLI コマンドを使用できます。
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -131,9 +131,9 @@ Options:
 特定の LUN から複数のホストを切断する場合は、ホストごとに「アクセス権の取り消し」アクションを繰り返す必要があります。
 {:tip}
 
-### SL CLI を使用したアクセス権の取り消し
+### SLCLI を使用したアクセス権の取り消し
 
-あるいは、次の SL CLI コマンドを使用できます。
+あるいは、次の SLCLI コマンドを使用できます。
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -165,7 +165,7 @@ Options:
 4. **「続行」**または**「閉じる」**をクリックします。
 5. **「確認応答」**チェック・ボックスをクリックし、**「確認」**をクリックします。
 
-あるいは、次の SL CLI コマンドを使用できます。
+あるいは、次の SLCLI コマンドを使用できます。
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

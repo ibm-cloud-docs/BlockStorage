@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
 subcollection: BlockStorage
 
@@ -535,7 +535,7 @@ Options:
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. ディスクが存在することを確認してください。 同じ ID を持つ 2 つのディスクが存在し、同じ ID で同じサイズの `/dev/mapper` がリストされていなければなりません。 `/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
+2. ディスクが存在することを確認してください。 同じ ID を持つ 2 つのディスクが存在し、同じ ID で同じサイズの `/dev/mapper` がリストされている必要があります。 `/dev/mapper` デバイスが、マルチパスによってセットアップされるデバイスです。
   ```
   fdisk -l | grep Disk
   ```

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
-keywords:
+keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
 subcollection: BlockStorage
 
@@ -127,19 +127,18 @@ Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen 
 
 ## Vorhandene Replikation bearbeiten
 
-Sie können entweder in der Registerkarte **Primäres** oder **Replikation** unter **Speicher** **{{site.data.keyword.blockstorageshort}}** vom [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} Ihren Replikationsplan bearbeiten und Ihren Replikationsspeicherbereich ändern.
-
+Sie können entweder in der Registerkarte **Primär** oder **Replikat** unter **Speicher** **{{site.data.keyword.blockstorageshort}}** vom [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} Ihren Replikationsplan bearbeiten und Ihren Replikationsspeicherbereich ändern.
 
 
 ## Replikationszeitplan bearbeiten
 
-Der Replikationsplan basiert auf einem vorhandenen Snapshotplan. Um den Replikationsplan zu ändern, beispielsweise von 'Stündlich' in 'Wöchentlich', müssen Sie den Replikationsplan löschen und einen neuen einrichten.
+Der Replikationsplan basiert auf einem vorhandenen Snapshotplan. Um den Replikationsplan von 'Stündlich' in 'Täglich' oder 'Wöchentlich' zu ändern oder umgekehrt, müssen Sie den Replikatdatenträger löschen und einen neuen einrichten. 
 
-Der Plan kann auf der Registerkarte 'Primär' oder 'Replikat' geändert werden.
+Wenn Sie jedoch die Tageszeit ändern möchten, zu der die **tägliche** Replikation stattfindet, können Sie den vorhandenen Zeitplan auf der Registerkarte des Primärdatenträgers oder des Replikatdatenträgers ändern. 
 
-1. Klicken Sie entweder in der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
+1. Klicken Sie entweder auf der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
 2. Wählen Sie **Snapshotplan bearbeiten** aus.
-3. Überprüfen Sie im Rahmen **Snapshot** die Angaben unter **Plan**, um festzustellen, welchen Plan Sie für die Replikation verwenden. Ändern Sie den gewünschten Zeitplan. Wenn Ihr Replikationsplan beispielsweise **Täglich** ist, können Sie die Uhrzeit ändern, zu der die Replikation ausgeführt werden soll.
+3. Überprüfen Sie im Rahmen **Snapshot** die Angaben unter **Plan**, um festzustellen, welchen Plan Sie für die Replikation verwenden. Ändern Sie den gewünschten Zeitplan.
 4. Klicken Sie auf **Speichern**.
 
 
@@ -147,7 +146,7 @@ Der Plan kann auf der Registerkarte 'Primär' oder 'Replikat' geändert werden.
 
 Der primäre Replikationsbereich und der Replikatsbereich müssen identisch sein. Wenn Sie den Bereich auf der Registerkarte **Primär** oder **Replikat** ändern, wird automatisch Speicherplatz zu Ihrem Quellen- und Ihrem Zielrechenzentrum hinzugefügt. Wird der Snapshotbereich vergrößert, wird auch eine sofortige Aktualisierung der Replikation ausgelöst.
 
-1. Klicken Sie entweder in der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
+1. Klicken Sie entweder auf der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
 2. Wählen Sie **Mehr Snapshotbereich hinzufügen** aus.
 3. Wählen Sie in der Liste die Speichergröße aus und klicken Sie auf **Weiter**.
 4. Geben Sie einen **Werbeaktionscode** ein, sofern vorhanden, und klicken Sie auf **Neu berechnen**. Die anderen Felder im Dialogfeld nehmen die Standardwerte an.
@@ -206,7 +205,7 @@ Beim Failover 'kippen Sie den Schalter' von Ihrem Speicherdatenträger in Ihrem 
 Der Abbruch kann sofort oder am Stichtag erfolgen und bewirkt das Ende der Abrechnung. Die Replikation kann auf der Registerkarte **Primär** oder **Replikat** abgebrochen werden.
 
 1. Klicken Sie auf der Seite '**{{site.data.keyword.blockstorageshort}}**' auf den Datenträger.
-2. Klicken Sie entweder in der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
+2. Klicken Sie entweder auf der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
 3. Wählen Sie **Replikat abbrechen** aus.
 4. Wählen Sie den Zeitpunkt des Abbruchs aus. Wählen Sie **Sofort** oder **Stichtag** aus und klicken Sie auf **Weiter**.
 5. Aktivieren Sie **Ich bestätige, dass der Abbruch einen Datenverlust zur Folge haben kann** und klicken Sie auf **Replikat abbrechen**.
@@ -221,7 +220,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
  3. Wählen Sie den Zeitpunkt des Abbruchs aus. Wählen Sie **Sofort** oder **Stichtag** aus und klicken Sie auf **Weiter**.
  4. Aktivieren Sie **Ich bestätige, dass der Abbruch einen Datenverlust zur Folge haben kann** und klicken Sie auf **Abbrechen**.
 
-## SL-CLI-Befehle im Zusammenhang mit der Replikation
+## SLCLI-Befehle im Zusammenhang mit der Replikation
 {: #clicommands}
 
 * Geeignete Replikationsrechenzentren für einen bestimmten Datenträger auflisten.

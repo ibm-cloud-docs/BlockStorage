@@ -4,12 +4,13 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -61,7 +62,7 @@ Außerdem gilt bei den meisten Workloads, dass anfangs umso weniger Speicherplat
    {:note}
 6. Wählen Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen und bin mit den darin genannten Bedingungen einverstanden** aus und klicken Sie auf **Bestellung aufgeben**. Der Snapshotbereich wird in wenigen Minuten bereitgestellt.
 
-## Snapshotbereich über die SL-CLI bestellen
+## Snapshotbereich über die SLCLI bestellen
 
 ```
 # slcli block snapshot-order --help

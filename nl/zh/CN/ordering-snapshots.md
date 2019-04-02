@@ -4,12 +4,13 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -61,7 +62,7 @@ subcollection: BlockStorage
    {:note}
 6. 选中**我已阅读主服务协议并同意其中的条款**框，然后单击**下订单**。快照空间将在几分钟后供应。
 
-## 通过 SL CLI 来订购快照空间
+## 通过 SLCLI 来订购快照空间
 
 ```
 # slcli block snapshot-order --help

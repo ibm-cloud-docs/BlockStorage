@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-07"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -32,13 +32,13 @@ Bei {{site.data.keyword.blockstoragefull}} handelt es sich um persistenten iSCSI
 - Stellen Sie **Endurance**-Tiers mit vordefinierten Leistungsstufen und weiteren Funktionen wie Snapshots und Replikation bereit.
 - Erstellen Sie eine leistungsfähige **Performance**-Umgebung mit zugeordneten E/A-Operationen pro Sekunde (IOPS).
 
-Weitere Informationen zum {{site.data.keyword.blockstorageshort}}-Angebot finden Sie in [Informationen zu {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About). 
+Weitere Informationen zum {{site.data.keyword.blockstorageshort}}-Angebot finden Sie in [Informationen zu {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
-### Hinweise zur Bereitstellung
+## Hinweise zur Bereitstellung
 
-**Blockgröße**
+### Blockgröße
 
-IOPS für Endurance und Performance basiert auf einer Blockgröße von 16 KB mit einer 50/50-Lese-/Schreibworkload mit 50 Prozent Zufälligkeit. Ein 16-KB-Block entspricht einem Schreibvorgang auf dem Datenträger.
+IOPS für Endurance und Performance basiert auf einer Blockgröße von 16 KB mit einer 50/50-Lese-/Schreibworkload mit 50/50 zufälliger/sequenqzieller Verarbeitung. Ein 16-KB-Block entspricht einem Schreibvorgang auf dem Datenträger.
 {:important}
 
 Die von der Anwendung verwendete Blockgröße beeinflusst direkt die Speicherleistung. Wenn die von Ihrer Anwendung verwendete Blockgröße kleiner als 16 KB ist, wird der IOPS-Grenzwert vor dem Durchsatzgrenzwert umgesetzt. Wenn dagegen die von Ihrer Anwendung verwendete Blockgröße größer als 16 KB ist, wird der Durchsatzgrenzwert vor dem IOPS-Grenzwert umgesetzt.
@@ -96,11 +96,11 @@ Die von der Anwendung verwendete Blockgröße beeinflusst direkt die Speicherlei
         </tbody>
 </table>
 
-**Autorisierte Hosts**
+### Autorisierte Hosts
 
 Ein anderer zu berücksichtigender Faktor ist die Anzahl der Hosts, die den Datenträger nutzen. Wenn ein einzelner Host auf den Datenträger zugreift, kann es schwierig sein, den maximal verfügbaren IOPS-Wert umzusetzen, vor allem bei extremen IOPS-Werten (10.000 s). Wenn die Workload einen hohen Durchsatz erfordert, ist es am besten, eine Mindestmenge an Servern für den Zugriff auf den Datenträger zu konfigurieren, um einen Engpass durch einen einzelnen Server zu vermeiden.
 
-**Netzverbindung**
+### Netzverbindung
 
 Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete maximale Durchsatz auf Ihrem Datenträger. Generell sollten Sie nicht erwarten, Ihre Ethernet-Verbindung über 70 % der verfügbaren Bandbreite hinaus auszulasten. Wenn Sie beispielsweise über 6.000 IOPS verfügen und eine Blockgröße von 16 KB verwenden, sind auf dem Datenträger etwa 94 MBps möglich. Bei einer Ethernet-Verbindung von 1 Gb/s zu einer LUN wird diese Verbindung zu einem Engpass, wenn die Server versuchen, den maximal verfügbaren Durchsatz zu nutzen. Ursache hierfür ist, dass 70 Prozent des theoretischen Grenzwerts von einer Ethernet-Verbindung mit 1 Gb/s (125 MB pro Sekunde) nur 88 MB pro Sekunde zulassen würden.
 
@@ -126,4 +126,4 @@ Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Host
 
 ## Neuen Speicher verwalten
 
-Über das Portal oder die SL-CLI können Sie verschiedene Aspekte des Dateispeichers verwalten, z. B. Hostberechtigungen und Stornierungen. Weitere Informationen finden Sie in [{{site.data.keyword.blockstorageshort}}verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage). 
+Über das Portal oder die SL-CLI können Sie verschiedene Aspekte des Dateispeichers verwalten, z. B. Hostberechtigungen und Stornierungen. Weitere Informationen finden Sie in [{{site.data.keyword.blockstorageshort}}verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

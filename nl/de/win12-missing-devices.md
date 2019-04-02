@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
@@ -27,7 +27,7 @@ Wenn Sie mehr als zwei iSCSI-Geräte verwenden, finden Sie diese Prozedur mögli
 2. Klicken Sie auf die Registerkarte **Ziele** und klicken Sie dann auf **Geräte**.
 
    ![Eigenschaften des iSCSI-Initiators](/images/win12-ts1.png)
-3. Bestätigen Sie die Anzahl der Geräte, die angezeigt werden. Wenn Sie 2 Geräte statt 4 sehen, die berechtigt wurden, fahren Sie mit dem nächsten Schritt fort.
+3. Bestätigen Sie die Anzahl der Geräte, die angezeigt werden. Wenn Sie zwei Geräte statt vier sehen, die berechtigt wurden, fahren Sie mit dem nächsten Schritt fort.
 4. Klicken Sie auf **Ziele** und dann auf **Verbinden**.
 5. Wählen Sie **Multipath** und dann **Erweitert** aus.
 6. Wählen Sie Microsoft iSCSI-Initiator als lokalen Adapter aus. Die Initiator-IP gehört zu Ihrem Server.
@@ -44,7 +44,7 @@ Wenn Sie mehr als zwei iSCSI-Geräte verwenden, finden Sie diese Prozedur mögli
 9. Klicken Sie auf **OK**.
 10. Wiederholen Sie die Schritte 5 bis 9 für jede IP, die Sie in den iSCSI-Initiator eingegeben haben. Wenn Sie fertig sind, klicken Sie auf die Registerkarte **Geräte** und überprüfen Sie die Ergebnisse. Jede LUN, die Sie eingerichtet haben, sollte zwei Mal angezeigt werden.
 
-    ![Registerkarte 'Geräte'](/images/win12-ts5.png)
+    ![Registerkarte für Geräte](/images/win12-ts5.png)
 11. Klicken Sie auf **OK**.
 12. Öffnen Sie Disk Manager, und stellen Sie sicher, dass Ihre Laufwerke jetzt angezeigt werden.
 

@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
 subcollection: BlockStorage
 
@@ -16,15 +16,15 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.blockstorageshort}}の SL CLI コマンド
+# {{site.data.keyword.blockstorageshort}} の SLCLI コマンド
 {: #SLCLIcommands}
 
-通常は [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を使用して処理するアクション (新規ボリューム、スナップショット・スペース、およびレプリケーションの発注、許可の更新、ボリュームの取り消しなど) を SL CLI を使用して実行できます。
+通常 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} で処理する操作を、SLCLI を使用して実行することができます。 例えば、新規ボリュームやスナップショット・スペースおよびレプリケーションの注文、許可の更新、ボリュームのキャンセルなどを、SLCLI で行うことができます。
 
-SL CLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}を参照してください。
+SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}を参照してください。
 {:tip}
 
-## アクセス権関連の SL CLI コマンド
+## アクセス関連の SLCLI コマンド
 * [{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ SL CLI をインストールして使用する方法について詳しくは、[
   slcli block access-revoke
   ```
 
-## レプリケーション関連の SL CLI コマンド
+## レプリケーション関連の SLCLI コマンド
 
-* [レプリケーション関連の SL CLI コマンド](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [レプリケーション関連の SLCLI コマンド](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ SL CLI をインストールして使用する方法について詳しくは、[
   slcli block replica-partners
   ```
 
-## スナップショット関連の SL CLI コマンド
+## スナップショット関連の SLCLI コマンド
 
 * [スナップショットの注文](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,7 +63,7 @@ SL CLI をインストールして使用する方法について詳しくは、[
   slcli block snapshot-enable
   ```
 
-## ボリューム関連の SL CLI コマンド
+## ボリューム関連の SLCLI コマンド
 
 * [{{site.data.keyword.blockstorageshort}}・ボリュームの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [複製ボリュームの作成](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)

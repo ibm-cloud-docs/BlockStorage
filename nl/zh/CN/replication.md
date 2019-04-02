@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
-keywords:
+keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
 subcollection: BlockStorage
 
@@ -130,16 +130,15 @@ MEL01<br />
 您可以在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下的**主**或**副本**选项卡中，编辑复制安排并更改复制空间。
 
 
-
 ## 编辑复制安排
 
-复制安排基于现有快照安排。要更改复制安排（例如，从每小时更改为每周），必须取消该复制安排，然后设置新的复制安排。
+复制安排基于现有快照安排。要将复制安排从每小时更改为每天或每周，或者反之，必须取消该副本卷并设置一个新的副本卷。
 
-更改安排可以在“主”或“副本”选项卡上执行。
+但是，如果要更改**每天**复制发生的时间，可以对“主”或“副本”选项卡上的现有安排进行调整。
 
 1. 单击**主**或**副本**选项卡上的**操作**。
 2. 选择**编辑快照安排**。
-3. 查看**安排**下的**快照**框架，以确定要用于复制的安排。更改所需的安排。例如，如果复制安排为**每天**，那么可以更改执行复制的时刻。
+3. 查看**安排**下的**快照**框架，以确定要用于复制的安排。更改所需的安排。
 4. 单击**保存**。
 
 

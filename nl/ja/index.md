@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-14"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstoragefull}} は、コンピューティング・インスタンスから独立してプロビジョンおよび管理される、永続的で高性能な iSCSI ストレージです。 iSCSI ベースの {{site.data.keyword.blockstorageshort}} LUN は、冗長マルチパス入出力 (MPIO) 接続を介して、許可されたデバイスに接続されます。
 
-{{site.data.keyword.blockstorageshort}} は、他に類のない機能セットによりクラス最高レベルの耐久性および可用性をもたらします。 この製品は、業界標準とベスト・プラクティスを使用して構築されています。 {{site.data.keyword.blockstorageshort}} は、保守イベントや計画外の障害においてもデータの保全性を保護し、可用性を維持し、一貫性のあるパフォーマンス・ベースラインを提供するように設計されています。
+{{site.data.keyword.blockstorageshort}} は、他に類のない機能によりクラス最高レベルの耐久性および可用性をもたらします。 この製品は、業界標準とベスト・プラクティスを使用して構築されています。 {{site.data.keyword.blockstorageshort}} は、保守イベントや計画外の障害においてもデータの保全性を保護し、可用性を維持し、一貫性のあるパフォーマンス・ベースラインを提供するように設計されています。
 
 ## コア機能
 {: #corefeatures}
@@ -171,7 +171,7 @@ subcollection: BlockStorage
           <tr>
             <td>500</td>
             <td>100</td>
-            <td>6,000 または 10,000<sup><img src="/images/numberone.png" alt="脚注" /></sup></td>
+            <td>6,000 または 10,000 <sup><img src="/images/numberone.png" alt="脚注" /></sup></td>
           </tr>
           <tr>
             <td>1,000</td>
@@ -179,12 +179,12 @@ subcollection: BlockStorage
             <td>6,000 または 20,000<sup><img src="/images/numberone.png" alt="脚注" /></sup></td>
           </tr>
           <tr>
-            <td>2,000 から 3,000</td>
+            <td>2,000</td>
             <td>200</td>
             <td>6,000 または 40,000<sup><img src="/images/numberone.png" alt="脚注" /></sup></td>
           </tr>
           <tr>
-            <td>4,000 から 7,000</td>
+            <td>3,000 から 7,000</td>
             <td>300</td>
             <td>6,000 または 48,000<sup><img src="/images/numberone.png" alt="脚注" /></sup></td>
           </tr>

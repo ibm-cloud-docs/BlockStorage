@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
 subcollection: BlockStorage
 
@@ -534,7 +534,7 @@ root@server:~# multipath -l
 7:0:0:101 sde 8:64 active undef running
 ```
 
-2. 检查磁盘是否存在。必须有两个磁盘具有相同的标识，而且 `/dev/mapper` 列出的设备应具有相同的标识和大小。`/dev/mapper` 设备是多路径设置的设备。
+2. 检查磁盘是否存在。应该会看到两个磁盘具有相同的标识，而且 `/dev/mapper` 列出的设备应具有相同的标识和大小。`/dev/mapper` 设备是多路径设置的设备。
   ```
   fdisk -l | grep Disk
   ```

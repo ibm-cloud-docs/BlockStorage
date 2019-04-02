@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
 subcollection: BlockStorage
 
@@ -16,15 +16,15 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.blockstorageshort}} 的 SL CLI 命令
+# {{site.data.keyword.blockstorageshort}} 的 SLCLI 命令
 {: #SLCLIcommands}
 
-您可以使用 SL CLI 来执行操作，例如为新卷、快照空间和复制下订单，更新授权，取消卷等等，这些操作通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 来进行处理。
+您可以使用 SLCLI 来执行通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 处理的操作。例如，您可以使用 SLCLI 为卷、快照空间、复制、更新授权、取消卷等下订单。
 
-有关如何安装和使用 SL CLI 的更多信息，请参阅 [Python API 客户机 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
+有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
 {:tip}
 
-## 与访问权相关的 SL CLI 命令
+## 访问相关的 SLCLI 命令
 * [管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ subcollection: BlockStorage
   slcli block access-revoke
   ```
 
-## 与复制相关的 SL CLI 命令
+## 复制相关的 SLCLI 命令
 
-* [与复制相关的 SL CLI 命令](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [复制相关的 SLCLI 命令](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ subcollection: BlockStorage
   slcli block replica-partners
   ```
 
-## 与快照相关的 SL CLI 命令
+## 快照相关的 SLCLI 命令
 
 * [订购快照](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,7 +63,7 @@ subcollection: BlockStorage
   slcli block snapshot-enable
   ```
 
-## 与卷相关的 SL CLI 命令
+## 卷相关的 SLCLI 命令
 
 * [订购 {{site.data.keyword.blockstorageshort}} 卷](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [创建复制卷](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)

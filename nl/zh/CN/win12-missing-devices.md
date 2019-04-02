@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
@@ -21,13 +21,13 @@ subcollection: BlockStorage
 # Windows 2012 R2 - 多个 iSCSI 设备
 {: #troubleshootingWin12}
 
-如果使用两个以上的 iSCSI 设备，您可能会发现此过程很有用；尤其是，当所有 4 个 iSCSI 分配都来自相同存储设备的时候。如果在“磁盘管理器”中只能看到两个设备，那么需要手动连接到每个服务器节点上 iSCSI 启动器中的每个设备。
+如果使用两个以上的 iSCSI 设备，您可能会发现此过程很有用；尤其是，当所有四个 iSCSI 分配都来自相同存储设备的时候。如果在“磁盘管理器”中只能看到两个设备，那么需要手动连接到每个服务器节点上 iSCSI 启动器中的每个设备。
 
 1. 打开 Windows iSCSI 启动器。
 2. 单击**目标**选项卡，然后单击**设备**。
 
    ![iSCSI 启动器属性](/images/win12-ts1.png)
-3. 确认显示的设备的数量。如果看到 2 台设备，而不是授权的 4 台，那么继续下一步。
+3. 确认显示的设备的数量。如果看到两个设备，而不是授权的四个，那么继续下一步。
 4. 单击**目标**，然后单击**连接**。
 5. 选择**多路径**，然后单击**高级**。
 6. 选择 Microsoft iSCSI 启动器作为“本地适配器”。启动器 IP 属于您的服务器。
@@ -44,7 +44,7 @@ subcollection: BlockStorage
 9. 单击**确定**。
 10. 针对在 iSCSI 启动器中输入的每个 IP 重复步骤 5-9。在完成时，单击**设备**选项卡，然后复审结果。应该会看到您设置的每个 LUN 列出两次。
 
-    ![设备选项卡](/images/win12-ts5.png)
+    ![“设备”选项卡](/images/win12-ts5.png)
 11. 单击**确定**。
 12. 打开“磁盘管理器”，并验证您的驱动器现在是否显示。
 

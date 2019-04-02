@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
 subcollection: BlockStorage
 
@@ -14,12 +14,12 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# 通过 SL CLI 订购 {{site.data.keyword.blockstorageshort}}
+# 通过 SLCLI 订购 {{site.data.keyword.blockstorageshort}}
 {: #orderingthroughCLI}
 
-您可以使用 SL CLI 以针对通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
+您可以使用 SLCLI 以针对通常通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
 
-有关如何安装和使用 SL CLI 的更多信息，请参阅 [Python API 客户机 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
+有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
 {:tip}
 
 ## 搜索可用的 {{site.data.keyword.blockstorageshort}} 产品
@@ -99,7 +99,7 @@ Options:
 
 ## 下订单
 
-以下示例显示了如何订购一个 80 GB 的 {{site.data.keyword.blockstorageshort}} 卷（20 GB 快照空间且 0.25 IOPS/GB）。
+以下示例显示了如何订购一个 80 GB 的 {{site.data.keyword.blockstorageshort}} 卷（包含 20 GB 快照空间和 0.25 IOPS/GB）。
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20

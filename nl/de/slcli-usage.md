@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
 subcollection: BlockStorage
 
@@ -16,15 +16,15 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# SL-CLI-Befehle für {{site.data.keyword.blockstorageshort}}
+# SLCLI-Befehle für {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-Sie können die SL-CLI verwenden, um Aktionen, wie z. B. das Bestellen neuer Datenträger, eines Snapshotbereichs oder einer Replikation, das Aktualisieren von Berechtigungen, das Stornieren von Datenträgern usw., auszuführen, die normalerweise über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} vorgenommen werden.
+Sie können die SLCLI verwenden, um Aktionen auszuführen, die normalerweise über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ausgeführt werden. So können Sie über die SLCLI beispielsweise Datenträger, Snapshotbereiche und Replikationen bestellen, Berechtigungen aktualisieren, Datenträger stornieren usw. 
 
-Weitere Informationen zur Installation und Verwendung der SL-CLI finden Sie unter [Python-API-Client ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter [Python-API-Client ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
-## SL-CLI-Befehle im Zusammenhang mit der Zugriffssteuerung
+## SLCLI-Befehle im Zusammenhang mit dem Zugriff
 * [{{site.data.keyword.blockstorageshort}} verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ Weitere Informationen zur Installation und Verwendung der SL-CLI finden Sie unte
   slcli block access-revoke
   ```
 
-## SL-CLI-Befehle im Zusammenhang mit der Replikation
+## SLCLI-Befehle im Zusammenhang mit der Replikation
 
-* [SL-CLI-Befehle im Zusammenhang mit der Replikation](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [SLCLI-Befehle im Zusammenhang mit der Replikation](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ Weitere Informationen zur Installation und Verwendung der SL-CLI finden Sie unte
   slcli block replica-partners
   ```
 
-## SL-CLI-Befehle im Zusammenhang mit Snapshots
+## SLCLI-Befehle im Zusammenhang mit Snapshots
 
 * [Snapshots bestellen](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,7 +63,7 @@ Weitere Informationen zur Installation und Verwendung der SL-CLI finden Sie unte
   slcli block snapshot-enable
   ```
 
-## SL-CLI-Befehle im Zusammenhang mit Datenträgern
+## SLCLI-Befehle im Zusammenhang mit Datenträgern
 
 * [{{site.data.keyword.blockstorageshort}}-Datenträger bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [Duplikat eines Datenträgers erstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)
