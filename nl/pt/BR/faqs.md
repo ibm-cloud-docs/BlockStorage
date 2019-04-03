@@ -117,7 +117,7 @@ data centers submetidos a upgrade e de recursos disponíveis
 O {{site.data.keyword.blockstorageshort}} que é provisionado antes do upgrade do data center não pode ser criptografado.
 O novo {{site.data.keyword.blockstorageshort}} que é fornecido em data centers com upgrade é criptografado automaticamente. Não há configuração de criptografia para escolher, é automático.
 Os dados em armazenamento não criptografado em um data center submetido a upgrade podem ser criptografados
-criando um novo LUN de bloco e, em seguida, copiando os dados para o novo LUN criptografado com migração baseada em host. Clique [aqui](migrate-block-storage-encrypted-block-storage.html) para obter instruções.
+criando um novo LUN de bloco e, em seguida, copiando os dados para o novo LUN criptografado com migração baseada em host. Clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) para obter instruções.
 
 ## O {{site.data.keyword.blockstorageshort}} suporta a Reserva Persistente SCSI-3
 para implementar o fence de E/S para Db2 pureScale?

@@ -103,7 +103,7 @@ Endurance유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB 티어는 
 
 데이터 센터가 업그레이드되기 전에 프로비저닝되는 {{site.data.keyword.blockstorageshort}}를 암호화할 수 없습니다.
 업그레이드된 데이터 센터에 프로비저닝된 새 {{site.data.keyword.blockstorageshort}}가 자동으로 암호화됩니다. 선택 가능한 암호화 설정이 없으며 이는 자동으로 수행됩니다.
-업그레이드된 데이터 센터에서 암호화되지 않은 스토리지의 데이터는 새 블록 LUN을 작성하고 호스트 기반 마이그레이션을 통해 데이터를 암호화된 새 LUN으로 복사하여 암호화할 수 있습니다. 자세한 내용은 [여기](migrate-block-storage-encrypted-block-storage.html)를 참조하십시오.
+업그레이드된 데이터 센터에서 암호화되지 않은 스토리지의 데이터는 새 블록 LUN을 작성하고 호스트 기반 마이그레이션을 통해 데이터를 암호화된 새 LUN으로 복사하여 암호화할 수 있습니다. 자세한 내용은 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)를 참조하십시오.
 
 ## Db2 pureScale에 대한 I/O 펜싱을 구현하기 위한 {{site.data.keyword.blockstorageshort}}의 SCSI-3 Persistent Reserve를 지원합니까?
 {: faq}

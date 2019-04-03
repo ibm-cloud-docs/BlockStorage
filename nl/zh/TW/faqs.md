@@ -101,7 +101,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 如果我們在最近升級的資料中心擁有未加密的 {{site.data.keyword.blockstorageshort}}，可以加密該 {{site.data.keyword.blockstorageshort}} 嗎？
 {: faq}
 
-無法加密在資料中心升級之前所佈建的 {{site.data.keyword.blockstorageshort}}。佈建在已升級資料中心內的新 {{site.data.keyword.blockstorageshort}} 會自動加密。沒有任何加密設定可供選擇，它是自動的。您可以加密已升級資料中心內未加密儲存空間的資料，方法是建立新的「區塊 LUN」，然後利用主機型移轉，將資料複製到新的加密 LUN。如需指示，請按一下[這裡](migrate-block-storage-encrypted-block-storage.html)。
+無法加密在資料中心升級之前所佈建的 {{site.data.keyword.blockstorageshort}}。佈建在已升級資料中心內的新 {{site.data.keyword.blockstorageshort}} 會自動加密。沒有任何加密設定可供選擇，它是自動的。您可以加密已升級資料中心內未加密儲存空間的資料，方法是建立新的「區塊 LUN」，然後利用主機型移轉，將資料複製到新的加密 LUN。如需指示，請按一下[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)。
 
 ## {{site.data.keyword.blockstorageshort}} 是否支援「SCSI-3 持續保留」來實作 Db2 pureScale 的 I/O 隔離？
 {: faq}

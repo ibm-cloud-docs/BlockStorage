@@ -103,7 +103,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 
 データ・センターのアップグレード前にプロビジョンされた {{site.data.keyword.blockstorageshort}} は、暗号化できません。
 アップグレードされたデータ・センターで新たにプロビジョンされた {{site.data.keyword.blockstorageshort}} は、自動的に暗号化されます。 つまり、暗号化するかどうかを選択する設定はありません。自動で暗号化されます。
-アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、新しいブロック LUN を作成してから、ホスト・ベースのマイグレーションを使用してそのデータを暗号化された新しい LUN にコピーします。 手順については、[ここ](migrate-block-storage-encrypted-block-storage.html)をクリックしてください。
+アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、新しいブロック LUN を作成してから、ホスト・ベースのマイグレーションを使用してそのデータを暗号化された新しい LUN にコピーします。 手順については、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)をクリックしてください。
 
 ## {{site.data.keyword.blockstorageshort}} は、DB2 pureScale 用に I/O フェンシングを実装するための SCSI-3 永続予約をサポートしますか?
 {: faq}

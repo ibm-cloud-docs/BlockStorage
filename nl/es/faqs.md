@@ -103,7 +103,7 @@ Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos
 
 {{site.data.keyword.blockstorageshort}} suministrado antes de la actualización del centro de datos no se puede cifrar.
 El nuevo {{site.data.keyword.blockstorageshort}} que se suministra en centros de datos actualizados se cifra automáticamente. No hay que elegir ningún valor de cifrado; es automático.
-Los datos que residen en almacenamiento no cifrado en un centro de datos actualizado se pueden cifrar creando un nuevo LUN de bloque para posteriormente copiar los datos al nuevo LUN cifrado con migración basada en host. Pulse [aquí](migrate-block-storage-encrypted-block-storage.html) para obtener instrucciones.
+Los datos que residen en almacenamiento no cifrado en un centro de datos actualizado se pueden cifrar creando un nuevo LUN de bloque para posteriormente copiar los datos al nuevo LUN cifrado con migración basada en host. Pulse [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) para obtener instrucciones.
 
 ## ¿{{site.data.keyword.blockstorageshort}} da soporte a la reserva persistente SCSI-3 para implementar una barrera de E/S para Db2 pureScale?
 {: faq}

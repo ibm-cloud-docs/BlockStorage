@@ -102,7 +102,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 {: faq}
 
 无法对在数据中心升级之前供应的 {{site.data.keyword.blockstorageshort}} 加密。
-在已升级的数据中心内供应的新 {{site.data.keyword.blockstorageshort}} 会自动加密。没有加密设置可供选择，这是自动执行的操作。通过创建新的块 LUN，然后使用基于主机的迁移将数据复制到新的已加密 LUN，可以对已升级数据中心内非加密存储器上的数据进行加密。单击[此处](migrate-block-storage-encrypted-block-storage.html)以获取指示信息。
+在已升级的数据中心内供应的新 {{site.data.keyword.blockstorageshort}} 会自动加密。没有加密设置可供选择，这是自动执行的操作。通过创建新的块 LUN，然后使用基于主机的迁移将数据复制到新的已加密 LUN，可以对已升级数据中心内非加密存储器上的数据进行加密。单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)以获取指示信息。
 
 ## {{site.data.keyword.blockstorageshort}} 支持 SCSI-3 持久性预留量以对 Db2 pureScale 实施 I/O 电子篱笆吗？
 {: faq}
