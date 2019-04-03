@@ -28,7 +28,7 @@ subcollection: BlockStorage
 
    Plesk에는 백업을 저장하는 두 가지 옵션이 있습니다. 한 옵션은 Plesk 서버에 있는 백업 스토리지인 내부 Plesk 스토리지입니다. 다른 옵션은 웹 또는 사용자의 로컬 네트워크에서 일부 외부 서버에 있는 백업 스토리지인 외부 FTP 스토리지입니다. Plesk 박스에서는 일반적으로 내부 백업은 `/var/lib/psa/dumps`에 저장되고 `/tmp`를 임시 디렉토리로 사용합니다. 이 예제에서는 임시 디렉토리는 로컬로 유지하지만 덤프 디렉토리는 {{site.data.keyword.blockstorageshort}} 대상(`/backup/psa/dumps`)으로 이동합니다. FTP 사용자 인증 정보는 필요하지 않습니다.
    {:note}   
-3. [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)에서 설명하는 대로 {{site.data.keyword.blockstorageshort}}를 구성하십시오. {{site.data.keyword.blockstorageshort}}를 `/backup`에 마운트하고 시작 시에 마운트되도록 `/etc/fstab`를 구성하십시오.
+3. [Linux에서 MPIO iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux)에서 설명하는 대로 {{site.data.keyword.blockstorageshort}}를 구성하십시오. {{site.data.keyword.blockstorageshort}}를 `/backup`에 마운트하고 시작 시에 마운트되도록 `/etc/fstab`를 구성하십시오.
 4. **선택사항**: 기존 백업을 새 스토리지로 복사하십시오. `rsync`를 사용할 수 있습니다.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

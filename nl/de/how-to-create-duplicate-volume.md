@@ -31,7 +31,7 @@ Sobald die Datenkopie abgeschlossen ist, kann das Duplikat als unabhängiger Dat
 
 Diese Funktion steht an den meisten Standorten zur Verfügung. Klicken Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news), um eine Liste mit den verfügbaren Rechenzentren anzuzeigen.
 
-Als Benutzer mit einem dedizierten Konto für {{site.data.keyword.containerlong}} finden Sie in der [{{site.data.keyword.containerlong_notm}}-Dokumentation](/docs/containers?topic=containers-backup_restore#backup_restore) Informationen zu Optionen für die Duplizierung eines Datenträgers.
+Als Benutzer mit einem dedizierten Konto für {{site.data.keyword.containerlong}} finden Sie in der [{{site.data.keyword.containerlong_notm}}-Dokumentation](/docs/containers?topic=containers-block_storage#block_backup_restore) Informationen zu Optionen für die Duplizierung eines Datenträgers.
 {:tip}
 
 Nachstehend einige gängige Anwendungen für duplizierte Datenträger:

@@ -28,7 +28,7 @@ Per ulteriori informazioni, consulta la [documentazione di Plesk per il backup e
 
    Plesk ha due opzioni per archiviare i backup. Un'opzione è l'archiviazione Plesk interna (un'archiviazione di backup sul tuo server Plesk). L'altra opzione è un'archiviazione FTP esterna (un'archiviazione di backup su qualche server esterno nel web o nella tua rete locale). Di norma, sui box Plesk, i backup interni sono archiviati in `/var/lib/psa/dumps` e utilizzano `/tmp` come directory temporanea. In questo esempio, la directory temporanea viene tenuta locale ma spostiamo la directory dumps alla destinazione {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). Non sono necessarie credenziali utente FTP.
    {:note}   
-3. Configura il tuo {{site.data.keyword.blockstorageshort}} come descritto in [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html). Monta {{site.data.keyword.blockstorageshort}} in `/backup` e configura `/etc/fstab` per abilitare il montaggio all'avvio del computer.
+3. Configura il tuo {{site.data.keyword.blockstorageshort}} come descritto in [Connessione ai LUN iSCSI MPIO su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Monta {{site.data.keyword.blockstorageshort}} in `/backup` e configura `/etc/fstab` per abilitare il montaggio all'avvio del computer.
 4. **Facoltativo**: copia i backup esistenti nella nuova archiviazione. Puoi utilizzare `rsync`.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

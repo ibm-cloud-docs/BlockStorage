@@ -47,7 +47,7 @@ subcollection: BlockStorage
 
 ## 快照相关的 SLCLI 命令
 
-* [订购快照](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [订购快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```

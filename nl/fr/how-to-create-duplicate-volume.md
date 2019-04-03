@@ -31,7 +31,7 @@ Une fois la copie de données terminée, le doublon peut être géré et utilis�
 
 Cette fonctionnalité est disponible dans la plupart des emplacements. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour obtenir la liste des centres de données disponibles.
 
-Si vous êtes utilisateur d'un compte Dedicated d'{{site.data.keyword.containerlong}}, consultez les options de duplication d'un volume dans la [documentation d'{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-backup_restore#backup_restore).
+Si vous êtes utilisateur d'un compte Dedicated d'{{site.data.keyword.containerlong}}, consultez les options de duplication d'un volume dans la [documentation d'{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Voici quelques exemples d'utilisation courante d'un volume dupliqué :

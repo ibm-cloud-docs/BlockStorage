@@ -32,7 +32,7 @@ Quando a cópia de dados for concluída, a duplicata poderá ser gerenciada e us
 
 Esse recurso está disponível na maioria dos locais. Clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) para obter a lista de data centers disponíveis.
 
-Se você for um usuário da conta Dedicada do {{site.data.keyword.containerlong}}, consulte suas opções para duplicar um volume na [{{site.data.keyword.containerlong_notm}}documentação](/docs/containers?topic=containers-backup_restore#backup_restore).
+Se você for um usuário da conta Dedicada do {{site.data.keyword.containerlong}}, consulte suas opções para duplicar um volume na [{{site.data.keyword.containerlong_notm}}documentação](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Alguns usos comuns para um volume duplicado:

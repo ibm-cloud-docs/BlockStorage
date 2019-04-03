@@ -47,7 +47,7 @@ Per ulteriori informazioni su come installare e utilizzare la CLI SL, consulta [
 
 ## Comandi della CLI SL correlati alle istantanee
 
-* [Ordinazione di istantanee](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```

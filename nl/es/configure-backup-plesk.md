@@ -28,7 +28,7 @@ Para obtener más información, consulte la [documentación de Plesk sobre copia
 
    Plesk tiene dos opciones para almacenar copias de seguridad. Una opción es el almacenamiento interno de Plesk (almacenamiento de copia de almacenamiento en el servidor Plesk). La otra opción es un almacenamiento FTP externo (almacenamiento de copia de seguridad en algún servidor externo en la web o en la red local). Normalmente en las cajas Plesk, las copias de seguridad internas se almacenan en `/var/lib/psa/dumps` y utilice `/tmp` como directorio temporal. En este ejemplo, el directorio temporal se mantiene local, pero el directorio dumps se mueve al destino de {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). No se necesitan credenciales de usuario FTP.
    {:note}   
-3. Configure su {{site.data.keyword.blockstorageshort}} como se describe en [Conexión a los LUN de iSCSI de MPIO en Linux](accessing_block_storage_linux.html). Monte {{site.data.keyword.blockstorageshort}} en `/backup` y configure `/etc/fstab` para habilitar el montaje en el inicio.
+3. Configure su {{site.data.keyword.blockstorageshort}} como se describe en [Conexión a los LUN de iSCSI de MPIO en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Monte {{site.data.keyword.blockstorageshort}} en `/backup` y configure `/etc/fstab` para habilitar el montaje en el inicio.
 4. **Opcional**: Copie las copias de seguridad existentes en el nuevo almacenamiento. Puede utilizar `rsync`.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

@@ -31,7 +31,7 @@ subcollection: BlockStorage
 
 此功能在大多数位置中提供。单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)以获取可用数据中心的列表。
 
-如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers?topic=containers-backup_restore#backup_restore)中有关复制卷的选项。
+如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers?topic=containers-block_storage#block_backup_restore)中有关复制卷的选项。
 {:tip}
 
 复制卷的一些常见用途：

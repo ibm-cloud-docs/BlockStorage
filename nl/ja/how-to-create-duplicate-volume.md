@@ -31,7 +31,7 @@ subcollection: BlockStorage
 
 この機能は、ほとんどのロケーションで使用できます。 使用可能なデータ・センターのリストについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)をクリックしてください。
 
-{{site.data.keyword.containerlong}} の「専用」アカウント・ユーザーである場合は、[{{site.data.keyword.containerlong_notm}} 資料](/docs/containers?topic=containers-backup_restore#backup_restore)にある、ボリュームを複製するためのオプションを参照してください。
+{{site.data.keyword.containerlong}} の「専用」アカウント・ユーザーである場合は、[{{site.data.keyword.containerlong_notm}} 資料](/docs/containers?topic=containers-block_storage#block_backup_restore)にある、ボリュームを複製するためのオプションを参照してください。
 {:tip}
 
 複製ボリュームの一般的な使用例を以下に示します。

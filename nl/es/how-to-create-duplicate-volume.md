@@ -31,7 +31,7 @@ Una vez completada la copia de datos, el duplicado se puede gestionar y utilizar
 
 Esta característica está disponible en la mayoría de las ubicaciones. Pulse [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) para ver la lista de centros de datos disponibles.
 
-Si es un usuario de cuenta dedicada de {{site.data.keyword.containerlong}}, consulte las opciones de deduplicación de un volumen en la [documentación de {{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-backup_restore#backup_restore).
+Si es un usuario de cuenta dedicada de {{site.data.keyword.containerlong}}, consulte las opciones de deduplicación de un volumen en la [documentación de {{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Algunos usos comunes para un volumen duplicado:

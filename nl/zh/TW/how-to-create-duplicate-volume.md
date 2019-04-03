@@ -31,7 +31,7 @@ subcollection: BlockStorage
 
 此特性適用於大部分位置。如需可用的資料中心清單，請按一下[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。
 
-如果您是 {{site.data.keyword.containerlong}} 的「專用」帳戶使用者，請參閱 [{{site.data.keyword.containerlong_notm}} 文件](/docs/containers?topic=containers-backup_restore#backup_restore)中您用於複製磁區的選項。
+如果您是 {{site.data.keyword.containerlong}} 的「專用」帳戶使用者，請參閱 [{{site.data.keyword.containerlong_notm}} 文件](/docs/containers?topic=containers-block_storage#block_backup_restore)中您用於複製磁區的選項。
 {:tip}
 
 重複磁區的一些常見用途：

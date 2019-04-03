@@ -31,7 +31,7 @@ When the data copy is complete, the duplicate can be managed and used as an inde
 
 This feature is available in most locations. Click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) for the list of available data centers.
 
-If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-backup_restore#backup_restore).
+If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Some common uses for a duplicate volume:

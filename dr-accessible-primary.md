@@ -26,8 +26,7 @@ Before you start the failover, make sure that all host-authorization is in place
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
 {:note}
 
-1. Log in to [The {{site.data.keyword.cloud}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://
-{DomainName}/catalog/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to [The {{site.data.keyword.cloud}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 
    Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. Click your source or destination volume from the **{{site.data.keyword.blockstorageshort}}** page.

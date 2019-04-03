@@ -28,7 +28,7 @@ Pour plus d'informations, voir la [documentation relative à Plesk pour la sauve
 
    Plesk dispose de deux options pour stocker les sauvegardes. L'une correspond au stockage Plesk interne (stockage situé sur votre serveur Plesk). L'autre correspond à un stockage FTP externe (stockage situé sur un serveur externe sur le Web ou sur votre réseau local). En général, dans les environnements Plesk, les sauvegardes internes sont stockées dans `/var/lib/psa/dumps` et utilisent `/tmp` comme répertoire temporaire. Dans cet exemple, le répertoire temporaire est conservé en local, mais le répertoire dumps est déplacé vers le répertoire cible {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). Aucune donnée d'identification utilisateur FTP n'est requise.
    {:note}   
-3. Configurez {{site.data.keyword.blockstorageshort}} comme décrit dans [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html). Montez {{site.data.keyword.blockstorageshort}} dans `/backup` et configurez `/etc/fstab` pour activer le montage à l'amorçage.
+3. Configurez {{site.data.keyword.blockstorageshort}} comme décrit dans [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Montez {{site.data.keyword.blockstorageshort}} dans `/backup` et configurez `/etc/fstab` pour activer le montage à l'amorçage.
 4. **Facultatif** : Copiez les sauvegardes existantes dans le nouveau stockage. Vous pouvez utiliser `rsync`.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

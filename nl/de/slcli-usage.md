@@ -47,7 +47,7 @@ Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter
 
 ## SLCLI-Befehle im Zusammenhang mit Snapshots
 
-* [Snapshots bestellen](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```

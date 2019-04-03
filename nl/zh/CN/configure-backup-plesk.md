@@ -28,7 +28,7 @@ subcollection: BlockStorage
 
    Plesk 有两个备份存储选项。一个选项是内部 Plesk 存储器（Plesk 服务器上的备份存储器）。另一个选项是外部 FTP 存储器（Web 或本地网络中某个外部服务器上的备份存储器）。通常在 Plesk 框中，内部备份存储在 `/var/lib/psa/dumps` 中，并使用 `/tmp` 作为临时目录。在此示例中，临时目录保持为本地目录，但 dumps 目录已移至 {{site.data.keyword.blockstorageshort}} 目标 (`/backup/psa/dumps`)。不需要 FTP 用户凭证。
    {:note}   
-3. 如[在 Linux 上连接到 MPIO iSCSI LUN](accessing_block_storage_linux.html) 中所述配置 {{site.data.keyword.blockstorageshort}}。将 {{site.data.keyword.blockstorageshort}} 安装到 `/backup`，并配置 `/etc/fstab` 以启用启动时安装。
+3. 如[在 Linux 上连接到 MPIO iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 中所述配置 {{site.data.keyword.blockstorageshort}}。将 {{site.data.keyword.blockstorageshort}} 安装到 `/backup`，并配置 `/etc/fstab` 以启用启动时安装。
 4. **可选**：将现有备份复制到新存储器。可以使用 `rsync`。
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

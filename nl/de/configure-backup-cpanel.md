@@ -29,7 +29,7 @@ Weitere Informationen finden Sie in [cPanel - Configuring backup directory ![Sym
    Standardmäßig speichert das cPanel-System Sicherungsdateien lokal im Verzeichnis `/backup`. Im vorliegenden Dokument wird angenommen, dass `/backup` vorhanden ist und Sicherungen enthält. Verwenden Sie daher `/backup2` als neuen Mountpunkt.
    {:note}
 
-3. Konfigurieren Sie Ihre {{site.data.keyword.blockstorageshort}}-Instanz entsprechend der Beschreibung im Abschnitt [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](accessing_block_storage_linux.html). Achten Sie darauf, sie an `/backup2` anzuhängen und in `/etc/fstab` zu konfigurieren, um das Anhängen beim Booten zu ermöglichen.
+3. Konfigurieren Sie Ihre {{site.data.keyword.blockstorageshort}}-Instanz entsprechend der Beschreibung im Abschnitt [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Achten Sie darauf, sie an `/backup2` anzuhängen und in `/etc/fstab` zu konfigurieren, um das Anhängen beim Booten zu ermöglichen.
 
 4. **Optional**: Kopieren Sie die vorhandenen Sicherungen in den neuen Speicher. Sie können `rsync` verwenden.
    ```

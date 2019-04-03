@@ -29,7 +29,7 @@ For more information, see [cPanel - Configuring backup directory ![External link
    By default, the cPanel system saves backup files locally, to the `/backup` directory. For the purposes of this document, it is assumed that `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
    {:note}
 
-3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to MPIO iSCSI LUNs on Linux](accessing_block_storage_linux.html). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
+3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to MPIO iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
 
 4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
    ```

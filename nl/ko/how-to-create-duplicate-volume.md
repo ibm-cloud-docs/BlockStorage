@@ -31,7 +31,7 @@ subcollection: BlockStorage
 
 이 기능은 대부분의 위치에서 사용할 수 있습니다. 사용 가능한 데이터 센터 목록을 보려면 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)를 클릭하십시오.
 
-{{site.data.keyword.containerlong}}의 데디케이티드 계정 사용자인 경우에는 [{{site.data.keyword.containerlong_notm}} 문서](/docs/containers?topic=containers-backup_restore#backup_restore)에서 볼륨 복제에 대한 옵션을 참조하십시오.
+{{site.data.keyword.containerlong}}의 데디케이티드 계정 사용자인 경우에는 [{{site.data.keyword.containerlong_notm}} 문서](/docs/containers?topic=containers-block_storage#block_backup_restore)에서 볼륨 복제에 대한 옵션을 참조하십시오.
 {:tip}
 
 복제 볼륨에 대한 일부 공통 사용법:

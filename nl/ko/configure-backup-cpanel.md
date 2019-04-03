@@ -29,7 +29,7 @@ subcollection: BlockStorage
    기본적으로, cPanel 시스템은 `/backup` 디렉토리에 백업 파일을 로컬로 저장합니다. 이 문서에서는 `/backup`이 있고 백업을 포함한다고 가정하며 `/backup2`를 새 마운트 지점으로 사용합니다.
    {:note}
 
-3. [Linux에서 MPIO iSCSI LUN에 연결](accessing_block_storage_linux.html)에서 설명하는 대로 {{site.data.keyword.blockstorageshort}}를 구성하십시오. `/backup2`에 마운트하고 시작 시에 마운트가 사용되도록 이를 `/etc/fstab`에서 구성하십시오.
+3. [Linux에서 MPIO iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux)에서 설명하는 대로 {{site.data.keyword.blockstorageshort}}를 구성하십시오. `/backup2`에 마운트하고 시작 시에 마운트가 사용되도록 이를 `/etc/fstab`에서 구성하십시오.
 
 4. **선택사항**: 기존 백업을 새 스토리지로 복사하십시오. `rsync`를 사용할 수 있습니다.
    ```

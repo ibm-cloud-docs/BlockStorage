@@ -47,7 +47,7 @@ SLCLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라�
 
 ## 스냅샷 관련 SLCLI 명령
 
-* [스냅샷 주문](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```

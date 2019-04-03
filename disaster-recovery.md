@@ -23,8 +23,7 @@ If a catastrophic failure or disaster causes an outage on the primary site, cust
 
 ## Fail over with a duplicate of a replica volume on the secondary site
 
-1. Log in to [The IBM Cloud console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://
-{DomainName}/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to [The IBM Cloud console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 
    Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
