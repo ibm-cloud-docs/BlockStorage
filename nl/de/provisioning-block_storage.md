@@ -27,7 +27,7 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 
 ## {{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers bestellen (Endurance)
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog/){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
+1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
 
    Alternativ können Sie sich am [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 
@@ -63,7 +63,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 
 ## {{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Raten bestellen (Performance)
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog/){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
+1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
 
    Alternativ können Sie sich am [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 2. Klicken Sie auf die Liste **Position** und wählen Sie Ihr Rechenzentrum aus.

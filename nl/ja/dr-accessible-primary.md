@@ -26,7 +26,7 @@ subcollection: BlockStorage
 許可されたホストとボリュームは、同じデータ・センター内に存在する必要があります。 例えば、レプリカ・ボリュームをロンドンに置き、ホストをアムステルダムに置くことはできません。 両方がロンドンに存在するか、両方がアムステルダムに存在する必要があります。
 {:note}
 
-1. [{{site.data.keyword.cloud}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog){:new_window} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
 
    または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。

@@ -27,7 +27,7 @@ subcollection: BlockStorage
 
 ## 订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}
 
-1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog/){:new_window}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
+1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog){:new_window}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
 
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 
@@ -63,7 +63,7 @@ subcollection: BlockStorage
 
 ## 订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}
 
-1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog/){:new_window}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
+1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog){:new_window}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
 
    或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 2. 单击**位置**，然后选择数据中心。

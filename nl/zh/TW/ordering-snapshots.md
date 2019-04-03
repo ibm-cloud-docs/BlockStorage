@@ -49,7 +49,7 @@ subcollection: BlockStorage
 
 ## 透過 {{site.data.keyword.cloud_notm}} 主控台訂購 Snapshot 空間
 
-1. 登入 [{{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/){:new_window}，然後按一下左上方的功能表圖示。選取**標準基礎架構**。
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog){:new_window}，然後按一下左上方的功能表圖示。選取**標準基礎架構**。
 
    或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
 2. 透過**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 存取「儲存空間 LUN」。

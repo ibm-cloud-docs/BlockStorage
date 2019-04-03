@@ -49,7 +49,7 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.cloud_notm}} コンソールを使用したスナップショット・スペースの注文
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/){:new_window} にログインし、左上の「メニュー」アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog){:new_window} にログインし、左上の「メニュー」アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
    または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**を使用して、ストレージ LUN にアクセスします。

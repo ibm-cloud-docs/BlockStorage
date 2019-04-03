@@ -27,7 +27,7 @@ subcollection: BlockStorage
 
 ## 사전 정의된 IOPS 티어(Endurance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
 
-1. [IBM Cloud 카탈로그](https://{DomainName}/catalog/){:new_window}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 **{{site.data.keyword.blockstorageshort}}**를 선택하고 **작성**을 클릭하십시오.
+1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){:new_window}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 **{{site.data.keyword.blockstorageshort}}**를 선택하고 **작성**을 클릭하십시오.
 
    또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 
@@ -63,7 +63,7 @@ subcollection: BlockStorage
 
 ## 사전 정의 IOPS 티어(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
 
-1. [IBM Cloud 카탈로그](https://{DomainName}/catalog/){:new_window}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 {{site.data.keyword.blockstorageshort}}를 선택하고 **작성**을 클릭하십시오.
+1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){:new_window}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 {{site.data.keyword.blockstorageshort}}를 선택하고 **작성**을 클릭하십시오.
 
    또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 2. **위치**를 클릭하고 데이터 센터를 선택하십시오.

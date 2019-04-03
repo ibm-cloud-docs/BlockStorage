@@ -27,7 +27,7 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 
 ## Solicitud de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)
 
-1. Inicie la sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
+1. Inicie la sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog){:new_window} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 
@@ -63,7 +63,7 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 
 ## Solicitud de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)
 
-1. Inicie la sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog/){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
+1. Inicie la sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog){:new_window} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
 2. Pulse **Ubicación** y seleccione el centro de datos.

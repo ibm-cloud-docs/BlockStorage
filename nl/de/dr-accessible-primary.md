@@ -26,7 +26,7 @@ Bevor Sie mit dem Failover beginnen, stellen Sie sicher, dass die gesamte Hostbe
 Autorisierte Hosts und Datenträger müssen sich in demselben Rechenzentrum befinden. Wenn sich der Replikatdatenträger beispielsweise in London befindet, kann sich der zugehörige Host nicht in Amsterdam befinden. Entweder müssen beide in London oder beide in Amsterdam sein.
 {:note}
 
-1. Melden Sie sich an [der {{site.data.keyword.cloud}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/){:new_window} an und klicken Sie links oben auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
+1. Melden Sie sich an [der {{site.data.keyword.cloud}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog){:new_window} an und klicken Sie links oben auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
 
    Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.

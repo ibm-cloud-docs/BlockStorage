@@ -49,7 +49,7 @@ Außerdem gilt bei den meisten Workloads, dass anfangs umso weniger Speicherplat
 
 ## Snapshotbereich über die {{site.data.keyword.cloud_notm}}-Konsole bestellen
 
-1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/){:new_window} an und klicken Sie auf das Menüsymbol oben links. Wählen Sie **Klassische Infrastruktur** aus.
+1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog){:new_window} an und klicken Sie auf das Menüsymbol oben links. Wählen Sie **Klassische Infrastruktur** aus.
 
    Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.
 2. Greifen Sie über **Speicher** >**{{site.data.keyword.blockstorageshort}}** auf Ihre Speicher-LUN zu.
