@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 
 # Lernprogramm zur Einführung
-{: #GettingStarted}
+{: #getting-started}
 
 Bei {{site.data.keyword.blockstoragefull}} handelt es sich um persistenten iSCSI-Speicher mit hoher Leistung, der unabhängig von Recheninstanzen bereitgestellt und verwaltet wird. iSCSI-basierte {{site.data.keyword.blockstorageshort}}-LUNs sind über MPIO-Verbindungen (MPIO - Multipath I/O) mit autorisierten Geräten verbunden.
 

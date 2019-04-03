@@ -4,19 +4,20 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Realizar pedidos de instantáneas
+# Solicitud de instantáneas
 {: #orderingsnapshots}
 
 Para crear instantáneas de su volumen de almacenamiento, automática o manualmente, necesita adquirir espacio para mantenerlas. Puede adquirir capacidad hasta la cantidad de su volumen de almacenamiento (durante la adquisición de volumen inicial o posteriormente siguiendo los pasos descritos aquí).
@@ -46,7 +47,7 @@ Por tanto, a la hora de determinar cuánto espacio de instantáneas necesita, pr
 
 Además, para la mayoría de las cargas de trabajo, cuanto mayor sea un volumen, menor será el espacio inicial necesario. Esto es debido principalmente a la eficiencia de los datos subyacentes, así como al modo en que las instantáneas funcionan en el entorno.
 
-## Realización de pedidos de espacio de instantáneas a través de la consola de {{site.data.keyword.cloud_notm}}
+## Solicitud de espacio de instantáneas mediante la consola de {{site.data.keyword.cloud_notm}}
 
 1. Inicie la sesión en la [consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/){:new_window} y pulse el icono de menú de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
@@ -61,7 +62,7 @@ Además, para la mayoría de las cargas de trabajo, cuanto mayor sea un volumen,
    {:note}
 6. Seleccione el recuadro **He leído el Acuerdo de servicio maestro y acepto sus condiciones** y pulse **Realizar pedido**. El espacio de instantáneas se suministra en pocos minutos.
 
-## Realización de pedidos de espacio de instantáneas a través de SL CLI
+## Solicitud de espacio de instantáneas mediante SLCLI
 
 ```
 # slcli block snapshot-order --help

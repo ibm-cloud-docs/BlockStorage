@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
@@ -21,13 +21,13 @@ subcollection: BlockStorage
 # Windows 2012 R2 - 다중 iSCSI 디바이스
 {: #troubleshootingWin12}
 
-iSCSI 디바이스를 세 개 이상 사용하는 경우 이 프로시저가 유용할 수 있습니다. 4개의 iSCSI가 모두 동일한 스토리지 디바이스에서 할당된 경우 특히 유용합니다. 디스크 관리자에 두 개의 디바이스만 표시되는 경우 모든 서버 노드의 iSCSI 이니시에이터에 있는 각 디바이스에 수동으로 연결해야 합니다.
+iSCSI 디바이스를 세 개 이상 사용하는 경우 이 프로시저가 유용할 수 있습니다. 네 개의 iSCSI가 모두 동일한 스토리지 디바이스에서 할당된 경우 특히 유용합니다. 디스크 관리자에 두 개의 디바이스만 표시되는 경우 모든 서버 노드의 iSCSI 이니시에이터에 있는 각 디바이스에 수동으로 연결해야 합니다.
 
 1. Windows iSCSI 이니시에이터를 여십시오.
 2. **대상** 탭을 클릭하고 **디바이스**를 클릭하십시오.
 
    ![iSCSI 이니시에이터 특성](/images/win12-ts1.png)
-3. 표시되는 장치의 수를 확인하십시오. 권한 부여된 4개의 디바이스가 아니라 2개만 표시되면 다음 단계를 진행하십시오.
+3. 표시되는 장치의 수를 확인하십시오. 권한 부여된 네 개의 디바이스가 아니라 두 개만 표시되면 다음 단계를 진행하십시오.
 4. **대상**과 **연결**을 순서대로 클릭하십시오.
 5. **다중 경로**와 **고급**을 순서대로 선택하십시오.
 6. Microsoft iSCSI 이니시에이터를 로컬 어댑터로 선택하십시오. 이니시에이터 IP는 서버에 속합니다.

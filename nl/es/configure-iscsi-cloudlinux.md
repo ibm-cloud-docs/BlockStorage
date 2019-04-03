@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
 subcollection: BlockStorage
 
@@ -30,7 +30,7 @@ Antes de empezar, asegúrese de que el host que está accediendo al volumen de {
 4. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
 5. Anote el nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino.
 
-De manera alternativa, puede autorizar el host a través de la SLCLI.
+De manera alternativa, puede autorizar el host mediante SLCLI.
 ```
 # slcli block access-authorize --help
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN

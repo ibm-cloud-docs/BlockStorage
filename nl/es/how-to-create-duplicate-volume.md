@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, LUN, volume duplication,
 
 subcollection: BlockStorage
 
@@ -85,7 +85,7 @@ Puede crear un volumen duplicado a través del [{{site.data.keyword.slportal}} !
 8. Pulse **Continuar** para realizar el orden de los duplicados.
 
 
-## Creación de un duplicado a través de la SLCLI
+## Creación de un duplicado mediante SLCLI
 Puede utilizar el mandato siguiente en la SLCLI para crear un volumen duplicado de {{site.data.keyword.blockstorageshort}}.
 
 ```

@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 
 # 入门教程
-{: #GettingStarted}
+{: #getting-started}
 
 {{site.data.keyword.blockstoragefull}} 是独立于计算实例进行供应和管理的持久性高性能 iSCSI 存储器。基于 iSCSI 的 {{site.data.keyword.blockstorageshort}} LUN 通过冗余多路径 I/O (MPIO) 连接来连接到授权设备。
 

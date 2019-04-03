@@ -4,12 +4,12 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}_
+{:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -46,7 +46,7 @@ Las planificaciones de instantáneas se pueden configurar para intervalos por ho
 
 La lista de instantáneas se muestra tal como se han tomado en la sección **Instantáneas** de la página **Detalles**.
 
-Puede ver la lista de planificaciones de instantánea a través de la SLCLI con el mandato siguiente.
+Puede ver la lista de planificaciones de instantánea mediante SLCLI con el mandato siguiente.
 ```
 # slcli block snapshot-schedule-list --help
 Uso: slcli block snapshot-schedule-list [OPCIONES] ID_VOLUMEN
@@ -67,7 +67,7 @@ El límite máximo de instantáneas por volumen de almacenamiento es de 50.
 3. Pulse **Realizar instantánea manual**.
 Se realiza la instantánea y se muestra en la sección **Instantáneas** de la página **Detalles**. Su planificación es Manual.
 
-De manera alternativa, puede utilizar el mandato siguiente para crear una instantánea a través de la SLCLI.
+De manera alternativa, puede utilizar el mandato siguiente para crear una instantánea mediante SLCLI.
 ```
 # slcli block snapshot-create --help
 Uso: slcli block snapshot-create [OPCIONES] ID_VOLUMEN
@@ -144,7 +144,7 @@ Las instantáneas que ya no se necesiten se pueden eliminar manualmente para lib
 
 Las instantáneas manuales que no se supriman del portal manualmente se suprimirán automáticamente cuando alcance las limitaciones de espacio (las más antiguas primero).
 
-De manera alternativa, puede utilizar el mandato siguiente para suprimir un volumen a través de la SLCLI.
+De manera alternativa, puede utilizar el mandato siguiente para suprimir un volumen mediante SLCLI.
 ```
 # slcli block snapshot-delete
 Uso: slcli block snapshot-delete [OPCIONES] ID_INSTANTÁNEA

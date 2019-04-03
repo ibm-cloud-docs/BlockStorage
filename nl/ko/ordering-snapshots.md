@@ -4,12 +4,13 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -61,7 +62,7 @@ subcollection: BlockStorage
    {:note}
 6. **마스터 서비스 계약을 읽었으며 해당 이용 약관에 동의합니다** 상자를 선택하고 **주문하기**를 클릭하십시오. 스냅샷 영역이 몇 분 내에 프로비저닝됩니다.
 
-## SL CLI를 통해 스냅샷 영역 주문
+## SLCLI를 통해 스냅샷 영역 주문
 
 ```
 # slcli block snapshot-order --help

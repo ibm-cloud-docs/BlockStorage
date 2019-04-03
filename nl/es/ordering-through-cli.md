@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
 subcollection: BlockStorage
 
@@ -14,12 +14,12 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Solicitud de {{site.data.keyword.blockstorageshort}} mediante la CLI de SL
+# Solicitud de {{site.data.keyword.blockstorageshort}} mediante SLCLI
 {: #orderingthroughCLI}
 
-Puede utilizar la CLI de SL para realizar pedidos de productos que normalmente se solicitan a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}. En la API de SL, un pedido puede consistir en varios contenedores de pedidos. La CLI de pedidos funciona con un solo contenedor de pedidos.
+Puede utilizar SLCLI para realizar pedidos de productos que normalmente se solicitan a través del [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}. En la API de SL, un pedido puede consistir en varios contenedores de pedidos. La CLI de pedidos funciona con un solo contenedor de pedidos.
 
-Para obtener más información sobre cómo instalar y utilizar la CLI de SL, consulte [Cliente de API de Python ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [Cliente de API de Python ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
 
 ## Búsqueda de las ofertas disponibles de {{site.data.keyword.blockstorageshort}}

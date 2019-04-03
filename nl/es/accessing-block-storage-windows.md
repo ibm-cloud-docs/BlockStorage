@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
 subcollection: BlockStorage
 
@@ -23,7 +23,7 @@ Antes de empezar, asegúrese de que el host que está accediendo al volumen de {
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**. Pulse **Autorizar host**.
 2. En la lista, seleccione el host o los hosts que accederán al volumen y pulse **Enviar**.
 
-De manera alternativa, puede autorizar el host a través de la SLCLI.
+De manera alternativa, puede autorizar el host mediante SLCLI.
 ```
 # slcli block access-authorize --help
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN

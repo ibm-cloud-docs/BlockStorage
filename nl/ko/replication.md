@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
-keywords:
+keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
 subcollection: BlockStorage
 
@@ -130,16 +130,15 @@ MEL01<br />
 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에 있는 **기본** 또는 **복제본**에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
 
 
-
 ## 복제 스케줄 편집
 
-복제 스케줄은 기존 스냅샷 스케줄을 기반으로 합니다. 복제 스케줄을 변경하려면(예: 시간별에서 주별) 복제 스케줄을 취소하고 새로 설정해야 합니다.
+복제 스케줄은 기존 스냅샷 스케줄을 기반으로 합니다. 복제 스케줄을 변경하려면(예: 시간별에서 일별이나 주별 또는 그 반대로) 복제 볼륨을 취소하고 새로 설정해야 합니다.
 
-스케줄 변경은 기본 또는 복제본 탭에서 수행할 수 있습니다.
+하지만 **일별** 복제가 발생할 때 시간을 변경하려면 기본 또는 복제본 탭에서 기존 스케줄을 조정할 수 있습니다.
 
 1. **기본** 또는 **복제본** 탭에서 **조치**를 클릭하십시오.
 2. **스냅샷 스케줄 편집**을 선택하십시오.
-3. **스케줄**에서 **스냅샷** 프레임을 확인하여 복제에 사용 중인 스케줄을 판별하십시오. 원하는 스케줄을 변경하십시오. 예를 들어, 복제 스케줄이 **일별**인 경우, 복제가 수행되는 시간을 변경할 수 있습니다.
+3. **스케줄**에서 **스냅샷** 프레임을 확인하여 복제에 사용 중인 스케줄을 판별하십시오. 원하는 스케줄을 변경하십시오.
 4. **저장**을 클릭하십시오.
 
 

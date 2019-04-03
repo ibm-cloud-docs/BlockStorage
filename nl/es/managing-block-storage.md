@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -26,7 +26,7 @@ Puede ver un resumen de la información clave para el LUN de almacenamiento sele
 1. Pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}**.
 2. Pulse el Nombre de LUN adecuado en la lista.
 
-De manera alternativa, puede utilizar el mandato siguiente en la CLI SL.
+De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 ```
 # slcli block volume-detail --help
 Uso: slcli block volume-detail [OPCIONES] ID_VOLUMEN
@@ -46,7 +46,7 @@ Puede autorizar y conectar hosts que estén ubicados en el mismo centro de datos
 2. Desplácese a la sección **Hosts autorizados** de la página.
 3. En la parte derecha, pulse **Autorizar host**. Seleccione los hosts que pueden acceder a ese LUN determinado.
 
-De manera alternativa, puede utilizar el mandato siguiente en la CLI SL.
+De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 ```
 # slcli block access-authorize --help
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
@@ -67,7 +67,7 @@ Opciones:
 
 Allí puede ver la lista de hosts, que actualmente tienen autorización para acceder al LUN. También puede ver la información de autenticación necesarias para realizar una conexión: nombre de usuario, contraseña y host de IQN. La dirección de destino aparece listada en la página **Detalle de almacenamiento**. Para NFS, la dirección de destino se describe como un nombre de DNS y, para iSCSI, es la dirección IP de Descubrir portal de destino.
 
-De manera alternativa, puede utilizar el mandato siguiente en la CLI SL.
+De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 ```
 # slcli block access-list --help
 Uso: slcli block access-list [OPCIONES] ID_VOLUMEN
@@ -130,9 +130,9 @@ Si desea desconectar varios LUN desde un host específico, debe repetir la acci�
 Si desea desconectar varios hosts de un LUN específico, debe repetir la acción Revocar acceso para cada host.
 {:tip}
 
-### Revocación del acceso a través de la CLI SL.
+### Revocación del acceso mediante SLCLI.
 
-De manera alternativa, puede utilizar el mandato siguiente en la CLI SL.
+De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 ```
 # slcli block access-revoke --help
 Uso: slcli block access-revoke [OPCIONES] ID_VOLUMEN
@@ -162,7 +162,7 @@ Para cancelar un LUN de almacenamiento, es necesario revocar el acceso de los ho
 4. Pulse **Continuar** o **Cerrar**.
 5. Marque el recuadro de selección **Acuse de recibo** y pulse **Confirmar**.
 
-De manera alternativa, puede utilizar el mandato siguiente en la CLI SL.
+De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 ```
 # slcli block volume-cancel --help
 Uso: slcli block volume-cancel [OPCIONES] ID_VOLUMEN

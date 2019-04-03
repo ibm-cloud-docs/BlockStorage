@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-14"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -179,12 +179,12 @@ Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항�
             <td>6,000 또는 20,000<sup><img src="/images/numberone.png" alt="각주" /></sup></td>
           </tr>
           <tr>
-            <td>2,000-3,000</td>
+            <td>2,000</td>
             <td>200</td>
             <td>6,000 또는 40,000<sup><img src="/images/numberone.png" alt="각주" /></sup></td>
           </tr>
           <tr>
-            <td>4,000-7,000</td>
+            <td>3,000 - 7,000</td>
             <td>300</td>
             <td>6,000 또는 48,000<sup><img src="/images/numberone.png" alt="각주" /></sup></td>
           </tr>

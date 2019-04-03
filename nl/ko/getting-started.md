@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-07"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 
 # 시작하기 튜토리얼
-{: #GettingStarted}
+{: #getting-started}
 
 {{site.data.keyword.blockstoragefull}}는 컴퓨팅 인스턴스와 상관없이 프로비저닝 및 관리되는 지속적인 고성능 iSCSI 스토리지입니다. iSCSI 기반의 {{site.data.keyword.blockstorageshort}} LUN은 중복 다중 경로 I/O(MPIO) 연결을 통해 권한 부여된 디바이스에 연결됩니다.
 
@@ -34,11 +34,11 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstorageshort}} 오퍼링에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 정보](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)를 참조하십시오.
 
-### 프로비저닝 고려사항
+## 프로비저닝 고려사항
 
-**블록 크기**
+### 블록 크기
 
-Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워크로드의 16KB 블록 크기를 기반으로 합니다. 16KB 블록은 볼륨에 한 번 쓰기와 동등합니다.
+Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워크로드의 16KB 블록 크기를 기반으로 합니다. 16KB 블록은 볼륨에 한 번 쓰기와 동등합니다.
 {:important}
 
 애플리케이션에서 사용하는 블록 크기는 스토리지 성능에 직접적인 영향을 줍니다. 애플리케이션에서 사용하는 블록 크기가 16KB보다 작은 경우, IOPS 한계가 처리량 한계 이전에 실현됩니다. 반대로, 애플리케이션에서 사용하는 블록 크기가 16KB보다 큰 경우, 처리량 한계가 IOPS 한계 이전에 실현됩니다.
@@ -96,11 +96,11 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워�
         </tbody>
 </table>
 
-**권한 부여된 호스트**
+### 권한 부여된 호스트
 
 또한, 볼륨을 사용 중인 호스트 수도 고려해야 합니다. 볼륨에 액세스하는 단일 호스트가 있는 경우, 사용 가능한 최대 IOPS를 실현하는 것은 어려울 수 있으며 특히 10,000과 같이 IOPS 수가 큰 경우에는 더욱 그렇습니다. 워크로드에 높은 처리량이 요구되는 경우, 단일 서버 병목 현상을 방지하기 위해 최소한 두서너 개의 서버가 볼륨에 액세스하도록 구성하는 것이 바람직합니다.
 
-**네트워크 연결**
+### 네트워크 연결
 
 이더넷 연결 속도는 볼륨의 최대 예상 처리량보다 빨라야 합니다. 일반적으로 이더넷 연결이 포화 상태가 되지 않으려면 사용 가능한 대역폭의 70%를 넘지 않아야 합니다. 예를 들어, IOPS가 6,000이며 16KB 블록 크기를 사용하는 경우 볼륨은 약 94MBps의 처리량을 처리할 수 있습니다. LUN에 대해 1Gbps의 이더넷 연결을 보유하고 있는 경우 서버가 사용 가능한 최대 처리량을 사용하려고 시도하면 병목 현상이 발생합니다. 이는 1Gbps 이더넷 연결(초당 125MB)에 대한 70퍼센트 이론적 한계가 초당 88MB까지만 허용하기 때문입니다.
 
@@ -126,4 +126,4 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50퍼센트 랜덤 워�
 
 ## 새 스토리지 관리
 
-포털 또는 SLCLI를 통해 File Storage의 다양한 측면(예: 호스트 권한 부여 및 취소)을 관리할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)를 참조하십시오. 
+포털 또는 SLCLI를 통해 File Storage의 다양한 측면(예: 호스트 권한 부여 및 취소)을 관리할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)를 참조하십시오.

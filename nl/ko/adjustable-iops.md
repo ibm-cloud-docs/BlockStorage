@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
 subcollection: BlockStorage
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # IOPS 조정
 {: #adjustingIOPS}
 
-이 새 기능을 사용하면 {{site.data.keyword.blockstoragefull}} 스토리지 사용자가 기존 {{site.data.keyword.blockstorageshort}}의 IOPS를 즉시 조정할 수 있습니다. 복제본을 작성하거나 수동으로 데이터를 새 스토리지에 복사할 필요가 없습니다. 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하게 되지 않습니다.
+이 새 기능을 사용하면 {{site.data.keyword.blockstoragefull}} 스토리지 사용자가 기존 {{site.data.keyword.blockstorageshort}}의 IOPS를 즉시 조정할 수 있습니다. 복제본을 작성하거나 수동으로 데이터를 새 스토리지에 복사할 필요가 없습니다. 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
 
 스토리지에 대한 비용 청구는 현재 비용 청구 주기에 대해 새 가격의 비례 배분된 금액 차이가 추가되도록 업데이트됩니다. 다음 비용 청구 주기에는 신규 비용 전체가 청구됩니다.
 

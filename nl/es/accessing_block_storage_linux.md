@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
 subcollection: BlockStorage
 
@@ -33,7 +33,7 @@ Antes de empezar, asegúrese de que el host que está accediendo al volumen de {
 2. Pulse **Autorizar host**.
 3. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
 
-De manera alternativa, puede autorizar el host a través de la SLCLI.
+De manera alternativa, puede autorizar el host mediante SLCLI.
 ```
 # slcli block access-authorize --help
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
@@ -535,7 +535,7 @@ Para crear un sistema de archivos con `parted`, siga estos pasos.
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. Compruebe que los discos estén presentes. Debe haber dos discos con el mismo identificador, y un listado `/dev/mapper` del mismo tamaño con el mismo identificador. El dispositivo `/dev/mapper` es el que configura la multivía.
+2. Compruebe que los discos estén presentes. Debería ver dos discos con el mismo identificador, y un listado `/dev/mapper` del mismo tamaño con el mismo identificador. El dispositivo `/dev/mapper` es el que configura la multivía.
   ```
   fdisk -l | grep Disk
   ```

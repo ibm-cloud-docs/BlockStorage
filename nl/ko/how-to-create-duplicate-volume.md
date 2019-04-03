@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, LUN, volume duplication,
 
 subcollection: BlockStorage
 

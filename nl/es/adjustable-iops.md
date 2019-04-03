@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
 subcollection: BlockStorage
 
@@ -59,7 +59,7 @@ Si el volumen tiene réplica, la réplica se actualiza automáticamente para coi
 6. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
 
-De manera alternativa, puede ajustar el IOPS a través de la SLCLI.
+De manera alternativa, puede ajustar el IOPS mediante SLCLI.
 ```
 # slcli block volume-modify --help
 Uso: slcli block volume-modify [OPCIONES] ID_VOLUMEN

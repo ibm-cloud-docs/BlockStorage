@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
 subcollection: BlockStorage
 
@@ -54,7 +54,7 @@ Las limitaciones de tamaño actuales para {{site.data.keyword.blockstorageshort}
 5. Marque el recuadro de selección **He leído el Acuerdo de servicio maestro...** y pulse **Realizar pedido**.
 6. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De manera alternativa, puede redimensionar el volumen a través de la SLCLI.
+De manera alternativa, puede redimensionar el volumen mediante SLCLI.
 
 ```
 # slcli block volume-modify --help

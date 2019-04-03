@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
@@ -21,13 +21,13 @@ subcollection: BlockStorage
 # Windows 2012 R2 - varios dispositivos iSCSI
 {: #troubleshootingWin12}
 
-Si utiliza más de dos dispositivos iSCSI, puede que este procedimiento le resulte útil, especialmente si las 4 asignaciones iSCSI son del mismo dispositivo de almacenamiento. Si ve sólo dos dispositivos en el gestor de discos, deberá conectarse manualmente a cada dispositivo en el iniciador iSCSI en cada nodo de servidor.
+Si utiliza más de dos dispositivos iSCSI, puede que este procedimiento le resulte útil, especialmente si las cuatro asignaciones iSCSI son del mismo dispositivo de almacenamiento. Si ve sólo dos dispositivos en el gestor de discos, deberá conectarse manualmente a cada dispositivo en el iniciador iSCSI en cada nodo de servidor.
 
 1. Abra el iniciador iSCSI de Windows.
 2. Pulse el separador **Destinos** y, a continuación, pulse **Dispositivos**.
 
    ![propiedades del iniciador iSCSI](/images/win12-ts1.png)
-3. Confirme el número de dispositivos que se muestran. Si ve 2 dispositivos, en lugar de los 4 que estaban autorizados, continúe en el paso siguiente.
+3. Confirme el número de dispositivos que se muestran. Si ve dos dispositivos, en lugar de los cuatro que estaban autorizados, continúe en el paso siguiente.
 4. Pulse **Destinos** y luego **Conectar**.
 5. Seleccione **Multivía de acceso** y, a continuación, **Avanzado**.
 6. Seleccione Iniciador iSCSI de Microsoft como adaptador local. La IP del iniciador pertenece al servidor.
