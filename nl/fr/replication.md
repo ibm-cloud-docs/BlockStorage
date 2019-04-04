@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
-keywords:
+keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
 subcollection: BlockStorage
 
@@ -130,16 +130,15 @@ Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abo
 Vous pouvez éditer votre planning de réplication et modifier votre espace de réplication à partir de l'onglet **Principal** ou **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 
 
-
 ## Edition du planning de réplication
 
-Le planning de réplication est basé sur un planning d'instantané existant. Pour modifier le planning de réplication, par exemple d'Horaire en Hebdomadaire, vous devez annuler le planning de réplication et en configurer un nouveau.
+Le planning de réplication est basé sur un planning d'instantané existant. Pour modifier le planning de réplication, par exemple d'Horaire en Quotidien ou Hebdomadaire, ou inversement, vous devez annuler le volume de réplication et en configurer un nouveau.
 
-La modification du planning peut s'effectuer sur l'onglet Principal ou Réplique.
+Cependant, si vous voulez modifier l'heure à laquelle la réplication selon un planning **Quotidien** s'effectue, vous devez ajuster le planning existant dans l'onglet Principal ou Réplique.
 
 1. Cliquez sur **Actions** sur l'onglet **Principal** ou **Réplique**.
 2. Sélectionnez **Modifier le planning d'instantané**.
-3. Regardez dans le cadre **Instantané** sous **Planning** pour déterminer le planning que vous utilisez pour la réplication. Modifiez le planning de votre choix. Par exemple, si votre planning de réplication est **Quotidien**, vous pouvez modifier l'heure de la journée à laquelle la réplication doit avoir lieu.
+3. Regardez dans le cadre **Instantané** sous **Planning** pour déterminer le planning que vous utilisez pour la réplication. Modifiez le planning de votre choix.
 4. Cliquez sur **Enregistrer**.
 
 

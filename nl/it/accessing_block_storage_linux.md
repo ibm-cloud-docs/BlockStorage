@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
 subcollection: BlockStorage
 
@@ -535,7 +535,7 @@ Per creare un file system con `parted`, attieniti alla seguente procedura.
   7:0:0:101 sde 8:64 active undef running
   ```
 
-2. Controlla che siano presenti i dischi. Ci devono essere due dischi con lo stesso identificativo e un elenco `/dev/mapper` della stessa dimensione con lo stesso identificativo. Il dispositivo `/dev/mapper` è il solo che viene configurato da multipath.
+2. Controlla che siano presenti i dischi. Aspettati di vedere due dischi con lo stesso identificativo e un elenco `/dev/mapper` della stessa dimensione con lo stesso identificativo. Il dispositivo `/dev/mapper` è il solo che viene configurato da multipath.
   ```
   fdisk -l | grep Disk
   ```

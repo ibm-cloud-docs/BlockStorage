@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-03-11"
 
-keywords:
+keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
 subcollection: BlockStorage
 
@@ -130,16 +130,15 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 Puoi modificare la tua pianificazione e modificare il tuo spazio di replica dalla scheda **Primary** o **Replica** in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
 
 
-
 ## Modifica della pianificazione replica
 
-La pianificazione replica è basata su una pianificazione delle istantanee esistente. Per modificare la pianificazione replica, ad esempio da Hourly a Weekly, devi annullare la pianificazione replica e configurarne una nuova.
+La pianificazione replica è basata su una pianificazione delle istantanee esistente. Per modificare la pianificazione della replica da Hourly a Daily o Weekly o viceversa, devi annullare il volume di replica e configurarne uno nuovo.
 
-La modifica della pianificazione può essere eseguita nella scheda Primary o in quella Replica.
+Tuttavia, se vuoi modificare l'ora del giorno di quando si verifica la replica **Daily**, puoi modificare la pianificazione esistente sulla scheda Primary o Replica.
 
 1. Fai clic su **Actions** nella scheda **Primary** o in quella **Replica**.
 2. Seleziona **Edit Snapshot Schedule**.
-3. Controlla nel frame **Snapshot** in **Schedule** per determinare quale pianificazione stai usando per la replica. Modifica la pianificazione che desideri. Ad esempio, se la tua pianificazione replica è **Daily**, puoi modificare l'ora del giorno in cui deve essere eseguita la replica.
+3. Controlla nel frame **Snapshot** in **Schedule** per determinare quale pianificazione stai usando per la replica. Modifica la pianificazione che desideri.
 4. Fai clic su **Save**.
 
 
@@ -221,7 +220,7 @@ Quando un volume primario viene annullato, la pianificazione replica e il volume
  3. Seleziona quando annullare. Scegli **Immediately** o **Anniversary Date** e fai clic su **Continue**.
  4. Fai clic su **I acknowledge that due to cancellation, data loss may occur** e fai clic su **Cancel**.
 
-## Comandi correlati alla replica nella CLI SL
+## Comandi correlati alla replica nella SLCLI
 {: #clicommands}
 
 * Elenca i datacenter di replica appropriati per un volume specifico.

@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
 subcollection: BlockStorage
 
@@ -27,7 +27,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 
 ## Ordinazione di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)
 
-1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog){:new_window} e fai clic su **Archiviazione**. Seleziona quindi **{{site.data.keyword.blockstorageshort}}** e fai clic su **Crea**.
+1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi **{{site.data.keyword.blockstorageshort}}** e fai clic su **Crea**.
 
    In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 
@@ -63,7 +63,7 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 
 ## Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
 
-1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog){:new_window} e fai clic su **Archiviazione**. Seleziona quindi {{site.data.keyword.blockstorageshort}} e fai clic su **Crea**.
+1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog/){:new_window} e fai clic su **Archiviazione**. Seleziona quindi {{site.data.keyword.blockstorageshort}} e fai clic su **Crea**.
 
    In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 2. Fai clic su **Location** e seleziona il tuo data center.

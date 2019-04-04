@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -26,7 +26,7 @@ Puoi visualizzare un riepilogo delle informazioni chiave per il LUN di archiviaz
 1. Fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Fai clic sul nome LUN appropriato all'elenco.
 
-In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -46,7 +46,7 @@ Puoi autorizzare e connettere gli host che si trovano nello stesso data center d
 2. Scorri alla sezione **Authorized Hosts** della pagina
 3. Sulla destra, fai clic su **Authorize Host**. Seleziona gli host che possono accedere allo specifico LUN.
 
-In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -67,7 +67,7 @@ Options:
 
 Qui puoi vedere un elenco di host che sono attualmente autorizzati ad accedere al LUN. Puoi inoltre vedere le informazioni di autenticazione necessarie per stabilire una connessione – nome utente, password e IQN host. L'indirizzo di destinazione è elencato nella pagina **Storage Detail**. Per NFS, l'indirizzo di destinazione è descritto come un nome DNS e, per iSCSI, è l'indirizzo IP dell'individuazione del portale di destinazione.
 
-In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -130,9 +130,9 @@ Se vuoi disconnettere più LUN da uno specifico host, devi ripetere l'azione Rev
 Se vuoi disconnettere più host da uno specifico LUN, devi ripetere l'azione Revoke Access per ciascun host.
 {:tip}
 
-### Revoca dell'accesso tramite la CLI SL.
+### Revoca dell'accesso tramite la SLCLI.
 
-In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -164,7 +164,7 @@ Per annullare un LUN di archiviazione, devi prima revocare l'accesso da eventual
 4. Fai clic su **Continue** o su **Close**.
 5. Fai clic sulla casella di spunta **Acknowledgment** e fai clic su **Confirm**.
 
-In alternativa, puoi utilizzare il seguente comando nella CLI SL.
+In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

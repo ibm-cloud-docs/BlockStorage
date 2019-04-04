@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-14"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -171,32 +171,32 @@ Le niveau Performance pour {{site.data.keyword.blockstorageshort}} est accessibl
           <tr>
             <td>500</td>
             <td>100</td>
-            <td>6 000 ou 10 000<sup><img src="/images/numberone.png" alt="footnote" /></sup></td>
+            <td>6 000 ou 10 000 <sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup></td>
           </tr>
           <tr>
             <td>1 000</td>
             <td>100</td>
-            <td>6 000 ou 20 000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6 000 ou 20 000<sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup></td>
           </tr>
           <tr>
-            <td>2 000-3 000</td>
+            <td>2 000</td>
             <td>200</td>
-            <td>6 000 ou 40 000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6 000 ou 40 000<sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup></td>
           </tr>
           <tr>
-            <td>4 000-7 000</td>
+            <td>3 000 à 7 000</td>
             <td>300</td>
-            <td>6 000 ou 48 000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6 000 ou 48 000<sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup></td>
           </tr>
           <tr>
-            <td>8 000-9 000</td>
+            <td>8 000 à 9 000</td>
             <td>500</td>
-            <td>6 000 ou 48 000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6 000 ou 48 000<sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup></td>
           </tr>
           <tr>
-            <td>10 000-12 000</td>
+            <td>10 000 à 12 000</td>
             <td>1 000</td>
-            <td>6 000 ou 48 000<sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
+            <td>6 000 ou 48 000<sup><img src="/images/numberone.png" alt="Note de bas de page" /></sup></td>
           </tr>
 </table>
 

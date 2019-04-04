@@ -4,12 +4,13 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 
 ---
 {:new_window: target="_blank"}
+{:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -48,7 +49,7 @@ De plus, pour la plupart des charges de travail, plus le volume est grand, plus 
 
 ## Commande d'un espace d'instantané via la console {{site.data.keyword.cloud_notm}}
 
-1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/catalog){:new_window}, puis cliquez sur l'icône de menu dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/catalog/){:new_window}, puis cliquez sur l'icône de menu dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
 
    Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
 2. Accédez au numéro d'unité logique de stockage via **Stockage** >**{{site.data.keyword.blockstorageshort}}**.
@@ -61,7 +62,7 @@ De plus, pour la plupart des charges de travail, plus le volume est grand, plus 
    {:note}
 6. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**. Votre espace d'instantané est mis à disposition en quelques minutes.
 
-## Commande d'un espace d'instantané via la commande SLCLI
+## Commande d'un espace d'instantané via l'interface SLCLI
 
 ```
 # slcli block snapshot-order --help

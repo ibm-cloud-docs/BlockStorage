@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
 subcollection: BlockStorage
 
@@ -103,7 +103,7 @@ Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres
 
 Un service {{site.data.keyword.blockstorageshort}} qui est mis à disposition avant la mise à niveau du centre de données ne peut pas être chiffré.
 Un nouveau stockage {{site.data.keyword.blockstorageshort}} mis à disposition dans des centres de données mis à niveau est automatiquement chiffré. Vous n'avez pas à choisir de paramètre de chiffrement, car la procédure est automatique.
-Les données situées sur un stockage non chiffré dans un centre de données mis à niveau peuvent être chiffrées en créant un numéro d'unité logique de bloc, puis en copiant les données sur le nouveau numéro d'unité logique chiffré à l'aide d'une migration basée sur l'hôte. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) pour obtenir des instructions.
+Les données situées sur un stockage non chiffré dans un centre de données mis à niveau peuvent être chiffrées en créant un numéro d'unité logique de bloc, puis en copiant les données sur le nouveau numéro d'unité logique chiffré à l'aide d'une migration basée sur l'hôte. Cliquez [ici](migrate-block-storage-encrypted-block-storage.html) pour obtenir des instructions.
 
 ## {{site.data.keyword.blockstorageshort}} prend-il en charge la réservation persistante SCSI-3 pour implémenter la protection d'E-S pour Db2 pureScale ?
 {: faq}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-07"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 
 # Tutoriel d'initiation
-{: #getting-started}
+{: #GettingStarted}
 
 {{site.data.keyword.blockstoragefull}} est un stockage iSCSI persistant, haute performance, qui est mis à disposition et géré indépendamment des instances de calcul. Les numéros d'unité logique {{site.data.keyword.blockstorageshort}} basés sur iSCSI sont connectés à des périphériques autorisés via des connexions en E-S multi-accès (MPIO) redondantes.
 
@@ -34,11 +34,11 @@ Des numéros d'unité logique {{site.data.keyword.blockstorageshort}} peuvent ê
 
 Pour en savoir plus sur l'offre {{site.data.keyword.blockstorageshort}}, voir [A propos de {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
-### Remarques sur la mise à disposition
+## Remarques sur la mise à disposition
 
-**Taille de bloc**
+### Taille de bloc
 
-Les IOPS pour les niveaux Endurance et Performance se fondent sur une taille de bloc de 16 Ko avec une charge de travail aléatoire de 50 % de lectures/écritures. Un bloc de 16 Ko équivaut à une écriture sur le volume.
+Les IOPS pour les niveaux Endurance et Performance se fondent sur une taille de bloc de 16 Ko avec une charge de travail aléatoire/séquentielle de 50/50 et de lecture/écriture de 50/50. Un bloc de 16 Ko équivaut à une écriture sur le volume.
 {:important}
 
 La taille de bloc utilisée par votre application a une incidence directe sur les performances de stockage. Si la taille de bloc employée par votre application est inférieure à 16 Ko, la limite des opérations d'entrée-sortie par seconde est atteinte avant la limite de débit. A l'inverse, si la taille de bloc qui est utilisée par votre application est supérieure à 16 Ko, la limite de débit est atteinte avant la limite des opérations d'entrée-sortie par seconde.
@@ -96,11 +96,11 @@ La taille de bloc utilisée par votre application a une incidence directe sur le
         </tbody>
 </table>
 
-**Hôtes autorisés**
+### Hôtes autorisés
 
 Un autre facteur à prendre en compte est le nombre d'hôtes qui utilisent votre volume. Si un seul hôte accède au volume, il peut s'avérer difficile de réaliser le nombre maximal d'IOPS disponible, surtout avec des nombres d'IOPS extrêmes (10 000). Si votre charge de travail requiert un débit élevé, il est préférable de configurer au moins deux serveurs pour accéder à votre volume afin d'éviter un goulot d'étranglement dû à un seul serveur.
 
-**Connexion réseau**
+### Connexion réseau
 
 La vitesse de votre connexion Ethernet doit être supérieure au débit maximal attendu de votre volume. En règle générale, vous ne devriez pas saturer votre connexion Ethernet au-delà de 70 % de la bande passante disponible. Par exemple, si vous disposez de 6 000 IOPS et que vous utilisez une taille de bloc de 16 Ko, le volume peut traiter un débit d'environ 94 Mo par seconde. Si vous disposez d'une connexion Ethernet de 1 Gbit/s
 vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement lorsque vos serveurs tentent d'utiliser le débit maximal disponible. Cela est dû au fait que 70 % de la limite théorique d'une connexion Ethernet de 1 Gbit/s (125 Mo par seconde) n'autorisent que 88 Mo par seconde.

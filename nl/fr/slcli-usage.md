@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
 subcollection: BlockStorage
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Commandes SLCLI de {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-Vous pouvez utiliser l'interface SLCLI pour effectuer des actions qui s'effectuent normalement via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, comme par exemple, commander des nouveaux volumes, des espaces d'instantané et des réplications, mettre à jour des autorisations, annuler des volumes, etc.
+Vous pouvez utiliser l'interface SLCLI pour effectuer des actions normalement gérées via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}. Par exemple, avec l'interface SLCLI vous pouvez passer des commandes de volumes, d'espace d'instantané et de réplication, mettre à jour des autorisations, annuler des volumes, etc.
 
 Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCLI, voir [Client API Python ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
 {:tip}
@@ -47,7 +47,7 @@ Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCL
 
 ## Commandes SLCLI liées aux instantanés
 
-* [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Commande d'instantanés](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```

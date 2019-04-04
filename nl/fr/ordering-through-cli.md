@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
 subcollection: BlockStorage
 
@@ -99,7 +99,7 @@ Pour pouvoir accéder à toutes les nouvelles fonctions, commandez `Storage-as-a
 
 ## Passation de la commande
 
-L'exemple suivant illustre la commande d'un volume {{site.data.keyword.blockstorageshort}} de 80 Go avec 20 Go d'espace d'image instantanée et 0,25 E-S/s par Go.
+L'exemple suivant illustre la commande d'un volume {{site.data.keyword.blockstorageshort}} de 80 Go avec 20 Go d'espace d'instantané et 0,25 E-S/s par Go.
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20

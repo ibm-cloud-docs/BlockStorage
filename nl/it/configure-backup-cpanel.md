@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, cPanel, backups, mountpoint, ISCSI
 
 subcollection: BlockStorage
 
@@ -29,7 +29,7 @@ Per ulteriori informazioni, consulta [cPanel - Configuring backup directory ![Ic
    Per impostazione predefinita, il sistema cPanel salva i file di backup in locale, nella directory `/backup`. Ai fini di questo documento, si presuppone che `/backup` esista e che contenga dei backup e viene utilizzato `/backup2` come nuovo punto di montaggio.
    {:note}
 
-3. Configura il tuo {{site.data.keyword.blockstorageshort}} come descritto in [Connessione ai LUN iSCSI MPIO su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Assicurati di montarlo a `/backup2` e di configurarlo in `/etc/fstab` per abilitare il montaggio all'avvio del computer.
+3. Configura il tuo {{site.data.keyword.blockstorageshort}} come descritto in [Connessione ai LUN iSCSI MPIO su Linux](accessing_block_storage_linux.html). Assicurati di montarlo a `/backup2` e di configurarlo in `/etc/fstab` per abilitare il montaggio all'avvio del computer.
 
 4. **Facoltativo**: copia i backup esistenti nella nuova archiviazione. Puoi utilizzare `rsync`.
    ```

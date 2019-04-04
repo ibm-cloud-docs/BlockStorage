@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
 subcollection: BlockStorage
 
@@ -26,7 +26,7 @@ Prima di avviare il failover, assicurati che sia in vigore tutta l'autorizzazion
 Gli host autorizzati e i volumi si devono trovare nello stesso data center. Ad esempio, non puoi avere un volume di replica a Londra e l'host ad Amsterdam. Entrambi devono essere a Londra o entrambi devono essere ad Amsterdam.
 {:note}
 
-1. Accedi alla [Console {{site.data.keyword.cloud}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
+1. Accedi alla [Console {{site.data.keyword.cloud}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
 
    In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.

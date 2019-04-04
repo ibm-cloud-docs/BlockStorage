@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2019
 lastupdated: "2019-02-05"
 
-keywords:
+keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
@@ -30,7 +30,7 @@ Si vous utilisez plus de deux périphériques iSCSI, cette procédure peut vous 
 3. Confirmez le nombre de périphériques affichés. Si vous voyez 2 périphériques au lieu des 4 autorisés, passez à l'étape suivante.
 4. Cliquez sur **Cibles**, puis sur **Connecter**.
 5. Sélectionnez **%%% Multipath**, puis **%%% Advanced**.
-6. Sélectionnez initiateur iSCSI Microsoft comme adaptateur Local. L'IP de l'initiateur appartient à votre server.
+6. Sélectionnez l'initiateur iSCSI Microsoft comme adaptateur local. L'IP de l'initiateur appartient à votre server.
 7. Sélectionnez la première des adresses IP affichées dans la liste des adresses IP du portail cible.
 
    ![Paramètres avancés, adresses IP](/images/win12-ts3.png)

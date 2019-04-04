@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-07"
 
-keywords:
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 
 # Esercitazione introduttiva
-{: #getting-started}
+{: #GettingStarted}
 
 {{site.data.keyword.blockstoragefull}} è un'archiviazione iSCSI persistente e ad elevate prestazioni di cui viene eseguito il provisioning e la gestione indipendentemente dalle istanze di elaborazione. I LUN {{site.data.keyword.blockstorageshort}} basati su iSCSI sono connessi ai dispositivi autorizzati tramite connessioni MPIO (multi-path I/O) ridondanti.
 
@@ -34,11 +34,11 @@ subcollection: BlockStorage
 
 Per ulteriori informazioni sull'offerta {{site.data.keyword.blockstorageshort}}, consulta [Informazioni su {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
-### Considerazioni sul provisioning
+## Considerazioni sul provisioning
 
-**Dimensione blocco**
+### Dimensione blocco 
 
-IOPS sia per Endurance che per Performance è basato su una dimensione di blocco di 16-KB con un carico di lavoro casuale al 50 percento e con lettura/scrittura al 50/50. Un blocco di 16-KB è l'equivalente di una scrittura sul volume.
+IOPS sia per Endurance che per Performance è basato su una dimensione di blocco di 16-KB con un carico di lavoro casuale/sequenziale al 50/50 e con lettura/scrittura al 50/50. Un blocco di 16-KB è l'equivalente di una scrittura sul volume.
 {:important}
 
 La dimensione del blocco utilizzata dalla tua applicazione influisce direttamente sulle prestazioni di archiviazione. Se la dimensione del blocco utilizzata dalla tua applicazione è inferiore a 16 KB, il limite IOPS viene realizzato prima del limite di velocità effettiva. Viceversa, se la dimensione del blocco utilizzata dalla tua applicazione è superiore a 16 KB, il limite di velocità effettiva viene realizzato prima del limite IOPS.
@@ -96,11 +96,11 @@ La dimensione del blocco utilizzata dalla tua applicazione influisce direttament
         </tbody>
 </table>
 
-**Host autorizzati**
+### Host autorizzati 
 
 Un altro fattore da considerare è il numero di host che sta utilizzando il tuo volume. Se c'è un singolo host che sta accedendo al volume, può essere difficile realizzare l'IOPS massimo disponibile, soprattutto a conteggi IOPS estremi (nell'ordine delle decine di migliaia). Se il tuo carico di lavoro richiede una velocità effettiva elevata, sarebbe meglio configurare almeno un paio server che accedono al tuo volume per evitare un collo di bottiglia di un singolo server.
 
-**Connessione di rete**
+### Connessione di rete 
 
 La velocità della tua connessione Ethernet deve essere più veloce della velocità effettiva massima prevista dal tuo volume. In generale, non prevedi di saturare la connessione Ethernet oltre il 70% della larghezza di banda disponibile. Ad esempio, se hai 6.000 IOPS e stai utilizzando una dimensione del blocco di 16-KB, il volume può gestire una velocità effettiva di circa 94-MBps. Se hai una connessione Ethernet da 1-Gbps al tuo LUN, diventa un collo di bottiglia quando i tuoi server proveranno a utilizzare la velocità effettiva massima disponibile. Ciò è dovuto al fatto che il 70 percento del limite teorico di una connessione Ethernet da 1-Gbps (125 MB al secondo) consentirebbe solo 88 MB al secondo.
 
@@ -126,4 +126,4 @@ Quando la tua richiesta di provisioning è completa, autorizza i tuoi host ad ac
 
 ## Gestione della tua nuova archiviazione
 
-Tramite il portale o la SLCLI puoi gestire molti aspetti del tuo File Storage come ad esempio gli annullamenti e le autorizzazioni host. Per ulteriori informazioni, consulta [Gestione di {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Tramite il portale o la SLCLI, puoi gestire molti aspetti del tuo File Storage come ad esempio gli annullamenti e le autorizzazioni host. Per ulteriori informazioni, consulta [Gestione di {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
