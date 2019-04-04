@@ -27,7 +27,7 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)
 
-1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog/){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur **Créer**.
+1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur **Créer**.
 
    Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, puis cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 
@@ -63,7 +63,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)
 
-1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog/){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez {{site.data.keyword.blockstorageshort}}, puis cliquez sur **Créer**.
+1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog){:new_window}, puis cliquez sur **Stockage**. Ensuite, sélectionnez {{site.data.keyword.blockstorageshort}}, puis cliquez sur **Créer**.
 
    Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, puis cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur **Emplacement** et sélectionnez votre centre de données.

@@ -47,7 +47,7 @@ Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCL
 
 ## Commandes SLCLI liées aux instantanés
 
-* [Commande d'instantanés](ordering-/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```

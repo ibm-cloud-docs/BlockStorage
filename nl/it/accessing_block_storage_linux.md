@@ -9,7 +9,7 @@ keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="_blank"}_
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
