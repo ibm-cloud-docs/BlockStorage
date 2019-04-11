@@ -29,7 +29,7 @@ Pour plus d'informations, voir [cPanel - Configuration du répertoire de sauvega
    Par défaut, le système cPanel enregistre les fichiers de sauvegarde localement, dans le répertoire `/backup`. Dans ce document, nous supposons que le répertoire `/backup` existe et contient des sauvegardes et `/backup2` est utilisé comme nouveau point de montage.
    {:note}
 
-3. Configurez {{site.data.keyword.blockstorageshort}} comme décrit dans [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](accessing_block_storage_linux.html). Prenez soin de le monter dans `/backup2` et de configurer dans `/etc/fstab` pour autoriser le montage à l'amorçage.
+3. Configurez {{site.data.keyword.blockstorageshort}} comme décrit dans [Connexion à des numéros d'unité logique (LUN) MPIO iSCSI sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Prenez soin de le monter dans `/backup2` et de configurer dans `/etc/fstab` pour autoriser le montage à l'amorçage.
 
 4. **Facultatif** : Copiez les sauvegardes existantes dans le nouveau stockage. Vous pouvez utiliser `rsync`.
    ```

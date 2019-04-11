@@ -17,7 +17,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
 
-# チュートリアルの開始
+# 入門チュートリアル
 {: #getting-started}
 
 {{site.data.keyword.blockstoragefull}} は、コンピューティング・インスタンスから独立してプロビジョンおよび管理される、永続的で高性能な iSCSI ストレージです。 iSCSI ベースの {{site.data.keyword.blockstorageshort}} LUN は、冗長マルチパス入出力 (MPIO) 接続を介して、許可されたデバイスに接続されます。
