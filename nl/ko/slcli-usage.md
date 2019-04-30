@@ -70,11 +70,11 @@ SLCLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라�
   ```
   slcli block volume-duplicate
   ```
-* [IOPS 조정](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
+* [IOPS 조정](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
   ```
   slcli block volume-modify
   ```
-* [용량 확장](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
+* [용량 확장](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
   ```
   slcli block volume-modify
   ```

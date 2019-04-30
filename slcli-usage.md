@@ -70,11 +70,11 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   ```
   slcli block volume-duplicate
   ```
-* [Adjusting the IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
+* [Adjusting the IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
   ```
   slcli block volume-modify
   ```
-* [Expanding the capacity](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
+* [Expanding the capacity](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
   ```
   slcli block volume-modify
   ```

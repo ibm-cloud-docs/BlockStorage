@@ -70,11 +70,11 @@ subcollection: BlockStorage
   ```
   slcli block volume-duplicate
   ```
-* [调整 IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
+* [调整 IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
   ```
   slcli block volume-modify
   ```
-* [扩展容量](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
+* [扩展容量](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
   ```
   slcli block volume-modify
   ```

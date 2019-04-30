@@ -70,11 +70,11 @@ Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [
   ```
   slcli block volume-duplicate
   ```
-* [Ajuste del IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
+* [Ajuste del IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
   ```
   slcli block volume-modify
   ```
-* [Expansión de la capacidad](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
+* [Expansión de la capacidad](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
   ```
   slcli block volume-modify
   ```
