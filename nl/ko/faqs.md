@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 ## 주문할 수 있는 볼륨은 얼마나 됩니까?
 {: faq}
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 한계를 늘리려면 영업 담당자에게 문의하십시오. 자세한 정보는 [스토리지 한계 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)를 참조하십시오.
+기본적으로, 250개 블록 및 파일 스토리지 볼륨의 통합 총계를 프로비저닝할 수 있습니다. 볼륨 한계를 늘리려면 영업 담당자에게 문의하십시오. 자세한 정보는 [스토리지 한계 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)를 참조하십시오.
 
 ## 호스트에 마운트할 수 있는 {{site.data.keyword.blockstorageshort}} 볼륨은 몇 개입니까?
 {: faq}

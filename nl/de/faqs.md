@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger i
 ## Wie viele Datenträger können bestellt werden?
 {: faq}
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
+Sie können standardmäßig eine kombinierte Gesamtzahl von 250 Block- und Dateispeicherdatenträger bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Wie viele {{site.data.keyword.blockstorageshort}}-Datenträger können an einen Host angehängt werden?
 {: faq}

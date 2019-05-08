@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ Le nombre d'autorisations par volume de blocs est limité par défaut à 8. Cela
 ## Combien de volumes peuvent être commandés ?
 {: faq}
 
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter votre limite, contactez votre commercial. Pour plus d'informations, voir [Gestion des limites de stockage](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes de bloc et de stockage de fichier. Pour augmenter votre limite, contactez votre commercial. Pour plus d'informations, voir [Gestion des limites de stockage](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Combien de volumes {{site.data.keyword.blockstorageshort}} peuvent être montés sur un hôte ?
 {: faq}

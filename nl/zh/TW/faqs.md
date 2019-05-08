@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 ## 可以訂購多少個磁區？
 {: faq}
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區限制，請與業務代表聯絡。如需相關資訊，請參閱[管理儲存空間限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
+依預設，您可以佈建總計 250 個區塊及檔案儲存空間磁區。若要增加磁區限制，請與業務代表聯絡。如需相關資訊，請參閱[管理儲存空間限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 
 ## 一個主機可以裝載多少個 {{site.data.keyword.blockstorageshort}} 磁區？
 {: faq}

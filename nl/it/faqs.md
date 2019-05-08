@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ Il limite predefinito per il numero di autorizzazioni per volume di blocchi è o
 ## Quanti volumi possono essere ordinati?
 {: faq}
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il tuo limite di volumi, contatta il rappresentante di vendita. Per ulteriori informazioni, vedi [Gestione dei limiti di archiviazione](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi di archiviazione blocchi e file. Per aumentare il tuo limite di volumi, contatta il rappresentante di vendita. Per ulteriori informazioni, vedi [Gestione dei limiti di archiviazione](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Quanti volumi {{site.data.keyword.blockstorageshort}} possono essere montati su un host?
 {: faq}

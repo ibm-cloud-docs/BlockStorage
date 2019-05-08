@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 ## 注文できるボリュームの数はいくつですか?
 {: faq}
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
+デフォルトでは、合計 250 のブロック・ストレージ・ボリュームとファイル・ストレージ・ボリュームをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
 
 ## ホストにマウントできる {{site.data.keyword.blockstorageshort}} ボリュームの数はいくつですか?
 {: faq}

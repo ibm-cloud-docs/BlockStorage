@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 ## 可以订购多少个卷？
 {: faq}
 
-缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增大卷限制，请联系销售代表。有关更多信息，请参阅[管理存储限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
+缺省情况下，总共可以供应 250 个块存储卷和文件存储卷。要增大卷限制，请联系销售代表。有关更多信息，请参阅[管理存储限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 
 ## 在一个主机上可以安装多少个 {{site.data.keyword.blockstorageshort}} 卷？
 {: faq}
