@@ -95,8 +95,10 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 | 10,000-12,000 | 1,000 | 6,000 or 48,000 ![Footnote](/images/numberone.png) |
 {: row-headers}
 {: class="comparison-table"}
-{: caption="Table comparison<br/>![Footnote](/images/numberone.png) IOPS limits that are greater than 6,000 are available in select data centers." caption-side="top"}
+{: caption="Table comparison" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
+
+*![Footnote](/images/numberone.png) IOPS limits that are greater than 6,000 are available in select data centers.
 
 Performance volumes are designed to operate consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a specific level of performance. Additionally, it's possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
 
