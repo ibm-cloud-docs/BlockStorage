@@ -80,76 +80,23 @@ Performance is a class of {{site.data.keyword.blockstorageshort}} that is design
 
 Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted through a Multipath I/O (MPIO) internet Small Computer System Interface (iSCSI) connection. {{site.data.keyword.blockstorageshort}} is typically used when the volume is accessed by a single server. Multiple volumes can be mounted to a host and striped together to achieve larger volumes and higher IOPS counts. Performance volumes can be ordered according to the sizes and IOPS rates in Table 3 for Linux, XEN, and Windows operating systems.
 
-
-<table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>Table 3 is showing size and IOPS combinations for Performance storage.<br/><sup><img src="/images/numberone.png" alt="Footnote" /></sup> IOPS limits greater than 6,000 is available in select data centers.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-          <tr>
-            <th>Size (GB)</th>
-            <th>Min IOPS</th>
-            <th>Max IOPS</th>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>100</td>
-            <td>1,000</td>
-          </tr>
-          <tr>
-            <td>40</td>
-            <td>100</td>
-            <td>2,000</td>
-          </tr>
-          <tr>
-            <td>80</td>
-            <td>100</td>
-            <td>4,000</td>
-          </tr>
-          <tr>
-            <td>100</td>
-            <td>100</td>
-            <td>6,000</td>
-          </tr>
-          <tr>
-            <td>250</td>
-            <td>100</td>
-            <td>6,000</td>
-          </tr>
-          <tr>
-            <td>500</td>
-            <td>100</td>
-            <td>6,000 or 10,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>1,000</td>
-            <td>100</td>
-            <td>6,000 or 20,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>2,000</td>
-            <td>200</td>
-            <td>6,000 or 40,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>3,000-7,000</td>
-            <td>300</td>
-            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>8,000-9,000</td>
-            <td>500</td>
-            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>10,000-12,000</td>
-            <td>1,000</td>
-            <td>6,000 or 48,000 <sup><img src="/images/numberone.png" alt="Footnote" /></sup></td>
-          </tr>
-</table>
-
+| Size (GB) | Min IOPS | Max IOPS
+|-----|-----|-----|
+| 20 | 100 | 1,000 |
+| 40 | 100 | 2,000  |
+| 80 | 100 | 4,000 |
+| 100 | 100 | 6,000 |
+| 250 | 100 | 6,000 |
+| 500 | 100  | 6,000 or 10,000 |
+| 1,000 | 100 | 6,000 or 20,000 ![Footnote](/images/numberone.png) |
+| 2,000 | 200 | 6,000 or 40,000 ![Footnote](/images/numberone.png) |
+| 3,000-7,000 | 300 | 6,000 or 48,000 ![Footnote](/images/numberone.png) |
+| 8,000-9,000 | 500 | 6,000 or 48,000 ![Footnote](/images/numberone.png) |
+| 10,000-12,000 | 1,000 | 6,000 or 48,000 ![Footnote](/images/numberone.png) |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Table comparison<br/>![Footnote](/images/numberone.png) IOPS limits that are greater than 6,000 are available in select data centers." caption-side="top"}
+{: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
 Performance volumes are designed to operate consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a specific level of performance. Additionally, it's possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
 
@@ -162,18 +109,6 @@ With **hourly billing**, the number of hours the block LUN existed on the accoun
 
 With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a LUN is deleted before the end of the billing cycle, there's no refund. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer).
 
-### Performance
-{: #pricing-comparison-performance}
-
-| Pricing options for custom IOPS | Pricing calculation | 
-|-----|-----|
-| Monthly Price | $0.10/GB + $0.07/IOP |
-| Hourly Price | $0.0001/GB + $0.0002/IOP |
-{: row-headers}
-{: class="comparison-table"}
-{: caption="Table comparison of pricing for storage with custom IOPS rate" caption-side="top"}
-{: summary="Table 1 is showing the prices for Performance Storage with monthly and hourly billing. This table has row and column headers. The row headers identify the billing options. To see what your cost for Storage is, navigate to the row of the billing option you are interested in."}
-
 ### Endurance
 {: #pricing-comparison-endurance}
 
@@ -183,5 +118,17 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 | Hourly Price | $0.0001/GB | $0.0002/GB | $0.0003/GB | $0.0009/GB |
 {: row-headers}
 {: class="comparison-table"}
-{: caption="Table comparison of pricing" caption-side="top"}
-{: summary="Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options. This table has row and column headers. The row headers identify the billing options. The column headers indentify the IOPS level that is chosen for the service. To understand what your price is located in the table, navigate to the column and review the two different billing options for that IOPS tier."}
+{: caption="Table comparison" caption-side="top"}
+{: summary="Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options. This table has row and column headers. The row headers identify the billing options. The column headers identify the IOPS level that is chosen for the service. To understand what your price is located in the table, navigate to the column and review the two different billing options for that IOPS tier."}
+
+### Performance
+{: #pricing-comparison-performance}
+
+| Pricing options for custom IOPS | Pricing calculation |
+|-----|-----|
+| Monthly Price | $0.10/GB + $0.07/IOP |
+| Hourly Price | $0.0001/GB + $0.0002/IOP |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Table comparison" caption-side="top"}
+{: summary="Table 3 is showing the prices for Performance Storage with monthly and hourly billing. This table has row and column headers. The row headers identify the billing options. To see what your cost for Storage is, navigate to the row of the billing option you are interested in."}
