@@ -9,7 +9,7 @@ keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managi
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -19,9 +19,9 @@ subcollection: BlockStorage
 # Comandi SLCLI per {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-Puoi utilizzare la SLCLI per eseguire delle azioni che vengono normalmente gestite tramite il [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}. Ad esempio, con la SLCLI puoi inserire degli ordini per i volumi, lo spazio di istantanea, la replica, aggiornare le autorizzazioni, eliminare i volumi e così via.
+Puoi utilizzare la SLCLI per eseguire delle azioni che vengono normalmente gestite tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Ad esempio, con la SLCLI puoi inserire degli ordini per i volumi, lo spazio di istantanea, la replica, aggiornare le autorizzazioni, eliminare i volumi e così via.
 
-Per ulteriori informazioni su come installare e utilizzare la SLCLI, consulta [Python API Client ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+Per ulteriori informazioni su come installare e utilizzare la SLCLI, consulta [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
 {:tip}
 
 ## Comandi SLCLI correlati all'accesso

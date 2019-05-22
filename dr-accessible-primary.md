@@ -9,7 +9,7 @@ keywords: Block Storage, accessible Primary volume, duplicate of a replica volum
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,9 +26,9 @@ Before you start the failover, make sure that all host-authorization is in place
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
 {:note}
 
-1. Log in to [The {{site.data.keyword.cloud}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to [The {{site.data.keyword.cloud}} console](https://{DomainName}/catalog/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Click your source or destination volume from the **{{site.data.keyword.blockstorageshort}}** page.
 3. Click **Replica**.
 4. Scroll down to the **Authorize Hosts** frame and click **Authorize Hosts** on the right.
@@ -40,7 +40,7 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 
 If a failure event is imminent, you can start a **failover** to your destination, or target, volume. The target volume becomes active. The last successfully replicated snapshot is activated, and the volume is made available for mounting. Any data that was written to the source volume since the previous replication cycle is lost. When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 **Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.**
 
@@ -67,7 +67,7 @@ When your original source volume is repaired, you can start a controlled Failbac
 
 When a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
 
-Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Click your active LUN ("target").
 2. In the upper right, click **Replica** and click **Actions**.

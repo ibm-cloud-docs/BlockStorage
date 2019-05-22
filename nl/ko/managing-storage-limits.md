@@ -9,7 +9,7 @@ keywords: Block Storage, limit increase, global quota, quota increase
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +30,7 @@ subcollection: BlockStorage
   -h, --help             이 메시지를 표시하고 종료합니다.
 ```
 
-[{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 티켓을 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 티켓을 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
 
 한계 증가를 요청하려면 티켓을 열고 이를 영업 담당자에게 보내십시오.
 

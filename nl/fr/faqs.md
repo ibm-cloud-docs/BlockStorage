@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ (Foire aux questions)
@@ -91,7 +91,7 @@ Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}}
 ## Comment savoir quels volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
 
-Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
+Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
 
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}

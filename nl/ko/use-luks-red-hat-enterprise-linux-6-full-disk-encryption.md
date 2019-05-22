@@ -9,7 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -38,7 +38,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 ## LUKS가 수행하지 않는 작업
 
 - 다수의(9명 이상) 사용자가 동일한 디바이스에 대해 개별 액세스 키를 가져야 하는 애플리케이션을 허용합니다.
-- 파일 레벨 암호화가 필요한 애플리케이션에 대해 작업합니다. 자세한 정보는 [RHEL 보안 안내서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}를 참조하십시오.
+- 파일 레벨 암호화가 필요한 애플리케이션에 대해 작업합니다. 자세한 정보는 [RHEL 보안 안내서](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}를 참조하십시오.
 
 ## Endurance{{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정
 

@@ -9,7 +9,7 @@ keywords: Block Storage, performance tuning, host performance improvement,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 
 # Einstellungen der Hostwarteschlangenlänge anpassen
 {: #hostqueuesettings}

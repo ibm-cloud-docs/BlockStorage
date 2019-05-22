@@ -9,7 +9,7 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Gestion de {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 ## Affichage des détails de numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
@@ -84,7 +84,7 @@ Options:
 
 Vous pouvez afficher les numéros d'unité logique auxquels un hôte a accès, notamment les informations nécessaires pour établir une connexion (Nom LUN, Type de stockage, Adresse cible, capacité et emplacement) :
 
-1. Cliquez sur **Périphériques** -> **Liste des périphériques** dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://control.softlayer.com/){:new_window}, puis cliquez sur le périphérique approprié.
+1. Cliquez sur **Périphériques** -> **Liste des périphériques** dans le portail [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external}, puis cliquez sur le périphérique approprié.
 2. Sélectionnez l'onglet **Stockage**.
 
 Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). Vous pouvez autoriser davantage de stockage ou supprimer l'accès en cliquant sur **Actions**.
@@ -111,7 +111,7 @@ Vous pouvez révoquer l'accès à partir de la **Liste des unités** ou de la **
 
 ### Révocation de l'accès à partir de la liste des unités
 
-1. Cliquez sur **Périphériques**, **Liste des périphériques** dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}, puis cliquez deux fois sur le périphérique approprié.
+1. Cliquez sur **Périphériques**, **Liste des périphériques** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, puis cliquez deux fois sur le périphérique approprié.
 2. Sélectionnez l'onglet **Stockage**.
 3. Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). En regard du nom LUN, sélectionnez **Action**, puis cliquez sur **Révoquer le droit d'accès**.
 4. Confirmez l'action car elle ne peut pas être annulée. Cliquez sur **Oui** pour révoquer l'accès d'un numéro d'unité logique, ou sur **Non** pour annuler l'action.

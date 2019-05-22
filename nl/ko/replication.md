@@ -9,7 +9,7 @@ keywords: Block Storage, secondary storage, replication, duplicate volume, synch
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -109,7 +109,7 @@ MEL01<br />
 
 ## 초기 복제본 작성
 
-복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [[{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
+복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
 
 1. 스토리지 볼륨을 클릭하십시오.
 2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
@@ -127,7 +127,7 @@ MEL01<br />
 
 ## 기존 복제본 편집
 
-[{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에 있는 **기본** 또는 **복제본**에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에 있는 **기본** 또는 **복제본**에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
 
 
 ## 복제 스케줄 편집

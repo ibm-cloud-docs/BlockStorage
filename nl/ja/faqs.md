@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
@@ -91,7 +91,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## どの {{site.data.keyword.blockstorageshort}} ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
 
-[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
 
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}

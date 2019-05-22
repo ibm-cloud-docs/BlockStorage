@@ -9,7 +9,7 @@ keywords: Block Storage, block storage, snapshot, snapshot space, snapshot best 
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}

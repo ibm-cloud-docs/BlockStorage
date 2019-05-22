@@ -9,7 +9,7 @@ keywords: Block Storage, limit increase, global quota, quota increase
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +30,7 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-您可以在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中提交問題單，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
+您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中提交問題單，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
 
 若要要求提高限制，請開立問題單，並將它導向給您的業務代表。
 

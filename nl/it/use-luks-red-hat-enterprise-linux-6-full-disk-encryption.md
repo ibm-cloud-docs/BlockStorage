@@ -9,7 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -38,7 +38,7 @@ Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioni
 ## Cosa non fa LUKS
 
 - Consente alle applicazioni che richiedono molti utenti (più di otto) di avere delle chiavi di accesso distinte agli stessi dispositivi.
-- Lavora con le applicazioni che richiedono la crittografia a livello di file. Per ulteriori informazioni, consulta il manuale [RHEL Security Guide ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Lavora con le applicazioni che richiedono la crittografia a livello di file. Per ulteriori informazioni, consulta il manuale [RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
 ## Configurazione di un volume crittografato LUKS con {{site.data.keyword.blockstorageshort}} Endurance
 

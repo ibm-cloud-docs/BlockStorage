@@ -9,7 +9,7 @@ keywords: Block Storage, inaccessible Primary volume, duplicate of a replica vol
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,10 +23,10 @@ Se un errore catastrofico o un'emergenza causa un'interruzione sul sito primario
 
 ## Failover con un duplicato di un volume di replica sul sito secondario
 
-1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
+1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Fai clic sulla replica del LUN nell'elenco per visualizzare la relativa pagina **Details**.
 4. Nella pagina **Details**, scorri verso il basso, seleziona un'istantanea esistente e fai clic su **Actions** > **Duplicate**.
@@ -40,10 +40,10 @@ Non appena il volume viene creato, può essere collegato a un host ed eseguire l
 
 Se vuoi far tornare la produzione al sito primario originale, devi completare le seguenti istruzioni.
 
-1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
+1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Fai clic sul nome del LUN e crea una pianificazione delle istantanee (se non ne esiste già una).
 

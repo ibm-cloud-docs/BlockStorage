@@ -9,7 +9,7 @@ keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
 
-例如，您可以在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} 找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，以及在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} 找到 Ubuntu 有关 DM-Multipath 设置的指示信息。
+例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} 找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，以及在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} 找到 Ubuntu 有关 DM-Multipath 设置的指示信息。
 {: tip}
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 授权。
 {:important}
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
@@ -52,7 +52,7 @@ subcollection: BlockStorage
 
 下面是将基于 Linux 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
 
-指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
+指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
 {: tip}
 
 最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
@@ -458,7 +458,7 @@ systemctl start iscsid
 
    4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。<br />
 
-   列出的单位缺省为兆字节 (MB)。要创建 10 GB 的分区，请从 1 开始，到 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。 
+   列出的单位缺省为兆字节 (MB)。要创建 10 GB 的分区，请从 1 开始，到 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。
    {: tip}
 
       ```
@@ -598,5 +598,5 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    ```
    {: pre}
 
-   有关更多信息，请参阅 [`iscsiadm` 手册 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://linux.die.net/man/8/iscsiadm)。
+   有关更多信息，请参阅 [`iscsiadm` 手册](https://linux.die.net/man/8/iscsiadm)。
    {:tip}

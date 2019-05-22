@@ -9,7 +9,7 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes through [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+You can manage your {{site.data.keyword.blockstoragefull}} volumes through [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details
 
@@ -84,7 +84,7 @@ Options:
 
 You can view the LUNs to which a host has access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
-1. Click **Devices** -> **Device List** in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://control.softlayer.com/){:new_window} and click the appropriate device.
+1. Click **Devices** -> **Device List** in the [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} and click the appropriate device.
 2. Select the **Storage** tab.
 
 You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
@@ -111,7 +111,7 @@ You can revoke access from the **Device List** or the **Storage view**.
 
 ### Revoking access from the Device List
 
-1. Click **Devices**, **Device List** from the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window} and double-click the appropriate device.
+1. Click **Devices**, **Device List** from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} and double-click the appropriate device.
 2. Select the **Storage** tab.
 3. You are presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). Next to the LUN name, select **Action"" and click **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.

@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
@@ -91,7 +91,7 @@ Endurance유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB 티어는 
 ## 암호화된 {{site.data.keyword.blockstorageshort}} 볼륨을 어떻게 알 수 있습니까?
 {: faq}
 
-[{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 {{site.data.keyword.blockstorageshort}} 목록을 표시하면 암호화된 LUN의 볼륨 이름 옆에 있는 잠금 아이콘을 볼 수 있습니다.
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 {{site.data.keyword.blockstorageshort}} 목록을 표시하면 암호화된 LUN의 볼륨 이름 옆에 있는 잠금 아이콘을 볼 수 있습니다.
 
 ## 업그레이드된 데이터 센터에서 {{site.data.keyword.blockstorageshort}}를 프로비저닝하는 경우를 어떻게 알 수 있습니까?
 {: faq}

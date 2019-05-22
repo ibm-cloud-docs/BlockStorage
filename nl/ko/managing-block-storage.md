@@ -9,7 +9,7 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} 관리
 {: #managingstorage}
 
-[{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
 
 ## {{site.data.keyword.blockstorageshort}} LUN 세부사항 보기
 
@@ -84,7 +84,7 @@ subcollection: BlockStorage
 
 연결에 필요한 정보(LUN 이름, 스토리지 유형, 대상 주소, 용량, 위치)를 포함하여 호스트가 액세스 권한이 있는 LUN을 볼 수 있습니다.
 
-1. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://control.softlayer.com/){:new_window}에서 **디바이스** -> **디바이스 목록**을 클릭하고 적절한 디바이스를 클릭하십시오.
+1. [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external}에서 **디바이스** -> **디바이스 목록**을 클릭하고 적절한 디바이스를 클릭하십시오.
 2. **스토리지** 탭을 선택하십시오.
 
 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. **조치**를 클릭하여 추가 스토리지를 권한 부여하거나 액세스 권한을 제거할 수 있습니다.
@@ -111,7 +111,7 @@ subcollection: BlockStorage
 
 ### 디바이스 목록에서 액세스 권한 취소
 
-1. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에서 **디바이스**, **디바이스 목록**을 클릭하고 적절한 디바이스를 두 번 클릭하십시오.
+1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 **디바이스**, **디바이스 목록**을 클릭하고 적절한 디바이스를 두 번 클릭하십시오.
 2. **스토리지** 탭을 선택하십시오.
 3. 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. LUN 이름 옆에 있는 **조치를 선택하고 **액세스 권한 취소**를 클릭하십시오.
 4. 조치는 실행 취소할 수 없기 때문에 LUN에 대한 액세스 권한을 취소할 것인지 확인하십시오. **예**를 클릭하여 LUN 액세스 권한을 취소하거나 **아니오**를 클릭하여 조치를 취소하십시오.

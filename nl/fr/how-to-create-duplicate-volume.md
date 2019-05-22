@@ -9,7 +9,7 @@ keywords: Block Storage, LUN, volume duplication,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ Voici quelques exemples d'utilisation courante d'un volume dupliqué :
 - **Développement/Test**. Créez jusqu'à quatre doublons simultanés d'un volume en même temps pour créer des données dupliquées à des fins de développement et de test.
 - **Redimensionnement de stockage**. Créez un volume avec une nouvelle taille et/ou un nouveau nombre d'IOPS sans avoir à effectuer une migration de vos données.  
 
-Il existe deux manières de créer un volume dupliqué via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+Il existe deux manières de créer un volume dupliqué via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 
 ## Création d'un doublon à partir d'un volume spécifique dans la liste de stockage

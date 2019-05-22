@@ -9,7 +9,7 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 管理 {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-您可以透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
+您可以透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 來管理 {{site.data.keyword.blockstoragefull}} 磁區。
 
 ## 檢視 {{site.data.keyword.blockstorageshort}} LUN 詳細資料
 
@@ -84,7 +84,7 @@ Options:
 
 您可以檢視主機具有存取權的 LUN，包括建立連線所需的資訊 -「LUN 名稱」、「儲存空間類型」、「目標位址」、容量及位置：
 
-1. 在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://control.softlayer.com/){:new_window} 中按一下**裝置** -> **裝置清單**，然後按一下適當的裝置。
+1. 在 [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} 中按一下**裝置** -> **裝置清單**，然後按一下適當的裝置。
 2. 選取**儲存空間**標籤。
 
 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。您可以按一下**動作**來授權更多儲存空間或移除存取權。
@@ -111,7 +111,7 @@ Options:
 
 ### 從裝置清單撤銷存取權
 
-1. 從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
+1. 從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
 2. 選取**儲存空間**標籤。
 3. 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。在 LUN 名稱旁，選取**動作**，然後按一下「撤銷存取權」。
 4. 確認您要撤銷 LUN 的存取權，因為該動作無法復原。按一下**是**以撤銷 LUN 存取權，或按一下**否**以取消動作。

@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
@@ -101,7 +101,7 @@ data centers submetidos a upgrade e de recursos disponíveis
 ## Como podemos dizer quais volumes do {{site.data.keyword.blockstorageshort}} são criptografados?
 {: faq}
 
-Ao olhar para a sua lista do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}, é possível ver um ícone de bloqueio ao lado do nome do volume para os LUNs que estão criptografados.
+Ao olhar para a sua lista do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, é possível ver um ícone de bloqueio ao lado do nome do volume para os LUNs que estão criptografados.
 
 ## Como sabemos quando estamos provisionando o {{site.data.keyword.blockstorageshort}} em um data center submetido a upgrade?
 {: faq}

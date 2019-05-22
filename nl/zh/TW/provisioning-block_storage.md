@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,9 +27,9 @@ subcollection: BlockStorage
 
 ## 訂購具有預先定義 IOPS 層級（耐久性）的 {{site.data.keyword.blockstorageshort}}
 
-1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog){:new_window}，並按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
+1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog){: external}，並按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
 
-   或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
+   或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
 
 2. 選取您的部署**位置**（資料中心）。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
@@ -64,9 +64,9 @@ subcollection: BlockStorage
 
 ## 訂購具有自訂 IOPS（效能）的 {{site.data.keyword.blockstorageshort}}
 
-1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog){:new_window}，並按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
+1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog){: external}，並按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
 
-   或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
+   或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
 2. 按一下**位置**，然後選取資料中心。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。

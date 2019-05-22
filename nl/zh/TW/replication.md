@@ -9,7 +9,7 @@ keywords: Block Storage, secondary storage, replication, duplicate volume, synch
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -107,7 +107,7 @@ MEL01<br />
 
 ## 建立起始抄本
 
-抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下進行管理。
+抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下進行管理。
 
 1. 按一下儲存空間磁區。
 2. 按一下**抄本**，然後按一下**購買抄寫**。
@@ -126,7 +126,7 @@ MEL01<br />
 
 ## 編輯現有抄寫
 
-您可以從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤編輯抄寫排程，以及變更抄寫空間。
+您可以從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤編輯抄寫排程，以及變更抄寫空間。
 
 
 ## 編輯抄寫排程

@@ -9,7 +9,7 @@ keywords: Block Storage, limit increase, global quota, quota increase
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +30,7 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} でチケットを送信することによって、制限の引き上げを要求できます。 要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} でチケットを送信することによって、制限の引き上げを要求できます。 要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
 
 制限の引き上げを要求するには、チケットをオープンして営業担当員に送信します。
 

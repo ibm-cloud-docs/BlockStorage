@@ -9,7 +9,7 @@ keywords: Block storage, Plesk, backups, mountpoint, ISCSI
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 
 Puede utilizar estas instrucciones para configurar {{site.data.keyword.blockstoragefull}} para sus copias de seguridad en Plesk. Suponemos que está disponible el acceso de SSH sudo o root y de Plesk a nivel administrador completo. Estas instrucciones se basan en un host CentOS7.
 
-Para obtener más información, consulte la [documentación de Plesk sobre copia de seguridad y restauración ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
+Para obtener más información, consulte la [documentación de Plesk sobre copia de seguridad y restauración](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){: external}.
 {:tip}
 
 1. Conéctese al host a través de SSH.

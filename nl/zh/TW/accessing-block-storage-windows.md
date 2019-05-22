@@ -9,7 +9,7 @@ keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mo
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # 在 Microsoft Windows 上連接至 iSCSI LUN
 {: #mountingWindows}
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機已透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 獲得授權。
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。按一下**授權主機**。
 2. 從清單中，選取要存取磁區的主機，然後按一下**提交**。
@@ -68,7 +68,7 @@ Options:
     - 按一下**變更**，將現有值取代為「iSCSI 完整名稱 (IQN)」。
     ![iSCSI 起始器內容](/images/iSCSI.png)
 
-      您可以從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面取得 IQN 名稱。
+      您可以從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面取得 IQN 名稱。
       {: tip}
 
     - 按一下**探索**標籤，然後按一下**探索入口網站**。
@@ -78,8 +78,8 @@ Options:
     ![啟用 CHAP 登入](/images/Advanced_0.png)
         「名稱」及「目標密碼」欄位有區分大小寫。
     {:important}
-         - 在**名稱**欄位中，刪除任何現有的項目，並從 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 輸入使用者名稱。
-         - 在**目標密碼**欄位中，輸入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 提供的密碼。
+         - 在**名稱**欄位中，刪除任何現有的項目，並從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 輸入使用者名稱。
+         - 在**目標密碼**欄位中，輸入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 提供的密碼。
     - 在**進階設定**及**探索目標入口網站**視窗上，按一下**確定**，以回到主要「iSCSI 起始器內容」畫面。如果您收到鑑別錯誤，請檢查使用者名稱及密碼項目。
     ![非作用中目標](/images/Inactive_0.png)
         您的目標名稱會出現在「已探索目標」區段中，並處於`非作用中`狀態。
@@ -125,14 +125,14 @@ Options:
    - 在「起始器 IP」清單中，選取對應於主機的 IP 位址。在此情況下，您會將儲存裝置上的兩個網路介面連接至主機上的單一網路介面。因此，這個介面與為第一個階段作業所提供的介面相同。
    - 在「目標入口網站 IP」清單上，選取儲存裝置上已啟用之第二個資料介面的 IP 位址。
 
-     您可以在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面中找到第二個 IP 位址。
+     您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面中找到第二個 IP 位址。
       {: tip}
    - 按一下**啟用 CHAP 登入**勾選框。
    - 輸入從入口網站取得的「名稱」及「目標密碼」值，然後按一下**確定**。
    - 在「連接至目標」視窗上按一下**確定**，以回到「內容」視窗。
 8. 現在，「內容」視窗會在 ID 窗格內顯示多個階段作業。您有多個階段作業連至 iSCSI 儲存空間。
 
-   如果您的主機有多個介面，而您想要將它們連接至 ISCSI 儲存空間，您可以在「起始器 IP」欄位中設定與另一片 NIC 之 IP 位址的另一個連線。不過，在試圖建立連線之前，請務必在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中授權第二個起始器 IP 位址。
+   如果您的主機有多個介面，而您想要將它們連接至 ISCSI 儲存空間，您可以在「起始器 IP」欄位中設定與另一片 NIC 之 IP 位址的另一個連線。不過，在試圖建立連線之前，請務必在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中授權第二個起始器 IP 位址。
    {:note}
 9. 在「內容」視窗中，按一下**裝置**，以開啟「裝置」視窗。裝置介面名稱的開頭為 `mpio`。<br/>
   ![裝置](/images/Devices.png)

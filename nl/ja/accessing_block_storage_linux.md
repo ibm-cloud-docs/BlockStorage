@@ -9,7 +9,7 @@ keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 ここでの説明は、主に RHEL6 および Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
 
-例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} を参照し、DM マルチパスのセットアップについては、[こちら ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window} を参照してください。
+例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} を参照してください。
 {: tip}
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して以前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して以前に許可されていることを確認してください。
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
@@ -53,7 +53,7 @@ Options:
 
 以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
-手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
+手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
 {: tip}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
@@ -599,5 +599,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   詳しくは、[`iscsiadm` の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://linux.die.net/man/8/iscsiadm)を参照してください。
+   詳しくは、[`iscsiadm` の資料](https://linux.die.net/man/8/iscsiadm)を参照してください。
    {:tip}

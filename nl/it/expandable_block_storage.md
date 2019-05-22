@@ -9,7 +9,7 @@ keywords: Block Storage, new feature, adjusting capacity, modify capacity, incre
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}

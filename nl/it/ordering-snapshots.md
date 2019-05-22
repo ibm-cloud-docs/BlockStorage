@@ -9,7 +9,7 @@ keywords: Block Storage, snapshot space, ordering snapshots,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
@@ -49,9 +49,9 @@ Inoltre, per la maggior parte dei carichi di lavoro, più grande è un volume e 
 
 ## Ordinazione dello spazio di istantanea tramite la console {{site.data.keyword.cloud_notm}}
 
-1. Accedi alla [Console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog){:new_window} e fai clic sull'icona menu in alto a sinistra. Seleziona **Classic Infrastructure**.
+1. Accedi alla [Console {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} e fai clic sull'icona menu in alto a sinistra. Seleziona **Classic Infrastructure**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Accedi al tuo LUN di archiviazione tramite **Storage** >**{{site.data.keyword.blockstorageshort}}**.
 2. Fai clic su **Change Snapshot Space** nel frame Snapshots.
 3. Seleziona la quantità di spazio che ti serve e il metodo di pagamento.

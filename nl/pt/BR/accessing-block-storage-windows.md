@@ -9,7 +9,7 @@ keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mo
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Conectando-se a LUNs iSCSI no Microsoft Windows
 {: #mountingWindows}
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**. Clique em **Autorizar host**.
 2. Na lista, selecione o host ou os hosts que devem acessar o volume e clique em **Enviar**.
@@ -69,7 +69,7 @@ reivindicar todos os dispositivos iSCSI para MPIO, o que requer uma conexão com
     - Clique em **Mudar** para substituir os valores existentes pelo nome qualificado de
 iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
-      O nome do IQN pode ser obtido por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+      O nome do IQN pode ser obtido por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
 
     - Clique na guia **Descoberta** e clique em **Descobrir portal**.
@@ -80,8 +80,8 @@ iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
     Os campos Nome e Segredo de destino fazem distinção entre maiúsculas e minúsculas.
     {:important}
-         - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário por meio do [ {{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
-         - No campo **Segredo do destino**, insira a senha por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+         - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário por meio do [ {{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - No campo **Segredo do destino**, insira a senha por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
     - Clique em **OK** nas janelas **Configurações avançadas** e **Descobrir portal de destino** para voltar à tela principal Propriedades do inicializador iSCSI. Se você receber erros de autenticação, verifique as entradas de nome de usuário e senha.
     ![Destino inativo](/images/Inactive_0.png)
 
@@ -133,7 +133,7 @@ interfaces de rede no dispositivo de armazenamento a uma única interface de red
 
      É possível localizar o segundo endereço IP na tela Detalhes do {{site.data.keyword.blockstorageshort}}
 no [{{site.data.keyword.slportal}}
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){: external}.
       {: tip}
    - Clique na caixa de seleção **Ativar logon do CHAP**
    - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
@@ -143,7 +143,7 @@ Propriedades.
 uma sessão no armazenamento iSCSI.
 
    Se o host tiver múltiplas interfaces que você deseja conectar ao armazenamento ISCSI, será possível
-configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. No entanto, certifique-se de autorizar o segundo endereço IP do inicializador no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window} antes de tentar fazer a conexão.
+configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. No entanto, certifique-se de autorizar o segundo endereço IP do inicializador no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} antes de tentar fazer a conexão.
    {:note}
 9. Na janela Propriedades, clique em **Dispositivos** para abrir a janela Dispositivos. O nome da interface do dispositivo começa com `mpio`. <br/>
   ![Dispositivos](/images/Devices.png)

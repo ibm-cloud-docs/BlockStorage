@@ -9,7 +9,7 @@ keywords: Block Storage, snapshot space, ordering snapshots,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
@@ -49,9 +49,9 @@ subcollection: BlockStorage
 
 ## 透過 {{site.data.keyword.cloud_notm}} 主控台訂購 Snapshot 空間
 
-1. 登入 [{{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog){:new_window}，然後按一下左上方的功能表圖示。選取**標準基礎架構**。
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/catalog){: external}，然後按一下左上方的功能表圖示。選取**標準基礎架構**。
 
-   或者，您也可以登入 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window}。
+   或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 透過**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 存取「儲存空間 LUN」。
 2. 按一下 Snapshot 頁框中的**變更 Snapshot 空間**。
 3. 選取您需要的空間量和付款方法。

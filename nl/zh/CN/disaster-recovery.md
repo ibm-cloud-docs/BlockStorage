@@ -9,7 +9,7 @@ keywords: Block Storage, inaccessible Primary volume, duplicate of a replica vol
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,11 +23,11 @@ subcollection: BlockStorage
 
 ## 在辅助站点上通过复制副本卷实现故障转移
 
-1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
-{DomainName}/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+1. 登录到 [IBM Cloud 控制台](https://
+{DomainName}/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
+   或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击列表中 LUN 的副本，以查看其**详细信息**页面。
 4. 向下滚动**详细信息**页面，选择现有快照，然后单击**操作** > **复制**。
@@ -41,11 +41,11 @@ subcollection: BlockStorage
 
 如果要将生产返回给原始主站点，那么必须执行以下步骤。
 
-1. 登录到 [IBM Cloud 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://
-{DomainName}/){:new_window}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+1. 登录到 [IBM Cloud 控制台](https://
+{DomainName}/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
+   或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击 LUN 名称，然后创建快照安排（如果尚不存在）。
 

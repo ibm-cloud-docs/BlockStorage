@@ -9,7 +9,7 @@ keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managi
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -19,9 +19,9 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} 的 SLCLI 指令
 {: #SLCLIcommands}
 
-您可以使用 SLCLI 採取通常透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 處理的動作。例如，使用 SLCLI 您可以針對磁區、Snapshot 空間、抄寫、更新授權、取消磁區等等而下訂單。
+您可以使用 SLCLI 採取通常透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 處理的動作。例如，使用 SLCLI 您可以針對磁區、Snapshot 空間、抄寫、更新授權、取消磁區等等而下訂單。
 
-若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}。
+若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}。
 {:tip}
 
 ## 存取相關的 SLCLI 指令

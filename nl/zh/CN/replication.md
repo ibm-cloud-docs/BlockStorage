@@ -9,7 +9,7 @@ keywords: Block Storage, secondary storage, replication, duplicate volume, synch
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -109,7 +109,7 @@ MEL01<br />
 
 ## 创建初始副本
 
-复制将根据快照安排来执行。必须首先具有用于源卷的快照空间和快照安排，然后才能进行复制。如果尝试设置复制，但未设置源卷的快照空间或快照安排，那么系统将提示您购买更多空间或设置安排。复制在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下进行管理。
+复制将根据快照安排来执行。必须首先具有用于源卷的快照空间和快照安排，然后才能进行复制。如果尝试设置复制，但未设置源卷的快照空间或快照安排，那么系统将提示您购买更多空间或设置安排。复制在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下进行管理。
 
 1. 单击存储卷。
 2. 单击**副本**，然后单击**购买复制**。
@@ -127,7 +127,7 @@ MEL01<br />
 
 ## 编辑现有复制
 
-您可以在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下的**主**或**副本**选项卡中，编辑复制安排并更改复制空间。
+您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下的**主**或**副本**选项卡中，编辑复制安排并更改复制空间。
 
 
 ## 编辑复制安排

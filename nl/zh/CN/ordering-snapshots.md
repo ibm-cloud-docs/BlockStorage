@@ -9,7 +9,7 @@ keywords: Block Storage, snapshot space, ordering snapshots,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
@@ -49,9 +49,9 @@ subcollection: BlockStorage
 
 ## 通过 {{site.data.keyword.cloud_notm}} 控制台来订购快照空间
 
-1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/catalog){:new_window}，然后单击左上角的菜单图标。选择**经典基础架构**。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/catalog){: external}，然后单击左上角的菜单图标。选择**经典基础架构**。
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}。
+   或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 通过**存储** > **{{site.data.keyword.blockstorageshort}}**，访问存储器 LUN。
 2. 单击“快照”框架上的**更改快照空间**。
 3. 选择所需的空间量和付款方式。

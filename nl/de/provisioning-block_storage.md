@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,9 +27,9 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 
 ## {{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers bestellen (Endurance)
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
+1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){: external} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
 
-   Alternativ können Sie sich am [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
+   Alternativ können Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 
 2. Wählen Sie Ihre Bereitstellungs**position** (Rechenzentrum) aus.
    - Stellen Sie sicher, dass der neue Speicher an derselben Position des vorhandenen Rechenhosts bzw. der vorhandenen Rechenhosts hinzugefügt wird.
@@ -63,9 +63,9 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 
 ## {{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Raten bestellen (Performance)
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){:new_window} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
+1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){: external} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
 
-   Alternativ können Sie sich am [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
+   Alternativ können Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
 2. Klicken Sie auf die Liste **Position** und wählen Sie Ihr Rechenzentrum aus.
    - Stellen Sie sicher, dass der neue Speicher an derselben Position des vorhandenen Rechenhosts bzw. der vorhandenen Rechenhosts hinzugefügt wird.
 3. Abrechnung. Wenn Sie ein Rechenzentrum mit verbesserten Leistungsmerkmalen (mit einem Stern gekennzeichnet) ausgewählt haben, haben Sie die Auswahl zwischen monatlicher und stündlicher Abrechnung.

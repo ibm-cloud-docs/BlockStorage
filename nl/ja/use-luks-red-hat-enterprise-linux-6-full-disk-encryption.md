@@ -9,7 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -38,7 +38,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 ## LUKS にない機能
 
 - 多数 (8 人を超える) のユーザーが同じデバイスに対して異なるアクセス・キーを持つことを必要とするアプリケーションを許可する。
-- ファイル・レベルの暗号化を必要とするアプリケーションを処理する。 詳しくは、[RHEL Security Guide ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window} を参照してください。
+- ファイル・レベルの暗号化を必要とするアプリケーションを処理する。 詳しくは、[RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external} を参照してください。
 
 ## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームのセットアップ
 

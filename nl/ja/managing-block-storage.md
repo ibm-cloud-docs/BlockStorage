@@ -9,7 +9,7 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}}の管理
 {: #managingstorage}
 
-{{site.data.keyword.blockstoragefull}} のボリュームは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}で管理できます。
+{{site.data.keyword.blockstoragefull}} のボリュームは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で管理できます。
 
 ## {{site.data.keyword.blockstorageshort}} LUN の詳細の表示
 
@@ -84,7 +84,7 @@ Options:
 
 ホストがアクセス権を持っている LUN を表示できます。接続の確立に必要な情報 (LUN 名、ストレージ・タイプ、ターゲット・アドレス、容量、ロケーション) も表示されます。
 
-1. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://control.softlayer.com/){:new_window} で、**「デバイス」** > **「デバイス・リスト」** をクリックし、目的のデバイスをクリックします。
+1. [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} で、**「デバイス」** > **「デバイス・リスト」** をクリックし、目的のデバイスをクリックします。
 2. **「ストレージ」**タブを選択します。
 
 この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 **「アクション」**をクリックすると、追加のストレージを許可したり、アクセス権を削除したりできます。
@@ -111,7 +111,7 @@ Options:
 
 ### デバイス・リストからのアクセス権の取り消し
 
-1. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} で、**「デバイス」**、**「デバイス・リスト」**をクリックし、目的のデバイスをダブルクリックします。
+1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} で、**「デバイス」**、**「デバイス・リスト」**をクリックし、目的のデバイスをダブルクリックします。
 2. **「ストレージ」**タブを選択します。
 3. この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 LUN 名の横にある**「アクション」**を選択し、「アクセスの取り消し」**をクリックします。
 4. このアクションは元に戻すことができないため、LUN に対するアクセス権を取り消すことを確認します。 LUN のアクセス権を取り消すには**「はい」**をクリックし、アクションをキャンセルする場合は**「いいえ」**をクリックします。

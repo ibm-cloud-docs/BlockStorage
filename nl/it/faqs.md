@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # Domande frequenti
@@ -91,7 +91,7 @@ Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Enduran
 ## Come faccio a capire quali volumi {{site.data.keyword.blockstorageshort}} sono crittografati?
 {: faq}
 
-Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
+Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
 
 ## Come facciamo a sapere se stiamo eseguendo il provisioning di {{site.data.keyword.blockstorageshort}} in un data center di cui è stato eseguito l'upgrade?
 {: faq}

@@ -9,7 +9,7 @@ keywords: Block storage, Plesk, backups, mountpoint, ISCSI
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
@@ -22,7 +22,7 @@ subcollection: BlockStorage
 para seus backups no Plesk. Supõe-se que o SSH
 raiz ou sudo e o acesso total ao Plesk no nível de administrador estejam disponíveis. Essas instruções baseiam-se em um host do CentOS7.
 
-Para obter mais informações, consulte a [Documentação do Plesk para backup e restauração ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){:new_window}.
+Para obter mais informações, consulte a [Documentação do Plesk para backup e restauração](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){: external}.
 {:tip}
 
 1. Conecte-se ao host por meio de SSH.

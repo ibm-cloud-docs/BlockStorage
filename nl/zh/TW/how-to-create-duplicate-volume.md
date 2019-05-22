@@ -9,7 +9,7 @@ keywords: Block Storage, LUN, volume duplication,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ subcollection: BlockStorage
 - **開發及測試 (dev/test)**。一次最多可同時建立磁區的四個重複磁區，以建立重複資料來進行開發及測試。
 - **調整儲存空間大小**。建立具有新大小及（或）IOPS 速率的磁區，而不需要移動資料。  
 
-有幾種方法可讓您透過 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 來建立重複磁區。
+有幾種方法可讓您透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 來建立重複磁區。
 
 
 ## 建立儲存空間清單中特定磁區的重複磁區

@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,9 +27,9 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)
 
-1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog){:new_window}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
+1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog/){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
+   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
 
 2. Select your deployment **Location** (data center).
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
@@ -63,9 +63,9 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
 
-1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog){:new_window}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
+1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog/){: external}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
 
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
+   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
 2. Click **Location** and select your data center.
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.

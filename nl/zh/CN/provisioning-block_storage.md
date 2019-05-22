@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,9 +27,9 @@ subcollection: BlockStorage
 
 ## 订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}
 
-1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog){:new_window}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
+1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog){: external}，然后单击**存储**。接下来，选择 **{{site.data.keyword.blockstorageshort}}**，然后单击**创建**。
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
+   或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 
 2. 选择部署**位置**（数据中心）。
    - 确保将新存储器添加到您拥有的计算主机所在位置。
@@ -63,9 +63,9 @@ subcollection: BlockStorage
 
 ## 订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}
 
-1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog){:new_window}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
+1. 登录到 [IBM Cloud 目录](https://{DomainName}/catalog){: external}，然后单击**存储**。接下来，选择 {{site.data.keyword.blockstorageshort}}，然后单击**创建**。
 
-   或者，您可以登录到 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
+   或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}，然后单击**存储** > **{{site.data.keyword.blockstorageshort}}**。单击右上角的**订购 {{site.data.keyword.blockstorageshort}}**。
 2. 单击**位置**，然后选择数据中心。
    - 确保将新存储器添加到您拥有的计算主机所在位置。
 3. 计费。如果选择了具有改进功能的数据中心（标记有星号），那么可以选择“按月计费”或“按小时计费”。

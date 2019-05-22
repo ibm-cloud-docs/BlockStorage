@@ -9,7 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -47,7 +47,7 @@ contêm múltiplos slots de chave.
 - Permitir que os aplicativos que requerem muitos usuários (mais de oito) tenham chaves de acesso distintas para os mesmos dispositivos.
 - Trabalhe com aplicativos que requerem criptografia de nível de arquivo. Para obter mais
 informações, veja o [Guia
-de segurança do RHEL ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+de segurança do RHEL](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
 ## Configurando um volume criptografado pelo LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
 

@@ -9,7 +9,7 @@ keywords: Block Storage, LUN, volume duplication,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ Nachstehend einige gängige Anwendungen für duplizierte Datenträger:
 - **Entwicklung und Test**: Erstellen Sie gleichzeitig bis zu vier simultane Duplikate eines Datenträgers, um duplizierte Daten zu Entwicklungs- und Testzwecken zu erstellen.
 - **Größenänderung des Speichers**: Erstellen Sie einen Datenträger mit der neuen Größe und/oder den IOPS-Raten, ohne die Daten verschieben zu müssen.  
 
-Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} erstellen.
+Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} erstellen.
 
 
 ## Duplikat von einem bestimmten Datenträger in der Speicherliste erstellen

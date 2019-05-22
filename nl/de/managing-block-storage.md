@@ -9,7 +9,7 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} verwalten
 {: #managingstorage}
 
-Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über das [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} verwalten.
+Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} verwalten.
 
 ## Details zu {{site.data.keyword.blockstorageshort}}-LUN anzeigen
 
@@ -84,7 +84,7 @@ Optionen:
 
 Sie können die LUNs anzeigen, auf die ein Host Zugriff hat, sowie die Informationen, die zum Herstellen einer Verbindung erforderlich sind – LUN-Name, Speichertyp, Zieladresse, Kapazität und Position:
 
-1. Klicken Sie auf **Geräte** -> **Geräteliste** im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://control.softlayer.com/){:new_window} und klicken Sie auf das entsprechende Gerät.
+1. Klicken Sie auf **Geräte** -> **Geräteliste** im [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} und klicken Sie auf das entsprechende Gerät.
 2. Wählen Sie die Registerkarte **Speicher** aus.
 
 Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Durch Klicken auf **Aktionen** können Sie weiteren Speicher autorisieren oder Zugriff widerrufen.
@@ -111,7 +111,7 @@ Sie können den Zugriff über die **Geräteliste** oder die **Speicheransicht** 
 
 ### Zugriff über Geräteliste widerrufen
 
-1. Klicken Sie auf **Geräte** > **Geräteliste** im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} und doppelklicken Sie auf das entsprechende Gerät.
+1. Klicken Sie auf **Geräte** > **Geräteliste** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} und doppelklicken Sie auf das entsprechende Gerät.
 2. Wählen Sie die Registerkarte **Speicher** aus.
 3. Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Wählen Sie neben dem Namen der LUN **Aktion** aus und klicken Sie auf 'Zugriff widerrufen'**.
 4. Bestätigen Sie, dass Sie den Zugriff für eine LUN widerrufen möchten, weil die Aktion nicht rückgängig gemacht werden kann. Klicken Sie auf **Ja**, um den LUN-Zugriff zu widerrufen, oder auf **Nein**, um die Aktion abzubrechen.

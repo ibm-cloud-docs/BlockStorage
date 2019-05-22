@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,9 +27,9 @@ subcollection: BlockStorage
 
 ## 事前定義の IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文
 
-1. [IBM Cloud カタログ](https://{DomainName}/catalog){:new_window}にログインし、**「ストレージ」**をクリックします。 次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
+1. [IBM Cloud カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。 次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
 
-   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 
 2. デプロイメント・**ロケーション** (データ・センター) を選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
@@ -63,9 +63,9 @@ subcollection: BlockStorage
 
 ## カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文
 
-1. [IBM Cloud カタログ](https://{DomainName}/catalog){:new_window}にログインし、**「ストレージ」**をクリックします。 次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
+1. [IBM Cloud カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。 次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
 
-   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 2. **「ロケーション」**をクリックして、データ・センターを選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
 3. 請求処理。 機能が改善されたデータ・センター (アスタリスクでマークされている) を選択した場合は、月次請求と毎時請求のいずれかを選択できます。

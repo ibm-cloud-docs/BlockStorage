@@ -9,7 +9,7 @@ keywords: Block Storage, secondary storage, replication, duplicate volume, synch
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -109,7 +109,7 @@ subcollection: BlockStorage
 
 ## 初期レプリカの作成
 
-レプリケーションは、スナップショット・スケジュールに基づいて作動します。 レプリケーションを行うには、まずソース・ボリューム用のスナップショット・スペースとスナップショット・スケジュールを作成する必要があります。 レプリケーションを設定しようとしたときに、どちらかの準備ができていなければ、より多くのスペースを購入するか、スケジュールを設定するように求められます。 レプリケーションは、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}
+レプリケーションは、スナップショット・スケジュールに基づいて作動します。 レプリケーションを行うには、まずソース・ボリューム用のスナップショット・スペースとスナップショット・スケジュールを作成する必要があります。 レプリケーションを設定しようとしたときに、どちらかの準備ができていなければ、より多くのスペースを購入するか、スケジュールを設定するように求められます。 レプリケーションは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}
  の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で管理されます。
 
 1. ストレージ・ボリュームをクリックします。
@@ -128,7 +128,7 @@ subcollection: BlockStorage
 
 ## 既存のレプリケーションの編集
 
-[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}
  で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下にある**「プライマリー」**または**「レプリカ」**のいずれかのタブから、レプリケーション・スケジュールを編集したり、レプリケーション・スペースを変更したりできます。
 
 

@@ -9,7 +9,7 @@ keywords: Block Storage, LUN, volume duplication,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ Alcuni utilizzi comuni per un volume duplicato:
 - **Sviluppo e test (dev/test)**. Crea fino a quattro duplicati simultanei per volta di un volume per creare dati duplicati per attività di sviluppo e test.
 - **Modifica delle dimensioni dell'archiviazione**. Crea un volume con la nuova dimensione, il nuovo tasso di IOPS o entrambi senza dover spostare i tuoi dati.  
 
-Puoi creare un volume duplicato tramite il [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window} in un paio di modi.
+Puoi creare un volume duplicato tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} in un paio di modi.
 
 
 ## Creazione di un duplicato da un volume specifico nell'elenco archiviazioni

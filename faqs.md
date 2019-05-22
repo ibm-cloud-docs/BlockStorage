@@ -2,14 +2,14 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # FAQs
@@ -74,6 +74,7 @@ There's no need for pre-warming. You can observe specified throughput immediatel
 Throughput limits are set at a per-LUN level so using a faster Ethernet connection doesn't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
 ## Do firewalls and security groups impact performance?
+{: #isolatedstoragetraffic}
 {: faq}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
@@ -91,7 +92,7 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}

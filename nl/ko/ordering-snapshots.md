@@ -9,7 +9,7 @@ keywords: Block Storage, snapshot space, ordering snapshots,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
@@ -49,9 +49,9 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.cloud_notm}} 콘솔을 통해 스냅샷 영역 주문
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/catalog){:new_window}에 로그인하여 왼쪽 상단에 있는 메뉴 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/catalog){: external}에 로그인하여 왼쪽 상단에 있는 메뉴 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
 
-   또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인할 수 있습니다.
+   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인할 수 있습니다.
 2. **스토리지** >**{{site.data.keyword.blockstorageshort}}**를 통해 스토리지 LUN에 액세스하십시오.
 2. 스냅샷 프레임에서 **스냅샷 영역 변경**을 클릭하십시오.
 3. 필요한 영역의 양과 지불 방법을 선택하십시오.

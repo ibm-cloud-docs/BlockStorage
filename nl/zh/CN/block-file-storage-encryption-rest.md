@@ -9,7 +9,7 @@ keywords: Block Storage Encryption, industry standard protocols, IBM Block Stora
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}

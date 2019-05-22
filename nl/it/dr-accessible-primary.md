@@ -9,7 +9,7 @@ keywords: Block Storage, accessible Primary volume, duplicate of a replica volum
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,10 +26,10 @@ Prima di avviare il failover, assicurati che sia in vigore tutta l'autorizzazion
 Gli host autorizzati e i volumi si devono trovare nello stesso data center. Ad esempio, non puoi avere un volume di replica a Londra e l'host ad Amsterdam. Entrambi devono essere a Londra o entrambi devono essere ad Amsterdam.
 {:note}
 
-1. Accedi alla [Console {{site.data.keyword.cloud}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog){:new_window} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
+1. Accedi alla [Console {{site.data.keyword.cloud}}](https://{DomainName}/catalog){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Fai clic sul tuo volume di origine o di destinazione dall'una o dall'altra pagina **{{site.data.keyword.blockstorageshort}}**-
 3. Fai clic su **Replica**.
 4. Scorri giù al frame **Authorize Hosts** e fai clic su **Authorize Hosts** sulla destra.
@@ -41,7 +41,7 @@ Gli host autorizzati e i volumi si devono trovare nello stesso data center. Ad e
 
 Se è imminente un evento di errore, puoi avviare un **failover** al tuo volume di destinazione. Il volume di destinazione diventa attivo. L'ultima istantanea replicata correttamente viene attivata e il volume viene reso disponibile per il montaggio. Tutti i dati che erano stati scritti nel volume di origine a partire dal ciclo di replica precedente vengono perduti. Una volta avviato un failover, la relazione di replica viene invertita. Il tuo volume di destinazione diventa il tuo volume di origine e il tuo precedente volume di origine diventa la tua destinazione, come indicato dal nome LUN (**LUN Name**) seguito da **REP**.
 
-I failover vengono avviati in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [[{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
+I failover vengono avviati in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 **Prima di procedere con questa procedura, disconnetti il volume. In caso contrario, si verifica un danneggiamento e una perdita di dati.**
 
@@ -68,7 +68,7 @@ Dopo che il tuo volume di origine originale viene riparato, puoi avviare un fail
 
 Una volta avviato un failback, la relazione di replica viene nuovamente invertita. Il tuo volume di origine viene ripristinato come tuo volume di origine e il tuo volume di destinazione è nuovamente il volume di destinazione, come indicato dal nome LUN (**LUN Name**) seguito da **REP**.
 
-I failback vengono avviati in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){:new_window}.
+I failback vengono avviati in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Fai clic sul tuo LUN attivo ("destinazione").
 2. n alto a destra, fai clic su **Replica** e su **Actions**.

@@ -9,7 +9,7 @@ keywords: Block Storage, inaccessible Primary volume, duplicate of a replica vol
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 
 ## 2차 사이트에서 복제본 볼륨의 중복으로 장애 복구
 
-1. [IBM Cloud 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://
-{DomainName}/){:new_window}에 로그인하여 왼쪽 상단의 **메뉴** 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
+1. [IBM Cloud 콘솔](https://
+{DomainName}/){: external}에 로그인하여 왼쪽 상단의 **메뉴** 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
 
-   또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인할 수 있습니다.
+   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인할 수 있습니다.
 2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 3. 목록에서 LUN의 복제본을 클릭하여 **세부사항** 페이지를 보십시오.
 4. **세부사항** 페이지에서 아래로 스크롤하여 기존 스냅샷을 선택하고 **조치** > **복제**를 클릭하십시오.
@@ -40,10 +40,10 @@ subcollection: BlockStorage
 
 프로덕션을 원래 1차 사이트로 리턴하려면 다음 단계를 수행해야 합니다.
 
-1. [IBM Cloud 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://
-{DomainName}/){:new_window}에 로그인하여 왼쪽 상단의 **메뉴** 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
+1. [IBM Cloud 콘솔](https://
+{DomainName}/){: external}에 로그인하여 왼쪽 상단의 **메뉴** 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
 
-   또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인할 수 있습니다.
+   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인할 수 있습니다.
 2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 3. LUN 이름을 클릭하고 스냅샷 스케줄을 작성하십시오(아직 존재하지 않는 경우).
 

@@ -9,7 +9,7 @@ keywords: Block Storage, performance tuning, host performance improvement,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 
 # Modifica delle impostazioni della profondità di coda dell'host
 {: #hostqueuesettings}

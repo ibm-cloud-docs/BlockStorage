@@ -9,7 +9,7 @@ keywords: Block Storage, limit increase, global quota, quota increase
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +30,7 @@ Opciones:
   -h, --help             Mostrar este mensaje y salir.
 ```
 
-Puede solicitar un aumento del límite enviando una incidencia en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
+Puede solicitar un aumento del límite enviando una incidencia en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
 
 Para solicitar un aumento del límite, abra una incidencia y diríjala a su representante de ventas.
 

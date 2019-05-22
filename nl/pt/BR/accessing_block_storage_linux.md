@@ -9,7 +9,7 @@ keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 Essas instruções são principalmente para o RHEL6 e o Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho.
 {:note}
 
-Por exemplo, é possível localizar as instruções do Ubuntu para a configuração do inicializador iSCSI [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:} e a configuração do DM-Multipath [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window}.
+Por exemplo, é possível localizar as instruções do Ubuntu para a configuração do inicializador iSCSI [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e a configuração do DM-Multipath [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {:important}
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
@@ -52,7 +52,7 @@ Options:
 
 A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada em Linux a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO).
 
-O IQN do host, o nome do usuário, a senha e o endereço de destino que são referenciados nas instruções podem ser obtidos por meio da tela Detalhes do **{{site.data.keyword.blockstorageshort}} ** no [{{site.data.keyword.slportal}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){:new_window}.
+O IQN do host, o nome do usuário, a senha e o endereço de destino que são referenciados nas instruções podem ser obtidos por meio da tela Detalhes do **{{site.data.keyword.blockstorageshort}} ** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {: tip}
 
 É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
@@ -601,5 +601,5 @@ evitar futuras tentativas de login.
    ```
    {: pre}
 
-   Para obter mais informações, consulte o manual do [`iscsiadm` ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://linux.die.net/man/8/iscsiadm).
+   Para obter mais informações, consulte o manual do [`iscsiadm`](https://linux.die.net/man/8/iscsiadm).
    {:tip}

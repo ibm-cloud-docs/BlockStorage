@@ -9,7 +9,7 @@ keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot sche
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## スナップショット・スケジュールの作成
 
-スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window}
+スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}
  の**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**タブから行います。
 
 初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。 詳しくは、[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)を参照してください。
@@ -166,7 +166,7 @@ Options:
 1. ストレージ・ボリュームをホストからアンマウントして、切り離します。
    - [Linux での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
    - [Microsoft Windows での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+2. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. スクロールダウンして、復元するボリュームをクリックします。 **「詳細」**ページの**「スナップショット」**セクションに、保存されているすべてのスナップショットのリストがサイズと作成日とともに表示されます。
 4. 使用するスナップショットの横の**「アクション」**をクリックし、**「復元」** をクリックします。 <br/>
 

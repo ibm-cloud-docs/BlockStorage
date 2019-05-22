@@ -2,14 +2,14 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -44,7 +44,7 @@ IOPS for both Endurance and Performance is based on a 16-KB block size with a 50
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
 
 <table>
-  <caption>Table 4 shows examples of how block size and IOPS affect the throughput.</caption>
+  <caption>Table 4 shows examples of how block size and IOPS affect the throughput.<br/>Average IO size x IOPS = Throughput in MB/s</caption>
         <colgroup>
           <col/>
           <col/>
@@ -93,6 +93,11 @@ The block size that is used by your application directly impacts the storage per
             <td>32</td>
             <td>16</td>
           </tr>
+          <tr>
+            <td>1024</td>
+            <td>16</td>
+            <td>16</td>
+          </tr>
         </tbody>
 </table>
 
@@ -104,7 +109,9 @@ Another factor to consider is the number of hosts that are using your volume. If
 
 The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
-To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings).
+To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings). 
+
+Storage traffic should be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](https://test.cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
 
 Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server documentation](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}

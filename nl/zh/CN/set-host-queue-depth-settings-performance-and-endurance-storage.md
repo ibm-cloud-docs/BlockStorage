@@ -9,7 +9,7 @@ keywords: Block Storage, performance tuning, host performance improvement,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 
 # 调整主机队列深度设置
 {: #hostqueuesettings}

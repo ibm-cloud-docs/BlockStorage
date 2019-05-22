@@ -9,7 +9,7 @@ keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mo
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen
 {: #mountingWindows}
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} autorisiert wurde.
+Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} autorisiert wurde.
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
 2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
@@ -68,7 +68,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
     - Klicken Sie auf **Ändern**, um die vorhandenen Werte durch Ihren qualifizierten iSCSI-Namen (IQN) zu ersetzen.
     ![Eigenschaften des iSCSI-Initiators](/images/iSCSI.png)
 
-      Der IQN-Name kann aus der Anzeige '{{site.data.keyword.blockstorageshort}} Details' im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} abgelesen werden.
+      Der IQN-Name kann aus der Anzeige '{{site.data.keyword.blockstorageshort}} Details' im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} abgelesen werden.
       {: tip}
 
     - Klicken Sie auf **Erkennung** und anschließend auf **Portal erkennen**.
@@ -79,8 +79,8 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 
     In den Feldern 'Name' und 'Zielschlüssel' muss die Groß-/Kleinschreibung beachtet werden.
     {:important}
-         - Löschen Sie im Feld **Name** alle vorhandenen Einträge und geben Sie den Benutzernamen aus dem [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ein.
-         - Geben Sie im Feld **Zielschlüssel** das Kennwort aus dem [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ein.
+         - Löschen Sie im Feld **Name** alle vorhandenen Einträge und geben Sie den Benutzernamen aus dem [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ein.
+         - Geben Sie im Feld **Zielschlüssel** das Kennwort aus dem [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ein.
     - Klicken Sie auf **OK** in den Fenstern **Erweiterte Einstellungen** und **Zielportal ermitteln**, um zur Hauptanzeige für die Eigenschaften des iSCSI-Initiators zurückzukehren. Überprüfen Sie die Eingaben für den Benutzernamen und das Kennwort, wenn Sie Authentifizierungsfehler erhalten.
     ![Inaktives Ziel](/images/Inactive_0.png)
 
@@ -127,14 +127,14 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Speichermedium mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
    - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf dem Speichermedium aktiviert ist.
 
-     Die zweite IP-Adresse finden Sie in der Detailanzeige von {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window}.
+     Die zweite IP-Adresse finden Sie in der Detailanzeige von {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus dem Portal abgerufen haben, und klicken Sie auf **OK**.
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren.
 8. Jetzt werden im Fenster 'Eigenschaften' mehrere Sitzungen im Teilfenster 'ID' angezeigt. Sie haben nun mehr als eine Sitzung im iSCSI-Speicher.
 
-   Wenn Ihr Host über mehrere Schnittstellen verfügt, die Sie an den ISCSI-Speicher anschließen möchten, können Sie eine andere Verbindung konfigurieren und dabei die IP-Adresse des anderen NIC im Feld für die Initiator-IP verwenden. Stellen Sie jedoch sicher, dass Sie die zweite Initiator-IP-Adresse im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} autorisieren, bevor Sie versuchen, die Verbindung herzustellen.
+   Wenn Ihr Host über mehrere Schnittstellen verfügt, die Sie an den ISCSI-Speicher anschließen möchten, können Sie eine andere Verbindung konfigurieren und dabei die IP-Adresse des anderen NIC im Feld für die Initiator-IP verwenden. Stellen Sie jedoch sicher, dass Sie die zweite Initiator-IP-Adresse im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} autorisieren, bevor Sie versuchen, die Verbindung herzustellen.
    {:note}
 9. Klicken Sie im Fenster 'Eigenschaften' auf **Geräte**, um das Fenster 'Geräte' zu öffnen. Der Name der Geräteschnittstelle beginnt mit `mpio`. <br/>
   ![Geräte](/images/Devices.png)

@@ -9,7 +9,7 @@ keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount st
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -21,10 +21,10 @@ subcollection: BlockStorage
 
 Follow these instructions to install your iSCSI LUN with multipath on CloudLinux Server release 6.10.
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {:tip}
 
-1. Log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+1. Log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
 3. Click **Authorize Host**.
 4. From the list, select the host or hosts that can access the volume and click **Submit**.

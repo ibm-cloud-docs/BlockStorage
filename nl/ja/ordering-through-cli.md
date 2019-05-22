@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -17,9 +17,9 @@ subcollection: BlockStorage
 # SLCLI を使用した {{site.data.keyword.blockstorageshort}} の注文
 {: #orderingthroughCLI}
 
-通常 [{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して注文する製品を、SLCLI を使用して注文することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
+通常 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して注文する製品を、SLCLI を使用して注文することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
 
-SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}を参照してください。
+SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}を参照してください。
 {:tip}
 
 ## 入手可能な {{site.data.keyword.blockstorageshort}} オファーの検索
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}を参照してください。
+API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}を参照してください。
 すべての新規機能を利用できるようにするには、「`Storage-as-a-Service Package 759`」を発注してください。
 {:tip}
 
@@ -131,7 +131,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-API を使用した {{site.data.keyword.blockstorageshort}} にアクセスするためのホストの許可について詳しくは、[authorize_host_to_volume ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){:new_window}を参照してください。
+API を使用した {{site.data.keyword.blockstorageshort}} にアクセスするためのホストの許可について詳しくは、[authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}を参照してください。
 {:tip}
 
 同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs) を参照してください。

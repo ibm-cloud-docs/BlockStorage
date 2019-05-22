@@ -9,7 +9,7 @@ keywords: Block Storage, new features, new locations, Block Storage, mount point
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -109,9 +109,9 @@ subcollection: BlockStorage
 ## 암호화된 스토리지 볼륨의 새 마운트 위치
 {: #mountpoints}
 
-이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인하여 올바른 마운트 지점을 사용 중인지 확인하십시오. 또한 API 호출 `SoftLayer_Network_Storage::getNetworkMountAddress()`를 통해 올바른 마운트 위치 정보를 가져올 수 있습니다.
+이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인하여 올바른 마운트 지점을 사용 중인지 확인하십시오. 또한 API 호출 `SoftLayer_Network_Storage::getNetworkMountAddress()`를 통해 올바른 마운트 위치 정보를 가져올 수 있습니다.
 
-새 기능에 모두 액세스할 수 있으려면 API를 통해 주문할 때 `Storage-as-a-Service Package 759`를 선택하십시오. API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 관한 자세한 정보는 [order_block_volume ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}을 참조하십시오.
+새 기능에 모두 액세스할 수 있으려면 API를 통해 주문할 때 `Storage-as-a-Service Package 759`를 선택하십시오. API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 관한 자세한 정보는 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}을 참조하십시오.
 {:important}
 
 여기에서는 추가 데이터 센터가 업그레이드된 시기 및 {{site.data.keyword.blockstorageshort}}에 대해 추가 중인 새로운 기능에 대해서도 확인할 수 있습니다.

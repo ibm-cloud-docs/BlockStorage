@@ -9,7 +9,7 @@ keywords: Block Storage, accessible Primary volume, duplicate of a replica volum
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,10 +26,10 @@ Antes de iniciar la migración tras error, asegúrese de que todas las autorizac
 Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. Por ejemplo, no puede tener un volumen de réplica en Londres y el host en Ámsterdam. Ambos deben estar en Londres o en Ámsterdam.
 {:note}
 
-1. Inicie la sesión en la [consola de {{site.data.keyword.cloud}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog){:new_window} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
+1. Inicie la sesión en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/catalog){: external} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
 
-   También puede iniciar la sesión en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+   También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Pulse el volumen de origen o de destino en la página de **{{site.data.keyword.blockstorageshort}}**.
 3. Pulse **Réplica**.
 4. Desplácese hacia abajo hasta el marco **Autorizar hosts** y pulse **Autorizar hosts** en la parte derecha.
@@ -41,7 +41,7 @@ Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. Por 
 
 Si es inminente que se produzca un suceso de error, puede iniciar una **migración tras error** al volumen de destino. El volumen de destino se activa. Se activa la última instantánea replicada correctamente y el volumen pasa a estar disponible para su montaje. Los datos escritos en el volumen de origen desde el ciclo de réplica anterior se perderán. Cuando se inicia una migración tras error, la relación de réplica se invierte. El volumen de destino pasa a ser el volumen de origen, y el volumen de origen anterior pasa a ser el destino, como indica el **Nombre de LUN** seguido de **REP**.
 
-Las migraciones tras error se inician en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [[{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+Las migraciones tras error se inician en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 **Antes de continuar con estos pasos, desconecte el volumen. De lo contrario, dará lugar a la pérdida de datos o a que estos puedan resultar dañados.**
 
@@ -68,7 +68,7 @@ Cuando el volumen de origen original se ha reparado, puede iniciar un restableci
 
 Cuando se inicia un restablecimiento, la relación de réplica se invierte de nuevo. El volumen de origen se restaura como el volumen de origen y el volumen de destino vuelve a ser el volumen de destino, tal como indica el **Nombre de LUN** seguido de **REP**.
 
-Los restablecimientos se inician en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [{{site.data.keyword.slportal}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){:new_window}.
+Los restablecimientos se inician en **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Pulse el LUN activo ("destino").
 2. En la parte superior derecha, pulse **Réplica** y pulse **Acciones**.

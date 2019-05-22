@@ -9,7 +9,7 @@ keywords: Block Storage, inaccessible Primary volume, duplicate of a replica vol
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,9 +23,9 @@ If a catastrophic failure or disaster causes an outage on the primary site, cust
 
 ## Fail over with a duplicate of a replica volume on the secondary site
 
-1. Log in to [The IBM Cloud console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to [The IBM Cloud console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Click the replica of the LUN in the list to view its **Details** page.
 4. On the **Details** page, scroll down and select an existing snapshot, then click **Actions** > **Duplicate**.
@@ -39,9 +39,9 @@ As soon as the volume is created, it can be attached to a host and perform read/
 
 If you want to return production to the original primary site, you must perform the following steps.
 
-1. Log in to [The IBM Cloud console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){:new_window} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to [The IBM Cloud console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}.
+   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Click the LUN name and create a snapshot schedule (if one does not exist already).
 

@@ -9,7 +9,7 @@ keywords: Block Storage, snapshot space, ordering snapshots,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock} 
 {:tip: .tip}
 {:note: .note}
@@ -49,9 +49,9 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.cloud_notm}} コンソールを使用したスナップショット・スペースの注文
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog){:new_window} にログインし、左上の「メニュー」アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/catalog){: external} にログインし、左上の「メニュー」アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 
-   または、[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} にログインできます。
+   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインできます。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**を使用して、ストレージ LUN にアクセスします。
 2. 「スナップショット」フレームにある**「スナップショット・スペースの変更 (Change Snapshot Space)」**をクリックします。
 3. 必要なスペースの量と支払方法を選択します。

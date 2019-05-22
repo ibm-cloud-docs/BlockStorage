@@ -9,7 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -38,7 +38,7 @@ Cette procédure suppose que le serveur peut accéder à un nouveau volume {{sit
 ## Opérations impossibles avec LUKS
 
 - Possibilité pour les applications nécessitant un grand nombre d'utilisateurs (plus de huit) d'avoir des clés distinctes pour accéder aux mêmes unités.
-- Utilisation d'applications nécessitant un chiffrement au niveau fichier. Pour plus d'informations, voir le document [RHEL Security Guide ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Utilisation d'applications nécessitant un chiffrement au niveau fichier. Pour plus d'informations, voir le document [RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
 ## Configuration d'un volume chiffré LUKS avec {{site.data.keyword.blockstorageshort}} Endurance
 

@@ -9,7 +9,7 @@ keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,9 +27,9 @@ subcollection: BlockStorage
 
 ## 사전 정의된 IOPS 티어(Endurance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
 
-1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){:new_window}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 **{{site.data.keyword.blockstorageshort}}**를 선택하고 **작성**을 클릭하십시오.
+1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){: external}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 **{{site.data.keyword.blockstorageshort}}**를 선택하고 **작성**을 클릭하십시오.
 
-   또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
+   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 
 2. 배치 **위치**(데이터 센터)를 선택하십시오.
    - 사용자가 보유하고 있는 하나 이상의 컴퓨팅 호스트와 같은 위치에 새 스토리지를 추가하십시오.
@@ -63,9 +63,9 @@ subcollection: BlockStorage
 
 ## 사전 정의 IOPS 티어(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
 
-1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){:new_window}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 {{site.data.keyword.blockstorageshort}}를 선택하고 **작성**을 클릭하십시오.
+1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){: external}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 {{site.data.keyword.blockstorageshort}}를 선택하고 **작성**을 클릭하십시오.
 
-   또는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
+   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
 2. **위치**를 클릭하고 데이터 센터를 선택하십시오.
    - 사용자가 보유하고 있는 하나 이상의 컴퓨팅 호스트와 같은 위치에 새 스토리지를 추가하십시오.
 3. 비용 청구. 향상된 기능(별표로 표시)이 포함된 데이터 센터를 선택하는 경우, 월별 또는 시간별 비용 청구 중에서 선택할 수 있습니다.

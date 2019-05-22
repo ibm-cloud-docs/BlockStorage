@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # 常見問題
@@ -91,7 +91,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 如何分辨哪些 {{site.data.keyword.blockstorageshort}} 磁區已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
+在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
 
 ## 如何知道是否在已升級資料中心內佈建 {{site.data.keyword.blockstorageshort}}？
 {: faq}

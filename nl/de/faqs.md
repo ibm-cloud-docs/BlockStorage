@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # Häufig gestellte Fragen
@@ -91,7 +91,7 @@ Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichert
 ## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-Datenträger verschlüsselt sind?
 {: faq}
 
-Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
+Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
 
 ## Wie weiß ich, dass ich {{site.data.keyword.blockstorageshort}} in einem aktualisierten Rechenzentrum bereitstelle?
 {: faq}

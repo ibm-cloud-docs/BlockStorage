@@ -9,7 +9,7 @@ keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managi
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -19,9 +19,9 @@ subcollection: BlockStorage
 # SLCLI commands for {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){:new_window}. For example, with SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, cancel volumes, and so on.
+You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. For example, with SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, cancel volumes, and so on.
 
-For more information about how to install and use the SLCLI, see [Python API Client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://softlayer-python.readthedocs.io/en/latest/cli.html){:new_window}.
+For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
 {:tip}
 
 ## Access-related SLCLI commands
@@ -70,11 +70,11 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   ```
   slcli block volume-duplicate
   ```
-* [Adjusting the IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
+* [Adjusting the IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
   ```
   slcli block volume-modify
   ```
-* [Expanding the capacity](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
+* [Expanding the capacity](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
   ```
   slcli block volume-modify
   ```

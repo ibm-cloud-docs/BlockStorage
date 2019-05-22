@@ -9,7 +9,7 @@ keywords: Block Storage, limit increase, global quota, quota increase
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +30,7 @@ subcollection: BlockStorage
   -h, --help             显示此消息并退出。
 ```
 
-您可以通过在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中提交凭单来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
+您可以通过在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中提交凭单来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
 
 要请求增大限制，请开具凭单并将其提交给销售代表。
 

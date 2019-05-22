@@ -2,14 +2,14 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-05-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -48,55 +48,6 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - **Clustered databases**
    - Supports advanced use cases, such as clustered databases.
 
-## Billing
-{: #billing}
-
-You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees are billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees are billed monthly.
-
-With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) only.
-
-With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a LUN is deleted before the end of the billing cycle, there's no refund. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer).
-
-**Performance**
-<table>
-  <caption>Table 1 is showing the prices for Performance Storage with monthly and hourly billing.</caption>
-  <tr>
-   <th>Monthly Price</th>
-   <td>$0.10/GB + $0.07/IOP</td>
-  </tr>
-  <tr>
-   <th>Hourly Price</th>
-   <td>$0.0001/GB + $0.0002/IOP</td>
-  </tr>
-</table>
-
-**Endurance**
-<table>
-  <caption>Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options.</caption>
-  <tr>
-   <th>IOPS Tier</th>
-   <th>0.25 IOPS/GB</th>
-   <th>2 IOPS/GB</th>
-   <th>4 IOPS/GB</th>
-   <th>10 IOPS/GB</th>
-  </tr>
-  <tr>
-   <th>Monthly Price</th>
-   <td>$0.06/GB</td>
-   <td>$0.15/GB</td>
-   <td>$0.20/GB</td>
-   <td>$0.58/GB</td>
-  </tr>
-  <tr>
-   <th>Hourly Price</th>
-   <td>$0.0001/GB</td>
-   <td>$0.0002/GB</td>
-   <td>$0.0003/GB</td>
-   <td>$0.0009/GB</td>
-  </tr>
-</table>
-
-
 
 ## Provisioning
 {: #provisioning}
@@ -104,7 +55,6 @@ With **monthly billing**, the calculation for the price is pro-rated from the da
 {{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options: <br/>
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
-
 ### Provisioning with Endurance Tiers
 {: #provendurance}
 
@@ -202,3 +152,36 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 
 
 Performance volumes are designed to operate consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a specific level of performance. Additionally, it's possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
+
+## Billing
+{: #billing}
+
+You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees are billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees are billed monthly.
+
+With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) only.
+
+With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a LUN is deleted before the end of the billing cycle, there's no refund. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer).
+
+### Performance
+{: #pricing-comparison-performance}
+
+| Pricing options for custom IOPS | Pricing calculation | 
+|-----|-----|
+| Monthly Price | $0.10/GB + $0.07/IOP |
+| Hourly Price | $0.0001/GB + $0.0002/IOP |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Table comparison of pricing for storage with custom IOPS rate" caption-side="top"}
+{: summary="Table 1 is showing the prices for Performance Storage with monthly and hourly billing. This table has row and column headers. The row headers identify the billing options. To see what your cost for Storage is, navigate to the row of the billing option you are interested in."}
+
+### Endurance
+{: #pricing-comparison-endurance}
+
+| Pricing options for predefined IOPS tiers | 0.25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
+|-----|-----|-----|-----|-----|
+| Monthly Price | $0.06/GB | $0.15/GB | $0.20/GB | $0.58/GB |
+| Hourly Price | $0.0001/GB | $0.0002/GB | $0.0003/GB | $0.0009/GB |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Table comparison of pricing" caption-side="top"}
+{: summary="Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options. This table has row and column headers. The row headers identify the billing options. The column headers indentify the IOPS level that is chosen for the service. To understand what your price is located in the table, navigate to the column and review the two different billing options for that IOPS tier."}

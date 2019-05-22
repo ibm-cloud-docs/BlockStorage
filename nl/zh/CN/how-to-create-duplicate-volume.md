@@ -9,7 +9,7 @@ keywords: Block Storage, LUN, volume duplication,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ subcollection: BlockStorage
 - **开发和测试（开发/测试）**。一次最多可同时创建卷的 4 个复制项，以创建复制数据用于开发和测试。
 - **存储器大小调整**。创建具有新大小和/或 IOPS 速率的卷，而无需移动数据。  
 
-您可以采用多种方式通过 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 来创建复制卷。
+您可以采用多种方式通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 来创建复制卷。
 
 
 ## 基于存储器列表中的特定卷创建复制项

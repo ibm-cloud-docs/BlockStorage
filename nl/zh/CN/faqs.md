@@ -9,7 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
 # 常见问题
@@ -91,7 +91,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 如何判断哪些 {{site.data.keyword.blockstorageshort}} 卷已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){:new_window} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
+在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
 
 ## 怎样知道是在已升级的数据中心内供应 {{site.data.keyword.blockstorageshort}}？
 {: faq}

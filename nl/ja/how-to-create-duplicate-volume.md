@@ -9,7 +9,7 @@ keywords: Block Storage, LUN, volume duplication,
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +42,7 @@ subcollection: BlockStorage
 - **開発とテスト (dev/test)**: ボリュームの同時複製を一度に 4 つまで作成して、開発およびテスト用の複製データを作成する。
 - **ストレージのサイズ変更**: データの移動の必要なく、新しいサイズまたは IOPS レート (あるいはその両方) を指定したボリュームを作成する。  
 
-[{{site.data.keyword.slportal}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://control.softlayer.com/){:new_window} を介して、いくつかの方法で重複ボリュームを作成できます。
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して、いくつかの方法で重複ボリュームを作成できます。
 
 
 ## ストレージ・リスト内の特定のボリュームから複製を作成する方法

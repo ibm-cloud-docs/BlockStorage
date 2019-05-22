@@ -9,7 +9,7 @@ keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
 
-예를 들어 iSCSI 이니시에이터 구성([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){:new_window:}) 및 DM 다중 경로 설정([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){:new_window})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
+예를 들어 iSCSI 이니시에이터 구성([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}) 및 DM 다중 경로 설정([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
 {: tip}
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}을 통해 이전에 부여되었는지 확인하십시오.
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 이전에 부여되었는지 확인하십시오.
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
@@ -53,7 +53,7 @@ subcollection: BlockStorage
 
 다음은 Linux 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
 
-지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){:new_window}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
+지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
 {: tip}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
@@ -599,5 +599,5 @@ root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
    ```
    {: pre}
 
-   자세한 정보는 [`iscsiadm` 매뉴얼 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://linux.die.net/man/8/iscsiadm)을 참조하십시오.
+   자세한 정보는 [`iscsiadm` 매뉴얼](https://linux.die.net/man/8/iscsiadm)을 참조하십시오.
    {:tip}

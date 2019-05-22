@@ -9,7 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -38,7 +38,7 @@ Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht ver
 ## Was LUKS nicht bietet
 
 - Bereitstellung unterschiedlicher Zugriffsschlüssel für dieselben Geräte in Anwendungen, in denen dies für viele Benutzer (mehr als acht) erforderlich ist
-- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist. Weitere Informationen finden Sie in der Veröffentlichung [RHEL Security Guide ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){:new_window}.
+- Arbeit mit Anwendungen, für die eine Verschlüsselung auf Dateiebene erforderlich ist. Weitere Informationen finden Sie in der Veröffentlichung [RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
 ## Mit LUKS verschlüsselten Datenträger mit Endurance für {{site.data.keyword.blockstorageshort}} konfigurieren
 

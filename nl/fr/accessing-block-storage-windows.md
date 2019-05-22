@@ -9,7 +9,7 @@ keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mo
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Connexion à des numéros d'unité logique (LUN) iSCSI sous Microsoft Windows
 {: #mountingWindows}
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
 2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
@@ -68,7 +68,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     - Cliquez sur **Modifier** pour remplacer les valeurs existantes par votre nom qualifié iSCSI.
     ![Propriétés de l'initiateur iSCSI](/images/iSCSI.png)
 
-      Le nom qualifié iSCSI peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+      Le nom qualifié iSCSI peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
 
     - Cliquez sur l'onglet **Découverte**, puis sur **Découvrir un portail**.
@@ -79,8 +79,8 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
 
     Les zones Nom et Secret de la cible sont sensibles à la casse.
     {:important}
-         - Dans la zone **Nom**, supprimez les entrées existantes et saisissez le nom d'utilisateur à partir du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
-         - Dans la zone **Secret de la cible**, saisissez le mot de passe à partir du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+         - Dans la zone **Nom**, supprimez les entrées existantes et saisissez le nom d'utilisateur à partir du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - Dans la zone **Secret de la cible**, saisissez le mot de passe à partir du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
     - Cliquez sur **OK** dans les fenêtres **Paramètres avancés** et **Détecter un portail cible** pour revenir à l'écran principal des propriétés de l'initiateur SCSI. Si des erreurs d'authentification s'affichent, vérifiez le nom d'utilisateur et le mot de passe.
     ![Cible inactive](/images/Inactive_0.png)
 
@@ -127,14 +127,14 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
    - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique de stockage à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session.
    - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique de stockage.
 
-     Vous pouvez trouver la seconde adresse IP dans l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window}.
+     Vous pouvez trouver la seconde adresse IP dans l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
 8. Cette fenêtre affiche maintenant plusieurs sessions dans la sous-fenêtre Identificateur. Vous disposez désormais de plusieurs sessions dans le stockage iSCSI.
 
-   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){:new_window} avant de tenter d'établir la connexion.
+   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} avant de tenter d'établir la connexion.
    {:note}
 9. Dans la fenêtre Propriétés, cliquez sur **Périphériques** pour ouvrir la fenêtre correspondante. Le nom de l'interface de périphérique débute par `mpio`. <br/>
   ![Périphériques](/images/Devices.png)

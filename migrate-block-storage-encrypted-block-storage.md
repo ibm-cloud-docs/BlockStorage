@@ -9,7 +9,7 @@ keywords: Block Storage, migrate to new Block Storage, how to encrypt existing B
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}

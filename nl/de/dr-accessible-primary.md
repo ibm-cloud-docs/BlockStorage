@@ -9,7 +9,7 @@ keywords: Block Storage, accessible Primary volume, duplicate of a replica volum
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,10 +26,10 @@ Bevor Sie mit dem Failover beginnen, stellen Sie sicher, dass die gesamte Hostbe
 Autorisierte Hosts und Datenträger müssen sich in demselben Rechenzentrum befinden. Wenn sich der Replikatdatenträger beispielsweise in London befindet, kann sich der zugehörige Host nicht in Amsterdam befinden. Entweder müssen beide in London oder beide in Amsterdam sein.
 {:note}
 
-1. Melden Sie sich an [der {{site.data.keyword.cloud}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog){:new_window} an und klicken Sie links oben auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
+1. Melden Sie sich an [der {{site.data.keyword.cloud}}-Konsole](https://{DomainName}/catalog){: external} an und klicken Sie links oben auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
 
 
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} anmelden.
+   Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden.
 2. Klicken Sie auf der Seite **{{site.data.keyword.blockstorageshort}}** auf den Quellen- oder Zieldatenträger.
 3. Klicken Sie auf **Replikat**.
 4. Blättern Sie nach unten zum Rahmen **Hosts autorisieren** und klicken Sie auf der rechten Seite auf **Hosts autorisieren**.
@@ -41,7 +41,7 @@ Autorisierte Hosts und Datenträger müssen sich in demselben Rechenzentrum befi
 
 Bei einem Fehlerereignis können Sie einen **Failover** für Ihr Ziel bzw. Ihren Datenträger starten. Der Zieldatenträger wird aktiv. Der letzte erfolgreich replizierte Snapshot wird aktiviert und der Datenträger wird zum Anhängen verfügbar gemacht. Alle seit dem letzten Replikationszyklus auf den Quellendatenträger geschriebenen Daten werden gelöscht. Mit dem Starten eines Failovers wird die Replikationsbeziehung umgedreht. Ihr Zieldatenträger ist nun Ihr Quellendatenträger und Ihr früherer Quellendatenträger wird Ihr Ziel, wie durch den **LUN-Namen** mit angehängtem **REP** angezeigt.
 
-Failovers werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} gestartet.
+Failovers werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} gestartet.
 
 **Bevor Sie mit den folgenden Schritten fortfahren, unterbrechen Sie die Verbindung zum Datenträger. Wenn Sie das nicht tun, sind Datenbeschädigungen und/oder Datenverlust die Folge.**
 
@@ -68,7 +68,7 @@ Sobald Ihr Originalquellendatenträger repariert ist, können Sie eine gesteuert
 
 Mit dem Starten der Rückübertragung wird die Replikationsbeziehung wieder umgedreht. Ihr Quellendatenträger wird als Ihr Quellendatenträger wiederhergestellt und Ihr Zieldatenträger ist wieder der Zieldatenträger, wie durch **LUN-Name** und angehängtem **REP** angezeigt.
 
-Failbacks werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){:new_window} gestartet.
+Failbacks werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} gestartet.
 
 1. Klicken Sie auf Ihre aktive LUN ('Ziel').
 2. Klicken Sie oben rechts auf **Replikat** und danach auf **Aktionen**.

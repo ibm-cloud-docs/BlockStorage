@@ -9,7 +9,7 @@ keywords: Block storage, cPanel, backups, mountpoint, ISCSI
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 
 以下の指示に従って、{{site.data.keyword.blockstoragefull}} に保管される、cPanel でのバックアップを構成することができます。 root または sudo SSH でのアクセスが可能であり、WebHost Manager (WHM) のフル・アクセス権限があることを前提としています。 ここでの説明は、**CentOS 7** ホストに基づいています。
 
-詳しくは、[cPanel - バックアップ・ディレクトリーの構成 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window} を参照してください。
+詳しくは、[cPanel - バックアップ・ディレクトリーの構成](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){: external} を参照してください。
 {:tip}
 
 1. SSH 経由でホストに接続します。

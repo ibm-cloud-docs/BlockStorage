@@ -9,7 +9,7 @@ keywords: Block Storage, new features, new locations, Block Storage, mount point
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -109,9 +109,9 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 ## Neuer Mountpunkt für verschlüsselten Speicherdatenträger
 {: #mountpoints}
 
-Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Überprüfen Sie die Informationen zum Mountpunkt auf der Seite **Datenträger-Details** im [ {{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://control.softlayer.com/){:new_window}, um sicherzustellen, dass Sie den korrekten Mountpunkt verwenden. Sie können die richtigen Mountpunktinformationen auch über einen API-Aufruf abrufen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Überprüfen Sie die Informationen zum Mountpunkt auf der Seite **Datenträger-Details** im [ {{site.data.keyword.slportal}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://control.softlayer.com/){: external}, um sicherzustellen, dass Sie den korrekten Mountpunkt verwenden. Sie können die richtigen Mountpunktinformationen auch über einen API-Aufruf abrufen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Um auf alle neuen Funktionen zugreifen zu können, wählen Sie `Storage-as-a-Service Package 759` aus, wenn Sie Ihre Bestellung über die API aufgeben. Weitere Informationen zur {{site.data.keyword.blockstorageshort}}-Bestellung finden über die API Sie unter [order_block_volume ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){:new_window}.
+Um auf alle neuen Funktionen zugreifen zu können, wählen Sie `Storage-as-a-Service Package 759` aus, wenn Sie Ihre Bestellung über die API aufgeben. Weitere Informationen zur {{site.data.keyword.blockstorageshort}}-Bestellung finden über die API Sie unter [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}
 
 Prüfen Sie hier später, ob für weitere Rechenzentren ein Upgrade durchgeführt wurde, und ob und neue Funktionen und Leistungsmerkmale für {{site.data.keyword.blockstorageshort}} hinzugefügt wurden.

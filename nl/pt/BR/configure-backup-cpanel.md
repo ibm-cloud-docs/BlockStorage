@@ -9,7 +9,7 @@ keywords: Block storage, cPanel, backups, mountpoint, ISCSI
 subcollection: BlockStorage
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
@@ -22,7 +22,7 @@ subcollection: BlockStorage
 armazenados no {{site.data.keyword.blockstoragefull}}. Supõe-se que o SSH raiz ou
 sudo e o acesso do WebHost Manager (WHM) total estejam disponíveis. Estas instruções se baseiam em um host do **CentOS 7**.
 
-Para obter mais informações, consulte [cPanel: configurando o diretório de backup ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){:new_window}.
+Para obter mais informações, consulte [cPanel: configurando o diretório de backup](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){: external}.
 {:tip}
 
 1. Conecte-se ao host por meio de SSH.
