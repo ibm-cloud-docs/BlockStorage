@@ -111,7 +111,7 @@ TOK02<br />
 
 這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**磁區詳細資料**頁面上查看裝載點資訊，確定您使用的是正確的裝載點。您也可以透過 API 呼叫來取得正確的裝載點資訊：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
-若要能夠存取所有新增特性，請在透過 API 下訂單時，選取 `Storage-as-a-Service Package 759`。如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。{:important}
+若要能夠存取所有新增特性，請在透過 API 下訂單時，選取 `Storage-as-a-Service Package 759`。如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。{:important}
 
 請在這裡再次確認，以查看其他資料中心何時升級以及針對 {{site.data.keyword.blockstorageshort}} 新增的特性及功能。
 {:tip}

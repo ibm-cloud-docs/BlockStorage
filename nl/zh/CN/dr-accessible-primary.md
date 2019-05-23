@@ -27,7 +27,7 @@ subcollection: BlockStorage
 {:note}
 
 1. 登录到 [{{site.data.keyword.cloud}} 控制台](https://
-{DomainName}/catalog/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+{DomainName}/catalog){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
 
    或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。

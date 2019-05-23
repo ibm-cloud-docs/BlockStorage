@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 É possível usar o SLCLI para fazer pedidos de produtos que normalmente são pedidos por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
 
-Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Cliente da API de Python](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
+Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Cliente da API de Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Procurando ofertas disponíveis do {{site.data.keyword.blockstorageshort}}
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-Para obter mais informações sobre como pedir o {{site.data.keyword.blockstorageshort}} por meio da API, consulte [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Para obter mais informações sobre como pedir o {{site.data.keyword.blockstorageshort}} por meio da API, consulte [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 Para poder acessar todos os novos recursos, peça o `Storage-as-a-Service Package 759`.
 {:tip}
 
@@ -131,7 +131,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-Para obter mais informações sobre como autorizar o acesso dos hosts ao {{site.data.keyword.blockstorageshort}} por meio da API, consulte [authorize_host_to_volume![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
+Para obter mais informações sobre como autorizar o acesso dos hosts ao {{site.data.keyword.blockstorageshort}} por meio da API, consulte [authorize_host_to_volume![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 Para o limite de autorizações simultâneas, veja as [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).

@@ -111,7 +111,7 @@ La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans
 
 Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Vérifiez les informations de point de montage sur la page **Volume Details** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} pour vous assurer que vous utilisez le point de montage approprié. Vous pouvez également obtenir les informations relatives au point de montage correct via un appel d'API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Pour pouvoir accéder à toutes les nouvelles fonctions, sélectionnez `Storage-as-a-Service Package 759` lorsque vous passez votre commande via l'API. Pour plus d'informations sur les commande {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Pour pouvoir accéder à toutes les nouvelles fonctions, sélectionnez `Storage-as-a-Service Package 759` lorsque vous passez votre commande via l'API. Pour plus d'informations sur les commande {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}
 
 Revenez ici pour savoir si d'autres centres de données ont été mis à niveau et si de nouvelles fonctions et capacités ont été ajoutées pour {{site.data.keyword.blockstorageshort}}.

@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 您可以使用 SLCLI 来执行通常通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 处理的操作。例如，您可以使用 SLCLI 为卷、快照空间、复制、更新授权、取消卷等下订单。
 
-有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}。
+有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
 
 ## 访问相关的 SLCLI 命令

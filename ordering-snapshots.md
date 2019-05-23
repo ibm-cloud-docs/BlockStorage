@@ -49,7 +49,7 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 
 ## Ordering Snapshot space through the {{site.data.keyword.cloud_notm}} console
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog/){: external} and click the menu icon on the upper left. Select **Classic Infrastructure**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external} and click the menu icon on the upper left. Select **Classic Infrastructure**.
 
    Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.

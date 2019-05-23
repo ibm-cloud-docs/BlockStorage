@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 您可以使用 SLCLI 以针对通常通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
 
-有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}。
+有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
 
 ## 搜索可用的 {{site.data.keyword.blockstorageshort}} 产品
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-有关通过 API 订购 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。
+有关通过 API 订购 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。
 要能够访问所有新功能，请订购 `Storage-as-a-Service Package 759`。
 {:tip}
 
@@ -130,7 +130,7 @@ Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
   --help                    显示此消息并退出。
 ```
 
-有关通过 API 授权主机访问 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
+有关通过 API 授权主机访问 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。

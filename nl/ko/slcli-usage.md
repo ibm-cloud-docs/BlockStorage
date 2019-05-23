@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 SLCLI를 사용하여 일반적으로 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 처리되는 조치를 수행할 수 있습니다. 예를 들어, SLCLI를 사용하면 볼륨, 스냅샷 영역, 복제에 대한 주문, 권한 업데이트 및 볼륨 취소 등의 작업을 수행할 수 있습니다.
 
-SLCLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라이언트](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}를 참조하십시오.
+SLCLI 설치 및 사용 방법에 관한 자세한 정보는 [Python API 클라이언트](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}를 참조하십시오.
 {:tip}
 
 ## 액세스 관련 SLCLI 명령

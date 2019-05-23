@@ -27,7 +27,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)
 
-1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog/){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
+1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 
    Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
 
@@ -63,7 +63,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
 
-1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog/){: external}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
+1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
 
    Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
 2. Click **Location** and select your data center.

@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. In the SL API, an order can consist of multiple order containers. The order CLI works with one order container only.
 
-For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
+For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Searching for available {{site.data.keyword.blockstorageshort}} offers
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
 {:tip}
 
@@ -131,7 +131,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-For more information about authorizing hosts to access the {{site.data.keyword.blockstorageshort}} through the API, see [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
+For more information about authorizing hosts to access the {{site.data.keyword.blockstorageshort}} through the API, see [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 For the limit on simultaneous authorizations, see the [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).

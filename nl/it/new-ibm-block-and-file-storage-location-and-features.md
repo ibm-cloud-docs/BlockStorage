@@ -111,7 +111,7 @@ Il nuovo {{site.data.keyword.blockstorageshort}} è disponibile nei seguenti dat
 
 Tutti i volumi di archiviazione migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Controlla le informazioni sui punti di montaggio nella pagina **Volume Details** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} per assicurarti di stare utilizzando il punto di montaggio corretto. Puoi anche ottenere le informazioni sul punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Per poter accedere a tutte le nuove funzioni, seleziona `Storage-as-a-Service Package 759` quando inserisci il tuo ordine tramite l'API. Per ulteriori informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, consulta [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Per poter accedere a tutte le nuove funzioni, seleziona `Storage-as-a-Service Package 759` quando inserisci il tuo ordine tramite l'API. Per ulteriori informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, consulta [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}
 
 Ritorna qui a controllare quando viene eseguito l'upgrade di ulteriori data center e per vedere le nuove funzioni e funzionalità che vengono aggiunte per {{site.data.keyword.blockstorageshort}}.

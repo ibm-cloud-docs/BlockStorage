@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 您可以使用 SLCLI 採取通常透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 處理的動作。例如，使用 SLCLI 您可以針對磁區、Snapshot 空間、抄寫、更新授權、取消磁區等等而下訂單。
 
-若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}。
+若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
 
 ## 存取相關的 SLCLI 指令

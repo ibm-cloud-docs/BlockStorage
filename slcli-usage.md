@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. For example, with SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, cancel volumes, and so on.
 
-For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
+For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Access-related SLCLI commands

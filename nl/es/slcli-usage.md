@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 Puede utilizar SLCLI para realizar acciones que normalmente se manejan a través del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Por ejemplo, con SLCLI puede realizar pedidos de volúmenes, espacio de instantáneas, réplica, actualizar autorizaciones, cancelar volúmenes, etc.
 
-Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [Cliente de API de Python](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
+Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [Cliente de API de Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Mandatos de SLCLI relacionados con el acceso

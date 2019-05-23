@@ -27,7 +27,7 @@ Os hosts e volumes autorizados devem estar no mesmo data center. Por exemplo, n�
 {:note}
 
 1. Efetue login no [console do {{site.data.keyword.cloud}}](https://
-{DomainName}/catalog/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
+{DomainName}/catalog){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Clique em seu volume de origem ou de destino na página **{{site.data.keyword.blockstorageshort}}**.

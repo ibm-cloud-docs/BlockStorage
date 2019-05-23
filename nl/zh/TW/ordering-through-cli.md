@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 您可以使用 SLCLI 來訂購通常是透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 來訂購的產品。在 SL API 中，一張訂單可能是由多重訂單容器所組成。訂單 CLI 只能用於一個訂單容器。
 
-若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}。
+若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
 
 ## 搜尋可用的 {{site.data.keyword.blockstorageshort}} 供應項目
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。若要能夠存取所有新增特性，請訂購 `Storage-as-a-Service Package 759`。
+如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。若要能夠存取所有新增特性，請訂購 `Storage-as-a-Service Package 759`。
 {:tip}
 
 
@@ -130,7 +130,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-若要進一步瞭解如何授權主機透過 API 來存取 {{site.data.keyword.blockstorageshort}}，請參閱 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block.html#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}。
+若要進一步瞭解如何授權主機透過 API 來存取 {{site.data.keyword.blockstorageshort}}，請參閱 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}。
 {:tip}
 
 如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。

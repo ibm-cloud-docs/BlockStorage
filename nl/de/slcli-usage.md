@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 Sie können die SLCLI verwenden, um Aktionen auszuführen, die normalerweise über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ausgeführt werden. So können Sie über die SLCLI beispielsweise Datenträger, Snapshotbereiche und Replikationen bestellen, Berechtigungen aktualisieren, Datenträger stornieren usw. 
 
-Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter [Python-API-Client](https://softlayer-python.readthedocs.io/en/latest/cli.html){: external}.
+Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter [Python-API-Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## SLCLI-Befehle im Zusammenhang mit dem Zugriff
