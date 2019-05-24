@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # Adjusting host queue depth settings
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} suggests a maximum host and application input/output (I/O) queue depth for each performance tier.
+{{site.data.keyword.cloud}} suggests a maximum host and application input/output (I/O) queue depth for each performance tier.
 
-<table align="center">
-  <caption>Recommended queue depth for each IOPS tier</caption>
-        <thead>
-	    <tr>
-		<th>Performance tier</th>
-		<th>Maximum host queue depth</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0.25 IOPS per GB</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS per GB</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS per GB</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| Performance tier | Maximum host queue depth |
+|------|------|
+| 0.25 IOPS per GB | 8 |
+| 2 IOPS per GB | 24 |
+| 4 IOPS per GB | 56 |
+{: caption="Recommended queue depth for each IOPS tier" caption-side="top"}
 
 The host setting doesn’t affect disk and controller latency. It affects only the latency that is observed by the host and application.
 

@@ -49,7 +49,7 @@ You can create a duplicate volume through the [{{site.data.keyword.slportal}}](h
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}
     - From the customer portal, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR
-    - From the {{site.data.keyword.BluSoftlayer_full}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+    - From the {{site.data.keyword.cloud}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click **Actions** > **Duplicate LUN (Volume)**
 3. Choose your snapshot option:
     - If you order from a **non-replica** volume,

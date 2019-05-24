@@ -47,7 +47,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 ## Resizing storage
 {: #resizingsteps}
 
-1. From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from {{site.data.keyword.BluSoftlayer_full}} console click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from {{site.data.keyword.cloud}} console click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the LUN from the list and click **Actions** > **Modify LUN**
 3. Enter the new storage size in GB.
 4. Review your selection and the new pricing.

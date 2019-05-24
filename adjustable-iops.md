@@ -46,7 +46,7 @@ If the volume has replication in place, the replica is automatically updated to 
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}
    - From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**
-   - From {{site.data.keyword.BluSoftlayer_full}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+   - From {{site.data.keyword.cloud}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the LUN from the list and click **Actions** > **Modify LUN**
 3. Under **Storage IOPS Options**, make a new selection:
     - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.

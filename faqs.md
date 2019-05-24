@@ -28,7 +28,7 @@ By default, you can provision a combined total of 250 block and file storage. To
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: faq}
 
-That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.BluSoftlayer_full}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
+That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Which Windows version am I to choose for my Block Storage LUN?
 {: faq}

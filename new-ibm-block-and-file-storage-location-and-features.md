@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # New Locations and Features
 {: #news}
 
-{{site.data.keyword.BluSoftlayer_full}} is introducing a new version of {{site.data.keyword.blockstoragefull}}!
+{{site.data.keyword.cloud}} is introducing a new version of {{site.data.keyword.blockstoragefull}}!
 
 The new storage is available in select data centers, and is backed by flash storage at higher IOPS levels with disk level encryption for data-at-rest. All storage that is provisioned in the upgraded data centers is automatically created with the new version.
 

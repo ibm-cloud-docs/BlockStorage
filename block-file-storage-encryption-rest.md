@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.blockstorageshort}} Encryption-At-Rest
 
-{{site.data.keyword.BluSoftlayer_full}} takes the need for security seriously, and understands the importance of being able to encrypt data to keep it safe. With provider-managed encryption, {{site.data.keyword.blockstoragefull}} that is provisioned with either Endurance or Performance option is encrypted by default, at no extra cost and no impact to performance.
+{{site.data.keyword.cloud}} takes the need for security seriously, and understands the importance of being able to encrypt data to keep it safe. With provider-managed encryption, {{site.data.keyword.blockstoragefull}} that is provisioned with either Endurance or Performance option is encrypted by default, at no extra cost and no impact to performance.
 
 The provider-managed encryption-at-rest feature uses the following industry standard protocols:
 

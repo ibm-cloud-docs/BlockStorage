@@ -32,9 +32,9 @@ Options:
 
 You can request a limit increase by submitting a support case in the [portal](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.  
 
-To request a limit increase, open a ticket and direct it to your sales representative.
+To request a limit increase, open a case and direct it to your sales representative.
 
-In the ticket, provide the following information:
+In the case, provide the following information:
 
 - **Ticket Subject**: Request to Increase Data Center Volume Count Storage Limit
 
@@ -56,4 +56,4 @@ In the ticket, provide the following information:
 Respond to all questions and statements in your request. They are required for processing and approval.
 {:important}
 
-You're going to be notified of the update to your limits through the ticket process.
+You're going to be notified of the update to your limits through the case process.

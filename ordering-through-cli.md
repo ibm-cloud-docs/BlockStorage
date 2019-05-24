@@ -24,7 +24,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Searching for available {{site.data.keyword.blockstorageshort}} offers
 
-The first component to look for when you place an order is a package. Packages are divided among the different top-level products that are available for ordering in the {{site.data.keyword.BluSoftlayer_full}}. Some example packages are CLOUD_SERVER for VSIs, BARE_METAL_SERVER for bare metal servers, and STORAGE_AS_A_SERVICE_STAAS for {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
+The first component to look for when you place an order is a package. Packages are divided among the different top-level products that are available for ordering in the {{site.data.keyword.cloud}}. Some example packages are CLOUD_SERVER for VSIs, BARE_METAL_SERVER for bare metal servers, and STORAGE_AS_A_SERVICE_STAAS for {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
 
 Within a package, some items are subdivided into categories. Some packages have presets for your convenience and others require items to be specified individually. If a package's category is required, an item from that category must be chosen to order the package. Depending on the category, some items within the category can be mutually exclusive.
 

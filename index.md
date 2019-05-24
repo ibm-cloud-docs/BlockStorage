@@ -39,7 +39,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - **Snapshots** ([Available in select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Captures point-in-time data snapshots non-disruptively.
 - **Replication** ([Available in select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
-   - Automatically copies snapshots to a partner {{site.data.keyword.BluSoftlayer_full}} data center.
+   - Automatically copies snapshots to a partner {{site.data.keyword.cloud}} data center.
 - **Highly available connectivity**
    - Uses redundant networking connections to maximize availability
    - iSCSI-based {{site.data.keyword.blockstorageshort}} uses Multipath I/O (MPIO).

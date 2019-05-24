@@ -122,7 +122,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
      ```
      {: codeblock}
 
-     Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.BluSoftlayer_full}} storage uses only one-way authentication. Do not enable Mutual CHAP.
+     Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
      {:important}
 
 

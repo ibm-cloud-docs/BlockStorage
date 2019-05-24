@@ -41,7 +41,7 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Following are the steps that are required to connect a Windows-based {{site.data.keyword.BluSoftlayer_full}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
+Following are the steps that are required to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
 
 ### Configuring the MPIO feature
 
@@ -154,7 +154,7 @@ To verify whether Windows MPIO is configured, you must first ensure that the MPI
 When the restart is complete and the Storage Device is added, you can verify whether MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.BluSoftlayer_full}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active read/write operations going to the LUN.
+If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.cloud}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active read/write operations going to the LUN.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
