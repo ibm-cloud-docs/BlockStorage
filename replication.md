@@ -31,81 +31,10 @@ Before you can replicate, you must create a snapshot schedule.
 {{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations worldwide.
 See Table 1 for the complete list of data center availability and replication targets.
 
-<table>
-  <caption style="text-align: left;"><p>Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers.</p>
-  <p>&#42; Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities <strong>can't</strong> start replication with replica targets in US 1 data centers.</p>
-  </caption>
-  <thead>
-    <tr>
-      <th>US 1 &#42;</th>
-      <th>US 2</th>
-      <th>Latin America</th>
-      <th>Canada</th>
-      <th>Europe</th>
-      <th>Asia-Pacific</th>
-      <th>Australia</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DAL01<br />
-          DAL05<br />
-	  DAL06<br />
-	  HOU02<br />
-	  SJC01<br />
-	  WDC01<br />
-	  <br /><br /><br /><br /><br /><br />
-      </td>
-      <td>SJC03<br />
-	  SJC04<br />
-	  WDC04<br />
-	  WDC06<br />
-	  WDC07<br />
-	  DAL09<br />
-	  DAL10<br />
-	  DAL12<br />
-	  DAL13<br />
-	  <br /><br /><br />
-      </td>
-      <td>MEX01<br />
-	  SAO01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>TOR01<br />
-          MON01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>AMS01<br />
-	  AMS03<br />
-	  FRA02<br />
-	  FRA04<br />
-	  FRA05<br />
-	  LON02<br />
-	  LON04<br />
-	  LON05<br />
-	  LON06<br />
-	  OSL01<br />
-	  PAR01<br />
-	  MIL01<br />
-      </td>
-      <td>HKG02<br />
-          TOK02<br />
-          TOK04<br />
-          TOK05<br />
-          SNG01<br />
-          SEO01<br />
-          CHE01<br />
-	        <br /><br /><br /><br /><br />
-      </td>
-      <td>SYD01<br />
-          SYD04<br />
-          SYD05<br />
-          MEL01<br />
-          <br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-    </tr>
-  </tbody>
-</table>
+| US 1 | US 2 | Latin America | Canada  | Europe  | Asia-Pacific  | Australia  |
+|-----|-----|-----|-----|-----|-----|-----|
+| DAL01<br />DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01 | TOR01<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
+{: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers. Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities can't start replication with replica targets in US 1 data centers." caption-side="top"}
 
 ## Creating the initial replica
 
