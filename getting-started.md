@@ -43,63 +43,17 @@ IOPS for both Endurance and Performance is based on a 16-KB block size with a 50
 
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
 
-<table>
-  <caption>Table 4 shows examples of how block size and IOPS affect the throughput.<br/>Average IO size x IOPS = Throughput in MB/s</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Block Size (KB)</th>
-            <th>IOPS</th>
-            <th>Throughput (MB/s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4 (typical for Linux)</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8 (typical for Oracle)</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32 (typical for SQL Server)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>1024</td>
-            <td>16</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+| Block Size (KB) | IOPS | Throughput (MB/s) |
+|-----|-----|-----|
+| 4 | 1,000 | 16 |
+| 8 | 1,000 | 16 |
+| 16 | 1,000 | 16 |
+| 32 | 500 | 16 |
+| 64 | 250 | 16 |
+| 128 | 128 | 16 |
+| 512 | 32 | 16 |
+| 1024 | 16 | 16 |
+{: caption="Table 1 shows examples of how block size and IOPS affect the throughput.<br/>Average IO size x IOPS = Throughput in MB/s." caption-side="top"}
 
 ### Authorized hosts
 
