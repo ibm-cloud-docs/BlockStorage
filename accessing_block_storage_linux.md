@@ -357,57 +357,22 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 #### The  `fdisk` command table
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>The <code>fdisk</code> command table contains commands on the left and expected results on the right.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">Command</th>
-		<th style="width:60%;">Result</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>Creates a partition. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>Makes the partition the primary one.</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>Becomes partition 1 on the disk.</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>Start at cylinder 1.</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Press Enter to go to the last cylinder.</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>Sets up the type of partition. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>Selects partition 1 to be set up as a specific type.</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>Selects Linux as the Type (83 is the hex code for Linux).&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>Writes the new partition information to the disk. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| Command | Result |
+|-----|-----|
+| `Command: n`| Creates a partition. * |
+| `Command action: p` | Makes the partition the primary one. |
+| `Partition number (1-4): 1` | Becomes partition 1 on the disk. |
+| `First cylinder (1-8877): 1 (default)` | Start at cylinder 1. |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Press Enter to go to the last cylinder. |
+| `Command: t` | Sets up the type of partition. * |
+| `Select partition 1.` | Selects partition 1 to be set up as a specific type. |
+| `Hex code: 83` | Selects Linux as the Type (83 is the hex code for Linux). ** |
+| `Command: w` | Writes the new partition information to the disk. ** |
+{: caption="Table 1 - The <code>fdisk</code> command table contains commands on the left and expected results on the right." caption-side="top"}
 
-  (`*`) Type m for Help.
+(`*`) Type m for Help.
 
-  (`**`) Type L to list the hex codes
+(`**`) Type L to list the hex codes
 
 ### Creating a file system with `parted`
 {: #parted}
