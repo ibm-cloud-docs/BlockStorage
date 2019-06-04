@@ -27,87 +27,16 @@ subcollection: BlockStorage
 
 ## 判斷我的已抄寫儲存空間磁區的遠端資料中心
 
-{{site.data.keyword.BluSoftlayer_full}} 的資料中心已配對成全球主要與遠端組合。如需完整的資料中心可用性及抄寫目標清單，請參閱表 1。
+{{site.data.keyword.cloud}} 的資料中心已配對成全球主要與遠端組合。如需完整的資料中心可用性及抄寫目標清單，請參閱表 1。
 
-<table>
-  <caption style="text-align: left;"><p>表 1 - 此表格顯示每一個地區中具有加強功能的完整資料中心清單。每個地區都是個別的直欄。有些城市（例如「達拉斯」、「聖荷西」、「華盛頓特區」、「阿姆斯特丹」、「法蘭克福」、「倫敦」及「雪梨」）會有多個資料中心。</p>
-  <p>&#42; 美國 1 地區中的資料中心沒有加強儲存空間。具有加強儲存空間功能之資料中心內的主機<strong>無法</strong>開始抄本目標位於美國 1 資料中心的抄寫。</p>
-  </caption>
-  <thead>
-    <tr>
-      <th>美國 1 &#42;</th>
-      <th>美國 2</th>
-      <th>拉丁美洲</th>
-      <th>加拿大</th>
-      <th>歐洲</th>
-      <th>亞太地區</th>
-      <th>澳洲</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DAL01<br />
-DAL05<br />
-	  DAL06<br />
-	  HOU02<br />
-	  SJC01<br />
-	  WDC01<br />
-	  <br /><br /><br /><br /><br /><br />
-      </td>
-      <td>SJC03<br />
-	  SJC04<br />
-	  WDC04<br />
-	  WDC06<br />
-	  WDC07<br />
-	  DAL09<br />
-	  DAL10<br />
-	  DAL12<br />
-	  DAL13<br />
-	  <br /><br /><br />
-      </td>
-      <td>MEX01<br />
-	  SAO01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>TOR01<br />
-MON01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>AMS01<br />
-	  AMS03<br />
-	  FRA02<br />
-	  FRA04<br />
-	  FRA05<br />
-	  LON02<br />
-	  LON04<br />
-	  LON05<br />
-	  LON06<br />
-	  OSL01<br />
-	  PAR01<br />
-	  MIL01<br />
-      </td>
-      <td>HKG02<br />
-TOK02<br />
-TOK04<br />
-TOK05<br />
-SNG01<br />
-SEO01<br />
-                                CHE01<br />
-	        <br /><br /><br /><br /><br />
-      </td>
-      <td>SYD01<br />
-SYD04<br />
-          SYD05<br />
-MEL01<br />
-          <br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-    </tr>
-  </tbody>
-</table>
+|美國 1 |美國 2|拉丁美洲|加拿大|歐洲|亞太地區|澳洲|
+|-----|-----|-----|-----|-----|-----|-----|
+|DAL01<br />DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01|SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13|MEX01<br />SAO01|TOR01<br />MON01|AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01|HKG02<br />TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />                                CHE01|SYD01<br />SYD04<br />          SYD05<br />MEL01|
+{: caption="表 1 - 此表格顯示每一個地區中具有加強功能的完整資料中心清單。每個地區都是個別的直欄。有些城市（例如「達拉斯」、「聖荷西」、「華盛頓特區」、「阿姆斯特丹」、「法蘭克福」、「倫敦」及「雪梨」）會有多個資料中心。美國 1 地區中的資料中心沒有加強儲存空間。具有加強儲存空間功能之資料中心內的主機無法開始抄本目標位於美國 1 資料中心的抄寫。" caption-side="top"}
 
 ## 建立起始抄本
 
-抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下進行管理。
+抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下管理。
 
 1. 按一下儲存空間磁區。
 2. 按一下**抄本**，然後按一下**購買抄寫**。
@@ -126,7 +55,7 @@ MEL01<br />
 
 ## 編輯現有抄寫
 
-您可以從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤編輯抄寫排程，以及變更抄寫空間。
+您可以從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 之**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤中編輯抄寫排程，以及變更抄寫空間。
 
 
 ## 編輯抄寫排程
@@ -183,7 +112,7 @@ MEL01<br />
 
 ## 建立抄本的重複項目
 
-您可以建立現有 {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} 的重複項目。依預設，重複磁區會繼承原始磁區的容量及效能選項，而且會有到達 Snapshot 中該時間點之前的資料副本。
+您可以建立現有 {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}} 的重複項目。依預設，重複磁區會繼承原始磁區的容量及效能選項，而且會有到達 Snapshot 中該時間點之前的資料副本。
 
 您可以從主要及抄本磁區建立重複磁區。新的重複磁區會建立在與原始磁區相同的資料中心內。如果您建立抄本磁區的重複磁區，則新的磁區會建立在與抄本磁區相同的資料中心內。
 

@@ -25,7 +25,6 @@ subcollection: BlockStorage
 
 1. 登入 [IBM Cloud 主控台](https://{DomainName}/){: external}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
 
-
    或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 3. 按一下清單中的 LUN 抄本，以檢視其**詳細資料**頁面。
@@ -41,7 +40,6 @@ subcollection: BlockStorage
 如果您想要使正式作業回到原始主要站台，您必須執行下列步驟。
 
 1. 登入 [IBM Cloud 主控台](https://{DomainName}/){: external}，然後按一下左上方的**功能表**圖示。選取**標準基礎架構**。
-
 
    或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。

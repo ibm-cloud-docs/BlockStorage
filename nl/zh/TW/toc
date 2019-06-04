@@ -53,6 +53,8 @@ IBM Cloud Storage - Block Storage
     faqs.md
     [Python API 用戶端資訊](https://softlayer-python.readthedocs.io/en/latest/index.html)
     slcli-usage.md
+    [IBM Cloud CLI 及 Developer Tools](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage)
+    [Identity and Access Management](https://cloud.ibm.com/docs/iam?topic=iam-infrapermission)
 
     {: .topicgroup}
     疑難排解

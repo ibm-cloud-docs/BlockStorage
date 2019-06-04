@@ -23,11 +23,10 @@ subcollection: BlockStorage
 這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
 {:note}
 
-例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} 找到 Ubuntu 的「iSCSI 起始器配置」指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} 找到 Ubuntu 的「DM 多路徑」設定指示。
+例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}找到「DM 多路徑」設定的 Ubuntu 指示。
 {: tip}
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。
-{:important}
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。{:important}
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
 2. 按一下**授權主機**。
@@ -51,7 +50,7 @@ Options:
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #mountLin}
 
-以下是將 Linux 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
+以下是將 Linux 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
 指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面取得。
 {: tip}
@@ -196,7 +195,7 @@ Options:
    ```
    {: codeblock}
 
-   請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
+   請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.cloud}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
    {:important}
 
    Ubuntu 使用者，當您查看 `iscsid.conf` 檔案時，請檢查 `node.startup` 設定是 manual 還是 automatic。如果是 manual，請將它變更為 automatic。
@@ -357,57 +356,22 @@ Options:
 
 #### `fdisk` 指令表格
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption><code>fdisk</code> 指令表格包含左側的指令以及右側的預期結果。</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">指令</th>
-		<th style="width:60%;">結果</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>建立分割區。&#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>使分割區成為主要分割區。</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>變成磁碟上的分割區 1。</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>從磁柱 1 開始。</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>按 Enter 鍵以移至最後一個磁柱。</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>設定分割區的類型。&#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>選取要設為特定類型的分割區 1。</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>選取 Linux 作為「類型」（83 是適用於 Linux 的十六進位碼）。&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>將新的分割區資訊寫入磁碟中。&#42;</td>
-	</tr>
-   </tbody>
-</table>
+|指令|結果|
+|-----|-----|
+| `Command: n`|建立分割區。* |
+| `Command action: p` |使分割區成為主要分割區。|
+| `Partition number (1-4): 1` |變成磁碟上的分割區 1。|
+| `First cylinder (1-8877): 1 (default)` |從磁柱 1 開始。|
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` |按 Enter 鍵以移至最後一個磁柱。|
+| `Command: t` |設定分割區的類型。* |
+| `Select partition 1.` |選取要設為特定類型的分割區 1。|
+| `Hex code: 83` |選取 Linux 作為「類型」（83 是適用於 Linux 的十六進位碼）。** |
+| `Command: w` |將新的分割區資訊寫入磁碟中。** |
+{: caption="表 1 - <code>fdisk</code> 指令表格包含左側的指令以及右側的預期結果。" caption-side="top"}
 
-  (`*`) 鍵入 m 以取得「說明」。
+(`*`) 鍵入 m 以取得「說明」。
 
-  (`**`) 鍵入 L 以列出十六進位碼。
+(`**`) 鍵入 L 以列出十六進位碼。
 
 ### 使用 `parted` 建立檔案系統
 {: #parted}

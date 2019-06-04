@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -42,58 +42,17 @@ subcollection: BlockStorage
 
 應用程式所使用的區塊大小會直接影響儲存空間效能。如果應用程式所使用的區塊大小小於 16 KB，則 IOPS 限制會比傳輸量限制更早實現。反之，如果應用程式所使用的區塊大小大於 16 KB，則傳輸量限制會比 IOPS 限制更早實現。
 
-<table>
-  <caption>表 4 顯示區塊大小和 IOPS 如何影響傳輸量的範例。</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>區塊大小 (KB)</th>
-            <th>IOPS</th>
-            <th>傳輸量（MB/秒）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4（一般用於 Linux）</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8（一般用於 Oracle）</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32（一般用於 SQL Server）</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+|區塊大小 (KB)|IOPS|傳輸量（MB/秒）|
+|-----|-----|-----|
+|4|1,000|16|
+|8|1,000|16|
+|16|1,000|16|
+|32|500|16|
+|64|250|16|
+|128|128|16|
+|512|32|16|
+| 1024 |16|16|
+{: caption="表 1 顯示區塊大小和 IOPS 如何影響傳輸量的範例。<br/>平均 IO 大小 x IOPS = 傳輸量（以 MB/s 為單位）。" caption-side="top"}
 
 ### 授權的主機
 
@@ -105,7 +64,9 @@ subcollection: BlockStorage
 
 為達到最大 IOPS，需要有足夠的網路資源。其他考量包括儲存空間之外的專用網路使用情形，以及主機端和應用程式特定的調整（IP 堆疊或[佇列深度](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)，以及其他設定）。
 
-儲存空間資料流量包含在「公用虛擬伺服器」的總網路使用情形中。若要進一步瞭解該服務可能強制的限制，請參閱[虛擬伺服器文件](/docs/vsi?topic=virtual-servers-public-virtual-servers)。
+儲存空間資料流量應該與其他資料流量類型隔離，且不應該透過防火牆和路由器導向。如需相關資訊，請參閱[常見問題](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic)。
+
+儲存空間資料流量包含在「公用虛擬伺服器」的總網路使用情形中。若要進一步瞭解該服務可能強制的限制，請參閱[虛擬伺服器文件](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)。
 {:tip}
 
 ## 提交訂單

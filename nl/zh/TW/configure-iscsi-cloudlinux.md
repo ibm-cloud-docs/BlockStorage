@@ -21,8 +21,7 @@ subcollection: BlockStorage
 
 請遵循下列指示，以在 CloudLinux Server 6.10 版上按裝具有多路徑的 iSCSI LUN。
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。
-{:tip}
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。{:tip}
 
 1. 登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
@@ -121,7 +120,7 @@ Options:
      ```
      {: codeblock}
 
-     請對 CHAP 名稱使用大寫字體。請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.BluSoftlayer_full}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
+     請對 CHAP 名稱使用大寫字體。請將其他 CHAP 設定保持註解狀態。{{site.data.keyword.cloud}} 儲存空間僅會使用單向鑑別。請勿啟用 Mutual CHAP。
      {:important}
 
 

@@ -41,7 +41,7 @@ Options:
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #mountWin}
 
-以下是將 Windows 型「{{site.data.keyword.BluSoftlayer_full}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 的供應商文件來調整其他 Windows 版本的步驟。
+以下是將 Windows 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 的供應商文件來調整其他 Windows 版本的步驟。
 
 ### 配置 MPIO 特性
 
@@ -79,7 +79,7 @@ Options:
         「名稱」及「目標密碼」欄位有區分大小寫。
     {:important}
          - 在**名稱**欄位中，刪除任何現有的項目，並從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 輸入使用者名稱。
-         - 在**目標密碼**欄位中，輸入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 提供的密碼。
+         - 在**目標密碼**欄位中，從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中輸入密碼。
     - 在**進階設定**及**探索目標入口網站**視窗上，按一下**確定**，以回到主要「iSCSI 起始器內容」畫面。如果您收到鑑別錯誤，請檢查使用者名稱及密碼項目。
     ![非作用中目標](/images/Inactive_0.png)
         您的目標名稱會出現在「已探索目標」區段中，並處於`非作用中`狀態。
@@ -154,7 +154,7 @@ Options:
 重新啟動完成並新增「儲存裝置」後，可以驗證 MPIO 是否已配置且正在運作中。若要這樣做，請查看**目標裝置詳細資料**，然後按一下 **MPIO**：
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-如果未正確配置 MPIO，則在發生網路中斷或「{{site.data.keyword.BluSoftlayer_full}} 團隊」執行維護時，儲存裝置可能會中斷連線並且看似已停用。MPIO 可確保在那些事件發生期間，有多一層連線功能，並保持已建立的階段作業對 LUN 持續進行讀取/寫入作業。
+如果未正確配置 MPIO，則在發生網路中斷或「{{site.data.keyword.cloud}} 團隊」執行維護時，儲存裝置可能會中斷連線並且看似已停用。MPIO 可確保在那些事件發生期間，有多一層連線功能，並保持已建立的階段作業對 LUN 持續進行讀取/寫入作業。
 
 ## 卸載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #unmountingWin}

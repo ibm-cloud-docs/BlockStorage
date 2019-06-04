@@ -47,7 +47,7 @@ subcollection: BlockStorage
 ## 調整儲存空間大小
 {: #resizingsteps}
 
-1. 從 {{site.data.keyword.slportal}}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，或者，從 {{site.data.keyword.BluSoftlayer_full}} 主控台，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+1. 從 {{site.data.keyword.slportal}}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，或者，從 {{site.data.keyword.cloud}} 主控台，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中選取 LUN，然後按一下**動作** > **修改 LUN**。
 3. 輸入新的儲存空間大小（以 GB 為單位）。
 4. 檢閱您的選取項目及新的定價。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # 關於 {{site.data.keyword.blockstorageshort}}
 {: #About}
 
-{{site.data.keyword.blockstoragefull}} 是持續性的高效能 iSCSI 儲存空間，其獨立於運算實例之外進行佈建及管理。iSCSI 型 {{site.data.keyword.blockstorageshort}} LUN 是透過備用的多路徑 I/O (MPIO) 連線連接至授權裝置。
+{{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}} 是持續性的高效能 iSCSI 儲存空間，其獨立於運算實例之外進行佈建及管理。iSCSI 型 {{site.data.keyword.blockstorageshort}} LUN 是透過備用的多路徑 I/O (MPIO) 連線連接至授權裝置。
 
 {{site.data.keyword.blockstorageshort}} 透過無與倫比的特性集提供最佳的延續性和可用性層次。它是使用業界標準和最佳作法進行建置。{{site.data.keyword.blockstorageshort}} 的設計目的為保護資料完整性，以及透過維護事件和非計劃性失敗來維護可用性，同時提供一致的效能基準線。
 
@@ -39,7 +39,7 @@ subcollection: BlockStorage
 - **Snapshot**（[適用於精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)）
    - 以不中斷的方式擷取時間點資料 Snapshot。
 - **抄寫**（[適用於精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)）
-   - 自動將 Snapshot 複製到夥伴 {{site.data.keyword.BluSoftlayer_full}} 資料中心。
+   - 自動將 Snapshot 複製到夥伴 {{site.data.keyword.cloud}} 資料中心。
 - **高度可用的連線功能**
    - 使用備用網路連線以讓可用性最大化
    - iSCSI 型 {{site.data.keyword.blockstorageshort}} 會使用「多路徑 I/O (MPIO)」。
@@ -48,55 +48,6 @@ subcollection: BlockStorage
 - **叢集資料庫**
    - 支援進階使用案例（例如叢集資料庫）。
 
-## 計費
-{: #billing}
-
-您可以為「區塊 LUN」選取按小時計費或按月計費。為 LUN 選取的計費類型會套用至其 Snapshot 空間及抄本。例如，如果您佈建按小時計費的 LUN，則任何 Snapshot 或抄本費用都會按小時計費。如果您佈建按月計費的 LUN，則任何 Snapshot 或抄本費用都會按月計費。
-
-使用**按小時計費**，會在刪除 LUN 或計費週期結束時（看何者為先），計算區塊 LUN 存在於帳戶上的小時數。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費只適用於[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)內所佈建的儲存空間。
-
-使用**按月計費**，價格是從建立日期到計費週期結束為止，按比例計算，並立即計費。如果在計費週期結束之前刪除 LUN，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
-
-**效能**
-<table>
-  <caption>表 1 顯示「效能儲存空間」按月及按小時計費的價格。</caption>
-  <tr>
-   <th>每月價格</th>
-   <td>$0.10/GB + $0.07/IOP</td>
-  </tr>
-  <tr>
-   <th>每小時價格</th>
-   <td>$0.0001/GB + $0.0002/IOP</td>
-  </tr>
-</table>
-
-**耐久性**
-<table>
-  <caption>表 2 顯示「耐久性儲存空間」每個層級的按月及按小時計費選項的價格。</caption>
-  <tr>
-   <th>IOPS 層級</th>
-   <th>0.25 IOPS/GB</th>
-   <th>2 IOPS/GB</th>
-   <th>4 IOPS/GB</th>
-   <th>10 IOPS/GB</th>
-  </tr>
-  <tr>
-   <th>每月價格</th>
-   <td>$0.06/GB</td>
-   <td>$0.15/GB</td>
-   <td>$0.20/GB</td>
-   <td>$0.58/GB</td>
-  </tr>
-  <tr>
-   <th>每小時價格</th>
-   <td>$0.0001/GB</td>
-   <td>$0.0002/GB</td>
-   <td>$0.0003/GB</td>
-   <td>$0.0009/GB</td>
-  </tr>
-</table>
-
-
 
 ## 佈建
 {: #provisioning}
@@ -104,6 +55,7 @@ subcollection: BlockStorage
 您可以使用以下兩種選項，來佈建 20 GB 到 12 TB 的 {{site.data.keyword.blockstorageshort}} LUN：<br/>
 - 佈建**耐久性層級**，其特色是預先定義的效能層次，以及例如 Snapshot 及抄寫等其他特性。
 - 建置具有已配置每秒輸入/輸出作業 (IOPS) 的高功率**效能**環境。
+
 
 ### 使用耐久性層級進行佈建
 {: #provendurance}
@@ -130,75 +82,56 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstorageshort}} 的「效能」會透過「多路徑 I/O (MPIO) 網際網路小型電腦系統介面 (iSCSI)」連線存取及裝載。{{site.data.keyword.blockstorageshort}} 通常用於單一伺服器存取磁區的情況。可以將多個磁區裝載至主機，並將其分段合在一起，以達到較大的磁區及更高的 IOPS 計數。您可以根據 Linux、XEN 及 Windows 作業系統的「表 3」中的大小和 IOPS 速率來訂購「效能」磁區。
 
+|大小 (GB)|最小 IOPS|最大 IOPS|-----|-----|-----|
+|20|100|1,000|
+|40|100|2,000|
+|80|100|4,000|
+|100|100|6,000|
+|250|100|6,000|
+|500|100| 6,000 或 10,000 |
+|1,000|100| 6,000 或 20,000 ![註腳](/images/numberone.png) |
+|2,000|200| 6,000 或 40,000 ![註腳](/images/numberone.png) |
+|3,000-7,000|300| 6,000 或 48,000 ![註腳](/images/numberone.png) |
+|8,000-9,000|500| 6,000 或 48,000 ![註腳](/images/numberone.png) |
+|10,000-12,000|1,000| 6,000 或 48,000 ![註腳](/images/numberone.png) |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="表格比較" caption-side="top"}
+{: summary="表 1 顯示根據磁區大小的可能最小與最大 IOPS 速率。這個表格有列和欄標頭。列標頭識別磁區大小範圍。欄標頭識別最小和最大 IOPS 層次。若要瞭解您可以預期的儲存空間 IOPS 速率，請導覽至列，然後檢閱兩個選項。"}
 
-<table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>表 3 顯示效能儲存空間的大小和 IOPS 組合。<br/><sup><img src="/images/numberone.png" alt="註腳" /></sup> 精選資料中心內提供大於 6,000 的 IOPS 限制。</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-          <tr>
-            <th>大小 (GB)</th>
-            <th>最小 IOPS</th>
-            <th>最大 IOPS</th>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>100</td>
-            <td>1,000</td>
-          </tr>
-          <tr>
-            <td>40</td>
-            <td>100</td>
-            <td>2,000</td>
-          </tr>
-          <tr>
-            <td>80</td>
-            <td>100</td>
-            <td>4,000</td>
-          </tr>
-          <tr>
-            <td>100</td>
-            <td>100</td>
-            <td>6,000</td>
-          </tr>
-          <tr>
-            <td>250</td>
-            <td>100</td>
-            <td>6,000</td>
-          </tr>
-          <tr>
-            <td>500</td>
-            <td>100</td>
-            <td>6,000 或 10,000<sup><img src="/images/numberone.png" alt="註腳" /></sup></td>
-          </tr>
-          <tr>
-            <td>1,000</td>
-            <td>100</td>
-            <td>6,000 或 20,000<sup><img src="/images/numberone.png" alt="註腳" /></sup></td>
-          </tr>
-          <tr>
-            <td>2,000</td>
-            <td>200</td>
-            <td>6,000 或 40,000<sup><img src="/images/numberone.png" alt="註腳" /></sup></td>
-          </tr>
-          <tr>
-            <td>3,000-7,000</td>
-            <td>300</td>
-            <td>6,000 或 48,000<sup><img src="/images/numberone.png" alt="註腳" /></sup></td>
-          </tr>
-          <tr>
-            <td>8,000-9,000</td>
-            <td>500</td>
-            <td>6,000 或 48,000<sup><img src="/images/numberone.png" alt="註腳" /></sup></td>
-          </tr>
-          <tr>
-            <td>10,000-12,000</td>
-            <td>1,000</td>
-            <td>6,000 或 48,000<sup><img src="/images/numberone.png" alt="註腳" /></sup></td>
-          </tr>
-</table>
-
+![註腳](/images/numberone.png) *精選資料中心內提供大於 6,000 的 IOPS 限制。*
 
 效能磁區的設計旨在以持續接近已佈建的 IOPS 層次運作。一致性可讓您更輕鬆地為具有特定效能層次的應用程式環境調整大小與進行擴充。此外，可以透過建置具有理想價格與效能比的磁區，來進行環境的最佳化。
+
+## 計費
+{: #billing}
+
+您可以為「區塊 LUN」選取按小時計費或按月計費。為 LUN 選取的計費類型會套用至其 Snapshot 空間及抄本。例如，如果您佈建按小時計費的 LUN，則任何 Snapshot 或抄本費用都會按小時計費。如果您佈建按月計費的 LUN，則任何 Snapshot 或抄本費用都會按月計費。
+
+ * 使用**按小時計費**，會在刪除 LUN 或計費週期結束時（看何者為先），計算區塊 LUN 存在於帳戶上的小時數。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費只適用於[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)內所佈建的儲存空間。
+
+ * 使用**按月計費**，價格是從建立日期到計費週期結束為止，按比例計算，並立即計費。如果在計費週期結束之前刪除 LUN，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
+
+### 耐久性
+{: #pricing-comparison-endurance}
+
+|預先定義 IOPS 層的定價選項| 0.25 IOPS |2 IOPS/GB|4 IOPS/GB|10 IOPS/GB|
+|-----|-----|-----|-----|-----|
+|每月價格|$0.06/GB|$0.15/GB|$0.20/GB|$0.58/GB|
+|每小時價格|$0.0001/GB|$0.0002/GB|$0.0003/GB|$0.0009/GB|
+{: row-headers}
+{: class="comparison-table"}
+{: caption="表格比較" caption-side="top"}
+{: summary="表 2 顯示每個層級的耐久性儲存空間價格（按月計費和按小時計費選項）。這個表格有列和欄標頭。列標頭識別計費選項。欄標頭識別為服務選擇的 IOPS 層次。若要瞭解您的價格在表格中位於何處，請導覽至欄，然後檢閱該 IOPS 層級的兩個不同計費選項。"}
+
+### 效能
+{: #pricing-comparison-performance}
+
+|自訂 IOPS 的定價選項|定價計算|
+|-----|-----|
+|每月價格|$0.10/GB + $0.07/IOP|
+|每小時價格|$0.0001/GB + $0.0002/IOP|
+{: row-headers}
+{: class="comparison-table"}
+{: caption="表格比較" caption-side="top"}
+{: summary="表 3 顯示效能儲存空間價格（按月計費和按小時計費）。這個表格有列和欄標頭。列標頭識別計費選項。若要查看儲存空間的成本，請導覽至您有興趣之計費選項的列。"}

@@ -24,7 +24,7 @@ subcollection: BlockStorage
 
 ## 搜尋可用的 {{site.data.keyword.blockstorageshort}} 供應項目
 
-當您下訂單時，所要尋找的第一個元件是套件。套件分散在 {{site.data.keyword.BluSoftlayer_full}} 中可供訂購的不同頂層產品之間。套件的部分範例包括適用於 VSI 的 CLOUD_SERVER、適用於裸機伺服器的 BARE_METAL_SERVER，以及適用於 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 的 STORAGE_AS_A_SERVICE_STAAS。
+當您下訂單時，所要尋找的第一個元件是套件。套件分散在 {{site.data.keyword.cloud}} 中可供訂購的不同頂層產品之間。套件的部分範例包括適用於 VSI 的 CLOUD_SERVER、適用於裸機伺服器的 BARE_METAL_SERVER，以及適用於 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 的 STORAGE_AS_A_SERVICE_STAAS。
 
 在套件中，有些項目會再細分為種類。有些套件有預設項目以方便您使用，有些套件則需要個別指定項目。如果需要套件的種類，則必須從該種類中選擇項目來訂購套件。種類中的某些項目可能會互斥，視種類而定。
 

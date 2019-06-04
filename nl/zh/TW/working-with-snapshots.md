@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## 建立 Snapshot 排程
 
-您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤來管理。
+您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤進行管理。
 
 您必須先購買 Snapshot 空間（如果未在起始佈建儲存空間磁區期間購買的話），才能設定起始排程。
 如需相關資訊，請參閱[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。{:important}
@@ -118,10 +118,10 @@ Snapshot 空間是透過**儲存空間** > **{{site.data.keyword.blockstoragesho
 
 ## 達到 Snapshot 空間限制且刪除 Snapshot 時收到通知
 
-當您達到三個不同的空間臨界值（75%、90% 及 95%）時，會透過支援問題單將通知傳送至帳戶上的「主要使用者」。
+當您達到三個不同的空間臨界值（75%、90% 及 95%）時，會透過支援案例將通知傳送至帳戶上的「主要使用者」。
 
-- 達到 **75% 容量**時，會傳送 Snapshot 空間用量已超過 75% 的警告。如果您注意到警告，並手動新增空間，或刪除保留或不需要的 Snapshot，則會註明動作並關閉問題單。如果您未執行任何動作，則必須手動確認該問題單，然後將其關閉。
-- 達到 **90% 容量**時，會傳送 Snapshot 空間用量已超過 90% 的第二次警告。如同達到 75% 容量一樣，如果您採取必要的動作來減少使用的空間，則會註明該動作並關閉問題單。如果您未執行任何動作，則必須手動確認該問題單，然後將其關閉。
+- 達到 **75% 容量**時，會傳送 Snapshot 空間用量已超過 75% 的警告。如果您注意到警告，並手動新增空間，或刪除保留或不需要的 Snapshot，則會註明動作並關閉案例。如果您未執行任何動作，則必須手動確認該案例，然後將其關閉。
+- 達到 **90% 容量**時，會傳送 Snapshot 空間用量已超過 90% 的第二次警告。如同達到 75% 容量一樣，如果您採取必要的動作來減少使用的空間，則會註明該動作並關閉案例。如果您未執行任何動作，則必須手動確認該案例，然後將其關閉。
 - 達到 **95% 容量**時，會傳送最終警告。如果未採取任何動作讓空間用量低於臨界值，則會產生通知，並自動進行刪除作業，以供建立未來的 Snapshot。會從最舊的排程 Snapshot 開始刪除，直到使用率降到 95% 以下為止。每次用量超過 95% 時都會繼續刪除 Snapshot，直到低於臨界值為止。如果手動增加空間或刪除 Snapshot，則會重設警告，並在再次超出臨界值時重新發出。如果未採取任何動作，則此通知會是您唯一收到的警告。
 
 ## 刪除 Snapshot 排程
@@ -164,7 +164,7 @@ Options:
 1. 從主機中卸載並分離您的儲存空間磁區。
    - [在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
    - [在 Microsoft Windows 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. 按一下 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
+2. 按一下 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
 3. 向下捲動，並按一下要還原的磁區。**詳細資料**頁面的 **Snapshot** 區段會顯示所有已儲存 Snapshot 的清單及其大小和建立日期。
 4. 按一下要使用之 Snapshot 旁的**動作**，然後按一下**還原**。<br/>
 

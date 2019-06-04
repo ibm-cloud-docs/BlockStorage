@@ -59,23 +59,12 @@ Snapshot 副本可使磁碟耗用量降到最低，方法是保留個別區塊�
 
 在作用中檔案系統中，會將已變更的區塊重新寫入至磁碟上的不同位置，或當成作用中檔案區塊完全移除。當檔案變更或刪除時，會在一個以上 Snapshot 副本中保留原始檔案區塊。因此，仍會保留原始區塊所使用的磁碟空間，以反映作用中檔案系統在變更之前的狀態。此空間的保留是除了已修改的作用中檔案系統中的區塊所使用的磁碟空間之外，額外保留的。
 
-<table>
-    <colgroup>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-    </colgroup>
-      <tr>
-        <th colspan="3" style="border: 0.0px;text-align: center;">Snapshot 副本前後的磁碟空間使用情形</th>
-     </tr><tr>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle1.png" alt="Snapshot 副本之前"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle3.png" alt="Snapshot 副本之後"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle2.png" alt="Snapshot 副本之後的變更"></td>
-     </tr><tr>
-        <td style="border: 0.0px;">建立任何 Snapshot 副本之前，只有作用中檔案系統才會使用磁碟空間。</td>
-        <td style="border: 0.0px;">建立 Snapshot 副本之後，作用中檔案系統及 Snapshot 副本會指向相同的磁碟區塊。Snapshot 副本不會使用額外的磁碟空間。</td>
-        <td style="border: 0.0px;">從作用中檔案系統刪除 <i>myfile.txt</i> 之後，Snapshot 副本仍然會包括該檔案，並參照其磁碟區塊。這是刪除作用中檔案系統資料不一定會釋放磁碟空間的原因。</td>
-      </tr>
-</table>
+
+|磁碟空間使用情形|   |
+|-----|-----|
+| ![擷取 Snapshot 副本之前使用的空間](/images/bfcircle1.png "Snapshot 副本之前") |建立任何 Snapshot 副本之前，只有作用中檔案系統才會使用磁碟空間。|
+| ![擷取 Snapshot 副本時使用的空間](/images/bfcircle3.png "Snapshot 副本之後") |建立 Snapshot 副本之後，作用中檔案系統及 Snapshot 副本會指向相同的磁碟區塊。Snapshot 副本不會使用額外的磁碟空間。|
+| ![擷取 Snapshot 副本之後有東西變更時使用的空間](/images/bfcircle2.png "Snapshot 副本之後的變更") |從作用中檔案系統刪除 `myfile.txt` 之後，Snapshot 副本仍然會包括該檔案，並參照其磁碟區塊。這是刪除作用中檔案系統資料不一定會釋放磁碟空間的原因。|
+{: caption="表 1 顯示 Snapshot 對儲存空間上之空間使用情形所產生的影響。" caption-side="top"}
 
 如需 Snapshot 空間使用情形的相關資訊，請參閱[管理 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots)。

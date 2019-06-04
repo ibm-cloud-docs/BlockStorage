@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,11 +30,11 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中提交問題單，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
+您可以在 [入口網站](https://cloud.ibm.com/unifiedsupport/cases/add){: external} 中提交支援案例，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
 
-若要要求提高限制，請開立問題單，並將它導向給您的業務代表。
+若要要求提高限制，請開立案例，並將它導向給您的業務代表。
 
-在問題單中，請提供下列資訊：
+在案例中，請提供下列資訊：
 
 - **問題單主旨**：要求提高資料中心磁區計數儲存空間限制
 
@@ -56,4 +56,4 @@ Options:
 回應要求中的所有問題和陳述。必須要有這些回應，才能進行處理及核准。
 {:important}
 
-您的限制若有更新，系統會透過問題單處理程序通知您。
+您的限制若有更新，系統會透過案例處理程序通知您。

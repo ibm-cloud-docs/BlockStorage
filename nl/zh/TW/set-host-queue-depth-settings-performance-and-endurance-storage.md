@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # 調整主機佇列深度設定
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} 建議針對每一個效能層級使用最大主機及應用程式輸入/輸出 (I/O) 佇列深度。
+{{site.data.keyword.cloud}} 建議針對每一個效能層級使用最大主機及應用程式輸入/輸出 (I/O) 佇列深度。
 
-<table align="center">
-  <caption>每一個 IOPS 層級的建議佇列深度</caption>
-        <thead>
-	    <tr>
-		<th>效能層級</th>
-		<th>最大主機佇列深度</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">每 GB 0.25 IOPS</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">每 GB 2 IOPS</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">每 GB 4 IOPS</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+|效能層級|最大主機佇列深度|
+|:------:|:------:|
+|每 GB 0.25 IOPS|8|
+|每 GB 2 IOPS|24|
+|每 GB 4 IOPS|56|
+{: caption="每一個 IOPS 層級的建議佇列深度" caption-side="top"}
 
 主機設定不會影響磁碟及控制器延遲。它只會影響主機及應用程式所觀察到的延遲。
 

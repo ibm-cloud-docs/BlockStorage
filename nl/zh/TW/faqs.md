@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ subcollection: BlockStorage
 ## 可以訂購多少個磁區？
 {: faq}
 
-依預設，您可以佈建總計 250 個區塊及檔案儲存空間磁區。若要增加磁區限制，請與業務代表聯絡。如需相關資訊，請參閱[管理儲存空間限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
+依預設，您可以佈建總計 250 個區塊及檔案儲存空間。若要增加磁區限制，請與業務代表聯絡。如需相關資訊，請參閱[管理儲存空間限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 
 ## 一個主機可以裝載多少個 {{site.data.keyword.blockstorageshort}} 磁區？
 {: faq}
 
-這取決於主機作業系統可處理的項目，而不是由 {{site.data.keyword.BluSoftlayer_full}} 所限制。如需可裝載的磁區數目限制，請參閱 OS 文件。
+這取決於主機作業系統可處理的項目，而不是由 {{site.data.keyword.cloud}} 所限制。如需可裝載的磁區數目限制，請參閱 OS 文件。
 
 ## 針對我的 Block Storage LUN，我應該選擇哪一個 Windows 版本？
 {: faq}
@@ -74,6 +74,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 傳輸量限制是以每個 LUN 層次設定，因此，使用速度更快的乙太網路連線並不會增加該項已設定的限制。不過，乙太網路連線較慢時，您的頻寬可能是潛在瓶頸。
 
 ## 防火牆和安全群組是否會影響效能？
+{: #isolatedstoragetraffic}
 {: faq}
 
 最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。

@@ -42,14 +42,14 @@ subcollection: BlockStorage
 - **開發及測試 (dev/test)**。一次最多可同時建立磁區的四個重複磁區，以建立重複資料來進行開發及測試。
 - **調整儲存空間大小**。建立具有新大小及（或）IOPS 速率的磁區，而不需要移動資料。  
 
-有幾種方法可讓您透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 來建立重複磁區。
+您可以利用下列幾種方法透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 來建立重複磁區。
 
 
 ## 建立儲存空間清單中特定磁區的重複磁區
 
 1. 移至您的 {{site.data.keyword.blockstorageshort}} 清單：
     - 從客戶入口網站，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，或
-    - 從 {{site.data.keyword.BluSoftlayer_full}} 主控台，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+    - 從 {{site.data.keyword.cloud}} 主控台，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中選取磁區，然後按一下**動作** > **複製 LUN（磁區）**。
 3. 選擇 Snapshot 選項：
     - 如果您從**非抄本**磁區訂購，

@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.blockstorageshort}} 靜態加密
 
-{{site.data.keyword.BluSoftlayer_full}} 很認真看待安全，也瞭解能夠加密資料以確保資料安全的重要性。使用提供者管理的加密，依預設會加密已佈建「耐久性」或「效能」選項的 {{site.data.keyword.blockstoragefull}}，不需額外付費，而且不會影響效能。
+{{site.data.keyword.cloud}} 很認真看待安全，也瞭解能夠加密資料以確保資料安全的重要性。使用提供者管理的加密，依預設會加密已佈建「耐久性」或「效能」選項的 {{site.data.keyword.blockstoragefull}}，不需額外付費，而且不會影響效能。
 
 提供者管理的靜態加密特性會使用下列業界標準通訊協定：
 

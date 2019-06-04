@@ -1,4 +1,4 @@
----
+/---
 
 copyright:
   years: 2018, 2019
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 
 您可以使用下列指示，在 cPanel 中配置要儲存在 {{site.data.keyword.blockstoragefull}} 中的備份。我們假設可以使用 root 或 sudo SSH 及完整 WebHost Manager (WHM) 存取權。這些指示以 **CentOS 7** 主機為基礎。
 
-如需相關資訊，請參閱 [cPanel - 配置備份目錄](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){: external}。
+如需相關資訊，請參閱 [cPanel - Configuring backup directory](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){: external}。
 {:tip}
 
 1. 透過 SSH 連接至主機。

@@ -40,7 +40,7 @@ subcollection: BlockStorage
 
 如果即將發生故障事件，您可以開始**失效接手**至目的地或目標磁區。目標磁區會變成作用中。啟動前次順利抄寫的 Snapshot，而且磁區變成可用以進行裝載。將會遺失自前次抄寫週期以來寫入至來源磁區的所有資料。開始失效接手時，會翻轉抄寫關係。您的目標磁區會變成來源磁區，而先前的來源磁區會變成您的目標，並且後面接著 **REP** 的 **LUN 名稱**來表示。
 
-失效接手是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下開始。
+失效接手是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下開始。
 
 **繼續執行這些步驟之前，請先中斷磁區連線。否則，會導致毀損及資料遺失。**
 
@@ -67,7 +67,7 @@ subcollection: BlockStorage
 
 開始失效回復時，會再次翻轉抄寫關係。來源磁區會還原為來源磁區，而您的目標磁區會再次成為目標磁區，並且後面接著 **REP** 的 **LUN 名稱**來表示。
 
-失效回復是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下開始。
+失效回復是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下開始。
 
 1. 按一下作用中 LUN（「目標」）。
 2. 在右上方，按一下**抄本**，然後按一下**動作**。
