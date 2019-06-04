@@ -41,7 +41,7 @@ Opciones:
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.BluSoftlayer_full}} basada en Windows a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO). El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo (SO).
+A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Windows a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO). El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo (SO).
 
 ### Configuración de la característica MPIO
 
@@ -155,7 +155,7 @@ Para verificar si MPIO de Windows está configurado, primero debe asegurarse de 
 Una vez completado el reinicio y añadido el dispositivo de almacenamiento, puede verificar si MPIO se ha configurado y funciona. Para ello, vaya a **Detalles del dispositivo de destino** y pulse **MPIO**:
 ![DetallesDispositivo_0](/images/DeviceDetails_0.png)
 
-Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se puede desconectar y aparecer inhabilitado cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.BluSoftlayer_full}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con operaciones de lectura/escritura activas en el LUN.
+Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se puede desconectar y aparecer inhabilitado cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.cloud}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con operaciones de lectura/escritura activas en el LUN.
 
 ## Desmontaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #unmountingWin}

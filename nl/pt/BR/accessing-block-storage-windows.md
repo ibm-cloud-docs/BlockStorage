@@ -18,12 +18,12 @@ subcollection: BlockStorage
 # Conectando-se a LUNs iSCSI no Microsoft Windows
 {: #mountingWindows}
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**. Clique em **Autorizar host**.
 2. Na lista, selecione o host ou os hosts que devem acessar o volume e clique em **Enviar**.
 
-Como alternativa, é possível autorizar o host por meio do SLCLI.
+Como alternativa, é possível autorizar o host por meio da SLCLI.
 ```
 # slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -40,7 +40,7 @@ Options:
 ## Montando  {{site.data.keyword.blockstorageshort}}  Volumes
 {: #mountWin}
 
-A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada no Windows a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
+A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.cloud}} baseada no Windows a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
 
 ### Configurando o recurso MPIO
 
@@ -69,7 +69,8 @@ reivindicar todos os dispositivos iSCSI para MPIO, o que requer uma conexão com
     - Clique em **Mudar** para substituir os valores existentes pelo nome qualificado de
 iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
-      O nome do IQN pode ser obtido por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+      O nome do IQN pode ser obtido por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}
+no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
 
     - Clique na guia **Descoberta** e clique em **Descobrir portal**.
@@ -80,8 +81,8 @@ iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
     Os campos Nome e Segredo de destino fazem distinção entre maiúsculas e minúsculas.
     {:important}
-         - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário por meio do [ {{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-         - No campo **Segredo do destino**, insira a senha por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - No campo **Segredo de destino**, insira a senha do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
     - Clique em **OK** nas janelas **Configurações avançadas** e **Descobrir portal de destino** para voltar à tela principal Propriedades do inicializador iSCSI. Se você receber erros de autenticação, verifique as entradas de nome de usuário e senha.
     ![Destino inativo](/images/Inactive_0.png)
 
@@ -131,9 +132,7 @@ sessão** novamente para incluir o segundo caminho.
 interfaces de rede no dispositivo de armazenamento a uma única interface de rede no host. Portanto, essa interface é a mesma que foi fornecida para a primeira sessão.
    - Na lista IP do portal de destino, selecione o endereço IP para a segunda interface de dados que é permitida no dispositivo de armazenamento.
 
-     É possível localizar o segundo endereço IP na tela Detalhes do {{site.data.keyword.blockstorageshort}}
-no [{{site.data.keyword.slportal}}
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){: external}.
+     É possível localizar o segundo endereço IP na tela Detalhes do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
    - Clique na caixa de seleção **Ativar logon do CHAP**
    - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
@@ -143,7 +142,10 @@ Propriedades.
 uma sessão no armazenamento iSCSI.
 
    Se o host tiver múltiplas interfaces que você deseja conectar ao armazenamento ISCSI, será possível
-configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. No entanto, certifique-se de autorizar o segundo endereço IP do inicializador no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} antes de tentar fazer a conexão.
+configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. No entanto, certifique-se de
+autorizar o segundo endereço IP do inicializador no
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} antes de
+tentar fazer a conexão.
    {:note}
 9. Na janela Propriedades, clique em **Dispositivos** para abrir a janela Dispositivos. O nome da interface do dispositivo começa com `mpio`. <br/>
   ![Dispositivos](/images/Devices.png)
@@ -166,7 +168,7 @@ Quando a reinicialização estiver concluída e o Dispositivo de armazenamento i
 dispositivo de destino** e clique em **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Se o MPIO não foi configurado corretamente, o dispositivo de armazenamento poderá ser desconectado e aparecer desativado quando ocorrer uma indisponibilidade de rede ou quando as equipes do {{site.data.keyword.BluSoftlayer_full}} executarem a manutenção. O MPIO assegura um nível extra de conectividade durante esses eventos e mantém uma sessão estabelecida com operações de leitura/gravação ativas indo para o LUN.
+Se o MPIO não foi configurado corretamente, o dispositivo de armazenamento poderá ser desconectado e aparecer desativado quando ocorrer uma indisponibilidade de rede ou quando as equipes do {{site.data.keyword.cloud}} executarem a manutenção. O MPIO assegura um nível extra de conectividade durante esses eventos e mantém uma sessão estabelecida com operações de leitura/gravação ativas indo para o LUN.
 
 ## Desmontando volumes  {{site.data.keyword.blockstorageshort}}
 {: #unmountingWin}

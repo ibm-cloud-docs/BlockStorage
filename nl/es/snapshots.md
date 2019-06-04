@@ -58,23 +58,12 @@ Las copias de instantáneas minimizan el consumo de disco conservando bloques in
 
 En el sistema de archivos activo, los bloques modificados se vuelven a escribir en diferentes ubicaciones del disco o se eliminan como bloques de archivos activos por completo. Cuando los archivos se modifican o se suprimen, los bloques de archivos originales se conservan como parte de una o más copias de instantáneas. Como resultado, aún se reserva el espacio de disco utilizado por los bloques originales para reflejar el estado del sistema de archivos activo antes del cambio. Este espacio se reserva además del espacio de disco utilizado por los bloques en el sistema de archivos activo modificado.
 
-<table>
-    <colgroup>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-    </colgroup>
-      <tr>
-        <th colspan="3" style="border: 0.0px;text-align: center;">Uso de espacio de disco antes y después de una copia de instantánea</th>
-     </tr><tr>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle1.png" alt="Antes de una copia de instantánea"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle3.png" alt="Después de una copia de instantánea"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle2.png" alt="Cambios después de una copia de instantánea"></td>
-     </tr><tr>
-        <td style="border: 0.0px;">Antes de crear una copia de instantánea, solo el sistema de archivos activo utiliza el espacio de disco.</td>
-        <td style="border: 0.0px;">Después de crear una copia de instantánea, el sistema de archivos activo y la copia de instantánea apuntan a los mismos bloques de discos. La copia de instantánea no utiliza espacio de disco adicional.</td>
-        <td style="border: 0.0px;">Tras suprimir <i>myfile.txt</i> del sistema de archivos activo, la copia de instantánea aún incluye el archivo y hace referencia a sus bloques de discos. Por este motivo, el hecho de suprimir los datos del sistema de archivos activo no siempre libera espacio de disco.</td>
-      </tr>
-</table>
+
+| Uso de espacio de disco |   |
+|-----|-----|
+| ![El espacio utilizado antes de que se realice una copia de instantánea](/images/bfcircle1.png "Antes de una copia de instantánea") | Antes de crear una copia de instantánea, solo el sistema de archivos activo utiliza el espacio de disco. |
+| ![El espacio utilizado cuando se realiza una copia de instantánea](/images/bfcircle3.png "Después de una copia de instantánea") | Después de crear una copia de instantánea, el sistema de archivos activo y la copia de instantánea apuntan a los mismos bloques de discos. La copia de instantánea no utiliza espacio de disco adicional.  |
+| ![El espacio utilizado cuando algo cambia después de realizar una copia de instantánea](/images/bfcircle2.png "Cambios después de una copia de instantánea") | Tras suprimir `myfile.txt` del sistema de archivos activo, la copia de instantánea aún incluye el archivo y hace referencia a sus bloques de discos. Por este motivo, el hecho de suprimir los datos del sistema de archivos activo no siempre libera espacio de disco. |
+{: caption="En la tabla 1 se muestra cómo las instantáneas afectan al espacio de disco en el almacenamiento." caption-side="top"}
 
 Para obtener más información sobre el uso de espacio por parte de las instantáneas, consulte [Gestión de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots).

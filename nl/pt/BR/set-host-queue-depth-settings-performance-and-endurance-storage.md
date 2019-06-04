@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # Ajustando as configurações de profundidade da fila do host
 {: #hostqueuesettings}
 
-O {{site.data.keyword.BluSoftlayer_full}} sugere uma profundidade máxima de fila de entrada/saída (E/S) do host e do aplicativo para cada camada de desempenho.
+O {{site.data.keyword.cloud}} sugere uma profundidade máxima de fila de entrada/saída (E/S) do host e do aplicativo para cada camada de desempenho.
 
-<table align="center">
-  <caption>Profundidade da fila recomendada para cada camada de IOPS</caption>
-        <thead>
-	    <tr>
-		<th>Camada de desempenho</th>
-		<th>Profundidade máxima da fila do host</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0,25 IOPS por GB</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS por GB</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS por GB</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| Camada de desempenho | Profundidade máxima da fila do host |
+|:------:|:------:|
+| 0,25 IOPS por GB | 8 |
+| 2 IOPS por GB | 24 |
+| 4 IOPS por GB | 56 |
+{: caption="Profundidade da fila recomendada para cada camada de IOPS" caption-side="top"}
 
 A configuração do host não afeta a latência do disco e do controlador. Ela afeta somente a latência observada pelo host e pelo aplicativo.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Acerca de {{site.data.keyword.blockstorageshort}}
 {: #About}
 
-{{site.data.keyword.blockstoragefull}} es almacenamiento iSCSI persistente y de alto rendimiento, que se suministra y gestiona independientemente de las instancias de cálculo. Los LUN de {{site.data.keyword.blockstorageshort}} basados en iSCSI se conectan a dispositivos autorizados a través de conexiones de E/S de multivía de acceso (MPIO) redundantes.
+{{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}} es almacenamiento iSCSI persistente y de alto rendimiento, que se suministra y gestiona independientemente de las instancias de cálculo. Los LUN de {{site.data.keyword.blockstorageshort}} basados en iSCSI se conectan a dispositivos autorizados a través de conexiones de E/S de multivía de acceso (MPIO) redundantes.
 
 {{site.data.keyword.blockstorageshort}} aporta niveles óptimos de durabilidad y disponibilidad con un excelente conjunto de características. Se basa en las prácticas recomendadas y en los estándares de la industria. {{site.data.keyword.blockstorageshort}} se ha diseñado para proteger la integridad de los datos y mantener la disponibilidad en casos de mantenimiento y fallos imprevistos, así como proporcionar una línea base de rendimiento coherente.
 
@@ -39,7 +39,7 @@ Aproveche las siguientes características de {{site.data.keyword.blockstoragesho
 - **Instantáneas** ([disponible en centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Captura instantáneas de datos en un momento específico sin interrupción.
 - **Réplica** ([disponible en centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
-   - Copia automáticamente instantáneas a un centro de datos de {{site.data.keyword.BluSoftlayer_full}} asociado.
+   - Copia automáticamente instantáneas a un centro de datos de {{site.data.keyword.cloud}} asociado.
 - **Conectividad de alta disponibilidad**
    - Utiliza conexiones de red redundantes para maximizar la disponibilidad
    - {{site.data.keyword.blockstorageshort}} basado en iSCSI utiliza E/S de multivía de acceso (MPIO).
@@ -48,55 +48,6 @@ Aproveche las siguientes características de {{site.data.keyword.blockstoragesho
 - **Bases de datos en clúster**
    - Da soporte a casos de uso avanzados, como bases de datos en clúster.
 
-## Facturación
-{: #billing}
-
-Puede elegir entre facturación por horas o mensual para un LUN de bloque. El tipo de facturación seleccionado para un LUN se aplica a su espacio de instantáneas y réplicas. Por ejemplo, si suministra un LUN con facturación por horas, todas las tasas de instantáneas o réplicas se facturan por horas. Si suministra un LUN con facturación mensual, todas las tasas de instantáneas o réplicas se facturan mensualmente.
-
-Con la **facturación por horas**, el número de horas que el LUN de bloque ha existido en la cuenta se calcula en el momento en que se suprime el LUN o al final del ciclo de facturación, lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas está disponible para el almacenamiento suministrado solo en [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
-
-Con la **facturación mensual**, el cálculo del precio se prorratea desde la fecha de creación hasta la finalización del ciclo de facturación y se factura al momento. Si se suprime un LUN antes de finalizar el ciclo de facturación, no se reembolsará. La facturación mensual es una buena opción para el almacenamiento utilizado en cargas de trabajo de producción que utilizan datos que tienen que almacenarse, y por tanto acceder a ellos, durante largo periodos de tiempo (un mes o más).
-
-**Rendimiento**
-<table>
-  <caption>La Tabla 1 muestra los precios de Almacenamiento de rendimiento con facturación mensual y por horas.</caption>
-  <tr>
-   <th>Precio mensual</th>
-   <td>0,10 USD/GB + 0,07 USD/IOPS</td>
-  </tr>
-  <tr>
-   <th>Precio por hora</th>
-   <td>0,0001 USD/GB + 0,0002 USD/IOPS</td>
-  </tr>
-</table>
-
-**Resistencia**
-<table>
-  <caption>La Tabla 2 muestra los precios de Almacenamiento resistente para cada nivel con opciones de facturación mensual y por horas.</caption>
-  <tr>
-   <th>Nivel de IOPS</th>
-   <th>0,25 IOPS/GB</th>
-   <th>2 IOPS/GB</th>
-   <th>4 IOPS/GB</th>
-   <th>10 IOPS/GB</th>
-  </tr>
-  <tr>
-   <th>Precio mensual</th>
-   <td>0,06 USD/GB</td>
-   <td>0,15 USD/GB</td>
-   <td>0,20 USD/GB</td>
-   <td>0,58 USD/GB</td>
-  </tr>
-  <tr>
-   <th>Precio por hora</th>
-   <td>0,0001 USD/GB</td>
-   <td>0,0002 USD/GB</td>
-   <td>0,0003 USD/GB</td>
-   <td>0,0009 USD/GB</td>
-  </tr>
-</table>
-
-
 
 ## Suministro
 {: #provisioning}
@@ -104,6 +55,7 @@ Con la **facturación mensual**, el cálculo del precio se prorratea desde la fe
 Los LUN de {{site.data.keyword.blockstorageshort}} se pueden suministrar de 20 GB a 12 TB con dos opciones: <br/>
 - Suministro de niveles de **Resistencia** que presentan niveles de rendimiento predefinidos y otras características como instantáneas y réplica.
 - Crear un entorno de **Rendimiento** de alta potencia con operaciones de entrada/salida asignadas por segundo (IOPS).
+
 
 ### Suministro con niveles de Resistencia
 {: #provendurance}
@@ -130,75 +82,57 @@ El Rendimiento es una clase de {{site.data.keyword.blockstorageshort}} diseñada
 
 Se requiere una conexión de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO) para acceder y montar el rendimiento para {{site.data.keyword.blockstorageshort}}. {{site.data.keyword.blockstorageshort}} se suele utilizar cuando un único servidor accede al volumen. Se pueden montar varios volúmenes en un host y juntarse para conseguir volúmenes más grandes y recuentos de IOPS más altos. Se pueden realizar pedidos de volúmenes de rendimiento de acuerdo con los tamaños y las tasas de IOPS indicados en la Tabla 3 para sistemas operativos Linux, XEN y Windows.
 
+| Tamaño (GB) | IOPS mín. | IOPS máx.
+|-----|-----|-----|
+| 20 | 100 | 1.000 |
+| 40 | 100 | 2.000  |
+| 80 | 100 | 4.000 |
+| 100 | 100 | 6.000 |
+| 250 | 100 | 6.000 |
+| 500 | 100  | 6.000 o 10.000 |
+| 1.000 | 100 | 6.000 o 20.000 ![Nota a pie de página](/images/numberone.png) |
+| 2.000 | 200 | 6.000 o 40.000 ![Nota a pie de página](/images/numberone.png) |
+| 3.000-7.000 | 300 | 6.000 o 48.000 ![Nota a pie de página](/images/numberone.png) |
+| 8.000-9.000 | 500 | 6.000 o 48.000 ![Nota a pie de página](/images/numberone.png) |
+| 10.000-12.000 | 1.000 | 6.000 o 48.000 ![Nota a pie de página](/images/numberone.png) |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Comparación de tabla" caption-side="top"}
+{: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-<table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>La Tabla 3 muestra el tamaño y las combinaciones de IOPS para el almacenamiento de Rendimiento.<br/><sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup> El límite de IOPS superior a 6.000 está disponible en centros de datos seleccionados.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-          <tr>
-            <th>Tamaño (GB)</th>
-            <th>IOPS mín.</th>
-            <th>IOPS máx.</th>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>100</td>
-            <td>1.000</td>
-          </tr>
-          <tr>
-            <td>40</td>
-            <td>100</td>
-            <td>2.000</td>
-          </tr>
-          <tr>
-            <td>80</td>
-            <td>100</td>
-            <td>4.000</td>
-          </tr>
-          <tr>
-            <td>100</td>
-            <td>100</td>
-            <td>6.000</td>
-          </tr>
-          <tr>
-            <td>250</td>
-            <td>100</td>
-            <td>6.000</td>
-          </tr>
-          <tr>
-            <td>500</td>
-            <td>100</td>
-            <td>6.000 o 10.000<sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup></td>
-          </tr>
-          <tr>
-            <td>1.000</td>
-            <td>100</td>
-            <td>6.000 o 20.000<sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup></td>
-          </tr>
-          <tr>
-            <td>2.000</td>
-            <td>200</td>
-            <td>6.000 o 40.000<sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup></td>
-          </tr>
-          <tr>
-            <td>3.000-7.000</td>
-            <td>300</td>
-            <td>6.000 o 48.000<sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup></td>
-          </tr>
-          <tr>
-            <td>8.000-9.000</td>
-            <td>500</td>
-            <td>6.000 o 48.000<sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup></td>
-          </tr>
-          <tr>
-            <td>10.000-12.000</td>
-            <td>1.000</td>
-            <td>6.000 o 48.000<sup><img src="/images/numberone.png" alt="Nota a pie de página" /></sup></td>
-          </tr>
-</table>
-
+![Nota a pie de página](/images/numberone.png) *El límite de IOPS superior a 6.000 está disponible en centros de datos seleccionados.*
 
 Los volúmenes de rendimiento están diseñados para funcionar constantemente cerca del nivel de IOPS suministrado. La coherencia facilita el dimensionamiento y la escalabilidad de los entornos de aplicaciones con un determinado nivel de rendimiento. Además, es posible optimizar un entorno creando un volumen con la proporción ideal de precio-rendimiento.
+
+## Facturación
+{: #billing}
+
+Puede elegir entre facturación por horas o mensual para un LUN de bloque. El tipo de facturación seleccionado para un LUN se aplica a su espacio de instantáneas y réplicas. Por ejemplo, si suministra un LUN con facturación por horas, todas las tasas de instantáneas o réplicas se facturan por horas. Si suministra un LUN con facturación mensual, todas las tasas de instantáneas o réplicas se facturan mensualmente.
+
+ * Con la **facturación por horas**, el número de horas que el LUN de bloque ha existido en la cuenta se calcula en el momento en que se suprime el LUN o al final del ciclo de facturación, lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas está disponible para el almacenamiento suministrado solo en [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
+
+ * Con la **facturación mensual**, el cálculo del precio se prorratea desde la fecha de creación hasta la finalización del ciclo de facturación y se factura al momento. Si se suprime un LUN antes de finalizar el ciclo de facturación, no se reembolsará. La facturación mensual es una buena opción para el almacenamiento utilizado en cargas de trabajo de producción que utilizan datos que tienen que almacenarse, y por tanto acceder a ellos, durante largo periodos de tiempo (un mes o más).
+
+### Resistencia
+{: #pricing-comparison-endurance}
+
+| Opciones de precios para niveles de IOPS predefinidos | 0,25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
+|-----|-----|-----|-----|-----|
+| Precio mensual | 0,06 USD/GB | 0,15 USD/GB | 0,20 USD/GB | 0,58 USD/GB |
+| Precio por hora | 0,0001 USD/GB | 0,0002 USD/GB | 0,0003 USD/GB | 0,0009 USD/GB |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Comparación de tabla" caption-side="top"}
+{: summary="Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options. This table has row and column headers. The row headers identify the billing options. The column headers identify the IOPS level that is chosen for the service. To understand what your price is located in the table, navigate to the column and review the two different billing options for that IOPS tier."}
+
+### Rendimiento
+{: #pricing-comparison-performance}
+
+| Opciones de precios para IOPS personalizados | Cálculo de precio |
+|-----|-----|
+| Precio mensual | 0,10 USD/GB + 0,07 USD/IOPS |
+| Precio por hora | 0,0001 USD/GB + 0,0002 USD/IOPS |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Comparación de tabla" caption-side="top"}
+{: summary="Table 3 is showing the prices for Performance Storage with monthly and hourly billing. This table has row and column headers. The row headers identify the billing options. To see what your cost for Storage is, navigate to the row of the billing option you are interested in."}

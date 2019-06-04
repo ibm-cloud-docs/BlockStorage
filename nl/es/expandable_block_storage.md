@@ -47,7 +47,7 @@ Las limitaciones de tamaño actuales para {{site.data.keyword.blockstorageshort}
 ## Redimensionamiento de almacenamiento
 {: #resizingsteps}
 
-1. En el portal de {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**, o bien desde la consola de {{site.data.keyword.BluSoftlayer_full}} pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+1. En el portal de {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**, o bien desde la consola de {{site.data.keyword.cloud}} pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleccione el LUN de la lista y pulse **Acciones** > **Modificar LUN**
 3. Especifique el nuevo tamaño de almacenamiento en GB.
 4. Revise su selección y el nuevo precio.

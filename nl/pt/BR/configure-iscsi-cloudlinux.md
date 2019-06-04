@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 Siga estas instruções para instalar seu LUN do iSCSI com caminhos múltiplos no CloudLinux Server liberação 6.10.
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {:tip}
 
 1. Efetue login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
@@ -30,7 +30,7 @@ Antes de iniciar, certifique-se de que o host que está acessando o volume {{sit
 4. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
 5. Anote o IQN do host, o nome do usuário, a senha e o endereço de destino.
 
-Como alternativa, é possível autorizar o host por meio do SLCLI.
+Como alternativa, é possível autorizar o host por meio da SLCLI.
 ```
 # slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -86,9 +86,9 @@ Options:
         wwid "SAdaptec*"
    devnode "^hd[a-z]"
    devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-        devnode "^cciss.*"  
-   }
-   devices {
+        devnode "^cciss.*"
+	}
+     dispositivos {
      device {
         vendor "NETAPP"
    product "LUN"
@@ -121,7 +121,7 @@ Options:
      ```
      {: codeblock}
 
-     Use maiúscula para nomes de CHAP. Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
+     Use maiúscula para nomes de CHAP. Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.cloud}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
      {:important}
 
 

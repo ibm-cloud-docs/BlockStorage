@@ -28,7 +28,6 @@ Los hosts y volúmenes autorizados deben estar en el mismo centro de datos. Por 
 
 1. Inicie la sesión en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/catalog){: external} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
-
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Pulse el volumen de origen o de destino en la página de **{{site.data.keyword.blockstorageshort}}**.
 3. Pulse **Réplica**.

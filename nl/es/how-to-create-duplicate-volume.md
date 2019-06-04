@@ -49,7 +49,7 @@ Puede crear un volumen duplicado a través del [{{site.data.keyword.slportal}}](
 
 1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}
     - Desde el portal de clientes, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}** O
-    - Desde la consola de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+    - Desde la consola de {{site.data.keyword.cloud}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleccione un volumen de la lista y pulse **Acciones** > **Duplicar LUN (Volumen)**
 3. Elija la opción de instantánea:
     - Si solicita a partir de un volumen **no de réplica**,

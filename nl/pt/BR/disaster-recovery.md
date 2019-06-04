@@ -23,8 +23,7 @@ No caso de uma falha catastrófica ou de um desastre que cause uma indisponibili
 
 ## Failover com uma duplicata de um volume de réplica no site secundário
 
-1. Efetue login no [console do IBM Cloud](https://
-{DomainName}/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
+1. Efetue login no [Console do IBM Cloud](https://{DomainName}/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
@@ -40,8 +39,7 @@ Assim que o volume é criado, ele pode ser anexado a um host e executar operaç�
 
 Se você deseja retornar a produção para o site primário original, execute as seguintes etapas.
 
-1. Efetue login no [console do IBM Cloud](https://
-{DomainName}/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
+1. Efetue login no [Console do IBM Cloud](https://{DomainName}/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
@@ -63,6 +61,6 @@ Após a conclusão da replicação, é necessário criar um volume duplicado da 
 3. Na página de **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
 4. Faça quaisquer atualizações necessárias para a capacidade (para aumentar o tamanho) ou os IOPs para o novo volume.
 5. Atualize o espaço de captura instantânea para o novo volume, se necessário.
-6. Clique em **Continuar** para colocar a sua ordem para a duplicata.
+6. Clique em **Continuar** para fazer seu pedido para a duplicata.
 
 Quando o processo de duplicação for concluído, será possível cancelar a replicação e os volumes que foram usados para obter os dados de volta ao site primário original. A duplicata torna-se o armazenamento primário e a replicação para o site secundário original pode ser estabelecida novamente.

@@ -25,7 +25,6 @@ Si un error catastrófico o un desastre ocasionan la caída del sitio principal,
 
 1. Inicie la sesión en la [consola de IBM Cloud](https://{DomainName}/){: external} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
 
-
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 3. Pulse la réplica de la LUN en la lista para ver su página **Detalles**.
@@ -41,7 +40,6 @@ En cuanto se cree el volumen, se puede adjuntar a un host y realizar operaciones
 Si desea devolver la producción al sitio primario original, debe seguir los pasos siguientes.
 
 1. Inicie la sesión en la [consola de IBM Cloud](https://{DomainName}/){: external} y pulse el icono de **menú** de la parte superior izquierda. Seleccione **Infraestructura clásica**.
-
 
    También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.

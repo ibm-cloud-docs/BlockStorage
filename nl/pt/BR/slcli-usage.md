@@ -19,12 +19,12 @@ subcollection: BlockStorage
 # Comandos SLCLI para o {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-É possível usar o SLCLI para executar ações que normalmente são manipuladas por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Por exemplo, com o SLCLI, é possível fazer pedidos de volumes, espaço de captura instantânea, replicação, atualizar autorizações, cancelar volumes e assim por diante.
+É possível usar a SLCLI para executar ações que normalmente são manipuladas por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Por exemplo, com a SLCLI, é possível fazer pedidos de volumes, espaço de captura instantânea, replicação, atualizar autorizações, cancelar volumes e assim por diante.
 
-Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Cliente da API de Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Para obter mais informações sobre como instalar e usar a SLCLI, consulte [Cliente da API do Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
-## Comandos do SLCLI relacionados a acesso
+## Comandos da SLCLI relacionados a acesso
 * [Gerenciando o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
@@ -33,9 +33,9 @@ Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Clie
   slcli block access-revoke
   ```
 
-## Comandos do SLCLI relacionados a replicação
+## Comandos da SLCLI relacionados a replicação
 
-* [Comandos do SLCLI relacionados a replicação](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [Comandos da SLCLI relacionados a replicação](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -45,7 +45,7 @@ Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Clie
   slcli block replica-partners
   ```
 
-## Comandos do SLCLI relacionados a capturas instantâneas
+## Comandos da SLCLI relacionados a capturas instantâneas
 
 * [Solicitando capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
@@ -63,18 +63,18 @@ Para obter mais informações sobre como instalar e usar o SLCLI, consulte [Clie
   slcli block snapshot-enable
   ```
 
-## Comandos do SLCLI relacionados a volume
+## Comandos da SLCLI relacionados a volume
 
 * [Pedindo um volume do {{site.data.keyword.blockstorageshort}} ](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
 * [Criando um volume duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)
   ```
   slcli block volume-duplicate
   ```
-* [Ajustando o IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
+* [Ajustando o IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
   ```
   slcli block volume-modify
   ```
-* [Expandindo a capacidade](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
+* [Expandindo a capacidade](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
   ```
   slcli block volume-modify
   ```

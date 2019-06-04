@@ -1,10 +1,10 @@
----
+/---
 
 copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords: Block storage, cPanel, backups, mountpoint, ISCSI
+keywords: Almacenamiento en bloque, cPanel, copias de seguridad, punto de montaje, ISCSI
 
 subcollection: BlockStorage
 

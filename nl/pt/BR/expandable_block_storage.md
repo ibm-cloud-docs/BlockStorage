@@ -49,7 +49,7 @@ As limitações de tamanho existentes para o {{site.data.keyword.blockstoragesho
 
 1. No {{site.data.keyword.slportal}}, clique em **Armazenamento** >
 **{{site.data.keyword.blockstorageshort}}** OU no console do
-{{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura** >
+{{site.data.keyword.cloud}}, clique em **Infraestrutura** >
 **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Selecione o LUN na lista e clique em **Ações** > **Modificar LUN**
 3. Insira o novo tamanho de armazenamento em GB.

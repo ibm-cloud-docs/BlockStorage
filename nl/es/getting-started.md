@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -43,58 +43,17 @@ Los IOPS, para Resistencia y Rendimiento, se basan en un tamaño de bloque de 16
 
 El tamaño de bloque que utiliza la aplicación afecta directamente al rendimiento del almacenamiento. Si el tamaño de bloque utilizado por la aplicación es inferior a 16 KB, se alcanza el límite de IOPS antes que el límite de rendimiento. Por el contrario, si el tamaño de bloque utilizado por la aplicación es superior a 16 KB, se alcanza el límite de rendimiento antes que el límite de IOPS.
 
-<table>
-  <caption>En la Tabla 4 se muestran ejemplos de cómo el tamaño de bloque e IOPS afectan al rendimiento.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Tamaño de bloque (KB)</th>
-            <th>IOPS</th>
-            <th>Rendimiento (MB/s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4 (típico para Linux)</td>
-            <td>1.000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8 (típico para Oracle)</td>
-            <td>1.000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1.000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32 (típico para SQL Server)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+| Tamaño de bloque (KB) | IOPS | Rendimiento (MB/s) |
+|-----|-----|-----|
+| 4 | 1.000 | 16 |
+| 8 | 1.000 | 16 |
+| 16 | 1.000 | 16 |
+| 32 | 500 | 16 |
+| 64 | 250 | 16 |
+| 128 | 128 | 16 |
+| 512 | 32 | 16 |
+| 1024 | 16 | 16 |
+{: caption="En la Tabla 1 se muestran ejemplos de cómo el tamaño de bloque e IOPS afectan al rendimiento.<br/>Tamaño promedio de E/S x IOPS = Rendimiento en MB/s." caption-side="top"}
 
 ### Hosts autorizados
 
@@ -106,7 +65,9 @@ La velocidad de la conexión de Ethernet debe ser más rápida que el rendimient
 
 Para alcanzar el número máximo de IOPS, es necesario disponer de los recursos de red adecuados. Otros aspectos a tener en cuenta son el uso de la red privada fuera del almacenamiento y los ajustes del lado del host y específicos de la aplicación (pila IP o [profundidades de colas](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) y otros valores).
 
-El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Para obtener más información acerca de los límites que puede imponer el servicio, consulte la [Documentación de servidor virtual](/docs/vsi?topic=virtual-servers-public-virtual-servers).
+El tráfico de almacenamiento debería estar aislado de otros tipos de tráfico y no dirigirse a través de cortafuegos ni direccionadores. Para obtener más información, consulte [Preguntas más frecuentes](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+
+El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Para obtener más información acerca de los límites que puede imponer el servicio, consulte la [Documentación de servidor virtual](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}
 
 ## Envío de su pedido

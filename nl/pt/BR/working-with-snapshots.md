@@ -126,10 +126,10 @@ e clique em **Fazer pedido**. Seu espaço de captura instantânea adicional é p
 
 ## Recebendo notificações quando o limite de espaço de captura instantânea é atingido e as capturas instantâneas são excluídas
 
-As notificações são enviadas por meio dos chamados de suporte para o Usuário principal em sua conta quando você atinge três limites de espaço diferentes, 75 por cento, 90 por cento e 95 por cento.
+As notificações são enviadas por meio dos casos de suporte para o usuário principal em sua conta quando você atinge três limites de espaço diferentes: 75 por cento, 90 por cento e 95 por cento.
 
-- Em **Capacidade de 75 por cento**, um aviso é enviado indicando que o uso do espaço de captura instantânea excedeu 75 por cento. Se você atender ao aviso e incluir espaço manualmente ou excluir capturas instantâneas retidas e desnecessárias, a ação será anotada e o chamado será encerrado. Caso não faça nada, deve-se reconhecer manualmente o chamado e, em seguida, ele será encerrado.
-- Em **Capacidade de 90 por cento**, um segundo aviso é enviado quando o uso do espaço de captura instantânea excede 90 por cento. Semelhante a atingir a capacidade de 75 por cento, se você tomar as ações necessárias para diminuir o espaço usado, a ação será anotada e o chamado será encerrado. Caso não faça nada, deve-se reconhecer manualmente o chamado e, em seguida, ele será encerrado.
+- Em **Capacidade de 75 por cento**, um aviso é enviado indicando que o uso do espaço de captura instantânea excedeu 75 por cento. Se você atender ao aviso e manualmente incluir espaço ou excluir capturas instantâneas retidas e desnecessárias, a ação será anotada e o caso será encerrado. Se você não fizer nada, deverá reconhecer manualmente o caso e, em seguida, ele será encerrado.
+- Em **Capacidade de 90 por cento**, um segundo aviso é enviado quando o uso do espaço de captura instantânea excede 90 por cento. Como ao atingir a capacidade de 75 por cento, se você tomar as ações necessárias para diminuir o espaço usado, a ação será anotada e o chamado será encerrado. Se você não fizer nada, deverá reconhecer manualmente o caso e, em seguida, ele será encerrado.
 - Em **Capacidade de 95 por cento**, um aviso final é enviado. Se nenhuma ação for tomada para diminuir o uso de espaço para abaixo do limite, uma notificação será gerada e ocorrerá exclusão automática para que as capturas instantâneas futuras possam ser criadas. As capturas instantâneas planejadas são excluídas, iniciando com a mais antiga, até que o uso caia abaixo de 95%. As capturas instantâneas continuarão sendo excluídas sempre que o uso de tempo exceder 95% até cair abaixo do limite. Se o espaço for aumentado manualmente ou as capturas instantâneas forem excluídas, o aviso será reconfigurado e emitido novamente se o limite for mais uma vez excedido. Se nenhuma ação for executada, essa notificação será o único aviso que você receberá.
 
 ## Excluindo um planejamento de captura instantânea
@@ -176,9 +176,11 @@ captura instantânea que foi usada para a restauração.
 1. Desmonte e separe seu volume de armazenamento do host.
    - [Conectando-se a LUNs iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
    - [Conectando-se a LUNs iSCSI no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+2. Clique em **Armazenamento**,
+**{{site.data.keyword.blockstorageshort}}** no
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 3. Role para baixo e clique no seu volume a ser restaurado. A seção **Capturas instantâneas** da página **Detalhes** exibe a lista de todas as capturas instantâneas salvas juntamente com seu tamanho e data de criação.
-4. Clique em **Ações** próximo à captura instantânea a ser usada e clique em **Restaurar**. <br/>
+4. Clique em **Ações** ao lado da captura instantânea a ser usada e clique em **Restaurar**. <br/>
 
    A conclusão da restauração resulta na perda dos dados que foram criados ou modificados depois que a captura
 instantânea foi obtida. Essa perda de dados ocorre porque seu volume de armazenamento retorna para o mesmo estado em que estava no momento da captura instantânea.

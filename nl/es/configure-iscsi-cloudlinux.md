@@ -122,7 +122,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
      ```
      {: codeblock}
 
-     Utilice mayúsculas para los nombres de CHAP. Deje los otros valores de CHAP que se han comentado. El almacenamiento de {{site.data.keyword.BluSoftlayer_full}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP.
+     Utilice mayúsculas para los nombres de CHAP. Deje los otros valores de CHAP que se han comentado. El almacenamiento de {{site.data.keyword.cloud}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP.
      {:important}
 
 

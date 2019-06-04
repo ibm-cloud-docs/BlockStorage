@@ -46,15 +46,14 @@ contêm múltiplos slots de chave.
 
 - Permitir que os aplicativos que requerem muitos usuários (mais de oito) tenham chaves de acesso distintas para os mesmos dispositivos.
 - Trabalhe com aplicativos que requerem criptografia de nível de arquivo. Para obter mais
-informações, veja o [Guia
-de segurança do RHEL](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
+informações, consulte o [Guia de segurança do RHEL](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
 ## Configurando um volume criptografado pelo LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
 
 O processo de criptografia de dados cria um carregamento no host que pode potencialmente afetar o desempenho.
 {:note}
 
-1. Digite o seguinte comando em um prompt de shell como raiz para instalar o pacote necessário:   <br/>
+1. Digite o comando a seguir em um prompt de shell como raiz para instalar o pacote necessário: <br/>
    ```
    # yum install cryptsetup-luks
    ```
@@ -102,7 +101,7 @@ O processo de criptografia de dados cria um carregamento no host que pode potenc
      mode:    read/write
      Command successful
    ```
-8. Grave dados aleatórios em `/dev/mapper/cryptData` no dispositivo criptografado. Essa ação assegura que o mundo exterior veja isso como dados aleatórios, o que significa que são protegidos contra a divulgação de padrões de uso. Esta etapa pode demorar um pouco.<br/>
+8. Grave dados aleatórios em `/dev/mapper/cryptData` no dispositivo criptografado. Essa ação assegura que o mundo exterior veja isso como dados aleatórios, o que significa que são protegidos contra a divulgação de padrões de uso. Essa etapa pode demorar um pouco.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

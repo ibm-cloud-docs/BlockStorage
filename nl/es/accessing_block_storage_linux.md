@@ -51,7 +51,7 @@ Opciones:
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.BluSoftlayer_full}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
+A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
 El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {: tip}
@@ -196,7 +196,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
    ```
    {: codeblock}
 
-   Deje los otros valores de CHAP que se han comentado. El almacenamiento de {{site.data.keyword.BluSoftlayer_full}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP.
+   Deje los otros valores de CHAP que se han comentado. El almacenamiento de {{site.data.keyword.cloud}} utiliza únicamente autenticación unidireccional. No habilite Mutual CHAP.
    {:important}
 
    Si es usuario de Ubuntu, cuando consulte el archivo `iscsid.conf`, mire si el valor `node.startup` es manual o automatic. Si es manual, cámbielo por automatic.
@@ -357,57 +357,22 @@ Siga estos pasos para crear un sistema de archivos en el volumen montado recient
 
 #### Tabla de mandatos `fdisk`
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>La tabla de mandatos <code>fdisk</code> muestra los mandatos a la izquierda y los resultados esperados a la derecha.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">Mandato</th>
-		<th style="width:60%;">Resultado</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>Crea una partición. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>Hace que la partición sea la primaria.</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>Se convierte en la partición 1 del disco.</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>Inicia en el cilindro 1.</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Pulse Intro para ir al último cilindro.</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>Configura el tipo de partición. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>Selecciona la partición 1 para configurarla como un tipo específico.</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>Selecciona Linux como el Tipo (83 es el código hexadecimal para Linux).&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>Escribe la información de la nueva partición en el disco. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| Mandato | Resultado |
+|-----|-----|
+| `Command: n`| Crea una partición. * |
+| `Command action: p` | Hace que la partición sea la primaria. |
+| `Partition number (1-4): 1` | Se convierte en la partición 1 del disco. |
+| `First cylinder (1-8877): 1 (default)` | Inicia en el cilindro 1. |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Pulse Intro para ir al último cilindro. |
+| `Command: t` | Configura el tipo de partición. * |
+| `Select partition 1.` | Selecciona la partición 1 para configurarla como un tipo específico. |
+| `Hex code: 83` | Selecciona Linux como el Tipo (83 es el código hexadecimal para Linux). ** |
+| `Command: w` | Escribe la información de la nueva partición en el disco. ** |
+{: caption="Tabla 1 - La tabla de mandatos <code>fdisk</code> muestra los mandatos a la izquierda y los resultados esperados a la derecha." caption-side="top"}
 
-  (`*`)Escriba m para obtener ayuda.
+(`*`) Escriba m para obtener ayuda.
 
-  (`**`)Escriba L para ver la lista de códigos hexadecimales
+(`**`) Escriba L para ver la lista de códigos hexadecimales
 
 ### Creación de un sistema de archivos con `parted`
 {: #parted}

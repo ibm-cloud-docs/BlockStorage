@@ -24,7 +24,7 @@ Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [
 
 ## Búsqueda de las ofertas disponibles de {{site.data.keyword.blockstorageshort}}
 
-El primer componente que se debe buscar cuando se realiza un pedido es un paquete. Los paquetes se dividen entre los distintos productos de nivel superior que están disponibles para solicitar en {{site.data.keyword.BluSoftlayer_full}}. Algunos paquetes de ejemplo son CLOUD_SERVER para VSI, BARE_METAL_SERVER para servidores nativos y STORAGE_AS_A_SERVICE_STAAS para {{site.data.keyword.blockstorageshort}} y {{site.data.keyword.filestorage_short}}.
+El primer componente que se debe buscar cuando se realiza un pedido es un paquete. Los paquetes se dividen entre los distintos productos de nivel superior que están disponibles para solicitar en {{site.data.keyword.cloud}}. Algunos paquetes de ejemplo son CLOUD_SERVER para VSI, BARE_METAL_SERVER para servidores nativos y STORAGE_AS_A_SERVICE_STAAS para {{site.data.keyword.blockstorageshort}} y {{site.data.keyword.filestorage_short}}.
 
 Dentro de un paquete, algunos elementos se subdividen en categorías. Algunos paquetes tienen elementos preestablecido para su comodidad y en otros es necesario especificar los elementos individualmente. Si se necesita una categoría de un paquete, se debe seleccionar un elemento de dicha categoría para solicitar el paquete. Dependiendo de la categoría, algunos elementos dentro de la categoría pueden ser mutuamente excluyentes.
 
@@ -130,7 +130,7 @@ Opciones:
   --help                    Mostrar este mensaje y salir.
 ```
 
-Para obtener más información sobre la autorización de los hosts para acceder a {{site.data.keyword.blockstorageshort}} mediante la API, consulte [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
+Para obtener más información sobre la autorización de los hosts para acceder a {{site.data.keyword.blockstorageshort}} mediante la API, consulte [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}.
 {:tip}
 
 Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).

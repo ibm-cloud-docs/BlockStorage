@@ -119,10 +119,10 @@ El espacio de instantáneas se cambia seleccionando **Almacenamiento** > **{{sit
 
 ## Recepción de notificaciones cuando se alcanza el límite de espacio de instantánea y se suprimen las instantáneas
 
-Las notificaciones se envían a través de incidencias de soporte al usuario maestro en la cuenta cuando se alcanzan tres umbrales de espacio distintos: 75 %, 90 % y 95 %.
+Las notificaciones se envían a través de casos de soporte al usuario maestro en la cuenta cuando se alcanzan tres umbrales de espacio distintos: 75 %, 90 % y 95 %.
 
-- Al **75 % de capacidad**, se envía un aviso que indica que el uso de espacio de instantáneas ha superado el 75 %. Si presta atención al aviso y añade espacio manualmente o suprime las instantáneas retenidas innecesarias, la acción se anota y la incidencia se cierra. Si no hace nada, deberá reconocer la incidencia manualmente y se cerrará.
-- Al **90 % de capacidad**, se envía un segundo aviso que indica que el uso de espacio de instantáneas ha superado el 90 %. Al igual que sucede cuando alcanza el 75 % de capacidad, si realiza las acciones necesarias para disminuir el espacio utilizado, la acción se anota y la incidencia se cierra. Si no hace nada, deberá reconocer la incidencia manualmente y se cerrará.
+- Al **75 % de capacidad**, se envía un aviso que indica que el uso de espacio de instantáneas ha superado el 75 %. Si presta atención al aviso y añade espacio manualmente o suprime las instantáneas retenidas innecesarias, la acción se anota y el caso se cierra. Si no hace nada, deberá reconocer el caso manualmente y se cerrará.
+- Al **90 % de capacidad**, se envía un segundo aviso que indica que el uso de espacio de instantáneas ha superado el 90 %. Al igual que sucede cuando alcanza el 75 % de capacidad, si realiza las acciones necesarias para disminuir el espacio utilizado, la acción se anota y el caso se cierra. Si no hace nada, deberá reconocer el caso manualmente y se cerrará.
 - Al **95 % de capacidad**, se envía un aviso final. Si no se realiza ninguna acción para reducir el uso del espacio por debajo del umbral, se genera una notificación y se produce la supresión automática para que se puedan crear instantáneas futuras. Se suprimen instantáneas planificadas, empezando por las más antiguas, hasta que el uso cae por debajo del 95 %. Se siguen suprimiendo instantáneas cada vez que el uso supera el 95 % hasta que cae por debajo del umbral. Si el espacio se aumenta manualmente o si se suprimen instantáneas, el aviso se restablece y se volverá a enviar si se vuelve a superar el umbral. Si no se lleva a cabo ninguna acción, esta notificación es el único aviso que recibe.
 
 ## Supresión de una planificación de instantáneas

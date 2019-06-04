@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ El límite predeterminado de número de autorizaciones por volumen de bloque es 
 ## ¿Cuántos volúmenes se pueden pedir?
 {: faq}
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de almacenamiento de archivos y bloques. Para aumentar el límite de volumen, póngase en contacto con su representante de ventas. Para obtener más información, consulte [Gestión de los límites de almacenamiento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de almacenamiento de archivos y bloques. Para aumentar el límite de volúmenes, póngase en contacto con su representante de ventas. Para obtener más información, consulte [Gestión de los límites de almacenamiento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## ¿Cuántos volúmenes de {{site.data.keyword.blockstorageshort}} se pueden montar en un host?
 {: faq}
 
-Eso depende de lo que el sistema operativo del host pueda manejar, no se trata de una limitación de {{site.data.keyword.BluSoftlayer_full}}. Consulte la documentación de su sistema operativo para conocer los límites en la cantidad de volúmenes que se pueden montar.
+Eso depende de lo que el sistema operativo del host pueda manejar, no se trata de una limitación de {{site.data.keyword.cloud}}. Consulte la documentación de su sistema operativo para conocer los límites en la cantidad de volúmenes que se pueden montar.
 
 ## ¿Qué versión de Windows debo elegir para mi LUN de almacenamiento en bloque?
 {: faq}
@@ -74,6 +74,7 @@ No es necesario ningún calentamiento previo. Puede observar el rendimiento espe
 Los límites de rendimiento están establecidos por LUN, por lo que utilizar una conexión de Ethernet más rápida no aumenta el límite establecido. Sin embargo, con una conexión Ethernet más lenta, el ancho de banda sí que puede ser un posible cuello de botella.
 
 ## ¿Los cortafuegos y los grupos de seguridad afectan al rendimiento?
+{: #isolatedstoragetraffic}
 {: faq}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.

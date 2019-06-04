@@ -26,8 +26,7 @@ Antes de iniciar o failover, certifique-se de que toda a autorização de host e
 Os hosts e volumes autorizados devem estar no mesmo data center. Por exemplo, não é possível ter um volume de réplica em Londres e o host em Amsterdã. Ambos devem estar em Londres ou ambos devem estar em Amsterdã.
 {:note}
 
-1. Efetue login no [console do {{site.data.keyword.cloud}}](https://
-{DomainName}/catalog){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
+1. Efetue login [no console do {{site.data.keyword.cloud}} ](https://{DomainName}/catalog){: external} e clique no ícone de **menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 
    Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Clique em seu volume de origem ou de destino na página **{{site.data.keyword.blockstorageshort}}**.
@@ -41,7 +40,7 @@ Os hosts e volumes autorizados devem estar no mesmo data center. Por exemplo, n�
 
 Se um evento de falha for iminente, será possível iniciar um **failover** para seu volume alvo ou de destino. O volume de destino torna-se ativo. A última captura instantânea replicada com êxito é ativada e o volume é disponibilizado para montagem. Todos os dados que foram gravados no volume de origem desde que o ciclo de replicação anterior foi perdido. Quando um failover é iniciado, o relacionamento de replicação é invertido. O volume de destino torna-se o volume de origem e o volume de origem antigo torna-se o destino, conforme indicado pelo **Nome do LUN** seguido por **REP**.
 
-Os failovers são iniciados em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Os failovers são iniciados em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 **Antes de continuar com essas etapas, desconecte o volume. A falha ao fazer isso resultará em distorção e perda de dados.**
 

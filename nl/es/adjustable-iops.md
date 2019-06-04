@@ -46,7 +46,7 @@ Si el volumen tiene réplica, la réplica se actualiza automáticamente para coi
 
 1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}
    - En el {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**
-   - Desde la consola de {{site.data.keyword.BluSoftlayer_full}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+   - Desde la consola de {{site.data.keyword.cloud}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleccione el LUN de la lista y pulse **Acciones** > **Modificar LUN**
 3. En las **Opciones IOPS de almacenamiento**, realice una nueva selección:
     - En Resistencia (IOPS por niveles), seleccione un nivel de IOPS superior a 0,25 IOPS/GB de su almacenamiento. Puede aumentar el nivel de IOPS en cualquier momento. Sin embargo, la disminución solo está disponible una vez al mes.

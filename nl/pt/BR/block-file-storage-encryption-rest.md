@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## Criptografia em repouso do {{site.data.keyword.blockstorageshort}}
 
-O {{site.data.keyword.BluSoftlayer_full}} leva a necessidade de segurança a sério e entende a importância de ser capaz de criptografar dados para mantê-los seguros. Com a criptografia gerenciada por provedor, o {{site.data.keyword.blockstoragefull}} que é provisionado com a opção Endurance ou Performance, é criptografado por padrão, sem custo extra e sem impacto no desempenho.
+O {{site.data.keyword.cloud}} leva a necessidade de segurança a sério e entende a importância de ser capaz de criptografar dados para mantê-los seguros. Com a criptografia gerenciada por provedor, o {{site.data.keyword.blockstoragefull}} que é provisionado com a opção Endurance ou Performance, é criptografado por padrão, sem custo extra e sem impacto no desempenho.
 
 O recurso de criptografia em repouso gerenciada por provedor usa os protocolos padrão de mercado a seguir:
 

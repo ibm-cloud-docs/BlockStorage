@@ -46,7 +46,7 @@ Se o volume tiver a replicação em vigor, a réplica será atualizada automatic
 
 1. Vá para a sua lista de  {{site.data.keyword.blockstorageshort}}
    - A partir do  {{site.data.keyword.slportal}}, clique em  ** Armazenamento **  >  ** {{site.data.keyword.blockstorageshort}} **
-   - No console do {{site.data.keyword.BluSoftlayer_full}}, clique em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+   - No console do {{site.data.keyword.cloud}}, clique em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Selecione o LUN na lista e clique em **Ações** > **Modificar LUN**
 3. Em **Opções de IOPS de armazenamento**, faça uma nova seleção:
     - Para Endurance (IOPS em camada), selecione uma camada de IOPS maior que 0,25 IOPS/GB de seu armazenamento. É possível aumentar a camada de IOPS a qualquer momento. No entanto, o decréscimo está disponível somente uma vez por mês.

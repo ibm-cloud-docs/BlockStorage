@@ -23,19 +23,20 @@ subcollection: BlockStorage
 Essas instruções são principalmente para o RHEL6 e o Centos6. Foram incluídas notas para outros S.O., mas esta documentação **não** abrange todas as distribuições Linux. Se você estiver usando outros sistemas operacionais Linux, consulte a documentação de sua distribuição específica e assegure-se de que os caminhos múltiplos suportem ALUA para prioridade de caminho.
 {:note}
 
-Por exemplo, é possível localizar as instruções do Ubuntu para a configuração do inicializador iSCSI [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e a configuração do DM-Multipath [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+Por exemplo, é possível localizar instruções do Ubuntu para a Configuração do inicializador iSCSI [aqui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e configuração de DM-Multipath [aqui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {:important}
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
 2. Clique em **Autorizar host**.
 3. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
 
-Como alternativa, é possível autorizar o host por meio do SLCLI.
+Como alternativa, é possível autorizar o host por meio da SLCLI.
 ```
-# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
   -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
@@ -50,9 +51,10 @@ Options:
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.BluSoftlayer_full}} baseada em Linux a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO).
+A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.cloud}} baseada em Linux a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO).
 
-O IQN do host, o nome do usuário, a senha e o endereço de destino que são referenciados nas instruções podem ser obtidos por meio da tela Detalhes do **{{site.data.keyword.blockstorageshort}} ** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+O IQN do host, o nome do usuário, a senha e o endereço de destino referenciados nas instruções podem ser obtidos na
+tela **{{site.data.keyword.blockstorageshort}}Detalhes** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {: tip}
 
 É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
@@ -195,7 +197,7 @@ O IQN do host, o nome do usuário, a senha e o endereço de destino que são ref
    ```
    {: codeblock}
 
-   Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.BluSoftlayer_full}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
+   Deixe as outras configurações do CHAP comentadas. O armazenamento do {{site.data.keyword.cloud}} usa somente autenticação unilateral. Não ative o CHAP Mútuo.
    {:important}
 
    Usuários do Ubuntu: enquanto vocês estão consultando o arquivo `iscsid.conf`,
@@ -358,57 +360,22 @@ Siga essas etapas para criar um sistema de arquivos no volume recém-montado. Um
 
 #### A tabela de comandos  ` fdisk `
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>A tabela de comandos <code>fdisk</code> contém comandos à esquerda e os resultados esperados à direita.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">Comando</th>
-		<th style="width:60%;">Resultado</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>Cria uma partição. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>Torna a partição a primária.</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>Torna-se a partição 1 no disco.</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>Inicia com o cilindro 1.</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Pressione Enter para ir para o último cilindro.</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>Configura o tipo de partição. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>Seleciona a partição 1 para ser configurada como um tipo específico.</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>Seleciona Linux como o Tipo (83 é o código hexadecimal para Linux).&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>Grava as informações da nova partição no disco. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| Comando: | Resultado |
+|-----|-----|
+| `Command: n`| Cria uma partição. * |
+| `Command action: p` | Torna a partição a primária. |
+| `Partition number (1-4): 1` | Torna-se a partição 1 no disco. |
+| `First cylinder (1-8877): 1 (default)` | Inicia com o cilindro 1. |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Pressione Enter para ir para o último cilindro. |
+| `Command: t` | Configura o tipo de partição. * |
+| `Select partition 1.` | Seleciona a partição 1 para ser configurada como um tipo específico. |
+| `Hex code: 83` | Seleciona Linux como o Tipo (83 é o código hexadecimal para Linux). ** |
+| `Command: w` | Grava as informações da nova partição no disco. ** |
+{: caption="Tabela 1 - A tabela de comandos <code>fdisk</code> contém os comandos à esquerda e os resultados esperados à direita." caption-side="top"}
 
-  (`*`) Digite m para Ajuda.
+(`*`) Digite m para Ajuda.
 
-  (`**`) Digite L para listar os códigos hexadecimais
+(`**`) Digite L para listar os códigos hexadecimais
 
 ### Criando um sistema de arquivos com `parted`
 {: #parted}
@@ -601,5 +568,5 @@ evitar futuras tentativas de login.
    ```
    {: pre}
 
-   Para obter mais informações, consulte o manual do [`iscsiadm`](https://linux.die.net/man/8/iscsiadm).
+   Para obter mais informações, consulte o manual do [`iscsiadm` ](https://linux.die.net/man/8/iscsiadm).
    {:tip}

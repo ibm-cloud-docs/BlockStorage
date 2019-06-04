@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Gerenciando {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-É possível gerenciar seus {{site.data.keyword.blockstoragefull}} volumes por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+É possível gerenciar seus volumes do  {{site.data.keyword.blockstoragefull}}  por meio do  [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 ## Visualizando detalhes do  {{site.data.keyword.blockstorageshort}}  LUN
 
@@ -26,7 +26,7 @@ subcollection: BlockStorage
 1. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}**.
 2. Clique no nome do LUN apropriado na lista.
 
-Como alternativa, é possível usar o comando a seguir no SLCLI.
+Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -48,7 +48,7 @@ múltiplas contas, mas não é possível autorizar um host de uma conta a acessa
 3. À direita, clique em **Autorizar host**. Selecione os hosts
 que podem acessar esse LUN específico.
 
-Como alternativa, é possível usar o comando a seguir no SLCLI.
+Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
 # slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -68,7 +68,7 @@ Options:
 
 Lá é possível ver a lista dos hosts que estão atualmente autorizados a acessar o LUN. Também é possível ver as informações sobre autenticação que são necessárias para fazer uma conexão - nome de usuário, senha e Host do IQN. O endereço de Destino é listado na página **Detalhe de armazenamento**. Para NFS, o endereço de destino é descrito como um nome DNS e, para iSCSI, é o endereço IP do portal de destino de descoberta.
 
-Como alternativa, é possível usar o comando a seguir no SLCLI.
+Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -113,7 +113,9 @@ o acesso para evitar unidades ausentes ou distorção de dados.
 
 ### Revogando o acesso a partir da Lista de Dis
 
-1. Clique em **Dispositivos**, **Lista de dispositivos** por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e dê um clique duplo no dispositivo apropriado.
+1. Clique em **Dispositivos**, **Lista de dispositivos** no
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e
+dê um clique duplo no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
 3. É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). Próximo ao nome do LUN, selecione **Ação"" e clique em **Revogar acesso**.
 4. Confirme se você deseja revogar o acesso para um LUN porque a ação não pode ser desfeita. Clique em **Sim** para revogar acesso ao LUN ou **Não** para cancelar a ação.
@@ -136,9 +138,9 @@ Se você desejar desconectar múltiplos hosts de um LUN específico, será neces
 para cada host.
 {:tip}
 
-### Revogando o acesso por meio do SLCLI.
+### Revogando o acesso por meio da SLCLI.
 
-Como alternativa, é possível usar o comando a seguir no SLCLI.
+Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -171,7 +173,7 @@ de cancelamento antes da data de aniversário.
 4. Clique em **Continuar** ou em **Fechar**.
 5. Clique na caixa de seleção **Confirmação** e clique em **Confirmar**.
 
-Como alternativa, é possível usar o comando a seguir no SLCLI.
+Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

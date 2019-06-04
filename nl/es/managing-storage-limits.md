@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,15 +30,15 @@ Opciones:
   -h, --help             Mostrar este mensaje y salir.
 ```
 
-Puede solicitar un aumento del límite enviando una incidencia en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
+Puede solicitar un aumento del límite enviando un caso de soporte en el [portal](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
 
-Para solicitar un aumento del límite, abra una incidencia y diríjala a su representante de ventas.
+Para solicitar un aumento del límite, abra un caso de soporte y diríjalo a su representante de ventas.
 
-En la incidencia, proporcione la siguiente información:
+En el caso, proporcione la siguiente información:
 
 - **Asunto de la incidencia**: Solicitud de aumento del límite de almacenamiento de recuento de volumen del centro de datos
 
-- **¿En que casos de uso se solicitan volúmenes adicionales?** <br />
+- **¿En qué casos de uso se solicitan volúmenes adicionales?** <br />
 *Por ejemplo, su respuesta podría ser similar a un nuevo almacén de datos de VMware, un nuevo entorno de desarrollo y pruebas (dev/test), una base de datos SQL o un registro.*
 
 - **¿Cuántos volúmenes de bloque adicionales se necesitan por tipo, tamaño, IOPS y ubicación?** <br />
@@ -56,4 +56,4 @@ En la incidencia, proporcione la siguiente información:
 Responda a todas las preguntas y sentencias de la solicitud. Son necesarias para el proceso y la aprobación.
 {:important}
 
-Se le notificará la actualización de sus límites a través del proceso de incidencia.
+Se le notificará la actualización de sus límites a través del proceso del caso.

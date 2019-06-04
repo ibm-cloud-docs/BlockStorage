@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # Ajuste de los valores de profundidad de cola de host
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} sugiere una profundidad de cola máxima de entrada/salida (E/S) de la aplicación y el host para cada nivel de rendimiento.
+{{site.data.keyword.cloud}} sugiere una profundidad de cola máxima de entrada/salida (E/S) de la aplicación y el host para cada nivel de rendimiento.
 
-<table align="center">
-  <caption>Profundidad de cola recomendada para cada nivel de IOPS</caption>
-        <thead>
-	    <tr>
-		<th>Nivel de rendimiento</th>
-		<th>Profundidad máxima de cola de host</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0,25 IOPS por GB</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS por GB</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS por GB</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| Nivel de rendimiento | Profundidad máxima de cola de host |
+|:------:|:------:|
+| 0,25 IOPS por GB | 8 |
+| 2 IOPS por GB | 24 |
+| 4 IOPS por GB | 56 |
+{: caption="Profundidad de cola recomendada para cada nivel de IOPS" caption-side="top"}
 
 El valor del host no afecta a la latencia del controlador ni del disco. Solo afecta la latencia observada por el host y la aplicación.
 

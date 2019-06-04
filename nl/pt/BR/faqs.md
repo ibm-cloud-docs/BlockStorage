@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ O limite padrão do número de autorizações por volume de bloco é oito. Isso 
 ## Quantos volumes podem ser solicitados?
 {: faq}
 
-Por padrão, é possível provisionar um total combinado de 250 volumes de armazenamento de arquivo e bloco. Para aumentar seu limite de volume, entre em contato com o representante de vendas. Para obter mais informações, veja [Gerenciando limites de armazenamento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
+Por padrão, é possível fornecer um total combinado de 250 blocos e armazenamento de arquivo. Para aumentar seu limite de volume, entre em contato com o representante de vendas. Para obter mais informações, veja [Gerenciando limites de armazenamento](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Quantos volumes do {{site.data.keyword.blockstorageshort}} podem ser montados em um host?
 {: faq}
 
-Isso depende do que o sistema operacional do host é capaz de manipular, não é algo limitado pelo {{site.data.keyword.BluSoftlayer_full}}. Consulte a documentação do S.O. para conhecer os limites com relação ao número de volumes que podem ser montados.
+Isso depende do que o sistema operacional do host é capaz de manipular, não é algo limitado pelo {{site.data.keyword.cloud}}. Consulte a documentação do S.O. para conhecer os limites com relação ao número de volumes que podem ser montados.
 
 ## Qual versão do Windows devo escolher para o LUN do meu Block Storage?
 {: faq}
@@ -82,6 +82,7 @@ Os limites de rendimento são configurados em um nível por LUN, portanto, o uso
 largura da banda pode ser um gargalo potencial.
 
 ## Os firewalls e os grupos de segurança afetam o desempenho?
+{: #isolatedstoragetraffic}
 {: faq}
 
 É melhor executar o tráfego de armazenamento em uma VLAN, que efetua bypass do firewall. A execução do tráfego de armazenamento por meio de firewalls de software aumenta a latência e afeta negativamente o desempenho do armazenamento.
@@ -101,7 +102,8 @@ data centers submetidos a upgrade e de recursos disponíveis
 ## Como podemos dizer quais volumes do {{site.data.keyword.blockstorageshort}} são criptografados?
 {: faq}
 
-Ao olhar para a sua lista do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, é possível ver um ícone de bloqueio ao lado do nome do volume para os LUNs que estão criptografados.
+Ao observar a lista de {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, é
+possível ver um ícone de fechadura ao lado do nome do volume para os LUNs que estão criptografados.
 
 ## Como sabemos quando estamos provisionando o {{site.data.keyword.blockstorageshort}} em um data center submetido a upgrade?
 {: faq}
