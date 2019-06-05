@@ -19,12 +19,12 @@ subcollection: BlockStorage
 
 Puoi utilizzare la SLCLI per effettuare degli ordini per prodotti che vengono normalmente ordinati tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Nella API SL, un ordine può essere costituito da più contenitori di ordine. La CLI degli ordini funziona solo con un singolo contenitore di ordine.
 
-Per ulteriori informazioni su come installare e utilizzare la SLCLI, consulta [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Per ulteriori informazioni su come installare e utilizzare la SLCLI, vedi [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Ricerca di offerte di {{site.data.keyword.blockstorageshort}} disponibili
 
-Il primo componente da ricercare quando effettui un ordine è un pacchetto. I pacchetti sono divisi tra i diversi prodotti di livello superiore disponibili per l'ordinazione in {{site.data.keyword.BluSoftlayer_full}}. Alcuni pacchetti di esempio sono CLOUD_SERVER per le VSI, BARE_METAL_SERVER per i server bare metal e STORAGE_AS_A_SERVICE_STAAS per {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}.
+Il primo componente da ricercare quando effettui un ordine è un pacchetto. I pacchetti sono divisi tra i diversi prodotti di livello superiore disponibili per l'ordinazione in {{site.data.keyword.cloud}}. Alcuni pacchetti di esempio sono CLOUD_SERVER per le VSI, BARE_METAL_SERVER per i server bare metal e STORAGE_AS_A_SERVICE_STAAS per {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}.
 
 All'interno di un pacchetto, alcuni elementi sono suddivisi in categorie. Alcuni pacchetti hanno delle preimpostazioni per tua comodità e altri richiedono che gli elementi vengano specificati singolarmente. Se la categoria di un pacchetto è richiesta, per ordinare il pacchetto è necessario che venga scelto un elemento da tale categoria. A seconda della categoria, alcuni elementi all'interno della categoria possono escludersi a vicenda.
 
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-Per ulteriori informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, consulta [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Per ulteriori informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, vedi [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 Per poter accedere a tutte le nuove funzioni, ordina `Storage-as-a-Service Package 759`.
 {:tip}
 
@@ -131,7 +131,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-Per ulteriori informazioni sull'autorizzazione degli host ad accedere a {{site.data.keyword.blockstorageshort}} tramite l'API, consulta [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
+Per ulteriori informazioni sull'autorizzazione degli host ad accedere a {{site.data.keyword.blockstorageshort}} tramite l'API, vedi [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)

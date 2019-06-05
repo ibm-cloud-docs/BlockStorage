@@ -28,88 +28,17 @@ Prima di poter eseguire la replica, è necessario creare una pianificazione dell
 
 ## Determinazione del data center remoto per il mio volume di archiviazione replicato
 
-I data center {{site.data.keyword.BluSoftlayer_full}} sono accoppiati in combinazioni di primario e remoto in tutto il mondo.
+I data center {{site.data.keyword.cloud}} sono accoppiati in combinazioni di primario e remoto in tutto il mondo.
 Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e delle destinazioni di replica.
 
-<table>
-  <caption style="text-align: left;"><p>Tabella 1 - questa tabella mostra l'elenco completo di data center con funzionalità migliorate in ciascuna regione. Ogni regione è una colonna separata. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.</p>
-  <p>&#42; I data center nella regione US 1 NON hanno l'archiviazione migliorata. Gli host nei data center con funzionalità di archiviazione migliorate <strong>non possono</strong> avviare la replica con le destinazioni di replica nei data center US 1.</p>
-  </caption>
-  <thead>
-    <tr>
-      <th>US 1 &#42;</th>
-      <th>US 2</th>
-      <th>America Latina</th>
-      <th>Canada</th>
-      <th>Europa</th>
-      <th>Asia-Pacifico</th>
-      <th>Australia</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DAL01<br />
-          DAL05<br />
-	  DAL06<br />
-	  HOU02<br />
-	  SJC01<br />
-	  WDC01<br />
-	  <br /><br /><br /><br /><br /><br />
-      </td>
-      <td>SJC03<br />
-	  SJC04<br />
-	  WDC04<br />
-	  WDC06<br />
-	  WDC07<br />
-	  DAL09<br />
-	  DAL10<br />
-	  DAL12<br />
-	  DAL13<br />
-	  <br /><br /><br />
-      </td>
-      <td>MEX01<br />
-	  SAO01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>TOR01<br />
-          MON01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>AMS01<br />
-	  AMS03<br />
-	  FRA02<br />
-	  FRA04<br />
-	  FRA05<br />
-	  LON02<br />
-	  LON04<br />
-	  LON05<br />
-	  LON06<br />
-	  OSL01<br />
-	  PAR01<br />
-	  MIL01<br />
-      </td>
-      <td>HKG02<br />
-          TOK02<br />
-          TOK04<br />
-          TOK05<br />
-          SNG01<br />
-          SEO01<br />
-          CHE01<br />
-	        <br /><br /><br /><br /><br />
-      </td>
-      <td>SYD01<br />
-          SYD04<br />
-          SYD05<br />
-          MEL01<br />
-          <br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-    </tr>
-  </tbody>
-</table>
+| US 1 | US 2 | America Latina | Canada  | Europa  | Asia-Pacifico  | Australia  |
+|-----|-----|-----|-----|-----|-----|-----|
+| DAL01<br />DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01 | TOR01<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
+{: caption="Tabella 1 - questa tabella mostra l'elenco completo di data center con funzionalità migliorate in ciascuna regione. Ogni regione è una colonna separata. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center. I data center nella regione US 1 NON hanno l'archiviazione migliorata. Gli host nei data center con funzionalità di archiviazione migliorate non possono avviare la replica con le destinazioni di replica nei data center US 1." caption-side="top"}
 
 ## Creazione della replica iniziale
 
-Le repliche funzionano in base a una pianificazione delle istantanee. Prima di poter eseguire la replica, devi già avere lo spazio di istantanea e una pianificazione delle istantanee per il volume di origine. Se tenti di impostare la replica e non disponi di uno o l'altro, ti viene richiesto di acquistare più spazio o di impostare una pianificazione. Le repliche vengono gestite in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Le repliche funzionano in base a una pianificazione delle istantanee. Prima di poter eseguire la replica, devi già avere lo spazio di istantanea e una pianificazione delle istantanee per il volume di origine. Se tenti di impostare la replica e non disponi di uno o l'altro, ti viene richiesto di acquistare più spazio o di impostare una pianificazione. Le repliche sono gestite in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Fai clic sul tuo volume di archiviazione.
 2. Fai clic su **Replica** e fai clic su **Purchase a replication**.
@@ -127,7 +56,7 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 
 ## Modifica di una replica esistente
 
-Puoi modificare la tua pianificazione e modificare il tuo spazio di replica dalla scheda **Primary** o **Replica** in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Puoi modificare la tua pianificazione replica e modificare il tuo spazio di replica dalla scheda **Primary** o da quella **Replica** in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 
 ## Modifica della pianificazione replica
@@ -184,7 +113,7 @@ La cronologia replica può essere visualizzata in **Audit Log** tramite la sched
 
 ## Creazione di un duplicato di una replica
 
-Puoi creare un duplicato di un {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} esistente. Il volume duplicato eredita per impostazione predefinita le opzioni di capacità e prestazioni del volume originale e ha una copia dei dati che arriva fino al punto temporale di un'istantanea.
+Puoi creare un duplicato di un {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}} esistente. Il volume duplicato eredita per impostazione predefinita le opzioni di capacità e prestazioni del volume originale e ha una copia dei dati che arriva fino al punto temporale di un'istantanea.
 
 I duplicati possono essere creati sia dal volume primario che da quello di replica. Il nuovo duplicato viene creato nello stesso data center del volume originale. Se crei un duplicato da un volume di replica, il nuovo volume viene creato nello stesso data center del volume di replica.
 

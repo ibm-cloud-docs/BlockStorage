@@ -21,10 +21,10 @@ subcollection: BlockStorage
 
 以下の手順に従って、CloudLinux Server リリース 6.10 にマルチパスを使用して iSCSI LUN をインストールします。
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して以前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して事前に許可されていることを確認してください。
 {:tip}
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインします。
+1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインします。
 2. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
 3. **「ホストの許可」**をクリックします。
 4. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
@@ -122,7 +122,7 @@ Options:
      ```
      {: codeblock}
 
-     CHAP 名には大文字を使用します。 その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと。
+     CHAP 名には大文字を使用します。 その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.cloud}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと。
      {:important}
 
 

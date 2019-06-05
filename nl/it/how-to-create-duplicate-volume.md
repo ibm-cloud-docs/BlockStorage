@@ -31,7 +31,7 @@ Una volta completata la copia dei dati, il duplicato può essere gestito e utili
 
 Questa funzione è disponibile nella maggior parte delle ubicazioni. Fai clic [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) per l'elenco dei data center disponibili.
 
-Se sei un utente con un account dedicato di {{site.data.keyword.containerlong}}, vedi le tue opzioni per duplicare un volume nella [documentazione di {{site.data.keyword.containerlong_notm}}](docs/containers?topic=containers-block_storage#block_backup_restore).
+Se sei un utente con un account dedicato di {{site.data.keyword.containerlong}}, vedi le tue opzioni per duplicare un volume nella [documentazione di {{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Alcuni utilizzi comuni per un volume duplicato:
@@ -42,18 +42,18 @@ Alcuni utilizzi comuni per un volume duplicato:
 - **Sviluppo e test (dev/test)**. Crea fino a quattro duplicati simultanei per volta di un volume per creare dati duplicati per attività di sviluppo e test.
 - **Modifica delle dimensioni dell'archiviazione**. Crea un volume con la nuova dimensione, il nuovo tasso di IOPS o entrambi senza dover spostare i tuoi dati.  
 
-Puoi creare un volume duplicato tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} in un paio di modi.
+Puoi creare un volume duplicato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} in un paio di modi.
 
 
 ## Creazione di un duplicato da un volume specifico nell'elenco archiviazioni
 
 1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}}
     - Dal portale clienti, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE
-    - Dalla console {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+    - Dalla console {{site.data.keyword.cloud}}, fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona un volume dall'elenco e fai clic su **Actions** > **Duplicate LUN (Volume)**
 3. Scegli la tua opzione di istantanea:
     - Se ordini da un volume **non di replica**,
-      - Seleziona **Create from new snapshot** – questa azione crea un'istantanea da utilizzare per il duplicato. Utilizza questa opzione se il tuo volume non dispone al momento di istantanee o se vuoi creare un duplicato in questo momento.<br/>
+      - Seleziona **Create from new snapshot** – questa azione crea un'istantanea da utilizzare per il duplicato. Utilizza questa opzione se il tuo volume non dispone al momento di istantanee o se vuoi creare un duplicato in questo momento.<br/>  
       - Seleziona **Create from latest snapshot** - questa azione crea un duplicato dall'istantanea più recente che esiste per questo volume.
     - Se ordini da un volume di **replica** la sola opzione per l'istantanea consiste nell'utilizzare l'istantanea più recente disponibile.
 4. Il tipo di archiviazione e l'ubicazione rimangono gli stessi del volume originale.

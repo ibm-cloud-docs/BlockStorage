@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Microsoft Windows での iSCSI LUN への接続
 {: #mountingWindows}
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して許可されていることを確認してください。
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。 **「ホストの許可」**をクリックします。
 2. リストから、ボリュームにアクセスするホストを選択し、**「送信」**をクリックします。
@@ -41,7 +41,7 @@ Options:
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 {: #mountWin}
 
-以下に、Windows ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
+以下に、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
 
 ### MPIO 機能の構成
 
@@ -67,7 +67,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
     - 「イニシエーター名」フィールドには、`iqn.1991-05.com.microsoft:` のような項目が既に取り込まれている場合があります。
     - **「変更」** をクリックして、既存の値をご使用の iSCSI 修飾名 (IQN) に置き換えます。![iSCSI イニシエーターのプロパティー](/images/iSCSI.png)
 
-      IQN 名は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} の「{{site.data.keyword.blockstorageshort}} 詳細」画面で取得できます。
+      IQN 名は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の「{{site.data.keyword.blockstorageshort}} 詳細」画面で取得できます。
       {: tip}
 
     - **「探索」**タブをクリックし、**「ポータルの探索」**をクリックします。
@@ -78,8 +78,8 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 
     「名前」フィールドと「ターゲット シークレット」フィールドでは、大/小文字が区別されます。
     {:important}
-         - **「名前」**フィールドで、既存のエントリーをすべて削除し、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} から取得したユーザー名を入力します。
-         - **「ターゲット シークレット」**フィールドに、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} から取得したパスワードを入力します。
+         - **「名前」**フィールドで、既存のエントリーをすべて削除し、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}から取得したユーザー名を入力します。
+         - **「ターゲット シークレット」**フィールドに、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}から取得したパスワードを入力します。
     - **「詳細設定」**ウィンドウおよび**「ターゲット ポータルの探索」**ウィンドウで**「OK」**をクリックして、メインの「iSCSI イニシエーターのプロパティ」画面に戻ります。 認証エラーを受け取った場合は、ユーザー名とパスワードの項目を確認してください。
     ![非アクティブ・ターゲット](/images/Inactive_0.png)
 
@@ -126,14 +126,14 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
    - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
    - 「ターゲット ポータル IP」リストで、ストレージ・デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
 
-     2 番目の IP アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} の「{{site.data.keyword.blockstorageshort}}詳細」画面にあります。
+     2 番目の IP アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面にあります。
       {: tip}
    - **「CHAP ログオンを有効にする」**チェック・ボックスをクリックします。
    - ポータルから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
    - 「ターゲットへの接続」ウィンドウで**「OK」**をクリックして、「プロパティ」ウィンドウに戻ります。
 8. 「プロパティー」ウィンドウには、「ID」ペイン内に複数のセッションが表示されています。 iSCSI ストレージには複数のセッションがあります。
 
-   ISCSI ストレージに接続する複数のインターフェースがホストにある場合は、「イニシエーター IP」フィールドに他の NIC の IP アドレスを使用して別の接続を設定できます。 ただし、接続を試行する前に、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} で 2 番目のイニシエーター IP アドレスを許可してください。
+   ISCSI ストレージに接続する複数のインターフェースがホストにある場合は、「イニシエーター IP」フィールドに他の NIC の IP アドレスを使用して別の接続を設定できます。 ただし、接続を試行する前に、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で 2 番目のイニシエーター IP アドレスを許可してください。
    {:note}
 9. 「プロパティ」ウィンドウで、**「デバイス」**をクリックして、「デバイス」ウィンドウを開きます。 デバイス・インターフェース名は `mpio` で始まります。 <br/>
   ![デバイス](/images/Devices.png)
@@ -155,7 +155,7 @@ Windows MPIO が構成されているかどうかを検証するには、まず 
 再始動が完了し、ストレージ・デバイスが追加されると、MPIO が構成済みで機能しているかどうかを検証できます。 これを行うには、ターゲットの**「デバイスの詳細」**を参照し、**「MPIO」**をクリックします。
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-MPIO が正しく構成されていないと、ネットワーク障害が発生した場合や、{{site.data.keyword.BluSoftlayer_full}} チームが保守を実行するときに、ストレージ・デバイスが切断され、使用不可と表示されます。 MPIO では、そのようなイベントが発生しても追加の接続レベルが保証され、LUN への読み取り/書き込み操作がアクティブな状態で、確立済みセッションが保持されます。
+MPIO が正しく構成されていないと、ネットワーク障害が発生した場合や、{{site.data.keyword.cloud}} チームが保守を実行するときに、ストレージ・デバイスが切断され、使用不可と表示されます。 MPIO では、そのようなイベントが発生しても追加の接続レベルが保証され、LUN への読み取り/書き込み操作がアクティブな状態で、確立済みセッションが保持されます。
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームのアンマウント
 {: #unmountingWin}

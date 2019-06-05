@@ -46,7 +46,7 @@ Se per il volume è implementata la replica, quest'ultima viene aggiornata autom
 
 1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}}
    - Da {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**
-   - Dalla console {{site.data.keyword.BluSoftlayer_full}} fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+   - Dalla console {{site.data.keyword.cloud}} fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
 3. In **Storage IOPS Options**, effettua una nuova selezione.
     - Per Endurance (IOPS a livelli), seleziona un livello IOPS superiore a 0,25 IOPS/GB della tua archiviazione. Puoi aumentare il livello IOPS in qualsiasi momento. Tuttavia, in diminuzione è disponibile solo una volta al mese.

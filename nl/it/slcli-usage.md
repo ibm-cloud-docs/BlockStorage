@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 Puoi utilizzare la SLCLI per eseguire delle azioni che vengono normalmente gestite tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Ad esempio, con la SLCLI puoi inserire degli ordini per i volumi, lo spazio di istantanea, la replica, aggiornare le autorizzazioni, eliminare i volumi e così via.
 
-Per ulteriori informazioni su come installare e utilizzare la SLCLI, consulta [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Per ulteriori informazioni su come installare e utilizzare la SLCLI, vedi [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Comandi SLCLI correlati all'accesso
@@ -70,11 +70,11 @@ Per ulteriori informazioni su come installare e utilizzare la SLCLI, consulta [P
   ```
   slcli block volume-duplicate
   ```
-* [Modifica dell'IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
+* [Modifica dell'IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
   ```
   slcli block volume-modify
   ```
-* [Espansione della capacità](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
+* [Espansione della capacità](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
   ```
   slcli block volume-modify
   ```

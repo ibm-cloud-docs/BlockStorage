@@ -46,7 +46,7 @@ subcollection: BlockStorage
 
 1. {{site.data.keyword.blockstorageshort}}のリストに進みます。
    - {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-   - {{site.data.keyword.BluSoftlayer_full}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+   - {{site.data.keyword.cloud}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
 3. **「ストレージ IOPS オプション (Storage IOPS Options)」**の下で、新しい選択を行います。
     - エンデュランス (層化 IOPS) の場合、0.25 IOPS/GB より大きい IOPS 層をストレージに選択します。 IOPS 層はいつでも増やすことができます。 ただし、下げることができるのは、月に 1 回のみです。

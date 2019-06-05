@@ -29,7 +29,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 
 1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog){: external} e fai clic su **Archiviazione**. Seleziona quindi **{{site.data.keyword.blockstorageshort}}** e fai clic su **Crea**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e fare clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 
 2. Seleziona l'ubicazione (**Location**) (data center) della tua distribuzione.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host di calcolo di cui disponi.
@@ -47,7 +47,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
     - **4 IOPS per GB** è progettato per i carichi di lavoro a maggiore intensità. Questi carichi di lavoro sono di norma caratterizzati dall'avere un'elevata percentuale di dati attivi al momento. Delle applicazioni di esempio includono i database transazionali e altri database sensibili alle prestazioni.
     - **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB.
 7. Fai clic su **Specify Snapshot Space Size** e seleziona la dimensione di istantanea dall'elenco. Questo spazio è in aggiunta al tuo spazio utilizzabile. Per le considerazioni e le raccomandazioni relative allo spazio per le istantanee, leggi [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
-8. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.<br/>
+8. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.<br/>  
 
    Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
    {:tip}
@@ -58,14 +58,14 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 10. Dopo aver controllato i termini e le condizioni, seleziona la casella **I have read and agree to the Third-Party Service Agreements**.
 11. Fai clic su **Create**. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
 
 1. Accedi al [Catalogo IBM Cloud](https://{DomainName}/catalog){: external} e fai clic su **Archiviazione**. Seleziona quindi {{site.data.keyword.blockstorageshort}} e fai clic su **Crea**.
 
-   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
+   In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e fare clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**. In alto a destra, fai clic su **Order {{site.data.keyword.blockstorageshort}}**.
 2. Fai clic su **Location** e seleziona il tuo data center.
    - Assicurati che la nuova archiviazione venga aggiunta nella stessa ubicazione degli host di calcolo di cui disponi.
 3. Fatturazione. Se hai selezionato un data center con funzionalità migliorate (contrassegnato con un asterisco), puoi scegliere tra fatturazione mensile od oraria.
@@ -78,7 +78,7 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 5. Seleziona **Performance (Allocated IOPS)** nella sezione **Storage IOPS Options**.
 6. Immetti l'IOPS nel campo **Performance (Allocated IOPS)**.
 7. Fai clic su **Specify Snapshot Space Size** e seleziona la dimensione di istantanea dall'elenco. Questo spazio è in aggiunta al tuo spazio utilizzabile. Per le considerazioni e le raccomandazioni relative allo spazio per le istantanee, leggi [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
-8. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.<br/>
+8. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.<br/>  
 
    Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
    {:tip}
@@ -89,7 +89,7 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 10. Dopo aver controllato i termini e le condizioni, seleziona la casella **I have read and agree to the Third-Party Service Agreements**.
 11. Fai clic su **Create**. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
 {:important}
 
 ## Connessione alla tua nuova archiviazione

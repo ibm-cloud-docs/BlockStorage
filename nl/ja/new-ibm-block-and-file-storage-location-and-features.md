@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 新しい場所および新機能
 {: #news}
 
-{{site.data.keyword.BluSoftlayer_full}} では、{{site.data.keyword.blockstoragefull}} の新規バージョンが導入されています。
+{{site.data.keyword.cloud}} では、{{site.data.keyword.blockstoragefull}} の新規バージョンが導入されています。
 
 この新しいストレージは限られたデータ・センターで使用可能で、Data at Rest (保存されたデータ) に対してディスク・レベルで暗号化でき IOPS レベルがより高いフラッシュ・ストレージに基づいています。 アップグレードされたデータ・センターにプロビジョンされるストレージはすべて、新規バージョンで自動的に作成されます。
 
@@ -28,67 +28,12 @@ subcollection: BlockStorage
 {: #new-locations}
 
 新しい {{site.data.keyword.blockstorageshort}} は、以下の地域およびデータ・センターにあります。
-<table role="presentation">
-  <tr>
-    <td><strong>米国 2</strong></td>
-    <td><strong>EU</strong></td>
-    <td><strong>オーストラリア</strong></td>
-    <td><strong>カナダ</strong></td>
-    <td><strong>中南米</strong></td>
-    <td><strong>アジア太平洋</strong></td>
-  </tr>
-  <tr>
-    <td>DAL09<br />
-	DAL10<br />
-	DAL12<br />
-	DAL13<br />
-	SJC03<br />
-        SJC04<br />
-	WDC04<br />
-	WDC06<br />
-	WDC07<br />
-	<br /><br /><br />
-    </td>
-    <td>AMS01<br />
-        AMS03<br />
-	FRA02<br />
-	FRA04<br />
-	FRA05<br />
-	LON02<br />
-	LON04<br />
-	LON05<br />
-	LON06<br />
-	MIL01<br />
-	OSLO1<br />
-	PAR01<br />
-    </td>
-    <td>MEL01<br />
-        SYD01<br />
-        SYD04<br />
-        SYD05<br />
-        <br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MON01<br />
-        TOR01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MEX01<br />
-        SAO01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>CHE01<br />
-        HKG02<br />
-	SEO01<br />
-	SNG01<br />
-        TOK02<br />
-	TOK04<br />
-	TOK05<br />
-	<br /><br /><br /><br /><br />
-    </td>
-  </tr>
-</table>
 
-*表 1 は、IBM のデータ・センターの可用性を示しています。 地域ごとに独自の列があります。 一部の都市 (ダラス、サンノゼ、ワシントン DC、アムステルダム、フランクフルト、ロンドン、シドニーなど) には複数のデータ・センターがあります。*
+|米国 2|ラテンアメリカ|カナダ|EU|アジア太平洋|オーストラリア|
+|-----|-----|-----|-----|-----|------|
+|DAL09<br >DAL10<br />DAL12<br />DAL13<br />SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07|MEX01<br />        SAO01| MON01<br />        TOR01|AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />MIL01<br />OSLO1<br />PAR01|CHE01<br />HKG02<br />SEO01<br />SNG01<br />        TOK02<br />TOK04<br />          TOK05|MEL01<br />SYD01<br />        SYD04<br />        SYD05|
+{: caption="表 1 は、データ・センターの可用性を示しています。地域ごとに独自の列があります。 一部の都市 (ダラス、サンノゼ、ワシントン DC、アムステルダム、フランクフルト、ロンドン、シドニーなど) には複数のデータ・センターがあります。" caption-side="top"}
+
 
 ## 新機能および能力
 {: #features}
@@ -109,9 +54,9 @@ subcollection: BlockStorage
 ## 暗号化ストレージ・ボリュームの新規マウント・ポイント
 {: #mountpoints}
 
-これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「ボリュームの詳細」**ページでマウント・ポイント情報を確認して、正しいマウント・ポイントを使用していることを確認してください。 API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイント情報を取得することもできます。
+これらのデータ・センターにプロビジョンされる拡張ストレージ・ボリュームはすべて、マウント・ポイントが非暗号化ボリュームとは異なります。 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「ボリュームの詳細」**ページでマウント・ポイント情報を確認して、正しいマウント・ポイントを使用していることを確認してください。API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイント情報を取得することもできます。
 
-すべての新規機能を利用できるようにするには、API を使用して発注する場合に「`Storage-as-a-Service Package 759`」を選択してください。 API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}を参照してください。
+すべての新規機能を利用できるようにするには、API を使用して発注する場合に「`Storage-as-a-Service Package 759`」を選択してください。 API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external} を参照してください。
 {:important}
 
 追加のデータ・センターがアップグレードされていないか確認したり、新しいフィーチャーや機能が {{site.data.keyword.blockstorageshort}} に追加されていないか確認したりするには、このページをもう一度参照してください。

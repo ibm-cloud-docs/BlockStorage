@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## Crittografia dei dati inattivi {{site.data.keyword.blockstorageshort}}
 
-{{site.data.keyword.BluSoftlayer_full}} prende sul serio la sicurezza e comprende l'importanza di poter crittografare i dati per tenerli al sicuro. Con la crittografia gestita dal provider, il {{site.data.keyword.blockstoragefull}} di cui è stato eseguito il provisioning con Endurance o Performance è crittografato per impostazione predefinita senza costi aggiuntivi e ripercussioni sulle prestazioni.
+{{site.data.keyword.cloud}} prende sul serio la sicurezza e comprende l'importanza di poter crittografare i dati per tenerli al sicuro. Con la crittografia gestita dal provider, il {{site.data.keyword.blockstoragefull}} di cui è stato eseguito il provisioning con Endurance o Performance è crittografato per impostazione predefinita senza costi aggiuntivi e ripercussioni sulle prestazioni.
 
 La funzione di crittografia dei dati inattivi gestita dal provider utilizza i seguenti protocolli standard del settore:
 

@@ -26,10 +26,9 @@ subcollection: BlockStorage
 許可されたホストとボリュームは、同じデータ・センター内に存在する必要があります。 例えば、レプリカ・ボリュームをロンドンに置き、ホストをアムステルダムに置くことはできません。 両方がロンドンに存在するか、両方がアムステルダムに存在する必要があります。
 {:note}
 
-1. [{{site.data.keyword.cloud}} コンソール](https://{DomainName}/catalog){: external} にログインし、左上の**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud}} コンソール](https://{DomainName}/catalog){: external}にログインし、左上の**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
 
-
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインできます。
+   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインできます。
 2. ソース・ボリュームまたは宛先ボリュームを、**「{{site.data.keyword.blockstorageshort}}」**ページでクリックします。
 3. **「レプリカ」**をクリックします。
 4. **「ホストの許可」**フレームまでスクロールダウンして、右にある**「ホストの許可」**をクリックします。
@@ -41,7 +40,7 @@ subcollection: BlockStorage
 
 障害が発生するおそれがある場合、宛先 (つまりターゲット) ボリュームへの**フェイルオーバー**を開始できます。 ターゲット・ボリュームがアクティブになります。 最後に正常に複製されたスナップショットがアクティブになり、ボリュームがマウント可能になります。 前回のレプリケーション・サイクル以降にソース・ボリュームに書き込まれたデータは、すべて失われます。 フェイルオーバーが開始されると、レプリケーションの関係が反転します。 ターゲット・ボリュームがソース・ボリュームになり、以前のソース・ボリュームは、**「LUN 名」**の後に **REP** を付けて示されるターゲットになります。
 
-フェイルオーバーは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
+フェイルオーバーは、[[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「ストレージ」**の**「{{site.data.keyword.blockstorageshort}}」**で開始されます。
 
 **これらのステップに進む前に、ボリュームを切り離します。 そうしないと、破損やデータ損失が発生します。**
 
@@ -68,7 +67,7 @@ subcollection: BlockStorage
 
 フェイルバックが開始されると、レプリケーションの関係が再び反転します。 ソース・ボリュームがソース・ボリュームとして復元され、ターゲット・ボリュームは、再度、**「LUN 名」**の後に **REP** を付けて示されるターゲット・ボリュームになります。
 
-フェイルバックは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} の**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の下で開始されます。
+フェイルバックは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「ストレージ」**の**「{{site.data.keyword.blockstorageshort}}」**で開始されます。
 
 1. アクティブな LUN (「ターゲット」) をクリックします。
 2. 右上にある**「レプリカ」**をクリックし、**「アクション」** をクリックします。

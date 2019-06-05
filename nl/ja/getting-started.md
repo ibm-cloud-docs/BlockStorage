@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -43,58 +43,17 @@ subcollection: BlockStorage
 
 アプリケーションが使用するブロック・サイズは、ストレージのパフォーマンスに直接影響します。 アプリケーションが使用するブロック・サイズが 16 KB より小さい場合、スループット限度に達する前に IOPS 限度に到達します。 逆に、アプリケーションが使用するブロック・サイズが 16 KB より大きい場合、IOPS 限度に達する前にスループット限度に到達します。
 
-<table>
-  <caption>表 4 は、ブロック・サイズと IOPS によるスループットへの影響の例を示しています。</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>ブロック・サイズ (KB)</th>
-            <th>IOPS</th>
-            <th>スループット (MB/秒)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4 (Linux の場合の標準)</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8 (Oracle の場合の標準)</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32 (SQL Server の場合の標準)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+| ブロック・サイズ (KB) | IOPS | スループット (MB/秒) |
+|-----|-----|-----|
+| 4 | 1,000 | 16 |
+| 8 | 1,000 | 16 |
+| 16 | 1,000 | 16 |
+| 32 | 500 | 16 |
+| 64 | 250 | 16 |
+| 128 | 128 | 16 |
+| 512 | 32 | 16 |
+| 1024 | 16 | 16 |
+{: caption="表 1 は、ブロック・サイズと IOPS によるスループットへの影響の例を示しています。<br/>平均 IO サイズ x IOPS = スループット (MB/秒)。" caption-side="top"}
 
 ### 許可ホスト
 
@@ -106,7 +65,9 @@ subcollection: BlockStorage
 
 最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、[キュー項目数](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)、およびその他の設定) があります。
 
-ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 このサービスで設定されている制限について詳しくは、[Virtual Server の資料](/docs/vsi?topic=virtual-servers-public-virtual-servers)を参照してください。
+ストレージ・トラフィックは他のトラフィック・タイプから分離する必要があり、ファイアウォールおよびルーターを介して送信されてはなりません。詳しくは、[FAQ](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic) を参照してください。
+
+ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 このサービスで設定されている制限について詳しくは、[Virtual Server の資料](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)を参照してください。
 {:tip}
 
 ## 注文の送信
@@ -126,4 +87,4 @@ subcollection: BlockStorage
 
 ## 新しいストレージの管理
 
-ポータルまたは SLCLI により、ホストの許可や取り消しなど、ファイル・ストレージのさまざまな側面を管理できます。詳しくは、[{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)を参照してください。
+ポータルまたは SLCLI により、ホストの許可や取り消しなど、ファイル・ストレージのさまざまな側面を管理できます。 詳しくは、[{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)を参照してください。

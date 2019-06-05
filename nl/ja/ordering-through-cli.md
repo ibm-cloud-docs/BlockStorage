@@ -17,14 +17,14 @@ subcollection: BlockStorage
 # SLCLI を使用した {{site.data.keyword.blockstorageshort}} の注文
 {: #orderingthroughCLI}
 
-通常 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して注文する製品を、SLCLI を使用して注文することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
+通常 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して注文する製品を、SLCLI を使用して注文することができます。SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
 
-SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
+SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
 {:tip}
 
 ## 入手可能な {{site.data.keyword.blockstorageshort}} オファーの検索
 
-発注する場合にまず検索するコンポーネントはパッケージです。 パッケージは、{{site.data.keyword.BluSoftlayer_full}} で注文できる、さまざまなトップレベルの製品別に分けられています。 パッケージの例として、VSI 用の CLOUD_SERVER、ベアメタル・サーバー用の BARE_METAL_SERVER、および {{site.data.keyword.blockstorageshort}} と {{site.data.keyword.filestorage_short}} 用の STORAGE_AS_A_SERVICE_STAA などがあります。
+発注する場合にまず検索するコンポーネントはパッケージです。 パッケージは、{{site.data.keyword.cloud}} で注文できる、さまざまなトップレベルの製品別に分けられています。 パッケージの例として、VSI 用の CLOUD_SERVER、ベアメタル・サーバー用の BARE_METAL_SERVER、および {{site.data.keyword.blockstorageshort}} と {{site.data.keyword.filestorage_short}} 用の STORAGE_AS_A_SERVICE_STAA などがあります。
 
 パッケージ内で、いくつかの項目はさらにカテゴリーに分けられています。 一部のパッケージではユーザーの便宜のために事前設定が含まれており、その他のパッケージでは項目を個別に指定する必要があります。 パッケージの任意のカテゴリーが必須である場合、パッケージを発注するにはそのカテゴリーから項目を選択する必要があります。 カテゴリーによっては、カテゴリー内のいくつかの項目が相互に排他的である可能性があります。
 
@@ -92,7 +92,7 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}を参照してください。
+API を使用した {{site.data.keyword.blockstorageshort}} の注文について詳しくは、[order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external} を参照してください。
 すべての新規機能を利用できるようにするには、「`Storage-as-a-Service Package 759`」を発注してください。
 {:tip}
 
@@ -131,7 +131,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-API を使用した {{site.data.keyword.blockstorageshort}} にアクセスするためのホストの許可について詳しくは、[authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}を参照してください。
+API を使用した {{site.data.keyword.blockstorageshort}} にアクセスするためのホストの許可について詳しくは、[authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external} を参照してください。
 {:tip}
 
 同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs) を参照してください。

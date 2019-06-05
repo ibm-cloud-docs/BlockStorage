@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,11 +30,11 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} でチケットを送信することによって、制限の引き上げを要求できます。 要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
+[ポータル](https://cloud.ibm.com/unifiedsupport/cases/add){: external}でサポート Case を送信することによって、制限の引き上げを要求できます。要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
 
-制限の引き上げを要求するには、チケットをオープンして営業担当員に送信します。
+制限の引き上げを要求するには、Case をオープンして営業担当員に送信します。
 
-このチケットには、以下の情報を指定してください。
+Case で、以下の情報を提供してください。
 
 - **チケット・サブジェクト**: データ・センターのボリューム数ストレージ制限の引き上げ要求
 
@@ -56,4 +56,4 @@ Options:
 上記の要求内のすべての質問と命題に回答してください。 処理と承認を行う際にこれらが必要になります。
 {:important}
 
-チケット・プロセスによって制限が更新されたことが通知されます。
+Case プロセスによって制限が更新されたことが通知されます。

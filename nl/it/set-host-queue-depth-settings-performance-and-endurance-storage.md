@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # Modifica delle impostazioni della profondità di coda dell'host
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} consiglia una profondità massima di coda I/O (input/output) di applicazioni e host per ciascun livello Performance.
+{{site.data.keyword.cloud}} consiglia una profondità massima di coda I/O (input/output) di applicazioni e host per ciascun livello Performance.
 
-<table align="center">
-  <caption>Profondità della coda consigliata per ciascun livello IOPS</caption>
-        <thead>
-	    <tr>
-		<th>Livello Performance</th>
-		<th>Profondità massima della coda host</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0,25 IOPS per GB</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS per GB</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS per GB</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| Livello Performance | Profondità massima della coda host |
+|:------:|:------:|
+| 0,25 IOPS per GB | 8 |
+| 2 IOPS per GB | 24 |
+| 4 IOPS per GB | 56 |
+{: caption="Profondità della coda consigliata per ciascun livello IOPS" caption-side="top"}
 
 L'impostazione host non influenza la latenza di disco e controller. Influisce solo sulla latenza osservata dall'host e dall'applicazione.
 

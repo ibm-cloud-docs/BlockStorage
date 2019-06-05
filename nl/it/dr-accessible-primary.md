@@ -28,7 +28,6 @@ Gli host autorizzati e i volumi si devono trovare nello stesso data center. Ad e
 
 1. Accedi alla [Console {{site.data.keyword.cloud}}](https://{DomainName}/catalog){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
-
    In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Fai clic sul tuo volume di origine o di destinazione dall'una o dall'altra pagina **{{site.data.keyword.blockstorageshort}}**-
 3. Fai clic su **Replica**.

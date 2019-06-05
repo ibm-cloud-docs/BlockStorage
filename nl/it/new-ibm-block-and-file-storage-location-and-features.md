@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Nuove ubicazioni e funzioni
 {: #news}
 
-{{site.data.keyword.BluSoftlayer_full}} sta introducendo una nuova versione di {{site.data.keyword.blockstoragefull}}.
+{{site.data.keyword.cloud}} sta introducendo una nuova versione di {{site.data.keyword.blockstoragefull}}.
 
 La nuova archiviazione è disponibile in data center selezionati ed è supportato da una archiviazione flash a livelli IOPS più elevati con la crittografia a livello di disco per i dati non attivi. Tutta l'archiviazione di cui viene eseguito il provisioning nei data center aggiornati viene automaticamente creata con la nuova versione.
 
@@ -28,67 +28,12 @@ Il punto di montaggio NFS per i nuovi volumi differisce dal punto di montaggio d
 {: #new-locations}
 
 Il nuovo {{site.data.keyword.blockstorageshort}} è disponibile nei seguenti data center e regioni.
-<table role="presentation">
-  <tr>
-    <td><strong>USA 2</strong></td>
-    <td><strong>UE</strong></td>
-    <td><strong>Australia</strong></td>
-    <td><strong>Canada</strong></td>
-    <td><strong>America Latina</strong></td>
-    <td><strong>Asia Pacifico</strong></td>
-  </tr>
-  <tr>
-    <td>DAL09<br />
-	DAL10<br />
-	DAL12<br />
-	DAL13<br />
-	SJC03<br />
-        SJC04<br />
-	WDC04<br />
-	WDC06<br />
-	WDC07<br />
-	<br /><br /><br />
-    </td>
-    <td>AMS01<br />
-        AMS03<br />
-	FRA02<br />
-	FRA04<br />
-	FRA05<br />
-	LON02<br />
-	LON04<br />
-	LON05<br />
-	LON06<br />
-	MIL01<br />
-	OSLO1<br />
-	PAR01<br />
-    </td>
-    <td>MEL01<br />
-        SYD01<br />
-        SYD04<br />
-        SYD05<br />
-        <br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MON01<br />
-        TOR01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MEX01<br />
-        SAO01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>CHE01<br />
-        HKG02<br />
-	SEO01<br />
-	SNG01<br />
-        TOK02<br />
-	TOK04<br />
-	TOK05<br />
-	<br /><br /><br /><br /><br />
-    </td>
-  </tr>
-</table>
 
-*La Tabella 1 mostra la nostra disponibilità di data center. Ogni regione ha una propria colonna. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center.*
+|US 2|America Latina|Canada|UE |Asia Pacifico|Australia|
+|-----|-----|-----|-----|-----|------|
+| DAL09<br >DAL10<br />DAL12<br />DAL13<br />SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07 | MEX01<br />SAO01 | MON01<br />TOR01  | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />MIL01<br />OSLO1<br />PAR01 | CHE01<br />HKG02<br />SEO01<br />SNG01<br />TOK02<br />TOK04<br />TOK05 | MEL01<br />SYD01<br />SYD04<br />SYD05 |
+{: caption="La Tabella 1 mostra la disponibilità di data center. Ogni regione ha una propria colonna. Alcune città, come Dallas, San Jose, Washington DC, Amsterdam, Francoforte, Londra e Sydney hanno più data center." caption-side="top"}
+
 
 ## Nuove funzioni e funzionalità
 {: #features}
@@ -111,7 +56,7 @@ Il nuovo {{site.data.keyword.blockstorageshort}} è disponibile nei seguenti dat
 
 Tutti i volumi di archiviazione migliorati di cui viene eseguito il provisioning in questi data center hanno un punto di montaggio diverso rispetto ai volumi non crittografati. Controlla le informazioni sui punti di montaggio nella pagina **Volume Details** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} per assicurarti di stare utilizzando il punto di montaggio corretto. Puoi anche ottenere le informazioni sul punto di montaggio corretto tramite una chiamata API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
-Per poter accedere a tutte le nuove funzioni, seleziona `Storage-as-a-Service Package 759` quando inserisci il tuo ordine tramite l'API. Per ulteriori informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, consulta [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Per poter accedere a tutte le nuove funzioni, seleziona `Storage-as-a-Service Package 759` quando inserisci il tuo ordine tramite l'API. Per ulteriori informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, vedi [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}
 
 Ritorna qui a controllare quando viene eseguito l'upgrade di ulteriori data center e per vedere le nuove funzioni e funzionalità che vengono aggiunte per {{site.data.keyword.blockstorageshort}}.

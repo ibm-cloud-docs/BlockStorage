@@ -119,10 +119,10 @@ Lo spazio di istantanea viene modificato tramite **Storage** > **{{site.data.key
 
 ## Ricezione delle notifiche quando viene raggiunto il limite dello spazio di istantanea e le istantanee vengono eliminate
 
-Le notifiche vengono inviate tramite i ticket di supporto all'utente master sul tuo account quando raggiungi tre diverse soglie di spazio – 75 percento, 90 percento e 95 percento.
+Le notifiche vengono inviate tramite i casi di supporto all'utente master sul tuo account quando raggiungi tre diverse soglie di spazio – 75 percento, 90 percento e 95 percento.
 
-- Al raggiungimento del **75 percento della capacità**, viene inviata un'avvertenza che l'utilizzo dello spazio di istantanea ha superato il 75 percento. Se presti attenzione all'avvertenza e aggiungi dello spazio manualmente oppure elimini delle istantanee conservate e non necessarie, l'azione viene annotata e il ticket viene chiuso. Se non fai niente, devi confermare manualmente il ticket che viene quindi chiuso.
-- Al raggiungimento del **90 percento della capacità**, viene inviata una seconda avvertenza che l'utilizzo dello spazio di istantanea ha superato il 90 percento. In modo analogo al raggiungimento della capacità al 75 percento, se esegui le azioni necessarie per ridurre lo spazio utilizzato, l'azione viene annotata e il ticket viene chiuso. Se non fai niente, devi confermare manualmente il ticket che viene quindi chiuso.
+- Al raggiungimento del **75 percento della capacità**, viene inviata un'avvertenza che l'utilizzo dello spazio di istantanea ha superato il 75 percento. Se presti attenzione all'avvertenza e aggiungi dello spazio manualmente oppure elimini delle istantanee conservate e non necessarie, l'azione viene annotata e il caso viene chiuso. Se non fai niente, devi confermare manualmente il caso che viene quindi chiuso.
+- Al raggiungimento del **90 percento della capacità**, viene inviata una seconda avvertenza che l'utilizzo dello spazio di istantanea ha superato il 90 percento. In modo analogo al raggiungimento della capacità al 75 percento, se esegui le azioni necessarie per ridurre lo spazio utilizzato, l'azione viene annotata e il caso viene chiuso. Se non fai niente, devi confermare manualmente il caso che viene quindi chiuso.
 - Al raggiungimento del **95 percento della capacità**, viene inviato un'avvertenza finale. Se non viene eseguita alcuna azione per portare il tuo utilizzo dello spazio al di sotto della soglia, viene generata una notifica e si verifica un'eliminazione automatica in modo che sia possibile creare delle future istantanee. Le istantanee pianificate vengono eliminate, a partire da quella meno recente, finché l'utilizzo non scende al di sotto del 95 percento. Le istantanee continuano a essere eliminate ogni volta che l'utilizzo supera il 95 percento finché non scende al di sotto della soglia. Se lo spazio viene aumentato manualmente oppure se le istantanee vengono eliminate, l'avvertenza viene reimpostata ed emessa nuovamente se la soglia viene superata nuovamente. Se non viene eseguita alcuna azione, questa notifica è la sola avvertenza che viene ricevuta.
 
 ## Eliminazione di una pianificazione dell'istantanea
@@ -167,7 +167,7 @@ Il ripristino di un volume determina l'eliminazione di tutte le istantanee acqui
    - [Connessione ai LUN iSCSI su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 3. Scorri verso il basso e fai clic sul tuo volume da ripristinare. la sezione **Snapshots** della pagina **Detail** visualizza l'elenco di tutte le istantanee selezionate insieme alle relative dimensione e data di creazione.
-4. Fai clic su **Actions** accanto all'istantanea da utilizzare e fai clic su **Restore**. <br/>
+4. Fai clic su **Actions** accanto all'istantanea da utilizzare e fai clic su **Restore**. <br/> 
 
    Il completamento del ripristino comporta la perdita dei dati creati o modificati dopo l'acquisizione dell'istantanea. Questa perdita di dati si verifica perché il tuo volume di archiviazione restituisce lo stesso stato in cui si trovava al momento dell'istantanea.
    {:note}

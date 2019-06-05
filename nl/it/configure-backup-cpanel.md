@@ -1,12 +1,12 @@
----
+/---
 
 copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords: Block storage, cPanel, backups, mountpoint, ISCSI
+parole chiave: Block storage, cPanel, backup, punto di montaggio, ISCSI
 
-subcollection: BlockStorage
+sottoraccolta: BlockStorage
 
 ---
 {:external: target="_blank" .external}
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 
 Puoi utilizzare le seguenti istruzioni per configurare i tuoi backup in cPanel da archiviare in {{site.data.keyword.blockstoragefull}}. Il presupposto è che siano disponibili SSH root o sudo e un accesso VHM (WebHost Manager) completo. Queste istruzioni sono basate su un host **CentOS 7**.
 
-Per ulteriori informazioni, consulta [cPanel - Configuring backup directory](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){: external}.
+Per ulteriori informazioni, vedi [cPanel - Configuring backup directory](https://docs.cpanel.net/display/68Docs/Backup+Configuration#BackupConfiguration-ConfigureBackupDirectory){: external}.
 {:tip}
 
 1. Connettiti all'host tramite SSH.

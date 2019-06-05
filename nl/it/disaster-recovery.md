@@ -23,8 +23,7 @@ Se un errore catastrofico o un'emergenza causa un'interruzione sul sito primario
 
 ## Failover con un duplicato di un volume di replica sul sito secondario
 
-1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
-
+1. Accedi alla [Console IBM Cloud](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
    In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -40,8 +39,7 @@ Non appena il volume viene creato, può essere collegato a un host ed eseguire l
 
 Se vuoi far tornare la produzione al sito primario originale, devi completare le seguenti istruzioni.
 
-1. Accedi alla [Console IBM Cloud![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
-
+1. Accedi alla [Console IBM Cloud](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 
    In alternativa, puoi accedere al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.

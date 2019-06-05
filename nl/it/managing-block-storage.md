@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Gestione di {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 ## Visualizzazione dei dettagli di un LUN {{site.data.keyword.blockstorageshort}}
 

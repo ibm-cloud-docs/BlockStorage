@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ subcollection: BlockStorage
 ## 注文できるボリュームの数はいくつですか?
 {: faq}
 
-デフォルトでは、合計 250 のブロック・ストレージ・ボリュームとファイル・ストレージ・ボリュームをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
+デフォルトでは、合計 250 のブロック・ストレージとファイル・ストレージをプロビジョンできます。ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
 
 ## ホストにマウントできる {{site.data.keyword.blockstorageshort}} ボリュームの数はいくつですか?
 {: faq}
 
-これはホスト・オペレーティング・システムが処理できる内容によって異なりますが、{{site.data.keyword.BluSoftlayer_full}} が制限するものではありません。 マウント可能なボリューム数の制限については、お使いの OS の資料を参照してください。
+これはホスト・オペレーティング・システムが処理できる内容によって異なりますが、{{site.data.keyword.cloud}} が制限するものではありません。 マウント可能なボリューム数の制限については、お使いの OS の資料を参照してください。
 
 ## Block Storage LUN に対してどの Windows バージョンを選択すればよいですか?
 {: faq}
@@ -74,6 +74,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 スループットの限度は、LUN レベルで設定されるため、より高速なイーサネット接続を使用しても、設定された上限は増えません。 ただし、低速イーサネット接続では、帯域幅がボトルネックとなる可能性があります。
 
 ## ファイアウォールおよびセキュリティー・グループはパフォーマンスに影響しますか?
+{: #isolatedstoragetraffic}
 {: faq}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
@@ -91,7 +92,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## どの {{site.data.keyword.blockstorageshort}} ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
 
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}

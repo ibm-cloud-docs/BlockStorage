@@ -20,7 +20,7 @@ subcollection: BlockStorage
 
 以下の手順を使用することにより、Plesk でのバックアップ用に {{site.data.keyword.blockstoragefull}} を構成することができます。 root または sudo SSH でのアクセスが可能であり、管理者レベルの Plesk フル・アクセス権限があることを前提としています。 ここでの説明は、CentOS7 ホストに基づいています。
 
-詳しくは、[バックアップとリストアに関する Plesk の資料](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){: external} を参照してください。
+詳しくは、[バックアップおよび復元に関する Plesk の資料](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){: external}を参照してください。
 {:tip}
 
 1. SSH 経由でホストに接続します。

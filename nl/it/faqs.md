@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -28,7 +28,7 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 ## Quanti volumi {{site.data.keyword.blockstorageshort}} possono essere montati su un host?
 {: faq}
 
-Dipende da quello che il sistema operativo dell'host è in grado di gestire; non è qualcosa che viene limitato da {{site.data.keyword.BluSoftlayer_full}}. Fai riferimento alla documentazione del tuo sistema operativo per i limiti relativi al numero di volumi che è possibile montare.
+Dipende da quello che il sistema operativo dell'host è in grado di gestire; non è qualcosa che viene limitato da {{site.data.keyword.cloud}}. Fai riferimento alla documentazione del tuo sistema operativo per i limiti relativi al numero di volumi che è possibile montare.
 
 ## Quale versione di Windows devo scegliere per il mio LUN Block Storage?
 {: faq}
@@ -74,6 +74,7 @@ Non è necessario eseguire un preriscaldamento. Puoi osservare la velocità effe
 I limiti di velocità effettiva sono impostati su un livello per LUN; pertanto, l'utilizzo di una connessione Ethernet più veloce non aumenta tale limite impostato. Tuttavia, con una connessione Ethernet più lenta, la tua larghezza di banda può essere un potenziale collo di bottiglia.
 
 ## I firewall e i gruppi di sicurezza hanno ripercussioni sulle prestazioni?
+{: #isolatedstoragetraffic}
 {: faq}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.

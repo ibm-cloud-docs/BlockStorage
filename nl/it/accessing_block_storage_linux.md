@@ -9,7 +9,7 @@ keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}_
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
@@ -26,7 +26,7 @@ Queste istruzioni sono principalmente per RHEL6 e Centos6. Sono state aggiunte d
 Ad esempio, puoi trovare le istruzioni di Ubuntu per la configurazione dell'iniziatore iSCSI [qui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e per la configurazione di DM-Multipath [qui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {:important}
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
@@ -51,9 +51,9 @@ Options:
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.BluSoftlayer_full}} basata su Linux a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output).
+Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Linux a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output).
 
-L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}} Details** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}}** Details nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {: tip}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
@@ -196,7 +196,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
    ```
    {: codeblock}
 
-   Lascia le altre impostazioni CHAP come commenti. L'archiviazione {{site.data.keyword.BluSoftlayer_full}} utilizza solo un'autenticazione unidirezionale. Non abilitare Mutual CHAP.
+   Lascia le altre impostazioni CHAP come commenti. L'archiviazione {{site.data.keyword.cloud}} utilizza solo un'autenticazione unidirezionale. Non abilitare Mutual CHAP.
    {:important}
 
    Nota per gli utenti di Ubuntu: mentre state guardando il file `iscsid.conf`, verificate se l'impostazione `node.startup` è manual (manuale) o automatic (automatica). Se è manual, modificatela in automatic.
@@ -357,57 +357,22 @@ Segui questa procedura per creare un file system sul volume appena montato. Un f
 
 #### La tabella dei comandi `fdisk`
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>La tabella comandi <code>fdisk</code> contiene i comandi sulla sinistra e i risultati previsti sulla destra.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">Comando</th>
-		<th style="width:60%;">Risultato</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>Crea una partizione. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>Rende primaria la partizione.</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>Diventa la partizione 1 sul disco.</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>Inizia al cilindro 1.</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Premi Invio per andare all'ultimo cilindro.</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>Configura il tipo di partizione. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>Seleziona la partizione 1 da configurare come un tipo specifico.</td>
-	</tr>
-	<tr>
-		<td><code>Codice esadecimale: 83</code></td>
-		<td>Seleziona Linux come tipo (Type) (83 è il codice esadecimale per Linux).&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>Scrive le informazioni sulla nuova partizione sul disco. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| Comando | Risultato |
+|-----|-----|
+| `Command: n`| Crea una partizione. * |
+| `Command action: p` | Rende primaria la partizione. |
+| `Partition number (1-4): 1` | Diventa la partizione 1 sul disco. |
+| `First cylinder (1-8877): 1 (default)` | Inizia al cilindro 1. |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Premi Invio per andare all'ultimo cilindro. |
+| `Command: t` | Configura il tipo di partizione. * |
+| `Select partition 1.` | Seleziona la partizione 1 da configurare come un tipo specifico. |
+| `Hex code: 83` | Seleziona Linux come tipo (Type) (83 è il codice esadecimale per Linux). ** |
+| `Command: w` | Scrive le informazioni sulla nuova partizione sul disco. ** |
+{: caption="Tabella 1 - La tabella comandi <codefdisk</code> contiene i comandi sulla sinistra e i risultati previsti sulla destra." caption-side="top"}>
 
-  (`*`)Type m for Help.
+(`*`)Type m for Help.
 
-  (`**`)Type L to list the hex codes
+(`**`)Type L to list the hex codes
 
 ### Creazione di un file system con `parted`
 {: #parted}

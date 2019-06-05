@@ -14,33 +14,16 @@ subcollection: BlockStorage
 # ホスト・キュー項目数の設定の調整
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} では、パフォーマンス層ごとに最大ホストおよびアプリケーション入出力 (I/O) キュー項目数を示しています。
+{{site.data.keyword.cloud}} では、パフォーマンス層ごとに最大ホストおよびアプリケーション入出力 (I/O) キュー項目数を示しています。
 
-<table align="center">
-  <caption>各 IOPS 層の推奨キュー項目数</caption>
-        <thead>
-	    <tr>
-		<th>パフォーマンス層</th>
-		<th>最大ホスト・キュー項目数</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">GB 当たり 0.25 IOPS</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">GB 当たり 2 IOPS</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">GB 当たり 4 IOPS</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| パフォーマンス層 | 最大ホスト・キュー項目数 |
+|:------:|:------:|
+| GB 当たり 0.25 IOPS | 8 |
+| GB 当たり 2 IOPS | 24 |
+| GB 当たり 4 IOPS | 56 |
+{: caption="各 IOPS 層の推奨キュー項目数" caption-side="top"}
 
-ホスト設定は、ディスクおよびコントローラーの待ち時間には影響しません。 これは、ホストおよびアプリケーションによって監視される待ち時間にのみ影響します。
+ホスト設定は、ディスクおよびコントローラーの待ち時間には影響しません。これは、ホストおよびアプリケーションによって監視される待ち時間にのみ影響します。
 
 リストされている数を超えるキュー項目数を指定すると、ホストの入出力待ち時間が増加する可能性があります。一方、リストされている数より少ないキュー項目数を指定すると、ホストの入出力パフォーマンスが低下する可能性があります。 各アプリケーションによって違いがあるため、最大のストレージ・パフォーマンスを実現するには、調整と監視が必要です。
 

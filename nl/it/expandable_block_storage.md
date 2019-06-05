@@ -47,7 +47,7 @@ I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di 
 ## Ridimensionamento dell'archiviazione
 {: #resizingsteps}
 
-1. Dal {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE dalla console {{site.data.keyword.BluSoftlayer_full}}, fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Dal {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE dalla console {{site.data.keyword.cloud}}, fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
 3. Immetti la nuova dimensione dell'archiviazione in GB.
 4. Riesamina la tua selezione e la nuova determinazione del prezzo.

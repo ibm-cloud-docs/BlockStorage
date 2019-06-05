@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 1. [IBM Cloud カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。 次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
 
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 
 2. デプロイメント・**ロケーション** (データ・センター) を選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
@@ -65,7 +65,7 @@ subcollection: BlockStorage
 
 1. [IBM Cloud カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。 次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
 
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。 右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
 2. **「ロケーション」**をクリックして、データ・センターを選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
 3. 請求処理。 機能が改善されたデータ・センター (アスタリスクでマークされている) を選択した場合は、月次請求と毎時請求のいずれかを選択できます。

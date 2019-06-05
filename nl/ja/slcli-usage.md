@@ -19,9 +19,9 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} の SLCLI コマンド
 {: #SLCLIcommands}
 
-通常 [{{site.data.keyword.slportal}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){: external} で処理する操作を、SLCLI を使用して実行することができます。 例えば、新規ボリュームやスナップショット・スペースおよびレプリケーションの注文、許可の更新、ボリュームのキャンセルなどを、SLCLI で行うことができます。
+通常 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で処理する操作を、SLCLI を使用して実行することができます。例えば、新規ボリュームやスナップショット・スペースおよびレプリケーションの注文、許可の更新、ボリュームのキャンセルなどを、SLCLI で行うことができます。
 
-SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
+SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
 {:tip}
 
 ## アクセス関連の SLCLI コマンド
@@ -70,11 +70,11 @@ SLCLI をインストールして使用する方法について詳しくは、[P
   ```
   slcli block volume-duplicate
   ```
-* [IOPS の調整](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
+* [IOPS の調整](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
   ```
   slcli block volume-modify
   ```
-* [キャパシティーの拡張](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
+* [キャパシティーの拡張](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
   ```
   slcli block volume-modify
   ```

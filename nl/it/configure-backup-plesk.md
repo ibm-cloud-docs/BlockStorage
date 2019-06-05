@@ -20,7 +20,7 @@ subcollection: BlockStorage
 
 Puoi utilizzare le seguenti istruzioni per configurare {{site.data.keyword.blockstoragefull}} per i tuoi backup in Plesk. Il presupposto è che siano disponibili SSH root o sudo e un accesso a Plesk a livello di amministrazione completo. Queste istruzioni sono basate su un host CentOS7.
 
-Per ulteriori informazioni, consulta la [documentazione di Plesk per il backup e il ripristino](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){: external}.
+Per ulteriori informazioni, vedi [Plesk's documentation for backing up and restoration](https://docs.plesk.com/en-US/12.5/administrator-guide/backing-up-and-restoration.59256/){: external}.
 {:tip}
 
 1. Connettiti all'host tramite SSH.

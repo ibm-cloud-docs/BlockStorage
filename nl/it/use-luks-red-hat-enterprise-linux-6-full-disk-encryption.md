@@ -45,12 +45,12 @@ Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioni
 L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
 {:note}
 
-1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:   <br/>
+1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:  <br/> 
    ```
    # yum install cryptsetup-luks
    ```
    {: pre}
-2. Ottieni l'ID disco:<br/>
+2. Ottieni l'ID disco:<br/>  
    ```
    # fdisk –l | grep /dev/mapper
    ```
@@ -58,7 +58,7 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
 3. Individua il tuo volume nell'elenco.
 4. Crittografa il dispositivo a blocchi:
 
-   1. Questo comando inizializza il volume e puoi impostare una passphrase. <br/>
+   1. Questo comando inizializza il volume e puoi impostare una passphrase. <br/> 
 
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -74,13 +74,13 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
 
-5. Apri il volume e crea un'associazione.<br/>
+5. Apri il volume e crea un'associazione.<br/>  
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
 6. Immetti la passphrase.
-7. Verificare l'associazione e lo stato della vista del volume crittografato.   <br/>
+7. Verificare l'associazione e lo stato della vista del volume crittografato.  <br/> 
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -94,16 +94,16 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
      Command successful
    ```
 8. Scrivi dati casuali in `/dev/mapper/cryptData` sul dispositivo crittografato. Questa azione garantisce che il mondo esterno li vede come dati casuali; questo significa che sono protetti dalla diffusione di modelli di utilizzo. Questo passo può richiedere del tempo.<br/>
-    ```
+```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Formatta il volume.<br/>
+9. Formatta il volume.<br/>  
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Monta il volume.<br/>
+10. Monta il volume.<br/>  
    ```
    # mkdir /cryptData
    ```

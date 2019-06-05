@@ -47,7 +47,7 @@ subcollection: BlockStorage
 ## ストレージのサイズ変更
 {: #resizingsteps}
 
-1. {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックするか、{{site.data.keyword.BluSoftlayer_full}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックするか、{{site.data.keyword.cloud}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
 3. 新しいストレージ・サイズを GB 単位で入力します。
 4. 選択内容と新しい価格設定を確認します。

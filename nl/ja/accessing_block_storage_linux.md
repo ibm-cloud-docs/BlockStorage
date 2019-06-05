@@ -23,10 +23,10 @@ subcollection: BlockStorage
 ここでの説明は、主に RHEL6 および Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
 
-例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} を参照してください。
+例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}を参照してください。
 {: tip}
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} を介して以前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して事前に許可されていることを確認してください。
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
@@ -51,9 +51,9 @@ Options:
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 {: #mountLin}
 
-以下に、Linux ベースの {{site.data.keyword.BluSoftlayer_full}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
+以下に、Linux ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
 
-手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
+手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
 {: tip}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
@@ -196,7 +196,7 @@ Options:
    ```
    {: codeblock}
 
-   その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.BluSoftlayer_full}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと。
+   その他の CHAP 設定はコメント化したままにしてください。 {{site.data.keyword.cloud}} ストレージは、片方向認証のみを使用します。 相互 CHAP を有効にしないこと。
    {:important}
 
    Ubuntu ユーザーの場合、`iscsid.conf` ファイルを確認する際に、`node.startup` の設定が 手動と自動のどちらになっているかを調べてください。 手動になっている場合は、自動に変更してください。
@@ -357,57 +357,22 @@ Options:
 
 #### `fdisk` コマンドの表
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>左側にコマンド、右側に予期される結果が示されている <code>fdisk</code> コマンドの表</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">コマンド</th>
-		<th style="width:60%;">結果</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>パーティションを作成します。 &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>パーティションを 1 次パーティションにします。</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1 から 4): 1</code></td>
-		<td>ディスク上のパーティション 1 になります。</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1 から 8877): 1 (default)</code></td>
-		<td>シリンダー 1 から開始します。</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>「Enter」を押して最後のシリンダーに移動します。</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>パーティションのタイプをセットアップします。 &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>特定のタイプとしてセットアップするためにパーティション 1 を選択します。</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>タイプとして Linux を選択します (83 は Linux の 16 進コードです)。&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>新しいパーティション情報をディスクに書き込みます。 &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| コマンド | 結果 |
+|-----|-----|
+| `Command: n`| パーティションを作成します。* |
+| `Command action: p` | パーティションを 1 次パーティションにします。 |
+| `Partition number (1 から 4): 1` | ディスク上のパーティション 1 になります。 |
+| `First cylinder (1 から 8877): 1 (default)` | シリンダー 1 から開始します。 |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | 「Enter」を押して最後のシリンダーに移動します。 |
+| `Command: t` | パーティションのタイプをセットアップします。 * |
+| `Select partition 1.` | 特定のタイプとしてセットアップするパーティション 1 を選択します。 |
+| `Hex code: 83` | タイプとして Linux を選択します (83 は Linux の 16 進コードです)。 ** |
+| `Command: w` | 新しいパーティション情報をディスクに書き込みます。 ** |
+{: caption="表 1 - 左側にコマンド、右側に予期される結果が示されている <code>fdisk</code> コマンドの表。" caption-side="top"}
 
-  (`*`) ヘルプが必要な場合、m を入力します。
+(`*`) ヘルプが必要な場合、m を入力します。
 
-  (`**`) 16 進コードをリストするには、L を入力します。
+(`**`) 16 進コードをリストするには、L を入力します。
 
 ### `parted` を使用したファイル・システムの作成
 {: #parted}

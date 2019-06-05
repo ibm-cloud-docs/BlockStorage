@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Connessione ai LUN iSCSI su Microsoft Windows
 {: #mountingWindows}
 
-Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite il [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**. Fai clic su **Authorize Host**.
 2. Dall'elenco, seleziona l'host o gli host che devono accedere al volume e fai clic su **Submit**.
@@ -41,7 +41,7 @@ Options:
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.BluSoftlayer_full}} basata su Windows a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
+Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Windows a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
 
 ### Configurazione della funzione MPIO
 
@@ -156,7 +156,7 @@ Per verificare se MPIO Windows è configurato, devi prima assicurarti che il com
 Dopo il completamento del riavvio e l'aggiunta del dispositivo di archiviazione, puoi verificare se MPIO è configurato e funzionante. Per farlo, osserva **Dettagli dispositivo di destinazione** e fai clic su **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Se MPIO non è stato configurato correttamente, il tuo dispositivo di archiviazione può venire disconnesso e essere visualizzato come non disponibile quando si verifica un'interruzione di rete o quando i team di {{site.data.keyword.BluSoftlayer_full}} eseguono la manutenzione. MPIO garantisce un livello supplementare di connettività durante tali eventi e mantiene una sessione stabilita con le operazioni di lettura/scrittura attive che vanno al LUN.
+Se MPIO non è stato configurato correttamente, il tuo dispositivo di archiviazione può venire disconnesso e essere visualizzato come non disponibile quando si verifica un'interruzione di rete o quando i team di {{site.data.keyword.cloud}} eseguono la manutenzione. MPIO garantisce un livello supplementare di connettività durante tali eventi e mantiene una sessione stabilita con le operazioni di lettura/scrittura attive che vanno al LUN.
 
 ## Smontaggio dei volumi {{site.data.keyword.blockstorageshort}}
 {: #unmountingWin}
