@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -43,58 +43,17 @@ Les IOPS pour les niveaux Endurance et Performance se fondent sur une taille de 
 
 La taille de bloc utilisée par votre application a une incidence directe sur les performances de stockage. Si la taille de bloc employée par votre application est inférieure à 16 Ko, la limite des opérations d'entrée-sortie par seconde est atteinte avant la limite de débit. A l'inverse, si la taille de bloc qui est utilisée par votre application est supérieure à 16 Ko, la limite de débit est atteinte avant la limite des opérations d'entrée-sortie par seconde.
 
-<table>
-  <caption>Le tableau 4 présente des exemples de l'impact de la taille de bloc et des opérations d'entrée-sortie par seconde sur le débit.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Taille de bloc (ko)</th>
-            <th>IOPS</th>
-            <th>Débit (Mo/s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4 (standard pour Linux)</td>
-            <td>1 000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8 (standard pour Oracle)</td>
-            <td>1 000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1 000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32 (standard pour SQL Server)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+| Taille de bloc (ko) | IOPS | Débit (Mo/s) |
+|-----|-----|-----|
+| 4 | 1 000 | 16 |
+| 8 | 1 000 | 16 |
+| 16 | 1 000 | 16 |
+| 32 | 500 | 16 |
+| 64 | 250 | 16 |
+| 128 | 128 | 16 |
+| 512 | 32 | 16 |
+| 1024 | 16 | 16 |
+{: caption="Le tableau 1 présente des exemples de l'impact de la taille de bloc et des opérations d'entrée-sortie par seconde sur le débit.<br/Taille E-S moyennes x IOPS = Débit en Mo/s." caption-side="top"}
 
 ### Hôtes autorisés
 
@@ -107,7 +66,9 @@ vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement l
 
 Pour atteindre le nombre maximal d'IOPS, vous devez mettre en place les ressources réseau adéquates. Vous devez également tenir compte de l'utilisation du réseau privé en dehors du stockage, ainsi que des réglages côté hôte et spécifiques aux applications (pile IP ou [nombre de lignes de file d'attente](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings), etc.).
 
-Le trafic de stockage est inclus dans l'utilisation réseau totale des serveurs virtuels publics. Pour plus d'informations sur les limites que peut imposer le service, voir la [documentation sur les serveurs virtuels](/docs/vsi?topic=virtual-servers-public-virtual-servers).
+Le trafic de stockage doit être isolé des autres types de trafic et il ne doit pas être dirigé via des pare-feu et des routeurs. Pour plus d'informations, voir la [Foire aux questions](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+
+Le trafic de stockage est inclus dans l'utilisation réseau totale des serveurs virtuels publics. Pour plus d'informations sur les limites que peut imposer le service, voir la [documentation sur les serveurs virtuels](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}
 
 ## Soumission de votre commande

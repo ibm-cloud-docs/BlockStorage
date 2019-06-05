@@ -31,7 +31,7 @@ Une fois la copie de données terminée, le doublon peut être géré et utilis�
 
 Cette fonctionnalité est disponible dans la plupart des emplacements. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour obtenir la liste des centres de données disponibles.
 
-Si vous êtes utilisateur d'un compte Dedicated d'{{site.data.keyword.containerlong}}, consultez les options de duplication d'un volume dans la [documentation d'{{site.data.keyword.containerlong_notm}}](docs/containers?topic=containers-block_storage#block_backup_restore).
+Si vous êtes un utilisateur de compte Dedicated d'{{site.data.keyword.containerlong}}, consultez vos options de duplication d'un volume dans la [{{site.data.keyword.containerlong_notm}}documentation ](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Voici quelques exemples d'utilisation courante d'un volume dupliqué :
@@ -49,7 +49,7 @@ Il existe deux manières de créer un volume dupliqué via le portail [{{site.da
 
 1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
     - A partir du portail client, cliquez sur **Storage** > **{{site.data.keyword.blockstorageshort}}** OU
-    - A partir de la console {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+    - A partir de la console {{site.data.keyword.cloud}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez un volume dans la liste et cliquez sur **Actions** > **Doublon du numéro d'unité logique/volume**.
 3. Choisissez une option d'instantané :
     - Si vous effectuez votre commande à partir d'un volume **qui n'est pas un volume de réplique**,
@@ -58,9 +58,9 @@ Il existe deux manières de créer un volume dupliqué via le portail [{{site.da
     - Si vous effectuez votre commande à partir d'un volume de **réplique**, l'unique option d'instantané consiste à utiliser le dernier instantané disponible.
 4. Le type de stockage et l'emplacement restent identiques à ce qui est indiqué pour le volume d'origine.
 5. Facturation à l'heure ou au mois - vous pouvez choisir de mettre à disposition le numéro d'unité logique du doublon avec une facturation à l'heure ou au mois. Le type de facturation pour le volume d'origine est automatiquement sélectionné. Si vous voulez en choisir un autre pour votre stockage en double, vous pouvez le sélectionner ici.
-5. Si vous le souhaitez, vous pouvez spécifier des E-S/s ou un niveau d'E-S/s pour le nouveau volume. Les IOPS du volume d'origine sont définies par défaut. Les combinaisons de performances et de taille disponibles sont affichées.
+5. Si vous le souhaitez, vous pouvez spécifier des IOPS ou un niveau d'IOPS pour le nouveau volume. Les IOPS du volume d'origine sont définies par défaut. Les combinaisons de performances et de taille disponibles sont affichées.
     - Si le volume d'origine a un niveau Endurance avec 0,25 IOPS, vous ne pourrez pas effectuer de nouvelle sélection.
-    - Si votre volume d'origine est un niveau Endurance de 2, 4 ou 10 E-S/s, vous pouvez choisir l'un de ces niveaux pour le nouveau volume.
+    - Si votre volume d'origine est un niveau Endurance de 2, 4 ou 10 IOPS, vous pouvez choisir l'un de ces niveaux pour le nouveau volume.
 6. Vous pouvez mettre à jour la taille du nouveau volume pour qu'elle soit supérieure à celle du volume d'origine. La taille du volume d'origine est définie par défaut.
 
    Le redimensionnement de {{site.data.keyword.blockstorageshort}} est soumis à la limite de 10 fois la taille du volume d'origine.

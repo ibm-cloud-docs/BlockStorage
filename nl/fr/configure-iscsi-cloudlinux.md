@@ -24,7 +24,7 @@ Suivez ces instructions pour installer votre numéro d'unité logique iSCSI avec
 Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {:tip}
 
-1. Connectez-vous au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Connectez-vous à [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. 
 2. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
 3. Cliquez sur **Hôte autorisé**.
 4. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
@@ -122,7 +122,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
      ```
      {: codeblock}
 
-     Utilisez des majuscules pour les noms CHAP. Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
+     Utilisez des majuscules pour les noms CHAP. Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.cloud}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
      {:important}
 
 

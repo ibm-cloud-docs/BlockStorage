@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## Chiffrement au repos de {{site.data.keyword.blockstorageshort}}
 
-{{site.data.keyword.BluSoftlayer_full}} prend très au sérieux la question de la sécurité et comprend l'importance du chiffrement des données pour assurer leur sécurité. Avec le chiffrement géré par le fournisseur, {{site.data.keyword.blockstoragefull}}, qui est mis à disposition avec Endurance ou Performance, est chiffré par défaut sans coût supplémentaire et sans aucun impact sur les performances.
+{{site.data.keyword.cloud}} prend très au sérieux la question de la sécurité et comprend l'importance du chiffrement des données pour assurer leur sécurité. Avec le chiffrement géré par le fournisseur, {{site.data.keyword.blockstoragefull}}, qui est mis à disposition avec Endurance ou Performance, est chiffré par défaut sans coût supplémentaire et sans aucun impact sur les performances.
 
 La fonction de chiffrement au repos géré par le fournisseur utilise les protocoles conformes aux normes de l'industrie suivants :
 

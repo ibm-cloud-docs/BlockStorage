@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Commande de {{site.data.keyword.blockstorageshort}} via la console
 {: #orderingthroughConsole}
 
-Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'ajuster en fonction de vos besoins en termes de capacité et d'E-S/s (IOPS). Profitez pleinement de votre stockage grâce à deux options vous permettant de spécifier les performances.
+Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'ajuster en fonction de vos besoins en termes de capacité et d'IOPS (IOPS). Profitez pleinement de votre stockage grâce à deux options vous permettant de spécifier les performances.
 
 - Vous pouvez effectuer une sélection parmi les niveaux d'IOPS Endurance qui proposent des niveaux de performances prédéfinis afin de prendre en charge les charges de travail pour lesquelles il n'existe aucune exigence bien définie en matière de performances.
 - Vous pouvez ajuster votre stockage en fonction d'exigences de performances spécifiques en spécifiant le nombre total d'IOPS avec Performance.
@@ -29,7 +29,7 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 
 1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog){: external}, puis cliquez sur **Stockage**. Ensuite, sélectionnez **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur **Créer**.
 
-   Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, puis cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
+   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, cliquer sur **Storage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 
 2. Sélectionnez l'**Emplacement** de votre déploiement (centre de données).
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
@@ -42,12 +42,12 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 4. Entrez votre taille de stockage dans la zone **Nouvelle taille de stockage**.
 5. Sélectionnez **Endurance (IOPS hiérarchisées)** dans la section **Options d'IOPS de stockage**.
 6. Sélectionnez le niveau d'IOPS requis par votre application.
-    - **0,25 E-S/s par Go** est adapté aux charges de travail avec une faible intensité d'E-S. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données inactives à un moment donné. Exemples d'applications : stockage de boîtes aux lettres ou partages de fichiers au niveau d'un service dans une entreprise.
-    - **2 E-S/s par Go** est adapté à des usages plus généraux. Exemples d'applications : hébergement de petites bases de données qui sauvegardent des applications Web ou des images de disques de machine virtuelle pour un hyperviseur.
-    - **4 E-S/s par Go** est adapté aux charges de travail de forte intensité. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données actives à un moment donné. Exemples d'applications : bases de données transactionnelles, bases de données sensibles aux performances.
-    - **10 E-S/s par Go** est adapté aux charges de travail les plus exigeantes telles que celles créées par les bases de données NoSQL, et au traitement de données pour analyse. Ce niveau est disponible dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour un stockage qui est mis à disposition à hauteur de 4 To.
+    - **0,25 IOPS par Go** est adapté aux charges de travail avec une faible intensité d'E-S. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données inactives à un moment donné. Exemples d'applications : stockage de boîtes aux lettres ou partages de fichiers au niveau d'un service dans une entreprise.
+    - **2 IOPS par Go** est adapté à des usages plus généraux. Exemples d'applications : hébergement de petites bases de données qui sauvegardent des applications Web ou des images de disques de machine virtuelle pour un hyperviseur.
+    - **4 IOPS par Go** est adapté aux charges de travail de forte intensité. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données actives à un moment donné. Exemples d'applications : bases de données transactionnelles, bases de données sensibles aux performances.
+    - **10 IOPS par Go** est adapté aux charges de travail les plus exigeantes telles que celles créées par les bases de données NoSQL, et au traitement de données pour analyse. Ce niveau est disponible dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour un stockage qui est mis à disposition à hauteur de 4 To.
 7. Cliquez sur **Indiquer la taille de l'espace d'instantané** et sélectionnez la taille de l'image instantanée dans la liste. Cet espace vient en complément de votre espace utilisable. Pour les considérations et recommandations relatives à l'espace d'instantané, lisez la section [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
-8. Choisissez votre **Type de système d'exploitation** dans la liste.<br/>
+8. Choisissez votre **Type OS** dans la liste.<br/>
 
    Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
    {:tip}
@@ -65,7 +65,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 
 1. Connectez-vous au [catalogue IBM Cloud](https://{DomainName}/catalog){: external}, puis cliquez sur **Stockage**. Ensuite, sélectionnez {{site.data.keyword.blockstorageshort}}, puis cliquez sur **Créer**.
 
-   Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, puis cliquer sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
+   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, cliquer sur **Storage** > **{{site.data.keyword.blockstorageshort}}**. Dans l'angle supérieur droit, cliquez sur **Commander {{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur **Emplacement** et sélectionnez votre centre de données.
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
 3. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure.
@@ -78,7 +78,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 5. Sélectionnez **Performance (IOPS allouées)** dans la section **Options d'IOPS de stockage**.
 6. Entrez le nombre d'IOPS dans la zone **IOPS allouées**.
 7. Cliquez sur **Indiquer la taille de l'espace d'instantané** et sélectionnez la taille de l'image instantanée dans la liste. Cet espace vient en complément de votre espace utilisable. Pour les considérations et recommandations relatives à l'espace d'instantané, lisez la section [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
-8. Choisissez votre **Type de système d'exploitation** dans la liste.<br/>
+8. Choisissez votre **Type OS** dans la liste.<br/>
 
    Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
    {:tip}

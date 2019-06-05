@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # Ajustement des paramètres de nombre de lignes de file d'attente de l'hôte
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} suggère un nombre de lignes de file d'attente d'E-S maximal pour l'hôte et l'application pour chaque niveau de performance.
+{{site.data.keyword.cloud}} suggère un nombre de lignes de file d'attente d'E-S maximal pour l'hôte et l'application pour chaque niveau de performance.
 
-<table align="center">
-  <caption>Nombre de lignes de file d'attente recommandée pour chaque niveau IOPS</caption>
-        <thead>
-	    <tr>
-		<th>Niveau de performance</th>
-		<th>Profondeur maximale de file d'attente d'hôte</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0,25 IOPS par Go</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS par Go</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS par Go</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| Niveau de performance | Profondeur maximale de file d'attente d'hôte |
+|:------:|:------:|
+| 0,25 IOPS par Go | 8 |
+| 2 IOPS par Go | 24 |
+| 4 IOPS par Go | 56 |
+{: caption="Nombre de lignes de file d'attente recommandée pour chaque niveau IOPS" caption-side="top"}
 
 Le paramètre défini pour l'hôte n'affecte pas le temps d'attente du disque et du contrôleur. Il affecte uniquement le temps d'attente observé par l'hôte et l'application.
 

@@ -19,9 +19,9 @@ subcollection: BlockStorage
 # Commandes SLCLI de {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-Vous pouvez utiliser l'interface SLCLI pour effectuer des actions normalement gérées via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Par exemple, avec l'interface SLCLI vous pouvez passer des commandes de volumes, d'espace d'instantané et de réplication, mettre à jour des autorisations, annuler des volumes, etc.
+Vous pouvez utiliser l'interface de ligne de commande SL pour effectuer des actions qui sont normalement gérées via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Par exemple, avec l'interface SLCLI vous pouvez passer des commandes de volumes, d'espace d'instantané et de réplication, mettre à jour des autorisations, annuler des volumes, etc.
 
-Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCLI, voir [Client API Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Pour plus d'informations sur la manière d'installer et d'utiliser l'interface de ligne de commande SL, voir [Client API Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Commandes SLCLI liées aux accès
@@ -70,11 +70,11 @@ Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCL
   ```
   slcli block volume-duplicate
   ```
-* [Réglage des IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
+* [Réglage des IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
   ```
   slcli block volume-modify
   ```
-* [Augmentation de la capacité](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
+* [Augmentation de la capacité](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
   ```
   slcli block volume-modify
   ```

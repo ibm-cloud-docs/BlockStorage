@@ -46,7 +46,7 @@ Si la réplication est activée sur le volume, la réplique est automatiquement 
 
 1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
    - A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**
-   - A partir de la console {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+   - A partir de la console {{site.data.keyword.cloud}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
 3. Sous les options d'IOPS de stockage, effectuez une nouvelle sélection :
     - Pour Endurance (IOPS hiérarchisées), sélectionnez un niveau d'IOPS supérieur à 0,25 IOPS/Go de votre stockage. Vous pouvez augmenter le niveau d'IOPS à tout moment. Toutefois, vous ne pouvez le diminuer qu'une seule fois par mois.

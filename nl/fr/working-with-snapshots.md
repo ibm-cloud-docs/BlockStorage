@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## Création d'un planning d'instantané
 
-Les plannings d'instantané vous permettent de choisir la fréquence et le moment de création d'une référence ponctuelle de votre volume de stockage. Vous disposez d'un maximum de 50 instantanés par volume de stockage. Les plannings sont gérés via l'onglet **Storage** > **{{site.data.keyword.blockstorageshort}}** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Les plannings d'instantané vous permettent de choisir la fréquence et le moment de création d'une référence ponctuelle de votre volume de stockage. Vous disposez d'un maximum de 50 instantanés par volume de stockage. Les plannings sont gérés via l'onglet **Stockage** > **{{site.data.keyword.blockstorageshort}}** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 Avant de pouvoir configurer votre planning initial, vous devez d'abord acheter de l'espace d'image instantanée si vous ne l'avez pas fait lors de la mise à disposition initiale du volume de stockage. Pour plus d'informations, voir [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
@@ -119,10 +119,10 @@ L'espace d'instantané est modifié via **Stockage** > **{{site.data.keyword.blo
 
 ## Réception de notifications lorsque la limite d'espace d'image instantanée est atteinte et que des instantanés sont supprimés
 
-Des notifications sont envoyées via les tickets de demande de service à l'utilisateur maître sur votre compte lorsque vous atteignez trois seuils d'espace différents : 75 %, 90 % et 95 %.
+Des notifications sont envoyées via les cas de support à l'Utilisateur maître de votre compte lorsque vous atteignez trois seuils d'espace différents – 75 %, 90 % et 95 %.
 
-- A **75 % de la capacité **, un avertissement indiquant que l'utilisation de l'espace d'image instantanée a dépassé 75 % de la capacité est envoyé. Si vous tenez compte de l'avertissement et que vous procédez manuellement à l'ajout d'espace ou à la suppression d'images instantanés conservées et inutiles, l'action est notée et le ticket est fermé. Si vous ne faites rien, vous devez manuellement accuser réception du ticket, qui est ensuite fermé.
-- A **90 % de la capacité**, un second avertissement indiquant que l'utilisation de l'espace d'image instantanée a dépassé 90 % de la capacité est envoyé. Comme lors du dépassement de 75 % de la capacité, si vous effectuez les actions nécessaires pour réduire l'espace qui est utilisé, l'action est notée et le ticket est fermé. Si vous ne faites rien, vous devez manuellement accuser réception du ticket, qui est ensuite fermé.
+- A **75 % de la capacité **, un avertissement indiquant que l'utilisation de l'espace d'image instantanée a dépassé 75 % de la capacité est envoyé. Si vous tenez compte de l'avertissement et que vous procédez manuellement à l'ajout d'espace ou à la suppression d'images instantanés conservées et inutiles, l'action est notée et le ticket est fermé. Si vous ne faites rien, vous devez accuser manuellement réception du cas et il est fermé.
+- A **90 % de la capacité**, un second avertissement indiquant que l'utilisation de l'espace d'image instantanée a dépassé 90 % de la capacité est envoyé. Comme lors du dépassement de 75 % de la capacité, si vous effectuez les actions nécessaires pour réduire l'espace qui est utilisé, l'action est notée et le ticket est fermé. Si vous ne faites rien, vous devez accuser manuellement réception du cas et il est fermé.
 - A **95 % de la capacité**, un dernier avertissement est envoyé. Si vous n'intervenez pas pour ramener votre utilisation d'espace sous le seuil, une notification est générée et une suppression automatique est instaurée empêchant la création de futurs instantanés. Les instantanés planifiés sont supprimés, en commençant par le plus ancien, jusqu'à ce que l'utilisation passe au-dessous de 95 %. Les instantanés continuent d'être supprimés à chaque fois que l'utilisation dépasse 95 % de la capacité jusqu'à ce qu'elle repasse sous le seuil. Si l'espace est augmenté manuellement ou que des instantanés sont supprimés, l'avertissement est réinitialisé et émis à nouveau en cas de nouveau dépassement du seuil. Si aucune action n'est effectuée, il s'agit du seul avertissement que vous recevez.
 
 ## Suppression d'un planning d'instantané

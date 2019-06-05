@@ -23,7 +23,7 @@ subcollection: BlockStorage
 Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
 {:note}
 
-Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCSI [ici](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} et la configuration DM-Multipath [ici](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCS [ici](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} et la configuration DM-Multipath [ici](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
 Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
@@ -51,9 +51,9 @@ Options:
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Linux à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI).
+Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.cloud}} basée sur Linux à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI).
 
-Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **Détails {{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **{{site.data.keyword.blockstorageshort}} Détails** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 {: tip}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
@@ -196,7 +196,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
    ```
    {: codeblock}
 
-   Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.BluSoftlayer_full}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
+   Laissez les autres paramètres CHAP en commentaire. Le stockage {{site.data.keyword.cloud}} utilise uniquement l'authentification unidirectionnelle. N'activez pas l'authentification CHAP mutuelle.
    {:important}
 
    Les utilisateurs Ubuntu doivent vérifier dans le fichier `iscsid.conf` si le paramètre `node.startup` est défini sur manual ou automatic. S'il est défini sur manual, ils doivent le redéfinir su automatic.
@@ -357,57 +357,22 @@ Procédez comme indiqué ci-après pour créer un système de fichiers sur le vo
 
 #### Tableau de la commande `fdisk`
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>Le tableau de la commande <code>fdisk</code> contient les commandes à gauche et les résultats attendus à droite.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">Commande</th>
-		<th style="width:60%;">Résultat</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>Crée une partition. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>En fait la partition principale.</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>Devient la partition 1 sur le disque.</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>Démarre au cylindre 1.</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Appuyez sur Entrée pour aller au dernier cylindre.</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>Configure le type de partition. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>Sélectionne la partition 1 pour la configurer en tant que type spécifique.</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>Sélectionne Linux comme type (83 est le code hexadécimal pour Linux).&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>Ecrit les informations de la nouvelle partition sur le disque. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| Commande | Résultat |
+|-----|-----|
+| `Command: n`| Crée une partition. * |
+| `Command action: p` | En fait la partition principale. |
+| `Partition number (1-4): 1` | Devient la partition 1 sur le disque. |
+| `First cylinder (1-8877): 1 (default)` | Démarre au cylindre 1. |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Appuyez sur Entrée pour aller au dernier cylindre. |
+| `Command: t` | Configure le type de partition. * |
+| `Select partition 1.` | Sélectionne la partition 1 pour la configurer en tant que type spécifique. |
+| `Hex code: 83` | Sélectionne Linux comme type (83 est le code hexadécimal pour Linux). ** |
+| `Command: w` | Ecrit les informations de la nouvelle partition sur le disque. ** |
+{: caption="Table 1 - Le tableau de la commande <codefdisk</code> contient les commandes à gauche et les résultats attendus à droite." caption-side="top"}
 
-  (`*`)Saisissez m pour obtenir de l'aide.
+(`*`)Saisissez m pour obtenir de l'aide.
 
-  (`**`)Saisissez L pour obtenir la liste des codes hexadécimaux.
+(`**`)Saisissez L pour obtenir la liste des codes hexadécimaux.
 
 ### Création d'un système de fichiers avec `parted`
 {: #parted}

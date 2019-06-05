@@ -51,8 +51,10 @@ IBM Cloud Storage - Block Storage
 
     {: .navgroup id="help"}
     faqs.md
-    [Python API Client Information](https://softlayer-python.readthedocs.io/en/latest/index.html)
+    [Informations sur le client API Python](https://softlayer-python.readthedocs.io/en/latest/index.html)
     slcli-usage.md
+    [Interface de ligne de commande IBM Cloud et Developer Tools](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage)
+    [Identity and Access Management](https://cloud.ibm.com/docs/iam?topic=iam-infrapermission)
 
     {: .topicgroup}
     Traitement des incidents

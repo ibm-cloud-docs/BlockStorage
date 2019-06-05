@@ -41,7 +41,7 @@ Options:
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.BluSoftlayer_full}} basée sur Windows à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI). L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
+Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.cloud}} basée sur Windows à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI). L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 
 ### Configuration de la fonction MPIO
 
@@ -68,7 +68,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     - Cliquez sur **Modifier** pour remplacer les valeurs existantes par votre nom qualifié iSCSI.
     ![Propriétés de l'initiateur iSCSI](/images/iSCSI.png)
 
-      Le nom qualifié iSCSI peut être obtenu à partir de l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+      Le nom qualifié iSCSI peut être obtenu à partir de l'écran {{site.data.keyword.blockstorageshort}} Détails sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
 
     - Cliquez sur l'onglet **Découverte**, puis sur **Découvrir un portail**.
@@ -127,17 +127,17 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
    - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique de stockage à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session.
    - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique de stockage.
 
-     Vous pouvez trouver la seconde adresse IP dans l'écran Détails {{site.data.keyword.blockstorageshort}} du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+     Vous pouvez trouver la deuxième adresse IP dans l'écran {{site.data.keyword.blockstorageshort}} Détails sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Saisissez les valeurs des zones Nom et Secret de la cible obtenues à partir du portail et cliquez sur **OK**.
    - Cliquez sur **OK** dans la fenêtre Se connecter à la cible pour revenir à la fenêtre Propriétés.
 8. Cette fenêtre affiche maintenant plusieurs sessions dans la sous-fenêtre Identificateur. Vous disposez désormais de plusieurs sessions dans le stockage iSCSI.
 
-   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} avant de tenter d'établir la connexion.
+   Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} avant d'essayer d'établir la connexion.
    {:note}
 9. Dans la fenêtre Propriétés, cliquez sur **Périphériques** pour ouvrir la fenêtre correspondante. Le nom de l'interface de périphérique débute par `mpio`. <br/>
-  ![Périphériques](/images/Devices.png)
+  ![Devices](/images/Devices.png)
 
 10. Cliquez sur **MPIO** pour ouvrir la fenêtre **Détails du périphérique**. Elle vous permet de choisir les règles d'équilibrage de charge pour MPIO et vous indique les chemins d'accès à l'interface iSCSI. Dans cet exemple, deux chemins sont disponibles pour MPIO avec une règle d'équilibrage de charge Round Robin avec sous-ensemble.
   ![Boîte de dialogue Détails du périphérique affichant deux chemins d'accès disponibles pour MPIO avec une règle d'équilibrage de charge Round Robin avec sous-ensemble](/images/DeviceDetails.png)
@@ -156,7 +156,7 @@ Pour vérifier si Windows MPIO est configuré, vous devez d'abord vous assurer q
 Une fois le redémarrage terminé et le périphérique de stockage ajouté, vous pouvez vérifier si MPIO est configuré et fonctionne. Pour ce faire, consultez les **Détails du périphérique cible** et cliquez sur **MPIO** :
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Si MPIO n'a pas été configuré correctement, votre périphérique de stockage est déconnecté et apparaît comme étant désactivé en cas de panne réseau ou de maintenance par les équipes {{site.data.keyword.BluSoftlayer_full}}. MPIO garantit un niveau supplémentaire de connectivité au cours de ces événements et conserve une session établie avec des opérations de lecture/écriture actives à destination du numéro d'unité logique (LUN).
+Si MPIO n'a pas été configuré correctement, votre périphérique de stockage est déconnecté et apparaît comme étant désactivé en cas de panne réseau ou de maintenance par les équipes {{site.data.keyword.cloud}}. MPIO garantit un niveau supplémentaire de connectivité au cours de ces événements et conserve une session établie avec des opérations de lecture/écriture actives à destination du numéro d'unité logique (LUN).
 
 ## Démontage de volumes {{site.data.keyword.blockstorageshort}}
 {: #unmountingWin}

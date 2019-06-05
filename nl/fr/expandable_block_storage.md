@@ -47,7 +47,7 @@ Les limitations de taille existantes pour le stockage {{site.data.keyword.blocks
 ## Redimensionnement du stockage
 {: #resizingsteps}
 
-1. A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU, à partir de la console {{site.data.keyword.BluSoftlayer_full}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+1. A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU, à partir de la console {{site.data.keyword.cloud}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
 3. Saisissez la nouvelle taille du stockage en Go.
 4. Passez en revue votre sélection et la nouvelle tarification.

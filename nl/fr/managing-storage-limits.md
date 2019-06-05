@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,11 +30,11 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-Vous pouvez demander une augmentation de cette limite en soumettant un ticket dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Lorsque la demande est approuvée, une limite de volume est définie pour un centre de données spécifique.  
+Vous pouvez demander une augmentation de la limite en soumettant un cas de support sur le portail [](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Lorsque la demande est approuvée, une limite de volume est définie pour un centre de données spécifique.  
 
-Pour demander une augmentation de la limite, ouvrez un ticket et envoyez-le à votre ingénieur commercial.
+Pour augmenter la limite, ouvrez un cas et adressez-le directement à votre ingénieur commercial.
 
-Dans le ticket, indiquez les informations suivantes :
+Dans le cas, fournissez les informations suivantes :
 
 - **Sujet du ticket** : demande d'augmentation de la limite de stockage en nombre de volumes pour un centre de données
 
@@ -56,4 +56,4 @@ Dans le ticket, indiquez les informations suivantes :
 Répondez à toutes les questions et instructions dans votre demande. Elles sont nécessaires pour traiter et approuver la demande.
 {:important}
 
-Vous serez notifié de la mise à jour de vos limites pendant le processus de traitement du ticket.
+Vous serez informé de la mise à jour de vos limites via le traitement du cas.

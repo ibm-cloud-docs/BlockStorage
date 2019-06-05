@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -28,7 +28,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 ## Combien de volumes {{site.data.keyword.blockstorageshort}} peuvent être montés sur un hôte ?
 {: faq}
 
-Cela dépend de ce que peut gérer le système d'exploitation de l'hôte. Ce n'est pas {{site.data.keyword.BluSoftlayer_full}} qui fixe une limite. Consultez la documentation de votre système d'exploitation pour connaître les limites fixées pour le nombre de volumes pouvant être montés.
+Cela dépend de ce que peut gérer le système d'exploitation de l'hôte. Ce n'est pas {{site.data.keyword.cloud}} qui fixe une limite. Consultez la documentation de votre système d'exploitation pour connaître les limites fixées pour le nombre de volumes pouvant être montés.
 
 ## Quelle version de Windows dois-je choisir pour mon numéro d'unité logique Block Storage ?
 {: faq}
@@ -59,9 +59,9 @@ Les IOPS sont mesurées en fonction d'un profil de chargement de blocs de 16 Ko 
 
 Le nombre maximal d'IOPS peut être obtenu même si vous utilisez des tailles de bloc plus petites. Toutefois, le débit devient plus lent. Par exemple, un volume doté de 6 000 IOPS présente les débits suivants en fonction des tailles de bloc :
 
-- 16 ko * 6 000 E-S/s == ~93,75 Mo/sec
-- 8 ko * 6 000 E-S/s == ~46,88 Mo/sec
-- 4 ko * 6 000 E-S/s == ~23,44 Mo/sec
+- 16 ko * 6 000 IOPS == ~93,75 Mo/sec
+- 8 ko * 6 000 IOPS == ~46,88 Mo/sec
+- 4 ko * 6 000 IOPS == ~23,44 Mo/sec
 
 ## Le volume doit-il être préchauffé pour obtenir le débit prévu ?
 {: faq}
@@ -74,6 +74,7 @@ Aucun préchauffage n'est nécessaire. Le débit indiqué peut être observé im
 Les limites de débit sont configurées par numéro d'unité logique. Par conséquent, une connexion Ethernet plus rapide ne permet pas d'augmenter la limite définie. Toutefois, avec une connexion Ethernet plus lente, votre bande passante peut éventuellement créer un goulot d'étranglement.
 
 ## Les pare-feu et groupes de sécurité ont-ils un impact sur les performances ?
+{: #isolatedstoragetraffic}
 {: faq}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
@@ -91,7 +92,7 @@ Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}}
 ## Comment savoir quels volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
 
-Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
+Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
 
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}

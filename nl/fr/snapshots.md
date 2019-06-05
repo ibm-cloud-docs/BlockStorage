@@ -40,7 +40,7 @@ Vous devez d'abord acheter une certaine quantité d'espace d'image instantanée 
 La conception des instantanés dépend de l'environnement du client. Prenez en compte les remarques de conception suivantes pour planifier et implémenter les copies d'image instantanée :
 - Vous pouvez créer jusqu'à 50 instantanés grâce à la planification et jusqu'à 50 instantanés manuellement sur chaque volume ou numéro d'unité logique.
 - Ne prenez pas trop d'instantanés. Veillez à ce que la fréquence des images instantanés planifiées corresponde à vos besoins en termes d'objectif de temps de reprise et d'objectif de point de reprise, ainsi qu'à vos exigences professionnelles liées aux applications et planifiez des images instantanées à un rythme horaire, quotidien ou hebdomadaire.
-- La fonction de suppression automatique des instantanés permet de contrôler la croissance de la consommation d'espace de stockage. <br/>
+- La fonction de suppression automatique des instantanés permet de contrôler la croissance de la consommation d'espace de stockage.<br/>
 
   Le seuil de suppression automatique est fixé à 95 %.
   {:note}
@@ -58,23 +58,12 @@ Les copies d'image instantanée minimisent la consommation du disque en conserva
 
 Dans le système de fichiers actif, les blocs modifiés sont réécrits à des emplacements différents sur le disque ou retirés sous la forme de blocs de fichier complets. Lorsque des fichiers sont modifiés ou supprimés, les blocs de fichier d'origine sont conservés dans une ou plusieurs copies d'image instantanée. Ainsi, l'espace disque qui est utilisé par les blocs d'origine est conservé pour refléter le statut du système de fichiers actif avant la modification. La réservation de cet espace s'ajoute à l'espace disque employé par les blocs dans le système de fichiers actif modifié.
 
-<table>
-    <colgroup>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-    </colgroup>
-      <tr>
-        <th colspan="3" style="border: 0.0px;text-align: center;">Utilisation de l'espace disque avant et après une copie d'image instantanée</th>
-     </tr><tr>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle1.png" alt="Avant une copie d'image instantanée"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle3.png" alt="Après une copie d'image instantanée"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle2.png" alt="Modifications après une copie d'image instantanée"></td>
-     </tr><tr>
-        <td style="border: 0.0px;">Avant la création d'une copie d'image instantanée, l'espace disque est utilisé uniquement par le système de fichiers actif.</td>
-        <td style="border: 0.0px;">Après la création d'une copie d'image instantanée, le système de fichiers actif et la copie d'image instantanée pointent vers les mêmes blocs disque. La copie d'instantané n'utilise pas d'espace disque supplémentaire.</td>
-        <td style="border: 0.0px;">Même après la suppression de <i>myfile.txt</i> du système de fichiers actif, la copie d'image instantanée inclut toujours le fichier et fait référence à ses blocs de disque. C'est la raison pour laquelle la suppression des données du système de fichiers actif ne libère pas toujours de l'espace disque.</td>
-      </tr>
-</table>
+
+|Utilisation d'espace disque|   |
+|-----|-----|
+| ![Espace qui est utilisé avant la prise d'une copie d'image instantanée](/images/bfcircle1.png "Avant une copie d'image instantanée") | Avant la création d'une copie d'image instantanée, l'espace disque est utilisé uniquement par le système de fichiers actif. |
+| ![Espace qui est utilisé lors de la prise d'une copie d'image instantanée](/images/bfcircle3.png "Après une copie d'image instantanée") | Après la création d'une copie d'image instantanée, le système de fichiers actif et la copie d'image instantanée pointent vers les mêmes blocs disque. La copie d'instantané n'utilise pas d'espace disque supplémentaire.  |
+| ![Espace qui est utilisé lorsqu'une modification a lieu après la prise d'une copie d'image instantanée](/images/bfcircle2.png "Modifications après une copie d'image instantanée") | Même après la suppression de `myfile.txt` du système de fichiers actif, la copie d'image instantanée inclut toujours le fichier et fait référence à ses blocs de disque. C'est la raison pour laquelle la suppression des données du système de fichiers actif ne libère pas toujours de l'espace disque. |
+{: caption="Le tableau 1 illustre dans quelle mesure les images instantanées affectent l'utilisation de l'espace dans le stockage." caption-side="top"}
 
 Pour plus d'informations sur l'utilisation de l'espace d'image instantanée, voir [Gestion des instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots).

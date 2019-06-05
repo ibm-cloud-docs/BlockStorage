@@ -49,9 +49,9 @@ De plus, pour la plupart des charges de travail, plus le volume est grand, plus 
 
 ## Commande d'un espace d'instantané via la console {{site.data.keyword.cloud_notm}}
 
-1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external}, puis cliquez sur l'icône de menu dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
+1. Connectez-vous à la console [{{site.data.keyword.cloud_notm}} ](https://{DomainName}/catalog){: external}, puis cliquez sur l'icône de menu dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
 
-   Vous pouvez également vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Accédez au numéro d'unité logique de stockage via **Stockage** >**{{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur **Modifier l'espace d'instantané** dans le cadre Instantanés.
 3. Sélectionnez la quantité d'espace dont vous avez besoin et la méthode de paiement.

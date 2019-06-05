@@ -17,14 +17,14 @@ subcollection: BlockStorage
 # Commande de {{site.data.keyword.blockstorageshort}} via l'interface SLCLI
 {: #orderingthroughCLI}
 
-Vous pouvez utiliser l'interface SLCLI pour commander des produits qui se commandent normalement via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Dans l'API SL, une commande peut se composer de plusieurs conteneurs de commandes. L'interface de ligne de commande pour les commandes fonctionne avec un seul conteneur de commandes.
+Vous pouvez utiliser l'interface de ligne de commande SL pour commander des produits qui se commandent normalement via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Dans l'API SL, une commande peut se composer de plusieurs conteneurs de commandes. L'interface de ligne de commande pour les commandes fonctionne avec un seul conteneur de commandes.
 
-Pour plus d'informations sur l'installation et l'utilisation de l'interface SLCLI, voir [Client API Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Pour plus d'informations sur la manière d'installer et d'utiliser l'interface de ligne de commande SL, voir [Client API Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Recherche des offres {{site.data.keyword.blockstorageshort}} disponibles
 
-Lorsque vous passez une commande, vous devez commencer par rechercher est un package. Les packages sont répartis entre les différents produits de niveau supérieur que vous pouvez commander dans {{site.data.keyword.BluSoftlayer_full}}. Entre autres exemples de packages, citons CLOUD_SERVER pour instances de serveur virtuel, BARE_METAL_SERVER pour serveurs bare metal et STORAGE_AS_A_SERVICE_STAAS pour {{site.data.keyword.blockstorageshort}} et {{site.data.keyword.filestorage_short}}.
+Lorsque vous passez une commande, vous devez commencer par rechercher est un package. Les packages sont répartis entre les différents produits de niveau supérieur que vous pouvez commander dans {{site.data.keyword.cloud}}. Entre autres exemples de packages, citons CLOUD_SERVER pour instances de serveur virtuel, BARE_METAL_SERVER pour serveurs bare metal et STORAGE_AS_A_SERVICE_STAAS pour {{site.data.keyword.blockstorageshort}} et {{site.data.keyword.filestorage_short}}.
 
 Dans un package, certains éléments sont subdivisés en catégories. Certains packages disposent de préréglages pour votre commodité et d'autres nécessitent que des éléments soient spécifiés individuellement. Si une catégorie de package est requise, un élément de cette catégorie doit être sélectionné pour commander le package. Selon la catégorie, certains éléments de la catégorie s'excluent mutuellement.
 
@@ -92,14 +92,14 @@ Options:
  -h, --help                      Show this message and exit.
 ```
 
-Pour plus d'informations sur les commande {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Pour plus d'informations sur les commandes {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 Pour pouvoir accéder à toutes les nouvelles fonctions, commandez `Storage-as-a-Service Package 759`.
 {:tip}
 
 
 ## Passation de la commande
 
-L'exemple suivant illustre la commande d'un volume {{site.data.keyword.blockstorageshort}} de 80 Go avec 20 Go d'espace d'instantané et 0,25 E-S/s par Go.
+L'exemple suivant illustre la commande d'un volume {{site.data.keyword.blockstorageshort}} de 80 Go avec 20 Go d'espace d'instantané et 0,25 IOPS par Go.
 
 ```
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20

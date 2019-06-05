@@ -45,7 +45,7 @@ Cette procédure suppose que le serveur peut accéder à un nouveau volume {{sit
 Le processus de chiffrement de données crée une charge sur l'hôte, qui risque d'impacter les performances.
 {:note}
 
-1. Saisissez la commande suivante à une invite shell en tant que root pour installer le package requis :   <br/>
+1. Saisissez la commande suivante à une invite shell en tant que root pour installer le package requis :  <br/>
    ```
    # yum install cryptsetup-luks
    ```
@@ -58,7 +58,7 @@ Le processus de chiffrement de données crée une charge sur l'hôte, qui risque
 3. Localisez votre volume dans la liste.
 4. Chiffrez l'unité par bloc :
 
-   1. Cette commande initialise le volume et vous permet de définir une phrase passe. <br/>
+   1. Cette commande initialise le volume et vous permet de définir une phrase passe.<br/>
 
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564

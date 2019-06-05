@@ -28,88 +28,18 @@ Avant d'effectuer une réplication, vous devez créer un planning d'instantané.
 
 ## Comment déterminer le centre de données distant de mon volume de stockage répliqué ?
 
-Les centres de données d'{{site.data.keyword.BluSoftlayer_full}} sont appariés en combinaisons principal-distant dans le monde entier.
+Les centres de données d'{{site.data.keyword.cloud}} sont appariés en combinaisons principal-distant dans le monde entier.
 Pour obtenir la liste complète de la disponibilité des centres de données et des cibles de réplication, reportez-vous au Tableau 1.
 
-<table>
-  <caption style="text-align: left;"><p>Le tableau 1 répertorie l'ensemble des centres de données avec les fonctionnalités améliorées dans chaque région. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San José, Washington DC, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données.</p>
-  <p>&#42; Les centres de données de la région EU 1 ne comportent PAS de stockage amélioré. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées <strong>ne peuvent pas</strong> démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1.</p>
-  </caption>
-  <thead>
-    <tr>
-      <th>EU 1 &#42;</th>
-      <th>EU 2</th>
-      <th>Amérique latine</th>
-      <th>Canada</th>
-      <th>Europe</th>
-      <th>Asie-Pacifique</th>
-      <th>Australie</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DAL01<br />
-          DAL05<br />
-	  DAL06<br />
-	  HOU02<br />
-	  SJC01<br />
-	  WDC01<br />
-	  <br /><br /><br /><br /><br /><br />
-      </td>
-      <td>SJC03<br />
-	  SJC04<br />
-	  WDC04<br />
-	  WDC06<br />
-	  WDC07<br />
-	  DAL09<br />
-	  DAL10<br />
-	  DAL12<br />
-	  DAL13<br />
-	  <br /><br /><br />
-      </td>
-      <td>MEX01<br />
-	  SAO01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>TOR01<br />
-          MON01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>AMS01<br />
-	  AMS03<br />
-	  FRA02<br />
-	  FRA04<br />
-	  FRA05<br />
-	  LON02<br />
-	  LON04<br />
-	  LON05<br />
-	  LON06<br />
-	  OSL01<br />
-	  PAR01<br />
-	  MIL01<br />
-      </td>
-      <td>HKG02<br />
-          TOK02<br />
-          TOK04<br />
-          TOK05<br />
-          SNG01<br />
-          SEO01<br />
-          CHE01<br />
-	        <br /><br /><br /><br /><br />
-      </td>
-      <td>SYD01<br />
-          SYD04<br />
-          SYD05<br />
-          MEL01<br />
-          <br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-    </tr>
-  </tbody>
-</table>
+| EU 1 | EU 2 | Amérique latine | Canada  | Europe  | Asie-Pacifique  | Australie  |
+|-----|-----|-----|-----|-----|-----|-----|
+| DAL01<br />DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01 | TOR01<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
+{: caption="Le tableau 1 répertorie l'ensemble des centres de données avec les fonctionnalités améliorées dans chaque région. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San José, Washington DC, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données. Les centres de données de la région EU 1 ne comportent PAS de stockage amélioré.. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées ne peuvent pas démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1. " caption-side="top"}
+
 
 ## Création de la réplique initiale
 
-Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abord configurer un espace d'instantané et un planning d'instantané pour le volume source avant de pouvoir répliquer. Si vous tentez de configurer la réplication alors que l'espace d'instantané ou le planning d'instantané n'existe pas, vous serez invité à acheter davantage d'espace ou à configurer un planning. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abord configurer un espace d'instantané et un planning d'instantané pour le volume source avant de pouvoir répliquer. Si vous tentez de configurer la réplication alors que l'espace d'instantané ou le planning d'instantané n'existe pas, vous serez invité à acheter davantage d'espace ou à configurer un planning. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 1. Cliquez sur votre volume de stockage.
 2. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
@@ -127,7 +57,7 @@ Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abo
 
 ## Edition d'une réplication existante
 
-Vous pouvez éditer votre planning de réplication et modifier votre espace de réplication à partir de l'onglet **Principal** ou **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Vous pouvez éditer votre planning de réplication et modifier votre espace de réplication à partir de l'onglet **Principal** ou **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 
 ## Edition du planning de réplication
@@ -184,7 +114,7 @@ L'historique des réplications s'affiche dans le **journal d'audit** sur l'ongle
 
 ## Création d'un doublon d'un volume de réplique
 
-Vous pouvez créer un doublon d'un {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} existant. Le volume en double hérite par défaut des options de capacité et de performance du volume d'origine et contient une copie des données jusqu'au point de cohérence d'un instantané.
+Vous pouvez créer un doublon d'un {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}} existant. Le volume en double hérite par défaut des options de capacité et de performance du volume d'origine et contient une copie des données jusqu'au point de cohérence d'un instantané.
 
 Vous pouvez créer des doublons à partir de volumes principaux et de volumes de réplique. Le nouveau doublon est créé dans le même centre de données que le volume d'origine. Si vous créez un doublon à partir d'un volume de réplique, le nouveau volume est créé dans le même centre de données que le volume de réplique.
 
