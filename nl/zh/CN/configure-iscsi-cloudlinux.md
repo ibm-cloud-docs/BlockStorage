@@ -121,7 +121,7 @@ chkconfig iscsid on
      ```
      {: codeblock}
 
-     对 CHAP 名称请使用大写。将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
+     对 CHAP 名称请使用大写。将其他 CHAP 设置保持为注释状态。{{site.data.keyword.cloud}} 存储器仅使用单向认证。不要启用相互 CHAP。
      {:important}
 
 
@@ -139,9 +139,9 @@ chkconfig iscsid on
 4. 使用从 {{site.data.keyword.slportal}} 中获取的目标 IP 地址来发现该设备。
 
      A. 针对 iSCSI 阵列运行发现。
-     ```
-            iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
+       ```
+       iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+       ```
        {: pre}
 
         示例输出
@@ -152,9 +152,9 @@ chkconfig iscsid on
        ```
 
      B. 将主机设置为自动登录到 iSCSI 阵列。
-     ```
-            iscsiadm -m node -L automatic
-     ```
+       ```
+       iscsiadm -m node -L automatic
+       ```
        {: pre}
 
 5. 验证主机是否已登录到 iSCSI 阵列并维护其会话。

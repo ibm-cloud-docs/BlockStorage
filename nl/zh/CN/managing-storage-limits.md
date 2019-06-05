@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,11 +30,11 @@ subcollection: BlockStorage
   -h, --help             显示此消息并退出。
 ```
 
-您可以通过在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中提交凭单来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
+您可以通过在[门户网站](https://cloud.ibm.com/unifiedsupport/cases/add){: external}中提交支持案例来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
 
-要请求增大限制，请开具凭单并将其提交给销售代表。
+要请求增大限制，请打开案例并将其提交给销售代表。
 
-在凭单中，请提供以下信息：
+在案例中，请提供以下信息：
 
 - **凭单主题**：请求增大数据中心卷计数存储限制
 
@@ -56,4 +56,4 @@ subcollection: BlockStorage
 响应请求中的所有问题和声明。它们是处理和核准所必需的。
 {:important}
 
-系统将通过凭单流程向您通知对限制的更新。
+系统将通过案例流程向您通知对限制的更新。

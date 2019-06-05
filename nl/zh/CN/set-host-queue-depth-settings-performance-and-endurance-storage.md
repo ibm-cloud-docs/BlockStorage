@@ -14,31 +14,14 @@ subcollection: BlockStorage
 # 调整主机队列深度设置
 {: #hostqueuesettings}
 
-{{site.data.keyword.BluSoftlayer_full}} 建议为每个性能层设置最大主机和应用程序输入/输出 (I/O) 队列深度。
+{{site.data.keyword.cloud}} 建议为每个性能层设置最大主机和应用程序输入/输出 (I/O) 队列深度。
 
-<table align="center">
-  <caption>每个 IOPS 层的建议队列深度</caption>
-        <thead>
-	    <tr>
-		<th>性能层</th>
-		<th>最大主机队列深度</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0.25 IOPS/GB</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS/GB</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS/GB</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+|性能层|最大主机队列深度|
+|:------:|:------:|
+|0.25 IOPS/GB|8|
+|2 IOPS/GB|24|
+|4 IOPS/GB|56|
+{: caption="每个 IOPS 层的建议队列深度" caption-side="top"}
 
 主机设置不会影响磁盘和控制器等待时间。它仅影响主机和应用程序遵循的等待时间。
 

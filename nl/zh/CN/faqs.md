@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ subcollection: BlockStorage
 ## 可以订购多少个卷？
 {: faq}
 
-缺省情况下，总共可以供应 250 个块存储卷和文件存储卷。要增大卷限制，请联系销售代表。有关更多信息，请参阅[管理存储限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
+缺省情况下，总共可以供应 250 个块存储器和文件存储器。要增大卷限制，请联系销售代表。有关更多信息，请参阅[管理存储限制](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)。
 
 ## 在一个主机上可以安装多少个 {{site.data.keyword.blockstorageshort}} 卷？
 {: faq}
 
-这取决于主机操作系统的处理能力，而不受 {{site.data.keyword.BluSoftlayer_full}} 的限制。有关可安装的卷数的限制，请参阅操作系统文档。
+这取决于主机操作系统的处理能力，而不受 {{site.data.keyword.cloud}} 的限制。有关可安装的卷数的限制，请参阅操作系统文档。
 
 ## 我将为我的 Block Storage LUN 选择哪个 Windows 版本？
 {: faq}
@@ -74,6 +74,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 吞吐量限制是在逐个 LUN 级别设置的，因此使用更快的以太网连接并不会增加该设定限制。但是，使用较慢的以太网连接时，带宽可能是潜在瓶颈。
 
 ## 防火墙和安全组会影响性能吗？
+{: #isolatedstoragetraffic}
 {: faq}
 
 最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。

@@ -26,11 +26,9 @@ subcollection: BlockStorage
 已授权的主机和卷必须位于同一数据中心内。例如，您不能使副本卷位于伦敦，而使主机位于阿姆斯特丹。副本卷和主机必须都位于伦敦，或者都位于阿姆斯特丹。
 {:note}
 
-1. 登录到 [{{site.data.keyword.cloud}} 控制台](https://
-{DomainName}/catalog){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
+1. 登录到 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/catalog){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 
-
-   或者，您可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
+   或者，可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
 2. 在 **{{site.data.keyword.blockstorageshort}}** 页面中，单击源卷或目标卷。
 3. 单击**副本**。
 4. 向下滚动到**授权主机**框架，然后单击右侧的**授权主机**。
@@ -50,8 +48,7 @@ subcollection: BlockStorage
 2. 单击**副本**，然后单击**操作**。
 3. 选择**故障转移**。
 
-   应该会在页面中收到一条消息，声明正在进行故障转移。此外，**{{site.data.keyword.blockstorageshort}}** 上的相应卷旁边会显示一个图标，指示正在执行活动事务。将鼠标悬停在该图标上将生成一个用于显示事务的窗口。事务完成后，该图标会消失。在故障转移过程中，与配置相关的操作为只读。无法编辑任何快照安排，也无法更改快照空间。该事件将记录在复制历史记录中。
-   <br/> 目标卷处于活动状态时，您将收到另一条消息。原始源卷的“LUN 名称”更新为以“REP”结尾，并且其状态将变为“不活动”。
+   应该会在页面中收到一条消息，声明正在进行故障转移。此外，**{{site.data.keyword.blockstorageshort}}** 上的相应卷旁边会显示一个图标，指示正在执行活动事务。将鼠标悬停在该图标上将生成一个用于显示事务的窗口。事务完成后，该图标会消失。在故障转移过程中，与配置相关的操作为只读。无法编辑任何快照安排，也无法更改快照空间。该事件将记录在复制历史记录中。<br/>目标卷处于活动状态时，您将收到另一条消息。原始源卷的“LUN 名称”更新为以“REP”结尾，并且其状态将变为“不活动”。
    {:note}
 4. 单击**全部查看 ({{site.data.keyword.blockstorageshort}})**。
 5. 单击活动 LUN（原先的目标卷）。

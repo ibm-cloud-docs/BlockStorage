@@ -58,23 +58,12 @@ subcollection: BlockStorage
 
 在活动文件系统中，更改的块会重写入磁盘上的其他位置，或者作为活动文件块整个除去。在更改或删除文件时，会将原始文件块保留为一个或多个快照副本的一部分。因此，仍会保留原始块使用的磁盘空间，以反映更改前活动文件系统的状态。此外，还会保留修改后活动文件系统中块使用的磁盘空间。
 
-<table>
-    <colgroup>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-      <col style="width: 33.3%;"/>
-    </colgroup>
-      <tr>
-        <th colspan="3" style="border: 0.0px;text-align: center;">生成快照副本前后的磁盘空间使用情况</th>
-     </tr><tr>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle1.png" alt="生成快照副本前"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle3.png" alt="生成快照副本后"></td>
-        <td style="border: 0.0px;text-align: center;"><img src="/images/bfcircle2.png" alt="生成快照副本后更改"></td>
-     </tr><tr>
-        <td style="border: 0.0px;">创建任何快照副本之前，磁盘空间仅由活动文件系统使用。</td>
-        <td style="border: 0.0px;">创建快照副本之后，活动文件系统和快照副本将指向相同磁盘块。快照副本不会使用额外的磁盘空间。</td>
-        <td style="border: 0.0px;">从活动文件系统中删除 <i>myfile.txt</i> 后，快照副本仍包含该文件并引用其磁盘块。这就是删除活动文件系统数据并不一定会释放磁盘空间的原因。</td>
-      </tr>
-</table>
+
+|磁盘空间使用情况|   |
+|-----|-----|
+| ![生成快照副本前所使用的空间](/images/bfcircle1.png "生成快照副本前")|创建任何快照副本之前，磁盘空间仅由活动文件系统使用。|
+| ![生成快照副本时所使用的空间](/images/bfcircle3.png "生成快照副本后")|创建快照副本之后，活动文件系统和快照副本将指向相同磁盘块。快照副本不会使用额外的磁盘空间。|
+| ![生成快照副本后某些内容更改时所使用的空间](/images/bfcircle2.png "生成快照副本后的更改")|从活动文件系统中删除 `myfile.txt` 后，快照副本仍包含该文件并引用其磁盘块。这就是删除活动文件系统数据并不一定会释放磁盘空间的原因。|
+{: caption="表 1 显示了快照如何影响存储器上的空间使用情况。" caption-side="top"}
 
 有关快照空间使用情况的更多信息，请参阅[管理快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots)。

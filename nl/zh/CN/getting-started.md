@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -43,58 +43,17 @@ subcollection: BlockStorage
 
 应用程序使用的块大小会直接影响存储器性能。如果应用程序使用的块大小小于 16 KB，那么在达到吞吐量限制之前，会先达到 IOPS 限制。相反，如果应用程序使用的块大小大于 16 KB，那么在达到 IOPS 限制之前，会先达到吞吐量限制。
 
-<table>
-  <caption>表 4 显示了块大小和 IOPS 如何影响吞吐量的示例。</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>块大小 (KB)</th>
-            <th>IOPS</th>
-            <th>吞吐量（MB/秒）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4（Linux 的典型值）</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8（Oracle 的典型值）</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32（SQL Server 的典型值）</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+|块大小 (KB)|IOPS|吞吐量（MB/秒）|
+|-----|-----|-----|
+|4|1,000|16|
+|8|1,000|16|
+|16|1,000|16|
+|32|500|16|
+|64|250|16|
+|128|128|16|
+|512|32|16|
+|1024|16|16|
+{: caption="表 1 显示了块大小和 IOPS 如何影响吞吐量的示例。<br/>平均 IO 大小 x IOPS = 吞吐量 (MB/s)。" caption-side="top"}
 
 ### 已授权主机
 
@@ -106,7 +65,9 @@ subcollection: BlockStorage
 
 要实现最大 IOPS，需要落实足够的网络资源。其他注意事项包括在存储器外部使用的专用网络、主机端以及特定于应用程序的调整（IP 堆栈或[队列深度](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)以及其他设置）。
 
-存储流量包含在公共虚拟服务器的总网络使用量之内。有关服务可能施加的限制的更多信息，请参阅[虚拟服务器文档](/docs/vsi?topic=virtual-servers-public-virtual-servers)。
+存储流量应与其他流量类型隔离，不得通过防火墙和路由器进行定向。有关更多信息，请参阅[常见问题](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic)。
+
+存储流量包含在公共虚拟服务器的总网络使用量之内。有关服务可能施加的限制的更多信息，请参阅[虚拟服务器文档](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)。
 {:tip}
 
 ## 提交订单

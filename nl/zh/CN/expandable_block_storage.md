@@ -47,7 +47,7 @@ subcollection: BlockStorage
 ## 调整存储器大小
 {: #resizingsteps}
 
-1. 在 {{site.data.keyword.slportal}} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.BluSoftlayer_full}} 控制台中单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
+1. 在 {{site.data.keyword.slportal}} 中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者在 {{site.data.keyword.cloud}} 控制台中单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
 2. 从列表中选择 LUN，然后单击**操作** > **修改 LUN**。
 3. 输入新的存储器大小（以 GB 为单位）。
 4. 复查您的选择和新的定价。

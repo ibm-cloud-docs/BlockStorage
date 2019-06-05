@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 新位置和功能
 {: #news}
 
-{{site.data.keyword.BluSoftlayer_full}} 将推出新版本的 {{site.data.keyword.blockstoragefull}}！
+{{site.data.keyword.cloud}} 将推出新版本的 {{site.data.keyword.blockstoragefull}}！
 
 新的存储器在精选数据中心内提供，是更高 IOPS 级别的闪存支持的存储器，具有针对静态数据的磁盘级别加密。在已升级数据中心内供应的所有存储器都将自动通过新版本创建。
 
@@ -28,67 +28,12 @@ subcollection: BlockStorage
 {: #new-locations}
 
 新的 {{site.data.keyword.blockstorageshort}} 在以下区域和数据中心内提供。
-<table role="presentation">
-  <tr>
-    <td><strong>美国 2</strong></td>
-    <td><strong>欧盟</strong></td>
-    <td><strong>澳大利亚</strong></td>
-    <td><strong>加拿大</strong></td>
-    <td><strong>拉丁美洲</strong></td>
-    <td><strong>亚太地区</strong></td>
-  </tr>
-  <tr>
-    <td>DAL09<br />
-	DAL10<br />
-	DAL12<br />
-	DAL13<br />
-	SJC03<br />
-SJC04<br />
-	WDC04<br />
-	WDC06<br />
-	WDC07<br />
-	<br /><br /><br />
-    </td>
-    <td>AMS01<br />
-AMS03<br />
-	FRA02<br />
-	FRA04<br />
-	FRA05<br />
-	LON02<br />
-	LON04<br />
-	LON05<br />
-	LON06<br />
-	MIL01<br />
-	OSLO1<br />
-	PAR01<br />
-    </td>
-    <td>MEL01<br />
-SYD01<br />
-SYD04<br />
-        SYD05<br />
-        <br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MON01<br />
-TOR01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MEX01<br />
-SAO01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>CHE01<br />
-HKG02<br />
-	SEO01<br />
-	SNG01<br />
-TOK02<br />
-	TOK04<br />
-	TOK05<br />
-	<br /><br /><br /><br /><br />
-    </td>
-  </tr>
-</table>
 
-*表 1 显示了数据中心可用性。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。*
+|美国 2|拉丁美洲|加拿大|欧盟|亚太地区|澳大利亚|
+|-----|-----|-----|-----|-----|------|
+|DAL09<br >DAL10<br />DAL12<br />DAL13<br />SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07|MEX01<br />SAO01|MON01<br />TOR01|AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />MIL01<br />OSLO1<br />PAR01|CHE01<br />HKG02<br />SEO01<br />SNG01<br />TOK02<br />TOK04<br />TOK05|MEL01<br />SYD01<br />SYD04<br />        SYD05|
+{: caption="表 1 显示了数据中心可用性。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。" caption-side="top"}
+
 
 ## 新功能部件和功能
 {: #features}

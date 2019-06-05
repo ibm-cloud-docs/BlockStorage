@@ -28,84 +28,13 @@ subcollection: BlockStorage
 
 ## 确定复制存储卷的远程数据中心
 
-{{site.data.keyword.BluSoftlayer_full}} 在世界各地的数据中心已成对编成主数据中心和远程数据中心组合。
+{{site.data.keyword.cloud}} 在世界各地的数据中心已成对编成主数据中心和远程数据中心组合。
 请参阅表 1，以获取数据中心可用性和复制目标的完整列表。
 
-<table>
-  <caption style="text-align: left;"><p>表 1 - 下表显示每个区域中具有增强功能的数据中心的完整列表。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。</p>
-  <p>&#42; “美国 1”区域中的数据中心没有增强型存储器。具有增强存储功能的数据中心内的主机<strong>无法</strong>启动与“美国 1”数据中心内副本目标的复制。</p>
-  </caption>
-  <thead>
-    <tr>
-      <th>美国 1 &#42;</th>
-      <th>美国 2</th>
-      <th>拉丁美洲</th>
-      <th>加拿大</th>
-      <th>欧洲</th>
-      <th>亚太地区</th>
-      <th>澳大利亚</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DAL01<br />
-DAL05<br />
-	  DAL06<br />
-	  HOU02<br />
-	  SJC01<br />
-	  WDC01<br />
-	  <br /><br /><br /><br /><br /><br />
-      </td>
-      <td>SJC03<br />
-	  SJC04<br />
-	  WDC04<br />
-	  WDC06<br />
-	  WDC07<br />
-	  DAL09<br />
-	  DAL10<br />
-	  DAL12<br />
-	  DAL13<br />
-	  <br /><br /><br />
-      </td>
-      <td>MEX01<br />
-	  SAO01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>TOR01<br />
-MON01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>AMS01<br />
-	  AMS03<br />
-	  FRA02<br />
-	  FRA04<br />
-	  FRA05<br />
-	  LON02<br />
-	  LON04<br />
-	  LON05<br />
-	  LON06<br />
-	  OSL01<br />
-	  PAR01<br />
-	  MIL01<br />
-      </td>
-      <td>HKG02<br />
-TOK02<br />
-TOK04<br />
-TOK05<br />
-SNG01<br />
-SEO01<br />
-                                CHE01<br />
-	        <br /><br /><br /><br /><br />
-      </td>
-      <td>SYD01<br />
-SYD04<br />
-          SYD05<br />
-MEL01<br />
-          <br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-    </tr>
-  </tbody>
-</table>
+|美国 1|美国 2|拉丁美洲|加拿大|欧洲|亚太地区|澳大利亚|
+|-----|-----|-----|-----|-----|-----|-----|
+|DAL01<br />DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01|SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13|MEX01<br />SAO01|TOR01<br />MON01|AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01|HKG02<br />TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />                                CHE01|SYD01<br />SYD04<br />          SYD05<br />MEL01|
+{: caption="表 1 - 下表显示每个区域中具有增强功能的数据中心的完整列表。每个区域单独一列。某些城市（例如，达拉斯、圣何塞、华盛顿特区、阿姆斯特丹、法兰克福、伦敦和悉尼）有多个数据中心。“美国 1”区域中的数据中心没有增强型存储器。具有增强存储功能的数据中心内的主机无法启动与“美国 1”数据中心内副本目标的复制。" caption-side="top"}
 
 ## 创建初始副本
 
@@ -186,7 +115,7 @@ MEL01<br />
 
 ## 创建副本的复制项
 
-您可以创建现有 {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}} 的复制项。缺省情况下，复制卷将继承原始卷的容量和性能选项，并且会包含截至快照时间点的数据的副本。
+您可以创建现有 {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}} 的复制项。缺省情况下，复制卷将继承原始卷的容量和性能选项，并且会包含截至快照时间点的数据的副本。
 
 复制项可以基于主卷和副本卷创建。新复制项会在原始卷所在的数据中心内创建。如果基于副本卷创建复制项，那么新卷将在副本卷所在的数据中心内创建。
 

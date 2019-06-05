@@ -23,7 +23,7 @@ subcollection: BlockStorage
 这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
 
-例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} 找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，以及在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} 找到 Ubuntu 有关 DM-Multipath 设置的指示信息。
+例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}找到有关 DM-Multipath 设置的指示信息。
 {: tip}
 
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 授权。
@@ -50,7 +50,7 @@ subcollection: BlockStorage
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 {: #mountLin}
 
-下面是将基于 Linux 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
+下面是将基于 Linux 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
 
 指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
 {: tip}
@@ -195,7 +195,7 @@ subcollection: BlockStorage
    ```
    {: codeblock}
 
-   将其他 CHAP 设置保持为注释状态。{{site.data.keyword.BluSoftlayer_full}} 存储器仅使用单向认证。不要启用相互 CHAP。
+   将其他 CHAP 设置保持为注释状态。{{site.data.keyword.cloud}} 存储器仅使用单向认证。不要启用相互 CHAP。
    {:important}
 
    对于 Ubuntu 用户，在查看 `iscsid.conf` 文件时，请检查 `node.startup` 设置是手动还是自动。如果是手动，请更改为自动。
@@ -356,57 +356,22 @@ systemctl start iscsid
 
 #### `fdisk` 命令表
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption><code>fdisk</code> 命令表的左侧包含命令，右侧包含预期结果。</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">命令</th>
-		<th style="width:60%;">结果</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>创建分区。&#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>使分区成为主分区。</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>成为磁盘上的分区 1。</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>从柱面 1 开始。</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>按 Enter 键以转至最后一个柱面。</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>设置分区的类型。&#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>选择分区 1 以设置为特定类型。</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>选择 Linux 作为类型（83 是表示 Linux 的十六进制代码）。&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>将新的分区信息写入磁盘。&#42;</td>
-	</tr>
-   </tbody>
-</table>
+|命令|结果|
+|-----|-----|
+| `Command: n`|创建分区。* |
+| `Command action: p` |使分区成为主分区。|
+| `Partition number (1-4): 1` |成为磁盘上的分区 1。|
+| `First cylinder (1-8877): 1 (default)` |从柱面 1 开始。|
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` |按 Enter 键以转至最后一个柱面。|
+| `Command: t` |设置分区的类型。* |
+| `Select partition 1.` |选择分区 1 以设置为特定类型。|
+| `Hex code: 83` |选择 Linux 作为类型（83 是表示 Linux 的十六进制代码）。** |
+| `Command: w` |将新的分区信息写入磁盘。** |
+{: caption="表 1 - <code>fdisk</code> 命令表的左侧包含命令，右侧包含预期结果。" caption-side="top"}
 
-  (`*`) 输入 m 可获取帮助。
+(`*`) 输入 m 可获取帮助。
 
-  (`**`) 输入 L 可列出十六进制代码
+(`**`) 输入 L 可列出十六进制代码
 
 ### 使用 `parted` 创建文件系统
 {: #parted}
@@ -458,7 +423,7 @@ systemctl start iscsid
 
    4. 可以使用 `parted` 来创建主磁盘分区和逻辑磁盘分区，这两个操作所涉及的步骤相同。要创建分区，`parted` 会使用 `mkpart`。可以为其提供其他参数，如 **primary** 或 **logical**，具体取决于您要创建的分区类型。<br />
 
-   列出的单位缺省为兆字节 (MB)。要创建 10 GB 的分区，请从 1 开始，到 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。
+   列出的单位缺省为兆字节 (MB)。要创建 10 GB 的分区，请从 1 开始，到 10000 结束。还可以根据需要，通过输入 `unit TB` 将大小单位更改为太字节。 
    {: tip}
 
       ```

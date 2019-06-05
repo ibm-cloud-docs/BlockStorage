@@ -20,7 +20,6 @@ subcollection: BlockStorage
 
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 授权。
 
-
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。单击**授权主机**。
 2. 从列表中选择将访问该卷的一个或多个主机，然后单击**提交**。
 
@@ -41,7 +40,7 @@ subcollection: BlockStorage
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 {: #mountWin}
 
-下面是将基于 Windows 的 {{site.data.keyword.BluSoftlayer_full}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
+下面是将基于 Windows 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
 
 ### 配置 MPIO 功能
 
@@ -68,7 +67,7 @@ subcollection: BlockStorage
     - 单击**更改**以将现有值替换为 iSCSI 限定名 (IQN)。
     ![iSCSI 启动器属性](/images/iSCSI.png)
 
-      IQN 名称可以从 {{site.data.keyword.blockstorageshort}}[{{site.data.keyword.slportal}} 中的“详细信息”屏幕](https://control.softlayer.com/){: external} 中获取。
+      可以从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取 IQN 名称。
       {: tip}
 
     - 单击**发现**选项卡，然后单击**发现门户网站**。
@@ -78,8 +77,8 @@ subcollection: BlockStorage
     ![启用 CHAP 登录](/images/Advanced_0.png)
         “名称”和“目标私钥”字段区分大小写。
     {:important}
-         - 在**名称**字段中，删除任何现有条目，然后输入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的用户名。
-         - 在**目标密钥**字段中，输入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的密码。
+         - 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**名称**字段中，删除任何现有条目，然后输入用户名。
+         - 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**目标私钥**字段中，输入密码。
     - 单击**高级设置**和**发现目标门户网站**窗口中的**确定**，以返回到“iSCSI 启动器属性”主屏幕。如果收到认证错误，请检查用户名和密码条目。
     ![不活动的目标](/images/Inactive_0.png)
         目标的名称显示在“发现的目标”部分中，状态为`不活动`。
@@ -125,7 +124,7 @@ subcollection: BlockStorage
    - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将存储设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与为第一个会话提供的接口相同。
    - 在“目标门户网站 IP”列表中，为存储设备上启用的第二个数据接口选择 IP 地址。
 
-     您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的 {{site.data.keyword.blockstorageshort}}“详细信息”屏幕中找到第二个 IP 地址。
+     您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中找到第二个 IP 地址。
       {: tip}
    - 单击**启用 CHAP 登录**复选框。
    - 输入从门户网站中获取的“名称”和“目标私钥”值，然后单击**确定**。
@@ -154,7 +153,7 @@ subcollection: BlockStorage
 完成了重新启动并且添加了“存储设备”后，就可以验证 MPIO 是否已配置且生效。要执行此操作，请查看**目标设备详细信息**，然后单击 **MPIO**：
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-如果未正确配置 MPIO，那么当发生网络中断或 {{site.data.keyword.BluSoftlayer_full}} 团队执行维护时，存储设备可能断开连接并显示为已禁用。MPIO 将确保在发生这些事件期间获得额外级别的连接，并且会保留已建立的会话，使活动读/写操作转至 LUN。
+如果未正确配置 MPIO，那么当发生网络中断或 {{site.data.keyword.cloud}} 团队执行维护时，存储设备可能断开连接并显示为已禁用。MPIO 将确保在发生这些事件期间获得额外级别的连接，并且会保留已建立的会话，使活动读/写操作转至 LUN。
 
 ## 卸装 {{site.data.keyword.blockstorageshort}} 卷
 {: #unmountingWin}
