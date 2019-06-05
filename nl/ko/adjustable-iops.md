@@ -46,7 +46,7 @@ subcollection: BlockStorage
 
 1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
    - {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-   - {{site.data.keyword.BluSoftlayer_full}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+   - {{site.data.keyword.cloud}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
 3. **스토리지 IOPS 옵션**에서 새로 선택하십시오.
     - Endurance(계층 IOPS)의 경우 스토리지의 0.25IOPS/GB보다 큰 IOPS 계층을 선택하십시오. IOPS 티어는 언제든지 늘릴 수 있습니다. 그렇지만 줄이는 것은 한 달에 한 번만 가능합니다.

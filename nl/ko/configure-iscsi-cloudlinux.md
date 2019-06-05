@@ -122,7 +122,7 @@ subcollection: BlockStorage
      ```
      {: codeblock}
 
-     CHAP 이름에는 대문자를 사용하십시오. 다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.BluSoftlayer_full}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
+     CHAP 이름에는 대문자를 사용하십시오. 다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.cloud}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
      {:important}
 
 

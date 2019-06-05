@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,11 +30,11 @@ subcollection: BlockStorage
   -h, --help             이 메시지를 표시하고 종료합니다.
 ```
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 티켓을 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
+[포털](https://cloud.ibm.com/unifiedsupport/cases/add){: external}에서 지원 사례를 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
 
-한계 증가를 요청하려면 티켓을 열고 이를 영업 담당자에게 보내십시오.
+한계 증가를 요청하려면 케이스를 열고 이를 영업 담당자에게 보내십시오.
 
-티켓에서 다음 정보를 제공하십시오.
+케이스에서 다음 정보를 제공하십시오.
 
 - **티켓 제목**: 데이터 센터 볼륨 개수 스토리지 한계 증가 요청
 
@@ -56,4 +56,4 @@ subcollection: BlockStorage
 요청의 모든 질문과 명령문에 응답하십시오. 해당 사항은 처리와 승인에 필요합니다.
 {:important}
 
-사용자는 티켓 프로세스를 통해 한계에 대한 업데이트의 알림을 받습니다.
+사용자는 케이스 프로세스를 통해 한계에 대한 업데이트의 알림을 받습니다.

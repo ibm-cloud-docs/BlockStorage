@@ -41,7 +41,7 @@ subcollection: BlockStorage
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 {: #mountWin}
 
-다음은 Windows 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다. 예제는 Windows Server 2012를 기반으로 합니다. 단계는 운영 체제(OS) 공급업체 문서에 따라 다른 Windows 버전에 맞게 조정 가능합니다.
+다음은 Windows 기반의 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다. 예제는 Windows Server 2012를 기반으로 합니다. 단계는 운영 체제(OS) 공급업체 문서에 따라 다른 Windows 버전에 맞게 조정 가능합니다.
 
 ### MPIO 기능 구성
 
@@ -154,7 +154,7 @@ Windows MPIO가 제대로 구성되었는지 확인하려면 우선 MPIO 추가 
 다시 시작이 완료되고 스토리지 디바이스가 추가되면 MPIO가 구성되어 작동 중인지 확인할 수 있습니다. 확인하려면 **대상 디바이스 세부사항**에서 **MPIO**를 클릭하십시오.
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-MPIO가 올바르지 않게 구성되면, 네트워크 가동 중단이 발생하거나 {{site.data.keyword.BluSoftlayer_full}} 팀이 유지보수를 수행하는 경우 스토리지 디바이스는 연결이 끊어지고 사용 안함으로 표시될 수 있습니다. MPIO를 사용하면 이런 상황에서도 추가 레벨의 연결이 가능하며 LUN에 대해 읽기/쓰기 조작이 활성화된 세션이 계속 유지됩니다.
+MPIO가 올바르지 않게 구성되면, 네트워크 가동 중단이 발생하거나 {{site.data.keyword.cloud}} 팀이 유지보수를 수행하는 경우 스토리지 디바이스는 연결이 끊어지고 사용 안함으로 표시될 수 있습니다. MPIO를 사용하면 이런 상황에서도 추가 레벨의 연결이 가능하며 LUN에 대해 읽기/쓰기 조작이 활성화된 세션이 계속 유지됩니다.
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트 해제
 {: #unmountingWin}

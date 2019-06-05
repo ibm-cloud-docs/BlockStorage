@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.blockstorageshort}} 저장 시 암호화
 
-{{site.data.keyword.BluSoftlayer_full}}는 보안을 중시하고 데이터를 안전하게 유지하기 위한 암호화의 중요성에 대해 이해하고 있습니다. 제공자 관리 암호화를 사용하면 Endurance 또는 Performance로 프로비저닝되는 {{site.data.keyword.blockstoragefull}}가 기본적으로 성능에 영향을 주지 않으면서 추가 비용 없이 암호화됩니다.
+{{site.data.keyword.cloud}}는 보안을 중시하고 데이터를 안전하게 유지하기 위한 암호화의 중요성에 대해 이해하고 있습니다. 제공자 관리 암호화를 사용하면 Endurance 또는 Performance로 프로비저닝되는 {{site.data.keyword.blockstoragefull}}가 기본적으로 성능에 영향을 주지 않으면서 추가 비용 없이 암호화됩니다.
 
 제공자 관리 저장 시 암호화 기능은 다음과 같은 산업 표준 프로토콜을 사용합니다.
 

@@ -47,7 +47,7 @@ Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대�
 ## 스토리지 크기 조정
 {: #resizingsteps}
 
-1. {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.BluSoftlayer_full}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.cloud}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
 3. GB 단위로 새 스토리지 크기를 입력하십시오.
 4. 선택사항 및 새 가격을 검토하십시오.

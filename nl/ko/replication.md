@@ -28,88 +28,17 @@ subcollection: BlockStorage
 
 ## 내 복제된 스토리지 볼륨에 대한 원격 데이터 센터 판별
 
-전 세계적으로 {{site.data.keyword.BluSoftlayer_full}}의 데이터 센터는 기본과 원격 조합의 쌍으로 구성됩니다.
+전 세계적으로 {{site.data.keyword.cloud}}의 데이터 센터는 기본과 원격 조합의 쌍으로 구성됩니다.
 데이터 센터 가용성 및 복제 대상에 대한 전체 목록은 표 1을 참조하십시오.
 
-<table>
-  <caption style="text-align: left;"><p>표 1 - 이 표는 각 지역의 개선된 기능을 포함한 데이터 센터의 전체 목록을 나타냅니다. 모든 지역에는 별도의 열이 있습니다. 일부 도시(예: 댈러스, 산호세, 워싱턴, 암스테르담, 프랑크푸르트, 런던, 시드니)에는 데이터 센터가 여러 개 있습니다.</p>
-  <p>&#42; 미국 1 지역의 데이터 센터에는 개선된 스토리지가 없습니다. 개선된 스토리지 기능이 있는 데이터 센터의 호스트는 미국 1 데이터 센터에서 복제본 대상으로 복제를 시작할 수 <strong>없습니다</strong>.</p>
-  </caption>
-  <thead>
-    <tr>
-      <th>미국 1 &#42;</th>
-      <th>미국 2</th>
-      <th>라틴 아메리카</th>
-      <th>캐나다</th>
-      <th>유럽</th>
-      <th>아시아 태평양</th>
-      <th>오스트레일리아</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DAL01<br />
-          DAL05<br />
-	  DAL06<br />
-	  HOU02<br />
-	  SJC01<br />
-	  WDC01<br />
-	  <br /><br /><br /><br /><br /><br />
-      </td>
-      <td>SJC03<br />
-	  SJC04<br />
-	  WDC04<br />
-	  WDC06<br />
-	  WDC07<br />
-	  DAL09<br />
-	  DAL10<br />
-	  DAL12<br />
-	  DAL13<br />
-	  <br /><br /><br />
-      </td>
-      <td>MEX01<br />
-	  SAO01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>TOR01<br />
-          MON01<br />
-	  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-      <td>AMS01<br />
-	  AMS03<br />
-	  FRA02<br />
-	  FRA04<br />
-	  FRA05<br />
-	  LON02<br />
-	  LON04<br />
-	  LON05<br />
-	  LON06<br />
-	  OSL01<br />
-	  PAR01<br />
-	  MIL01<br />
-      </td>
-      <td>HKG02<br />
-          TOK02<br />
-TOK04<br />
-TOK05<br />
-SNG01<br />
-SEO01<br />
-          CHE01<br />
-	        <br /><br /><br /><br /><br />
-      </td>
-      <td>SYD01<br />
-          SYD04<br />
-          SYD05<br />
-MEL01<br />
-          <br /><br /><br /><br /><br /><br /><br /><br />
-      </td>
-    </tr>
-  </tbody>
-</table>
+|미국 1 |미국 2 |라틴 아메리카 |캐나다  |유럽  |아시아 태평양  |오스트레일리아  |
+|-----|-----|-----|-----|-----|-----|-----|
+|DAL01<br />          DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 |SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 |MEX01<br />        SAO01 |TOR01<br />          MON01 |AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 |HKG02<br />          TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />          CHE01 |SYD01<br />          SYD04<br />          SYD05<br />MEL01 |
+{: caption="표 1 - 이 표는 각 지역의 개선된 기능을 포함한 데이터 센터의 전체 목록을 나타냅니다. 모든 지역에는 별도의 열이 있습니다. 일부 도시(예: 댈러스, 산호세, 워싱턴, 암스테르담, 프랑크푸르트, 런던, 시드니)에는 데이터 센터가 여러 개 있습니다. 미국 1 지역의 데이터 센터에는 개선된 스토리지가 없습니다. 개선된 스토리지 기능이 있는 데이터 센터의 호스트는 미국 1 데이터 센터의 복제본 대상에 대해 복제를 시작할 수 없습니다." caption-side="top"}
 
 ## 초기 복제본 작성
 
-복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
+복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
 
 1. 스토리지 볼륨을 클릭하십시오.
 2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
@@ -127,7 +56,7 @@ MEL01<br />
 
 ## 기존 복제본 편집
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지** **{{site.data.keyword.blockstorageshort}}**에 있는 **기본** 또는 **복제본**에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
+[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에 있는 **1차** 또는 **복제본** 탭에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
 
 
 ## 복제 스케줄 편집
@@ -184,7 +113,7 @@ MEL01<br />
 
 ## 복제본의 복제 작성
 
-기존 {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.blockstoragefull}}의 복제본을 작성할 수 있습니다. 복제 볼륨은 기본적으로 원래 볼륨의 용량 및 성능 옵션을 상속하며 스냅샷의 특정 시점까지의 데이터 사본을 보유합니다.
+기존 {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}}의 복제본을 작성할 수 있습니다. 복제 볼륨은 기본적으로 원래 볼륨의 용량 및 성능 옵션을 상속하며 스냅샷의 특정 시점까지의 데이터 사본을 보유합니다.
 
 복제는 기본 및 복제본 볼륨 모두에서 작성할 수 있습니다. 원본 볼륨과 동일한 데이터 센터에서 복제가 새로 작성됩니다. 복제본 볼륨에서 복제를 작성하는 경우, 새 볼륨은 복제본 볼륨과 동일한 데이터 센터에서 작성됩니다.
 

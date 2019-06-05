@@ -1,12 +1,12 @@
----
+/---
 
 copyright:
   years: 2018, 2019
 lastupdated: "2019-02-05"
 
-keywords: Block storage, cPanel, backups, mountpoint, ISCSI
+키워드: Block Storage, cPanel, 백업, 마운트 지점, ISCSI
 
-subcollection: BlockStorage
+하위 콜렉션: BlockStorage
 
 ---
 {:external: target="_blank" .external}

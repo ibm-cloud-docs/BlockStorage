@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 새 위치 및 기능
 {: #news}
 
-{{site.data.keyword.BluSoftlayer_full}}에서는 {{site.data.keyword.blockstoragefull}}의 새 버전을 소개합니다.
+{{site.data.keyword.cloud}}에서는 {{site.data.keyword.blockstoragefull}}의 새 버전을 소개합니다.
 
 새 스토리지는 데이터 센터 선택 시에 사용 가능하며 비활성 데이터(data-at-rest)에 대한 디스크 레벨의 암호화가 사용되는 더 높은 IOPS의 플래시 스토리지로 지원됩니다. 업그레이드된 데이터 센터에서 프로비저닝된 모든 스토리지는 새 버전으로 자동 작성됩니다.
 
@@ -28,67 +28,12 @@ subcollection: BlockStorage
 {: #new-locations}
 
 새 {{site.data.keyword.blockstorageshort}}는 다음 영역 및 데이터 센터에서 사용할 수 있습니다.
-<table role="presentation">
-  <tr>
-    <td><strong>US 2</strong></td>
-    <td><strong>EU</strong></td>
-    <td><strong>오스트레일리아</strong></td>
-    <td><strong>캐나다</strong></td>
-    <td><strong>라틴 아메리카</strong></td>
-    <td><strong>아시아 태평양</strong></td>
-  </tr>
-  <tr>
-    <td>DAL09<br />
-	DAL10<br />
-	DAL12<br />
-	DAL13<br />
-	SJC03<br />
-        SJC04<br />
-	WDC04<br />
-	WDC06<br />
-	WDC07<br />
-	<br /><br /><br />
-    </td>
-    <td>AMS01<br />
-        AMS03<br />
-	FRA02<br />
-	FRA04<br />
-	FRA05<br />
-	LON02<br />
-	LON04<br />
-	LON05<br />
-	LON06<br />
-	MIL01<br />
-	OSLO1<br />
-	PAR01<br />
-    </td>
-    <td>MEL01<br />
-        SYD01<br />
-        SYD04<br />
-        SYD05<br />
-        <br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MON01<br />
-        TOR01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>MEX01<br />
-        SAO01<br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </td>
-    <td>CHE01<br />
-        HKG02<br />
-	SEO01<br />
-	SNG01<br />
-        TOK02<br />
-	TOK04<br />
-	TOK05<br />
-	<br /><br /><br /><br /><br />
-    </td>
-  </tr>
-</table>
 
-*표 1은 데이터 센터 가용성을 표시합니다. 각 지역에는 고유한 열이 있습니다. 일부 도시(예: Dallas, San Jose, Washington, Amsterdam, Frankfurt, London, Sydney)에는 데이터 센터가 여러 개 있습니다.*
+|미국 2|라틴 아메리카|캐나다|EU|아시아 태평양|오스트레일리아|
+|-----|-----|-----|-----|-----|------|
+|DAL09<br >DAL10<br />DAL12<br />DAL13<br />SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07 |MEX01<br />        SAO01 |MON01<br />        TOR01  |AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />MIL01<br />OSLO1<br />PAR01 |CHE01<br />HKG02<br />SEO01<br />SNG01<br />        TOK02<br />TOK04<br />TOK05 |MEL01<br />SYD01<br />        SYD04<br />        SYD05 |
+{: caption="표 1에는 데이터 센터 가용성이 표시되어 있습니다. 각 지역에는 고유한 열이 있습니다. 일부 도시(예: 댈러스, 산호세, 워싱턴, 암스테르담, 프랑크푸르트, 런던, 시드니)에는 데이터 센터가 여러 개 있습니다." caption-side="top"}
+
 
 ## 새 기능 및 특성
 {: #features}
@@ -111,7 +56,7 @@ subcollection: BlockStorage
 
 이 데이터 센터에서 프로비저닝되는 개선된 모든 스토리지 볼륨의 마운트 위치는 암호화되지 않은 볼륨의 위치와 다릅니다. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 확인하여 올바른 마운트 지점을 사용 중인지 확인하십시오. 또한 API 호출 `SoftLayer_Network_Storage::getNetworkMountAddress()`를 통해 올바른 마운트 위치 정보를 가져올 수 있습니다.
 
-새 기능에 모두 액세스할 수 있으려면 API를 통해 주문할 때 `Storage-as-a-Service Package 759`를 선택하십시오. API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 관한 자세한 정보는 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}을 참조하십시오.
+새 기능에 모두 액세스할 수 있으려면 API를 통해 주문할 때 `Storage-as-a-Service Package 759`를 선택하십시오. API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 대한 자세한 정보는 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}을 참조하십시오.
 {:important}
 
 여기에서는 추가 데이터 센터가 업그레이드된 시기 및 {{site.data.keyword.blockstorageshort}}에 대해 추가 중인 새로운 기능에 대해서도 확인할 수 있습니다.

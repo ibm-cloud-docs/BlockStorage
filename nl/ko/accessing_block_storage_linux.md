@@ -23,7 +23,7 @@ subcollection: BlockStorage
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
 
-예를 들어 iSCSI 이니시에이터 구성([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}) 및 DM 다중 경로 설정([여기![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
+예를 들어 iSCSI 이니시에이터 구성([여기](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}) 및 DM 다중 경로 설정([여기](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
 {: tip}
 
 시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 이전에 부여되었는지 확인하십시오.
@@ -51,7 +51,7 @@ subcollection: BlockStorage
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 {: #mountLin}
 
-다음은 Linux 기반의 {{site.data.keyword.BluSoftlayer_full}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
+다음은 Linux 기반의 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
 
 지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
 {: tip}
@@ -196,7 +196,7 @@ subcollection: BlockStorage
    ```
    {: codeblock}
 
-   다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.BluSoftlayer_full}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
+   다른 CHAP 설정은 주석 처리된 상태로 두십시오. {{site.data.keyword.cloud}} 스토리지는 단방향 인증만 사용합니다. 상호 CHAP를 사용하지 마십시오.
    {:important}
 
    Ubuntu 사용자의 경우 `iscsid.conf` 파일을 확인할 때 `node.startup` 설정이 수동인지 자동인지 확인하십시오. 수동인 경우 자동으로 변경하십시오.
@@ -357,57 +357,22 @@ subcollection: BlockStorage
 
 #### `fdisk` 명령 표
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption><code>fdisk</code> 명령 표의 왼쪽에는 명령이 표시되고 오른쪽에는 예상되는 결과가 표시됩니다.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">명령</th>
-		<th style="width:60%;">결과</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Command: n</code></td>
-		<td>파티션을 작성합니다. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Command action: p</code></td>
-		<td>파티션이 1차 파티션이 됩니다.</td>
-	</tr>
-	<tr>
-		<td><code>Partition number (1-4): 1</code></td>
-		<td>디스크에서 파티션 1이 됩니다.</td>
-	</tr>
-	<tr>
-		<td><code>First cylinder (1-8877): 1 (default)</code></td>
-		<td>실린더 1에서 시작합니다.</td>
-	</tr>
-	<tr>
-		<td><code>Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)</code></td>
-		<td>Enter를 눌러 마지막 실린더로 이동하십시오.</td>
-	</tr>
-	<tr>
-		<td><code>Command: t</code></td>
-		<td>파티션 유형을 설정합니다. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Select partition 1.</code></td>
-		<td>파티션 1이 특정 유형으로 설정되도록 선택합니다.</td>
-	</tr>
-	<tr>
-		<td><code>Hex code: 83</code></td>
-		<td>유형으로 Linux를 선택합니다(83은 Linux의 16진 코드). &#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Command: w</code></td>
-		<td>디스크에 새 파티션 정보를 기록합니다. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+|명령 |결과 |
+|-----|-----|
+| `Command: n`|파티션을 작성합니다. * |
+| `Command action: p` |파티션이 1차 파티션이 됩니다. |
+| `Partition number (1-4): 1` |디스크에서 파티션 1이 됩니다. |
+| `First cylinder (1-8877): 1 (default)` |실린더 1에서 시작합니다. |
+| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` |Enter를 눌러 마지막 실린더로 이동하십시오. |
+| `Command: t` |파티션 유형을 설정합니다. * |
+| `Select partition 1.` |파티션 1이 특정 유형으로 설정되도록 선택합니다. |
+| `Hex code: 83` |유형으로 Linux를 선택합니다(83은 Linux의 16진 코드). ** |
+| `Command: w` |디스크에 새 파티션 정보를 기록합니다. ** |
+{: caption="표 1 - <codefdisk</code> 명령 표의 왼쪽에는 명령이 표시되고 오른쪽에는 예상되는 결과가 표시됩니다." caption-side="top"}
 
-  (`*`)도움말을 보려면 m을 입력하십시오.
+(`*`)도움말을 보려면 m을 입력하십시오.
 
-  (`**`)16진 코드를 나열하려면 L을 입력하십시오.
+(`**`)16진 코드를 나열하려면 L을 입력하십시오.
 
 ### `parted`로 파일 시스템 작성
 {: #parted}

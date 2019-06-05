@@ -58,7 +58,7 @@ subcollection: BlockStorage
 10. 이용 약관을 검토한 후에 **서드파티 서비스 계약서를 읽었으며 이에 동의합니다** 상자를 선택하십시오.
 11. **작성**을 클릭하십시오. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. 한계 증가에 대해서는 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)를 참조하십시오.<br/><br/>동시 권한 부여 한계에 대해서는 [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
 {:important}
 
 ## 사전 정의 IOPS 티어(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
@@ -89,7 +89,7 @@ subcollection: BlockStorage
 10. 이용 약관을 검토한 후에 **서드파티 서비스 계약서를 읽었으며 이에 동의합니다** 상자를 선택하십시오.
 11. **작성**을 클릭하십시오. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. 한계 증가에 대해서는 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)를 참조하십시오.<br/><br/>동시 권한 부여 한계에 대해서는 [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
 {:important}
 
 ## 새 스토리지 연결

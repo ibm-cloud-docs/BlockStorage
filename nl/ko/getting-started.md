@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -43,58 +43,17 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 
 애플리케이션에서 사용하는 블록 크기는 스토리지 성능에 직접적인 영향을 줍니다. 애플리케이션에서 사용하는 블록 크기가 16KB보다 작은 경우, IOPS 한계가 처리량 한계 이전에 실현됩니다. 반대로, 애플리케이션에서 사용하는 블록 크기가 16KB보다 큰 경우, 처리량 한계가 IOPS 한계 이전에 실현됩니다.
 
-<table>
-  <caption>표 4에는 블록 크기와 IOPS가 처리량에 미치는 영향을 보여주는 예가 있습니다.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>블록 크기(KB)</th>
-            <th>IOPS</th>
-            <th>처리량(MB/s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4(일반적으로 Linux용)</td>
-            <td>1,000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8(일반적으로 Oracle용)</td>
-            <td>1,000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1,000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32(일반적으로 SQL Server용)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+|블록 크기(KB) |IOPS |처리량(MB/s) |
+|-----|-----|-----|
+|4 |1,000 |16 |
+|8 |1,000 |16 |
+|16 |1,000 |16 |
+|32 |500 |16 |
+|64 |250 |16 |
+|128 |128 |16 |
+|512 |32 |16 |
+|1024 |16 |16 |
+{: caption="표 1에는 블록 크기 및 IOPS가 처리량에 미치는 영향에 대한 예가 표시되어 있습니다.<br/평균 IO 크기 x IOPS = 처리량(MB/초)" caption-side="top"}
 
 ### 권한 부여된 호스트
 
@@ -106,7 +65,9 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 
 최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) 및 기타 설정)도 고려해야 합니다.
 
-스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](/docs/vsi?topic=virtual-servers-public-virtual-servers)를 참조하십시오.
+스토리지 트래픽은 다른 트래픽 유형과 격리되어야 하며 방화벽 및 라우터를 통과하지 않도록 해야 합니다. 자세한 정보는 [FAQ](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic)를 참조하십시오.
+
+스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)를 참조하십시오.
 {:tip}
 
 ## 주문 제출

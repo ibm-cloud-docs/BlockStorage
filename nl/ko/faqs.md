@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ subcollection: BlockStorage
 ## 주문할 수 있는 볼륨은 얼마나 됩니까?
 {: faq}
 
-기본적으로, 250개 블록 및 파일 스토리지 볼륨의 통합 총계를 프로비저닝할 수 있습니다. 볼륨 한계를 늘리려면 영업 담당자에게 문의하십시오. 자세한 정보는 [스토리지 한계 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)를 참조하십시오.
+기본적으로, 250개 블록 및 파일 스토리지의 통합 총계를 프로비저닝할 수 있습니다. 볼륨 한계를 늘리려면 영업 담당자에게 문의하십시오. 자세한 정보는 [스토리지 한계 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)를 참조하십시오.
 
 ## 호스트에 마운트할 수 있는 {{site.data.keyword.blockstorageshort}} 볼륨은 몇 개입니까?
 {: faq}
 
-호스트 운영 체제에서 처리할 수 있는 항목에 따라 달라지며 {{site.data.keyword.BluSoftlayer_full}}에서 제한하는 것은 아닙니다. 마운트할 수 있는 볼륨 수에 대한 한계는 OS 문서를 참조하십시오.
+호스트 운영 체제에서 처리할 수 있는 항목에 따라 달라지며 {{site.data.keyword.cloud}}에서 제한하는 것은 아닙니다. 마운트할 수 있는 볼륨 수에 대한 한계는 OS 문서를 참조하십시오.
 
 ## 내 Block Storage LUN에 대해 어떤 Windows 버전을 선택해야 합니까?
 {: faq}
@@ -74,6 +74,7 @@ IOPS는 랜덤 50퍼센트 읽기와 50퍼센트 쓰기인 16KB 블록의 로드
 처리량 한계는 LUN 레벨별로 설정되기 때문에 더 빠른 이더넷 연결을 사용해도 설정 한계는 늘어나지 않습니다. 그렇지만 더 느린 이더넷 연결을 사용하는 경우 대역폭에서 잠재적으로 병목 현상이 발생할 수 있습니다.
 
 ## 방화벽과 보안 그룹이 성능에 영향을 줍니까?
+{: #isolatedstoragetraffic}
 {: faq}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.

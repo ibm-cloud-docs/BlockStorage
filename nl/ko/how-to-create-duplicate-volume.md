@@ -42,18 +42,18 @@ subcollection: BlockStorage
 - **개발 및 테스트(개발/테스트)**. 한 번에 최대 4개의 동시 볼륨 복제를 작성하여 개발 및 테스트용 복제 데이터를 작성합니다.
 - **스토리지 크기 조정**. 데이터를 이동할 필요 없이 크기 또는 IOPS 비율(또는 둘 다)이 새로운 볼륨을 작성합니다.  
 
-몇 가지 방법으로 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 복제 볼륨을 작성할 수 있습니다.
+몇 가지 방법으로 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 중복 볼륨을 작성할 수 있습니다.
 
 
 ## 스토리지 목록의 특정 볼륨에서 복제 작성
 
 1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
     - 고객 포털에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-    - {{site.data.keyword.BluSoftlayer_full}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+    - {{site.data.keyword.cloud}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 볼륨을 선택하고 **조치** > **복제 LUN(볼륨)**을 클릭하십시오.
 3. 스냅샷 옵션을 선택하십시오.
     - **비복제본** 볼륨에서 주문하는 경우,
-      - **새 스냅샷에서 작성** 선택 - 복제에 사용되는 스냅샷이 작성됩니다. 볼륨에 현재 스냅샷이 없거나 복제본을 즉시 작성하려는 경우 이 옵션을 사용하십시오.<br/>
+      - **새 스냅샷에서 작성** 선택 - 복제에 사용되는 스냅샷이 작성됩니다. 볼륨에 현재 스냅샷이 없거나 이 작업 후 바로 복제를 작성하려는 경우 이 옵션을 사용하십시오.<br/>
       - **최신 스냅샷에서 작성** 선택 – 이 볼륨에 대해 존재하는 최신 스냅샷에서 복제가 작성됩니다.
     - **복제본** 볼륨에서 주문하는 경우 스냅샷의 유일한 옵션은 사용 가능한 최신 스냅샷을 사용하는 것입니다.
 4. 스토리지 유형 및 위치는 원래 볼륨과 동일하게 유지됩니다.
