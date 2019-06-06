@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen
 {: #mountingWindows}
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} autorisiert wurde.
+Stellen Sie vor Beginn sicher, dass der Host, von dem auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} autorisiert wurde.
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
 2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
@@ -41,7 +41,7 @@ Optionen:
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 {: #mountWin}
 
-Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
+Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Windows-basierten {{site.data.keyword.cloud}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
 
 ### Funktion MPIO konfigurieren
 
@@ -68,7 +68,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
     - Klicken Sie auf **Ändern**, um die vorhandenen Werte durch Ihren qualifizierten iSCSI-Namen (IQN) zu ersetzen.
     ![Eigenschaften des iSCSI-Initiators](/images/iSCSI.png)
 
-      Der IQN-Name kann aus der Anzeige '{{site.data.keyword.blockstorageshort}} Details' im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} abgelesen werden.
+      Der IQN-Name kann aus der Detailanzeige zu {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} abgerufen werden.
       {: tip}
 
     - Klicken Sie auf **Erkennung** und anschließend auf **Portal erkennen**.
@@ -80,7 +80,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
     In den Feldern 'Name' und 'Zielschlüssel' muss die Groß-/Kleinschreibung beachtet werden.
     {:important}
          - Löschen Sie im Feld **Name** alle vorhandenen Einträge und geben Sie den Benutzernamen aus dem [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ein.
-         - Geben Sie im Feld **Zielschlüssel** das Kennwort aus dem [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ein.
+         - Geben Sie im Feld **Geheimer Zielschlüssel** das Kennwort aus dem [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ein.
     - Klicken Sie auf **OK** in den Fenstern **Erweiterte Einstellungen** und **Zielportal ermitteln**, um zur Hauptanzeige für die Eigenschaften des iSCSI-Initiators zurückzukehren. Überprüfen Sie die Eingaben für den Benutzernamen und das Kennwort, wenn Sie Authentifizierungsfehler erhalten.
     ![Inaktives Ziel](/images/Inactive_0.png)
 
@@ -99,7 +99,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
    ![CHAP aktivieren](/images/chap_0.png)
 4. Geben Sie in das Feld 'Name' den Benutzernamen und in das Feld 'Zielschlüssel' das Kennwort ein.
 
-   Die Werte der Felder 'Name' und 'Zielschlüssel' können aus der Anzeige '{{site.data.keyword.blockstorageshort}} - Details' abgerufen werden.
+   Die Werte der Felder 'Name' und 'Zielschlüssel' können aus der Detailanzeige zu {{site.data.keyword.blockstorageshort}} abgerufen werden.
    {:tip}
 5. Klicken Sie auf **OK**, bis das Fenster **Eigenschaften des iSCSI-Initiators** angezeigt wird. Der Status des Ziels im Abschnitt **Erkannte Ziele** wechselt von **Inaktiv** zu **Verbunden**.
 ![Verbundener Status](/images/Connected.png)
@@ -127,7 +127,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Speichermedium mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
    - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf dem Speichermedium aktiviert ist.
 
-     Die zweite IP-Adresse finden Sie in der Detailanzeige von {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+     Die zweite IP-Adresse finden Sie in der Detailanzeige zu {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
       {: tip}
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus dem Portal abgerufen haben, und klicken Sie auf **OK**.
@@ -156,7 +156,7 @@ Wenn Sie überprüfen möchten, ob MPIO für Windows konfiguriert ist, müssen S
 Wenn der Neustart abgeschlossen ist und das Speichermedium hinzugefügt wurde, können Sie überprüfen, ob MPIO konfiguriert ist und ordnungsgemäß funktioniert. Öffnen Sie dazu das Fenster **Zielgerätdetails** und klicken Sie auf **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zum Speichermedium getrennt und ist nicht inaktiviert, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.BluSoftlayer_full}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
+Falls MPIO nicht ordnungsgemäß konfiguriert ist, wird die Verbindung zum Speichermedium getrennt und ist nicht inaktiviert, sobald ein Netzausfall auftritt oder ein {{site.data.keyword.cloud}}-Team eine Wartung durchführt. Von MPIO wird für solche Ereignisse eine zusätzliche Verbindungsebene bereitgestellt, sodass eine vorhandene Sitzung mit aktiven Lese- und Schreibvorgängen auf einer LUN aufrecht erhalten wird.
 
 ## {{site.data.keyword.blockstorageshort}}-Datenträger abhängen
 {: #unmountingWin}

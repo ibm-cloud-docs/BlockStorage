@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 ## {{site.data.keyword.blockstorageshort}} - Verschlüsselung ruhender Daten
 
-{{site.data.keyword.BluSoftlayer_full}} nimmt das Bedürfnis nach Sicherheit ernst und versteht, wie wichtig es ist, Daten aus Sicherheitsgründen verschlüsseln zu können. Bei der anbietergesteuerten Verschlüsselung wird {{site.data.keyword.blockstoragefull}} standardmäßig entweder mit der Option 'Endurance' oder 'Performance', ohne Zusatzkosten und ohne Beeinträchtigung der Leistung verschlüsselt, bereitgestellt.
+{{site.data.keyword.cloud}} nimmt das Bedürfnis nach Sicherheit ernst und versteht, wie wichtig es ist, Daten aus Sicherheitsgründen verschlüsseln zu können. Bei der anbietergesteuerten Verschlüsselung wird {{site.data.keyword.blockstoragefull}} standardmäßig entweder mit der Option 'Endurance' oder 'Performance', ohne Zusatzkosten und ohne Beeinträchtigung der Leistung verschlüsselt, bereitgestellt.
 
 Bei der anbietergesteuerten ruhenden Verschlüsselungsfunktion werden folgende Branchenstandardprotokolle verwendet:
 

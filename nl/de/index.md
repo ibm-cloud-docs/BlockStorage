@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Informationen zu {{site.data.keyword.blockstorageshort}}
 {: #About}
 
-Bei {{site.data.keyword.blockstoragefull}} handelt es sich um persistenten iSCSI-Speicher mit hoher Leistung, der unabhängig von Recheninstanzen bereitgestellt und verwaltet wird. iSCSI-basierte {{site.data.keyword.blockstorageshort}}-LUNs sind über MPIO-Verbindungen (MPIO - Multipath I/O) mit autorisierten Geräten verbunden.
+Bei {{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}} handelt es sich um persistenten iSCSI-Speicher mit hoher Leistung, der unabhängig von Recheninstanzen bereitgestellt und verwaltet wird. iSCSI-basierte {{site.data.keyword.blockstorageshort}}-LUNs sind über MPIO-Verbindungen (MPIO - Multipath I/O) mit autorisierten Geräten verbunden.
 
 {{site.data.keyword.blockstorageshort}} bietet dank seiner unvergleichlichen Funktionen leistungsfähige Dauerhaftigkeit und Verfügbarkeit. Basis sind Branchenstandards und bewährte Verfahren. {{site.data.keyword.blockstorageshort}} wurde dafür konzipiert, bei Wartungsereignissen und ungeplanten Ausfällen die Integrität der Daten zu schützen und die Verfügbarkeit aufrechtzuerhalten und gleichzeitig eine konsistente Leistungsbasis bereitzustellen.
 
@@ -39,7 +39,7 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
 - **Snapshots** ([in ausgewählten Rechenzentren verfügbar](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
    - Erfasst zeitpunktgesteuerte Datensnapshots ohne Betriebsunterbrechung
 - **Replikation** ([in ausgewählten Rechenzentren verfügbar](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
-   - Kopiert Snapshots automatisch an ein Partner-{{site.data.keyword.BluSoftlayer_full}}-Rechenzentrum.
+   - Kopiert Snapshots automatisch an ein Partner-{{site.data.keyword.cloud}}-Rechenzentrum.
 - **Hoch verfügbare Konnektivität**
    - Verwendet redundante Netzbetriebsverbindungen zum Maximieren der Verfügbarkeit
    - iSCSI-basierter {{site.data.keyword.blockstorageshort}} verwendet Multipath I/O (MPIO).
@@ -48,55 +48,6 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
 - **Clusterdatenbanken**
    - Unterstützt erweiterte Anwendungsfälle wie Clusterdatenbanken.
 
-## Abrechnung
-{: #billing}
-
-Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für ihren Snapshotbereich und zugehörige Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet.
-
-Bei **stündlicher Abrechnung** wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) bereitgestellt wird.
-
-Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger).
-
-**Performance**
-<table>
-  <caption>In Tabelle 1 werden die Preise für Performance-Speicher mit monatlicher und stündlicher Abrechnung aufgeführt.</caption>
-  <tr>
-   <th>Monatlicher Preis</th>
-   <td>$0,10/GB + $0,07/IOP</td>
-  </tr>
-  <tr>
-   <th>Stündlicher Preis</th>
-   <td>$0,0001/GB + $0,0002/IOP</td>
-  </tr>
-</table>
-
-**Endurance**
-<table>
-  <caption>In Tabelle 2 werden die Preise für Endurance-Speicher für jedes Tier mit Optionen für monatliche und stündliche Abrechnung aufgeführt.</caption>
-  <tr>
-   <th>IOPS-Tier</th>
-   <th>0,25 IOPS/GB</th>
-   <th>2 IOPS/GB</th>
-   <th>4 IOPS/GB</th>
-   <th>10 IOPS/GB</th>
-  </tr>
-  <tr>
-   <th>Monatlicher Preis</th>
-   <td>$0,06/GB</td>
-   <td>$0,15/GB</td>
-   <td>$0,20/GB</td>
-   <td>$0,58/GB</td>
-  </tr>
-  <tr>
-   <th>Stündlicher Preis</th>
-   <td>$0,0001/GB</td>
-   <td>$0,0002/GB</td>
-   <td>$0,0003/GB</td>
-   <td>$0.0009/GB</td>
-  </tr>
-</table>
-
-
 
 ## Bereitstellung
 {: #provisioning}
@@ -104,6 +55,7 @@ Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der E
 {{site.data.keyword.blockstorageshort}}-LUNs können mit zwei Optionen von 20 GB bis 12 TB bereitgestellt werden: <br/>
 - Stellen Sie **Endurance**-Tiers mit vordefinierten Leistungsstufen und weiteren Funktionen wie Snapshots und Replikation bereit.
 - Erstellen Sie eine leistungsfähige **Performance**-Umgebung mit zugeordneten E/A-Operationen pro Sekunde (IOPS).
+
 
 ### Mit Endurance-Tiers bereitstellen
 {: #provendurance}
@@ -130,75 +82,57 @@ Performance ist eine Klasse von {{site.data.keyword.blockstorageshort}}, deren A
 
 Performance für {{site.data.keyword.blockstorageshort}} wird über eine MPIO-iSCSI-Verbindung (MPIO = Multipath I/O; iSCSI = Internet Small Computer System Interface) verfügbar gemacht und angehängt. {{site.data.keyword.blockstorageshort}} wird in der Regel verwendet, wenn auf den Datenträger von einem einzelnen Server zugegriffen wird. Mehrere Datenträger können an einen Host angehängt und per Stripekonfiguration verbunden werden, um größere Datenträger und höhere IOPS-Werte zu erreichen. Performance-Datenträger können entsprechend den Größen und IOPS-Raten in Tabelle 3 für die Betriebssysteme Linux, XEN und Windows bestellt werden.
 
+| Größe (GB) | Minimum IOPS | Maximum IOPS
+|-----|-----|-----|
+| 20 | 100 | 1.000 |
+| 40 | 100 | 2.000  |
+| 80 | 100 | 4.000 |
+| 100 | 100 | 6.000 |
+| 250 | 100 | 6.000 |
+| 500 | 100  | 6.000 oder 10.000 |
+| 1.000 | 100 | 6.000 oder 20.000 ![Fußnote](/images/numberone.png) |
+| 2.000 | 200 | 6.000 oder 40.000 ![Fußnote](/images/numberone.png) |
+| 3.000 - 7.000 | 300 | 6.000 oder 48.000 ![Fußnote](/images/numberone.png) |
+| 8.000-9.000 | 500 | 6.000 oder 48.000 ![Fußnote](/images/numberone.png) |
+| 10.000-12.000 | 1.000 | 6.000 oder 48.000 ![Fußnote](/images/numberone.png) |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Tabellenvergleich" caption-side="top"}
+{: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-<table cellpadding="1" cellspacing="1" style="width: 99%;">
- <caption>In Tabelle 3 werden Kombinationen aus Größe und IOPS-Raten für Performance-Speicher aufgeführt.<br/><sup><img src="/images/numberone.png" alt="Fußnote" /></sup> IOPS-Grenzwerte über 6.000 sind in ausgewählten Rechenzentren verfügbar.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-          <tr>
-            <th>Größe (GB)</th>
-            <th>Minimum IOPS</th>
-            <th>Maximum IOPS</th>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>100</td>
-            <td>1.000</td>
-          </tr>
-          <tr>
-            <td>40</td>
-            <td>100</td>
-            <td>2.000</td>
-          </tr>
-          <tr>
-            <td>80</td>
-            <td>100</td>
-            <td>4.000</td>
-          </tr>
-          <tr>
-            <td>100</td>
-            <td>100</td>
-            <td>6.000</td>
-          </tr>
-          <tr>
-            <td>250</td>
-            <td>100</td>
-            <td>6.000</td>
-          </tr>
-          <tr>
-            <td>500</td>
-            <td>100</td>
-            <td>6.000 oder 10.000 <sup><img src="/images/numberone.png" alt="Fußnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>1.000</td>
-            <td>100</td>
-            <td>6.000 oder 20.000<sup><img src="/images/numberone.png" alt="Fußnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>2.000</td>
-            <td>200</td>
-            <td>6.000 oder 40.000<sup><img src="/images/numberone.png" alt="Fußnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>3.000 - 7.000</td>
-            <td>300</td>
-            <td>6.000 oder 48.000<sup><img src="/images/numberone.png" alt="Fußnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>8.000-9.000</td>
-            <td>500</td>
-            <td>6.000 oder 48.000<sup><img src="/images/numberone.png" alt="Fußnote" /></sup></td>
-          </tr>
-          <tr>
-            <td>10.000-12.000</td>
-            <td>1.000</td>
-            <td>6.000 oder 48.000<sup><img src="/images/numberone.png" alt="Fußnote" /></sup></td>
-          </tr>
-</table>
-
+![Fußnote](/images/numberone.png) * IOPS-Grenzwerte über 6.000 sind in ausgewählten Rechenzentren verfügbar.*
 
 Performance-Datenträger sind für eine durchgängig Leistung bei Verwendung der bereitgestellten IOPS-Stufe vorgesehen. Die Konsistenz macht es einfacher, Anwendungsumgebungen bei einer bestimmten Leistungsstufe zu skalieren. Darüber hinaus ist es möglich, einen Datenträger mit einem idealen Preis-Leistungs-Verhältnis zu erstellen und so eine Umgebung zu optimieren.
+
+## Abrechnung
+{: #billing}
+
+Sie können bei einer Block-LUN stündliche oder monatliche Abrechnung auswählen. Der für eine LUN ausgewählte Abrechnungstyp gilt für ihren Snapshotbereich und zugehörige Replikate. Wenn Sie beispielsweise eine LUN mit stündlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren stündlich abgerechnet. Wenn Sie eine LUN mit monatlicher Abrechnung bereitstellen, werden alle Snapshot- oder Replikatgebühren monatlich abgerechnet.
+
+ * Bei **stündlicher Abrechnung** wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus, je nachdem, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) bereitgestellt wird.
+
+ * Bei **monatlicher Abrechnung** wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger).
+
+### Endurance
+{: #pricing-comparison-endurance}
+
+| Preisoptionen für vordefinierte IOPS-Tiers | 0,25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
+|-----|-----|-----|-----|-----|
+| Monatlicher Preis | $0,06/GB | $0,15/GB | $0,20/GB | $0,58/GB |
+| Stündlicher Preis | $0,0001/GB | $0,0002/GB | $0,0003/GB | $0.0009/GB |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Tabellenvergleich" caption-side="top"}
+{: summary="Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options. This table has row and column headers. The row headers identify the billing options. The column headers identify the IOPS level that is chosen for the service. To understand what your price is located in the table, navigate to the column and review the two different billing options for that IOPS tier."}
+
+### Performance
+{: #pricing-comparison-performance}
+
+| Preisoptionen für angepasste IOPS | Preisberechnung |
+|-----|-----|
+| Monatlicher Preis | $0,10/GB + $0,07/IOP |
+| Stündlicher Preis | $0,0001/GB + $0,0002/IOP |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Tabellenvergleich" caption-side="top"}
+{: summary="Table 3 is showing the prices for Performance Storage with monthly and hourly billing. This table has row and column headers. The row headers identify the billing options. To see what your cost for Storage is, navigate to the row of the billing option you are interested in."}

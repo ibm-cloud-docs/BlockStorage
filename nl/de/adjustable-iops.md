@@ -46,7 +46,7 @@ Wenn die Replikation auf dem Datenträger eingerichtet wurde, wird das Replikat 
 
 1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste:
    - Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-   - Klicken Sie in der {{site.data.keyword.BluSoftlayer_full}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+   - Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Treffen Sie im Bereich **IOPS-Optionen für Speicher** eine neue Auswahl:
     - Wählen Sie für 'Endurance (Gestaffelte IOPS)' Sie ein IOPS-Tier aus, das größer als 0,25 IOPS/GB Ihres Speichers ist. Sie können den Wert für das IOPS-Tier jederzeit erhöhen. Seine Verringerung ist jedoch nur einmal pro Monat möglich.

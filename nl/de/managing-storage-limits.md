@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-05-24"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -30,11 +30,11 @@ Optionen:
   -h, --help             Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
-Sie können eine Erhöhung der Begrenzung anfordern, indem Sie ein Ticket beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} einreichen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
+Sie können eine Erhöhung des Grenzwerts anfordern, indem Sie einen Supportfall beim [Portal](https://cloud.ibm.com/unifiedsupport/cases/add){: external} einreichen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
 
-Um eine Aktualisierung oder Erhöhung eines Grenzwerts anzufordern, müssen Sie ein Ticket öffnen und an Ihren Vertriebsbeauftragten übertragen.
+Um eine Erhöhung eines Grenzwerts anzufordern, müssen Sie einen Fall öffnen und an Ihren Vertriebsbeauftragten weiterleiten.
 
-Geben Sie in dem Ticket die folgenden Informationen an:
+Geben Sie in dem Fall die folgenden Informationen an:
 
 - **Betreff des Tickets:** Anforderung zur Erhöhung des Speichergrenzwerts für Datenträger im Rechenzentrum
 
@@ -56,4 +56,4 @@ Geben Sie in dem Ticket die folgenden Informationen an:
 Beantworten Sie alle Fragen und Aussagen in Ihrer Anfrage. Sie sind für die Verarbeitung und Genehmigung erforderlich.
 {:important}
 
-Sie werden von der Aktualisierung Ihrer Begrenzungen durch den Ticket-Prozess benachrichtigt.
+Sie werden von der Aktualisierung Ihrer Grenzwerte durch den Fall-Prozess benachrichtigt.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-05-09"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,12 +23,12 @@ Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger i
 ## Wie viele Datenträger können bestellt werden?
 {: faq}
 
-Sie können standardmäßig eine kombinierte Gesamtzahl von 250 Block- und Dateispeicherdatenträger bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
+Standardmäßig können Sie insgesamt 250 Block- und Dateispeicher bereitstellen. Wenn Sie eine Erhöhung des Grenzwerts für Datenträger anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten. Weitere Informationen finden Sie in [Speichergrenzwerte verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## Wie viele {{site.data.keyword.blockstorageshort}}-Datenträger können an einen Host angehängt werden?
 {: faq}
 
-Dies ist abhängig von der Kapazität des Hostbetriebssystems, nicht von {{site.data.keyword.BluSoftlayer_full}}-Grenzwerten. Die Dokumentation des jeweiligen Betriebssystems enthält Informationen zu den Grenzwerten für die Anzahl der Datenträger, die angehängt werden können.
+Dies ist abhängig von der Kapazität des Hostbetriebssystems, nicht von {{site.data.keyword.cloud}}-Grenzwerten. Die Dokumentation des jeweiligen Betriebssystems enthält Informationen zu den Grenzwerten für die Anzahl der Datenträger, die angehängt werden können.
 
 ## Welche Windows-Version sollte ich für meine Blockspeicher-LUN auswählen?
 {: faq}
@@ -74,6 +74,7 @@ Ein Aufwärmung ist nicht erforderlich. Der angegebene Durchsatz wird sofort bei
 Die Grenzwerte für den Durchsatz werden auf LUN-Ebene festgelegt und können somit nicht durch eine schnellere Ethernet-Verbindung erhöht werden. Bei einer langsameren Ethernet-Verbindung jedoch kann Ihre Bandbreite ein potenzieller Engpass sein.
 
 ## Beeinträchtigen Firewalls und Sicherheitsgruppen die Leistung?
+{: #isolatedstoragetraffic}
 {: faq}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
@@ -91,7 +92,7 @@ Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichert
 ## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-Datenträger verschlüsselt sind?
 {: faq}
 
-Wenn Sie sich die Liste der {{site.data.keyword.blockstorageshort}} im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
+Wenn Sie sich die {{site.data.keyword.blockstorageshort}}-Liste im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
 
 ## Wie weiß ich, dass ich {{site.data.keyword.blockstorageshort}} in einem aktualisierten Rechenzentrum bereitstelle?
 {: faq}

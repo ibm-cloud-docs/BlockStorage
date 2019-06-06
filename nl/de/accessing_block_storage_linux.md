@@ -26,7 +26,7 @@ Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar H
 Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} zuvor autorisiert wurde.
+Stellen Sie vor Beginn sicher, dass der Host, von dem auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} zuvor autorisiert wurde.
 {:important}
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
@@ -51,9 +51,9 @@ Optionen:
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 {: #mountLin}
 
-Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.BluSoftlayer_full}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
+Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.cloud}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
 
-Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige **{{site.data.keyword.blockstorageshort}} Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} abgelesen werden.
+Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige mit den **{{site.data.keyword.blockstorageshort}}-Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} abgerufen werden.
 {: tip}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
@@ -121,7 +121,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
       {: pre}
 
   - Die Datei `multipath.conf` kann bei RHEL7/CentOS7 leer sein, da das Betriebssystem über integrierte Konfigurationen verfügt.
-  - Ubuntu verwendet `multipath.conf` nicht, da es in `multipath-tools` integriert ist.
+  - Ubuntu verwendet 
 
 3. Laden Sie das Multipath-Modul, starten Sie die Multipath-Services und legen Sie fest, dass es beim Booten gestartet werden soll.
   - RHEL 6
@@ -196,7 +196,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
    ```
    {: codeblock}
 
-   Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.BluSoftlayer_full}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
+   Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.cloud}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
    {:important}
 
    Für Ubuntu-Benutzer: Überprüfen Sie in der Datei `iscsid.conf`, ob die Einstellung für `node.startup` 'manuell' oder 'automatisch' lautet. Lautet sie 'manuell', ändern Sie sie in 'automatisch'.
@@ -357,57 +357,22 @@ Führen Sie die folgenden Schritte aus, um ein Dateisystem auf dem neu angehäng
 
 #### Die Befehlstabelle `fdisk`
 
-<table border="0" cellpadding="0" cellspacing="0">
-	<caption>Die Befehlstabelle <code>fdisk</code> enthält die Befehle auf der linken und die erwarteten Ergebnisse auf der rechten Seite.</caption>
-    <thead>
-	<tr>
-		<th style="width:40%;">Befehl</th>
-		<th style="width:60%;">Ergebnis</th>
-	</tr>
-    </thead>
-    <tbody>
-	<tr>
-		<td><code>Befehl: n</code></td>
-		<td>Erstellt eine Partition. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Befehlsaktion: p</code></td>
-		<td>Macht die Partition zur Primärpartition.</td>
-	</tr>
-	<tr>
-		<td><code>Partitionsnummer (1-4): 1</code></td>
-		<td>Wird Partition 1 auf dem Datenträger.</td>
-	</tr>
-	<tr>
-		<td><code>Erster Zylinder (1-8877): 1 (Standardwert)</code></td>
-		<td>Start bei Zylinder 1.</td>
-	</tr>
-	<tr>
-		<td><code>Letzter Zylinder, + Zylinder oder + Größe {K, M, G}: 8877 (Standardwert)</code></td>
-		<td>Drücken Sie die Eingabetaste, um zum letzten Zylinder zu wechseln.</td>
-	</tr>
-	<tr>
-		<td><code>Befehl: t</code></td>
-		<td>Legt den Partitionstyp fest. &#42;</td>
-	</tr>
-	<tr>
-		<td><code>Partition 1 auswählen.</code></td>
-		<td>Wählt Partition 1 für die Einrichtung als spezieller Typ aus.</td>
-	</tr>
-	<tr>
-		<td><code>Hexadezimaler Code: 83</code></td>
-		<td>Wählt Linux als Typ aus (83 ist der hexadezimale Code für Linux).&#42;&#42;</td>
-	 </tr>
-	<tr>
-		<td><code>Befehl: w</code></td>
-		<td>Schreibt die Informationen zur neuen Partition auf den Datenträger. &#42;</td>
-	</tr>
-   </tbody>
-</table>
+| Befehl | Ergebnis |
+|-----|-----|
+| `Befehl: n`| Erstellt eine Partition. * |
+| `Befehlsaktion: p` | Macht die Partition zur Primärpartition. |
+| `Partitionsnummer (1-4): 1` | Wird Partition 1 auf dem Datenträger. |
+| `Erster Zylinder (1-8877): 1 (Standardwert)` | Start bei Zylinder 1. |
+| `Letzter Zylinder, + Zylinder oder + Größe {K, M, G}: 8877 (Standardwert)` | Drücken Sie die Eingabetaste, um zum letzten Zylinder zu wechseln. |
+| `Befehl: t` | Legt den Partitionstyp fest. * |
+| `Partition 1 auswählen.` | Wählt Partition 1 für die Einrichtung als spezieller Typ aus. |
+| `Hexadezimaler Code: 83` | Wählt Linux als Typ aus (83 ist der hexadezimale Code für Linux). ** |
+| `Befehl: w` | Schreibt die Informationen zur neuen Partition auf den Datenträger. ** |
+{: caption="Tabelle 1 - Die Befehlstabelle <codefdisk</code> enthält die Befehle auf der linken und die erwarteten Ergebnisse auf der rechten Seite." caption-side="top"}>
 
-  (`*`)Geben Sie m für Hilfe ein.
+(`*`)Geben Sie m für Hilfe ein.
 
-  (`**`)Geben Sie L ein, um die hexadezimalen Codes aufzulisten.
+(`**`)Geben Sie L ein, um die hexadezimalen Codes aufzulisten.
 
 ### Dateisystem mit `parted` erstellen
 {: #parted}
@@ -599,5 +564,5 @@ Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
    ```
    {: pre}
 
-   Weitere Informationen finden Sie im Handbuch zu [`iscsiadm`](https://linux.die.net/man/8/iscsiadm).
+   Weitere Informationen finden Sie im [Handbuch zu `iscsiadm`](https://linux.die.net/man/8/iscsiadm).
    {:tip}

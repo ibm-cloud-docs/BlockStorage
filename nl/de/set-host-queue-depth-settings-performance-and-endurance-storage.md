@@ -14,33 +14,16 @@ subcollection: BlockStorage
 # Einstellungen der Hostwarteschlangenlänge anpassen
 {: #hostqueuesettings}
 
-Für {{site.data.keyword.BluSoftlayer_full}} wird für jedes Leistungstier ein maximaler Wert für die Ein-/Ausgabe-Warteschlangenlänge für Host und Anwendungen empfohlen.
+Für {{site.data.keyword.cloud}} wird für jedes Leistungstier ein maximaler Wert für die Ein-/Ausgabe-Warteschlangenlänge für Host und Anwendungen empfohlen.
 
-<table align="center">
-  <caption>Empfohlene Warteschlangenlänge für jedes IOPS-Tier</caption>
-        <thead>
-	    <tr>
-		<th>Performance-Tier</th>
-		<th>Maximale Hostwarteschlangenlänge</th>
-	    </tr>
-	</thead>
-	<tbody>
-   	    <tr>
-		<td style="text-align: center; vertical-align: middle;">0,25 IOPS pro GB</td>
-		<td style="text-align: center; vertical-align: middle;">8</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">2 IOPS pro GB</td>
-		<td style="text-align: center; vertical-align: middle;">24</td>
-	    </tr>
-	    <tr>
-		<td style="text-align: center; vertical-align: middle;">4 IOPS pro GB</td>
-		<td style="text-align: center; vertical-align: middle;">56</td>
-            </tr>
-         </tbody>
-</table>
+| Performance-Tier | Maximale Hostwarteschlangenlänge |
+|:------:|:------:|
+| 0,25 IOPS pro GB | 8 |
+| 2 IOPS pro GB | 24 |
+| 4 IOPS pro GB | 56 |
+{: caption="Empfohlene Warteschlangenlänge für jedes IOPS-Tier" caption-side="top"}
 
-Die Hosteinstellung hat keine Auswirkung auf die Datenträger- und Controllerlatenz. Sie beeinflusst nur die vom Host und der Anwendung überwachte Latenz.
+Die Hosteinstellung hat keine Auswirkung auf die Platten- und Controllerlatenz. Sie beeinflusst nur die vom Host und der Anwendung überwachte Latenz.
 
 Eine Warteschlangenlänge über die ausgeführten Werte hinaus kann die E/A-Latenz erhöhen. Eine Warteschlangenlänge unter dem ausgeführten Wert kann die E/A-Leistung des Hosts verringern. Da jede Anwendung unterschiedlich ist, sind zum Erreichen der maximalen Speicherleistung Anpassungen und Beobachtungen erforderlich.
 

@@ -23,8 +23,7 @@ Wenn eine Betriebsunterbrechung oder eine Katastrophe einen Ausfall am primären
 
 ## Failover mit dem Duplikat eines Replikatdatenträgers am sekundären Standort
 
-1. Melden Sie sich an [der IBM Cloud-Konsole](https://{DomainName}/){: external} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
-
+1. Melden Sie sich bei der [IBM Cloud-Konsole](https://{DomainName}/){: external} an und klicken Sie auf das **Menüsymbol** oben links. Wählen Sie **Klassische Infrastruktur** aus.
 
    Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden.
 2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
@@ -40,8 +39,7 @@ Sobald der Datenträger erstellt wurde, kann er einem Host zugeordnet werden und
 
 Wenn Sie die Produktion an den ursprünglichen primären Standort zurückgeben möchten, müssen Sie die folgenden Schritte ausführen.
 
-1. Melden Sie sich an [der IBM Cloud-Konsole](https://{DomainName}/){: external} an und klicken Sie oben links auf das Symbol **Menü**. Wählen Sie **Klassische Infrastruktur** aus.
-
+1. Melden Sie sich bei der [IBM Cloud-Konsole](https://{DomainName}/){: external} an und klicken Sie auf das **Menüsymbol** oben links. Wählen Sie **Klassische Infrastruktur** aus.
 
    Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden.
 2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.

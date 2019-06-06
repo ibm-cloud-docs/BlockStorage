@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 zu installieren.
 
-Stellen Sie vor dem Start sicher, dass der Host, von dem auf das {{site.data.keyword.blockstoragefull}}-Laufwerk zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} zuvor autorisiert wurde.
+Stellen Sie vor Beginn sicher, dass der Host, von dem auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} zuvor autorisiert wurde.
 {:tip}
 
 1. Melden Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} an.
@@ -122,7 +122,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
      ```
      {: codeblock}
 
-     Geben Sie die CHAP-Namen in Großbuchstaben ein. Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.BluSoftlayer_full}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
+     Geben Sie die CHAP-Namen in Großbuchstaben ein. Lassen Sie die anderen CHAP-Einstellungen auf Kommentar. Der {{site.data.keyword.cloud}}-Speicher verwendet nur unidirektionale Authentifizierung. Aktivieren Sie nicht die gemeinsame Nutzung von CHAP (Mutual CHAP).
      {:important}
 
 

@@ -42,18 +42,18 @@ Nachstehend einige gängige Anwendungen für duplizierte Datenträger:
 - **Entwicklung und Test**: Erstellen Sie gleichzeitig bis zu vier simultane Duplikate eines Datenträgers, um duplizierte Daten zu Entwicklungs- und Testzwecken zu erstellen.
 - **Größenänderung des Speichers**: Erstellen Sie einen Datenträger mit der neuen Größe und/oder den IOPS-Raten, ohne die Daten verschieben zu müssen.  
 
-Sie können einen duplizierten Datenträger über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} erstellen.
+Es gibt mehrere Möglichkeiten zur Erstellung eines duplizierten Datenträgers über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 
 
 ## Duplikat von einem bestimmten Datenträger in der Speicherliste erstellen
 
 1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste:
     - Klicken Sie im Kundenportal auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-    - Klicken Sie in der {{site.data.keyword.BluSoftlayer_full}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+    - Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste einen Datenträger aus und klicken Sie auf **Aktionen** > **Duplizierte LUN (Datenträger)**.
 3. Wählen Sie Ihre Snapshotoption aus:
     - Wenn Sie von einem **Nicht-Replikat**-Datenträger bestellen:
-      - Wählen Sie **Aus neuem Snapshot erstellen** aus: Damit wird ein neuer Snapshot für das Duplikat erstellt. Verwenden Sie diese Option, wenn der Datenträger keine aktuellen Snapshots aufweist oder wenn Sie zu diesem Zeitpunkt ein Duplikat erstellen wollen.<br/>
+      - Wählen Sie **Aus neuem Snapshot erstellen** aus: Damit wird ein neuer Snapshot für das Duplikat erstellt. Verwenden Sie diese Option, wenn der Datenträger keine aktuellen Snapshots aufweist oder wenn Sie zu diesem Zeitpunkt ein Duplikat erstellen wollen. <br/>
       - Wählen Sie **Aus letztem Snapshot erstellen** aus: Damit wird ein Duplikat aus dem letzten für diesen Datenträger vorhandenen Snapshot erstellt.
     - Bei einer Bestellung über einen **Replikat**-Datenträger: Die einzige Option für einen Snapshot ist die Verwendung des neuesten verfügbaren Snapshots.
 4. Speichertyp und Position bleiben die gleichen wie beim ursprünglichen Datenträger.

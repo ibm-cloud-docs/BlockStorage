@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-05-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -43,58 +43,17 @@ IOPS für Endurance und Performance basiert auf einer Blockgröße von 16 KB mit
 
 Die von der Anwendung verwendete Blockgröße beeinflusst direkt die Speicherleistung. Wenn die von Ihrer Anwendung verwendete Blockgröße kleiner als 16 KB ist, wird der IOPS-Grenzwert vor dem Durchsatzgrenzwert umgesetzt. Wenn dagegen die von Ihrer Anwendung verwendete Blockgröße größer als 16 KB ist, wird der Durchsatzgrenzwert vor dem IOPS-Grenzwert umgesetzt.
 
-<table>
-  <caption>In Tabelle 4 werden Beispiele für die Beeinflussung des Durchsatzes durch Blockgröße und IOPS-Rate aufgeführt.</caption>
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Blockgröße (KB)</th>
-            <th>IOPS</th>
-            <th>Durchsatz (MB/s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>4 (typisch für Linux)</td>
-            <td>1.000</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>8 (typisch für Oracle)</td>
-            <td>1.000</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>1.000</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>32 (typisch für SQL Server)</td>
-            <td>500</td>
-            <td>16</td>
-          </tr>          
-          <tr>
-            <td>64</td>
-            <td>250</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>128</td>
-            <td>128</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>512</td>
-            <td>32</td>
-            <td>16</td>
-          </tr>
-        </tbody>
-</table>
+| Blockgröße (KB) | IOPS | Durchsatz (MB/s) |
+|-----|-----|-----|
+| 4 | 1.000 | 16 |
+| 8 | 1.000 | 16 |
+| 16 | 1.000 | 16 |
+| 32 | 500 | 16 |
+| 64 | 250 | 16 |
+| 128 | 128 | 16 |
+| 512 | 32 | 16 |
+| 1024 | 16 | 16 |
+{: caption="In Tabelle 1 werden Beispiele für die Beeinflussung des Durchsatzes durch Blockgröße und IOPS-Rate aufgeführt.<br/Durchschnittliche IO-Größe x IOPS = Durchsatz in MB/s." caption-side="top"}>
 
 ### Autorisierte Hosts
 
@@ -106,7 +65,9 @@ Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete
 
 Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) und andere Einstellungen) zu berücksichtigen.
 
-Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die für die Verwendung des Service gelten können, finden Sie in der [Dokumentation zu virtuellen Servern](/docs/vsi?topic=virtual-servers-public-virtual-servers).
+Der Speicherverkehr muss von anderen Datenverkehrstypen isoliert werden und darf nicht über Firewalls und Router übertragen werden. Weitere Informationen finden Sie bei den [häufig gestellten Fragen](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+
+Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die für die Verwendung des Service gelten können, finden Sie in der [Dokumentation zu virtuellen Servern](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}
 
 ## Bestellung aufgeben

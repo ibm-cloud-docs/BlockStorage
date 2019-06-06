@@ -84,7 +84,7 @@ Optionen:
 
 Sie können die LUNs anzeigen, auf die ein Host Zugriff hat, sowie die Informationen, die zum Herstellen einer Verbindung erforderlich sind – LUN-Name, Speichertyp, Zieladresse, Kapazität und Position:
 
-1. Klicken Sie auf **Geräte** -> **Geräteliste** im [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} und klicken Sie auf das entsprechende Gerät.
+1. Klicken Sie im [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} auf **Geräte** -> **Geräteliste** und klicken Sie auf das entsprechende Gerät.
 2. Wählen Sie die Registerkarte **Speicher** aus.
 
 Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Durch Klicken auf **Aktionen** können Sie weiteren Speicher autorisieren oder Zugriff widerrufen.

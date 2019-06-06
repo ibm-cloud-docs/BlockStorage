@@ -45,7 +45,7 @@ Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht ver
 Der Prozess der Datenverschlüsselung führt zu einer Belastung des Hosts, die möglicherweise die Leistung beeinträchtigt.
 {:note}
 
-1. Geben Sie den folgenden Befehl an einer Shelleingabeaufforderung als Root ein, um das erforderliche Paket zu installieren:   <br/>
+1. Geben Sie den folgenden Befehl in einer Shelleingabeaufforderung als Root ein, um das erforderliche Paket zu installieren:   <br/>
    ```
    # yum install cryptsetup-luks
    ```
@@ -93,7 +93,7 @@ Der Prozess der Datenverschlüsselung führt zu einer Belastung des Hosts, die m
      mode:    read/write
      Command successful
    ```
-8. Schreiben Sie Zufallsdaten auf das verschlüsselt Gerät in `/dev/mapper/cryptData`. Durch diese Aktion wird sichergestellt, dass diese Daten als Zufallsdaten angesehen werden, was bedeutet, dass sie gegen die Weitergabe von Verwendungsmustern geschützt sind. Dieser Schritt kann eine Weile dauern.<br/>
+8. Schreiben Sie Zufallsdaten auf das verschlüsselt Gerät in `/dev/mapper/cryptData`. Durch diese Aktion wird sichergestellt, dass diese Daten als Zufallsdaten angesehen werden, was bedeutet, dass sie gegen die Weitergabe von Verwendungsmustern geschützt sind. Dieser Schritt kann eine gewisse Zeit in Anspruch nehmen.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
