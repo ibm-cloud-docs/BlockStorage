@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # Domande frequenti
-{: #faqs}
+{: #block-storage-faqs}
 
 ## Quante istanze possono condividere l'uso di un volume {{site.data.keyword.blockstorageshort}}?
 {: faq}

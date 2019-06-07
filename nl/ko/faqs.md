@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
-{: #faqs}
+{: #block-storage-faqs}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨의 사용을 몇 개의 인스턴스에서 공유할 수 있습니까?
 {: faq}

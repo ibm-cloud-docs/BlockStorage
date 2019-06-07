@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # 常见问题
-{: #faqs}
+{: #block-storage-faqs}
 
 ## 一个 {{site.data.keyword.blockstorageshort}} 卷可以由多少个实例共享使用？
 {: faq}

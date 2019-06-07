@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # Häufig gestellte Fragen
-{: #faqs}
+{: #block-storage-faqs}
 
 ## Wie viele Instanzen können einen bereitgestellten {{site.data.keyword.blockstorageshort}}-Datenträger gemeinsam nutzen?
 {: faq}

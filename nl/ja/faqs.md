@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # FAQ
-{: #faqs}
+{: #block-storage-faqs}
 
 ## {{site.data.keyword.blockstorageshort}} ボリュームを共有できるインスタンスの数はいくつですか?
 {: faq}

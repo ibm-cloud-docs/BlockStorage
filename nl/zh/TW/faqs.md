@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # 常見問題
-{: #faqs}
+{: #block-storage-faqs}
 
 ## 有多少實例可以共用 {{site.data.keyword.blockstorageshort}} 磁區？
 {: faq}

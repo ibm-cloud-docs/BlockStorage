@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # FAQs
-{: #faqs}
+{: #block-storage-faqs}
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: faq}

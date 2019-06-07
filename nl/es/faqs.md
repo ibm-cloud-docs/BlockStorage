@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {:faq: data-hd-content-type='faq'}
 
 # Preguntas más frecuentes
-{: #faqs}
+{: #block-storage-faqs}
 
 ## ¿Cuántas instancias pueden compartir el uso de un volumen de {{site.data.keyword.blockstorageshort}}?
 {: faq}
