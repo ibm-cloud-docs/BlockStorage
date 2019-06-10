@@ -49,7 +49,7 @@ subcollection: BlockStorage
 7. **스냅샷 영역 크기 지정**을 클릭하고 목록에서 스냅샷 크기를 선택하십시오. 이 영역은 사용 가능한 영역 이외의 영역입니다. 스냅샷 영역 고려사항 및 권장사항에 대해서는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 8. 목록에서 **OS 유형**을 선택하십시오.<br/>
 
-   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
    {:tip}
 9. 오른쪽에서 주문 요약을 검토하고 프로모션 코드를 적용하십시오(이를 보유 중인 경우).
 
@@ -58,7 +58,7 @@ subcollection: BlockStorage
 10. 이용 약관을 검토한 후에 **서드파티 서비스 계약서를 읽었으며 이에 동의합니다** 상자를 선택하십시오.
 11. **작성**을 클릭하십시오. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
 {:important}
 
 ## 사전 정의 IOPS 티어(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
@@ -80,7 +80,7 @@ subcollection: BlockStorage
 7. **스냅샷 영역 크기 지정**을 클릭하고 목록에서 스냅샷 크기를 선택하십시오. 이 영역은 사용 가능한 영역 이외의 영역입니다. 스냅샷 영역 고려사항 및 권장사항에 대해서는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 8. 목록에서 **OS 유형**을 선택하십시오.<br/>
 
-   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
    {:tip}
 9. 오른쪽에서 주문 요약을 검토하고 프로모션 코드를 적용하십시오(이를 보유 중인 경우).
 
@@ -89,7 +89,7 @@ subcollection: BlockStorage
 10. 이용 약관을 검토한 후에 **서드파티 서비스 계약서를 읽었으며 이에 동의합니다** 상자를 선택하십시오.
 11. **작성**을 클릭하십시오. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
 {:important}
 
 ## 새 스토리지 연결

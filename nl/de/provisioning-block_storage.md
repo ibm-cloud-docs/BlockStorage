@@ -49,7 +49,7 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 7. Klicken Sie auf **Größe des Snapshotbereichs angeben** und wählen Sie die Snapshotgröße aus der Liste aus. Dieser Speicherplatz wird zusätzlich zum verwendbaren Speicherplatz hinzugefügt. Überlegungen und Empfehlungen zum Snapshotbereich finden Sie im Abschnitt [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.<br/>
 
-   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
 
@@ -58,7 +58,7 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## {{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Raten bestellen (Performance)
@@ -80,7 +80,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 7. Klicken Sie auf **Größe des Snapshotbereichs angeben** und wählen Sie die Snapshotgröße aus der Liste aus. Dieser Speicherplatz wird zusätzlich zum verwendbaren Speicherplatz hinzugefügt. Überlegungen und Empfehlungen zum Snapshotbereich finden Sie im Abschnitt [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.<br/>
 
-   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
 
@@ -89,7 +89,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Neuen Speicher verbinden

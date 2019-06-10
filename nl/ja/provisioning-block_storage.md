@@ -49,7 +49,7 @@ subcollection: BlockStorage
 7. **「スナップショット・スペース・サイズの指定」**をクリックし、リストからスナップショット・サイズを選択します。 このスペースは、使用可能なスペースに加算されます。 スナップショット・スペースの考慮事項および推奨事項については、『[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)』を参照してください。
 8. リストからご使用の**「OS タイプ (OS Type)」**を選択します。<br/>
 
-   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)を参照してください。
+   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)を参照してください。
    {:tip}
 9. 右方で発注要約を確認し、割引コードがある場合は適用します。
 
@@ -58,7 +58,7 @@ subcollection: BlockStorage
 10. ご使用条件を確認したら、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを入れます。
 11. **「作成」**をクリックします。 新規ストレージ割り振りは数分後に使用可能になります。
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs) を参照してください。
+デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs) を参照してください。
 {:important}
 
 ## カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文
@@ -80,7 +80,7 @@ subcollection: BlockStorage
 7. **「スナップショット・スペース・サイズの指定」**をクリックし、リストからスナップショット・サイズを選択します。 このスペースは、使用可能なスペースに加算されます。 スナップショット・スペースの考慮事項および推奨事項については、『[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)』を参照してください。
 8. リストからご使用の**「OS タイプ (OS Type)」**を選択します。<br/>
 
-   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)を参照してください。
+   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)を参照してください。
    {:tip}
 9. 右方で発注要約を確認し、割引コードがある場合は適用します。
 
@@ -89,7 +89,7 @@ subcollection: BlockStorage
 10. ご使用条件を確認したら、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを入れます。
 11. **「作成」**をクリックします。 新規ストレージ割り振りは数分後に使用可能になります。
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs) を参照してください。
+デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs) を参照してください。
 {:important}
 
 ## 新規ストレージの接続

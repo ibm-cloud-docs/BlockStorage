@@ -65,7 +65,7 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 
 최대 IOPS를 달성하려면 적절한 네트워크 리소스가 사용 가능해야 합니다. 그 외에도 스토리지 외부의 사설 네트워크 사용량과 호스트 측 및 애플리케이션 특정 튜닝(IP 스택 또는 [큐 깊이](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) 및 기타 설정)도 고려해야 합니다.
 
-스토리지 트래픽은 다른 트래픽 유형과 격리되어야 하며 방화벽 및 라우터를 통과하지 않도록 해야 합니다. 자세한 정보는 [FAQ](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic)를 참조하십시오.
+스토리지 트래픽은 다른 트래픽 유형과 격리되어야 하며 방화벽 및 라우터를 통과하지 않도록 해야 합니다. 자세한 정보는 [FAQ](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic)를 참조하십시오.
 
 스토리지 트래픽은 공용 Virtual Server의 총 네트워크 사용에 포함됩니다. 서비스에서 부과할 수 있는 한계에 관한 자세한 정보는 [Virtual Server 문서](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)를 참조하십시오.
 {:tip}

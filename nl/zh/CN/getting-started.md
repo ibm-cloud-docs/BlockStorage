@@ -65,7 +65,7 @@ subcollection: BlockStorage
 
 要实现最大 IOPS，需要落实足够的网络资源。其他注意事项包括在存储器外部使用的专用网络、主机端以及特定于应用程序的调整（IP 堆栈或[队列深度](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)以及其他设置）。
 
-存储流量应与其他流量类型隔离，不得通过防火墙和路由器进行定向。有关更多信息，请参阅[常见问题](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic)。
+存储流量应与其他流量类型隔离，不得通过防火墙和路由器进行定向。有关更多信息，请参阅[常见问题](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic)。
 
 存储流量包含在公共虚拟服务器的总网络使用量之内。有关服务可能施加的限制的更多信息，请参阅[虚拟服务器文档](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)。
 {:tip}

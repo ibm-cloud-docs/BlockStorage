@@ -49,7 +49,7 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 7. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable. Para consultar consideraciones y recomendaciones sobre el espacio de instantáneas, consulte [Solicitud de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Elija el **Tipo de sistema operativo** en la lista.<br/>
 
-   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
 
@@ -58,7 +58,7 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 10. Después de revisar los términos y condiciones, marque el recuadro de selección **He leído y acepto los acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Solicitud de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)
@@ -80,7 +80,7 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 7. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable. Para consultar consideraciones y recomendaciones sobre el espacio de instantáneas, consulte [Solicitud de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Elija el **Tipo de sistema operativo** en la lista.<br/>
 
-   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
 
@@ -89,7 +89,7 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 10. Después de revisar los términos y condiciones, marque el recuadro de selección **He leído y acepto los acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Conexión del nuevo almacenamiento

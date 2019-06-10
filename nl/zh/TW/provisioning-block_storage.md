@@ -50,7 +50,7 @@ subcollection: BlockStorage
 7. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的額外空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 從清單中，選擇您的 **OS 類型**。<br/>
 
-   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
    {:tip}
 9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。
 
@@ -59,7 +59,7 @@ subcollection: BlockStorage
 10. 檢閱條款之後，請勾選**我已閱讀並同意協力廠商服務合約**方框。
 11. 按一下**建立**。在幾分鐘之後，就可以使用您的新儲存空間配置。
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 訂購具有自訂 IOPS（效能）的 {{site.data.keyword.blockstorageshort}}
@@ -82,7 +82,7 @@ subcollection: BlockStorage
 7. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的額外空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 從清單中，選擇您的 **OS 類型**。<br/>
 
-   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
    {:tip}
 9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。
 
@@ -91,7 +91,7 @@ subcollection: BlockStorage
 10. 檢閱條款之後，請勾選**我已閱讀並同意協力廠商服務合約**方框。
 11. 按一下**建立**。在幾分鐘之後，就可以使用您的新儲存空間配置。
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 連接新的儲存空間

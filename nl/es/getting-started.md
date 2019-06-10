@@ -65,7 +65,7 @@ La velocidad de la conexión de Ethernet debe ser más rápida que el rendimient
 
 Para alcanzar el número máximo de IOPS, es necesario disponer de los recursos de red adecuados. Otros aspectos a tener en cuenta son el uso de la red privada fuera del almacenamiento y los ajustes del lado del host y específicos de la aplicación (pila IP o [profundidades de colas](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) y otros valores).
 
-El tráfico de almacenamiento debería estar aislado de otros tipos de tráfico y no dirigirse a través de cortafuegos ni direccionadores. Para obtener más información, consulte [Preguntas más frecuentes](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+El tráfico de almacenamiento debería estar aislado de otros tipos de tráfico y no dirigirse a través de cortafuegos ni direccionadores. Para obtener más información, consulte [Preguntas más frecuentes](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic).
 
 El tráfico de almacenamiento se incluye en el uso total de la red de los servidores virtuales públicos. Para obtener más información acerca de los límites que puede imponer el servicio, consulte la [Documentación de servidor virtual](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}

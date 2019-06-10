@@ -65,7 +65,7 @@ La velocità della tua connessione Ethernet deve essere più veloce della veloci
 
 Per raggiungere l'IOPS massimo, è necessario che siano implementate delle risorse di rete adeguate. Altre considerazioni includono l'utilizzo della rete privata esternamente al lato archiviazione e host e le regolazioni specifiche per le applicazioni (stack di IP o [profondità di coda](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) e altre impostazioni).
 
-Il traffico di archiviazione dovrebbe essere isolato dagli altri tipi di traffico e non essere indirizzato tramite firewall e router. Per ulteriori informazioni, vedi la [FAQ](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+Il traffico di archiviazione dovrebbe essere isolato dagli altri tipi di traffico e non essere indirizzato tramite firewall e router. Per ulteriori informazioni, vedi la [FAQ](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic).
 
 Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei server virtuali pubblici. Per ulteriori informazioni sui limiti che possono essere imposti dal servizio, consulta la [documentazione di Virtual Server](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}

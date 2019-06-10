@@ -49,7 +49,7 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 7. Cliquez sur **Indiquer la taille de l'espace d'instantané** et sélectionnez la taille de l'image instantanée dans la liste. Cet espace vient en complément de votre espace utilisable. Pour les considérations et recommandations relatives à l'espace d'instantané, lisez la section [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choisissez votre **Type OS** dans la liste.<br/>
 
-   Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un.
 
@@ -58,7 +58,7 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**.
 11. Cliquez sur **Créer**. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour en savoir plus sur l'augmentation des limites, cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour en savoir plus sur l'augmentation des limites, cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec un nombre d'IOPS personnalisé (Performance)
@@ -80,7 +80,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 7. Cliquez sur **Indiquer la taille de l'espace d'instantané** et sélectionnez la taille de l'image instantanée dans la liste. Cet espace vient en complément de votre espace utilisable. Pour les considérations et recommandations relatives à l'espace d'instantané, lisez la section [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choisissez votre **Type OS** dans la liste.<br/>
 
-   Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Ce choix est basé sur le système d'exploitation sur lequel votre hôte s'exécute et il ne peut pas être modifié ultérieurement. Par exemple, si votre serveur est Ubuntu ou RHEL, choisissez Linux. Si votre hôte est un serveur Windows 2012 ou Windows 2016, sélectionnez l'option Windows 2008+ dans la liste. Pour plus d'informations sur les différentes options Windows, voir la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. Sur la droite, passez en revue votre récapitulatif de commande et appliquez votre code promo si vous en avez un.
 
@@ -89,7 +89,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 10. Après avoir lu les dispositions, cochez la case **J'ai lu et j'accepte les contrats de service tiers**.
 11. Cliquez sur **Créer**. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 
-Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour en savoir plus sur l'augmentation des limites, cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes {{site.data.keyword.blockstorageshort}}. Pour augmenter le nombre de vos volumes, contactez votre commercial. Pour en savoir plus sur l'augmentation des limites, cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Pour connaître la limite des autorisations simultanées, reportez-vous à la [Foire aux questions](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Connexion de votre nouveau stockage

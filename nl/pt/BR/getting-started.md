@@ -71,7 +71,7 @@ de rede privada fora do armazenamento e os ajustes específicos do aplicativo e 
 IP ou [profundidades da fila](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) e
 outras configurações).
 
-O tráfego de armazenamento deve ser isolado de outros tipos de tráfego e não deve ser direcionado por meio de firewalls e roteadores. Para obter mais informações, consulte as [Perguntas mais frequentes](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+O tráfego de armazenamento deve ser isolado de outros tipos de tráfego e não deve ser direcionado por meio de firewalls e roteadores. Para obter mais informações, consulte as [Perguntas mais frequentes](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic).
 
 O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers Públicos. Para obter mais informações sobre os limites que podem ser impostos pelo serviço, consulte a [Documentação do Virtual Server](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}

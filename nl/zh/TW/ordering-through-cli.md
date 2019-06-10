@@ -133,7 +133,7 @@ Options:
 若要進一步瞭解如何授權主機透過 API 來存取 {{site.data.keyword.blockstorageshort}}，請參閱 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}。
 {:tip}
 
-如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 連接新的儲存空間

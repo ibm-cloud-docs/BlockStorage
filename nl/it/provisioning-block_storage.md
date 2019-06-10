@@ -49,7 +49,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 7. Fai clic su **Specify Snapshot Space Size** e seleziona la dimensione di istantanea dall'elenco. Questo spazio è in aggiunta al tuo spazio utilizzabile. Per le considerazioni e le raccomandazioni relative allo spazio per le istantanee, leggi [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.<br/>  
 
-   Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. A destra, controlla il tuo riepilogo degli ordini e applica il tuo codice promozionale se ne hai uno.
 
@@ -58,7 +58,7 @@ Puoi eseguire il provisioning di {{site.data.keyword.blockstorageshort}} e ottim
 10. Dopo aver controllato i termini e le condizioni, seleziona la casella **I have read and agree to the Third-Party Service Agreements**.
 11. Fai clic su **Create**. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzati (Performance)
@@ -80,7 +80,7 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 7. Fai clic su **Specify Snapshot Space Size** e seleziona la dimensione di istantanea dall'elenco. Questo spazio è in aggiunta al tuo spazio utilizzabile. Per le considerazioni e le raccomandazioni relative allo spazio per le istantanee, leggi [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Scegli il tuo tipo di sistema operativo (**OS Type**) dall'elenco.<br/>  
 
-   Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+   Questa selezione si basa sul sistema operativo su cui è in esecuzione il tuo host e non può essere modificata successivamente. Ad esempio, il tuo server è Ubuntu o RHEL, seleziona Linux. Se il tuo host è un server Windows 2012 o Windows 2016, seleziona l'opzione Windows 2008+ dall'elenco. Per ulteriori informazioni sulle varie opzioni Windows, consulta [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. A destra, controlla il tuo riepilogo degli ordini e applica il tuo codice promozionale se ne hai uno.
 
@@ -89,7 +89,7 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 10. Dopo aver controllato i termini e le condizioni, seleziona la casella **I have read and agree to the Third-Party Service Agreements**.
 11. Fai clic su **Create**. La tua nuova allocazione di archiviazione è disponibile in pochi minuti.
 
-Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Per impostazione predefinita, puoi eseguire il provisioning di un totale combinato di 250 volumi {{site.data.keyword.blockstorageshort}}. Per aumentare il numero dei tuoi volumi, contatta il tuo rappresentante di vendita. Troverai ulteriori informazioni sull'aumento dei limiti [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Per il limite sulle autorizzazioni simultanee, vedi le [Domande frequenti](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Connessione alla tua nuova archiviazione

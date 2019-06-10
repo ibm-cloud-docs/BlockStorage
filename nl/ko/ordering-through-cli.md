@@ -134,7 +134,7 @@ slcli block access-authorize --help
 호스트에 API를 통해 {{site.data.keyword.blockstorageshort}}에 액세스하는 권한을 부여하는 데 대한 자세한 정보는 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}을 참조하십시오.
 {:tip}
 
-동시 권한 부여 한계에 대해서는 [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)를 참조하십시오.
+동시 권한 부여 한계에 대해서는 [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
 {:important}
 
 ## 새 스토리지 연결

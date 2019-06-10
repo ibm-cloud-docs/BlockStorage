@@ -64,7 +64,7 @@ subcollection: BlockStorage
 
 為達到最大 IOPS，需要有足夠的網路資源。其他考量包括儲存空間之外的專用網路使用情形，以及主機端和應用程式特定的調整（IP 堆疊或[佇列深度](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)，以及其他設定）。
 
-儲存空間資料流量應該與其他資料流量類型隔離，且不應該透過防火牆和路由器導向。如需相關資訊，請參閱[常見問題](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic)。
+儲存空間資料流量應該與其他資料流量類型隔離，且不應該透過防火牆和路由器導向。如需相關資訊，請參閱[常見問題](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic)。
 
 儲存空間資料流量包含在「公用虛擬伺服器」的總網路使用情形中。若要進一步瞭解該服務可能強制的限制，請參閱[虛擬伺服器文件](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)。
 {:tip}

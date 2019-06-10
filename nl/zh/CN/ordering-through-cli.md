@@ -133,7 +133,7 @@ Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 有关通过 API 授权主机访问 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
-有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 连接新存储器

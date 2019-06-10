@@ -52,7 +52,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 
    Essa seleção é baseada no sistema operacional no qual seu host está em execução e não pode ser modificada posteriormente. Por exemplo, se o servidor é Ubuntu ou RHEL, selecione Linux. Se o host for um servidor Windows 2012 ou
 Windows 2016, selecione a opção Windows 2008+ na lista. Para obter mais informações sobre as várias opções do Windows,
-consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um.
 
@@ -63,7 +63,7 @@ Contratos de Prestação de Serviços de Terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
 Por padrão, é possível provisionar um total combinado de 250
-volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com IOPS Customizado (Desempenho)
@@ -87,7 +87,7 @@ volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de s
 
    Essa seleção é baseada no sistema operacional no qual seu host está em execução e não pode ser modificada posteriormente. Por exemplo, se o servidor é Ubuntu ou RHEL, selecione Linux. Se o host for um servidor Windows 2012 ou
 Windows 2016, selecione a opção Windows 2008+ na lista. Para obter mais informações sobre as várias opções do Windows,
-consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
    {:tip}
 9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um.
 
@@ -98,7 +98,7 @@ Contratos de Prestação de Serviços de Terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
 Por padrão, é possível provisionar um total combinado de 250
-volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Conectando seu novo armazenamento

@@ -133,7 +133,7 @@ Opciones:
 Para obtener más información sobre la autorización de los hosts para acceder a {{site.data.keyword.blockstorageshort}} mediante la API, consulte [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}.
 {:tip}
 
-Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs).
+Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Conexión del nuevo almacenamiento

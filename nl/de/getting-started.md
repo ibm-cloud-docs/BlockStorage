@@ -65,7 +65,7 @@ Die Geschwindigkeit Ihrer Ethernet-Verbindung muss höher sein als der erwartete
 
 Um die maximalen IOPS-Werte zu erreichen, müssen geeignete Netzressourcen vorhanden sein. Außerdem sind die Nutzung privater Netze außerhalb des Speichers sowie hostseitige und anwendungsspezifische Optimierungen (zum Beispiel IP-Stack oder [Warteschlangenlängen](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings) und andere Einstellungen) zu berücksichtigen.
 
-Der Speicherverkehr muss von anderen Datenverkehrstypen isoliert werden und darf nicht über Firewalls und Router übertragen werden. Weitere Informationen finden Sie bei den [häufig gestellten Fragen](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+Der Speicherverkehr muss von anderen Datenverkehrstypen isoliert werden und darf nicht über Firewalls und Router übertragen werden. Weitere Informationen finden Sie bei den [häufig gestellten Fragen](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic).
 
 Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtuellen Servern enthalten. Weitere Informationen zu den Grenzwerten, die für die Verwendung des Service gelten können, finden Sie in der [Dokumentation zu virtuellen Servern](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}

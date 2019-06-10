@@ -49,7 +49,7 @@ subcollection: BlockStorage
 7. 单击**指定快照空间大小**，然后从列表中选择快照大小。这是除了可用空间以外的空间。有关快照空间注意事项和建议，请阅读[订购快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 从列表中选择**操作系统类型**。<br/>
 
-   此选择基于主机所运行的操作系统，日后无法修改此选择。例如，如果服务器为 Ubuntu 或 RHEL，请选择 Linux。如果主机为 Windows 2012 或 Windows 2016 服务器，请从列表中选择 Windows 2008+ 选项。有关各种 Windows 选项的更多信息，请参阅[常见问题解答](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+   此选择基于主机所运行的操作系统，日后无法修改此选择。例如，如果服务器为 Ubuntu 或 RHEL，请选择 Linux。如果主机为 Windows 2012 或 Windows 2016 服务器，请从列表中选择 Windows 2008+ 选项。有关各种 Windows 选项的更多信息，请参阅[常见问题解答](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
    {:tip}
 9. 在右侧，查看订单摘要，并应用促销码（如果有）。
 
@@ -58,7 +58,7 @@ subcollection: BlockStorage
 10. 阅读条款和条件后，选中**我已阅读并同意第三方服务协议**复选框。
 11. 单击**创建**。新的存储器分配会在几分钟后可用。
 
-缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增加卷的数量，请联系销售代表。请阅读[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)以了解有关增大限制的信息。<br/><br/>有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增加卷的数量，请联系销售代表。请阅读[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)以了解有关增大限制的信息。<br/><br/>有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}
@@ -80,7 +80,7 @@ subcollection: BlockStorage
 7. 单击**指定快照空间大小**，然后从列表中选择快照大小。这是除了可用空间以外的空间。有关快照空间注意事项和建议，请阅读[订购快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 从列表中选择**操作系统类型**。<br/>
 
-   此选择基于主机所运行的操作系统，日后无法修改此选择。例如，如果服务器为 Ubuntu 或 RHEL，请选择 Linux。如果主机为 Windows 2012 或 Windows 2016 服务器，请从列表中选择 Windows 2008+ 选项。有关各种 Windows 选项的更多信息，请参阅[常见问题解答](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+   此选择基于主机所运行的操作系统，日后无法修改此选择。例如，如果服务器为 Ubuntu 或 RHEL，请选择 Linux。如果主机为 Windows 2012 或 Windows 2016 服务器，请从列表中选择 Windows 2008+ 选项。有关各种 Windows 选项的更多信息，请参阅[常见问题解答](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
    {:tip}
 9. 在右侧，查看订单摘要，并应用促销码（如果有）。
 
@@ -89,7 +89,7 @@ subcollection: BlockStorage
 10. 阅读条款和条件后，选中**我已阅读并同意第三方服务协议**复选框。
 11. 单击**创建**。新的存储器分配会在几分钟后可用。
 
-缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增加卷的数量，请联系销售代表。请阅读[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)以了解有关增大限制的信息。<br/><br/>有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=BlockStorage-faqs)。
+缺省情况下，总共可以供应 250 个 {{site.data.keyword.blockstorageshort}} 卷。要增加卷的数量，请联系销售代表。请阅读[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)以了解有关增大限制的信息。<br/><br/>有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 连接新存储器

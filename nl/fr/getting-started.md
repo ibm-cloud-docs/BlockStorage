@@ -66,7 +66,7 @@ vers votre numéro d'unité logique, vous rencontrez un goulot d'étranglement l
 
 Pour atteindre le nombre maximal d'IOPS, vous devez mettre en place les ressources réseau adéquates. Vous devez également tenir compte de l'utilisation du réseau privé en dehors du stockage, ainsi que des réglages côté hôte et spécifiques aux applications (pile IP ou [nombre de lignes de file d'attente](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings), etc.).
 
-Le trafic de stockage doit être isolé des autres types de trafic et il ne doit pas être dirigé via des pare-feu et des routeurs. Pour plus d'informations, voir la [Foire aux questions](/docs/BlockStorage?topic=BlockStorage-faqs#isolatedstoragetraffic).
+Le trafic de stockage doit être isolé des autres types de trafic et il ne doit pas être dirigé via des pare-feu et des routeurs. Pour plus d'informations, voir la [Foire aux questions](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic).
 
 Le trafic de stockage est inclus dans l'utilisation réseau totale des serveurs virtuels publics. Pour plus d'informations sur les limites que peut imposer le service, voir la [documentation sur les serveurs virtuels](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}
