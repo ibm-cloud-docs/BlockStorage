@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -29,6 +29,11 @@ By default, you can provision a combined total of 250 block and file storage. To
 {: faq}
 
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
+
+## Can I attach multiple LUNs with different OS settings?
+{: faq}
+
+No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can only be authorized to access LUNs of a single OS type. If you attempt to authorize access to multiple LUNs with different OS types, the operation results in an error.
 
 ## Which Windows version am I to choose for my Block Storage LUN?
 {: faq}
@@ -92,7 +97,7 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
