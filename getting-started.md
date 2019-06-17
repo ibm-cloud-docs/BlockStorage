@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,7 +32,7 @@ subcollection: BlockStorage
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
-For more information about the {{site.data.keyword.blockstorageshort}} offering, see [About {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
+For more information about the {{site.data.keyword.blockstorageshort}} offering, see [Learn about {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
 ## Provisioning considerations
 
@@ -73,12 +73,16 @@ Storage traffic is included in the total network usage of Public Virtual Servers
 ## Submitting your Order
 {: #submitorder}
 
-When you're ready to submit your order, you can place it through the [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) or the [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI).
+When you're ready to submit your order, you can place it through the [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), the [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) or the [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
+
+For information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+To be able to access all the new features, order `Storage-as-a-Service Package 759`.
+{:tip}
 
 ## Connecting your new storage
 {: #mountingstorage}
 
-When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
+When your provisioning request is complete, authorize your hosts to access the new storage, and configure your connection. Depending on your host's operating system, follow the appropriate link.
 - [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Connecting to LUNs on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Connecting to LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -87,4 +91,4 @@ When your provisioning request is complete, authorize your hosts to access the n
 
 ## Managing your new Storage
 
-Through the portal or the SLCLI, you can manage various aspects of your File Storage such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Through the portal or the SLCLI, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

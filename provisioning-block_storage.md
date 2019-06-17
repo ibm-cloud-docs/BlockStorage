@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,15 +22,13 @@ subcollection: BlockStorage
 
 You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
 
-- You can choose from Endurance IOPs tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.
-- You can fine-tune your storage to meet specific performance requirements by specifying the total number of IOPS with Performance.
+- You can provision with **Endurance** tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.
+- You can fine-tune your storage to meet specific performance requirements and build a high-powered **Performance** environment by specifying the total number of input/output operations per second (IOPS)
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)
+{: #orderingthroughConsoleEndurance}
 
-1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
-
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
-
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 2. Select your deployment **Location** (data center).
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
@@ -49,23 +47,22 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choose your **OS Type** from the list.<br/>
 
-   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
 
    Discounts are applied when the order is processed.
    {:note}
-10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
+10. After you reviewed the terms and conditions, check the **I have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
+{: #orderingthroughConsolePerformance}
 
-1. Log in to [The IBM Cloud catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
-
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, click **Storage** > **{{site.data.keyword.blockstorageshort}}**. In the upper right, click **Order {{site.data.keyword.blockstorageshort}}**.
+1. Log in to [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select {{site.data.keyword.blockstorageshort}}, and click **Create**.
 2. Click **Location** and select your data center.
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
@@ -80,16 +77,16 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choose your **OS Type** from the list.<br/>
 
-   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
 
    Discounts are applied when the order is processed.
    {:note}
-10. After you reviewed the terms and conditions, check the I** have read and agree to the Third-Party Service Agreements** box.
+10. After you reviewed the terms and conditions, check the **I have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Connecting your new storage

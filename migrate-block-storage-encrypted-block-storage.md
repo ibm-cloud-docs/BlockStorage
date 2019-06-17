@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,10 +35,10 @@ All enhanced {{site.data.keyword.blockstorageshort}} volumes that are provisione
 When you place an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
 {:important}
 
-You can order an enhanced LUN through the IBM Cloud Console and the {{site.data.keyword.slportal}}. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
+You can order an enhanced LUN through the IBM Cloud Console. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
-- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,13 +20,13 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNs on Linux
 {: #mountingLinux}
 
-These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to documentation of your specific distribution and ensure that the multipath supports ALUA for path priority.
+These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
 {:note}
 
-For example, you can find Ubuntu's instructions for iSCSI Initiator Configuration [here](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and DM-Multipath setup [here](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+For example, for more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 {:important}
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
@@ -39,11 +39,10 @@ Alternatively, you can authorize the host through the SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -51,9 +50,9 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
 
-Following are the steps that are required to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
+Complete the Following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
@@ -61,7 +60,8 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 1. Install the iSCSI and multipath utilities to your host.
   - RHEL and CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -180,12 +180,14 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
     RHEL 7 and CentOS 7 might return No fc_host device, which can be ignored.
 
-5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.slportal}}. Enter the value as lowercase.
+5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. Edit the CHAP settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.slportal}}. Use uppercase for CHAP names.
+
+6. Edit the CHAP settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
    ```
    node.session.auth.authmethod = CHAP
    node.session.auth.username = <Username-value-from-Portal>
@@ -247,11 +249,11 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    - For other distributions, check the OS vendor documentation.
 
-8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
+8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
    A. Run the discovery against the iSCSI array.
     ```
-    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -279,10 +281,12 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
+
   This command reports something similar to the following example.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   The volume is now mounted and accessible on the host.
 
 ## Creating a file system (optional)

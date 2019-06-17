@@ -23,7 +23,7 @@ subcollection: BlockStorage
 | 4 IOPS per GB | 56 |
 {: caption="Recommended queue depth for each IOPS tier" caption-side="top"}
 
-The host setting doesn't affect disk and controller latency. It affects only the latency that is observed by the host and application.
+The host setting doesn’t affect disk and controller latency. It affects only the latency that is observed by the host and application.
 
 Queue depth that exceeds the listed numbers can increase host I/O latency, while queue depth less than the listed number can reduce host I/O performance. Because each application is different, adjustment and observation are required to achieve maximum storage performance.
 

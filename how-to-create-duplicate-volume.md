@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ Duplicate volumes can be accessed by a host for read/write as soon as the storag
 
 When the data copy is complete, the duplicate can be managed and used as an independent volume.
 
-This feature is available in most locations. Click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) for the list of available data centers.
+This feature is available in most locations. For more information, see [the list of available data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
@@ -42,14 +42,12 @@ Some common uses for a duplicate volume:
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 - **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.  
 
-You can create a duplicate volume through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} in a couple of ways.
+You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} in a couple of ways.
 
 
 ## Creating a duplicate from a specific volume in the Storage List
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}}
-    - From the customer portal, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR
-    - From the {{site.data.keyword.cloud}} console, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click **Actions** > **Duplicate LUN (Volume)**
 3. Choose your snapshot option:
     - If you order from a **non-replica** volume,

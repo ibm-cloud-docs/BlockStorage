@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -19,16 +19,15 @@ subcollection: BlockStorage
 # Disaster Recovery - Fail over with an accessible Primary volume
 {: #dr-accessible}
 
-If a catastrophic failure or disaster occurs on the primary site and the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
+If a catastrophic failure or disaster occurs on the primary site, and the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
 
 Before you start the failover, make sure that all host-authorization is in place.
+{:important}
 
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
 {:note}
 
-1. Log in to [The {{site.data.keyword.cloud}} console](https://{DomainName}/catalog){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
-
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 2. Click your source or destination volume from the **{{site.data.keyword.blockstorageshort}}** page.
 3. Click **Replica**.
 4. Scroll down to the **Authorize Hosts** frame and click **Authorize Hosts** on the right.
@@ -38,43 +37,46 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 
 ## Starting a failover from a volume to its replica
 
-If a failure event is imminent, you can start a **failover** to your destination, or target, volume. The target volume becomes active. The last successfully replicated snapshot is activated, and the volume is made available for mounting. Any data that was written to the source volume since the previous replication cycle is lost. When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
+If a failure event is imminent, you can start a **failover** to your destination, or target, volume. The target volume becomes active. The last successfully replicated snapshot is activated, and the volume is made available for mounting. Any data that was written to the source volume since the previous replication cycle is lost.
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
 
-**Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.**
+Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
+
+Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.
+{:important}
 
 1. Click your active LUN (“source”).
-2. Click **Replica** and click **Actions**.
+2. Click **Replica**, and click **Actions**.
 3. Select **Failover**.
 
-   Expect a message across the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.<br/> When your target volume is live, you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
+   Expect a message across the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** page that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.<br/> When your target volume is live, you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
    {:note}
-4. Click **View All ({{site.data.keyword.blockstorageshort}})**.
-5. Click your active LUN (formerly your target volume).
-6. Mount and attach your storage volume to the host. Click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) for instructions.
+4. Click **View All {{site.data.keyword.blockstorageshort}}**.
+5. Click your active LUN (this was your previous target volume).
+6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
 
 ## Starting a failback from a volume to its replica
 
-When your original source volume is repaired, you can start a controlled Failback to your original source volume. In a controlled Failback,
+When your original source volume is repaired, you can start a controlled Failback to your original source volume. In a controlled Failback:
 
-- The acting source volume is taken offline,
-- A snapshot is taken,
-- The replication cycle is completed,
-- The just-taken data snapshot is activated,
-- And the source volume becomes active for mounting.
+- The acting source volume is taken offline.
+- A snapshot is taken.
+- The replication cycle is completed.
+- The just-taken data snapshot is activated.
+- The source volume becomes active for mounting.
 
 When a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
 
-Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 1. Click your active LUN ("target").
-2. In the upper right, click **Replica** and click **Actions**.
+2. In the upper right, click **Replica**, and click **Actions**.
 3. Select **Failback**.
 
    Expect a message across the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
    {:note}
-4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}** link.
+4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN ("source").
-6. Mount and attach your storage volume to the host. Click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) for instructions.
+6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).

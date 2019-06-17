@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**. Click **Authorize Host**.
 2. From the list, select the host or hosts that are to access the volume and click **Submit**.
@@ -29,11 +29,10 @@ Alternatively, you can authorize the host through the SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -41,7 +40,7 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Following are the steps that are required to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
 
 ### Configuring the MPIO feature
 
@@ -68,19 +67,19 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN).
     ![iSCSI Initiator Properties](/images/iSCSI.png)
 
-      The IQN name can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+      The IQN name can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
       {: tip}
 
-    - Click the **Discovery** tab and click **Discover Portal**.
-    - Input the IP address of your iSCSI target and leave Port at the default value of 3260.
+    - Click **Discovery**, and click **Discover Portal**.
+    - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
     - Click **Advanced** to open the Advanced Settings window.
     - Select **Enable CHAP log on** to turn on CHAP authentication.
     ![Enable CHAP login](/images/Advanced_0.png)
 
     The Name and Target secret fields are case-sensitive.
     {:important}
-         - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-         - In the **Target secret** field, enter the password from the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage){: external}.
+         - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage){: external}.
     - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
     ![Inactive Target](/images/Inactive_0.png)
 
@@ -93,7 +92,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 1. Click **Connect** to connect to the target.
 2. Select **Enable multi-path** check box to enable multi-path IO to the target.<br/>
    ![Enable Multi-path](/images/Connect_0.png)
-3. Click **Advanced** and select **Enable CHAP log on**.</br>
+3. Click **Advanced**, and select **Enable CHAP log on**.</br>
    ![Enable CHAP](/images/chap_0.png)
 4. Enter the user name in the Name field, and enter the password in the Target secret field.
 
@@ -106,7 +105,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 ### Configuring MPIO in the iSCSI Initiator
 
 1. Start the iSCSI Initiator, and on the Targets tab, click **Properties**.
-2. Click **Add Session** on the Properties window to open the Connect To Target window.
+2. Click **Add Session** on the Properties window.
 3. In the Connect to Target dialog box, select **Enable multi-path** check box, and click **Advanced**.
   ![Target](/images/Target.png)
 
@@ -115,24 +114,24 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    - On the Initiator IP list, select the IP address of the host.
    - On the Target Portal IP list, select the IP of device interface.
    - Click **Enable CHAP log on** check box
-   - Enter the Name and Target secret values that were obtained from the portal and click **OK**.
+   - Enter the Name and Target secret values that were obtained from the console and click **OK**.
    - Click **OK** on the Connect To Target window to go back to the Properties window.
 
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
 6. In the Connect to Target window, select the **Enable multi-path** check box. Click **Advanced**.
 7. In the Advanced Settings window,
    - On the Local adapter list, select Microsoft iSCSI Initiator.
-   - On the Initiator IP list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the storage device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
+   - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
    - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the storage device.
 
-     You can find the second IP address in the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+     You can find the second IP address in the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Click **Enable CHAP log on** check box
-   - Enter the Name and Target secret values that were obtained from the portal and click **OK**.
+   - Enter the Name and Target secret values that were obtained from the console and click **OK**.
    - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} before you attempt to make the connection.
+   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external} before you attempt to make the connection.
    {:note}
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`. <br/>
   ![Devices](/images/Devices.png)
@@ -163,7 +162,7 @@ Following are the steps that are required to disconnect a Windows-based {{site.d
 
 ### Starting the iSCSI Initiator
 
-1. Click the **Targets** tab.
+1. Click **Targets**.
 2. Select the targets that you want to remove and click **Disconnect**.
 
 ### Removing targets

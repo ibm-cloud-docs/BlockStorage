@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -10,7 +10,7 @@ subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
-{:codeblock: .codeblock} 
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -49,9 +49,7 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 
 ## Ordering Snapshot space through the {{site.data.keyword.cloud_notm}} console
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external} and click the menu icon on the upper left. Select **Classic Infrastructure**.
-
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external}, and click the menu icon on the upper left. Then, select **Classic Infrastructure**.
 2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.
 2. Click **Change Snapshot Space** in the Snapshots frame.
 3. Select the amount of space that you need and the payment method.

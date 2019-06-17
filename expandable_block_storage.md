@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Expanding Block Storage Capacity
 {: #expandingcapacity}
 
-With this new feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume. There's no outage or lack of access to the storage while the resize is taking place.
+With this feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume. There's no outage or lack of access to the storage while the resize is taking place.
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
@@ -27,7 +27,7 @@ This feature is available in [select data centers](/docs/infrastructure/BlockSto
 
 ## Advantages of Expandable Storage
 
-- **Cost management** – You might know that there's potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on costs of storage and then grow to accommodate their needs.  
+- **Cost management** – You might know that there's potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on cost of storage, and later grow to accommodate their needs.  
 
 - **Growing Storage needs** - Customers who experience rapid data growth need a way to quickly and easily increase the size of their storage to manage it.
 
@@ -47,7 +47,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 ## Resizing storage
 {: #resizingsteps}
 
-1. From the {{site.data.keyword.slportal}}, click **Storage** > **{{site.data.keyword.blockstorageshort}}** OR from {{site.data.keyword.cloud}} console click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. From the {{site.data.keyword.cloud}} console, click the **menu** icon. Then, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the LUN from the list and click **Actions** > **Modify LUN**
 3. Enter the new storage size in GB.
 4. Review your selection and the new pricing.

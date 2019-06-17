@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Achieving Full Disk Encryption with LUKS in Red Hat Enterprise Linux
+# Achieving full disk encryption with LUKS in RHEL6
 {: #LUKSencryption}
 
-You can encrypt partitions on your Red Hat Enterprise Linux 6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
+You can encrypt partitions on your RHEL6 server with Linux Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile computers and removable media. LUKS allows multiple user keys to decrypt a master key that is used for the bulk encryption of the partition.
 
 These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux host, see [Connecting to iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
@@ -40,7 +40,7 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 - Allow applications that require many (more than eight) users to have distinct access keys to same devices.
 - Work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
-## Setting up a LUKS encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
+## Setting up a LUKS-encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
 The process of data encryption creates a load on the host that might potentially impact performance.
 {:note}

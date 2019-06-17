@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
@@ -20,18 +20,17 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-
-
 # Windows 2012 R2 - multiple iSCSI devices
 {: #troubleshootingWin12}
 
 If you use more than two iSCSI devices with the same host, you might find this procedure useful; especially if all the iSCSI connections are from the same Storage device.
 If you see only two devices in Disk Manager, then you need to manually connect to each device in iSCSI Initiator on every server node.
-{: tsSymptoms}{: tsResolve}
+{:tsSymptoms}
+{:tsResolve}
 
 
 1. Open the Windows iSCSI Initiator.
-2. Click the **Targets** tab, then click **Devices**.
+2. On the **Targets** tab, click **Devices**.
 
    ![iSCSI Initiator properties](/images/win12-ts1.png)
 3. Confirm the number of devices that are shown. If you see two devices, instead of the four that were authorized, continue to the next step.

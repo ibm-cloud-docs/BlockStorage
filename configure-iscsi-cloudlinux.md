@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,16 +19,17 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNs on CloudLinux
 {: #mountingCloudLinux}
 
-Follow these instructions to install your iSCSI LUN with multipath on CloudLinux Server release 6.10.
+Follow these instructions to mount your iSCSI LUN with multipath on a CloudLinux Server release 6.10.
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
 {:tip}
 
-1. Log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-2. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
-3. Click **Authorize Host**.
-4. From the list, select the host or hosts that can access the volume and click **Submit**.
-5. Take note of the Host IQN, user name, password, and target address.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
+4. Click **Authorize Host**.
+5. From the list, select the host or hosts that can access the volume and click **Submit**.
+6. Take note of the Host IQN, user name, password, and target address.
 
 Alternatively, you can authorize the host through the SLCLI.
 ```
@@ -36,11 +37,10 @@ Alternatively, you can authorize the host through the SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -51,7 +51,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountingCloudLin}
 
-1. Install the iSCSI and multipath utilities on your host and activate them.
+1. Install the iSCSI and multipath utilities on your host, and activate them.
    ```
    yum install iscsi-initiator-utils
    ```
@@ -107,18 +107,18 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
      ```
      {: codeblock}
 
-   - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the user name, password.
+   - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the user name, and password.
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
    ```
    {: pre}
 
-4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.slportal}}.
+4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud_notm}} console.
 
      A. Run the discovery against the iSCSI array.
        ```

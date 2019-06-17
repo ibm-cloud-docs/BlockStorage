@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -23,9 +23,7 @@ If a catastrophic failure or disaster causes an outage on the primary site, cust
 
 ## Fail over with a duplicate of a replica volume on the secondary site
 
-1. Log in to [The IBM Cloud console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
-
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Click the replica of the LUN in the list to view its **Details** page.
 4. On the **Details** page, scroll down and select an existing snapshot, then click **Actions** > **Duplicate**.
@@ -39,11 +37,9 @@ As soon as the volume is created, it can be attached to a host and perform read/
 
 If you want to return production to the original primary site, you must perform the following steps.
 
-1. Log in to [The IBM Cloud console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
-
-   Alternatively, you can log in to the [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}, and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Click the LUN name and create a snapshot schedule (if one does not exist already).
+3. Click the LUN name, and create a snapshot schedule (if one does not exist already).
 
    For more information about snapshot schedules, see [Managing Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
@@ -58,7 +54,7 @@ After replication is complete, you need to create a duplicate volume of the new 
 
 1. Go back to **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Click the replica of the LUN in the list to view its **Details** page.
-3. On the **Details** page, scroll down and select an existing snapshot, then click **Actions** > **Duplicate**.
+3. On the **Details** page, scroll down, and select an existing snapshot, then click **Actions** > **Duplicate**.
 4. Make any necessary updates to the capacity (to increase size) or IOPs for the new volume.
 5. Update the snapshot space for the new volume if needed.
 6. Click **Continue** to place your order for the duplicate.
