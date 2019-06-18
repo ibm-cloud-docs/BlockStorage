@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,16 +19,17 @@ subcollection: BlockStorage
 # CloudLinux での iSCSI LUN への接続
 {: #mountingCloudLinux}
 
-以下の手順に従って、CloudLinux Server リリース 6.10 にマルチパスを使用して iSCSI LUN をインストールします。
+以下の手順に従って、CloudLinux Server リリース 6.10 にマルチパスを使用して iSCSI LUN をマウントします。
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して事前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic){: external}を介して事前に許可されていることを確認してください。
 {:tip}
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインします。
-2. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
-3. **「ホストの許可」**をクリックします。
-4. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
-5. ホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスを書き留めます。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。**「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
+2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+3. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
+4. **「ホストの許可」**をクリックします。
+5. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
+6. ホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスを書き留めます。
 
 あるいは、SLCLI を使用してホストを許可できます。
 ```
@@ -36,11 +37,10 @@ subcollection: BlockStorage
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -107,18 +107,18 @@ Options:
      ```
      {: codeblock}
 
-   - ユーザー名、パスワードを追加して、CHAP 設定 `/etc/iscsi/iscsid.conf` を更新します。
+   - ユーザー名とパスワードを追加して、CHAP 設定 `/etc/iscsi/iscsid.conf` を更新します。
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ Options:
    ```
    {: pre}
 
-4. {{site.data.keyword.slportal}} から取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
+4. {{site.data.keyword.cloud_notm}} コンソールから取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
 
      A. iSCSI アレイに対してディスカバリーを実行します。
        ```

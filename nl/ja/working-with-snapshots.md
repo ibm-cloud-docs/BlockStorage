@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## スナップショット・スケジュールの作成
 
-スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**タブから行います。
+スナップショット・スケジュールを使用して、ストレージ・ボリュームの特定時点の参照を作成する頻度とタイミングを決定します。 1 つのストレージ・ボリュームにつき、最大 50 個のスナップショットを使用できます。 スケジュールの管理は、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}の**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**タブから行います。
 
 初期スケジュールをセットアップする前に、まずスナップショット・スペースを購入する必要があります (ストレージ・ボリュームの初期プロビジョニング時にスナップショット・スペースを購入しなかった場合)。 詳しくは、[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)を参照してください。
 {:important}
@@ -42,7 +42,7 @@ subcollection: BlockStorage
    - 週単位
       - スナップショットを取得する曜日、時、および分を指定します。 デフォルトは、現在の曜日、時、および分です。
       - 最も古いスナップショットが破棄されるまでに保持される、週単位のスナップショットの数を選択します。
-3. **「保存」**をクリックして、頻度が異なる別のスケジュールを作成します。 スケジュールされたスナップショットの総数が 50 を超えると、警告メッセージが表示され、保存できなくなります。
+3. **「保存」**をクリックします。そして、頻度が異なる別のスケジュールを作成することができます。スケジュールされたスナップショットの総数が 50 を超えると、警告メッセージが表示され、保存できなくなります。
 
 取得されたスナップショットのリストは、**「詳細」**ページの**「スナップショット」**セクションに表示されます。
 
@@ -121,8 +121,8 @@ Options:
 
 3 つの異なるスペースしきい値 (75%、90%、および 95%) に達すると、アカウントのマスター・ユーザーにサポート Case で通知が送信されます。
 
-- **容量の 75%** では、スナップショット・スペースの使用率が 75% を超えたことを示す警告が送信されます。 警告を受け入れて、手動でスペースを追加するか、保持している不要なスナップショットを削除すると、そのアクションが認識され、Case がクローズされます。何も行わない場合は、手動で Case に応答する必要があり、そうすることで Case がクローズされます。
-- **容量の 90%** では、スナップショット・スペースの使用率が 90% を超えると、2 番目の警告が送信されます。 容量の 75% に達した場合と同様に、使用済みスペースを減らすために必要なアクションを実行すると、アクションが認識され、Case がクローズされます。何も行わない場合は、手動で Case に応答する必要があり、そうすることで Case がクローズされます。
+- **容量の 75%** では、スナップショット・スペースの使用率が 75% を超えたことを示す警告が送信されます。 警告を受け入れて、手動でスペースを追加するか、保持している不要なスナップショットを削除すると、そのアクションが認識され、Case がクローズされます。 何も行わない場合は、手動で Case に応答する必要があり、そうすることで Case がクローズされます。
+- **容量の 90%** では、スナップショット・スペースの使用率が 90% を超えると、2 番目の警告が送信されます。 容量の 75% に達した場合と同様に、使用済みスペースを減らすために必要なアクションを実行すると、アクションが認識され、Case がクローズされます。 何も行わない場合は、手動で Case に応答する必要があり、そうすることで Case がクローズされます。
 - **容量の 95%** では、最終警告が送信されます。 スペース使用率がしきい値を下回るようなアクションを実行しなかった場合は、通知が生成され、今後もスナップショットを作成できるよう、自動削除が実行されます。 スケジュールされたスナップショットは、最も古いものから順番に、使用率が 95% を下回るまで削除されます。 スナップショットは、使用率が 95% を超えるたび、使用率がしきい値を下回るまで削除が続行されます。 スペースが手動で増やされるか、スナップショットが削除されると、警告はリセットされ、再びしきい値を超えた場合に再び発行されます。 アクションを実行しなかった場合は、この通知が、受信する唯一の警告になります。
 
 ## スナップショット・スケジュールの削除
@@ -163,9 +163,9 @@ Options:
 {:important}
 
 1. ストレージ・ボリュームをホストからアンマウントして、切り離します。
-   - [Linux での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Microsoft Windows での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の順にクリックします。
+   - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の順にクリックします。
 3. スクロールダウンして、復元するボリュームをクリックします。 **「詳細」**ページの**「スナップショット」**セクションに、保存されているすべてのスナップショットのリストがサイズと作成日とともに表示されます。
 4. 使用するスナップショットの横の**「アクション」**をクリックし、**「復元」** をクリックします。 <br/>
 

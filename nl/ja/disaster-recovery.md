@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -23,9 +23,7 @@ subcollection: BlockStorage
 
 ## 2 次サイトにあるレプリカ・ボリュームの複製を使用するフェイルオーバー
 
-1. [IBM Cloud コンソール](https://{DomainName}/){: external}にログインし、左上の**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
-
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインできます。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインして、左上にある**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. リスト内の LUN のレプリカをクリックして、**「詳細」**ページを表示します。
 4. **「詳細」**ページで、下にスクロールして既存のスナップショットを選択し、**「アクション」** > **「複製」**をクリックします。
@@ -39,9 +37,7 @@ subcollection: BlockStorage
 
 元の 1 次サイトに実動を戻す場合は、以下のステップを実行する必要があります。
 
-1. [IBM Cloud コンソール](https://{DomainName}/){: external}にログインし、左上の**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
-
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインできます。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインして、左上にある**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. LUN 名をクリックし、スナップショット・スケジュールを作成します (まだ存在していない場合)。
 
@@ -58,7 +54,7 @@ subcollection: BlockStorage
 
 1. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**に戻ります。
 2. リスト内の LUN のレプリカをクリックして、**「詳細」**ページを表示します。
-3. **「詳細」**ページで、下にスクロールして既存のスナップショットを選択し、**「アクション」** > **「複製」**をクリックします。
+3. **「詳細」**ページで、下にスクロールして既存のスナップショットを選択し、**「アクション」**>**「複製」**をクリックします。
 4. 新規ボリュームの容量 (サイズを増やす) または IOP に対して、必要な更新を行います。
 5. 必要に応じて、新規ボリュームのスナップショット・スペースを更新します。
 6. **「続行」**をクリックして、複製を注文します。

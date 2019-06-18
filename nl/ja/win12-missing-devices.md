@@ -2,29 +2,35 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
 ---
-
-{:external: target="_blank" .external}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
-
+{:external: target="_blank" .external}
 
 # Windows 2012 R2 - 複数の iSCSI デバイス
 {: #troubleshootingWin12}
 
-iSCSI デバイスを 3 つ以上使用する場合、特に 4 つの iSCSI デバイスすべてが同じストレージ・デバイスから割り当てられている場合に、この手順が役に立つことがあります。 ディスク・マネージャーに 2 つのデバイスしか表示されていない場合、すべてのサーバー・ノードで iSCSI イニシエーターの各デバイスに手動で接続する必要があります。
+同じホストで iSCSI デバイスを 3 つ以上使用する場合、特にすべての iSCSI 接続が同じストレージ・デバイスからのものである場合に、この手順が役に立つことがあります。
+ディスク・マネージャーに 2 つのデバイスしか表示されていない場合、すべてのサーバー・ノードで iSCSI イニシエーターの各デバイスに手動で接続する必要があります。
+{:tsSymptoms}
+{:tsResolve}
+
 
 1. Windows iSCSI イニシエーターを開きます。
-2. **「ターゲット」**タブをクリックし、**「デバイス」**をクリックします。
+2. **「ターゲット」**タブで、**「デバイス」**をクリックします。
 
    ![iSCSI イニシエーターのプロパティー](/images/win12-ts1.png)
 3. 表示されているデバイスの数を確認します。 デバイスが、許可されている 4 つではなく 2 つ表示されている場合は次のステップに進みます。

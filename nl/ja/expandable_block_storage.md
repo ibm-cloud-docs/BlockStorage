@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # ブロック・ストレージ容量の拡張
 {: #expandingcapacity}
 
-この新機能を使用すると、{{site.data.keyword.blockstoragefull}} の現行ユーザーは、既存の {{site.data.keyword.blockstorageshort}} のサイズを GB 単位で増やして最大 12 TB まで即時に拡張できます。 複製ボリュームを作成する必要も、より大きなボリュームにデータを手動でマイグレーションする必要もありません。 サイズ変更の実行中に、ストレージへのアクセスが停止することも、ストレージへアクセスできなくなることもありません。
+この機能を使用すると、{{site.data.keyword.blockstoragefull}} の現行ユーザーは、既存の {{site.data.keyword.blockstorageshort}} のサイズを GB 単位で増やして最大 12 TB まで即時に拡張できます。複製ボリュームを作成する必要も、より大きなボリュームにデータを手動でマイグレーションする必要もありません。 サイズ変更の実行中に、ストレージへのアクセスが停止することも、ストレージへアクセスできなくなることもありません。
 
 ボリュームに対する請求は自動更新されて、新価格の差額が日割り計算で現在の請求サイクルに追加されます。 その後、次の請求サイクルでは新しい金額全体が請求されます。
 
@@ -27,7 +27,7 @@ subcollection: BlockStorage
 
 ## 拡張可能なストレージの利点
 
-- **コスト管理**: データが増加する可能性があることはわかっているが、開始時点で必要なのは小さいストレージでよい場合があります。 拡張する機能があれば、お客様はストレージのコストを節約し、必要に合わせて拡張することができます。  
+- **コスト管理**: データが増加する可能性があることはわかっているが、開始時点で必要なのは小さいストレージでよい場合があります。 拡張する機能があれば、お客様はストレージのコストを節約し、必要に合わせて後で拡張することができます。  
 
 - **ストレージ必要量の増大** - データが急速に増加しているお客様には、それに対応するために、ストレージのサイズを素早く簡単に増やす方法が必要です。
 
@@ -47,7 +47,7 @@ subcollection: BlockStorage
 ## ストレージのサイズ変更
 {: #resizingsteps}
 
-1. {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックするか、{{site.data.keyword.cloud}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. {{site.data.keyword.cloud}} コンソールから、**「メニュー」**アイコンをクリックします。続いて、**「インフラストラクチャー」**>**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
 3. 新しいストレージ・サイズを GB 単位で入力します。
 4. 選択内容と新しい価格設定を確認します。

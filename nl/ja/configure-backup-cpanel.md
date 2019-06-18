@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, cPanel, backups, mountpoint, ISCSI
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
    デフォルトで、cPanel システムはバックアップ・ファイルを `/backup` ディレクトリーにローカルに保存します。 本書では、`/backup` が存在し、バックアップが含まれていることを前提としており、新しいマウント・ポイントとして `/backup2` が使用されます。
    {:note}
 
-3. [Linux での MPIO iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux)の説明に従って、{{site.data.keyword.blockstorageshort}} を構成します。 マウント先は必ず `/backup2` にし、開始時のマウントを可能にするように `/etc/fstab` で構成してください。
+3. [Linux での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux)の説明に従って、{{site.data.keyword.blockstorageshort}} を構成します。マウント先は必ず `/backup2` にし、開始時のマウントを可能にするように `/etc/fstab` で構成してください。
 
 4. **オプション**: 既存のバックアップを新規ストレージにコピーします。 `rsync` を使用できます。
    ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 データ・コピーが完了すると、複製は、完全に独立したボリュームとして管理したり使用したりできるようになります。
 
-この機能は、ほとんどのロケーションで使用できます。 使用可能なデータ・センターのリストについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)をクリックしてください。
+この機能は、ほとんどのロケーションで使用できます。 詳しくは、[使用可能なデータ・センターのリスト](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)を参照してください。
 
 {{site.data.keyword.containerlong}} の「専用」アカウント・ユーザーである場合は、[{{site.data.keyword.containerlong_notm}} 資料](/docs/containers?topic=containers-block_storage#block_backup_restore)にある、ボリュームを複製するためのオプションを参照してください。
 {:tip}
@@ -42,14 +42,12 @@ subcollection: BlockStorage
 - **開発とテスト (dev/test)**: ボリュームの同時複製を一度に 4 つまで作成して、開発およびテスト用の複製データを作成する。
 - **ストレージのサイズ変更**: データの移動の必要なく、新しいサイズまたは IOPS レート (あるいはその両方) を指定したボリュームを作成する。  
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で重複ボリュームを作成するには、いくつかの方法があります。
+[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}を介して、いくつかの方法で重複ボリュームを作成できます。
 
 
 ## ストレージ・リスト内の特定のボリュームから複製を作成する方法
 
-1. {{site.data.keyword.blockstorageshort}}のリストに進みます。
-    - カスタマー・ポータルから、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。または、
-    - {{site.data.keyword.cloud}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. {{site.data.keyword.cloud_notm}} コンソールで**「インフラストラクチャー」**>**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックして、{{site.data.keyword.blockstorageshort}} のリストに移動します。
 2. リストからボリュームを選択し、**「アクション」** > **「LUN (ボリューム) の複製 (Duplicate LUN (Volume))」**をクリックします。
 3. スナップショット・オプションを選択します。
     - **非レプリカ**・ボリュームから注文する場合は、次のようにします。

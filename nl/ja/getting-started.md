@@ -65,7 +65,7 @@ subcollection: BlockStorage
 
 最大 IOPS を実現するには、十分なネットワーク・リソースを用意する必要があります。 その他の考慮事項として、ストレージ外の専用ネットワーク使用、およびホスト・サイドおよびアプリケーション固有のチューニング (IP スタック、[キュー項目数](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings)、およびその他の設定) があります。
 
-ストレージ・トラフィックは他のトラフィック・タイプから分離する必要があり、ファイアウォールおよびルーターを介して送信されてはなりません。詳しくは、[FAQ](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic) を参照してください。
+ストレージ・トラフィックは他のトラフィック・タイプから分離する必要があり、ファイアウォールおよびルーターを介して送信されてはなりません。 詳しくは、[FAQ](/docs/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic) を参照してください。
 
 ストレージ・トラフィックは、パブリック仮想サーバーの合計ネットワーク使用量に含まれます。 このサービスで設定されている制限について詳しくは、[Virtual Server の資料](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers)を参照してください。
 {:tip}
@@ -78,7 +78,7 @@ subcollection: BlockStorage
 ## 新規ストレージの接続
 {: #mountingstorage}
 
-プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
+プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
 - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -87,4 +87,4 @@ subcollection: BlockStorage
 
 ## 新しいストレージの管理
 
-ポータルまたは SLCLI により、ホストの許可や取り消しなど、ファイル・ストレージのさまざまな側面を管理できます。 詳しくは、[{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)を参照してください。
+ポータルまたは SLCLI により、ホストの許可や取り消しなど、{{site.data.keyword.blockstorageshort}} のさまざまな側面を管理できます。詳しくは、[{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)を参照してください。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-22"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} 製品情報
 {: #About}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}} は、コンピューティング・インスタンスから独立してプロビジョンおよび管理される、永続的で高性能な iSCSI ストレージです。 iSCSI ベースの {{site.data.keyword.blockstorageshort}} LUN は、冗長マルチパス入出力 (MPIO) 接続を介して、許可されたデバイスに接続されます。
+{{site.data.keyword.blockstoragefull}} は、コンピューティング・インスタンスから独立してプロビジョンおよび管理される、永続的で高性能な iSCSI ストレージです。 iSCSI ベースの {{site.data.keyword.blockstorageshort}} LUN は、冗長マルチパス入出力 (MPIO) 接続を介して、許可されたデバイスに接続されます。
 
 {{site.data.keyword.blockstorageshort}} は、他に類のない機能によりクラス最高レベルの耐久性および可用性をもたらします。 この製品は、業界標準とベスト・プラクティスを使用して構築されています。 {{site.data.keyword.blockstorageshort}} は、保守イベントや計画外の障害においてもデータの保全性を保護し、可用性を維持し、一貫性のあるパフォーマンス・ベースラインを提供するように設計されています。
 
@@ -116,7 +116,7 @@ subcollection: BlockStorage
 ### エンデュランス
 {: #pricing-comparison-endurance}
 
-|定義済み IOPS ティアの価格オプション | 0.25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
+| 定義済み IOPS ティアの価格オプション | 0.25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
 |-----|-----|-----|-----|-----|
 | 月次価格 | $0.06/GB | $0.15/GB | $0.20/GB | $0.58/GB |
 | 毎時価格 | $0.0001/GB | $0.0002/GB | $0.0003/GB | $0.0009/GB |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Microsoft Windows での iSCSI LUN への接続
 {: #mountingWindows}
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}を介して許可されていることを確認してください。
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。 **「ホストの許可」**をクリックします。
 2. リストから、ボリュームにアクセスするホストを選択し、**「送信」**をクリックします。
@@ -29,11 +29,10 @@ subcollection: BlockStorage
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -41,7 +40,7 @@ Options:
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 {: #mountWin}
 
-以下に、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
+以下のステップを実行して、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続します。この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
 
 ### MPIO 機能の構成
 
@@ -67,10 +66,10 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
     - 「イニシエーター名」フィールドには、`iqn.1991-05.com.microsoft:` のような項目が既に取り込まれている場合があります。
     - **「変更」** をクリックして、既存の値をご使用の iSCSI 修飾名 (IQN) に置き換えます。![iSCSI イニシエーターのプロパティー](/images/iSCSI.png)
 
-      IQN 名は、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の「{{site.data.keyword.blockstorageshort}} 詳細」画面で取得できます。
+      IQN 名は、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面で取得できます。
       {: tip}
 
-    - **「探索」**タブをクリックし、**「ポータルの探索」**をクリックします。
+    - **「探索」**をクリックし、**「ポータルの探索」**をクリックします。
     - iSCSI ターゲットの IP アドレスを入力し、ポートはデフォルト値の 3260 のままにします。
     - **「詳細設定」**をクリックして、「詳細設定」ウィンドウを開きます。
     - **「CHAP ログオンを有効にする」**を選択して、CHAP 認証をオンにします。
@@ -78,8 +77,8 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 
     「名前」フィールドと「ターゲット シークレット」フィールドでは、大/小文字が区別されます。
     {:important}
-         - **「名前」**フィールドで、既存のエントリーをすべて削除し、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}から取得したユーザー名を入力します。
-         - **「ターゲット シークレット」**フィールドに、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}から取得したパスワードを入力します。
+         - **「名前」**フィールドで、既存のエントリーをすべて削除し、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic/storage){: external}から取得したユーザー名を入力します。
+         - **「ターゲット シークレット」**フィールドに、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic/storage){: external}から取得したパスワードを入力します。
     - **「詳細設定」**ウィンドウおよび**「ターゲット ポータルの探索」**ウィンドウで**「OK」**をクリックして、メインの「iSCSI イニシエーターのプロパティ」画面に戻ります。 認証エラーを受け取った場合は、ユーザー名とパスワードの項目を確認してください。
     ![非アクティブ・ターゲット](/images/Inactive_0.png)
 
@@ -93,8 +92,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 2. **「複数パスを有効にする」**チェック・ボックスを選択して、ターゲットへのマルチパス IO を有効にします。
 <br/>
    ![複数パスを有効にする](/images/Connect_0.png)
-3. **「詳細設定」**をクリックし、**「CHAP ログオンを有効にする」**を選択します。
-</br>
+3. **「詳細設定」**をクリックし、**「CHAP ログオンを有効にする」**を選択します。</br>
    ![CHAP ログオンを有効にする](/images/chap_0.png)
 4. 「名前」フィールドにユーザー名を入力し、「ターゲット シークレット」フィールドにパスワードを入力します。
 
@@ -107,7 +105,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 ### iSCSI イニシエーターでの MPIO の構成
 
 1. iSCSI イニシエーターを開始し、「ターゲット」タブで**「プロパティ」**をクリックします。
-2. 「プロパティ」ウィンドウで**「セッションの追加」**をクリックして、「ターゲットへの接続」ウィンドウを開きます。
+2. 「プロパティ」ウィンドウで**「セッションの追加」**をクリックします。
 3. 「ターゲットへの接続」ダイアログ・ボックスで、**「複数パスを有効にする」**チェック・ボックスを選択し、**「詳細設定...」**をクリックします。
   ![ターゲット](/images/Target.png)
 
@@ -116,24 +114,24 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
    - 「イニシエーター IP」リストで、ホストの IP アドレスを選択します。
    - 「ターゲット ポータル IP」リストで、デバイス・インターフェースの IP を選択します。
    - **「CHAP ログオンを有効にする」**チェック・ボックスをクリックします。
-   - ポータルから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
+   - コンソールから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
    - 「ターゲットへの接続」ウィンドウで**「OK」**をクリックして、「プロパティ」ウィンドウに戻ります。
 
 5. **「プロパティ」**をクリックします。 「プロパティ」ダイアログ・ボックスで、再度**「セッションの追加」**をクリックし、2 番目のパスを追加します。
 6. 「ターゲットへの接続」ダイアログ・ボックスで、**「複数パスを有効にする」**チェック・ボックスを選択します。 **「詳細設定」**をクリックします。
 7. 「詳細設定」ウィンドウで、以下のようにします。
    - 「ローカル アダプタ」リストで、「Microsoft iSCSI イニシエーター」を選択します。
-   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
+   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
    - 「ターゲット ポータル IP」リストで、ストレージ・デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
 
-     2 番目の IP アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面にあります。
+     2 番目の IP アドレスは、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic/storage){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面にあります。
       {: tip}
    - **「CHAP ログオンを有効にする」**チェック・ボックスをクリックします。
-   - ポータルから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
+   - コンソールから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。
    - 「ターゲットへの接続」ウィンドウで**「OK」**をクリックして、「プロパティ」ウィンドウに戻ります。
 8. 「プロパティー」ウィンドウには、「ID」ペイン内に複数のセッションが表示されています。 iSCSI ストレージには複数のセッションがあります。
 
-   ISCSI ストレージに接続する複数のインターフェースがホストにある場合は、「イニシエーター IP」フィールドに他の NIC の IP アドレスを使用して別の接続を設定できます。 ただし、接続を試行する前に、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で 2 番目のイニシエーター IP アドレスを許可してください。
+   ISCSI ストレージに接続する複数のインターフェースがホストにある場合は、「イニシエーター IP」フィールドに他の NIC の IP アドレスを使用して別の接続を設定できます。 ただし、接続を試行する前に、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic/storage){: external}で 2 番目のイニシエーター IP アドレスを許可してください。
    {:note}
 9. 「プロパティ」ウィンドウで、**「デバイス」**をクリックして、「デバイス」ウィンドウを開きます。 デバイス・インターフェース名は `mpio` で始まります。 <br/>
   ![デバイス](/images/Devices.png)
@@ -164,7 +162,7 @@ MPIO が正しく構成されていないと、ネットワーク障害が発生
 
 ### iSCSI イニシエーターの開始
 
-1. **「ターゲット」**タブをクリックします。
+1. **「ターゲット」**をクリックします。
 2. 削除するターゲットを選択し、**「切断」**をクリックします。
 
 ### ターゲットの削除

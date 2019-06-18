@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -23,14 +23,20 @@ subcollection: BlockStorage
 ## 注文できるボリュームの数はいくつですか?
 {: faq}
 
-デフォルトでは、合計 250 のブロック・ストレージとファイル・ストレージをプロビジョンできます。ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
+デフォルトでは、合計 250 のブロック・ストレージとファイル・ストレージをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
 
 ## ホストにマウントできる {{site.data.keyword.blockstorageshort}} ボリュームの数はいくつですか?
 {: faq}
 
 これはホスト・オペレーティング・システムが処理できる内容によって異なりますが、{{site.data.keyword.cloud}} が制限するものではありません。 マウント可能なボリューム数の制限については、お使いの OS の資料を参照してください。
 
+## OS 設定の異なる複数の LUN を接続できますか?
+{: faq}
+
+いいえ。OS タイプの異なる複数の LUN に同時にアクセスすることをホストに許可できません。単一の OS タイプの LUN へのアクセスのみをホストに許可できます。OS タイプの異なる複数の LUN へのアクセスを許可しようとすると、操作がエラーとなります。
+
 ## Block Storage LUN に対してどの Windows バージョンを選択すればよいですか?
+{: #windowsOStypes}
 {: faq}
 
 LUN を作成するときに、OS タイプを指定する必要があります。 OS タイプは、LUN にアクセスするホストが使用するオペレーティング・システムに基づいている必要があります。 LUN の作成後に OS タイプを変更することはできません。 LUN の実際のサイズは、LUN の OS タイプによって若干異なる場合があります。
@@ -92,7 +98,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## どの {{site.data.keyword.blockstorageshort}} ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
+[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic/storage){: external}で {{site.data.keyword.blockstorageshort}} のリストを表示したとき、暗号化されている LUN のボリューム名の横にロック・アイコンがあります。
 
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,15 +22,13 @@ subcollection: BlockStorage
 
 容量および IOPS のニーズを満たすように、{{site.data.keyword.blockstorageshort}} をプロビジョンして微調整を行うことができます。 パフォーマンスを指定するための 2 つのオプションを使用して、ストレージを最大限に活用します。
 
-- パフォーマンス要件が明確に定義されていないワークロードに合わせて、事前定義されたパフォーマンス・レベルを備えたエンデュランス IOP 層から選択できます。
-- 「パフォーマンス」で IOPS の合計数を指定することで、特定のパフォーマンス要件を満たすようにストレージを微調整できます。
+- パフォーマンス要件が明確に定義されていないワークロードに合わせるため、事前定義されたパフォーマンス・レベルを備えた**エンデュランス**層を使用してプロビジョンすることができます。
+- 1 秒当たりの入出力操作 (IOPS) の合計数を指定することで、特定のパフォーマンス要件を満たすようにストレージを微調整し、高出力の**パフォーマンス**環境を構築できます。
 
 ## 事前定義の IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文
+{: #orderingthroughConsoleEndurance}
 
-1. [IBM Cloud カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。 次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
-
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
-
+1. [{{site.data.keyword.cloud_notm}} カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。次に、**「{{site.data.keyword.blockstorageshort}}」**を選択し、**「作成」**をクリックします。
 2. デプロイメント・**ロケーション** (データ・センター) を選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
 3. 請求処理。 機能が改善されたデータ・センター (アスタリスクでマークされている) を選択した場合は、月次請求と毎時請求のいずれかを選択できます。
@@ -49,23 +47,22 @@ subcollection: BlockStorage
 7. **「スナップショット・スペース・サイズの指定」**をクリックし、リストからスナップショット・サイズを選択します。 このスペースは、使用可能なスペースに加算されます。 スナップショット・スペースの考慮事項および推奨事項については、『[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)』を参照してください。
 8. リストからご使用の**「OS タイプ (OS Type)」**を選択します。<br/>
 
-   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)を参照してください。
+   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)を参照してください。
    {:tip}
 9. 右方で発注要約を確認し、割引コードがある場合は適用します。
 
    注文の処理時に割引が適用されます。
    {:note}
-10. ご使用条件を確認したら、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを入れます。
+10. ご使用条件を確認した後、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを付けます。
 11. **「作成」**をクリックします。 新規ストレージ割り振りは数分後に使用可能になります。
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs) を参照してください。
+デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} および {{site.data.keyword.filestorage_short}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs) を参照してください。
 {:important}
 
 ## カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文
+{: #orderingthroughConsolePerformance}
 
-1. [IBM Cloud カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。 次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
-
-   または、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}にログインして、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックすることもできます。右上で、**「{{site.data.keyword.blockstorageshort}} の注文」**をクリックします。
+1. [{{site.data.keyword.cloud_notm}} カタログ](https://{DomainName}/catalog){: external}にログインし、**「ストレージ」**をクリックします。次に、「{{site.data.keyword.blockstorageshort}}」を選択し、**「作成」**をクリックします。
 2. **「ロケーション」**をクリックして、データ・センターを選択します。
    - 新規ストレージは、所持している計算ホストと同じロケーションに追加するようにしてください。
 3. 請求処理。 機能が改善されたデータ・センター (アスタリスクでマークされている) を選択した場合は、月次請求と毎時請求のいずれかを選択できます。
@@ -80,16 +77,16 @@ subcollection: BlockStorage
 7. **「スナップショット・スペース・サイズの指定」**をクリックし、リストからスナップショット・サイズを選択します。 このスペースは、使用可能なスペースに加算されます。 スナップショット・スペースの考慮事項および推奨事項については、『[スナップショットの注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)』を参照してください。
 8. リストからご使用の**「OS タイプ (OS Type)」**を選択します。<br/>
 
-   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)を参照してください。
+   この選択は、ホストが実行されているオペレーティング・システムに基づき、後で変更することはできません。 例えば、サーバーが Ubuntu または RHEL の場合は、「Linux」を選択します。 ホストが Windows Server 2012 または Windows Server 2016 の場合は、リストから、「Windows 2008+」オプションを選択します。 さまざまな Windows オプションについて詳しくは、[FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)を参照してください。
    {:tip}
 9. 右方で発注要約を確認し、割引コードがある場合は適用します。
 
    注文の処理時に割引が適用されます。
    {:note}
-10. ご使用条件を確認したら、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを入れます。
+10. ご使用条件を確認した後、**「サード・パーティー・サービス契約を読み、同意します」**ボックスにチェック・マークを付けます。
 11. **「作成」**をクリックします。 新規ストレージ割り振りは数分後に使用可能になります。
 
-デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs) を参照してください。
+デフォルトでは、合計 250 の {{site.data.keyword.blockstorageshort}} および {{site.data.keyword.filestorage_short}} ボリュームをプロビジョンできます。 ご使用のボリュームの数を増やすには、営業担当員にお問い合わせください。 制限の引き上げについては、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。<br/><br/>同時許可の制限については、[FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs) を参照してください。
 {:important}
 
 ## 新規ストレージの接続

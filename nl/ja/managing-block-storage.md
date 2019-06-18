@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}}の管理
 {: #managingstorage}
 
-{{site.data.keyword.blockstoragefull}} のボリュームは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で管理できます。
+{{site.data.keyword.blockstoragefull}} のボリュームは、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}で管理できます。**「メニュー」**から、クラシック・サービスとのやり取りのための**「クラシック・インフラストラクチャー」**を選択します。
 
 ## {{site.data.keyword.blockstorageshort}} LUN の詳細の表示
 
@@ -42,7 +42,7 @@ Options:
 ご使用のストレージと同じデータ・センターにあるホストを許可および接続できます。 複数のアカウントを持つことはできますが、あるアカウントのホストから別のアカウントのストレージへのアクセスを許可することはできません。
 {:important}
 
-1. **「ストレージ」** -> **「{{site.data.keyword.blockstorageshort}}」**をクリックし、LUN 名をクリックします。
+1. **「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックし、使用する LUN 名をクリックします。
 2. 当該ページの**「許可ホスト (Authorized Hosts)」**セクションにスクロールします。
 3. 右側で、**「ホストの許可」**をクリックします。 その特定の LUN にアクセスできるホストを選択します。
 
@@ -52,17 +52,16 @@ Options:
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 
 ## {{site.data.keyword.blockstorageshort}} LUN へのアクセスを許可されたホストのリストの表示
 
-1. **「ストレージ」** -> **「{{site.data.keyword.blockstorageshort}}」**をクリックし、LUN 名をクリックします。
+1. **「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックし、使用する LUN 名をクリックします。
 2. **「許可ホスト (Authorized Hosts)」**セクションまでスクロールダウンします。
 
 LUN へのアクセスが現在許可されているホストのリストが表示されます。 また、接続を確立するために必要な認証情報 (ユーザー名、パスワード、ホスト IQN) も表示されます。 ターゲット・アドレスは、**「ストレージの詳細」**ページにリストされます。 NFS の場合、ターゲット・アドレスは DNS 名として示され、iSCSI の場合は「ターゲット ポータルの探索」の IP アドレスとして示されます。
@@ -84,10 +83,13 @@ Options:
 
 ホストがアクセス権を持っている LUN を表示できます。接続の確立に必要な情報 (LUN 名、ストレージ・タイプ、ターゲット・アドレス、容量、ロケーション) も表示されます。
 
-1. [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external}で、**「デバイス」** > **「デバイス・リスト」** をクリックし、目的のデバイスをクリックします。
+1. [{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}で、**「デバイス」**->**「デバイス・リスト」**をクリックし、目的のデバイスをクリックします。
 2. **「ストレージ」**タブを選択します。
 
 この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 **「アクション」**をクリックすると、追加のストレージを許可したり、アクセス権を削除したりできます。
+
+OS タイプの異なる複数の LUN に同時にアクセスすることをホストに許可できません。単一の OS タイプの LUN へのアクセスのみをホストに許可できます。OS タイプの異なる複数の LUN へのアクセスを許可しようとすると、操作がエラーとなります。
+{:note}
 
 ## {{site.data.keyword.blockstorageshort}} のマウントとアンマウント
 
@@ -111,9 +113,9 @@ Options:
 
 ### デバイス・リストからのアクセス権の取り消し
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}で、**「デバイス」**、**「デバイス・リスト」**の順にクリックし、目的のデバイスをダブルクリックします。
+1. [{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}で、**「デバイス」**、**「デバイス・リスト」**をクリックし、目的のデバイスをダブルクリックします。
 2. **「ストレージ」**タブを選択します。
-3. この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 LUN 名の横にある**「アクション」**を選択し、「アクセスの取り消し」**をクリックします。
+3. この特定のホストがアクセス権を持っているストレージ LUN のリストが表示されます。 リストはストレージ・タイプ (ブロック、ファイル、その他) ごとにグループ化されています。 LUN 名の横にある**「アクション」**を選択し、**「アクセスの取り消し」**をクリックします。
 4. このアクションは元に戻すことができないため、LUN に対するアクセス権を取り消すことを確認します。 LUN のアクセス権を取り消すには**「はい」**をクリックし、アクションをキャンセルする場合は**「いいえ」**をクリックします。
 
 特定のホストから複数の LUN を切断する場合は、LUN ごとに「アクセス権の取り消し」アクションを繰り返す必要があります。
@@ -139,13 +141,10 @@ Options:
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
-                            authorization
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
-                            authorization
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to revoke authorization
-  --ip-address TEXT         An IP address to revoke authorization
+  -h, --hardware-id TEXT    The ID of a hardware server to revoke authorization.
+  -v, --virtual-id TEXT     The ID of a virtual server to revoke authorization.
+  -i, --ip-address-id TEXT  The ID of an IP address to revoke authorization.
+  -p, --ip-address TEXT     An IP address to revoke authorization.
   --help                    Show this message and exit.
 ```
 
@@ -176,3 +175,7 @@ Options:
                  the billing anniversary
   -h, --help     Show this message and exit.
 ```
+
+LUN は、少なくとも 24 時間 (即時キャンセルの場合)、または支払い日まで、ストレージ・リストにそのまま表示されます。特定の機能が使用できなくなりますが、ボリュームは再利用処理が施されるまで引き続き表示されます。ただし、「削除」/「キャンセル」をクリックした直後に課金は停止されます。
+
+アクティブなレプリカがあると、ストレージ・ボリュームの再利用処理がブロックされます。ボリュームがマウントされていないこと、ホストの許可が取り消されていること、レプリケーションがキャンセルされていることを確認した後で、元のボリュームのキャンセルを試みてください。

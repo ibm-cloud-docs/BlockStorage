@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,10 +35,10 @@ subcollection: BlockStorage
 API を使用して注文する場合は、「Storage as a Service」パッケージを指定して、更新済みの機能を新規ストレージと一緒に取得してください。
 {:important}
 
-拡張 LUN は IBM Cloud Console および {{site.data.keyword.slportal}} を通して注文することができます。 マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
+拡張 LUN は IBM Cloud コンソールで注文できます。マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
 
-- [定義済み IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [定義済み IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 新しいストレージが数分後にマウント可能になります。 そのストレージは「リソース・リスト」と「{{site.data.keyword.blockstorageshort}} リスト」に表示されます。
 

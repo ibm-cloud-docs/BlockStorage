@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Red Hat Enterprise Linux での LUKS を使用したフルディスク暗号化の実現
+# RHEL6 での LUKS を使用したフルディスク暗号化の実現
 {: #LUKSencryption}
 
-Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。このことは、モバイル・コンピューターおよび取り外し可能メディアでは重要です。 LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
+RHEL6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。これは、モバイル・コンピューターおよび取り外し可能メディアで重要です。LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
 
 以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。 {{site.data.keyword.blockstorageshort}}の Linux ホストへの接続について詳しくは、[Linux での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)を参照してください。
 
@@ -40,7 +40,7 @@ Red Hat Enterprise Linux 6 サーバー上のパーティションは、Linux Un
 - 多数 (8 人を超える) のユーザーが同じデバイスに対して異なるアクセス・キーを持つことを必要とするアプリケーションを許可する。
 - ファイル・レベルの暗号化を必要とするアプリケーションを処理する。 詳しくは、[RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external} を参照してください。
 
-## Endurance {{site.data.keyword.blockstorageshort}}を使用した LUKS 暗号化ボリュームのセットアップ
+## エンデュランス {{site.data.keyword.blockstorageshort}} を使用した LUKS 暗号化ボリュームのセットアップ
 
 データ暗号化のプロセスにより、パフォーマンスに影響を与える可能性のあるホストへの負荷が発生します。
 {:note}

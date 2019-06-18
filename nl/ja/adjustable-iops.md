@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # IOPS の調整
 {: #adjustingIOPS}
 
-この新機能により、{{site.data.keyword.blockstoragefull}} ストレージ・ユーザーは、既存の {{site.data.keyword.blockstorageshort}} の IOPS を即時に調整できます。 複製を作成したり、手動で新しいストレージにデータをコピーしたりする必要はありません。 調整が行われている間も、ストレージへのアクセスが停止したり、ストレージにアクセスできなくなったりといったことをユーザーが経験することはありません。
+この機能により、{{site.data.keyword.blockstoragefull}} ストレージ・ユーザーは、既存の {{site.data.keyword.blockstorageshort}} の IOPS を即時に調整できます。複製を作成したり、手動で新しいストレージにデータをコピーしたりする必要はありません。 調整が行われている間も、ストレージへのアクセスが停止したり、ストレージにアクセスできなくなったりといったことをユーザーが経験することはありません。
 
 ストレージに対する請求は更新され、新しい金額との差は按分されて現在の請求サイクルに追加されます。 次の請求サイクルでは新しい金額全体が請求されます。
 
@@ -44,9 +44,7 @@ subcollection: BlockStorage
 ## ストレージの IOPS の調整
 {: #adjustingsteps}
 
-1. {{site.data.keyword.blockstorageshort}}のリストに進みます。
-   - {{site.data.keyword.slportal}}で、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-   - {{site.data.keyword.cloud}} コンソールから、**「インフラストラクチャー」** > **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. {{site.data.keyword.blockstorageshort}} のリストに進みます。{{site.data.keyword.cloud}} コンソールから、**「メニュー」**アイコンをクリックしてから、**「インフラストラクチャー」**>**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
 3. **「ストレージ IOPS オプション (Storage IOPS Options)」**の下で、新しい選択を行います。
     - エンデュランス (層化 IOPS) の場合、0.25 IOPS/GB より大きい IOPS 層をストレージに選択します。 IOPS 層はいつでも増やすことができます。 ただし、下げることができるのは、月に 1 回のみです。

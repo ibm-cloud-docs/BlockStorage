@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 ここでの説明は、主に RHEL6 および Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
 
-例えば、iSCSI イニシエーター構成に関する Ubuntu の手順は、[こちら](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}を参照し、DM マルチパスのセットアップについては、[こちら](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}を参照してください。
+例えば、Ubuntu に固有の詳細情報については、[iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} および [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} を参照してください。
 {: tip}
 
-開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスするホストが、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}を介して事前に許可されていることを確認してください。
+開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}を介して事前に許可されていることを確認してください。
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
@@ -39,11 +39,10 @@ subcollection: BlockStorage
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -51,9 +50,9 @@ Options:
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 {: #mountLin}
 
-以下に、Linux ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続するために必要なステップを示します。
+以下のステップを実行して、Linux ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続します。
 
-手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
+手順に示されているホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスは、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic/storage){: external}の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
 {: tip}
 
 ファイアウォールをバイパスするように VLAN 上でストレージ・トラフィックを実行することをお勧めします。 ソフトウェア・ファイアウォールを介してストレージ・トラフィックを実行すると、待ち時間が増加し、ストレージ・パフォーマンスに悪影響を与えます。
@@ -61,7 +60,8 @@ Options:
 
 1. iSCSI とマルチパスのユーティリティーをホストにインストールします。
   - RHEL および CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -180,12 +180,14 @@ Options:
 
     RHEL 7 および CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。
 
-5. {{site.data.keyword.slportal}} から取得した IQN で `/etc/iscsi/initiatorname.iscsi` ファイルを更新します。 値を小文字で入力します。
+5. {{site.data.keyword.cloud}} コンソールから取得した IQN で `/etc/iscsi/initiatorname.iscsi` ファイルを更新します。値を小文字で入力します。
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. {{site.data.keyword.slportal}} から取得したユーザー名とパスワードを使用して `/etc/iscsi/iscsid.conf` 内の CHAP 設定を編集します。 CHAP 名には大文字を使用します。
+
+6. {{site.data.keyword.cloud}} コンソールから取得したユーザー名とパスワードを使用して `/etc/iscsi/iscsid.conf` 内の CHAP 設定を編集します。CHAP 名には大文字を使用します。
    ```
    node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -247,11 +249,11 @@ Options:
 
    - その他のディストリビューションについては、OS ベンダーの資料を確認してください。
 
-8. {{site.data.keyword.slportal}} から取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
+8. {{site.data.keyword.cloud}} コンソールから取得したターゲット IP アドレスを使用して、デバイスをディスカバーします。
 
    A. iSCSI アレイに対してディスカバリーを実行します。
     ```
-    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -279,10 +281,12 @@ Options:
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  このコマンドは、次の例のようなものを報告します。
+
+  このコマンドは、次の例のような情報を報告します。
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   ボリュームはホスト上にマウント済みであり、アクセス可能です。
 
 ## ファイル・システムの作成 (オプション)
@@ -359,7 +363,7 @@ Options:
 
 | コマンド | 結果 |
 |-----|-----|
-| `Command: n`| パーティションを作成します。* |
+| `Command: n`| パーティションを作成します。 * |
 | `Command action: p` | パーティションを 1 次パーティションにします。 |
 | `Partition number (1 から 4): 1` | ディスク上のパーティション 1 になります。 |
 | `First cylinder (1 から 8877): 1 (default)` | シリンダー 1 から開始します。 |
