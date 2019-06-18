@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -38,7 +38,7 @@ subcollection: BlockStorage
 
 ## 创建初始副本
 
-复制将根据快照安排来执行。必须首先具有用于源卷的快照空间和快照安排，然后才能进行复制。如果尝试设置复制，但未设置源卷的快照空间或快照安排，那么系统将提示您购买更多空间或设置安排。复制在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下进行管理。
+复制将根据快照安排来执行。必须首先具有用于源卷的快照空间和快照安排，然后才能进行复制。如果尝试设置复制，但未设置源卷的快照空间或快照安排，那么系统将提示您购买更多空间或设置安排。复制在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下管理。
 
 1. 单击存储卷。
 2. 单击**副本**，然后单击**购买复制**。
@@ -56,7 +56,7 @@ subcollection: BlockStorage
 
 ## 编辑现有复制
 
-您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下的**主**或**副本**选项卡中，编辑复制安排并更改复制空间。
+您可以在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}中的**存储** > **{{site.data.keyword.blockstorageshort}}** 下的**主**或**副本**选项卡中，编辑复制安排并更改复制空间。
 
 
 ## 编辑复制安排
@@ -150,6 +150,11 @@ subcollection: BlockStorage
  2. 单击**操作**，然后选择**取消 {{site.data.keyword.blockstorageshort}}**。
  3. 选择取消时间。选择**立即**或**周年日期**，然后单击**继续**。
  4. 单击**我确认取消操作可能会导致数据丢失**，然后单击**取消**。
+
+ LUN 会在存储器列表中保持可见至少 24 小时（立即取消）或直到周年日。特定功能将不再可用，但卷在回收之前将保持可见。但在您单击“删除/取消”后，计费将立即停止。
+
+ 活动副本可能会阻止回收存储卷。请确保该卷不再处于安装状态，已撤销主机授权，并已取消复制，然后再尝试取消原始卷。
+
 
 ## SLCLI 中与复制相关的命令
 {: #clicommands}

@@ -32,7 +32,7 @@ subcollection: BlockStorage
 - 供应**耐久性**层，具有预定义的性能级别和功能，如快照和复制。
 - 通过分配的每秒输入/输出操作数 (IOPS) 来构建强大的**性能**环境。
 
-有关 {{site.data.keyword.blockstorageshort}} 产品的更多信息，请参阅[关于 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)。
+有关 {{site.data.keyword.blockstorageshort}} 产品的更多信息，请参阅[了解 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)。
 
 ## 供应注意事项
 
@@ -78,7 +78,7 @@ subcollection: BlockStorage
 ## 连接新存储器
 {: #mountingstorage}
 
-完成供应请求后，授权主机来访问新存储器并配置连接。根据主机的操作系统，访问相应的链接。
+完成供应请求后，授权主机来访问新存储器，并配置连接。根据主机的操作系统，访问相应的链接。
 - [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [在 CloudLinux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [在 Microsoft Windows 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -87,4 +87,4 @@ subcollection: BlockStorage
 
 ## 管理新存储器
 
-通过门户网站或 SLCLI，可以管理 File Storage 的各个方面，例如主机授权和取消。有关更多信息，请参阅[管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)。
+通过门户网站或 SLCLI，可以管理 {{site.data.keyword.blockstorageshort}} 的各个方面，例如主机授权和取消。有关更多信息，请参阅[管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)。

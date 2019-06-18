@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, new features, new locations, Block Storage, mount point changes, select data centers, ISCSI,
 
@@ -54,7 +54,7 @@ subcollection: BlockStorage
 ## 加密存储卷的新安装点
 {: #mountpoints}
 
-这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。请检查 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**卷详细信息**页面上的安装点信息，以确保使用正确的安装点。您还可以通过 API 调用获取正确的安装点信息：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+这些数据中心内供应的所有加密存储卷的安装点与非加密卷不同。请检查 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic/storage/block){: external}中的**卷详细信息**页面上的安装点信息，以确保使用的是正确的安装点。您还可以通过 API 调用获取正确的安装点信息：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
 要能够访问所有新功能，在通过 API 下订单时，请选择 `Storage-as-a-Service Package 759`。有关通过 API 订购 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。
 {:important}

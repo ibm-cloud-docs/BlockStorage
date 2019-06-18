@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,10 +35,10 @@ subcollection: BlockStorage
 使用 API 下订单时，请指定“存储即服务”包，以确保获取新存储器的更新功能。
 {:important}
 
-要订购增强型 LUN，可以通过 IBM Cloud 控制台和 {{site.data.keyword.slportal}} 来完成此操作。新 LUN 的大小应该等于或大于原始卷的大小，以便于迁移。
+您可以通过 IBM Cloud 控制台来订购增强型 LUN。新 LUN 的大小应该等于或大于原始卷的大小，以便于迁移。
 
-- [订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [订购具有预定义 IOPS 层（耐久性）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [订购具有定制 IOPS（性能）的 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 几分钟后即可安装新存储器。在资源列表和 {{site.data.keyword.blockstorageshort}} 列表中，可以查看该存储器。
 

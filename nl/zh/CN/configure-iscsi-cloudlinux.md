@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -21,26 +21,27 @@ subcollection: BlockStorage
 
 遵循以下指示信息在 CloudLinux Server R6.10 上安装使用多路径的 iSCSI LUN。
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic){: external}授权。
 {:tip}
 
-1. 登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
-2. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
-3. 单击**授权主机**。
-4. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
-5. 记下主机 IQN、用户名、密码和目标地址。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}。在**菜单**中，选择**经典基础架构**。
+2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
+3. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
+4. 单击**授权主机**。
+5. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
+6. 记下主机 IQN、用户名、密码和目标地址。
 
 或者，可以通过 SLCLI 来授权主机。
 ```
 # slcli block access-authorize --help
 用法：slcli block access-authorize [OPTIONS] VOLUME_ID
 
-选项：
-  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
-  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
-  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
-  --ip-address TEXT         要授权的 IP 地址
-  --help                    显示此消息并退出。
+Options:
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 {:codeblock}
 
@@ -50,7 +51,7 @@ subcollection: BlockStorage
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 {: #mountingCloudLin}
 
-1. 在主机上安装 iSCSI 和多路径实用程序并将其激活。
+1. 在主机上安装 iSCSI 和多路径实用程序，并将其激活。
    ```
    yum install iscsi-initiator-utils
    ```
@@ -113,11 +114,11 @@ chkconfig iscsid on
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -136,7 +137,7 @@ chkconfig iscsid on
    ```
    {: pre}
 
-4. 使用从 {{site.data.keyword.slportal}} 中获取的目标 IP 地址来发现该设备。
+4. 使用从 {{site.data.keyword.cloud_notm}} 控制台中获取的目标 IP 地址来发现该设备。
 
      A. 针对 iSCSI 阵列运行发现。
        ```

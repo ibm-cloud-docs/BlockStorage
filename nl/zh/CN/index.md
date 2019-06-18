@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-22"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# 关于 {{site.data.keyword.blockstorageshort}}
+# 了解 {{site.data.keyword.blockstorageshort}}
 {: #About}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}} 是独立于计算实例进行供应和管理的持久性高性能 iSCSI 存储器。基于 iSCSI 的 {{site.data.keyword.blockstorageshort}} LUN 通过冗余多路径 I/O (MPIO) 连接来连接到授权设备。
+{{site.data.keyword.blockstoragefull}} 是独立于计算实例进行供应和管理的持久性高性能 iSCSI 存储器。基于 iSCSI 的 {{site.data.keyword.blockstorageshort}} LUN 通过冗余多路径 I/O (MPIO) 连接来连接到授权设备。
 
 {{site.data.keyword.blockstorageshort}} 通过一组无与伦比的功能，实现了同类最优水平的耐久性和可用性。它使用业界标准和最佳实践进行构建。{{site.data.keyword.blockstorageshort}} 旨在发生维护事件和意外故障期间保护数据完整性并保持可用性，同时提供一致的性能基线。
 

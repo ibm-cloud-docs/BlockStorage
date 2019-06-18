@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 数据复制完成后，就可以将复制项作为独立卷进行管理和使用。
 
-此功能在大多数位置中提供。单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)以获取可用数据中心的列表。
+此功能在大多数位置中提供。有关更多信息，请参阅[可用数据中心的列表](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。
 
 如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers?topic=containers-block_storage#block_backup_restore)中有关复制卷的选项。
 {:tip}
@@ -42,14 +42,12 @@ subcollection: BlockStorage
 - **开发和测试（开发/测试）**。一次最多可同时创建卷的 4 个复制项，以创建复制数据用于开发和测试。
 - **存储器大小调整**。创建具有新大小和/或 IOPS 速率的卷，而无需移动数据。  
 
-您可以采用多种方式通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 来创建复制卷。
+您可以采用多种方式通过 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}来创建复制卷。
 
 
 ## 基于存储器列表中的特定卷创建复制项
 
-1. 转至 {{site.data.keyword.blockstorageshort}} 的列表。
-    - 在客户门户网站中，单击**存储** > **{{site.data.keyword.blockstorageshort}}**，或者
-    - 在 {{site.data.keyword.cloud}} 控制台中，单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
+1. 通过单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**，转至 {{site.data.keyword.cloud_notm}} 控制台中您的 {{site.data.keyword.blockstorageshort}} 列表。
 2. 从列表中选择卷，然后单击**操作** > **复制 LUN（卷）**。
 3. 选择快照选项：
     - 如果从**非副本**卷订购，

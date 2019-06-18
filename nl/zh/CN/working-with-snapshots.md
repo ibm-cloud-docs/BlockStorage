@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## 创建快照安排
 
-通过快照安排，您可以决定创建存储卷的时间点引用的频率和时间。每个存储卷最多可以有 50 个快照。安排可通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**存储** > **{{site.data.keyword.blockstorageshort}}** 选项卡进行管理。
+通过快照安排，您可以决定创建存储卷的时间点引用的频率和时间。每个存储卷最多可以有 50 个快照。安排通过 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}中的**存储** > **{{site.data.keyword.blockstorageshort}}** 选项卡进行管理。
 
 如果在初始供应存储卷期间未购买快照空间，那么必须首先购买快照空间，然后才能设置初始安排。
 有关更多信息，请参阅[订购快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
@@ -43,7 +43,7 @@ subcollection: BlockStorage
    - 每周
       - 指定应生成快照的星期几、小时和分钟。缺省值为当天、当前小时和分钟。
       - 选择在丢弃最旧快照之前要保留的每周快照数。
-3. 单击**保存**，然后创建具有不同频率的其他安排。如果安排的快照总数超过 50 个，那么您将收到一条警告消息，并且无法保存该安排。
+3. 单击**保存**。然后，您可以创建具有不同频率的其他安排。如果安排的快照总数超过 50 个，那么您将收到一条警告消息，并且无法保存该安排。
 
 在生成快照时，会在**详细信息**页面的**快照**部分中显示快照列表。
 
@@ -164,9 +164,9 @@ subcollection: BlockStorage
 {:important}
 
 1. 从主机卸装并拆离存储卷。
-   - [在 Linux 上连接到 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [在 Microsoft Windows 上连接到 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. 单击 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的**存储** > **{{site.data.keyword.blockstorageshort}}**。
+   - [在 Linux 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [在 Microsoft Windows 上连接到 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. 单击 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}中的**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 向下滚动并单击要复原的卷。**详细信息**页面的**快照**部分将显示所有保存的快照及其大小和创建日期的列表。
 4. 单击要使用的快照旁边的**操作**，然后单击**复原**。<br/>
 

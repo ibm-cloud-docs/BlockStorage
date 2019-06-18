@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # 在 Microsoft Windows 上连接到 iSCSI LUN
 {: #mountingWindows}
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}授权。
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。单击**授权主机**。
 2. 从列表中选择将访问该卷的一个或多个主机，然后单击**提交**。
@@ -28,19 +28,19 @@ subcollection: BlockStorage
 # slcli block access-authorize --help
 用法：slcli block access-authorize [OPTIONS] VOLUME_ID
 
-选项：
-  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
-  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
-  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
-  --ip-address TEXT         要授权的 IP 地址
-  --help                    显示此消息并退出。
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 {:codeblock}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 {: #mountWin}
 
-下面是将基于 Windows 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
+完成以下步骤，将基于 Windows 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN)。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
 
 ### 配置 MPIO 功能
 
@@ -67,18 +67,18 @@ subcollection: BlockStorage
     - 单击**更改**以将现有值替换为 iSCSI 限定名 (IQN)。
     ![iSCSI 启动器属性](/images/iSCSI.png)
 
-      可以从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取 IQN 名称。
+      可以从 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic){: external}的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取 IQN 名称。
       {: tip}
 
-    - 单击**发现**选项卡，然后单击**发现门户网站**。
+    - 单击**发现**，然后单击**发现门户网站**。
     - 输入 iSCSI 目标的 IP 地址，并使“端口”保留为缺省值 3260。
     - 单击**高级**以打开“高级设置”窗口。
     - 选中**启用 CHAP 登录**以启用 CHAP 认证。
     ![启用 CHAP 登录](/images/Advanced_0.png)
         “名称”和“目标私钥”字段区分大小写。
     {:important}
-         - 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**名称**字段中，删除任何现有条目，然后输入用户名。
-         - 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**目标私钥**字段中，输入密码。
+         - 在**名称**字段中，删除任何现有条目，然后输入 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic/storage){: external}中的用户名。
+         - 在**目标私钥**字段中，输入 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic/storage){: external}中的密码。
     - 单击**高级设置**和**发现目标门户网站**窗口中的**确定**，以返回到“iSCSI 启动器属性”主屏幕。如果收到认证错误，请检查用户名和密码条目。
     ![不活动的目标](/images/Inactive_0.png)
         目标的名称显示在“发现的目标”部分中，状态为`不活动`。
@@ -91,8 +91,7 @@ subcollection: BlockStorage
 2. 选中**启用多路径**复选框以启用到目标的多路径 IO。
 <br/>
    ![启用多路径](/images/Connect_0.png)
-3. 单击**高级**，然后选择**启用 CHAP 登录**。
-</br>
+3. 单击**高级**，然后选择**启用 CHAP 登录**。</br>
    ![启用 CHAP](/images/chap_0.png)
 4. 在“名称”字段中输入用户名，然后在“目标私钥”字段中输入密码。
 
@@ -105,7 +104,7 @@ subcollection: BlockStorage
 ### 在 iSCSI 启动器中配置 MPIO
 
 1. 启动 iSCSI 启动器，然后在“目标”选项卡上，单击**属性**。
-2. 在“属性”窗口中，单击**添加会话**以打开“连接到目标”窗口。
+2. 在“属性”窗口中，单击**添加会话**。
 3. 在“连接到目标”对话框中，选中**启用多路径**复选框，然后单击**高级**。
   ![目标](/images/Target.png)
 
@@ -114,7 +113,7 @@ subcollection: BlockStorage
    - 在“启动器 IP”列表中，选择主机的 IP 地址。
    - 在“目标门户网站 IP”列表中，选择设备接口的 IP。
    - 单击**启用 CHAP 登录**复选框。
-   - 输入从门户网站中获取的“名称”和“目标私钥”值，然后单击**确定**。
+   - 输入从控制台中获取的“名称”和“目标私钥”值，然后单击**确定**。
    - 在“连接到目标”窗口上，单击**确定**以返回到“属性”窗口。
 
 5. 单击**属性**。在“属性”对话框中，再次单击**添加会话**以添加第二个路径。
@@ -124,14 +123,14 @@ subcollection: BlockStorage
    - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将存储设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与为第一个会话提供的接口相同。
    - 在“目标门户网站 IP”列表中，为存储设备上启用的第二个数据接口选择 IP 地址。
 
-     您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中找到第二个 IP 地址。
+     您可以在 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic/storage){: external}的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中找到第二个 IP 地址。
       {: tip}
    - 单击**启用 CHAP 登录**复选框。
-   - 输入从门户网站中获取的“名称”和“目标私钥”值，然后单击**确定**。
+   - 输入从控制台中获取的“名称”和“目标私钥”值，然后单击**确定**。
    - 在“连接到目标”窗口上，单击**确定**以返回到“属性”窗口。
 8. “属性”窗口的“标识”窗格中现在会显示多个会话。iSCSI 存储器中有多个会话。
 
-   如果您的主机有多个要连接到 iSCSI 存储器的接口，那么可以在“启动器 IP”字段中使用其他 NIC 的 IP 地址再设置一个连接。但是，在尝试建立连接之前，确保在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中对第二个启动器 IP 地址进行授权。
+   如果您的主机有多个要连接到 iSCSI 存储器的接口，那么可以在“启动器 IP”字段中使用其他 NIC 的 IP 地址再设置一个连接。但是，在尝试建立连接之前，确保在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic/storage){: external}中对第二个启动器 IP 地址进行授权。
    {:note}
 9. 在“属性”窗口中，单击**设备**以打开“设备”窗口。设备接口名称以 `mpio` 开头。<br/>
   ![设备](/images/Devices.png)
@@ -162,7 +161,7 @@ subcollection: BlockStorage
 
 ### 启动 iSCSI 启动器
 
-1. 单击**目标**选项卡。
+1. 单击**目标**。
 2. 选择要除去的目标，然后单击**断开连接**。
 
 ### 除去目标

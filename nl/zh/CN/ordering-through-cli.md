@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 通过 SLCLI 订购 {{site.data.keyword.blockstorageshort}}
 {: #orderingthroughCLI}
 
-您可以使用 SLCLI 以针对通常通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
+您可以使用 SLCLI 以针对通常通过 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
 
 有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
@@ -84,9 +84,7 @@ Options:
                                  specifies the size (in GB) of snapshot space
                                  to order
  --service-offering [storage_as_a_service|enterprise|performance]
-                                 The service offering package to use for
-                                 placing the order [optional, default is
-                                 'storage_as_a_service']
+                                 The default is 'storage_as_a_service'
  --billing [hourly|monthly]      Optional parameter for Billing rate (default
                                  to monthly)
  -h, --help                      Show this message and exit.
@@ -95,6 +93,8 @@ Options:
 有关通过 API 订购 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。
 要能够访问所有新功能，请订购 `Storage-as-a-Service Package 759`。
 {:tip}
+
+有关 Windows 操作系统类型的更多信息，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)。
 
 
 ## 下订单
@@ -122,19 +122,25 @@ Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
   Authorizes hosts to access a given volume
 
-选项：
-  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
-  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
-  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
-  --ip-address TEXT         要授权的 IP 地址
-  --help                    显示此消息并退出。
+Options:
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
+
+您可以授权和连接与存储器位于同一数据中心的主机。您可以有多个帐户，但不能授权一个帐户中的主机来访问其他帐户上的存储器。
+另请注意，无法授权主机同时访问不同操作系统类型的多个 LUN。仅可授权主机访问单个操作系统类型的 LUN。如果尝试授权访问使用不同操作系统类型的多个 LUN，操作结果将出错。
+{:note}
+{:important}
 
 有关通过 API 授权主机访问 {{site.data.keyword.blockstorageshort}} 的更多信息，请参阅 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 有关同时授权的限制，请参阅[常见问题](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
+
 
 ## 连接新存储器
 {: #mountingCLI}

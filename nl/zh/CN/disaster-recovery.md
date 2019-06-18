@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -23,9 +23,7 @@ subcollection: BlockStorage
 
 ## 在辅助站点上通过复制副本卷实现故障转移
 
-1. 登录到 [IBM Cloud 控制台](https://{DomainName}/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
-
-   或者，可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击列表中 LUN 的副本，以查看其**详细信息**页面。
 4. 向下滚动**详细信息**页面，选择现有快照，然后单击**操作** > **复制**。
@@ -39,9 +37,7 @@ subcollection: BlockStorage
 
 如果要将生产返回给原始主站点，那么必须执行以下步骤。
 
-1. 登录到 [IBM Cloud 控制台](https://{DomainName}/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
-
-   或者，可以登录到 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}，然后单击左上角的**菜单**图标。选择**经典基础架构**。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
 3. 单击 LUN 名称，然后创建快照安排（如果尚不存在）。
 
@@ -58,7 +54,7 @@ subcollection: BlockStorage
 
 1. 返回到**存储** > **{{site.data.keyword.blockstorageshort}}**。
 2. 单击列表中 LUN 的副本，以查看其**详细信息**页面。
-3. 向下滚动**详细信息**页面，选择现有快照，然后单击**操作** > **复制**。
+3. 向下滚动**详细信息**页面，并选择现有快照，然后单击**操作** > **复制**。
 4. 对新卷的容量（增加大小）或 IOP 进行必要的更新。
 5. 根据需要，更新新卷的快照空间。
 6. 单击**继续**，以下订单购买复制卷。

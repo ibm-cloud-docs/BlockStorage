@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,13 @@ subcollection: BlockStorage
 
 这取决于主机操作系统的处理能力，而不受 {{site.data.keyword.cloud}} 的限制。有关可安装的卷数的限制，请参阅操作系统文档。
 
+## 我可以连接使用不同操作系统设置的多个 LUN 吗？
+{: faq}
+
+不可以。无法授权主机同时访问不同操作系统类型的 LUN。仅可授权主机访问单个操作系统类型的 LUN。如果尝试授权访问使用不同操作系统类型的多个 LUN，操作结果将出错。
+
 ## 我将为我的 Block Storage LUN 选择哪个 Windows 版本？
+{: #windowsOStypes}
 {: faq}
 
 创建 LUN 时，必须指定操作系统类型。操作系统类型必须基于访问 LUN 的主机所使用的操作系统。创建 LUN 后，则无法修改操作系统类型。LUN 的实际大小可能会稍有不同，具体取决于 LUN 的操作系统类型。
@@ -92,7 +98,7 @@ IOPS 根据 16 KB 块的负载概要文件来度量，其中随机 50% 读操作
 ## 如何判断哪些 {{site.data.keyword.blockstorageshort}} 卷已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密 LUN 的卷名称旁边有一个“锁定”图标。
+在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic/storage){: external}中查看 {{site.data.keyword.blockstorageshort}} 的列表时，您可以看到加密的 LUN 的卷名称旁边有一个“锁定”图标。
 
 ## 怎样知道是在已升级的数据中心内供应 {{site.data.keyword.blockstorageshort}}？
 {: faq}

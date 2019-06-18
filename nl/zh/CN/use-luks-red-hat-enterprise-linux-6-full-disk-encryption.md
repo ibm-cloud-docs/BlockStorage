@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# 利用 Red Hat Enterprise Linux 中的 LUKS 实现全磁盘加密
+# 利用 RHEL6 中的 LUKS 实现全磁盘加密
 {: #LUKSencryption}
 
-可以通过 Linux Unified Key Setup-on-disk-format (LUKS) 在 Red Hat Enterprise Linux 6 服务器上加密分区，这对于移动计算机和可移动介质非常重要。LUKS 支持使用多个用户密钥对用于分区批量加密的主密钥进行解密。
+可以通过 Linux Unified Key Setup-on-disk-format (LUKS) 在 RHEL6 服务器上加密分区，这对于移动计算机和可移动介质非常重要。LUKS 支持使用多个用户密钥对用于分区批量加密的主密钥进行解密。
 
 以下步骤假定服务器可以访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。有关将 {{site.data.keyword.blockstorageshort}} 连接到 Linux 主机的更多信息，请参阅[在 Linux 上连接到 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)。
 

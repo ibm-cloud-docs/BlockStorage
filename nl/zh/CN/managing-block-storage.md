@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 管理 {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-您可以通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 管理 {{site.data.keyword.blockstoragefull}} 卷。
+您可以通过 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}管理 {{site.data.keyword.blockstoragefull}} 卷。在**菜单**中，选择**经典基础架构**以与经典服务进行交互。
 
 ## 查看 {{site.data.keyword.blockstorageshort}} LUN 详细信息
 
@@ -42,7 +42,7 @@ subcollection: BlockStorage
 您可以授权和连接与存储器位于同一数据中心的主机。您可以有多个帐户，但不能授权一个帐户中的主机来访问其他帐户上的存储器。
 {:important}
 
-1. 单击**存储** -> **{{site.data.keyword.blockstorageshort}}**，然后单击 LUN 名称。
+1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**，然后单击 LUN 名称。
 2. 滚动到页面的**已授权主机**部分。
 3. 在右侧，单击**授权主机**。选择可以访问该特定 LUN 的主机。
 
@@ -51,17 +51,17 @@ subcollection: BlockStorage
 # slcli block access-authorize --help
 用法：slcli block access-authorize [OPTIONS] VOLUME_ID
 
-选项：
-  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
-  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
-  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
-  --ip-address TEXT         要授权的 IP 地址
-  --help                    显示此消息并退出。
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 
 ## 查看有权访问 {{site.data.keyword.blockstorageshort}} LUN 的主机的列表
 
-1. 单击**存储** -> **{{site.data.keyword.blockstorageshort}}**，然后单击 LUN 名称。
+1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**，然后单击 LUN 名称。
 2. 向下滚动到**已授权主机**部分。
 
 在此，您可以看到当前已授权访问 LUN 的主机的列表。还可以看到建立连接所需的认证信息 - 用户名、密码和 IQN 主机。“目标地址”在**存储器详细信息**页面上列出。对于 NFS，会将“目标地址”描述为 DNS 名称，对于 iSCSI，会描述为“发现目标门户网站”的 IP 地址。
@@ -83,10 +83,13 @@ subcollection: BlockStorage
 
 可以查看主机有权访问的 LUN，包括建立连接所需的信息 - LUN 名称、存储类型、目标地址、容量和位置：
 
-1. 在 [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} 中，单击**设备** -> **设备列表**，然后单击相应的设备。
+1. 单击**设备** -> **设备列表**，然后单击相应的设备。
 2. 选择**存储**选项卡。
 
 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。您可以通过单击**操作**来授予对更多存储器的访问权或除去访问权。
+
+无法授权主机同时访问不同操作系统类型的 LUN。仅可授权主机访问单个操作系统类型的 LUN。如果尝试授权访问使用不同操作系统类型的多个 LUN，操作结果将出错。
+{:note}
 
 ## 安装和卸装 {{site.data.keyword.blockstorageshort}}
 
@@ -110,9 +113,9 @@ subcollection: BlockStorage
 
 ### 通过设备列表撤销访问权
 
-1. 在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中，单击**设备** > **设备列表**，然后双击相应的设备。
+1. 在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}中，单击**设备** > **设备列表**，然后双击相应的设备。
 2. 选择**存储**选项卡。
-3. 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。在 LUN 名称旁边，选择**操作**，然后单击**撤销访问权**。
+3. 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。在 LUN 名称旁边，选择**操作**，然后单击**撤销访问**。
 4. 确认是否要撤销对 LUN 的访问权，因为该操作无法撤销。单击**是**以撤销 LUN 访问权，或单击**否**以取消该操作。
 
 如果要断开一个特定主机与多个 LUN 的连接，需要对每个 LUN 重复“撤销访问权”操作。
@@ -136,12 +139,12 @@ subcollection: BlockStorage
 # slcli block access-revoke --help
 用法：slcli block access-revoke [OPTIONS] VOLUME_ID
 
-选项：
-  -h, --hardware-id TEXT    要撤销授权的某个 SoftLayer_Hardware 的标识
-  -v, --virtual-id TEXT     要撤销授权的某个 SoftLayer_Virtual_Guest 的标识
-  -i, --ip-address-id TEXT  要撤销授权的某个 SoftLayer_Network_Subnet_IpAddress 的标识
-  --ip-address TEXT         要撤销授权的某个 IP 地址
-  --help                    显示此消息并退出。
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to revoke authorization.
+  -v, --virtual-id TEXT     The ID of a virtual server to revoke authorization.
+  -i, --ip-address-id TEXT  The ID of an IP address to revoke authorization.
+  -p, --ip-address TEXT     An IP address to revoke authorization.
+  --help                    Show this message and exit.
 ```
 
 ## 取消存储器 LUN
@@ -171,3 +174,7 @@ subcollection: BlockStorage
   --immediate    立即取消块存储卷，而不是在计费周年时取消
   -h, --help     显示此消息并退出。
 ```
+
+LUN 会在存储器列表中保持可见至少 24 小时（立即取消）或直到周年日。特定功能将不再可用，但卷在回收之前将保持可见。但在您单击“删除/取消”后，计费将立即停止。
+
+活动副本可能会阻止回收存储卷。请确保该卷不再处于安装状态，已撤销主机授权，并已取消复制，然后再尝试取消原始卷。

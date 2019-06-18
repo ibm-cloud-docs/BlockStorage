@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, cPanel, backups, mountpoint, ISCSI
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 缺省情况下，cPanel 系统会将备份文件保存到本地的 `/backup` 目录中。在本文档中，假定 `/backup` 已存在并包含备份，因此 `/backup2` 将用作新的安装点。
    {:note}
 
-3. 如[在 Linux 上连接到 MPIO iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 中所述配置 {{site.data.keyword.blockstorageshort}}。确保将其安装到 `/backup2`，并在 `/etc/fstab` 中将其配置为启用启动时安装。
+3. 如[在 Linux 上连接到 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 中所述配置 {{site.data.keyword.blockstorageshort}}。确保将其安装到 `/backup2`，并在 `/etc/fstab` 中将其配置为启用启动时安装。
 
 4. **可选**：将现有备份复制到新存储器。可以使用 `rsync`。
    ```
