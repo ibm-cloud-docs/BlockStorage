@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -93,7 +93,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: faq}
 
-The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is only available in select data centers, and new data centers are being added gradually. You can find a full list of upgraded data centers and available features [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is available in most [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
@@ -103,14 +103,14 @@ When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
 
-When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## If we own non-encrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
 {{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted.
 New {{site.data.keyword.blockstorageshort}} that is provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic.
-Data on non-encrypted storage in an upgraded data center can be encrypted by creating a new Block LUN, then copying the data to the new encrypted LUN with host-based migration. Click [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) for instructions.
+Data on non-encrypted storage in an upgraded data center can be encrypted by creating a LUN, then copying the data to the new encrypted LUN with host-based migration. For more information, see [Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
 {: faq}

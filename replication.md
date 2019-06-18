@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -43,7 +43,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 1. Click your storage volume.
 2. Click **Replica** and click **Purchase a replication**.
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
-   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. See [Working with Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) for more details.
+   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. For more information, see [Working with Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Click **Location**, and select the data center that is your DR site.
 4. Click **Continue**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -29,7 +29,7 @@ Billing for the storage is updated to add the pro-rated difference of the new pr
 ## Limitations
 {: #limitsofIOPSadjustment}
 
-This feature is available in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) only.
+This feature is available in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Clients can't switch between Endurance and Performance when they adjust their IOPS. However, they can specify a new IOPS tier or IOPS level for their storage based on the following criteria and restrictions:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,13 +32,13 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
    - Provided through the allocation of protocol-level IOPS to individual volumes.
 - **Highly durable and resilient**
    - Protects the integrity of the data and maintains availability through maintenance events and unplanned failures without the need to create and manage operating system-level redundant array of independent disk (RAID) arrays.
-- **Data-At-Rest Encryption** ([Available in select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Data-At-Rest Encryption** ([Available in most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Provider-managed encryption for data-at-rest at no additional cost.
-- **All Flash Backed Storage** ([Available in select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **All Flash Backed Storage** ([Available in most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - All flash storage for volumes that are provisioned with Endurance or Performance at 2 IOPS/GB or higher levels.
-- **Snapshots** ([Available in select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Snapshots** ([Available in most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Captures point-in-time data snapshots non-disruptively.
-- **Replication** ([Available in select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Replication** ([Available in most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Automatically copies snapshots to a partner {{site.data.keyword.cloud}} data center.
 - **Highly available connectivity**
    - Uses redundant networking connections to maximize availability
@@ -68,7 +68,7 @@ Endurance {{site.data.keyword.blockstorageshort}} is available in four IOPS perf
 
 - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at any time. Example applications include transactional and other performance-sensitive databases.
 
-- **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) only.
+- **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Up to 48,000 IOPS are available with a 12-TB Endurance volume.
 
@@ -100,7 +100,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 {: caption="Table comparison" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![Footnote](/images/numberone.png) *IOPS limits that are greater than 6,000 are available in select data centers.*
+![Footnote](/images/numberone.png) *IOPS limits that are greater than 6,000 are available in most data centers.*
 
 Performance volumes are designed to operate consistently close to the provisioned IOPS level. Consistency makes it easier to size and scale application environments with a specific level of performance. Additionally, it's possible to optimize an environment by building a volume with the ideal price-to-performance ratio.
 
@@ -109,7 +109,7 @@ Performance volumes are designed to operate consistently close to the provisione
 
 You can select hourly or monthly billing for a Block LUN. The type of billing that is selected for a LUN applies to its snapshot space and replicas. For example, if you provision a LUN with hourly billing, any snapshots or replica fees are billed hourly. If you provision a LUN with monthly billing, any snapshots or replica fees are billed monthly.
 
- * With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) only.
+ * With **hourly billing**, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle, which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
  * With **monthly billing**, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a LUN is deleted before the end of the billing cycle, there's no refund. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (one month or longer).
 

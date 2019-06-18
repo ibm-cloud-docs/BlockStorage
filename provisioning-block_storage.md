@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -32,7 +32,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 2. Select your deployment **Location** (data center).
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
-     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in these [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
 
         Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
@@ -43,7 +43,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
     - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
     - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
     - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
-    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) for storage that is provisioned up to 4 TB.
+    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) for storage that is provisioned up to 4 TB.
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choose your **OS Type** from the list.<br/>
 
@@ -66,7 +66,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 2. Click **Location** and select your data center.
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
-     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is only available for storage that is provisioned in these [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+     1. With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month. Hourly billing is available for storage that is provisioned in these [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
      2. With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
 
         Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.

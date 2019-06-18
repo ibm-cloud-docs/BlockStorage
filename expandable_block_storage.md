@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -23,7 +23,7 @@ With this feature, current {{site.data.keyword.blockstoragefull}} users can expa
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-This feature is available in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+This feature is available in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Advantages of Expandable Storage
 
@@ -38,7 +38,7 @@ The expand action on the primary storage results in automatic resizing of the re
 ## Limitations
 {: #limitsofexpandingstorage}
 
-This feature is available for storage that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+This feature is available for storage that is provisioned in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Storage that was provisioned in these data centers before the release of this feature, during **April 2017 - 14 December 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **14 December 2017** can be increased up to 12 TB.
 

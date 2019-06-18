@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} 
 
 ## Provisioning Storage with Encryption
 
-The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} that is provisioned in [select data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). All storage that is ordered in these data centers is automatically provisioned with encryption.
+The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC). All storage that is ordered in these data centers is automatically provisioned with encryption.
 
 When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon to the right of the LUN/Volume Name field that indicates that the volume is encrypted.
 
