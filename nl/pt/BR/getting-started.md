@@ -34,11 +34,12 @@ Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser fornecidos de 20 GB
 - Construa um ambiente de **Desempenho** poderoso com operações de
 entrada/saída por segundo (IOPS) alocadas.
 
-Para obter mais informações sobre a oferta do {{site.data.keyword.blockstorageshort}}, consulte [Sobre o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
+Para obter mais informações sobre a oferta do {{site.data.keyword.blockstorageshort}},
+veja [Aprenda sobre o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
 ## Considerações de Fornecimento
 
-### Tamanho do Bloco
+### Tamanho do bloco
 
 O IOPS para Duração e Desempenho é baseado em um tamanho de bloco de 16 KB com uma carga de trabalho aleatória/sequencial 50/50 de leitura/gravação 50/50. Um bloco de 16 KB equivale a uma gravação no volume.
 {:important}
@@ -55,7 +56,7 @@ O tamanho do bloco usado por seu aplicativo afetará diretamente o desempenho do
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="A Tabela 1 mostra exemplos de como o tamanho de bloco e o IOPS afetam o rendimento.<br>/Média de tamanho de E/S x IOPS = Rendimento em MB/s." caption-side="top"}
+{: caption="A Tabela 1 mostra exemplos de como o tamanho de bloco e o IOPS afetam o rendimento.<br/>Média de tamanho de E/S x IOPS = Rendimento em MB/s." caption-side="top"}
 
 ### Hosts autorizados
 
@@ -84,7 +85,7 @@ Quando você estiver pronto para enviar seu pedido, poderá fazer isso por meio 
 ## Conectando seu novo armazenamento
 {: #mountingstorage}
 
-Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts a acessar o novo armazenamento e configurar sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
+Quando a solicitação de provisionamento for concluída, autorize seus hosts a acessar o novo armazenamento e configure sua conexão. Dependendo do sistema operacional do seu host, siga o link apropriado.
 - [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -93,4 +94,4 @@ Quando sua solicitação de fornecimento estiver concluída, autorize seus hosts
 
 ## Gerenciando seu novo Armazenamento
 
-Por meio do portal ou da SLCLI, é possível gerenciar vários aspectos de seu Armazenamento de arquivos, tais como autorizações e cancelamentos do host. Para obter mais informações, consulte [Gerenciando o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Por meio do portal ou do SLCLI, é possível gerenciar vários aspectos de seu {{site.data.keyword.blockstorageshort}}, tais como autorizações e cancelamentos de host. Para obter mais informações, consulte [Gerenciando o {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

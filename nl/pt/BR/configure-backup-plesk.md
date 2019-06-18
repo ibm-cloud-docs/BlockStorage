@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, Plesk, backups, mountpoint, ISCSI
 
@@ -31,7 +31,8 @@ Para obter mais informações, consulte a [documentação do Plesk para backup e
    O Plesk tem duas opções para armazenar os backups. Uma opção é o armazenamento interno do Plesk (armazenamento de backup no servidor Plesk). A outra opção é um armazenamento FTP externo (armazenamento de backup em algum servidor externo na web ou em sua rede local). Em geral nas caixas do Plesk, os backups internos são armazenados em
 `/var/lib/psa/dumps` e usam `/tmp` como um diretório temporário. Nesse exemplo, o diretório temporário é mantido local, mas o diretório dumps é movido para o destino {{site.data.keyword.blockstorageshort}} (`/backup/psa/dumps`). Nenhuma credencial de usuário FTP é necessária.
    {:note}   
-3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Monte o {{site.data.keyword.blockstorageshort}} em `/backup` e configure `/etc/fstab` para ativar a montagem no início.
+3. Configure seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando-se
+a LUNs iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Monte o {{site.data.keyword.blockstorageshort}} em /backup e configure /etc/fstab para ativar a montagem no início.
 4. **Opcional**: copie os backups existentes para o novo armazenamento. É possível usar  ` rsync `.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

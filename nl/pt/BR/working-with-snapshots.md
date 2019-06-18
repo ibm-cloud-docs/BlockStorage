@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -22,7 +22,7 @@ subcollection: BlockStorage
 ## Criando um planejamento de captura instantânea
 
 Você decide com que frequência e quando deseja criar uma referência de momento de seu volume de armazenamento com planejamentos de Captura instantânea. É possível ter um máximo de 50 capturas
-instantâneas por volume de armazenamento. Os planejamentos são gerenciados por meio da guia **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+instantâneas por volume de armazenamento. Os planejamentos são gerenciados por meio da guia **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** do [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 Para poder configurar seu planejamento inicial, deve-se primeiramente comprar um espaço de captura instantânea, caso você não tenha comprado durante o fornecimento inicial do volume de armazenamento. Para obter mais informações, consulte [Pedindo capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
@@ -45,7 +45,7 @@ instantânea abrangente.
    - Semanal
       - Especifique o dia da semana, a hora e o minuto em que uma captura instantânea deve ser tirada. O padrão é o dia, a hora e o minuto atuais.
       - Selecione o número de capturas instantâneas semanais a serem retidas antes que a mais antiga seja descartada.
-3. Clique em **Salvar** e crie outro planejamento com uma frequência diferente. Se o número total de capturas instantâneas planejadas for maior que 50, você receberá uma mensagem de aviso e não poderá salvar.
+3. Clique em  ** Salvar **. Em seguida, é possível criar outro planejamento com uma frequência diferente. Se o número total de capturas instantâneas planejadas for maior que 50, você receberá uma mensagem de aviso e não poderá salvar.
 
 A lista de capturas instantâneas é exibida conforme obtida na seção **Capturas instantâneas** da página **Detalhe**.
 
@@ -174,11 +174,9 @@ captura instantânea que foi usada para a restauração.
 {:important}
 
 1. Desmonte e separe seu volume de armazenamento do host.
-   - [Conectando-se a LUNs iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Conectando-se a LUNs iSCSI no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. Clique em **Armazenamento**,
-**{{site.data.keyword.blockstorageshort}}** no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+   - [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
 3. Role para baixo e clique no seu volume a ser restaurado. A seção **Capturas instantâneas** da página **Detalhes** exibe a lista de todas as capturas instantâneas salvas juntamente com seu tamanho e data de criação.
 4. Clique em **Ações** ao lado da captura instantânea a ser usada e clique em **Restaurar**. <br/>
 

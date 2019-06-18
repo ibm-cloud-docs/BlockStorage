@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, new features, new locations, Block Storage, mount point changes, select data centers, ISCSI,
 
@@ -30,7 +30,7 @@ O ponto de montagem do NFS para novos volumes é diferente do ponto de montagem 
 
 O novo {{site.data.keyword.blockstorageshort}} está disponível nas regiões e nos data centers a seguir.
 
-|EUA 2|América Latina|Canadá|usuário final|Pacífico Asiático|Austrália|
+|EUA 2|América Latina|Canadá|usuário final|Ásia e Pacífico|Austrália|
 |-----|-----|-----|-----|-----|------|
 | DAL09<br >DAL10<br />DAL12<br />DAL13<br />SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07 | MEX01<br />SAO01 | MON01<br />TOR01  | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />MIL01<br />OSLO1<br />PAR01 | CHE01<br />HKG02<br />SEO01<br />SNG01<br />TOK02<br />TOK04<br />TOK05 | MEL01<br />SYD01<br />SYD04<br />SYD05 |
 {: caption="A Tabela 1 mostra a disponibilidade do data center. Cada região possui sua própria coluna. Algumas cidades, como Dallas, San Jose, Washington DC, Amsterdã, Frankfurt, Londres e Sydney, têm múltiplos data centers." caption-side="top"}
@@ -57,7 +57,7 @@ recurso Duplicação de volume do {{site.data.keyword.blockstorageshort}}](/docs
 ## Novo ponto de montagem para volumes de armazenamento criptografados
 {: #mountpoints}
 
-Todos os volumes de armazenamento aprimorado que são provisionados nesses data centers têm um ponto de montagem diferente dos volumes não criptografados. Verifique as informações do ponto de montagem na página **Detalhes do volume** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} para assegurar que você esteja usando o ponto de montagem correto. Também é possível obter as informações corretas do ponto de montagem por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Todos os volumes de armazenamento aprimorado que são provisionados nesses data centers têm um ponto de montagem diferente dos volumes não criptografados. Verifique as informações do ponto de montagem na página **Detalhes do volume** no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage/block){: external} para assegurar-se de estar usando o ponto de montagem correto. Também é possível obter as informações corretas do ponto de montagem por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Para poder acessar todos os novos recursos, selecione `Storage-as-a-Service Package 759` ao fazer seu pedido por meio da API. Para obter mais informações sobre o pedido do {{site.data.keyword.blockstorageshort}} por meio da API, consulte [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}

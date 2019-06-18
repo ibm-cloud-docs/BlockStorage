@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -17,7 +17,8 @@ subcollection: BlockStorage
 # Pedindo o {{site.data.keyword.blockstorageshort}} por meio da SLCLI
 {: #orderingthroughCLI}
 
-É possível usar a SLCLI para fazer pedidos de produtos que normalmente são pedidos por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
+É possível usar a SLCLI para fazer pedidos de produtos que normalmente são pedidos por meio
+do [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
 
 Para obter mais informações sobre como instalar e usar a SLCLI, consulte [Cliente da API do Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
@@ -84,9 +85,7 @@ Options:
                                  specifies the size (in GB) of snapshot space
                                  to order
  --service-offering [storage_as_a_service|enterprise|performance]
-                                 The service offering package to use for
-                                 placing the order [optional, default is
-                                 'storage_as_a_service']
+                                 The default is 'storage_as_a_service'
  --billing [hourly|monthly]      Optional parameter for Billing rate (default
                                  to monthly)
  -h, --help                      Show this message and exit.
@@ -95,6 +94,8 @@ Options:
 Para obter mais informações sobre o pedido do {{site.data.keyword.blockstorageshort}} por meio da API, consulte [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 Para poder acessar todos os novos recursos, peça o `Storage-as-a-Service Package 759`.
 {:tip}
+
+Para obter mais informações sobre os tipos de sistemas operacionais Windows, veja as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
 
 
 ## Fazendo o pedido
@@ -120,22 +121,29 @@ Por padrão, é possível provisionar um total combinado de 250 volumes {{site.d
 slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-  Authorizes hosts to access a given volume
+Authorizes hosts to access a given volume
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
+
+É possível autorizar e conectar os hosts localizados no mesmo data center que o seu armazenamento. É possível ter
+múltiplas contas, mas não é possível autorizar um host de uma conta a acessar o armazenamento em outra conta. Observe também que um host não pode estar autorizado a acessar vários LUNs de tipos de S.O. diferentes ao
+mesmo tempo. Um host pode estar autorizado a acessar somente LUNs de um único tipo de S.O. Se você tentar
+autorizar o acesso a múltiplos LUNs com diferentes tipos de S.O., a operação resultará em um erro.
+{:note}
+{:important}
 
 Para obter mais informações sobre como autorizar o acesso dos hosts ao {{site.data.keyword.blockstorageshort}} por meio da API, consulte [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 Para o limite de autorizações simultâneas, veja as [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
+
 
 ## Conectando seu novo armazenamento
 {: #mountingCLI}

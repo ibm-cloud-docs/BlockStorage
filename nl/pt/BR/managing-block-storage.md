@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,8 @@ subcollection: BlockStorage
 # Gerenciando {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-É possível gerenciar seus volumes do  {{site.data.keyword.blockstoragefull}}  por meio do  [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+É possível gerenciar seus volumes do {{site.data.keyword.blockstoragefull}} por meio do [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}. No
+**menu**, selecione **Infraestrutura clássica** para interagir com os serviços clássicos.
 
 ## Visualizando detalhes do  {{site.data.keyword.blockstorageshort}}  LUN
 
@@ -43,27 +44,27 @@ Hosts "autorizados" são aqueles que receberam acesso a um LUN específico. Sem 
 múltiplas contas, mas não é possível autorizar um host de uma conta a acessar o armazenamento em outra conta.
 {:important}
 
-1. Clique em **Armazenamento** -> **{{site.data.keyword.blockstorageshort}}** e clique em seu Nome do LUN.
+1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** e depois em seu Nome do LUN.
 2. Role para a seção **Hosts autorizados** da página.
 3. À direita, clique em **Autorizar host**. Selecione os hosts
 que podem acessar esse LUN específico.
 
 Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
-# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 
 ## Visualizando a lista de hosts autorizados a acessar um LUN do {{site.data.keyword.blockstorageshort}}
 
-1. Clique em **Armazenamento** -> **{{site.data.keyword.blockstorageshort}}** e clique em seu Nome do LUN.
+1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** e depois em seu Nome do LUN.
 2. Role para baixo até a seção **Hosts autorizados**.
 
 Lá é possível ver a lista dos hosts que estão atualmente autorizados a acessar o LUN. Também é possível ver as informações sobre autenticação que são necessárias para fazer uma conexão - nome de usuário, senha e Host do IQN. O endereço de Destino é listado na página **Detalhe de armazenamento**. Para NFS, o endereço de destino é descrito como um nome DNS e, para iSCSI, é o endereço IP do portal de destino de descoberta.
@@ -85,10 +86,15 @@ Options:
 
 É possível visualizar os LUNs aos quais um host tem acesso, incluindo as informações que são necessárias para fazer uma conexão - Nome do LUN, Tipo de armazenamento, Endereço de destino, capacidade e local:
 
-1. Clique em **Dispositivos** -> **Lista de dispositivos** no [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} e clique no dispositivo apropriado.
+1. Clique em **Dispositivos** -> **Lista de dispositivos** e clique no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
 
 É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). É possível autorizar mais armazenamento ou remover o acesso clicando em **Ações**.
+
+Um host não pode estar autorizado a acessar LUNs de tipos de S.O. diferentes ao mesmo tempo. Um
+host pode estar autorizado a acessar somente LUNs de um único tipo de S.O. Se você tentar
+autorizar o acesso a múltiplos LUNs com diferentes tipos de S.O., a operação resultará em um erro.
+{:note}
 
 ## Montando e desmontando o {{site.data.keyword.blockstorageshort}}
 
@@ -114,10 +120,9 @@ o acesso para evitar unidades ausentes ou distorção de dados.
 ### Revogando o acesso a partir da Lista de Dis
 
 1. Clique em **Dispositivos**, **Lista de dispositivos** no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e
-dê um clique duplo no dispositivo apropriado.
+[console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} e clique duas vezes no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
-3. É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). Próximo ao nome do LUN, selecione **Ação"" e clique em **Revogar acesso**.
+3. É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). Próximo ao nome de LUN, selecione **Ação** e clique em **Revogar acesso**.
 4. Confirme se você deseja revogar o acesso para um LUN porque a ação não pode ser desfeita. Clique em **Sim** para revogar acesso ao LUN ou **Não** para cancelar a ação.
 
 Se você desejar desconectar múltiplos LUNs de um host específico, será necessário repetir a ação Revogar
@@ -146,13 +151,10 @@ Como alternativa, é possível usar o comando a seguir na SLCLI.
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
-                            authorization
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
-                            authorization
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to revoke authorization
-  --ip-address TEXT         An IP address to revoke authorization
+  -h, --hardware-id TEXT    The ID of a hardware server to revoke authorization.
+  -v, --virtual-id TEXT     The ID of a virtual server to revoke authorization.
+  -i, --ip-address-id TEXT  The ID of an IP address to revoke authorization.
+  -p, --ip-address TEXT     An IP address to revoke authorization.
   --help                    Show this message and exit.
 ```
 
@@ -184,3 +186,10 @@ Options:
                  the billing anniversary
   -h, --help     Show this message and exit.
 ```
+
+É possível esperar que o LUN permaneça visível em sua lista de armazenamento por pelo menos 24 horas (cancelamento imediato) ou até a data do aniversário. Alguns recursos não estarão disponíveis por mais tempo,
+mas o volume permanecerá visível até que seja recuperado. No entanto, o faturamento será interrompido imediatamente depois de clicar em Excluir/Cancelar.
+
+As réplicas ativas podem bloquear a recuperação do volume de armazenamento. Certifique-se de que
+o volume não esteja mais montado, as autorizações de host sejam revogadas e a replicação seja cancelada
+antes de tentar cancelar o volume original.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -23,9 +23,7 @@ No caso de uma falha catastrófica ou de um desastre que cause uma indisponibili
 
 ## Failover com uma duplicata de um volume de réplica no site secundário
 
-1. Efetue login no [Console do IBM Cloud](https://{DomainName}/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
-
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Efetue login no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external} e clique no ícone de **menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 3. Clique na réplica do LUN na lista para visualizar a sua página de **Detalhes**.
 4. Na página de **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
@@ -39,11 +37,9 @@ Assim que o volume é criado, ele pode ser anexado a um host e executar operaç�
 
 Se você deseja retornar a produção para o site primário original, execute as seguintes etapas.
 
-1. Efetue login no [Console do IBM Cloud](https://{DomainName}/){: external} e clique no ícone **Menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
-
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Efetue login no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external} e clique no ícone de **menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
-3. Clique no nome do LUN e crie um planejamento de captura instantânea (se ainda não existir um).
+3. Clique no nome do LUN e crie um planejamento de captura instantânea (se um ainda não existir).
 
    Para obter mais informações sobre os planejamentos de captura instantânea, consulte [Gerenciando as capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
@@ -58,7 +54,7 @@ Após a conclusão da replicação, é necessário criar um volume duplicado da 
 
 1. Volte para **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Clique na réplica do LUN na lista para visualizar a sua página de **Detalhes**.
-3. Na página de **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
+3. Na página **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
 4. Faça quaisquer atualizações necessárias para a capacidade (para aumentar o tamanho) ou os IOPs para o novo volume.
 5. Atualize o espaço de captura instantânea para o novo volume, se necessário.
 6. Clique em **Continuar** para fazer seu pedido para a duplicata.

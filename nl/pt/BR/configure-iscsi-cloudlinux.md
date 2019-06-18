@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,27 +19,31 @@ subcollection: BlockStorage
 # Conectando-se a LUNs iSCSI no CloudLinux
 {: #mountingCloudLinux}
 
-Siga estas instruções para instalar seu LUN do iSCSI com caminhos múltiplos no CloudLinux Server liberação 6.10.
+Siga estas instruções para montar seu LUN iSCSI com caminhos múltiplos em uma liberação 6.10 do
+Servidor CloudLinux.
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume do
+{{site.data.keyword.blockstoragefull}} tenha sido autorizado anteriormente por meio do [console
+do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
 {:tip}
 
-1. Efetue login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-2. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
-3. Clique em **Autorizar host**.
-4. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
-5. Anote o IQN do host, o nome do usuário, a senha e o endereço de destino.
+1. Efetue login no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. No **menu**, selecione **Infraestrutura clássica**.
+2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+3. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**.
+4. Clique em **Autorizar host**.
+5. Na lista, selecione os hosts que podem acessar o volume e clique em **Enviar**.
+6. Anote o IQN do host, o nome do usuário, a senha e o endereço de destino.
 
 Como alternativa, é possível autorizar o host por meio da SLCLI.
 ```
-# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -50,7 +54,7 @@ Options:
 ## Montando volumes do {{site.data.keyword.blockstorageshort}}
 {: #mountingCloudLin}
 
-1. Instale os utilitários iSCSI e de caminhos múltiplos no host e ative-os.
+1. Instale os utilitários iSCSI e de caminhos múltiplos em seu host e ative-os.
    ```
    yum install iscsi-initiator-utils
    ```
@@ -106,18 +110,19 @@ Options:
      ```
      {: codeblock}
 
-   - Atualize suas configurações de CHAP `/etc/iscsi/iscsid.conf` incluindo o nome de usuário e a senha.
+   - Atualize suas configurações do CHAP em `/etc/iscsi/iscsid.conf` incluindo o nome
+do usuário e a senha.
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -136,7 +141,7 @@ Options:
    ```
    {: pre}
 
-4. Descubra o dispositivo usando o endereço IP de destino que foi obtido do {{site.data.keyword.slportal}}.
+4. Descubra o dispositivo usando o endereço IP de destino que foi obtido do console do {{site.data.keyword.cloud_notm}}.
 
      A. Execute a descoberta com relação à matriz iSCSI.
        ```

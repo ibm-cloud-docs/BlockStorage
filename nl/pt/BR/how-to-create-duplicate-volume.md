@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -30,9 +30,10 @@ Os volumes duplicados podem ser acessados por um host para leitura/gravação as
 
 Quando a cópia de dados for concluída, a duplicata poderá ser gerenciada e usada como um volume independente.
 
-Esse recurso está disponível na maioria dos locais. Clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) para obter a lista de data centers disponíveis.
+Esse recurso está disponível na maioria dos locais. Para obter mais informações, veja [a lista de data centers
+disponíveis](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
-Se você for um usuário de conta dedicada do {{site.data.keyword.containerlong}}, consulte suas opções para duplicar um volume na [documentação do {{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-block_storage#block_backup_restore).
+Se você for um usuário da conta Dedicada do {{site.data.keyword.containerlong}}, consulte suas opções para duplicar um volume na [{{site.data.keyword.containerlong_notm}}documentação](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
 
 Alguns usos comuns para um volume duplicado:
@@ -43,14 +44,12 @@ Alguns usos comuns para um volume duplicado:
 - **Desenvolvimento e teste (dev/test)**. Crie até quatro duplicatas simultâneas de um volume por vez para criar dados duplicados para desenvolvimento e teste.
 - **Redimensionamento de armazenamento**. Crie um volume com novo tamanho, taxa de IOPS, ou ambos, sem a necessidade de mover seus dados.  
 
-É possível criar um volume duplicado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} de duas maneiras.
+É possível criar um volume duplicado por meio do [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external} de algumas maneiras.
 
 
 ## Criando uma duplicata de um volume específico na Lista de armazenamento
 
-1. Vá para a sua lista de  {{site.data.keyword.blockstorageshort}}
-    - No portal do cliente, clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** OU
-    - Por meio do console do {{site.data.keyword.cloud}}, clique em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+1. Acesse sua lista do {{site.data.keyword.blockstorageshort}} no console do {{site.data.keyword.cloud_notm}} clicando em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Selecione um volume na lista e clique em **Ações** > **Duplicar LUN (volume)**
 3. Escolha sua opção de captura instantânea:
     - Se você pedir por meio de um volume que **não é de réplica**,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,7 +19,8 @@ subcollection: BlockStorage
 # Expandindo a capacidade do Block Storage
 {: #expandingcapacity}
 
-Com esse novo recurso, os usuários atuais do {{site.data.keyword.blockstoragefull}} podem expandir o tamanho de seu {{site.data.keyword.blockstorageshort}} existente em incrementos de GB até 12 TB imediatamente. Eles não precisam criar uma duplicata nem migrar dados manualmente para um volume maior. Não há nenhuma indisponibilidade ou falta de acesso ao armazenamento enquanto o redimensionamento está ocorrendo.
+Com esse recurso, os usuários atuais do {{site.data.keyword.blockstoragefull}} podem
+expandir imediatamente o tamanho do seu {{site.data.keyword.blockstorageshort}} existente em incrementos de GB até 12 TB. Eles não precisam criar uma duplicata nem migrar dados manualmente para um volume maior. Não há nenhuma indisponibilidade ou falta de acesso ao armazenamento enquanto o redimensionamento está ocorrendo.
 
 O faturamento para o volume é atualizado automaticamente para incluir a diferença rateada do novo preço no ciclo de faturamento atual. A nova quantia integral será faturada no próximo ciclo de faturamento.
 
@@ -27,7 +28,9 @@ Esse recurso está disponível em [data centers selecionados](/docs/infrastructu
 
 ## Vantagens do Armazenamento Expandível
 
-- **Gerenciamento de custo** - Talvez você saiba que há potencial para crescimento de seus dados, mas que precisa de uma quantia menor de armazenamento para iniciar. A capacidade de expansão permite que nossos clientes economizem custos de armazenamento e, em seguida, aumentem de acordo com suas necessidades.  
+- **Gerenciamento de custo** - Talvez você saiba que há potencial para crescimento de seus dados, mas que precisa de uma quantia menor de armazenamento para iniciar. A capacidade de expansão
+permite que nossos clientes economizem no custo de armazenamento e, mais tarde, aumentem o armazenamento para acomodar suas
+necessidades.  
 
 - **Necessidades de armazenamento cada vez maiores** - os clientes que experimentam um rápido crescimento de dados precisam de uma maneira rápida e fácil para aumentar o tamanho de seu armazenamento para gerenciar isso.
 
@@ -47,10 +50,7 @@ As limitações de tamanho existentes para o {{site.data.keyword.blockstoragesho
 ## Redimensionando o
 {: #resizingsteps}
 
-1. No {{site.data.keyword.slportal}}, clique em **Armazenamento** >
-**{{site.data.keyword.blockstorageshort}}** OU no console do
-{{site.data.keyword.cloud}}, clique em **Infraestrutura** >
-**Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+1. No console do {{site.data.keyword.cloud}}, clique no ícone de **menu**. Em seguida, clique em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Selecione o LUN na lista e clique em **Ações** > **Modificar LUN**
 3. Insira o novo tamanho de armazenamento em GB.
 4. Revise a sua seleção e a nova precificação.

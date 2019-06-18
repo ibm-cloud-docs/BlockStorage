@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,21 +18,21 @@ subcollection: BlockStorage
 # Conectando-se a LUNs iSCSI no Microsoft Windows
 {: #mountingWindows}
 
-Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**. Clique em **Autorizar host**.
 2. Na lista, selecione o host ou os hosts que devem acessar o volume e clique em **Enviar**.
 
 Como alternativa, é possível autorizar o host por meio da SLCLI.
 ```
-# slcli block access-authorize --help Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -40,7 +40,9 @@ Options:
 ## Montando  {{site.data.keyword.blockstorageshort}}  Volumes
 {: #mountWin}
 
-A seguir estão as etapas necessárias para conectar uma instância de Cálculo do {{site.data.keyword.cloud}} baseada no Windows a um número de unidade lógica (LUN) de Small Computer System Interface (iSCSI) da internet de Multipath input/output (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
+Conclua as etapas a seguir para conectar uma instância do {{site.data.keyword.cloud}}
+Compute baseada em Windows a um número da unidade lógica (LUN) Internet Small Computer System Interface
+(iSCSI) multipath input/output (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
 
 ### Configurando o recurso MPIO
 
@@ -69,20 +71,20 @@ reivindicar todos os dispositivos iSCSI para MPIO, o que requer uma conexão com
     - Clique em **Mudar** para substituir os valores existentes pelo nome qualificado de
 iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
-      O nome do IQN pode ser obtido por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}
-no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+      O nome IQN pode ser obtido na tela Detalhes do {{site.data.keyword.blockstorageshort}}
+no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
-    - Clique na guia **Descoberta** e clique em **Descobrir portal**.
-    - Insira o endereço IP de seu destino iSCSI e deixe a Porta no valor padrão de 3260.
+    - Clique em **Descoberta** e clique em **Portal de descoberta**.
+    - Insira o endereço IP de seu destino iSCSI e deixe a Porta com o valor padrão de 3260.
     - Clique em **Avançado** para abrir a janela Configurações avançadas.
     - Selecione **Ativar logon do CHAP** para ativar a autenticação do CHAP.
 ![Ativar login do CHAP](/images/Advanced_0.png)
 
     Os campos Nome e Segredo de destino fazem distinção entre maiúsculas e minúsculas.
     {:important}
-         - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-         - No campo **Segredo de destino**, insira a senha do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - No campo **Nome**, exclua quaisquer entradas existentes e insira o nome do usuário no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+         - No campo **Segredo de destino**, insira a senha no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
     - Clique em **OK** nas janelas **Configurações avançadas** e **Descobrir portal de destino** para voltar à tela principal Propriedades do inicializador iSCSI. Se você receber erros de autenticação, verifique as entradas de nome de usuário e senha.
     ![Destino inativo](/images/Inactive_0.png)
 
@@ -96,9 +98,8 @@ no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 2. Marque a caixa de seleção **Ativar caminhos múltiplos** para ativar a E/S de caminhos múltiplos para o destino.
 <br/>
    ![Ativar caminhos múltiplos](/images/Connect_0.png)
-3. Clique em **Avançado** e selecione **Ativar logon do CHAP**.
-</br>
-   ![Ativar o CHAP](/images/chap_0.png)
+3. Clique em **Avançado** e selecione **Ativar logon do CHAP**.</br>
+   ![Ativar CHAP](/images/chap_0.png)
 4. Insira o nome do usuário no campo Nome e insira a senha no campo Segredo de destino.
 
    Os valores de campo Nome e Segredo de destino podem ser obtidos por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}.
@@ -110,7 +111,7 @@ no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
 ### Configurando o MPIO no Inicializador iSCSI
 
 1. Inicie o Inicializador iSCSI e, na guia Destinos, clique em **Propriedades**.
-2. Clique em **Incluir sessão** na janela Propriedades para abrir a janela Conectar ao destino.
+2. Clique em **Incluir sessão** na janela Propriedades.
 3. Na caixa de diálogo Conectar-se ao destino, selecione a caixa de opção **Ativar caminhos múltiplos** e clique em **Avançado**.
   ![Target](/images/Target.png)
 
@@ -119,7 +120,7 @@ no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
    - Na lista IP do inicializador, selecione o endereço IP do host.
    - Na lista IP do portal de destino, selecione o IP da interface do dispositivo.
    - Clique na caixa de seleção **Ativar logon do CHAP**
-   - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
+   - Insira os valores secretos de Nome e de Destino que foram obtidos do console e clique em **OK**.
    - Clique em **OK** na janela Conectar-se ao destino para voltar para a janela
 Propriedades.
 
@@ -128,24 +129,22 @@ sessão** novamente para incluir o segundo caminho.
 6. Na janela Conectar ao destino, selecione a caixa de opção **Ativar caminhos múltiplos**. Clique em **Avançado**.
 7. Na janela Configurações avançadas,
    - Na lista Adaptador local, selecione Inicializador iSCSI da Microsoft.
-   - Na lista IP do inicializador, selecione o endereço IP correspondente ao host. Nesse caso, você está conectando duas
+   - Na lista de IPs do inicializador, selecione o endereço IP que corresponde ao host. Nesse caso, você está conectando duas
 interfaces de rede no dispositivo de armazenamento a uma única interface de rede no host. Portanto, essa interface é a mesma que foi fornecida para a primeira sessão.
    - Na lista IP do portal de destino, selecione o endereço IP para a segunda interface de dados que é permitida no dispositivo de armazenamento.
 
-     É possível localizar o segundo endereço IP na tela Detalhes do {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+     É possível localizar o segundo endereço IP na tela Detalhes
+do {{site.data.keyword.blockstorageshort}} no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Clique na caixa de seleção **Ativar logon do CHAP**
-   - Insira os valores secretos de Nome e Destino obtidos no portal e clique em **OK**.
+   - Insira os valores secretos de Nome e de Destino que foram obtidos do console e clique em **OK**.
    - Clique em **OK** na janela Conectar-se ao destino para voltar para a janela
 Propriedades.
 8. Agora a janela Propriedades exibe mais de uma sessão dentro da área de janela Identificador. Você tem mais de
 uma sessão no armazenamento iSCSI.
 
    Se o host tiver múltiplas interfaces que você deseja conectar ao armazenamento ISCSI, será possível
-configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. No entanto, certifique-se de
-autorizar o segundo endereço IP do inicializador no
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} antes de
-tentar fazer a conexão.
+configurar outra conexão com o endereço IP do outro NIC no campo IP do inicializador. Entretanto, certifique-se de autorizar o endereço IP do segundo inicializador no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external} antes de tentar fazer a conexão.
    {:note}
 9. Na janela Propriedades, clique em **Dispositivos** para abrir a janela Dispositivos. O nome da interface do dispositivo começa com `mpio`. <br/>
   ![Dispositivos](/images/Devices.png)
@@ -177,7 +176,7 @@ A seguir estão as etapas necessárias para desconectar uma instância de cálcu
 
 ### Iniciando o Inicializador iSCSI
 
-1. Clique na guia **Destinos**.
+1. Clique em **Destinos**. 
 2. Selecione os destinos que você deseja remover e clique em **Desconectar**.
 
 ### Removendo destinos

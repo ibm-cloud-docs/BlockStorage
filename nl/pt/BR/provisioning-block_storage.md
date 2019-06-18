@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,15 +22,15 @@ subcollection: BlockStorage
 
 É possível fornecer o {{site.data.keyword.blockstorageshort}} e fazer ajustes precisos para atender às suas necessidades de capacidade e de IOPS. Obtenha o máximo de seu armazenamento com duas opções para especificar desempenho.
 
-- É possível escolher entre camadas de IOPs do Endurance que apresentam níveis de desempenho predefinidos para ajustar cargas de trabalho que não têm requisitos de desempenho bem definidos.
-- É possível ajustar com precisão seu armazenamento para atender a requisitos de desempenho específicos, determinando o número total de IOPS com o Performance.
+- É possível provisionar com camadas do **Endurance** que apresentam níveis de desempenho predefinidos para ajustar cargas de trabalho que não têm requisitos de desempenho bem definidos.
+- É possível ajustar seu armazenamento para atender aos requisitos de desempenho específicos e
+construir um ambiente de **Desempenho** de alta potência especificando o número total
+de operações de entrada/saída por segundo (IOPS)
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com Camadas IOPS predefinidas (Endurance)
+{: #orderingthroughConsoleEndurance}
 
-1. Efetue login no [catálogo do IBM Cloud](https://{DomainName}/catalog){: external} e clique em **Armazenamento**. Em seguida, selecione **{{site.data.keyword.blockstorageshort}}** e clique em **Criar**.
-
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e clicar em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
-
+1. Efetue login no catálogo do [{{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} e clique em **Armazenamento**. Em seguida, selecione **{{site.data.keyword.blockstorageshort}}** e clique em **Criar**.
 2. Selecione seu **Local** de implementação (data center).
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que os hosts de cálculo que você tem.
 3. Faturamento. Se você selecionou um data center com recursos melhorados (marcados com um asterisco), é possível escolher entre Faturamento por hora ou mensal.
@@ -52,25 +52,21 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 
    Essa seleção é baseada no sistema operacional no qual seu host está em execução e não pode ser modificada posteriormente. Por exemplo, se o servidor é Ubuntu ou RHEL, selecione Linux. Se o host for um servidor Windows 2012 ou
 Windows 2016, selecione a opção Windows 2008+ na lista. Para obter mais informações sobre as várias opções do Windows,
-consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um.
 
    Os descontos são aplicados quando o pedido é processado.
    {:note}
-10. Após revisar os termos e as condições, marque a caixa **Eu li e concordo com os
-Contratos de Prestação de Serviços de Terceiro**.
+10. Depois de ter revisado os termos e as condições, marque a caixa **Eu li e concordo com os Contratos de Prestação de Serviços de terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
-Por padrão, é possível provisionar um total combinado de 250
-volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
-{:important}
+Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, veja as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).{:important}
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com IOPS Customizado (Desempenho)
+{: #orderingthroughConsolePerformance}
 
-1. Efetue login no [catálogo do IBM Cloud](https://{DomainName}/catalog){: external} e clique em **Armazenamento**. Em seguida, selecione {{site.data.keyword.blockstorageshort}} e clique em **Criar**.
-
-   Como alternativa, é possível efetuar login no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e clicar em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**. Na parte superior direita, clique em  ** Pedir  {{site.data.keyword.blockstorageshort}} **.
+1. Efetue login no catálogo do [{{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} e clique em **Armazenamento**. Em seguida, selecione {{site.data.keyword.blockstorageshort}} e clique em **Criar**.
 2. Clique em **Local** e selecione seu data center.
    - Assegure-se de que o novo Armazenamento seja incluído no mesmo local que os hosts de cálculo que você tem.
 3. Faturamento. Se você selecionou um data center com recursos melhorados (marcados com um asterisco), é possível escolher entre Faturamento por hora ou mensal.
@@ -87,19 +83,16 @@ volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de s
 
    Essa seleção é baseada no sistema operacional no qual seu host está em execução e não pode ser modificada posteriormente. Por exemplo, se o servidor é Ubuntu ou RHEL, selecione Linux. Se o host for um servidor Windows 2012 ou
 Windows 2016, selecione a opção Windows 2008+ na lista. Para obter mais informações sobre as várias opções do Windows,
-consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. À direita, revise o resumo do pedido e aplique o código promocional, se tiver um.
 
    Os descontos são aplicados quando o pedido é processado.
    {:note}
-10. Após revisar os termos e as condições, marque a caixa **Eu li e concordo com os
-Contratos de Prestação de Serviços de Terceiro**.
+10. Depois de ter revisado os termos e as condições, marque a caixa **Eu li e concordo com os Contratos de Prestação de Serviços de terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
-Por padrão, é possível provisionar um total combinado de 250
-volumes do {{site.data.keyword.blockstorageshort}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
-{:important}
+Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, veja as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).{:important}
 
 ## Conectando seu novo armazenamento
 {: #mountingnewLUN}

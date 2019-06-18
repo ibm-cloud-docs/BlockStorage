@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,10 +35,10 @@ Todos os volumes aprimorados do {{site.data.keyword.blockstorageshort}} provisio
 Ao fazer um pedido com a API, especifique o pacote "Armazenamento como um serviço" para assegurar-se de que esteja obtendo os recursos atualizados com seu novo armazenamento.
 {:important}
 
-É possível pedir um LUN aprimorado por meio do console do IBM Cloud e do {{site.data.keyword.slportal}}. Seu novo LUN deve ser do mesmo tamanho ou maior que o volume original para facilitar a migração.
+É possível solicitar um LUN aprimorado por meio do IBM Cloud Console. Seu novo LUN deve ser do mesmo tamanho ou maior que o volume original para facilitar a migração.
 
-- [Pedindo o {{site.data.keyword.blockstorageshort}} com Camadas IOPS predefinidas (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Pedindo o {{site.data.keyword.blockstorageshort}} com IOPS customizado (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [Pedindo o {{site.data.keyword.blockstorageshort}} com Camadas IOPS predefinidas (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [Pedindo o {{site.data.keyword.blockstorageshort}} com IOPS customizado (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 Seu novo armazenamento estará disponível para montagem em alguns minutos. É possível visualizá-lo
 na lista de recursos e na lista do {{site.data.keyword.blockstorageshort}}.

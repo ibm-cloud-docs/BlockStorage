@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,8 @@ subcollection: BlockStorage
 # Ajustando as IOPS
 {: #adjustingIOPS}
 
-Com esse novo recurso, os usuários de armazenamento do {{site.data.keyword.blockstoragefull}} podem ajustar o IOPS de seu {{site.data.keyword.blockstorageshort}} existente imediatamente. Eles não precisam criar uma duplicata nem copiar dados manualmente para um novo armazenamento. Os usuários não enfrentam nenhum tipo de indisponibilidade ou falta de acesso ao armazenamento enquanto o ajuste está ocorrendo.
+Com esse recurso, os usuários do armazenamento {{site.data.keyword.blockstoragefull}} podem
+ajustar o IOPS de seu {{site.data.keyword.blockstorageshort}} existente imediatamente. Eles não precisam criar uma duplicata nem copiar dados manualmente para um novo armazenamento. Os usuários não enfrentam nenhum tipo de indisponibilidade ou falta de acesso ao armazenamento enquanto o ajuste está ocorrendo.
 
 O faturamento para o armazenamento é atualizado para incluir a diferença rateada do novo preço no ciclo de faturamento atual. A nova quantia total será faturada no próximo ciclo de faturamento.
 
@@ -44,9 +45,8 @@ Se o volume tiver a replicação em vigor, a réplica será atualizada automatic
 ## Ajustando o IOPS em seu Armazenamento
 {: #adjustingsteps}
 
-1. Vá para a sua lista de  {{site.data.keyword.blockstorageshort}}
-   - A partir do  {{site.data.keyword.slportal}}, clique em  ** Armazenamento **  >  ** {{site.data.keyword.blockstorageshort}} **
-   - No console do {{site.data.keyword.cloud}}, clique em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+1. Acesse a sua lista de {{site.data.keyword.blockstorageshort}}. No console do {{site.data.keyword.cloud}}, clique no ícone de **menu** e, em seguida, clique
+em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 2. Selecione o LUN na lista e clique em **Ações** > **Modificar LUN**
 3. Em **Opções de IOPS de armazenamento**, faça uma nova seleção:
     - Para Endurance (IOPS em camada), selecione uma camada de IOPS maior que 0,25 IOPS/GB de seu armazenamento. É possível aumentar a camada de IOPS a qualquer momento. No entanto, o decréscimo está disponível somente uma vez por mês.

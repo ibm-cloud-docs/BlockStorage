@@ -16,10 +16,11 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Atingindo a criptografia total de disco com LUKS no Red Hat Enterprise Linux
+# Atingindo a criptografia total de disco com o LUKS no RHEL6
 {: #LUKSencryption}
 
-É possível criptografar partições no servidor Red Hat Enterprise Linux 6 com Linux Unified Key Setup-on-disk-format (LUKS), que é importante quando se trata de computadores móveis e de mídia removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
+É possível criptografar partições em seu servidor RHEL6 com o Linux Unified Key Setup-on-disk-format
+(LUKS), que é importante quando se trata de computadores móveis e de mídia removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
 que é usada para a criptografia em massa da partição.
 
 Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Para
@@ -48,7 +49,7 @@ contêm múltiplos slots de chave.
 - Trabalhe com aplicativos que requerem criptografia de nível de arquivo. Para obter mais
 informações, consulte o [Guia de segurança do RHEL](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
 
-## Configurando um volume criptografado pelo LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
+## Configurando um volume criptografado LUKS com o {{site.data.keyword.blockstorageshort}} Endurance
 
 O processo de criptografia de dados cria um carregamento no host que pode potencialmente afetar o desempenho.
 {:note}

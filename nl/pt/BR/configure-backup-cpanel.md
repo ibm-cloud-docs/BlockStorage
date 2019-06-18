@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 Palavras-chave: armazenamento de bloco, cPanel, backups, ponto de montagem, ISCSI
 
@@ -31,7 +31,8 @@ Para obter mais informações, consulte [cPanel - Configurando o diretório de b
    Por padrão, o sistema cPanel salva os arquivos de backup localmente no diretório `/backup`. Para os propósitos deste documento, considera-se que `/backup` existe e contém backups e que `/backup2` é usado como o novo ponto de montagem.
    {:note}
 
-3. Configure o seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando aos LUNs de iSCSI do MPIO no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Certifique-se de montá-lo em `/backup2` e configurá-lo em `/etc/fstab` para ativar a montagem no início.
+3. Configure seu {{site.data.keyword.blockstorageshort}} conforme descrito em [Conectando-se
+a LUNs iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Certifique-se de montá-lo em /backup2 e configurá-lo em /etc/fstab para ativar a montagem no início.
 
 4. **Opcional**: copie os backups existentes para o novo armazenamento. É possível usar  ` rsync `.
    ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -19,7 +19,8 @@ subcollection: BlockStorage
 # Comandos SLCLI para o {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-É possível usar a SLCLI para executar ações que normalmente são manipuladas por meio do [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. Por exemplo, com a SLCLI, é possível fazer pedidos de volumes, espaço de captura instantânea, replicação, atualizar autorizações, cancelar volumes e assim por diante.
+É possível usar a SLCLI para executar ações que normalmente são manipuladas por meio do [console
+do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Por exemplo, com a SLCLI, é possível fazer pedidos de volumes, espaço de captura instantânea, replicação, atualizar autorizações, cancelar volumes e assim por diante.
 
 Para obter mais informações sobre como instalar e usar a SLCLI, consulte [Cliente da API do Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}

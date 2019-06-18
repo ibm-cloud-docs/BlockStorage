@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -38,7 +38,7 @@ Veja a Tabela 1 para a lista completa de disponibilidade de data center e destin
 
 ## Criando a réplica inicial
 
-As replicações funcionam com base em um planejamento de captura instantânea. Deve-se primeiro ter espaço de captura instantânea e um planejamento de captura instantânea para o volume de origem antes de poder replicar. Se você tentar configurar a replicação e uma ou a outra não estiver em vigor, será solicitado que compre mais espaço ou configure um planejamento. As replicações são gerenciadas em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+As replicações funcionam com base em um planejamento de captura instantânea. Deve-se primeiro ter espaço de captura instantânea e um planejamento de captura instantânea para o volume de origem antes de poder replicar. Se você tentar configurar a replicação e uma ou a outra não estiver em vigor, será solicitado que compre mais espaço ou configure um planejamento. As replicações são gerenciadas em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Clique em seu volume de armazenamento.
 2. Clique em **Réplica** e em **Comprar uma replicação**.
@@ -57,7 +57,7 @@ com capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage
 
 ## Editando uma replicação existente
 
-É possível editar seu planejamento de replicação e mudar o espaço de replicação na guia **Primário** ou **Réplica** em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+É possível editar seu planejamento de replicação e mudar seu espaço de replicação na guia **Primário** ou **Réplica** em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 
 ## Editando o Planejamento de Replicação
@@ -156,6 +156,14 @@ Quando um volume primário é cancelado, o planejamento de replicação e o volu
  2. Clique em **Ações** e selecione **Cancelar {{site.data.keyword.blockstorageshort}}**.
  3. Selecione quando cancelar. Escolha **Imediatamente** ou **Data de aniversário** e clique em **Continuar**.
  4. Clique em **Eu reconheço que, devido ao cancelamento, a perda de dados pode ocorrer** e clique em **Cancelar**.
+
+ É possível esperar que o LUN permaneça visível em sua lista de armazenamento por pelo menos 24 horas (cancelamento imediato) ou até a data do aniversário. Alguns recursos não estarão disponíveis por mais tempo,
+mas o volume permanecerá visível até que seja recuperado. No entanto, o faturamento será interrompido imediatamente depois de clicar em Excluir/Cancelar.
+
+ As réplicas ativas podem bloquear a recuperação do volume de armazenamento. Certifique-se de que
+o volume não esteja mais montado, as autorizações de host sejam revogadas e a replicação seja cancelada
+antes de tentar cancelar o volume original.
+
 
 ## Comandos relacionados a replicação na SLCLI
 {: #clicommands}

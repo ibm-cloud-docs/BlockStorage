@@ -2,29 +2,34 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
 ---
-
-{:external: target="_blank" .external}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
-
+{:external: target="_blank" .external}
 
 # Windows 2012 R2 - múltiplos dispositivos iSCSI
 {: #troubleshootingWin12}
 
-Se você usar mais de dois dispositivos iSCSI, poderá considerar esse procedimento útil; especialmente se todas as quatro cotas iSCSI forem do mesmo dispositivo de armazenamento. Se você vir apenas dois dispositivos no Disk Manager, será necessário se conectar manualmente a cada dispositivo no inicializador iSCSI em cada nó do servidor.
+Se você usar mais de dois dispositivos iSCSI com o mesmo host, poderá considerar esse procedimento útil, principalmente se todas as conexões iSCSI forem do mesmo dispositivo de armazenamento. Se você vir apenas dois dispositivos no Disk Manager, será necessário se conectar manualmente a cada dispositivo no inicializador iSCSI em cada nó do servidor.
+{:tsSymptoms}
+{:tsResolve}
+
 
 1. Abra o inicializador iSCSI do Windows.
-2. Clique na guia **Destinos** e, em seguida, clique em **Dispositivos**.
+2. Na guia **Destinos**, clique em **Dispositivos**.
 
    ![Propriedades do inicializador iSCSI](/images/win12-ts1.png)
 3. Confirme o número de dispositivos que são mostrados. Se você vir dois dispositivos, em vez dos quatro que foram autorizados, continue com a próxima etapa.

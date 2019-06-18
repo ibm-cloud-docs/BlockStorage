@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,14 @@ Por padrão, é possível fornecer um total combinado de 250 blocos e armazename
 
 Isso depende do que o sistema operacional do host é capaz de manipular, não é algo limitado pelo {{site.data.keyword.cloud}}. Consulte a documentação do S.O. para conhecer os limites com relação ao número de volumes que podem ser montados.
 
+## Posso anexar múltiplos LUNs com configurações de S.O. diferentes?
+{: faq}
+
+Não. Um host não pode ser autorizado a acessar LUNs de tipos de S.O. diferentes ao mesmo tempo. Um host pode estar autorizado a acessar somente LUNs de um único tipo de S.O. Se você tentar autorizar o acesso
+a múltiplos LUNs com diferentes tipos de S.O., a operação resultará em um erro.
+
 ## Qual versão do Windows devo escolher para o LUN do meu Block Storage?
+{: #windowsOStypes}
 {: faq}
 
 Ao criar um LUN, deve-se especificar o tipo de S.O. O tipo de S.O. deve se basear no sistema operacional que é usado pelos hosts que acessam o LUN. O tipo de S.O. não pode ser modificado depois da criação do LUN. O tamanho real do LUN
@@ -102,8 +109,7 @@ data centers submetidos a upgrade e de recursos disponíveis
 ## Como podemos dizer quais volumes do {{site.data.keyword.blockstorageshort}} são criptografados?
 {: faq}
 
-Ao observar a lista de {{site.data.keyword.blockstorageshort}} no [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, é
-possível ver um ícone de fechadura ao lado do nome do volume para os LUNs que estão criptografados.
+Ao verificar a sua lista do {{site.data.keyword.blockstorageshort}} no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}, é possível ver um ícone de bloqueio ao lado do nome do volume para os LUNs que estão criptografados.
 
 ## Como sabemos quando estamos provisionando o {{site.data.keyword.blockstorageshort}} em um data center submetido a upgrade?
 {: faq}
