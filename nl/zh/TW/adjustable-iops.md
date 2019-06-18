@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 調整 IOPS
 {: #adjustingIOPS}
 
-利用這個新特性，{{site.data.keyword.blockstoragefull}} 儲存空間使用者可以立即調整其現有 {{site.data.keyword.blockstorageshort}} 的 IOPS。他們不需要建立重複項目，或者手動將資料複製到新的儲存空間。進行調整時，使用者不會遇到任何類型的中斷，也不會無法存取儲存空間。
+利用這個特性，{{site.data.keyword.blockstoragefull}} 儲存空間使用者可以立即調整其現有 {{site.data.keyword.blockstorageshort}} 的 IOPS。他們不需要建立重複項目，或者手動將資料複製到新的儲存空間。進行調整時，使用者不會遇到任何類型的中斷，也不會無法存取儲存空間。
 
 儲存空間的計費已更新成將新價格的按比例差額新增至現行計費週期。會在下一個計費週期收取新的完整金額。
 
@@ -44,9 +44,7 @@ subcollection: BlockStorage
 ## 調整儲存空間上的 IOPS
 {: #adjustingsteps}
 
-1. 移至您的 {{site.data.keyword.blockstorageshort}} 清單：
-   - 從 {{site.data.keyword.slportal}}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
-   - 從 {{site.data.keyword.cloud}} 主控台，按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+1. 移至您的 {{site.data.keyword.blockstorageshort}} 清單。從 {{site.data.keyword.cloud}} 主控台中，按一下**功能表**圖示，然後按一下**基礎架構** > **儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
 2. 從清單中選取 LUN，然後按一下**動作** > **修改 LUN**。
 3. 在**儲存空間 IOPS 選項**下，進行新的選取：
     - 針對「耐久性」（分層 IOPS），請為您的儲存空間選取大於 0.25 IOPS/GB 的「IOPS 層級」。您隨時可以增加 IOPS 層級。不過，一個月只能減少一次。

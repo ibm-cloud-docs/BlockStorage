@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, Plesk, backups, mountpoint, ISCSI
 
@@ -28,7 +28,7 @@ subcollection: BlockStorage
 
    Plesk 有兩個用來儲存備份的選項。一個選項是內部 Plesk 儲存空間（位於 Plesk 伺服器上的備份儲存空間）。另一個選項是外部 FTP 儲存空間（位於 Web 或本端網路中某個外部伺服器上的備份儲存空間）。通常，在 Plesk 機器上，內部備份儲存在 `/var/lib/psa/dumps` 中，並使用 `/tmp` 作為暫存目錄。在此範例中，暫存目錄會保留在本端，但 dumps 目錄會移至 {{site.data.keyword.blockstorageshort}} 目標 (`/backup/psa/dumps`)。不需要任何 FTP 使用者認證。
    {:note}   
-3. 依照[在 Linux 上連接至 MPIO iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 的說明，配置您的 {{site.data.keyword.blockstorageshort}}。將 {{site.data.keyword.blockstorageshort}} 裝載至 `/backup`，並配置 `/etc/fstab` 以啟用在啟動時進行裝載。
+3. 依照[在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 的說明，配置您的 {{site.data.keyword.blockstorageshort}}。將 {{site.data.keyword.blockstorageshort}} 裝載至 `/backup`，並配置 `/etc/fstab` 以啟用在啟動時進行裝載。
 4. **選用**：將現有備份複製到新的儲存空間。您可以使用 `rsync`。
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

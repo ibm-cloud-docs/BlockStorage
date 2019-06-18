@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, cPanel, backups, mountpoint, ISCSI
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
    依預設，cPanel 系統會在本端將備份檔儲存至 `/backup` 目錄。基於本文件的用途，我們假設 `/backup` 存在且包含備份，因此會使用 `/backup2` 作為新的裝載點。
    {:note}
 
-3. 依照[在 Linux 上連接至 MPIO iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 的說明，配置您的 {{site.data.keyword.blockstorageshort}}。請確定您將它裝載至 `/backup2`，並在 `/etc/fstab` 中加以配置，以啟用在啟動時進行裝載。
+3. 依照[在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux) 的說明，配置您的 {{site.data.keyword.blockstorageshort}}。請確定您將它裝載至 `/backup2`，並在 `/etc/fstab` 中加以配置，以啟用在啟動時進行裝載。
 
 4. **選用**：將現有備份複製到新的儲存空間。您可以使用 `rsync`。
    ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -23,10 +23,11 @@ subcollection: BlockStorage
 這些指示主要適用於 RHEL6 和 CentOS6。我們已為其他 OS 新增附註，但本文件**並未**涵蓋所有 Linux 發行套件。如果您使用其他 Linux 作業系統，則請參閱特定發行套件的文件，並確保多路徑支援 ALUA 以設定路徑優先順序。
 {:note}
 
-例如，您可以在[這裡](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}找到「iSCSI 起始器配置」的 Ubuntu 指示，以及在[這裡](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}找到「DM 多路徑」設定的 Ubuntu 指示。
+例如，如需 Ubuntu 特性的相關資訊，請參閱 [iSCSI 起始器配置](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}及 [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}。
 {: tip}
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。{:important}
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}獲得授權。
+{:important}
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
 2. 按一下**授權主機**。
@@ -38,11 +39,10 @@ subcollection: BlockStorage
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -50,9 +50,9 @@ Options:
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #mountLin}
 
-以下是將 Linux 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
+請完成下列步驟，以將 Linux 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
 
-指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面取得。
+指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic/storage){: external}中的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面取得。
 {: tip}
 
 最好是在 VLAN 上執行儲存空間資料流量，這樣會略過防火牆。透過軟體防火牆執行儲存空間資料流量，會增加延遲，而且會對儲存空間效能造成不利的影響。
@@ -60,7 +60,8 @@ Options:
 
 1. 將 iSCSI 及多路徑公用程式安裝至主機。
   - RHEL 及 CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -124,48 +125,48 @@ Options:
 
 3. 載入多路徑模組、啟動多路徑服務，並將其設為在開機時啟動。
   - RHEL 6
-     ```
-     modprobe dm-multipath
-     ```
+    ```
+    modprobe dm-multipath
+    ```
     {: pre}
 
     ```
-     service multipathd start
-     ```
+    service multipathd start
+    ```
     {: pre}
 
     ```
-     chkconfig multipathd on
-     ```
+    chkconfig multipathd on
+    ```
     {: pre}
 
   - CentOS 7
-     ```
-     modprobe dm-multipath
-     ```
+    ```
+    modprobe dm-multipath
+    ```
     {: pre}
 
     ```
-     systemctl start multipathd
-     ```
+    systemctl start multipathd
+    ```
     {: pre}
 
     ```
-     systemctl enable multipathd
-     ```
+    systemctl enable multipathd
+    ```
     {: pre}
 
   - Ubuntu
-     ```
-     service multipath-tools start
-     ```
+    ```
+    service multipath-tools start
+    ```
     {: pre}
 
   - 若為其他發行套件，請參閱 OS 供應商文件。
 
 4. 驗證多路徑正在運作中。
   - RHEL 6
-     ```
+    ```
     multipath -l
     ```
     {: pre}
@@ -173,18 +174,20 @@ Options:
     如果傳回空白，表示它正在運作中。
   - CentOS 7
     ```
-     multipath -ll
-     ```
+    multipath -ll
+    ```
     {: pre}
 
     RHEL 7 和 CentOS 7 可能會傳回「無 fc_host 裝置」，可以忽略此訊息。
 
-5. 使用來自 {{site.data.keyword.slportal}} 的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 檔案。請以小寫字體輸入此值。
+5. 使用來自 {{site.data.keyword.cloud}} 主控台的 IQN 來更新 `/etc/iscsi/initiatorname.iscsi` 檔案。請以小寫字體輸入此值。
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. 使用來自 {{site.data.keyword.slportal}} 的使用者名稱及密碼，編輯 `/etc/iscsi/iscsid.conf` 中的 CHAP 設定。請對 CHAP 名稱使用大寫字體。
+
+6. 使用 {{site.data.keyword.cloud}} 主控台中的使用者名稱及密碼，編輯 `/etc/iscsi/iscsid.conf` 中的 CHAP 設定。請對 CHAP 名稱使用大寫字體。
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -246,11 +249,11 @@ Options:
 
    - 若為其他發行套件，請參閱 OS 供應商文件。
 
-8. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
+8. 使用從 {{site.data.keyword.cloud}} 主控台取得的「目標」IP 位址來探索裝置。
 
    A. 針對 iSCSI 陣列執行探索。
     ```
-    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -278,10 +281,12 @@ Options:
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
+
   這個指令會報告與下列範例類似的項目。
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   磁區現在已裝載且可在主機上存取。
 
 ## 建立檔案系統（選用）

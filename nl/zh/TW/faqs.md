@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,13 @@ subcollection: BlockStorage
 
 這取決於主機作業系統可處理的項目，而不是由 {{site.data.keyword.cloud}} 所限制。如需可裝載的磁區數目限制，請參閱 OS 文件。
 
+## 是否可以連接多個具有不同 OS 設定的 LUN？
+{: faq}
+
+否。無法授權主機同時存取不同 OS 類型的 LUN。只能授權主機存取單一 OS 類型的 LUN。如果您嘗試授權存取多個具有不同 OS 類型的 LUN，則作業會導致錯誤。
+
 ## 針對我的 Block Storage LUN，我應該選擇哪一個 Windows 版本？
+{: #windowsOStypes}
 {: faq}
 
 當您建立 LUN 時，必須指定 OS 類型。OS 類型必須根據存取 LUN 之主機所使用的作業系統。建立 LUN 之後，不得修改「OS 類型」。根據 LUN 的 OS 類型，LUN 的實際大小會略有不同。
@@ -92,7 +98,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 如何分辨哪些 {{site.data.keyword.blockstorageshort}} 磁區已加密？
 {: faq}
 
-在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
+在 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic/storage){: external}中查看 {{site.data.keyword.blockstorageshort}} 清單時，您會看到已加密的 LUN 的磁區名稱旁邊有一個鎖定圖示。
 
 ## 如何知道是否在已升級資料中心內佈建 {{site.data.keyword.blockstorageshort}}？
 {: faq}

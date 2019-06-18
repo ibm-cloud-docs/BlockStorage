@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, new features, new locations, Block Storage, mount point changes, select data centers, ISCSI,
 
@@ -54,7 +54,7 @@ subcollection: BlockStorage
 ## 已加密儲存空間磁區的新裝載點
 {: #mountpoints}
 
-這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**磁區詳細資料**頁面上查看裝載點資訊，確定您使用的是正確的裝載點。您也可以透過 API 呼叫來取得正確的裝載點資訊：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
+這些資料中心內佈建的所有加強型儲存空間磁區都具有與未加密磁區不同的裝載點。在 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic/storage/block){: external}的**磁區詳細資料**頁面上查看裝載點資訊，確定您使用的是正確的裝載點。您也可以透過 API 呼叫來取得正確的裝載點資訊：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
 
 若要能夠存取所有新增特性，請在透過 API 下訂單時，選取 `Storage-as-a-Service Package 759`。如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。
 {:important}

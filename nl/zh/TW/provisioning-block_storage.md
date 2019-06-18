@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,15 +22,13 @@ subcollection: BlockStorage
 
 您可以佈建 {{site.data.keyword.blockstorageshort}} 並微調，以符合您的容量和 IOPS 需求。利用兩個指定效能的選項來充份利用儲存空間。
 
-- 您可以從耐久性 IOPS 層級進行選擇，其特色為預先定義的效能層次，可適合沒有妥善定義之效能需求的工作負載。
-- 您可以對儲存空間進行細部調整，藉由指定效能的 IOPS 總數來滿足特定效能需求。
+- 您可以佈建**耐久性**層級，其特色為預先定義的效能層次，可適合沒有妥善定義之效能需求的工作負載。
+- 您可以對儲存空間進行細部調整，藉由指定每秒輸入/輸出作業 (IOPS) 總數來滿足特定效能需求以及建置高功率**效能**環境。
 
 ## 訂購具有預先定義 IOPS 層級（耐久性）的 {{site.data.keyword.blockstorageshort}}
+{: #orderingthroughConsoleEndurance}
 
-1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog){: external}，並按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
-
-   或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
-
+1. 登入 [{{site.data.keyword.cloud_notm}} 型錄](https://{DomainName}/catalog){: external}，然後按一下**儲存空間**。然後，選取 **{{site.data.keyword.blockstorageshort}}**，並按一下**建立**。
 2. 選取您的部署**位置**（資料中心）。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
@@ -50,23 +48,22 @@ subcollection: BlockStorage
 7. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的額外空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 從清單中，選擇您的 **OS 類型**。<br/>
 
-   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
+   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)。
    {:tip}
 9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。
 
    折扣會在處理訂單時套用。
    {:note}
-10. 檢閱條款之後，請勾選**我已閱讀並同意協力廠商服務合約**方框。
+10. 檢閱條款之後，勾選**我已閱讀並同意協力廠商服務合約**方框。
 11. 按一下**建立**。在幾分鐘之後，就可以使用您的新儲存空間配置。
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 訂購具有自訂 IOPS（效能）的 {{site.data.keyword.blockstorageshort}}
+{: #orderingthroughConsolePerformance}
 
-1. 登入 [IBM Cloud 型錄](https://{DomainName}/catalog){: external}，並按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
-
-   或者，您也可以登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}，按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。在右上方按一下**訂購 {{site.data.keyword.blockstorageshort}}**。
+1. 登入 [{{site.data.keyword.cloud_notm}} 型錄](https://{DomainName}/catalog){: external}，然後按一下**儲存空間**。然後，選取 {{site.data.keyword.blockstorageshort}}，並按一下**建立**。
 2. 按一下**位置**，然後選取資料中心。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
@@ -82,16 +79,16 @@ subcollection: BlockStorage
 7. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的額外空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 從清單中，選擇您的 **OS 類型**。<br/>
 
-   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
+   此選擇是根據主機執行的作業系統，之後將無法修改。例如，您的伺服器是 Ubuntu 或 RHEL，請選取 Linux。如果主機是 Windows 2012 或 Windows 2016 伺服器，請從清單中選取 Windows 2008+ 選項。如需各種 Windows 選項的相關資訊，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)。
    {:tip}
 9. 在右邊檢閱訂單摘要，如果您有「促銷代碼」，請套用它。
 
    折扣會在處理訂單時套用。
    {:note}
-10. 檢閱條款之後，請勾選**我已閱讀並同意協力廠商服務合約**方框。
+10. 檢閱條款之後，勾選**我已閱讀並同意協力廠商服務合約**方框。
 11. 按一下**建立**。在幾分鐘之後，就可以使用您的新儲存空間配置。
 
-依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
+依預設，您可以佈建總計 250 個 {{site.data.keyword.blockstorageshort}} 和 {{site.data.keyword.filestorage_short}} 磁區。若要增加磁區數目，請與業務代表聯絡。請在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)閱讀增加限制的相關資訊。<br/><br/>如需同時授權的限制，請參閱[常見問題](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)。
 {:important}
 
 ## 連接新的儲存空間

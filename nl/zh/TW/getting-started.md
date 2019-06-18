@@ -22,7 +22,8 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstoragefull}} 是持續性的高效能 iSCSI 儲存空間，其獨立於運算實例之外進行佈建及管理。iSCSI 型 {{site.data.keyword.blockstorageshort}} LUN 是透過備用的多路徑 I/O (MPIO) 連線連接至授權裝置。
 
-{{site.data.keyword.blockstorageshort}} 透過無與倫比的特性集提供最佳的延續性和可用性層次。它是使用業界標準和最佳作法進行建置。{{site.data.keyword.blockstorageshort}} 的設計目的為保護資料完整性，以及透過維護事件和非計劃性失敗來維護可用性，同時提供一致的效能基準線。{:shortdesc}
+{{site.data.keyword.blockstorageshort}} 透過無與倫比的特性集提供最佳的延續性和可用性層次。它是使用業界標準和最佳作法進行建置。{{site.data.keyword.blockstorageshort}} 的設計目的為保護資料完整性，以及透過維護事件和非計劃性失敗來維護可用性，同時提供一致的效能基準線。
+{:shortdesc}
 
 ## 開始之前
 {: #prereqs}
@@ -31,7 +32,7 @@ subcollection: BlockStorage
 - 佈建**耐久性層級**，其特色是預先定義的效能層次，以及例如 Snapshot 及抄寫等其他特性。
 - 建置具有已配置每秒輸入/輸出作業 (IOPS) 的高功率**效能**環境。
 
-如需 {{site.data.keyword.blockstorageshort}} 供應項目的相關資訊，請參閱[關於 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)。
+如需 {{site.data.keyword.blockstorageshort}} 供應項目的相關資訊，請參閱[瞭解 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)。
 
 ## 佈建考量
 
@@ -86,4 +87,4 @@ subcollection: BlockStorage
 
 ## 管理新的儲存空間
 
-透過入口網站或 SLCLI，您可以管理 File Storage 的各種層面，例如主機授權和取消。如需相關資訊，請參閱[管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)。
+透過入口網站或 SLCLI，您可以管理 {{site.data.keyword.blockstorageshort}} 的各種層面，例如主機授權和取消。如需相關資訊，請參閱[管理 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)。

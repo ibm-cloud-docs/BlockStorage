@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## 建立 Snapshot 排程
 
-您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤進行管理。
+您可以使用 Snapshot 排程決定要建立儲存空間磁區之時間點參照的頻率及時間。每個儲存空間磁區最多可以有 50 個 Snapshot。排程是透過 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}的**儲存空間** > **{{site.data.keyword.blockstorageshort}}** 標籤來管理。
 
 您必須先購買 Snapshot 空間（如果未在起始佈建儲存空間磁區期間購買的話），才能設定起始排程。
 如需相關資訊，請參閱[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。{:important}
@@ -42,7 +42,7 @@ Snapshot 排程可以設定為每小時、每日及每週間隔，且各有不�
    - 每週
       - 指定應該在星期幾的幾點幾分擷取 Snapshot。預設值是現行日、小時及分鐘。
       - 選取在捨棄最舊的 Snapshot 之前，要保留的每週 Snapshot 數目。
-3. 按一下**儲存**，然後建立另一個頻率不同的排程。如果所排程 Snapshot 的總數超過 50，您會收到警告訊息，而且無法儲存。
+3. 按一下**儲存**。然後，您可以建立另一個頻率不同的排程。如果所排程 Snapshot 的總數超過 50，您會收到警告訊息，而且無法儲存。
 
 所擷取之 Snapshot 的清單會顯示在**詳細資料**頁面的 **Snapshot** 區段中。
 
@@ -162,9 +162,9 @@ Options:
 {:important}
 
 1. 從主機中卸載並分離您的儲存空間磁區。
-   - [在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [在 Microsoft Windows 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. 按一下 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
+   - [在 Linux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [在 Microsoft Windows 上連接至 LUNS](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. 按一下 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}中的**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
 3. 向下捲動，並按一下要還原的磁區。**詳細資料**頁面的 **Snapshot** 區段會顯示所有已儲存 Snapshot 的清單及其大小和建立日期。
 4. 按一下要使用之 Snapshot 旁的**動作**，然後按一下**還原**。<br/>
 

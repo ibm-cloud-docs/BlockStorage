@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # 在 Microsoft Windows 上連接至 iSCSI LUN
 {: #mountingWindows}
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機已透過 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}獲得授權。
 
 1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。按一下**授權主機**。
 2. 從清單中，選取要存取磁區的主機，然後按一下**提交**。
@@ -29,11 +29,10 @@ subcollection: BlockStorage
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -41,7 +40,7 @@ Options:
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #mountWin}
 
-以下是將 Windows 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 的供應商文件來調整其他 Windows 版本的步驟。
+請完成下列步驟，以將 Windows 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。此範例以 Windows Server 2012 為基礎。您可以根據作業系統 (OS) 的供應商文件來調整其他 Windows 版本的步驟。
 
 ### 配置 MPIO 特性
 
@@ -68,18 +67,18 @@ Options:
     - 按一下**變更**，將現有值取代為「iSCSI 完整名稱 (IQN)」。
     ![iSCSI 起始器內容](/images/iSCSI.png)
 
-      您可以從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面取得 IQN 名稱。
+      您可以從 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/classic){: external}中的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面取得 IQN 名稱。
       {: tip}
 
-    - 按一下**探索**標籤，然後按一下**探索入口網站**。
+    - 按一下**探索**，然後按一下**探索入口網站**。
     - 輸入 iSCSI 目標的 IP 位址，並將「埠」保留為預設值 3260。
     - 按一下**進階**，以開啟「進階設定」視窗。
     - 選取**啟用 CHAP 登入**來開啟 CHAP 鑑別。
     ![啟用 CHAP 登入](/images/Advanced_0.png)
         「名稱」及「目標密碼」欄位有區分大小寫。
     {:important}
-         - 在**名稱**欄位中，刪除任何現有的項目，並從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 輸入使用者名稱。
-         - 在**目標密碼**欄位中，從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中輸入密碼。
+         - 在**名稱**欄位中，刪除任何現有的項目，並從 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/classic/storage){: external}輸入使用者名稱。
+         - 在**目標密碼**欄位中，從 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/classic/storage){: external}中輸入密碼。
     - 在**進階設定**及**探索目標入口網站**視窗上，按一下**確定**，以回到主要「iSCSI 起始器內容」畫面。如果您收到鑑別錯誤，請檢查使用者名稱及密碼項目。
     ![非作用中目標](/images/Inactive_0.png)
         您的目標名稱會出現在「已探索目標」區段中，並處於`非作用中`狀態。
@@ -92,8 +91,7 @@ Options:
 2. 選取**啟用多路徑**勾選框，以啟用目標的多路徑 IO。
 <br/>
    ![啟用多路徑](/images/Connect_0.png)
-3. 按一下**進階**，然後選取**啟用 CHAP 登入**。
-</br>
+3. 按一下**進階**，然後選取**啟用 CHAP 登入**。</br>
    ![啟用 CHAP](/images/chap_0.png)
 4. 在「名稱」欄位中輸入使用者名稱，然後在「目標密碼」欄位中輸入密碼。
 
@@ -106,7 +104,7 @@ Options:
 ### 在 iSCSI 起始器中配置 MPIO
 
 1. 啟動「iSCSI 起始器」，然後在「目標」標籤上，按一下**內容**。
-2. 在「內容」視窗上按一下**新增階段作業**，以開啟「連接至目標」視窗。
+2. 按一下「內容」視窗上的**新增階段作業**。
 3. 在「連接至目標」對話框中，選取**啟用多路徑**勾選框，然後按一下**進階**。
   ![目標](/images/Target.png)
 
@@ -115,24 +113,24 @@ Options:
    - 在「起始器 IP」清單中，選取主機的 IP 位址。
    - 在「目標入口網站 IP」清單中，選取裝置介面的 IP。
    - 按一下**啟用 CHAP 登入**勾選框。
-   - 輸入從入口網站取得的「名稱」及「目標密碼」值，然後按一下**確定**。
+   - 輸入從主控台取得的「名稱」及「目標密碼」值，然後按一下**確定**。
    - 在「連接至目標」視窗上按一下**確定**，以回到「內容」視窗。
 
 5. 按一下**內容**。在「內容」對話框中，再次按一下**新增階段作業**，以新增第二個路徑。
 6. 在「連接至目標」視窗中，選取**啟用多路徑**勾選框。按一下**進階**。
 7. 在「進階設定」視窗中，
    - 在「本端配接卡」清單中，選取「Microsoft iSCSI 起始器」。
-   - 在「起始器 IP」清單中，選取對應於主機的 IP 位址。在此情況下，您會將儲存裝置上的兩個網路介面連接至主機上的單一網路介面。因此，這個介面與為第一個階段作業所提供的介面相同。
+   - 在「起始器 IP」清單中，選取對應至主機的 IP 位址。在此情況下，您會將儲存裝置上的兩個網路介面連接至主機上的單一網路介面。因此，這個介面與為第一個階段作業所提供的介面相同。
    - 在「目標入口網站 IP」清單上，選取儲存裝置上已啟用之第二個資料介面的 IP 位址。
 
-     您可以在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面中找到第二個 IP 位址。
+     您可以在 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/classic/storage){: external}的「{{site.data.keyword.blockstorageshort}} 詳細資料」畫面中找到第二個 IP 位址。
       {: tip}
    - 按一下**啟用 CHAP 登入**勾選框。
-   - 輸入從入口網站取得的「名稱」及「目標密碼」值，然後按一下**確定**。
+   - 輸入從主控台取得的「名稱」及「目標密碼」值，然後按一下**確定**。
    - 在「連接至目標」視窗上按一下**確定**，以回到「內容」視窗。
 8. 現在，「內容」視窗會在 ID 窗格內顯示多個階段作業。您有多個階段作業連至 iSCSI 儲存空間。
 
-   如果您的主機有多個介面，而您想要將它們連接至 ISCSI 儲存空間，您可以在「起始器 IP」欄位中設定與另一片 NIC 之 IP 位址的另一個連線。不過，在試圖建立連線之前，請務必在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 中授權第二個起始器 IP 位址。
+   如果您的主機有多個介面，而您想要將它們連接至 ISCSI 儲存空間，您可以在「起始器 IP」欄位中設定與另一片 NIC 之 IP 位址的另一個連線。不過，在嘗試建立連線之前，請務必在 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic/storage){: external}中授權第二個起始器 IP 位址。
    {:note}
 9. 在「內容」視窗中，按一下**裝置**，以開啟「裝置」視窗。裝置介面名稱的開頭為 `mpio`。<br/>
   ![裝置](/images/Devices.png)
@@ -163,7 +161,7 @@ Options:
 
 ### 啟動 iSCSI 起始器
 
-1. 按一下**目標**標籤。
+1. 按一下**目標**。
 2. 選取您要移除的目標，然後按一下**中斷連線**。
 
 ### 移除目標

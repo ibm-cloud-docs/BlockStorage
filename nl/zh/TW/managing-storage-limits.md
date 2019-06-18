@@ -13,6 +13,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # 管理儲存空間限制
 {: #managingstoragelimits}
@@ -30,7 +31,7 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-您可以在 [入口網站](https://cloud.ibm.com/unifiedsupport/cases/add){: external} 中提交支援案例，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
+您可以在 [入口網站](https://{DomainName}/unifiedsupport/cases/add){: external} 中提交支援案例，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
 
 若要要求提高限制，請開立案例，並將它導向給您的業務代表。
 

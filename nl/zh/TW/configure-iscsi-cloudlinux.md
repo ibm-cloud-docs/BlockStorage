@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,15 +19,17 @@ subcollection: BlockStorage
 # 在 CloudLinux 上連接至 iSCSI LUN
 {: #mountingCloudLinux}
 
-請遵循下列指示，以在 CloudLinux Server 6.10 版上按裝具有多路徑的 iSCSI LUN。
+請遵循下列指示，以在 CloudLinux Server 6.10 版上裝載具有多路徑的 iSCSI LUN。
 
-開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 獲得授權。{:tip}
+開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/classic){: external}獲得授權。
+{:tip}
 
-1. 登入 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}。
-2. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
-3. 按一下**授權主機**。
-4. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
-5. 記下「主機 IQN」、使用者名稱、密碼及目標位址。
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}。從**功能表**中，選取**標準基礎架構**。
+2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+3. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
+4. 按一下**授權主機**。
+5. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
+6. 記下「主機 IQN」、使用者名稱、密碼及目標位址。
 
 或者，您可以透過 SLCLI 來授權主機。
 ```
@@ -35,11 +37,10 @@ subcollection: BlockStorage
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -50,7 +51,7 @@ Options:
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #mountingCloudLin}
 
-1. 在主機上安裝 iSCSI 和多路徑公用程式，並啟動它們。
+1. 在主機上安裝 iSCSI 及多路徑公用程式，並啟動它們。
    ```
    yum install iscsi-initiator-utils
    ```
@@ -105,18 +106,18 @@ Options:
      ```
      {: codeblock}
 
-   - 透過新增使用者名稱、密碼，更新 CHAP 設定 `/etc/iscsi/iscsid.conf`。
+   - 新增使用者名稱及密碼，以更新 CHAP 設定 `/etc/iscsi/iscsid.conf`。
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -135,7 +136,7 @@ Options:
    ```
    {: pre}
 
-4. 使用從 {{site.data.keyword.slportal}} 取得的「目標」IP 位址來探索裝置。
+4. 使用從 {{site.data.keyword.cloud_notm}} 主控台取得的「目標」IP 位址來探索裝置。
 
      A. 針對 iSCSI 陣列執行探索。
        ```

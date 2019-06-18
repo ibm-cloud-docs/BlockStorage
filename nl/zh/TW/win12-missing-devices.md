@@ -2,29 +2,34 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
 ---
-
-{:external: target="_blank" .external}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
-
+{:external: target="_blank" .external}
 
 # Windows 2012 R2 - 多台 iSCSI 裝置
 {: #troubleshootingWin12}
 
-如果您使用兩部以上的 iSCSI 裝置，可能會發現此程序很實用；尤其是如果所有四個 iSCSI 分配項目都是來自相同的儲存裝置時。如果您在「磁碟管理程式」中只看到兩部裝置，則需要手動連接至每部伺服器上的「iSCSI 起始器」中的每部裝置。
+如果您使用兩部以上具有相同主機的 iSCSI 裝置，可能會發現此程序很實用；尤其是如果所有 iSCSI 連線都是來自相同的儲存裝置時。
+如果您在「磁碟管理程式」中只看到兩個裝置，則需要手動連接至每部伺服器上的「iSCSI 起始器」中的每個裝置。{:tsSymptoms}
+{:tsResolve}
+
 
 1. 開啟「Windows iSCSI 起始器」。
-2. 按一下**目標**標籤，然後按一下**裝置**。
+2. 在**目標**標籤上，按一下**裝置**。
 
    ![iSCSI 起始器內容](/images/win12-ts1.png)
 3. 確認所顯示的裝置數目。如果您看到兩部裝置，而不是已授權的四部裝置，請繼續進行下一步。

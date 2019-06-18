@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -36,7 +36,7 @@ subcollection: BlockStorage
 
 ## 建立起始抄本
 
-抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下管理。
+抄寫是根據 Snapshot 排程運作。您必須先有來源磁區的 Snapshot 空間及 Snapshot 排程，然後才能進行抄寫。如果您嘗試設定抄寫，但其中一者還未就緒，則會提示您購買更多空間，或是設定排程。抄寫是在 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}的**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下管理。
 
 1. 按一下儲存空間磁區。
 2. 按一下**抄本**，然後按一下**購買抄寫**。
@@ -55,7 +55,7 @@ subcollection: BlockStorage
 
 ## 編輯現有抄寫
 
-您可以從 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 之**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤中編輯抄寫排程，以及變更抄寫空間。
+您可以從 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}之**儲存空間**、**{{site.data.keyword.blockstorageshort}}** 下的**主要**或**抄本**標籤中編輯抄寫排程，以及變更抄寫空間。
 
 
 ## 編輯抄寫排程
@@ -147,6 +147,11 @@ subcollection: BlockStorage
  2. 按一下**動作**，然後選取**取消 {{site.data.keyword.blockstorageshort}}**。
  3. 選取何時取消。選擇**立即**或**週年日**，然後按一下**繼續**。
  4. 按一下**我確認因為取消而可能發生資料流失**，然後按一下**取消**。
+
+ 您可以預期 LUN 在「儲存空間」清單中會保持可見至少 24 小時（立即取消）或直到週年日為止。特定特性即將無法再使用，但磁區會保持可見直到收回為止。不過，在您按一下「刪除」/「取消」之後，會立即停止計費。
+
+ 作用中抄本可能會封鎖收回「儲存空間磁區」。請確定不再裝載磁區、撤銷主機權限，以及在您嘗試取消原始磁區之前取消抄寫。
+
 
 ## SLCLI 中的抄寫相關指令
 {: #clicommands}

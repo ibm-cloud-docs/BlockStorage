@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} 的 SLCLI 指令
 {: #SLCLIcommands}
 
-您可以使用 SLCLI 採取通常透過 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 處理的動作。例如，使用 SLCLI 您可以針對磁區、Snapshot 空間、抄寫、更新授權、取消磁區等等而下訂單。
+您可以使用 SLCLI 採取通常透過 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}處理的動作。例如，使用 SLCLI 您可以針對磁區、Snapshot 空間、抄寫、更新授權、取消磁區等等而下訂單。
 
 若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
