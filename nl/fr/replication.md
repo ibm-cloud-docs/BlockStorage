@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -34,12 +34,12 @@ Pour obtenir la liste complète de la disponibilité des centres de données et 
 | EU 1 | EU 2 | Amérique latine | Canada  | Europe  | Asie-Pacifique  | Australie  |
 |-----|-----|-----|-----|-----|-----|-----|
 | DAL01<br />DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01 | TOR01<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
-{: caption="Le tableau 1 répertorie l'ensemble des centres de données avec les fonctionnalités améliorées dans chaque région. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San José, Washington DC, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données. Les centres de données de la région EU 1 ne comportent PAS de stockage amélioré.. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées ne peuvent pas démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1. " caption-side="top"}
+{: caption="Le tableau 1 répertorie l'ensemble des centres de données avec les fonctionnalités améliorées dans chaque région. Chaque région correspond à une colonne. Certaines villes, comme Dallas, San José, Washington DC, Amsterdam, Francfort, Londres et Sydney possèdent plusieurs centres de données. Les centres de données de la région EU 1 ne comportent PAS de stockage amélioré.. Les hôtes des centres de données comportant des fonctionnalités de stockage améliorées ne peuvent pas démarrer la réplication avec des cibles de réplique dans les centres de données de la région EU 1." caption-side="top"}
 
 
 ## Création de la réplique initiale
 
-Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abord configurer un espace d'instantané et un planning d'instantané pour le volume source avant de pouvoir répliquer. Si vous tentez de configurer la réplication alors que l'espace d'instantané ou le planning d'instantané n'existe pas, vous serez invité à acheter davantage d'espace ou à configurer un planning. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abord configurer un espace d'instantané et un planning d'instantané pour le volume source avant de pouvoir répliquer. Si vous tentez de configurer la réplication alors que l'espace d'instantané ou le planning d'instantané n'existe pas, vous serez invité à acheter davantage d'espace ou à configurer un planning. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Cliquez sur votre volume de stockage.
 2. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
@@ -57,7 +57,7 @@ Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abo
 
 ## Edition d'une réplication existante
 
-Vous pouvez éditer votre planning de réplication et modifier votre espace de réplication à partir de l'onglet **Principal** ou **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Vous pouvez éditer votre planning de réplication et modifier votre espace de réplication à partir de l'onglet **Principal** ou **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 
 ## Edition du planning de réplication
@@ -149,6 +149,11 @@ Lorsqu'un volume principal est annulé, le planning de réplication et le volume
  2. Cliquez sur **Actions** et sélectionnez **Annuler stockage par bloc**.
  3. Choisissez le moment de l'annulation du volume, Choisissez **Immédiatement** ou **Date anniversaire**, puis cliquez sur **Continuer**.
  4. Cliquez sur **Je comprends les risques de perte de données liés à cette annulation** puis sur **Annuler**.
+
+ Vous pouvez prévoir que le numéro d'unité logique reste visible dans votre liste de stockage pour au moins 24 heures (annulation immédiate) ou jusqu'à sa date anniversaire. Certaines fonctionnalités ne seront plus disponibles, mais le volume restera visible tant qu'il n'aura pas été récupéré. Toutefois, la facturation s'interrompt immédiatement après que vous avez cliqué sur Supprimer/Annuler.
+
+ Des répliques actives peuvent bloquer la récupération du volume de stockage. Assurez-vous que le volume n'est plus monté, que les autorisations d'hôte sont révoquées, et que la réplication a été annulée avant de tenter d'annuler le volume d'origine.
+
 
 ## Commandes liées à la réplication dans SLCLI
 {: #clicommands}

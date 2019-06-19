@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Extension de la capacité de stockage par blocs
 {: #expandingcapacity}
 
-Cette nouvelle fonctionnalité permet aux utilisateurs d'{{site.data.keyword.blockstoragefull}} d'étendre immédiatement la taille de leur stockage {{site.data.keyword.blockstorageshort}} en incréments de Go jusqu'à 12 To. Ils n'ont pas besoin de créer un doublon ou de faire migrer manuellement les données vers un volume plus grand. Il n'y aura aucune indisponibilité ni refus d'accès au stockage lors du redimensionnement.
+Cette fonctionnalité permet aux utilisateurs d'{{site.data.keyword.blockstoragefull}} d'étendre immédiatement la taille de leur stockage {{site.data.keyword.blockstorageshort}} en incréments de Go jusqu'à 12 To. Ils n'ont pas besoin de créer un doublon ou de faire migrer manuellement les données vers un volume plus grand. Il n'y aura aucune indisponibilité ni refus d'accès au stockage lors du redimensionnement.
 
 La facturation du volume est automatiquement mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est ensuite facturé dans le cycle de facturation suivant.
 
@@ -47,7 +47,7 @@ Les limitations de taille existantes pour le stockage {{site.data.keyword.blocks
 ## Redimensionnement du stockage
 {: #resizingsteps}
 
-1. A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** OU, à partir de la console {{site.data.keyword.cloud}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Depuis la console {{site.data.keyword.cloud}}, cliquez sur l'icône de **menu**. Cliquez ensuite sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
 3. Saisissez la nouvelle taille du stockage en Go.
 4. Passez en revue votre sélection et la nouvelle tarification.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Ajustement des IOPS (opérations d'entrée-sortie par seconde)
 {: #adjustingIOPS}
 
-Cette nouvelle fonctionnalité permet aux utilisateurs du stockage {{site.data.keyword.blockstoragefull}} d'ajuster immédiatement les IOPS de leur {{site.data.keyword.blockstorageshort}} existant. Ils n'ont pas besoin de créer un doublon ou de copier manuellement les données vers un nouveau stockage. Les utilisateurs ne sont confrontés à aucune indisponibilité, ni manque d'accès au stockage lorsque l'ajustement a lieu.
+Cette fonctionnalité permet aux utilisateurs du stockage {{site.data.keyword.blockstoragefull}} d'ajuster immédiatement les IOPS de leur {{site.data.keyword.blockstorageshort}} existant. Ils n'ont pas besoin de créer un doublon ou de copier manuellement les données vers un nouveau stockage. Les utilisateurs ne sont confrontés à aucune indisponibilité, ni manque d'accès au stockage lorsque l'ajustement a lieu.
 
 La facturation du stockage est mise à jour : la différence calculée au prorata du nouveau prix est ajoutée au cycle de facturation en cours. Le nouveau montant total est facturé dans le cycle de facturation suivant.
 
@@ -44,9 +44,7 @@ Si la réplication est activée sur le volume, la réplique est automatiquement 
 ## Ajustement des IOPS sur votre stockage
 {: #adjustingsteps}
 
-1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
-   - A partir du portail {{site.data.keyword.slportal}}, cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**
-   - A partir de la console {{site.data.keyword.cloud}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}. Depuis la console {{site.data.keyword.cloud}}, cliquez sur l'icône de **menu**, puis sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
 3. Sous les options d'IOPS de stockage, effectuez une nouvelle sélection :
     - Pour Endurance (IOPS hiérarchisées), sélectionnez un niveau d'IOPS supérieur à 0,25 IOPS/Go de votre stockage. Vous pouvez augmenter le niveau d'IOPS à tout moment. Toutefois, vous ne pouvez le diminuer qu'une seule fois par mois.

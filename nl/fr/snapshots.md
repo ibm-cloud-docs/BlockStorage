@@ -59,7 +59,7 @@ Les copies d'image instantanée minimisent la consommation du disque en conserva
 Dans le système de fichiers actif, les blocs modifiés sont réécrits à des emplacements différents sur le disque ou retirés sous la forme de blocs de fichier complets. Lorsque des fichiers sont modifiés ou supprimés, les blocs de fichier d'origine sont conservés dans une ou plusieurs copies d'image instantanée. Ainsi, l'espace disque qui est utilisé par les blocs d'origine est conservé pour refléter le statut du système de fichiers actif avant la modification. La réservation de cet espace s'ajoute à l'espace disque employé par les blocs dans le système de fichiers actif modifié.
 
 
-|Utilisation d'espace disque|   |
+| Utilisation d'espace disque |   |
 |-----|-----|
 | ![Espace qui est utilisé avant la prise d'une copie d'image instantanée](/images/bfcircle1.png "Avant une copie d'image instantanée") | Avant la création d'une copie d'image instantanée, l'espace disque est utilisé uniquement par le système de fichiers actif. |
 | ![Espace qui est utilisé lors de la prise d'une copie d'image instantanée](/images/bfcircle3.png "Après une copie d'image instantanée") | Après la création d'une copie d'image instantanée, le système de fichiers actif et la copie d'image instantanée pointent vers les mêmes blocs disque. La copie d'instantané n'utilise pas d'espace disque supplémentaire.  |

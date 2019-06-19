@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
 {:note}
 
-Par exemple, vous pouvez trouver les instructions d'Ubuntu pour la configuration de l'initiateur iSCS [ici](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} et la configuration DM-Multipath [ici](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+Par exemple, pour obtenir des informations supplémentaires spécifiques à Ubuntu, voir [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} et [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Avant de commencer, assurez-vous que l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}} a été précédemment autorisé via la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 {:important}
 
 1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
@@ -39,11 +39,10 @@ Vous pouvez également autoriser l'hôte via l'interface SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -51,9 +50,9 @@ Options:
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-Vous trouverez ci-dessous la procédure requise pour connecter une instance de calcul {{site.data.keyword.cloud}} basée sur Linux à un numéro d'unité logique (LUN) d'E-S multi-accès (MPIO) d'interface SCSI (iSCSI).
+Exécutez la procédure suivante pour connecter une instance de calcul {{site.data.keyword.cloud}} basée Linux à un numéro d'unité logique d'interface iSCSI MPIO. 
 
-Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus à partir de l'écran **{{site.data.keyword.blockstorageshort}} Détails** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus depuis l'écran **Détails {{site.data.keyword.blockstorageshort}}** de la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
@@ -61,7 +60,8 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
 1. Installez les utilitaires iSCSI et multi-accès sur votre hôte.
   - RHEL et CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -180,12 +180,14 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
     RHEL 7 et CentOS 7 peuvent renvoyer le message No fc_host device, que vous pouvez ignorer.
 
-5. Mettez à jour le fichier `/etc/iscsi/initiatorname.iscsi` avec le nom qualifié iSCSI provenant du portail {{site.data.keyword.slportal}}. Saisissez la valeur en minuscules.
+5. Mettez à jour le fichier `/etc/iscsi/initiatorname.iscsi` avec le nom qualifié iSCSI depuis la console {{site.data.keyword.cloud}}. Saisissez la valeur en minuscules.
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. Editez les paramètres CHAP dans le fichier `/etc/iscsi/iscsid.conf` à l'aide du nom d'utilisateur et du mot de passe provenant du portail {{site.data.keyword.slportal}}. Utilisez des majuscules pour les noms CHAP.
+
+6. Editez les paramètres CHAP dans le fichier `/etc/iscsi/iscsid.conf` à l'aide du nom d'utilisateur et du mot de passe provenant de la console {{site.data.keyword.cloud}}. Utilisez des majuscules pour les noms CHAP.
    ```
    node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -247,11 +249,11 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
    - Pour les autres distributions, consultez la documentation du fournisseur du système d'exploitation.
 
-8. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue à partir du portail {{site.data.keyword.slportal}}.
+8. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue depuis la console {{site.data.keyword.cloud}}. 
 
    A. Exécutez la reconnaissance sur la grappe iSCSI.
     ```
-    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -279,10 +281,12 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
+
   Cette commande génère une sortie semblable à l'exemple ci-après.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   Le volume est maintenant monté et accessible sur l'hôte.
 
 ## Création d'un système de fichiers (facultatif)

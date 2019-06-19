@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, new features, new locations, Block Storage, mount point changes, select data centers, ISCSI,
 
@@ -54,7 +54,7 @@ La nouvelle fonction {{site.data.keyword.blockstorageshort}} est disponible dans
 ## Nouveau point de montage des volumes de stockage chiffrés
 {: #mountpoints}
 
-Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Vérifiez les informations de point de montage sur la page **Volume Details** du portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} pour vous assurer que vous utilisez le point de montage approprié. Vous pouvez également obtenir les informations relatives au point de montage correct via un appel d'API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Tous les volumes de stockage amélioré qui sont mis à disposition dans ces centres de données possèdent un point de montage différent des volumes non chiffrés. Vérifiez les informations de point de montage sur la page **Détails du volume** de la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage/block){: external} pour vous assurer que vous utilisez le point de montage approprié. Vous pouvez également obtenir les informations relatives au point de montage correct via un appel d'API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Pour pouvoir accéder à toutes les nouvelles fonctions, sélectionnez `Storage-as-a-Service Package 759` lorsque vous passez votre commande via l'API. Pour plus d'informations sur les commandes {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}

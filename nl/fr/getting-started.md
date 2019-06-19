@@ -32,7 +32,7 @@ Des numéros d'unité logique {{site.data.keyword.blockstorageshort}} peuvent ê
 - Effectuez la mise à disposition avec des niveaux **Endurance** offrant des niveaux de performance prédéfinis et d'autres fonctionnalités telles que les instantanés et la réplication.
 - Créez un environnement de **Performance** haute puissance avec des opérations d'entrée-sortie par seconde (IOPS) allouées.
 
-Pour en savoir plus sur l'offre {{site.data.keyword.blockstorageshort}}, voir [A propos de {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
+Pour plus d'informations sur l'offre {{site.data.keyword.blockstorageshort}}, voir [A propos de {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-About).
 
 ## Remarques sur la mise à disposition
 
@@ -88,4 +88,4 @@ Lorsque votre demande de mise à disposition est terminée, autorisez vos hôtes
 
 ## Gestion de votre nouveau stockage
 
-Via le portail ou l'interface SLCLI, vous pouvez gérer différents aspects de votre stockage de fichiers, tels que les autorisations et annulations d'hôtes. Pour plus d'informations, voir [Gestion de {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Via le portail ou l'interface SLCLI, vous pouvez gérer différents aspects de {{site.data.keyword.blockstorageshort}}, tels que les autorisations et annulations d'hôtes. Pour plus d'informations, voir [Gestion de {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

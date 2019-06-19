@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -10,7 +10,7 @@ subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
-{:codeblock: .codeblock} 
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -49,9 +49,7 @@ De plus, pour la plupart des charges de travail, plus le volume est grand, plus 
 
 ## Commande d'un espace d'instantané via la console {{site.data.keyword.cloud_notm}}
 
-1. Connectez-vous à la console [{{site.data.keyword.cloud_notm}} ](https://{DomainName}/catalog){: external}, puis cliquez sur l'icône de menu dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
-
-   Sinon, vous pouvez vous connecter au portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external}, puis cliquez sur l'icône de menu dans l'angle supérieur gauche. Sélectionnez ensuite **Infrastructure classique**.
 2. Accédez au numéro d'unité logique de stockage via **Stockage** >**{{site.data.keyword.blockstorageshort}}**.
 2. Cliquez sur **Modifier l'espace d'instantané** dans le cadre Instantanés.
 3. Sélectionnez la quantité d'espace dont vous avez besoin et la méthode de paiement.

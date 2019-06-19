@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès l
 
 Une fois la copie de données terminée, le doublon peut être géré et utilisé en tant que volume indépendant.
 
-Cette fonctionnalité est disponible dans la plupart des emplacements. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour obtenir la liste des centres de données disponibles.
+Cette fonctionnalité est disponible dans la plupart des emplacements. Pour plus d'informations, voir [la liste des data centers disponibles](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
 
 Si vous êtes un utilisateur de compte Dedicated d'{{site.data.keyword.containerlong}}, consultez vos options de duplication d'un volume dans la [{{site.data.keyword.containerlong_notm}}documentation ](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
@@ -42,14 +42,12 @@ Voici quelques exemples d'utilisation courante d'un volume dupliqué :
 - **Développement/Test**. Créez jusqu'à quatre doublons simultanés d'un volume en même temps pour créer des données dupliquées à des fins de développement et de test.
 - **Redimensionnement de stockage**. Créez un volume avec une nouvelle taille et/ou un nouveau nombre d'IOPS sans avoir à effectuer une migration de vos données.  
 
-Il existe deux manières de créer un volume dupliqué via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Il existe deux manières de créer un volume dupliqué via la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
 
 
 ## Création d'un doublon à partir d'un volume spécifique dans la liste de stockage
 
-1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}
-    - A partir du portail client, cliquez sur **Storage** > **{{site.data.keyword.blockstorageshort}}** OU
-    - A partir de la console {{site.data.keyword.cloud}}, cliquez sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}} sur la console {{site.data.keyword.cloud_notm}} en cliquant sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Sélectionnez un volume dans la liste et cliquez sur **Actions** > **Doublon du numéro d'unité logique/volume**.
 3. Choisissez une option d'instantané :
     - Si vous effectuez votre commande à partir d'un volume **qui n'est pas un volume de réplique**,

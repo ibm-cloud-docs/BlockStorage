@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Gestion de {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. 
+Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}. Dans le **menu**, sélectionnez **Infrastructure classique** pour interagir avec des services classiques.
 
 ## Affichage des détails de numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
@@ -42,7 +42,7 @@ Les hôtes "autorisés" sont des hôtes auxquels des droits d'accès à un numé
 Vous pouvez autoriser et connecter des hôtes qui se trouvent dans le même centre de données que votre stockage. Si vous pouvez disposer de plusieurs comptes, vous ne pouvez pas autoriser un hôte à partir d'un compte à accéder à votre stockage sur un autre compte.
 {:important}
 
-1. Cliquez sur **Stockage** -> **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom LUN.
+1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique.
 2. Faites défiler la page jusqu'à la section** Hôtes autorisés**.
 3. A droite, cliquez sur **Hôte autorisé**. Sélectionnez les hôtes qui peuvent accéder à ce numéro d'unité logique spécifique.
 
@@ -52,17 +52,16 @@ Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 
 ## Affichage de la liste des hôtes autorisés à accéder à un numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
-1. Cliquez sur **Stockage** -> **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom LUN.
+1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique.
 2. Faites défiler l'écran jusqu'à la section **Hôtes autorisés**.
 
 Cette section affiche la liste des hôtes actuellement autorisés à accéder au numéro d'unité logique. Sont également affichées les informations d'authentification nécessaires pour établir une connexion : nom d'utilisateur, mot de passe et nom qualifié iSCSI hôte. L'adresse cible figure sur la page contenant les détails du stockage. Pour NFS, elle est décrite sous forme de DNS, tandis que pour iSCSI, il s'agit de l'adresse IP du portail cible Discover.
@@ -84,10 +83,12 @@ Options:
 
 Vous pouvez afficher les numéros d'unité logique auxquels un hôte a accès, notamment les informations nécessaires pour établir une connexion (Nom LUN, Type de stockage, Adresse cible, capacité et emplacement) :
 
-1. Cliquez sur **Unités** -> **Liste des unités** sur le portail [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} puis cliquez sur l'unité appropriée.
+1. Cliquez sur **Unités** -> **Liste des unités** puis cliquez sur l'unité appropriée. 
 2. Sélectionnez l'onglet **Stockage**.
 
 Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). Vous pouvez autoriser davantage de stockage ou supprimer l'accès en cliquant sur **Actions**.
+
+Un hôte ne peut pas être autorisé à accéder en même temps à des numéros d'unité logique de différents types de système d'exploitation. Un hôte peut uniquement être autorisé à accéder à des numéros d'unité logique d'un type unique de système d'exploitation. Si vous tentez d'autoriser l'accès à plusieurs numéros d'unité logique de types de système d'exploitation différents, l'opération se traduit par une erreur.{:note}
 
 ## Montage et démontage de {{site.data.keyword.blockstorageshort}}
 
@@ -111,9 +112,9 @@ Vous pouvez révoquer l'accès à partir de la **Liste des unités** ou de la **
 
 ### Révocation de l'accès à partir de la liste des unités
 
-1. Cliquez sur **Unités**, **Liste des unités** sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} et cliquez deux fois sur l'unité appropriée.
+1. Cliquez sur **Unités**, **Liste des unités** depuis la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} puis cliquez deux fois sur l'unité appropriée.
 2. Sélectionnez l'onglet **Stockage**.
-3. Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). En regard du nom LUN, sélectionnez **Action**, puis cliquez sur **Révoquer le droit d'accès**.
+3. Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). En regard du nom LUN, sélectionnez **Action** puis cliquez sur **Révoquer le droit d'accès**.
 4. Confirmez l'action car elle ne peut pas être annulée. Cliquez sur **Oui** pour révoquer l'accès d'un numéro d'unité logique, ou sur **Non** pour annuler l'action.
 
 Si vous souhaitez déconnecter plusieurs numéros d'unité logique d'un hôte spécifique, vous devez répéter l'action Révoquer le droit d'accès pour chaque LUN.
@@ -138,13 +139,10 @@ Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
-                            authorization
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
-                            authorization
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to revoke authorization
-  --ip-address TEXT         An IP address to revoke authorization
+  -h, --hardware-id TEXT    The ID of a hardware server to revoke authorization.
+  -v, --virtual-id TEXT     The ID of a virtual server to revoke authorization.
+  -i, --ip-address-id TEXT  The ID of an IP address to revoke authorization.
+  -p, --ip-address TEXT     An IP address to revoke authorization.
   --help                    Show this message and exit.
 ```
 
@@ -175,3 +173,7 @@ Options:
                  the billing anniversary
   -h, --help     Show this message and exit.
 ```
+
+Vous pouvez prévoir que le numéro d'unité logique reste visible dans votre liste de stockage pour au moins 24 heures (annulation immédiate) ou jusqu'à sa date anniversaire. Certaines fonctionnalités ne seront plus disponibles, mais le volume restera visible tant qu'il n'aura pas été récupéré. Toutefois, la facturation s'interrompt immédiatement après que vous avez cliqué sur Supprimer/Annuler.
+
+Des répliques actives peuvent bloquer la récupération du volume de stockage. Assurez-vous que le volume n'est plus monté, que les autorisations d'hôte sont révoquées, et que la réplication a été annulée avant de tenter d'annuler le volume d'origine.

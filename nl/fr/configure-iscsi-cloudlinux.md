@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,16 +19,17 @@ subcollection: BlockStorage
 # Connexion à des numéros d'unité logique (LUN) iSCSI sous CloudLinux
 {: #mountingCloudLinux}
 
-Suivez ces instructions pour installer votre numéro d'unité logique iSCSI avec multi-accès sur CloudLinux Server 6.10.
+Suivez ces instructions pour monter votre numéro d'unité logique iSCSI avec multi-accès sur un serveur CloudLinux Server 6.10.
 
-Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Avant de commencer, assurez-vous que les droits d'accès nécessaires pour accéder au volume {{site.data.keyword.blockstoragefull}} ont été affectés à l'hôte via la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
 {:tip}
 
-1. Connectez-vous à [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}. 
-2. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
-3. Cliquez sur **Hôte autorisé**.
-4. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
-5. Notez le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dans le **menu**, sélectionnez **Infrastructure classique**.
+2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
+4. Cliquez sur **Hôte autorisé**.
+5. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
+6. Notez le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible.
 
 Vous pouvez également autoriser l'hôte via l'interface SLCLI.
 ```
@@ -36,11 +37,10 @@ Vous pouvez également autoriser l'hôte via l'interface SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -107,18 +107,18 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
      ```
      {: codeblock}
 
-   - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe.
+   - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe. 
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
    ```
    {: pre}
 
-4. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue à partir du portail {{site.data.keyword.slportal}}.
+4. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue depuis la console {{site.data.keyword.cloud_notm}}. 
 
      A. Exécutez la reconnaissance sur la grappe iSCSI.
        ```

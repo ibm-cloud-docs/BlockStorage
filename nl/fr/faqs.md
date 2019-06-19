@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,13 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 
 Cela dépend de ce que peut gérer le système d'exploitation de l'hôte. Ce n'est pas {{site.data.keyword.cloud}} qui fixe une limite. Consultez la documentation de votre système d'exploitation pour connaître les limites fixées pour le nombre de volumes pouvant être montés.
 
+## Puis-je joindre plusieurs numéros d'unité logique (LUN) à des paramètres de système d'exploitation différents ?
+{: faq}
+
+Non. Un hôte ne peut pas être autorisé à accéder en même temps à des numéros d'unité logique de différents types de système d'exploitation. Un hôte peut uniquement être autorisé à accéder à des numéros d'unité logique d'un type unique de système d'exploitation. Si vous tentez d'autoriser l'accès à plusieurs numéros d'unité logique de types de système d'exploitation différents, l'opération se traduit par une erreur.
+
 ## Quelle version de Windows dois-je choisir pour mon numéro d'unité logique Block Storage ?
+{: #windowsOStypes}
 {: faq}
 
 Lorsque vous créez un numéro d'unité logique, vous devez spécifier le type de système d'exploitation. Le type de système d'exploitation doit être basé sur le système d'exploitation qui est utilisé par les hôtes qui accèdent au numéro d'unité logique. Le type de système d'exploitation ne peut pas être modifié une fois que le numéro d'unité logique est créé. La taille réelle du numéro d'unité logique peut varier légèrement en fonction du type de système d'exploitation du numéro d'unité logique.
@@ -92,7 +98,7 @@ Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}}
 ## Comment savoir quels volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
 
-Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} sur le portail [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
+Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorageshort}} sur la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}, une icône de verrouillage s'affiche à droite du nom du volume pour les numéros d'unité logique qui sont chiffrés.
 
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}
