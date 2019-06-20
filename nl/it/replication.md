@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -38,13 +38,13 @@ Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e d
 
 ## Creazione della replica iniziale
 
-Le repliche funzionano in base a una pianificazione delle istantanee. Prima di poter eseguire la replica, devi già avere lo spazio di istantanea e una pianificazione delle istantanee per il volume di origine. Se tenti di impostare la replica e non disponi di uno o l'altro, ti viene richiesto di acquistare più spazio o di impostare una pianificazione. Le repliche sono gestite in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Le repliche funzionano in base a una pianificazione delle istantanee. Prima di poter eseguire la replica, devi già avere lo spazio di istantanea e una pianificazione delle istantanee per il volume di origine. Se tenti di impostare la replica e non disponi di uno o l'altro, ti viene richiesto di acquistare più spazio o di impostare una pianificazione. Le repliche vengono gestite in **Storage**, **{{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Fai clic sul tuo volume di archiviazione.
 2. Fai clic su **Replica** e fai clic su **Purchase a replication**.
 3. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla tua replica. L'elenco contiene tutte le tue pianificazioni delle istantanee attive. <br />
-   Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Vedi il documento relativo alla [gestione delle istanze](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) per ulteriori dettagli.
-   {:important}
+   Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Per ulteriori informazioni, vedi [Gestione delle istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
+{:important}
 3. Fai clic su **Location** e seleziona il data center che è il tuo sito di ripristino di emergenza (DR, disaster recovery).
 4. Fai clic su **Continue**.
 5. Immetti un codice promozionale (**Promo Code**), se ne hai uno, e fai clic su **Recalculate**. Gli altri campi nella finestra sono completati per impostazione predefinita.
@@ -56,7 +56,7 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 
 ## Modifica di una replica esistente
 
-Puoi modificare la tua pianificazione replica e modificare il tuo spazio di replica dalla scheda **Primary** o da quella **Replica** in **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Puoi modificare la tua pianificazione della replica e modificare il tuo spazio di replica dalla scheda **Primary** o da quella **Replica** in **Storage**, **{{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 
 ## Modifica della pianificazione replica
@@ -148,6 +148,11 @@ Quando un volume primario viene annullato, la pianificazione replica e il volume
  2. Fai clic su **Actions** e seleziona **Cancel {{site.data.keyword.blockstorageshort}}**.
  3. Seleziona quando annullare. Scegli **Immediately** o **Anniversary Date** e fai clic su **Continue**.
  4. Fai clic su **I acknowledge that due to cancellation, data loss may occur** e fai clic su **Cancel**.
+
+ Puoi aspettarti che il LUN rimanga visibile nel tuo elenco di archiviazione per almeno 24 ore (annullamento immediato) oppure fino alla data di anniversario. Alcune funzioni non saranno più disponibili, ma il volume rimane visibile fino a quando non viene recuperato. Tuttavia, la fatturazione viene arrestata immediatamente dopo aver fatto clic su Elimina/Annulla.
+
+ Le repliche attive possono bloccare il recupero del volume di archiviazione. Assicurati che il volume non sia più montato, che le autorizzazioni host siano state revocate e che la replica sia stata annullata prima di tentare di annullare il volume originale.
+
 
 ## Comandi correlati alla replica nella SLCLI
 {: #clicommands}

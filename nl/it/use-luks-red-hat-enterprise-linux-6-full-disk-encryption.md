@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -16,14 +16,14 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Ottenere la crittografia totale del disco con LUKS in Red Hat Enterprise Linux
+# Ottenere la crittografia totale del disco con LUKS in RHEL6
 {: #LUKSencryption}
 
-Puoi crittografare le partizioni sul tuo server Red Hat Enterprise Linux 6 con il formato su disco LUKS (Linux Unified Key Setup), cosa importante nel caso di computer mobili e supporti rimovibili. LUKS consente a più chiavi utente di decrittografare una chiave master che viene utilizzata per la crittografia di massa della partizione.
+Puoi crittografare le partizioni sul tuo server RHEL6 con il formato su disco LUKS (Linux Unified Key Setup), cosa importante nel caso di computer mobili e supporti rimovibili. LUKS consente a più chiavi utente di decrittografare una chiave master che viene utilizzata per la crittografia di massa della partizione.
 
-Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, vedi [Connessione ai LUN iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
+Questa procedura presuppone che il server abbia accesso a un nuovo volume {{site.data.keyword.blockstoragefull}} non crittografato che non è stato formattato o montato. Per ulteriori informazioni sulla connessione di {{site.data.keyword.blockstorageshort}} a un host Linux, vedi [Connessione all'archiviazione su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) viene automaticamente fornito con la crittografia dei dati inattivi gestita dal provider. Per ulteriori informazioni, consulta [Protezione dei tuoi dati - crittografia dei dati inattivi gestita dal provider](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning nella [maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) viene automaticamente fornito con la crittografia dei dati inattivi gestita dal provider. Per ulteriori informazioni, consulta [Protezione dei tuoi dati - crittografia dei dati inattivi gestita dal provider](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Cosa fa LUKS
@@ -45,12 +45,12 @@ Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioni
 L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
 {:note}
 
-1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:  <br/> 
+1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:  <br/>
    ```
    # yum install cryptsetup-luks
    ```
    {: pre}
-2. Ottieni l'ID disco:<br/>  
+2. Ottieni l'ID disco:<br/>
    ```
    # fdisk –l | grep /dev/mapper
    ```
@@ -58,7 +58,7 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
 3. Individua il tuo volume nell'elenco.
 4. Crittografa il dispositivo a blocchi:
 
-   1. Questo comando inizializza il volume e puoi impostare una passphrase. <br/> 
+   1. Questo comando inizializza il volume e puoi impostare una passphrase. <br/>
 
       ```
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -74,13 +74,13 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
 
-5. Apri il volume e crea un'associazione.<br/>  
+5. Apri il volume e crea un'associazione.<br/>
    ```
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
 6. Immetti la passphrase.
-7. Verificare l'associazione e lo stato della vista del volume crittografato.  <br/> 
+7. Verificare l'associazione e lo stato della vista del volume crittografato.  <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -94,16 +94,16 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
      Command successful
    ```
 8. Scrivi dati casuali in `/dev/mapper/cryptData` sul dispositivo crittografato. Questa azione garantisce che il mondo esterno li vede come dati casuali; questo significa che sono protetti dalla diffusione di modelli di utilizzo. Questo passo può richiedere del tempo.<br/>
-```
+    ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
-9. Formatta il volume.<br/>  
+9. Formatta il volume.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
-10. Monta il volume.<br/>  
+10. Monta il volume.<br/>
    ```
    # mkdir /cryptData
    ```

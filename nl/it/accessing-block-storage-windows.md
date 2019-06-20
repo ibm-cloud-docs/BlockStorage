@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Connessione ai LUN iSCSI su Microsoft Windows
 {: #mountingWindows}
 
-Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**. Fai clic su **Authorize Host**.
 2. Dall'elenco, seleziona l'host o gli host che devono accedere al volume e fai clic su **Submit**.
@@ -29,11 +29,10 @@ In alternativa, puoi autorizzare l'host tramite la CLI SL.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -41,7 +40,7 @@ Options:
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Windows a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
+Completa la seguente procedura per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Windows a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
 
 ### Configurazione della funzione MPIO
 
@@ -68,10 +67,10 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
     - Fai clic su **Modifica** per sostituire i valori esistenti con il tuo nome qualificato iSCSI (IQN, iSCSI Qualified Name).
     ![Proprietà iniziatore iSCSI](/images/iSCSI.png)
 
-      Il nome IQN può essere ottenuto dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+      Il nome IQN può essere ottenuto dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}} nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
-    - Fai clic sulla scheda **Individuazione** e fai clic su **Individua portale**.
+    - Fai clic su **Individuazione** e fai clic su **Individua portale**.
     - Immetti l'indirizzo IP della tua destinazione iSCSI e lascia la porta al valore predefinito di 3260.
     - Fai clic su **Avanzate** per aprire la finestra Impostazioni avanzate.
     - Seleziona **Attiva accesso CHAP** per attivare l'autenticazione CHAP.
@@ -79,8 +78,8 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 
     I campi Nome e Segreto destinazione sono sensibili a maiuscole/minuscole.
     {:important}
-         - Nel campo **Nome**, elimina qualsiasi voce esistente e immetti il nome utente dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-         - Nel campo **Segreto destinazione**, immetti la password dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - Nel campo **Nome**, elimina qualsiasi voce esistente e immetti il nome utente dalla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+         - Nel campo **Segreto destinazione**, immetti la password dalla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
     - Fai clic su **OK** nelle finestre **Impostazioni avanzate** e **Individua portale destinazione** per tornare alla schermata Proprietà iniziatore iSCSI principale. Se ricevi degli errori di autenticazione, controlla le voci di nome utente e password.
     ![Destinazione inattiva](/images/Inactive_0.png)
 
@@ -94,8 +93,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 2. Seleziona la casella di spunta **Consenti percorsi multipli** per abilitare il Multipath I/O alla destinazione.
 <br/>
    ![Consenti percorsi multipli](/images/Connect_0.png)
-3. Fai clic su **Avanzate** e seleziona **Attiva accesso CHAP**.
-</br>
+3. Fai clic su **Avanzate** e seleziona **Attiva accesso CHAP**.</br>
    ![Attiva CHAP](/images/chap_0.png)
 4. Immetti il nome utente nel campo Nome e immetti la password nel campo Segreto destinazione.
 
@@ -108,7 +106,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
 ### Configurazione di MPIO nell'iniziatore iSCSI
 
 1. Avvia l'iniziatore iSCSI e, nella scheda Destinazioni, fai clic su **Proprietà**.
-2. Fai clic su **Aggiungi sessione** nella finestra Proprietà per aprire la finestra Connessione alla destinazione.
+2. Fai clic su **Aggiungi sessione** nella finestra Proprietà.
 3. Nella finestra di dialogo Connessione alla destinazione, seleziona la casella di spunta **Consenti percorsi multipli** e fai clic su **Avanzate**.
   ![Destinazione](/images/Target.png)
 
@@ -117,7 +115,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
    - Nell'elenco IP iniziatore, seleziona l'indirizzo IP dell'host.
    - Nell'elenco IP portale di destinazione, seleziona l'IP dell'interfaccia del dispositivo.
    - Fai clic sulla casella di spunta **Attiva accesso CHAP**
-   - Immetti i valori Nome e Segreto destinazione ottenuti dal portale e fai clic su **OK**.
+   - Immetti i valori Nome e Segreto destinazione ottenuti dalla console e fai clic su **OK**.
    - Fai clic su **OK** nella finestra Connessione alla destinazione per tornare alla finestra Proprietà.
 
 5. Fai clic su **Proprietà**. Nella finestra di dialogo Proprietà, fai nuovamente clic su **Aggiungi sessione** per aggiungere il secondo percorso.
@@ -127,14 +125,14 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
    - Nell'elenco IP iniziatore, seleziona l'indirizzo IP corrispondente all'host. In questo caso, stai connettendo due interfacce di rete sul dispositivo di archiviazione a una singola interfaccia di rete sull'host. Di conseguenza, questa interfaccia è la stessa di quella fornita per la prima sessione.
    - Nell'elenco IP portale di destinazione, seleziona l'indirizzo IP della seconda interfaccia dati abilitata sul dispositivo di archiviazione.
 
-     Puoi trovare il secondo indirizzo IP nella schermata Dettagli di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+     Puoi trovare il secondo indirizzo IP nella schermata Dettagli di {{site.data.keyword.blockstorageshort}} nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Fai clic sulla casella di spunta **Attiva accesso CHAP**
-   - Immetti i valori Nome e Segreto destinazione ottenuti dal portale e fai clic su **OK**.
+   - Immetti i valori Nome e Segreto destinazione ottenuti dalla console e fai clic su **OK**.
    - Fai clic su **OK** nella finestra Connessione alla destinazione per tornare alla finestra Proprietà.
 8. La finestra Proprietà ora visualizza più di una sessione nella finestra Identificatore. Hai più di una sessione nell'archiviazione iSCSI.
 
-   Se il tuo host dispone di più interfacce che vuoi collegare all'archivio ISCSI, puoi configurare un'altra connessione con l'indirizzo IP dell'altro NIC nel campo IP iniziatore. Tuttavia, assicurati di autorizzare il secondo indirizzo IP dell'iniziatore nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} prima di tentare di effettuare la connessione.
+   Se il tuo host dispone di più interfacce che vuoi collegare all'archivio ISCSI, puoi configurare un'altra connessione con l'indirizzo IP dell'altro NIC nel campo IP iniziatore. Tuttavia, assicurati di autorizzare il secondo indirizzo IP dell'iniziatore nella [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external} prima di tentare di effettuare la connessione.
    {:note}
 9. Nella finestra Proprietà, fai clic su **Dispositivi** e apri la finestra Dispositivi. Il nome dell'interfaccia del dispositivo inizia con `mpio`. <br/>
   ![Dispositivi](/images/Devices.png)
@@ -165,7 +163,7 @@ Viene qui di seguito riportata la procedura necessaria per disconnettere un'ista
 
 ### Avvio dell'iniziatore iSCSI
 
-1. Fai clic sulla scheda **Destinazioni**.
+1. Fai clic su **Destinazioni**.
 2. Seleziona le destinazioni che vuoi rimuovere e fai clic su **Disconnetti**.
 
 ### Rimozione delle destinazioni

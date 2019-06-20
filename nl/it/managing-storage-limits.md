@@ -13,6 +13,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Gestione dei limiti di archiviazione
 {: #managingstoragelimits}
@@ -30,7 +31,7 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-Puoi richiedere un aumento del limite inoltrando un caso di supporto nel [portale](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Una volta approvata la richiesta, ottieni un limite di volumi impostato per uno specifico data center.  
+Puoi richiedere un aumento del limite inoltrando un caso di supporto nel [portale](https://{DomainName}/unifiedsupport/cases/add){: external}. Una volta approvata la richiesta, ottieni un limite di volumi impostato per uno specifico data center.  
 
 Per richiedere un aumento del limite, apri un caso e indirizzalo al tuo rappresentante di vendita.
 

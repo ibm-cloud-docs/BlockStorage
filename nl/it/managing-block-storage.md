@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Gestione di {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Puoi gestire i tuoi volumi {{site.data.keyword.blockstoragefull}} tramite la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}. Dal **menu**, seleziona **Classic Infrastructure** per interagire con i servizi classici.
 
 ## Visualizzazione dei dettagli di un LUN {{site.data.keyword.blockstorageshort}}
 
@@ -42,7 +42,7 @@ Gli host "autorizzati" sono host a cui è stato concesso l'accesso a uno specifi
 Puoi autorizzare e connettere gli host che si trovano nello stesso data center della tua archiviazione. Puoi avere più account ma non puoi autorizzare un host da un account ad accedere alla tua archiviazione su un altro account.
 {:important}
 
-1. Fai clic su **Storage** -> **{{site.data.keyword.blockstorageshort}}** e fai clic sul tuo nome LUN.
+1. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** e fai clic sul tuo nome LUN.
 2. Scorri alla sezione **Authorized Hosts** della pagina
 3. Sulla destra, fai clic su **Authorize Host**. Seleziona gli host che possono accedere allo specifico LUN.
 
@@ -52,17 +52,16 @@ In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 
 ## Visualizzazione dell'elenco di host che sono autorizzati ad accedere a un LUN {{site.data.keyword.blockstorageshort}}
 
-1. Fai clic su **Storage** -> **{{site.data.keyword.blockstorageshort}}** e fai clic sul tuo nome LUN.
+1. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** e fai clic sul tuo nome LUN.
 2. Scorri verso il basso alla sezione **Authorized Hosts**.
 
 Qui puoi vedere un elenco di host che sono attualmente autorizzati ad accedere al LUN. Puoi inoltre vedere le informazioni di autenticazione necessarie per stabilire una connessione – nome utente, password e IQN host. L'indirizzo di destinazione è elencato nella pagina **Storage Detail**. Per NFS, l'indirizzo di destinazione è descritto come un nome DNS e, per iSCSI, è l'indirizzo IP dell'individuazione del portale di destinazione.
@@ -84,10 +83,13 @@ Options:
 
 Puoi visualizzare i LUN a cui un host ha accesso, comprese le informazioni necessarie per stabilire una connessione, ossia nome LUN, tipo di archiviazione, indirizzo di destinazione, capacità e ubicazione:
 
-1. Fai clic su **Devices** -> **Device List** nel [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} e fai clic sul dispositivo appropriato.
+1. Fai clic su **Devices** -> **Device List** nella console [{{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} e fai clic sul dispositivo appropriato.
 2. Seleziona la scheda **Storage**.
 
 Ti viene presentato un elenco di LUN di archiviazione a cui questo specifico host ha accesso. L'elenco è raggruppato in base al tipo di archiviazione (blocco, file, altro). Puoi autorizzare ulteriore archiviazione oppure rimuovere l'accesso facendo clic su **Actions**.
+
+Un host non può essere autorizzato ad accedere a LUN di diversi tipi di SO contemporaneamente. Un host può soltanto essere autorizzato ad accedere a LUN di un solo tipo di SO. Se tenti di autorizzare l'accesso a più LUN con diversi tipi di SO, l'operazione genera un errore.
+{:note}
 
 ## Montaggio e smontaggio di {{site.data.keyword.blockstorageshort}}
 
@@ -111,9 +113,9 @@ Puoi revocare l'accesso dall'elenco dispositivi (**Device List**) o dalla vista 
 
 ### Revoca dell'accesso dall'elenco dei dispositivi
 
-1. Fai clic su **Devices**, **Device List** dal [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} e fai doppio clic sul dispositivo appropriato.
+1. Fai clic su **Devices**, **Device List** dalla [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} e fai doppio clic sul dispositivo appropriato.
 2. Seleziona la scheda **Storage**.
-3. Ti viene presentato un elenco di LUN di archiviazione a cui questo specifico host ha accesso. L'elenco è raggruppato in base al tipo di archiviazione (blocco, file, altro). Accanto al nome LUN, seleziona **Action"" e fai clic su **Revoke Access**.
+3. Ti viene presentato un elenco di LUN di archiviazione a cui questo specifico host ha accesso. L'elenco è raggruppato in base al tipo di archiviazione (blocco, file, altro). Accanto al nome LUN, seleziona **Action** e fai clic su **Revoke Access**.
 4. Conferma che vuoi revocare l'accesso da un LUN perché l'azione non può essere annullata. Fai clic su **Yes** per revocare l'accesso a LUN oppure su **No** per annullare l'azione.
 
 Se vuoi disconnettere più LUN da uno specifico host, devi ripetere l'azione Revoke Access per ciascun LUN.
@@ -138,13 +140,10 @@ In alternativa, puoi utilizzare il seguente comando nella SLCLI.
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to revoke
-                            authorization
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to revoke
-                            authorization
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to revoke authorization
-  --ip-address TEXT         An IP address to revoke authorization
+  -h, --hardware-id TEXT    The ID of a hardware server to revoke authorization.
+  -v, --virtual-id TEXT     The ID of a virtual server to revoke authorization.
+  -i, --ip-address-id TEXT  The ID of an IP address to revoke authorization.
+  -p, --ip-address TEXT     An IP address to revoke authorization.
   --help                    Show this message and exit.
 ```
 
@@ -175,3 +174,7 @@ Options:
                  the billing anniversary
   -h, --help     Show this message and exit.
 ```
+
+Puoi aspettarti che il LUN rimanga visibile nel tuo elenco di archiviazione per almeno 24 ore (annullamento immediato) oppure fino alla data di anniversario. Alcune funzioni non saranno più disponibili, ma il volume rimane visibile fino a quando non viene recuperato. Tuttavia, la fatturazione viene arrestata immediatamente dopo aver fatto clic su Elimina/Annulla.
+
+Le repliche attive possono bloccare il recupero del volume di archiviazione. Assicurati che il volume non sia più montato, che le autorizzazioni host siano state revocate e che la replica sia stata annullata prima di tentare di annullare il volume originale.

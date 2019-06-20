@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Regolazione di IOPS
 {: #adjustingIOPS}
 
-Con questa nuova funzione, gli utenti di archiviazione {{site.data.keyword.blockstoragefull}} possono regolare l'IOPS del loro {{site.data.keyword.blockstorageshort}} esistente immediatamente. Non devono creare un duplicato o copiare manualmente i dati nella nuova archiviazione. Gli utenti non riscontreranno alcun tipo di interruzione o mancanza di accesso all'archiviazione mentre viene eseguita la regolazione.
+Con questa funzione, gli utenti di archiviazione {{site.data.keyword.blockstoragefull}} possono regolare l'IOPS del loro {{site.data.keyword.blockstorageshort}} esistente immediatamente. Non devono creare un duplicato o copiare manualmente i dati nella nuova archiviazione. Gli utenti non riscontreranno alcun tipo di interruzione o mancanza di accesso all'archiviazione mentre viene eseguita la regolazione.
 
 La fatturazione per l'archiviazione viene aggiornata per aggiungere la differenza calcolata proporzionalmente del nuovo prezzo al ciclo di fatturazione corrente. L'intero nuovo ammontare verrà fatturato nel prossimo ciclo di fatturazione.
 
@@ -29,7 +29,7 @@ La fatturazione per l'archiviazione viene aggiornata per aggiungere la differenz
 ## Limitazioni
 {: #limitsofIOPSadjustment}
 
-Questa funzione è disponibile solo in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Questa funzione è disponibile nella [maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 I clienti non possono passare da Endurance a Performance e viceversa quando regolano il loro IOPS. Tuttavia, possono specificare un nuovo livello IOPS o un livello IOPS per la loro archiviazione sulla base dei seguenti criteri e delle seguenti limitazioni:
 
@@ -44,9 +44,7 @@ Se per il volume è implementata la replica, quest'ultima viene aggiornata autom
 ## Modifica dell'IOPS sulla tua archiviazione
 {: #adjustingsteps}
 
-1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}}
-   - Da {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**
-   - Dalla console {{site.data.keyword.cloud}} fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}}. Dalla console {{site.data.keyword.cloud}}, fai clic sull'icona **menu**, poi su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
 3. In **Storage IOPS Options**, effettua una nuova selezione.
     - Per Endurance (IOPS a livelli), seleziona un livello IOPS superiore a 0,25 IOPS/GB della tua archiviazione. Puoi aumentare il livello IOPS in qualsiasi momento. Tuttavia, in diminuzione è disponibile solo una volta al mese.

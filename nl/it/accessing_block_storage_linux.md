@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 Queste istruzioni sono principalmente per RHEL6 e Centos6. Sono state aggiunte delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione della tua specifica distribuzione e assicurati che il multipath supporti ALUA per la priorità di percorso.
 {:note}
 
-Ad esempio, puoi trovare le istruzioni di Ubuntu per la configurazione dell'iniziatore iSCSI [qui](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e per la configurazione di DM-Multipath [qui](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+Ad esempio, per ulteriori informazioni sulle specifiche Ubuntu, vedi [Configurazione iniziatore iSCSI](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 {:important}
 
 1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
@@ -39,11 +39,10 @@ In alternativa, puoi autorizzare l'host tramite la CLI SL.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -51,9 +50,9 @@ Options:
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-Viene qui di seguito indicata la procedura necessaria per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Linux a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output).
+Completa la seguente procedura per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Linux a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output).
 
-L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **{{site.data.keyword.blockstorageshort}}** Details nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+L'IQN host, il nome utente, la password e l'indirizzo di destinazione a cui si fa riferimento nelle istruzioni possono essere ottenuti dalla schermata **Dettagli di {{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il firewall. L'esecuzione del traffico di archiviazione tramite i firewall software aumenta la latenza e ha un impatto negativo sulle prestazioni dell'archiviazione.
@@ -61,7 +60,8 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
 
 1. Installa iSCSI e i programmi di utilità multipath sul tuo host.
   - RHEL e CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -180,12 +180,14 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
 
     RHEL 7 e CentOS 7 potrebbero restituire "No fc_host device", che può essere ignorato.
 
-5. Aggiorna il file `/etc/iscsi/initiatorname.iscsi` con l'IQN dal {{site.data.keyword.slportal}}. Immetti il valore con lettere minuscole.
+5. Aggiorna il file `/etc/iscsi/initiatorname.iscsi` con l'IQN dalla console {{site.data.keyword.cloud}}. Immetti il valore con lettere minuscole.
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. Modifica le impostazioni CHAP in `/etc/iscsi/iscsid.conf` utilizzando il nome utente e la password dal {{site.data.keyword.slportal}}. Usa le maiuscole per i nomi CHAP.
+
+6. Modifica le impostazioni CHAP in `/etc/iscsi/iscsid.conf` utilizzando il nome utente e la password dalla console {{site.data.keyword.cloud}}. Usa le maiuscole per i nomi CHAP.
    ```
    node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -247,11 +249,11 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
 
    - Per altre distribuzioni, controlla la documentazione del fornitore del sistema operativo.
 
-8. Rileva il dispositivo utilizzando l'indirizzo IP di destinazione ottenuto dal {{site.data.keyword.slportal}}.
+8. Rileva il dispositivo utilizzando l'indirizzo IP di destinazione ottenuto dalla console {{site.data.keyword.cloud}}.
 
    A. Esegui il rilevamento sull'array iSCSI.
     ```
-    iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -279,10 +281,12 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
+
   Questo comando restituisce qualcosa simile a questo esempio.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   Il volume è ora montato e accessibile sull'host.
 
 ## Creazione di un file system (facoltativo)

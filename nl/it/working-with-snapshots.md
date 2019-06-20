@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## Creazione di una pianificazione dell'istantanea
 
-Con le pianificazioni delle istantanee decidi con che frequenza e quando vuoi creare un riferimento ad un punto temporale del tuo volume di archiviazione. Puoi avere un massimo di 50 istantanee per volume di archiviazione. Le pianificazioni vengono gestite tramite la scheda **Storage** > **{{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Con le pianificazioni delle istantanee decidi con che frequenza e quando vuoi creare un riferimento ad un punto temporale del tuo volume di archiviazione. Puoi avere un massimo di 50 istantanee per volume di archiviazione. Le pianificazioni sono gestite tramite la scheda **Storage** > **{{site.data.keyword.blockstorageshort}}** della [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 Prima di poter configurare la tua pianificazione iniziale, devi procedere all'acquisto di spazio di istantanea, se non lo hai fatto durante il provisioning iniziale del volume di archiviazione. Per ulteriori informazioni, consulta [Ordinazione di istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
@@ -42,7 +42,7 @@ Le pianificazioni delle istantanee possono essere configurate per intervalli ora
    - Weekly
       - Specifica il giorno della settimana, l'ora e il minuto in cui deve essere eseguita un'istantanea. Il valore predefinito è il minuto, l'ora e il giorno correnti.
       - Seleziona il numero di istantanee settimanali da conservare prima di eliminare quella meno recente.
-3. Fai clic su **Save** e crea un'altra pianificazione con una frequenza differente. Se il numero totale di istantanee pianificate è superiore a 50, ricevi un messaggio di avvertenza e non puoi eseguire il salvataggio.
+3. Fai clic su **Save**. Successivamente, puoi creare un'altra pianificazione con una frequenza diversa. Se il numero totale di istantanee pianificate è superiore a 50, ricevi un messaggio di avvertenza e non puoi eseguire il salvataggio.
 
 L'elenco delle istantanee viene visualizzato man mano che vengono eseguite nella sezione **Snapshots** della pagina **Detail**.
 
@@ -163,11 +163,11 @@ Il ripristino di un volume determina l'eliminazione di tutte le istantanee acqui
 {:important}
 
 1. Smonta e scollega il tuo volume di archiviazione dall'host.
-   - [Connessione ai LUN iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Connessione ai LUN iSCSI su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. Fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+   - [Connessione ai LUN su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Connessione ai LUN su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. Fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
 3. Scorri verso il basso e fai clic sul tuo volume da ripristinare. la sezione **Snapshots** della pagina **Detail** visualizza l'elenco di tutte le istantanee selezionate insieme alle relative dimensione e data di creazione.
-4. Fai clic su **Actions** accanto all'istantanea da utilizzare e fai clic su **Restore**. <br/> 
+4. Fai clic su **Actions** accanto all'istantanea da utilizzare e fai clic su **Restore**. <br/>
 
    Il completamento del ripristino comporta la perdita dei dati creati o modificati dopo l'acquisizione dell'istantanea. Questa perdita di dati si verifica perché il tuo volume di archiviazione restituisce lo stesso stato in cui si trovava al momento dell'istantanea.
    {:note}

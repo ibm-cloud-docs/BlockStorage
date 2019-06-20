@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,13 @@ Per impostazione predefinita, puoi eseguire il provisioning di un totale combina
 
 Dipende da quello che il sistema operativo dell'host è in grado di gestire; non è qualcosa che viene limitato da {{site.data.keyword.cloud}}. Fai riferimento alla documentazione del tuo sistema operativo per i limiti relativi al numero di volumi che è possibile montare.
 
+## Posso collegare più LUN con diverse impostazioni SO?
+{: faq}
+
+No. Un host non può essere autorizzato ad accedere a LUN di diversi tipi di SO contemporaneamente. Un host può soltanto essere autorizzato ad accedere a LUN di un solo tipo di SO. Se tenti di autorizzare l'accesso a più LUN con diversi tipi di SO, l'operazione genera un errore.
+
 ## Quale versione di Windows devo scegliere per il mio LUN Block Storage?
+{: #windowsOStypes}
 {: faq}
 
 Quando si crea un LUN, devi specificare il tipo di SO. Il tipo di SO deve essere basato sul sistema operativo utilizzato dagli host che accedono al LUN. Il tipo di SO non può essere modificato dopo la creazione del LUN. La dimensione effettiva del LUN potrebbe variare leggermente in base al tipo di SO del LUN.
@@ -87,24 +93,24 @@ La latenza di destinazione nell'archiviazione è di <1 ms. L'archiviazione è co
 ## Perché posso ordinare {{site.data.keyword.blockstorageshort}} con un livello Endurance 10 IOPS/GB in alcuni data center e non in altri?
 {: faq}
 
-Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Endurance è disponibile solo in data center selezionati; a tale selezione verranno gradualmente aggiunti dei nuovi data center. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Il livello 10 IOPS/GB di {{site.data.keyword.blockstorageshort}} di tipo Endurance è disponibile nella maggior parte dei [data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Come faccio a capire quali volumi {{site.data.keyword.blockstorageshort}} sono crittografati?
 {: faq}
 
-Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nel [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, puoi vedere un'icona di lucchetto accanto al nome del volume per i LUN che sono codificati.
+Quando visualizzi il tuo elenco di {{site.data.keyword.blockstorageshort}} nella [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}, puoi vedere un'icona lucchetto accanto al nome del volume per i LUN che sono crittografati.
 
 ## Come facciamo a sapere se stiamo eseguendo il provisioning di {{site.data.keyword.blockstorageshort}} in un data center di cui è stato eseguito l'upgrade?
 {: faq}
 
-Quando ordini {{site.data.keyword.blockstorageshort}}, tutti i data center di cui è stato eseguito l'upgrade sono segnalati da un asterisco (`*`) nel modulo dell'ordine e da un'indicazione che ti avvisa che stai eseguendo il provisioning dell'archiviazione con la crittografia. Una volta eseguito il provisioning dell'archiviazione, puoi vedere un'icona nell'elenco archiviazioni che mostra tale archiviazione come crittografata. Il provisioning di tutti i volumi crittografati e di tutti i LUN viene eseguito solo nei data center di cui è stato eseguito l'upgrade. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Quando ordini {{site.data.keyword.blockstorageshort}}, tutti i data center di cui è stato eseguito l'upgrade sono segnalati da un asterisco (`*`) nel modulo dell'ordine e da un'indicazione che ti avvisa che stai eseguendo il provisioning dell'archiviazione con la crittografia. Una volta eseguito il provisioning dell'archiviazione, puoi vedere un'icona nell'elenco archiviazioni che mostra tale archiviazione come crittografata. Il provisioning di tutti i volumi crittografati e di tutti i LUN viene eseguito solo nei data center di cui è stato eseguito l'upgrade. Puoi trovare un elenco completo dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Se siamo i proprietari di {{site.data.keyword.blockstorageshort}} non crittografato in un data center di cui è stato appena eseguito l'upgrade, possiamo crittografare tale {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
 Non è possibile crittografare il {{site.data.keyword.blockstorageshort}} di cui viene eseguito il provisioning prima dell'upgrade del data center.
 Il nuovo {{site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioning in data center di cui è stato eseguito l'upgrade, viene crittografato automaticamente. Non c'è alcuna impostazione di crittografia da cui scegliere, l'operazione è automatica.
-I dati su un'archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade possono essere crittografati creando un nuovo LUN di blocchi e copiando quindi i dati nel nuovo LUN crittografato con una migrazione basata sull'host. Fai clic [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) per le istruzioni.
+I dati su un'archiviazione non crittografata in un data center di cui è stato eseguito l'upgrade possono essere crittografati creando un LUN e copiando quindi i dati nel nuovo LUN crittografato con una migrazione basata sull'host. Per ulteriori informazioni, vedi [Upgrade del {{site.data.keyword.blockstorageshort}} esistente al {{site.data.keyword.blockstorageshort}} avanzato](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## {{site.data.keyword.blockstorageshort}} supporta la prenotazione permanente SCSI-3 per implementare il fencing I/O per Db2 pureScale?
 {: faq}

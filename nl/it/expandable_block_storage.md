@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,11 +19,11 @@ subcollection: BlockStorage
 # Espansione della capacità di Block Storage
 {: #expandingcapacity}
 
-Con questa nuova funzione, gli attuali utenti {{site.data.keyword.blockstoragefull}} possono espandere la dimensione del loro {{site.data.keyword.blockstorageshort}} esistente in incrementi fino a 12 TB immediatamente. Non hanno bisogno di creare un duplicato o migrare manualmente i dati a un volume di dimensione maggiore. Non si verificherà alcuna interruzione o mancanza di accesso all'archiviazione, durante l'esecuzione della modifica della dimensione.
+Con questa funzione, gli utenti {{site.data.keyword.blockstoragefull}} correnti possono espandere la dimensione del loro {{site.data.keyword.blockstorageshort}} esistente in incrementi di GB fino a 12 TB immediatamente. Non hanno bisogno di creare un duplicato o migrare manualmente i dati a un volume di dimensione maggiore. Non si verificherà alcuna interruzione o mancanza di accesso all'archiviazione, durante l'esecuzione della modifica della dimensione.
 
 La fatturazione per il volume viene aggiornata automaticamente per aggiungere la differenza calcolata proporzionalmente del nuovo prezzo al ciclo di fatturazione corrente. L'intero nuovo ammontare viene quindi fatturato nel prossimo ciclo di fatturazione.
 
-Questa funzione è disponibile in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Questa funzione è disponibile nella [maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Vantaggi dell'archiviazione espandibile
 
@@ -38,7 +38,7 @@ L'azione di espansione sull'archiviazione primaria determina una modifica automa
 ## Limitazioni
 {: #limitsofexpandingstorage}
 
-Questa funzione è disponibile per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Questa funzione è disponibile per l'archiviazione di cui viene eseguito il provisioning nella [maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 L'archiviazione di cui era stato eseguito il provisioning in questi data center prima della release di questa funzione, tra l'**aprile 2017 e il 14 dicembre 2017**, può essere aumentata fino a 10 volte la sua dimensione originale e non oltre. L'archiviazione di cui è stato eseguito il provisioning dopo il **14 dicembre 2017** può essere aumentata fino a 12 TB.
 
@@ -47,7 +47,7 @@ I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di 
 ## Ridimensionamento dell'archiviazione
 {: #resizingsteps}
 
-1. Dal {{site.data.keyword.slportal}}, fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}** OPPURE dalla console {{site.data.keyword.cloud}}, fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Dalla console {{site.data.keyword.cloud}}, fai clic sull'icona **menu**. Quindi fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
 3. Immetti la nuova dimensione dell'archiviazione in GB.
 4. Riesamina la tua selezione e la nuova determinazione del prezzo.

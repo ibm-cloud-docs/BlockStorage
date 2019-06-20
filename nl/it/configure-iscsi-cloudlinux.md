@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,16 +19,17 @@ subcollection: BlockStorage
 # Connessione ai LUN iSCSI su CloudLinux
 {: #mountingCloudLinux}
 
-Segui queste istruzioni per installare la tua LUN iSCSI con multipath su CloudLinux Server release 6.10.
+Segui queste istruzioni per montare la tua LUN iSCSI con multipath su un CloudLinux Server release 6.10.
 
-Prima di iniziare, assicurarti che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
 {:tip}
 
-1. Accedi al [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-2. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
-3. Fai clic su **Authorize Host**.
-4. Dall'elenco, seleziona l'host o gli host che possono accedere al volume e fai clic su **Submit**.
-5. Prendi nota dell'IQN host, del nome utente, della password e dell'indirizzo di destinazione.
+1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dal **menu**, seleziona **Classic Infrastructure**.
+2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
+4. Fai clic su **Authorize Host**.
+5. Dall'elenco, seleziona l'host o gli host che possono accedere al volume e fai clic su **Submit**.
+6. Prendi nota dell'IQN host, del nome utente, della password e dell'indirizzo di destinazione.
 
 In alternativa, puoi autorizzare l'host tramite la CLI SL.
 ```
@@ -36,11 +37,10 @@ In alternativa, puoi autorizzare l'host tramite la CLI SL.
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
-  -h, --hardware-id TEXT    The id of one SoftLayer_Hardware to authorize
-  -v, --virtual-id TEXT     The id of one SoftLayer_Virtual_Guest to authorize
-  -i, --ip-address-id TEXT  The id of one SoftLayer_Network_Subnet_IpAddress
-                            to authorize
-  --ip-address TEXT         An IP address to authorize
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
 {:codeblock}
@@ -114,11 +114,11 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ Consigliamo di eseguire il traffico di archiviazione su una VLAN che ignora il f
    ```
    {: pre}
 
-4. Rileva il dispositivo utilizzando l'indirizzo IP di destinazione ottenuto dal {{site.data.keyword.slportal}}.
+4. Rileva il dispositivo utilizzando l'indirizzo IP di destinazione ottenuto dalla console {{site.data.keyword.cloud_notm}}.
 
      A. Esegui il rilevamento sull'array iSCSI.
        ```

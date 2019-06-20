@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-22"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Informazioni su {{site.data.keyword.blockstorageshort}}
 {: #About}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}} è un'archiviazione iSCSI persistente e ad elevate prestazioni di cui viene eseguito il provisioning e la gestione indipendentemente dalle istanze di elaborazione. I LUN {{site.data.keyword.blockstorageshort}} basati su iSCSI sono connessi ai dispositivi autorizzati tramite connessioni MPIO (multi-path I/O) ridondanti.
+{{site.data.keyword.blockstoragefull}} è un'archiviazione iSCSI persistente e ad elevate prestazioni di cui viene eseguito il provisioning e la gestione indipendentemente dalle istanze di elaborazione. I LUN {{site.data.keyword.blockstorageshort}} basati su iSCSI sono connessi ai dispositivi autorizzati tramite connessioni MPIO (multi-path I/O) ridondanti.
 
 {{site.data.keyword.blockstorageshort}} offre livelli all'avanguardia di durabilità e disponibilità con un insieme di funzioni senza paragoni. È sviluppato utilizzando gli standard del settore e le prassi ottimali. {{site.data.keyword.blockstorageshort}} è progettato per proteggere l'integrità dei dati e mantenere la disponibilità durante gli eventi di manutenzione e i malfunzionamenti non pianificati, fornendo al tempo stesso una baseline di prestazioni congruente.
 
@@ -32,13 +32,13 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
    - Fornita tramite l'allocazione di IOPS a livello di protocollo ai singoli volumi.
 - **Altamente durevole e resiliente**
    - Protegge l'integrità dei dati e mantiene la disponibilità durante gli eventi di manutenzione e i malfunzionamenti non pianificati senza che occorra creare e gestire un array ridondante a livello di sistema operativo di array di dischi indipendenti (RAID).
-- **Crittografia dei dati inattivi** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Crittografia dei dati inattivi** ([Disponibile nella maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Crittografia gestita dal provider per i dati inattivi senza costi aggiuntivi.
-- **Archiviazione con supporto All-Flash** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Archiviazione con supporto All-Flash** ([Disponibile nella maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Archiviazione All-Flash per i volumi di cui viene eseguito il provisioning con Endurance o Performance a 2 IOPS/GB o a livelli superiori.
-- **Istantanee** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Istantanee** ([Disponibile nella maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Acquisisce istantanee di dati con punto temporale in modo non distruttivo.
-- **Replica** ([Disponibile in data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Replica** ([Disponibile nella maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Copia automaticamente le istantanee in un data center {{site.data.keyword.cloud}} partner.
 - **Connettività altamente disponibile**
    - Utilizza le connessioni di rete ridondanti per massimizzare la disponibilità
@@ -52,7 +52,7 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
 ## Provisioning
 {: #provisioning}
 
-È possibile eseguire il provisioning dei LUN {{site.data.keyword.blockstorageshort}} da 20 GB a 12 TB con due opzioni: <br/> 
+È possibile eseguire il provisioning dei LUN {{site.data.keyword.blockstorageshort}} da 20 GB a 12 TB con due opzioni: <br/>
 - Esegui il provisioning di livelli **Endurance** che offrono livelli di prestazioni predefiniti e altre funzioni quali istantanee e replica.
 - Crea un ambiente **Performance** molto potente con IOPS (input/output operations per second) allocato.
 
@@ -68,7 +68,7 @@ Endurance {{site.data.keyword.blockstorageshort}} è disponibile in quattro live
 
 - **4 IOPS per GB** è progettato per i carichi di lavoro a maggiore intensità. Questi carichi di lavoro sono di norma caratterizzati dall'avere un'elevata percentuale di dati attivi in qualsiasi momento. Delle applicazioni di esempio includono i database transazionali e altri database sensibili alle prestazioni.
 
-- **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
+- **10 IOPS per GB** è progettato per i carichi di lavoro più esigenti quali quelli creati dai database NoSQL e l'elaborazione di dati per l'analisi. Questo livello è disponibile per l'archiviazione di cui viene eseguito il provisioning fino a 4 TB nella [maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Sono disponibili fino a 48.000 IOPS con un volume Endurance di 12-TB.
 
@@ -100,7 +100,7 @@ Performance per {{site.data.keyword.blockstorageshort}} è accessibile e montato
 {: caption="Tabella di comparazione" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![Footnote](/images/numberone.png) * i limiti IOPS al di sopra di 6.000 sono disponibili in data center selezionati.* 
+![Footnote](/images/numberone.png) * i limiti IOPS al di sopra di 6.000 sono disponibili nella maggior parte dei data center.*
 
 I volumi Performance sono progettati per offrire prestazioni congruentemente prossime al livello IOPS di cui viene eseguito il provisioning. La congruenza semplifica l'impostazione della dimensione e dello scaling degli ambienti applicativi a uno specifico livello di prestazioni. Inoltre, è possibile ottimizzare un ambiente creando un volume con un rapporto ideale prezzo/prestazioni.
 
@@ -109,7 +109,7 @@ I volumi Performance sono progettati per offrire prestazioni congruentemente pro
 
 Puoi selezionare la fatturazione mensile o oraria per un LUN di blocchi. Il tipo di fatturazione selezionato per un LUN si applica al suo spazio di istantanea e alle sue repliche. Ad esempio, se esegui il provisioning di un LUN con fatturazione oraria, eventuali addebiti di istantanee o replica vengono fatturati in modo orario. Se esegui il provisioning di un LUN con fatturazione mensile, eventuali addebiti di istantanee o replica vengono fatturati in modo mensile.
 
- * Con la **fatturazione oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione, a seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile solo per l'archiviazione di cui viene eseguito il provisioning in [data center selezionati](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
+ * Con la **fatturazione oraria**, il numero di ore per cui il LUN di blocchi è esistito sull'account viene calcolato quando il LUN viene eliminato oppure alla fine del ciclo di fatturazione, a seconda di quale di queste condizioni si verifichi per prima. La fatturazione oraria è una buona scelta per l'archiviazione utilizzata per qualche giorno o per meno di un mese completo. La fatturazione oraria è disponibile nella [maggior parte dei data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
  * Con la **fatturazione mensile**, il calcolo per il prezzo è a base proporzionale dalla data di creazione alla fine del ciclo di fatturazione e viene fatturato immediatamente. Non è previsto alcun rimborso se un LUN viene eliminato prima della fine del ciclo di fatturazione. La fatturazione mensile è una buona scelta per l'archiviazione utilizzata nei carichi di lavoro di produzione che usano dati che devono essere archiviati e a cui bisogna accedere per lunghi periodi di tempo (un mese o più).
 
@@ -119,7 +119,7 @@ Puoi selezionare la fatturazione mensile o oraria per un LUN di blocchi. Il tipo
 | Opzioni di prezzi per i livelli IOPS predefiniti | 0,25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
 |-----|-----|-----|-----|-----|
 | Prezzo mensile | $0,06/GB | $0,15/GB | $0,20/GB | $0,58/GB |
-| Prezzo orario |$0,0001/GB| $0,0002/GB | $0,0003/GB | $0,0009/GB |
+| Prezzo orario | $0,0001/GB | $0,0002/GB | $0,0003/GB | $0,0009/GB |
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Tabella di comparazione" caption-side="top"}

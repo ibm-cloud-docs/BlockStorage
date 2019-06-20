@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Upgrade di un {{site.data.keyword.blockstorageshort}} esistente a un {{site.data.keyword.blockstorageshort}} migliorato
 {: #migratestorage}
 
-Il {{site.data.keyword.blockstoragefull}} migliorato è ora disponibile in data center selezionati. per visualizzare l'elenco dei data center di cui è stato eseguito l'upgrade e delle funzioni disponibili quali i tassi di IOPS regolabili e i volumi espandibili, fai clic [qui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Per ulteriori informazioni sull'archiviazione crittografata gestita dal provider, consulta [Crittografia dei dati inattivi {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+Il {{site.data.keyword.blockstoragefull}} migliorato è ora disponibile nella maggior parte dei [data center](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Il percorso di migrazione preferito consiste nello stabilire una connessione a entrambi i LUN simultaneamente e trasferire i file direttamente da un LUN all'altro. Le specifiche dipendono dal tuo sistema operativo e dalla previsione di possibili modifiche dei dati durante l'operazione di copia.
 
@@ -35,10 +35,10 @@ Tutti i volumi {{site.data.keyword.blockstorageshort}} migliorati di cui viene e
 Quando effettui un ordine con la API, specifica il pacchetto "Storage as a Service" per assicurarti che stai ottenendo le funzioni aggiornate con la tua nuova archiviazione.
 {:important}
 
-Puoi ordinare un LUN migliorato tramite la console IBM Cloud e il {{site.data.keyword.slportal}}. Il tuo nuovo LUN deve essere di dimensione pari o superiore a quella del volume originale per facilitare la migrazione.
+Puoi ordinare un LUN migliorato tramite la console IBM Cloud. Il tuo nuovo LUN deve essere di dimensione pari o superiore a quella del volume originale per facilitare la migrazione.
 
-- [Ordinazione di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzato (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [Ordinazione di {{site.data.keyword.blockstorageshort}} con livelli IOPS predefiniti (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [Ordinazione di {{site.data.keyword.blockstorageshort}} con IOPS personalizzato (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 La tua nuova archiviazione è pronta per essere montata in pochi minuti. Puoi visualizzarla nell'elenco risorse e nell'elenco {{site.data.keyword.blockstorageshort}}.
 
@@ -79,5 +79,5 @@ Se non è ancora stato eseguito l'upgrade del data center della destinazione di 
    ```
 
    È una buona idea usare il precedente comando con l'indicatore `--dry-run` una volta per assicurarti che l'allineamento dei percorsi sia corretto. Se questo processo viene interrotto, puoi eliminare l'ultimo file di destinazione di cui era in corso la copia per assicurarti che venga copiato nella nuova ubicazione dall'inizio.<br/>
-Quando questo comando viene completato senza l'indicatore `--dry-run`, i tuoi dati vengono copiati sul nuovo LUN {{site.data.keyword.blockstorageshort}}. Esegui nuovamente il comando per assicurarti che non sia sfuggito niente. Puoi anche riesaminare manualmente entrambe le ubicazioni per cercare eventuali elementi che potrebbero essere sfuggiti.<br/>
-Una volta completata la tua migrazione, puoi spostare la produzione al nuovo LUN. Puoi quindi scollegare ed eliminare il tuo LUN originale dalla tua configurazione. L'eliminazione rimuove anche le eventuali istantanee o repliche sul sito di destinazione che era associato al LUN originale.
+   Quando questo comando viene completato senza l'indicatore `--dry-run`, i tuoi dati vengono copiati sul nuovo LUN {{site.data.keyword.blockstorageshort}}. Esegui nuovamente il comando per assicurarti che non sia sfuggito niente. Puoi anche riesaminare manualmente entrambe le ubicazioni per cercare eventuali elementi che potrebbero essere sfuggiti.<br/>
+   Una volta completata la tua migrazione, puoi spostare la produzione al nuovo LUN. Puoi quindi scollegare ed eliminare il tuo LUN originale dalla tua configurazione. L'eliminazione rimuove anche le eventuali istantanee o repliche sul sito di destinazione che era associato al LUN originale.

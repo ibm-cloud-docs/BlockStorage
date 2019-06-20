@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -28,7 +28,7 @@ subcollection: BlockStorage
 ## Prima di iniziare
 {: #prereqs}
 
-È possibile eseguire il provisioning dei LUN {{site.data.keyword.blockstorageshort}} da 20 GB a 12 TB con due opzioni: <br/> 
+È possibile eseguire il provisioning dei LUN {{site.data.keyword.blockstorageshort}} da 20 GB a 12 TB con due opzioni: <br/>
 - Esegui il provisioning di livelli **Endurance** che offrono livelli di prestazioni predefiniti e altre funzioni quali istantanee e replica.
 - Crea un ambiente **Performance** molto potente con IOPS (input/output operations per second) allocato.
 
@@ -53,7 +53,7 @@ La dimensione del blocco utilizzata dalla tua applicazione influisce direttament
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="La tabella 1 mostra degli esempi su come la dimensione blocco e IOPS influisce sulla velocità effettiva.<br/Dimensione IO media x IOPS = Velocità effettiva in MB/s.  " caption-side="top"}>
+{: caption="La tabella 1 mostra degli esempi su come la dimensione blocco e IOPS influisce sulla velocità effettiva.<br/Dimensione IO media x IOPS = Velocità effettiva in MB/s." caption-side="top"}>
 
 ### Host autorizzati
 
@@ -73,7 +73,11 @@ Il traffico di archiviazione è incluso nell'utilizzo della rete totale dei serv
 ## Invio del tuo ordine
 {: #submitorder}
 
-Quando sei pronto a inviare il tuo ordine, puoi effettuarlo tramite la [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) o la [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI).
+Quando sei pronto a inviare il tuo ordine, puoi effettuarlo tramite la [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), la [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) o la [CLI IBMCLOUD](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
+
+Per informazioni sull'ordine di {{site.data.keyword.blockstorageshort}} tramite l'API, vedi [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Per poter accedere a tutte le nuove funzioni, ordina `Storage-as-a-Service Package 759`.
+{:tip}
 
 ## Connessione alla tua nuova archiviazione
 {: #mountingstorage}
@@ -87,4 +91,4 @@ Quando la tua richiesta di provisioning è completa, autorizza i tuoi host ad ac
 
 ## Gestione della tua nuova archiviazione
 
-Tramite il portale o la SLCLI, puoi gestire molti aspetti del tuo File Storage come ad esempio gli annullamenti e le autorizzazioni host. Per ulteriori informazioni, consulta [Gestione di {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Tramite il portale o la SLCLI, puoi gestire molti aspetti del tuo {{site.data.keyword.blockstorageshort}} come ad esempio gli annullamenti e le autorizzazioni host. Per ulteriori informazioni, consulta [Gestione di {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
