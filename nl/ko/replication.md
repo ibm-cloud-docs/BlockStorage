@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -38,7 +38,7 @@ subcollection: BlockStorage
 
 ## 초기 복제본 작성
 
-복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
+복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
 
 1. 스토리지 볼륨을 클릭하십시오.
 2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
@@ -56,7 +56,7 @@ subcollection: BlockStorage
 
 ## 기존 복제본 편집
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에 있는 **1차** 또는 **복제본** 탭에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
+[{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에 있는 **기본** 또는 **복제본** 탭에서 복제 스케줄을 편집하고 복제본 영역을 변경할 수 있습니다.
 
 
 ## 복제 스케줄 편집
@@ -148,6 +148,11 @@ subcollection: BlockStorage
  2. **조치**에서 **{{site.data.keyword.blockstorageshort}} 취소**를 선택하십시오.
  3. 취소 시기를 선택하십시오. **즉시** 또는 **매년 지정일**을 선택하고 **계속**을 클릭하십시오.
  4. **취소로 인해 데이터 유실이 발생할 수 있음을 인지합니다.**를 클릭하고 **취소**를 클릭하십시오.
+
+ LUN이 최소 24시간 동안(즉시 취소) 또는 기념일까지 스토리지 목록에 표시되기를 원할 수 있습니다. 특정 기능은 더 이상 사용할 수 없지만 볼륨은 재확보될 때까지 표시됩니다. 하지만 삭제/취소를 클릭하면 바로 청구가 중지됩니다.
+
+ 활성 복제본이 스토리지 볼륨의 재확보를 차단할 수 있습니다. 원본 볼륨을 취소하기 전에 볼륨이 더 이상 마운트되지 않고 호스트 권한이 취소되었으며 복제가 취소되었는지 확인하십시오.
+
 
 ## SLCLI의 복제 관련 명령
 {: #clicommands}

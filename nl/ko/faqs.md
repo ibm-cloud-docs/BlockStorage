@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,13 @@ subcollection: BlockStorage
 
 호스트 운영 체제에서 처리할 수 있는 항목에 따라 달라지며 {{site.data.keyword.cloud}}에서 제한하는 것은 아닙니다. 마운트할 수 있는 볼륨 수에 대한 한계는 OS 문서를 참조하십시오.
 
+## 서로 다른 OS 설정의 여러 LUN에 접속할 수 있습니까?
+{: faq}
+
+아니오. 호스트는 동시에 여러 OS 유형의 LUN에 액세스할 수 없습니다. 호스트는 단일 OS 유형의 LUN에만 액세스할 수 있는 권한이 있습니다. 서로 다른 OS 유형의 여러 LUN에 액세스할 수 있는 권한을 부여하려는 경우 오퍼레이션에 오류가 발생합니다.
+
 ## 내 Block Storage LUN에 대해 어떤 Windows 버전을 선택해야 합니까?
+{: #windowsOStypes}
 {: faq}
 
 LUN을 작성할 때 OS 유형을 지정해야 합니다. OS 유형은 LUN에 액세스하는 호스트에서 사용하는 운영 체제를 기반으로 해야 합니다. OS 유형은 LUN 작성 이후 수정될 수 없습니다. LUN의 실제 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다.
@@ -92,7 +98,7 @@ Endurance유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB 티어는 
 ## 암호화된 {{site.data.keyword.blockstorageshort}} 볼륨을 어떻게 알 수 있습니까?
 {: faq}
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 {{site.data.keyword.blockstorageshort}} 목록을 표시하면 암호화된 LUN의 볼륨 이름 옆에 있는 잠금 아이콘을 볼 수 있습니다.
+[{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic/storage){: external}에서 {{site.data.keyword.blockstorageshort}}의 목록을 표시하면 암호화된 LUN의 볼륨 이름 옆에 있는 잠금 아이콘을 볼 수 있습니다.
 
 ## 업그레이드된 데이터 센터에서 {{site.data.keyword.blockstorageshort}}를 프로비저닝하는 경우를 어떻게 알 수 있습니까?
 {: faq}

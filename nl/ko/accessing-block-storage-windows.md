@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 # Microsoft Windows에서 iSCSI LUNS 연결
 {: #mountingWindows}
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 부여되는지 확인하십시오.
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}을 통해 부여되었는지 확인하십시오.
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오. **호스트 권한 부여**를 클릭하십시오.
 2. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
@@ -26,22 +26,21 @@ subcollection: BlockStorage
 또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
 ```
 # slcli block access-authorize --help
-사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-옵션:
-  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
-  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
-  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
-                            ID
-  --ip-address TEXT         권한 부여할 IP 주소
-  --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 {: #mountWin}
 
-다음은 Windows 기반의 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다. 예제는 Windows Server 2012를 기반으로 합니다. 단계는 운영 체제(OS) 공급업체 문서에 따라 다른 Windows 버전에 맞게 조정 가능합니다.
+다음 단계를 완료하여 Windows 기반 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입출력(I/O)(MPIO) iSCSI(internet Small Computer System Interface) 논리 장치 번호(LUN)에 연결하십시오. 예제는 Windows Server 2012를 기반으로 합니다. 단계는 운영 체제(OS) 공급업체 문서에 따라 다른 Windows 버전에 맞게 조정 가능합니다.
 
 ### MPIO 기능 구성
 
@@ -68,10 +67,10 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
     - **변경**을 클릭하여 기존 값을 iSCSI 규정된 이름(IQN)으로 대체하십시오.
     ![iSCSI 이니시에이터 특성](/images/iSCSI.png)
 
-      IQN 이름은 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 얻을 수 있습니다.
+      IQN 이름은 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/classic){: external}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 얻을 수 있습니다.
       {: tip}
 
-    - **발견** 탭을 클릭하고 **포털 발견**을 클릭하십시오.
+    - **발견**을 클릭하고 **포털 발견**을 클릭하십시오.
     - iSCSI 대상의 IP 주소를 입력하고 포트는 기본값인 3260으로 두십시오.
     - **고급** 탭을 클릭하여 고급 설정 창을 여십시오.
     - **CHAP 로그온 사용**을 선택하여 CHAP 인증을 켜십시오.
@@ -79,8 +78,8 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 
     이름 및 대상 시크릿 필드는 대소문자를 구분합니다.
     {:important}
-         - **이름** 필드에서 기존 항목을 삭제하고 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 사용자 이름을 입력하십시오.
-         - **대상 시크릿** 필드에서 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 비밀번호를 입력하십시오.
+         - **이름** 필드에서 기존 항목을 삭제하고 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/classic/storage){: external}에서 사용자 이름을 입력하십시오.
+         - **대상 시크릿** 필드에 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/classic/storage){: external}의 비밀번호를 입력하십시오.
     - **고급 설정** 및 **대상 포털 발견** 창에서 **확인**을 클릭하고 기본 iSCSI 이니시에이터 특성 화면으로 돌아가십시오. 인증 오류가 수신되면 사용자 이름 및 비밀번호 입력을 확인하십시오.
       ![비활성 대상](/images/Inactive_0.png)
 
@@ -106,7 +105,7 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
 ### iSCSI 이니시에이터에서 MPIO 구성
 
 1. iSCSI 이니시에이터를 실행하고 대상 탭에서 **특성**을 클릭하십시오.
-2. 특성 창에서 **세션 추가**를 클릭하여 대상 연결 창을 여십시오.
+2. 특성 창에서 **세션 추가**를 클릭하십시오.
 3. 대상에 연결 대화 상자에서 **다중 경로 사용** 선택란을 선택하고 **고급**을 클릭하십시오.
   ![대상](/images/Target.png)
 
@@ -115,7 +114,7 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
    - 이니시에이터 IP 목록에서 호스트의 IP 주소를 선택하십시오.
    - 대상 포털 IP 목록에서 디바이스 인터페이스의 IP를 선택하십시오.
    - **CHAP 로그온 사용** 선택란을 클릭하십시오.
-   - 포털 창에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
+   - 콘솔에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
    - 대상 연결 창에서 **확인**을 클릭하여 특성 창으로 돌아가십시오.
 
 5. **특성**을 클릭하십시오. 특성 대화 상자에서 **세션 추가**를 다시 클릭하여 두 번째 경로를 추가하십시오.
@@ -125,14 +124,14 @@ Windows Server 2008에서, iSCSI에 대한 지원을 추가하면 우선 iSCSI �
    - 이니시에이터 IP 목록에서 호스트에 대응되는 IP 주소를 선택하십시오. 이 경우에는 스토리지 디바이스의 2개 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결합니다. 따라서 이 인터페이스는 첫 번째 세션에 대해 제공된 인터페이스와 동일합니다.
    - 대상 포털 IP 목록에서 스토리지 디바이스에서 사용으로 설정되어 있는 두 번째 데이터 인터페이스의 IP 주소를 선택하십시오.
 
-     [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 두 번째 IP 주소를 찾을 수 있습니다.
+     [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/classic/storage){: external}의 {{site.data.keyword.blockstorageshort}} 세부사항 화면에서 두 번째 IP 주소를 찾을 수 있습니다.
       {: tip}
    - **CHAP 로그온 사용** 선택란을 클릭하십시오.
-   - 포털 창에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
+   - 콘솔에서 가져온 이름 및 대상 시크릿 값을 입력하고 **확인**을 클릭하십시오.
    - 대상 연결 창에서 **확인**을 클릭하여 특성 창으로 돌아가십시오.
 8. 이제 특성 창의 ID 분할창에는 두 개 이상의 세션이 표시됩니다. iSCSI 스토리지에 대해 둘 이상의 세션이 있습니다.
 
-   호스트에 ISCSI 스토리지에 연결될 다수의 인터페이스가 있는 경우에는 이니시에이터 IP 필드에서 기타 NIC의 IP 주소로 다른 연결을 설정할 수 있습니다. 그러나 연결을 시도하기 전에 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 두 번째 이니시에이터 IP 주소에 권한을 부여하십시오.
+   호스트에 ISCSI 스토리지에 연결될 다수의 인터페이스가 있는 경우에는 이니시에이터 IP 필드에서 기타 NIC의 IP 주소로 다른 연결을 설정할 수 있습니다. 하지만 연결을 시도하기 전에 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic/storage){: external}에서 두 번째 이니시에이터 IP 주소에 권한을 부여하십시오.
    {:note}
 9. 특성 창에서 **디바이스**를 클릭하여 디바이스 창을 여십시오. 디바이스 인터페이스 이름이 `mpio`로 시작됩니다. <br/>
   ![디바이스](/images/Devices.png)
@@ -163,7 +162,7 @@ MPIO가 올바르지 않게 구성되면, 네트워크 가동 중단이 발생�
 
 ### iSCSI 이니시에이터 시작
 
-1. **대상** 탭을 클릭하십시오.
+1. **대상**을 클릭하십시오.
 2. 제거하려는 대상을 선택하고 **연결 끊기**를 클릭하십시오.
 
 ### 대상 제거

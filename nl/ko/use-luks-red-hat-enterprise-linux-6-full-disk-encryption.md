@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Red Hat Enterprise Linux에서 LUKS를 사용하여 전체 디스크 암호화 달성
+# RHEL6에서 LUKS를 사용하여 전체 디스크 암호화 달성
 {: #LUKSencryption}
 
-LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise Linux 6 서버에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
+LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 RHEL6 서버에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
 
 이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않았으며 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 수 있는 것으로 가정합니다. Linux 호스트에 {{site.data.keyword.blockstorageshort}} 연결에 대한 자세한 정보는 [Linux에서 iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)을 참조하십시오.
 
@@ -40,7 +40,7 @@ LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 Red Hat Enterprise 
 - 다수의(9명 이상) 사용자가 동일한 디바이스에 대해 개별 액세스 키를 가져야 하는 애플리케이션을 허용합니다.
 - 파일 레벨 암호화가 필요한 애플리케이션에 대해 작업합니다. 자세한 정보는 [RHEL 보안 안내서](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}를 참조하십시오.
 
-## Endurance{{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정
+## Endurance {{site.data.keyword.blockstorageshort}}를 사용한 LUKS 암호화 볼륨 설정
 
 데이터 암호화 프로세스는 잠재적으로 성능에 영향을 줄 수 있는 호스트의 로드를 생성합니다.
 {:note}

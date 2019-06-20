@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Block Storage 용량 확장
 {: #expandingcapacity}
 
-이 새 기능을 사용하면 현재 {{site.data.keyword.blockstoragefull}} 사용자는 기존 {{site.data.keyword.blockstorageshort}} 크기를 GB 단위로 최대 12TB까지 바로 확장 가능합니다. 복제본을 작성하거나 수동으로 데이터를 더 큰 볼륨으로 마이그레이션할 필요가 없습니다. 크기 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
+이 기능을 사용하면 현재 {{site.data.keyword.blockstoragefull}} 사용자는 기존 {{site.data.keyword.blockstorageshort}} 크기를 GB 단위로 최대 12TB까지 바로 확장 가능합니다. 복제본을 작성하거나 수동으로 데이터를 더 큰 볼륨으로 마이그레이션할 필요가 없습니다. 크기 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
 
 볼륨에 대한 비용 청구는 현재 비용 청구 주기에 대해 새 가격의 비례 배분된 금액 차이가 추가되도록 자동으로 업데이트됩니다. 그런 다음 비용 청구 주기에는 신규 비용 전체가 청구됩니다.
 
@@ -47,7 +47,7 @@ Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대�
 ## 스토리지 크기 조정
 {: #resizingsteps}
 
-1. {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하거나 {{site.data.keyword.cloud}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. {{site.data.keyword.cloud}} 콘솔에서 **메뉴** 아이콘을 클릭하십시오. 그런 다음 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
 3. GB 단위로 새 스토리지 크기를 입력하십시오.
 4. 선택사항 및 새 가격을 검토하십시오.

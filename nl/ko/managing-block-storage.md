@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} 관리
 {: #managingstorage}
 
-[{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다.
+[{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}을 통해 {{site.data.keyword.blockstoragefull}} 볼륨을 관리할 수 있습니다. **메뉴**에서 클래식 서비스와 상호작용할 **클래식 인프라**를 선택하십시오.
 
 ## {{site.data.keyword.blockstorageshort}} LUN 세부사항 보기
 
@@ -42,7 +42,7 @@ subcollection: BlockStorage
 사용자의 스토리지와 동일한 데이터 센터에 있는 호스트에 권한 부여하고 연결할 수 있습니다. 다수의 계정을 보유할 수는 있지만, 한 계정의 호스트에 권한 부여하여 다른 계정의 스토리지에 액세스할 수는 없습니다.
 {:important}
 
-1. **스토리지** -> **{{site.data.keyword.blockstorageshort}}**를 클릭하고 LUN 이름을 클릭하십시오.
+1. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하고 LUN 이름을 클릭하십시오.
 2. 페이지의 **권한 부여된 호스트** 섹션으로 스크롤하십시오.
 3. 오른쪽에 있는 **호스트 권한 부여**를 클릭하십시오. 특정 LUN에 액세스할 수 있는 호스트를 선택하십시오.
 
@@ -51,18 +51,17 @@ subcollection: BlockStorage
 # slcli block access-authorize --help
 사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-옵션:
-  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
-  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
-  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
-                            ID
-  --ip-address TEXT         권한 부여할 IP 주소
-  --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 
 ## {{site.data.keyword.blockstorageshort}} LUN에 액세스할 권한 부여된 호스트 목록 보기
 
-1. **스토리지** -> **{{site.data.keyword.blockstorageshort}}**를 클릭하고 LUN 이름을 클릭하십시오.
+1. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하고 LUN 이름을 클릭하십시오.
 2. 아래로 스크롤하여 **권한 부여된 호스트** 섹션으로 이동하십시오.
 
 여기에 현재 LUN에 액세스하도록 권한 부여된 호스트 목록이 표시됩니다. 연결하는 데 필요한 인증 정보(사용자 이름, 비밀번호 및 IQN 호스트)도 표시됩니다. 대상 주소는 **스토리지 세부사항** 페이지에 나열되어 있습니다. NFS의 경우 대상 주소는 DNS 이름으로 설명되고, iSCSI의 경우 대상 발견 포털의 IP 주소로 설명됩니다.
@@ -84,10 +83,13 @@ subcollection: BlockStorage
 
 연결에 필요한 정보(LUN 이름, 스토리지 유형, 대상 주소, 용량, 위치)를 포함하여 호스트가 액세스 권한이 있는 LUN을 볼 수 있습니다.
 
-1. [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external}에서 **디바이스** -> **디바이스 목록**을 클릭하고 적절한 디바이스를 클릭하십시오.
+1. **디바이스** -> **디바이스 목록**을 클릭하고 적절한 디바이스를 클릭하십시오.
 2. **스토리지** 탭을 선택하십시오.
 
 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. **조치**를 클릭하여 추가 스토리지를 권한 부여하거나 액세스 권한을 제거할 수 있습니다.
+
+호스트는 동시에 여러 OS 유형의 LUN에 액세스할 수 없습니다. 호스트는 단일 OS 유형의 LUN에만 액세스할 수 있는 권한이 있습니다. 서로 다른 OS 유형의 여러 LUN에 액세스할 수 있는 권한을 부여하려는 경우 오퍼레이션에 오류가 발생합니다.
+{:note}
 
 ## {{site.data.keyword.blockstorageshort}} 마운트 및 마운트 해제
 
@@ -111,9 +113,9 @@ subcollection: BlockStorage
 
 ### 디바이스 목록에서 액세스 권한 취소
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에서 **디바이스**, **디바이스 목록**을 클릭하고 적절한 디바이스를 두 번 클릭하십시오.
+1. [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}에서 **디바이스**, **디바이스 목록**을 클릭하고 적절한 디바이스를 두 번 클릭하십시오.
 2. **스토리지** 탭을 선택하십시오.
-3. 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. LUN 이름 옆에 있는 **조치를 선택하고 **액세스 권한 취소**를 클릭하십시오.
+3. 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. LUN 이름 옆에 있는 **조치**를 선택하고 **액세스 취소**를 클릭하십시오.
 4. 조치는 실행 취소할 수 없기 때문에 LUN에 대한 액세스 권한을 취소할 것인지 확인하십시오. **예**를 클릭하여 LUN 액세스 권한을 취소하거나 **아니오**를 클릭하여 조치를 취소하십시오.
 
 특정 호스트에서 여러 LUN의 연결을 끊으려면 각 LUN에 대해 액세스 취소 조치를 반복 수행해야 합니다.
@@ -137,15 +139,12 @@ subcollection: BlockStorage
 # slcli block access-revoke --help
 사용법: slcli block access-revoke [OPTIONS] VOLUME_ID
 
-옵션:
-  -h, --hardware-id TEXT    권한을 취소할 하나의 SoftLayer_Hardware ID
-
-  -v, --virtual-id TEXT     권한을 취소할 하나의 SoftLayer_Virtual_Guest ID
-
-  -i, --ip-address-id TEXT  권한을 취소할 하나의 SoftLayer_Network_Subnet_IpAddress ID
-
-  --ip-address TEXT         권한을 취소할 IP 주소
-  --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to revoke authorization.
+  -v, --virtual-id TEXT     The ID of a virtual server to revoke authorization.
+  -i, --ip-address-id TEXT  The ID of an IP address to revoke authorization.
+  -p, --ip-address TEXT     An IP address to revoke authorization.
+  --help                    Show this message and exit.
 ```
 
 ## 스토리지 LUN 취소
@@ -174,3 +173,7 @@ subcollection: BlockStorage
   --immediate    청구일 대신에 즉시 블록 스토리지 볼륨 취소
   -h, --help     이 메시지를 표시하고 종료합니다.
 ```
+
+LUN이 최소 24시간 동안(즉시 취소) 또는 기념일까지 스토리지 목록에 표시되기를 원할 수 있습니다. 특정 기능은 더 이상 사용할 수 없지만 볼륨은 재확보될 때까지 표시됩니다. 하지만 삭제/취소를 클릭하면 바로 청구가 중지됩니다.
+
+활성 복제본이 스토리지 볼륨의 재확보를 차단할 수 있습니다. 원본 볼륨을 취소하기 전에 볼륨이 더 이상 마운트되지 않고 호스트 권한이 취소되었으며 복제가 취소되었는지 확인하십시오.

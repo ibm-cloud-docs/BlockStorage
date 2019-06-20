@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-22"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# {{site.data.keyword.blockstorageshort}} 정보
+# {{site.data.keyword.blockstorageshort}}에 대해 알아보기
 {: #About}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.blockstorageshort}}는 컴퓨팅 인스턴스와 상관없이 프로비저닝 및 관리되는 지속적인 고성능 iSCSI 스토리지입니다. iSCSI 기반의 {{site.data.keyword.blockstorageshort}} LUN은 중복 다중 경로 I/O(MPIO) 연결을 통해 권한 부여된 디바이스에 연결됩니다.
+{{site.data.keyword.blockstoragefull}}는 컴퓨팅 인스턴스와 상관없이 프로비저닝 및 관리되는 지속적인 고성능 iSCSI 스토리지입니다. iSCSI 기반의 {{site.data.keyword.blockstorageshort}} LUN은 중복 다중 경로 I/O(MPIO) 연결을 통해 권한 부여된 디바이스에 연결됩니다.
 
 {{site.data.keyword.blockstorageshort}}는 일치하지 않는 기능 세트를 사용하여 최고의 내구성 및 가용성을 제공합니다. 업계 표준 및 우수 사례를 사용하여 빌드되었습니다. {{site.data.keyword.blockstorageshort}}는 일관성 있는 성능 기준을 제공하여 데이터 무결성을 보호하고 유지보수 이벤트 및 플랜되지 않은 실패를 통해 가용성은 유지하도록 디자인되었습니다.
 

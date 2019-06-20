@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 데이터 복사가 완료되면 복제본은 독립된 볼륨으로 관리 및 사용될 수 있습니다.
 
-이 기능은 대부분의 위치에서 사용할 수 있습니다. 사용 가능한 데이터 센터 목록을 보려면 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)를 클릭하십시오.
+이 기능은 대부분의 위치에서 사용할 수 있습니다. 자세한 정보는 [사용 가능한 데이터 센터 목록](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)을 참조하십시오.
 
 {{site.data.keyword.containerlong}}의 데디케이티드 계정 사용자인 경우에는 [{{site.data.keyword.containerlong_notm}} 문서](/docs/containers?topic=containers-block_storage#block_backup_restore)에서 볼륨 복제에 대한 옵션을 참조하십시오.
 {:tip}
@@ -42,14 +42,12 @@ subcollection: BlockStorage
 - **개발 및 테스트(개발/테스트)**. 한 번에 최대 4개의 동시 볼륨 복제를 작성하여 개발 및 테스트용 복제 데이터를 작성합니다.
 - **스토리지 크기 조정**. 데이터를 이동할 필요 없이 크기 또는 IOPS 비율(또는 둘 다)이 새로운 볼륨을 작성합니다.  
 
-몇 가지 방법으로 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 중복 볼륨을 작성할 수 있습니다.
+몇 가지 방법으로 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}을 통해 중복 볼륨을 작성할 수 있습니다.
 
 
 ## 스토리지 목록의 특정 볼륨에서 복제 작성
 
-1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
-    - 고객 포털에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-    - {{site.data.keyword.cloud}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하여 {{site.data.keyword.cloud_notm}} 콘솔의 {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
 2. 목록에서 볼륨을 선택하고 **조치** > **복제 LUN(볼륨)**을 클릭하십시오.
 3. 스냅샷 옵션을 선택하십시오.
     - **비복제본** 볼륨에서 주문하는 경우,

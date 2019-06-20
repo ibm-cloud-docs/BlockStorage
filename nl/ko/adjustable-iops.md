@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # IOPS 조정
 {: #adjustingIOPS}
 
-이 새 기능을 사용하면 {{site.data.keyword.blockstoragefull}} 스토리지 사용자가 기존 {{site.data.keyword.blockstorageshort}}의 IOPS를 즉시 조정할 수 있습니다. 복제본을 작성하거나 수동으로 데이터를 새 스토리지에 복사할 필요가 없습니다. 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
+이 기능을 사용하면 {{site.data.keyword.blockstoragefull}} 스토리지 사용자가 기존 {{site.data.keyword.blockstorageshort}}의 IOPS를 즉시 조정할 수 있습니다. 복제본을 작성하거나 수동으로 데이터를 새 스토리지에 복사할 필요가 없습니다. 조정 중에도 스토리지가 가동 중단되거나 액세스 불가능하지 않습니다.
 
 스토리지에 대한 비용 청구는 현재 비용 청구 주기에 대해 새 가격의 비례 배분된 금액 차이가 추가되도록 업데이트됩니다. 다음 비용 청구 주기에는 신규 비용 전체가 청구됩니다.
 
@@ -44,9 +44,7 @@ subcollection: BlockStorage
 ## 스토리지에서 IOPS 조정
 {: #adjustingsteps}
 
-1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오.
-   - {{site.data.keyword.slportal}}에서 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-   - {{site.data.keyword.cloud}} 콘솔에서 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오. {{site.data.keyword.cloud}} 콘솔에서 **메뉴** 아이콘을 클릭한 다음 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
 3. **스토리지 IOPS 옵션**에서 새로 선택하십시오.
     - Endurance(계층 IOPS)의 경우 스토리지의 0.25IOPS/GB보다 큰 IOPS 계층을 선택하십시오. IOPS 티어는 언제든지 늘릴 수 있습니다. 그렇지만 줄이는 것은 한 달에 한 번만 가능합니다.

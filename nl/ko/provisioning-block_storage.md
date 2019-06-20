@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,15 +22,13 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstorageshort}}를 프로비저닝하고 자신의 용량 및 IOPS 요구사항에 맞게 이를 상세 조정할 수 있습니다. 성능을 지정하는 두 가지 옵션을 사용하여 스토리지를 최대한 활용하십시오.
 
-- 적절히 정의된 성능 요구사항이 없는 워크로드를 처리할 수 있도록 사전 정의된 성능 레벨을 제공하는 Endurance IOPS 계층을 선택할 수 있습니다.
-- Performance를 사용하여 총 IOPS 수를 지정함으로써 구체적인 성능 요구사항을 만족시키도록 스토리지를 상세 조정할 수 있습니다.
+- 적절히 정의된 성능 요구사항이 없는 워크로드를 처리할 수 있도록 사전 정의된 성능 레벨을 제공하는 **Endurance** 계층을 프로비저닝할 수 있습니다.
+- 스토리지를 세부 조정하여 특정 성능 요구사항을 충족하고 총 초당 입출력(I/O) 오퍼레이션(IOPS) 수를 지정하여 강력한 **Performance** 환경을 빌드할 수 있습니다.
 
 ## 사전 정의된 IOPS 티어(Endurance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
+{: #orderingthroughConsoleEndurance}
 
-1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){: external}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 **{{site.data.keyword.blockstorageshort}}**를 선택하고 **작성**을 클릭하십시오.
-
-   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
-
+1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://{DomainName}/catalog){: external}에 로그인하고 **스토리지**를 클릭하십시오. 그리고 **{{site.data.keyword.blockstorageshort}}**를 선택하고 **작성**을 클릭하십시오.
 2. 배치 **위치**(데이터 센터)를 선택하십시오.
    - 사용자가 보유하고 있는 하나 이상의 컴퓨팅 호스트와 같은 위치에 새 스토리지를 추가하십시오.
 3. 비용 청구. 향상된 기능(별표로 표시)이 포함된 데이터 센터를 선택하는 경우, 월별 또는 시간별 비용 청구 중에서 선택할 수 있습니다.
@@ -49,7 +47,7 @@ subcollection: BlockStorage
 7. **스냅샷 영역 크기 지정**을 클릭하고 목록에서 스냅샷 크기를 선택하십시오. 이 영역은 사용 가능한 영역 이외의 영역입니다. 스냅샷 영역 고려사항 및 권장사항에 대해서는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 8. 목록에서 **OS 유형**을 선택하십시오.<br/>
 
-   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
+   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)를 참조하십시오.
    {:tip}
 9. 오른쪽에서 주문 요약을 검토하고 프로모션 코드를 적용하십시오(이를 보유 중인 경우).
 
@@ -58,14 +56,13 @@ subcollection: BlockStorage
 10. 이용 약관을 검토한 후에 **서드파티 서비스 계약서를 읽었으며 이에 동의합니다** 상자를 선택하십시오.
 11. **작성**을 클릭하십시오. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
+기본적으로 사용자는 총 250개의 {{site.data.keyword.blockstorageshort}} 및 {{site.data.keyword.filestorage_short}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
 {:important}
 
 ## 사전 정의 IOPS 티어(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문
+{: #orderingthroughConsolePerformance}
 
-1. [IBM Cloud 카탈로그](https://{DomainName}/catalog){: external}에 로그인하여 **스토리지**를 클릭하십시오. 그리고 {{site.data.keyword.blockstorageshort}}를 선택하고 **작성**을 클릭하십시오.
-
-   또는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인하고 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오. 오른쪽 상단에서 **{{site.data.keyword.blockstorageshort}} 주문**을 클릭하십시오.
+1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://{DomainName}/catalog){: external}에 로그인하고 **스토리지**를 클릭하십시오. 그리고 {{site.data.keyword.blockstorageshort}}를 선택하고 **작성**을 클릭하십시오.
 2. **위치**를 클릭하고 데이터 센터를 선택하십시오.
    - 사용자가 보유하고 있는 하나 이상의 컴퓨팅 호스트와 같은 위치에 새 스토리지를 추가하십시오.
 3. 비용 청구. 향상된 기능(별표로 표시)이 포함된 데이터 센터를 선택하는 경우, 월별 또는 시간별 비용 청구 중에서 선택할 수 있습니다.
@@ -80,7 +77,7 @@ subcollection: BlockStorage
 7. **스냅샷 영역 크기 지정**을 클릭하고 목록에서 스냅샷 크기를 선택하십시오. 이 영역은 사용 가능한 영역 이외의 영역입니다. 스냅샷 영역 고려사항 및 권장사항에 대해서는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 8. 목록에서 **OS 유형**을 선택하십시오.<br/>
 
-   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
+   이러한 선택은 호스트가 실행 중인 운영 체제를 기반으로 하며 이는 나중에 수정될 수 없습니다. 예를 들어, 서버가 Ubuntu 또는 RHEL이면 Linux를 선택하십시오. 호스트가 Windows 2012 또는 Windows 2016 서버이면 목록에서 Windows 2008+ 옵션을 선택하십시오. 다양한 Windows 옵션에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)를 참조하십시오.
    {:tip}
 9. 오른쪽에서 주문 요약을 검토하고 프로모션 코드를 적용하십시오(이를 보유 중인 경우).
 
@@ -89,7 +86,7 @@ subcollection: BlockStorage
 10. 이용 약관을 검토한 후에 **서드파티 서비스 계약서를 읽었으며 이에 동의합니다** 상자를 선택하십시오.
 11. **작성**을 클릭하십시오. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 
-기본적으로 총 250개의 결합된 {{site.data.keyword.blockstorageshort}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
+기본적으로 사용자는 총 250개의 {{site.data.keyword.blockstorageshort}} 및 {{site.data.keyword.filestorage_short}} 볼륨을 프로비저닝할 수 있습니다. 볼륨 수를 늘리려면 영업 담당자에게 문의하십시오. [여기서](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) 한계 늘리기에 대해 읽으십시오.<br/><br/>동시 권한 부여 한계에 대한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
 {:important}
 
 ## 새 스토리지 연결

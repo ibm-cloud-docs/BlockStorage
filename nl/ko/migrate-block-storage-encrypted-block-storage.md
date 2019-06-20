@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,10 +35,10 @@ subcollection: BlockStorage
 API를 사용하여 주문하는 경우 새 스토리지로 업그레이드된 기능을 가져오는지 확인하기 위해 "서비스로서의 스토리지" 패키지를 지정하십시오.
 {:important}
 
-IBM Cloud 콘솔 및 {{site.data.keyword.slportal}}을 통해 향상된 LUN을 주문할 수 있습니다. 새 LUN은 마이그레이션을 수행하기 위해 원본 볼륨 크기 이상이어야 합니다.
+IBM Cloud 콘솔을 통해 개선된 LUN을 주문할 수 있습니다. 새 LUN은 마이그레이션을 수행하기 위해 원본 볼륨 크기 이상이어야 합니다.
 
-- [사전 정의된 IOPS 티어(Endurance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [사용자 정의 IOPS(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [사전 정의된 IOPS 티어(Endurance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [사용자 정의 IOPS(Performance)가 있는 {{site.data.keyword.blockstorageshort}} 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 몇 분 내에 새 스토리지가 마운트할 수 있게 제공됩니다. 리소스 목록과 {{site.data.keyword.blockstorageshort}} 목록에서 새 스토리지를 볼 수 있습니다.
 

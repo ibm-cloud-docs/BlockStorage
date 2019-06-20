@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,29 +19,29 @@ subcollection: BlockStorage
 # CloudLinux에서 iSCSI LUN에 연결
 {: #mountingCloudLinux}
 
-다음 지시사항을 따라 CloudLinux Server 릴리스 6.10에서 다중 경로를 사용하여 iSCSI LUN을 설치하십시오.
+다음 지시사항에 따라 CloudLinux Server 릴리스 6.10에서 다중 경로를 사용하여 iSCSI LUN을 마운트하십시오.
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 이전에 부여되었는지 확인하십시오.
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/classic){: external}을 통해 이전에 부여되었는지 확인하십시오.
 {:tip}
 
-1. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}에 로그인하십시오.
-2. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
-3. **호스트 권한 부여**를 클릭하십시오.
-4. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
-5. 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소를 기록해 두십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}에 로그인하십시오. **메뉴**에서 **클래식 인프라**를 선택하십시오.
+2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+3. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
+4. **호스트 권한 부여**를 클릭하십시오.
+5. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
+6. 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소를 기록해 두십시오.
 
 또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
 ```
 # slcli block access-authorize --help
 사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-옵션:
-  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
-  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
-  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
-                            ID
-  --ip-address TEXT         권한 부여할 IP 주소
-  --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 {:codeblock}
 
@@ -51,7 +51,7 @@ subcollection: BlockStorage
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 {: #mountingCloudLin}
 
-1. 호스트에서 iSCSI 및 다중 경로 유틸리티를 설치하고 활성화하십시오.
+1. 호스트에 iSCSI 및 다중 경로 유틸리티를 설치하고 활성화하십시오.
    ```
    yum install iscsi-initiator-utils
    ```
@@ -114,11 +114,11 @@ subcollection: BlockStorage
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ subcollection: BlockStorage
    ```
    {: pre}
 
-4. {{site.data.keyword.slportal}}에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
+4. {{site.data.keyword.cloud_notm}} 콘솔에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
 
      A. iSCSI 배열에 대해 검색을 실행하십시오..
        ```

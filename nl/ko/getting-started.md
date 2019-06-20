@@ -32,7 +32,7 @@ subcollection: BlockStorage
 - 사전 정의된 성능 레벨과 스냅샷 및 복제와 같은 기타 기능을 제공하는 **Endurance** 티어를 프로비저닝합니다.
 - 초당 할당된 입출력(I/O) 오퍼레이션(IOPS)이 있는 강력한 **Performance** 환경을 빌드합니다.
 
-{{site.data.keyword.blockstorageshort}} 오퍼링에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 정보](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)를 참조하십시오.
+{{site.data.keyword.blockstorageshort}} 오퍼링에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}}에 대해 알아보기](/docs/infrastructure/BlockStorage?topic=BlockStorage-About)를 참조하십시오.
 
 ## 프로비저닝 고려사항
 
@@ -78,7 +78,7 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 ## 새 스토리지 연결
 {: #mountingstorage}
 
-프로비저닝 요청이 완료되면 새 스토리지에 액세스하고 연결을 구성하도록 호스트에 권한을 부여하십시오. 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
+프로비저닝 요청이 완료되면 새 스토리지에 액세스할 수 있는 권한을 호스트에 부여하고 연결을 구성하십시오. 호스트의 운영 체제에 따라 해당 링크를 따르십시오.
 - [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -87,4 +87,4 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 
 ## 새 스토리지 관리
 
-포털 또는 SLCLI를 통해 File Storage의 다양한 측면(예: 호스트 권한 부여 및 취소)을 관리할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)를 참조하십시오.
+포털 또는 SLCLI를 통해 {{site.data.keyword.blockstorageshort}}의 다양한 측면(예: 호스트 권한 부여 및 취소)을 관리할 수 있습니다. 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 관리](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)를 참조하십시오.

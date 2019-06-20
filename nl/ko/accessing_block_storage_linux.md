@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
 
-예를 들어 iSCSI 이니시에이터 구성([여기](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}) 및 DM 다중 경로 설정([여기](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external})에 대한 Ubuntu의 지시사항을 찾을 수 있습니다.
+예를 들어, Ubuntu 세부사항에 대한 자세한 정보는 [iSCSI 이니시에이터 구성](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} 및 [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}를 참조하십시오.
 {: tip}
 
-시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 이전에 부여되었는지 확인하십시오.
+시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}을 통해 이전에 부여되었는지 확인하십시오.
 {:important}
 
 1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
@@ -36,24 +36,23 @@ subcollection: BlockStorage
 또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
 ```
 # slcli block access-authorize --help
-사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-옵션:
-  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
-  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
-  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
-                            ID
-  --ip-address TEXT         권한 부여할 IP 주소
-  --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 {:codeblock}
 
 ## {{site.data.keyword.blockstorageshort}} 볼륨 마운트
 {: #mountLin}
 
-다음은 Linux 기반의 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입력/출력(MPIO) iSCSI(internet Small Computer System Interface) LUN(Logical Unit Number)에 연결하는 데 필요한 단계입니다.
+다음 단계를 완료하여 Linux 기반 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입출력(I/O)(MPIO) iSCSI(internet Small Computer System Interface) 논리 장치 번호(LUN)에 연결하십시오.
 
-지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
+지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic/storage){: external}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
 {: tip}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.
@@ -61,7 +60,8 @@ subcollection: BlockStorage
 
 1. 호스트에 iSCSI 및 다중 경로 유틸리티를 설치하십시오.
   - RHEL 및 CentOS
-     ```
+
+    ```
    yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -180,12 +180,14 @@ subcollection: BlockStorage
 
     RHEL 7 및 CentOS 7에서 "No fc_host device"를 리턴할 수 있지만 이는 무시해도 됩니다.
 
-5. `/etc/iscsi/initiatorname.iscsi` 파일을 {{site.data.keyword.slportal}}의 IQN으로 업데이트하십시오. 값은 소문자로 입력하십시오.
+5. `/etc/iscsi/initiatorname.iscsi` 파일을 {{site.data.keyword.cloud}} 콘솔의 IQN으로 업데이트하십시오. 값은 소문자로 입력하십시오.
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. {{site.data.keyword.slportal}}의 사용자 이름 및 비밀번호를 사용하여 `/etc/iscsi/iscsid.conf`에서 CHAP 설정을 편집하십시오. CHAP 이름에는 대문자를 사용하십시오.
+
+6. {{site.data.keyword.cloud}} 콘솔의 사용자 이름 및 비밀번호를 사용하여 `/etc/iscsi/iscsid.conf`에서 CHAP 설정을 편집하십시오. CHAP 이름에는 대문자를 사용하십시오.
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -247,11 +249,11 @@ subcollection: BlockStorage
 
    - 다른 배포판의 경우, OS 공급업체 문서를 참조하십시오.
 
-8. {{site.data.keyword.slportal}}에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
+8. {{site.data.keyword.cloud}} 콘솔에서 확보한 대상 IP 주소를 사용하여 디바이스를 검색하십시오.
 
    A. iSCSI 배열에 대해 검색을 실행하십시오..
     ```
-         iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -279,11 +281,13 @@ subcollection: BlockStorage
    fdisk -l | grep /dev/mapper
     ```
     {: pre}
-  이 명령은 다음 예와 비슷한 내용을 보고합니다.
+
+    이 명령은 다음 예와 비슷한 내용을 보고합니다.
     ```
-    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
+        Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
-  이제 볼륨이 마운트되어 호스트에서 액세스 가능합니다.
+
+    이제 볼륨이 마운트되어 호스트에서 액세스 가능합니다.
 
 ## 파일 시스템 작성(선택사항)
 

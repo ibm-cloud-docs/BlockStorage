@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## 스냅샷 스케줄 작성
 
-스냅샷 스케줄을 사용하여 스토리지 볼륨에 대한 특정 시점의 참조를 작성하는 빈도 및 시기를 결정합니다. 스토리지 볼륨별로 최대 50개의 스냅샷이 가능합니다. 스케줄은 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지** > **{{site.data.keyword.blockstorageshort}}** 탭을 통해 관리합니다.
+스냅샷 스케줄을 사용하여 스토리지 볼륨에 대한 특정 시점의 참조를 작성하는 빈도 및 시기를 결정합니다. 스토리지 볼륨별로 최대 50개의 스냅샷이 가능합니다. 스케줄은 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}의 **스토리지** > **{{site.data.keyword.blockstorageshort}}** 탭을 통해 관리합니다.
 
 스토리지 볼륨의 초기 프로비저닝 중에 스냅샷 영역을 구매하지 않은 경우에는 초기 스케줄을 설정하기 전에 우선 이를 구매해야 합니다. 자세한 정보는 [스냅샷 주문](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)을 참조하십시오.
 {:important}
@@ -42,7 +42,7 @@ subcollection: BlockStorage
    - 주별
       - 스냅샷을 작성할 각 주의 요일, 시간 및 분을 지정하십시오. 기본값은 현재 요일, 시간 및 분입니다.
       - 가장 오래된 스냅샷을 삭제하기 전에 유지해야 하는 주별 스냅샷 수를 선택하십시오.
-3. **저장**을 클릭하고 다른 빈도로 다른 스케줄을 작성하십시오. 스케줄된 스냅샷의 총 수가 50개를 넘으면 경고 메시지가 수신되며 저장할 수 없게 됩니다.
+3. **저장**을 클릭하십시오. 그런 다음 다른 빈도로 다른 스케줄을 작성할 수 있습니다. 스케줄된 스냅샷의 총 수가 50개를 넘으면 경고 메시지가 수신되며 저장할 수 없게 됩니다.
 
 스냅샷이 작성되면 **세부사항** 페이지의 **스냅샷** 섹션에 스냅샷 목록이 표시됩니다.
 
@@ -163,9 +163,9 @@ subcollection: BlockStorage
 {:important}
 
 1. 호스트에서 스토리지 볼륨을 마운트 해제하고 분리하십시오.
-   - [Linux에서 iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Microsoft Windows에서 iSCSI LUNS 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+   - [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
 3. 아래로 스크롤한 후에 복원되는 볼륨을 클릭하십시오. **세부사항** 페이지의 **스냅샷** 섹션에 해당 크기 및 작성 날짜와 같이 저장된 모든 스냅샷 목록이 표시됩니다.
 4. 사용할 스냅샷 옆에 있는 **조치**를 클릭하고 **복원**을 클릭하십시오. <br/>
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # SLCLI를 통해 {{site.data.keyword.blockstorageshort}} 주문
 {: #orderingthroughCLI}
 
-일반적으로 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}을 통해 주문하는 제품을 주문하는 데 SLCLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
+일반적으로 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}을 통해 주문하는 제품을 주문하는 데 SLCLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
 
 SLCLI 설치 및 사용 방법에 대한 자세한 정보는 [Python API 클라이언트](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}를 참조하십시오.
 {:tip}
@@ -59,42 +59,42 @@ $ slcli order package-list --help
 
 ```
 # slcli block volume-order --help
-사용법: slcli block volume-order [OPTIONS]
+Usage: slcli block volume-order [OPTIONS]
 
- Block Storage 볼륨을 주문합니다.
+ Order a block storage volume.
 
-옵션:
+Options:
  --storage-type [performance|endurance]
-                                 Block Storage 볼륨 유형 [필수]
- --size INTEGER                  Block Storage 볼륨 크기(GB).
-                                 허용된 크기:
+                                 Type of block storage volume  [required]
+ --size INTEGER                  Size of block storage volume in GB.
+                                 Permitted Sizes:
                                  20, 40, 80, 100, 250, 500,
-                                 1000, 2000, 4000, 8000, 12000  [필수]
- --iops INTEGER                  Performance 스토리지 IOPs, 100에서
-                                 6000 사이, 100의 배수  [performance 스토리지 유형에
-                                 필수]
- --tier [0.25|2|4|10]            Endurance 스토리지 티어(GB당 IOP)
-                                 [Endurance 스토리지 유형에 필수]
+                                 1000, 2000, 4000, 8000, 12000  [required]
+ --iops INTEGER                  Performance Storage IOPs, between 100 and
+                                 6000 in multiples of 100  [required for
+                                 storage-type performance]
+ --tier [0.25|2|4|10]            Endurance Storage Tier (IOP per GB)
+                                 [required for storage-type endurance]
  --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
-                                 운영 체제  [필수]
- --location TEXT                 데이터 센터 단축 이름(예: dal09)
-                                 [필수]
- --snapshot-size INTEGER         Endurance Block Storage와 함께
-                                 스냅샷 영역을 주문하기 위한 선택적 매개변수,
-                                 주문할 스냅샷 영역의 크기(GB)를
-                                 지정합니다.
+                                 Operating System  [required]
+ --location TEXT                 Datacenter short name (e.g.: dal09)
+                                 [required]
+ --snapshot-size INTEGER         Optional parameter for ordering snapshot
+                                 space along with endurance block storage;
+                                 specifies the size (in GB) of snapshot space
+                                 to order
  --service-offering [storage_as_a_service|enterprise|performance]
-                                 주문을 제출하기 위해 사용할 서비스 오퍼링
-                                 패키지 [선택사항, 기본값은
-                                 'storage_as_a_service']
- --billing [hourly|monthly]      청구 비율을 위한 선택적 매개변수(기본값은
-                                 monthly)
- -h, --help                      이 메시지를 표시하고 종료합니다.
+                                 The default is 'storage_as_a_service'
+ --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                 to monthly)
+ -h, --help                      Show this message and exit.
 ```
 
 API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 대한 자세한 정보는 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}을 참조하십시오.
 새 기능에 모두 액세스할 수 있으려면 `Storage-as-a-Service Package 759`를 주문하십시오.
 {:tip}
+
+Window OS 유형에 대한 자세한 정보는 [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes)를 참조하십시오.
 
 
 ## 주문하기
@@ -120,22 +120,26 @@ Order #15547457 placed successfully!
 slcli block access-authorize --help
 사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-  주어진 볼륨에 액세스할 수 있는 권한을 호스트에 부여합니다.
+주어진 볼륨에 액세스할 수 있는 권한을 호스트에 부여합니다.
 
-옵션:
-  -h, --hardware-id TEXT    권한 부여할 하나의 SoftLayer_Hardware ID
-  -v, --virtual-id TEXT     권한 부여할 하나의 SoftLayer_Virtual_Guest ID
-  -i, --ip-address-id TEXT  권한 부여할 하나의 SoftLayer_Network_Subnet_IpAddress
-                            ID
-  --ip-address TEXT         권한 부여할 IP 주소
-  --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
+
+사용자의 스토리지와 동일한 데이터 센터에 있는 호스트에 권한 부여하고 연결할 수 있습니다. 다수의 계정을 보유할 수는 있지만, 한 계정의 호스트에 권한 부여하여 다른 계정의 스토리지에 액세스할 수는 없습니다. 호스트는 동시에 서로 다른 OS 유형의 여러 LUN에 액세스할 수 없습니다. 호스트는 단일 OS 유형의 LUN에만 액세스할 수 있는 권한이 있습니다. 서로 다른 OS 유형의 여러 LUN에 액세스할 수 있는 권한을 부여하려는 경우 오퍼레이션에 오류가 발생합니다.
+{:note}
+{:important}
 
 호스트에 API를 통해 {{site.data.keyword.blockstorageshort}}에 액세스하는 권한을 부여하는 데 대한 자세한 정보는 [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}을 참조하십시오.
 {:tip}
 
 동시 권한 부여 한계에 대해서는 [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs)를 참조하십시오.
 {:important}
+
 
 ## 새 스토리지 연결
 {: #mountingCLI}
