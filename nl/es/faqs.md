@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,19 +30,25 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 
 Eso depende de lo que el sistema operativo del host pueda manejar, no se trata de una limitación de {{site.data.keyword.cloud}}. Consulte la documentación de su sistema operativo para conocer los límites en la cantidad de volúmenes que se pueden montar.
 
-## ¿Qué versión de Windows debo elegir para mi LUN de almacenamiento en bloque?
+## ¿Puedo conectar varias LUN con distintos valores de SO?
 {: faq}
 
-Después de crear un LUN, debe especificar el tipo de SO. El tipo de SO se debe basar en el sistema operativo que utilizan los hosts que acceden al LUN. El tipo de SO no se puede modificar después de que se cree el LUN. El tamaño real del LUN puede variar ligeramente en función del tipo de SO del LUN.
+No. No se puede autorizar a un host para que acceda a LUN de distintos tipos de SO a la vez. Solo se puede autorizar a un host a que acceda a LUN de un solo tipo de SO. Si intenta autorizar el acceso a varias LUN con distintos tipos de SO, la operación genera un error.
+
+## ¿Qué versión de Windows debo elegir para mi LUN de almacenamiento en bloque?
+{: #windowsOStypes}
+{: faq}
+
+Después de crear un LUN, debe especificar el tipo de SO. El tipo de SO se debe basar en el sistema operativo que utilizan los hosts que acceden al LUN. El tipo de SO no se puede modificar después de que se cree la LUN. El tamaño real de la LUN puede variar ligeramente en función del tipo de SO de la LUN.
 
 **Windows 2008+**
-- El LUN almacena datos de Windows para Windows 2008 y versiones posteriores. Utilice esta opción de SO si el sistema operativo del host es Windows Server 2008, Windows Server 2012 o Windows Server 2016. Se da soporte a los modelos de particionamiento MBR y GPT.
+- La LUN almacena datos de Windows para Windows 2008 y versiones posteriores. Utilice esta opción de SO si el sistema operativo del host es Windows Server 2008, Windows Server 2012 o Windows Server 2016. Se da soporte a los modelos de particionamiento MBR y GPT.
 
 **Windows 2003**
-- El LUN almacena un tipo de disco sin formato en un disco Windows de una sola partición que utiliza el estilo de particionamiento MBR (registro de arranque maestro). Utilice esta opción solo si el sistema operativo del host es Windows 2000 Server, Windows XP o Windows Server 2003 que utiliza el método de particionamiento MBR.
+- La LUN almacena un tipo de disco sin formato en un disco Windows de una sola partición que utiliza el estilo de particionamiento MBR (registro de arranque maestro). Utilice esta opción solo si el sistema operativo del host es Windows 2000 Server, Windows XP o Windows Server 2003 que utiliza el método de particionamiento MBR.
 
 **Windows GPT**
--  El LUN almacena los datos de Windows utilizando el estilo de particionamiento GPT (tipo de partición GUID). Utilice esta opción si desea utilizar el método de particionamiento GPT y el host lo puede utilizar. Windows Server 2003, Service Pack 1 y posteriores pueden utilizar el método de particionamiento GPT y todas las versiones de 64 bits de Windows le dan soporte.
+-  La LUN almacena los datos de Windows utilizando el estilo de particionamiento GPT (tipo de partición GUID). Utilice esta opción si desea utilizar el método de particionamiento GPT y el host lo puede utilizar. Windows Server 2003, Service Pack 1 y posteriores pueden utilizar el método de particionamiento GPT y todas las versiones de 64 bits de Windows le dan soporte.
 
 ## ¿Se aplica el límite de IOPS asignado por instancia o por volumen?
 {: faq}
@@ -92,7 +98,7 @@ El nivel 10 de IOPS/GB de tipo Resistencia {{site.data.keyword.blockstorageshort
 ## ¿Cómo podemos saber cuáles de los volúmenes de {{site.data.keyword.blockstorageshort}} están cifrados?
 {: faq}
 
-Al consultar la lista de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, puede ver un icono de bloqueo junto al nombre de volumen de los LUN que están cifradas.
+Si consulta la lista de {{site.data.keyword.blockstorageshort}} en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}, puede ver un icono de bloqueo junto al nombre de volumen de las LUN que están cifradas.
 
 ## ¿Cómo sabemos cuándo estamos suministrando {{site.data.keyword.blockstorageshort}} en un centro de datos actualizado?
 {: faq}

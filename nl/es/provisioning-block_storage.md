@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,19 +22,17 @@ subcollection: BlockStorage
 
 Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes para satisfacer sus necesidades de capacidad y de IOPS. Saque el mayor partido de su almacenamiento con dos opciones para especificar el rendimiento.
 
-- Puede elegir entre los niveles de IOPS de Resistencia que incluyen los niveles de rendimiento predefinidos para que se ajusten las cargas de trabajo que no han definido bien los requisitos de rendimiento.
-- Puede ajustar el almacenamiento para que cumpla los requisitos de rendimiento específicos especificando el número total de IOPS con Rendimiento.
+- Puede realizar el suministro con niveles de **Resistencia** que incluyen niveles de rendimiento predefinidos para que se ajusten las cargas de trabajo que no tienen requisitos de rendimiento bien definidos.
+- Puede ajustar el almacenamiento para que cumpla los requisitos de rendimiento específicos y crear un potente entorno de **Rendimiento** especificando el número total de operaciones de entrada y salida por segundo (IOPS).
 
 ## Solicitud de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)
+{: #orderingthroughConsoleEndurance}
 
-1. Inicie la sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog){: external} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
-
-   También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
-
+1. Inicie una sesión en el [catálogo de {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} y pulse **Almacenamiento**. A continuación, seleccione **{{site.data.keyword.blockstorageshort}}** y pulse **Crear**.
 2. Seleccione la **Ubicación** (centro de datos) del despliegue.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts de cálculo que tiene.
 3. Facturación. Si ha seleccionado un centro de datos con prestaciones mejoradas (marcados con un asterisco), podrá elegir entre facturación mensual o por horas.
-     1. Con la facturación **por hora**, el número de horas que el LUN de bloque existía en la cuenta se calcula en el momento en que se suprime el LUN o al final del ciclo de facturación. Lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas solo está disponible para el almacenamiento suministrado en estos [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+     1. Con la facturación **por hora**, el número de horas que la LUN de bloque existía en la cuenta se calcula en el momento en que se suprime la LUN o al final del ciclo de facturación. Lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas solo está disponible para el almacenamiento suministrado en estos [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
      2. Con la **facturación mensual**, el cálculo del precio se prorratea desde la fecha de creación hasta la finalización del ciclo de facturación y se factura al momento. No se reembolsará si un LUN de bloque de archivos se suprime antes de finalizar el ciclo de facturación. La facturación mensual es una buena opción para el almacenamiento utilizado en cargas de trabajo de producción que utilizan datos que tienen que almacenarse, y por tanto acceder a ellos, durante largo periodos de tiempo (un mes o más).
 
         El tipo de facturación mensual se utiliza de forma predeterminada para el almacenamiento suministrado en centros de datos que **no** están actualizados con prestaciones mejoradas.
@@ -49,7 +47,7 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 7. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable. Para consultar consideraciones y recomendaciones sobre el espacio de instantáneas, consulte [Solicitud de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Elija el **Tipo de sistema operativo** en la lista.<br/>
 
-   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
 
@@ -58,18 +56,17 @@ Puede suministrar {{site.data.keyword.blockstorageshort}} y realizar ajustes par
 10. Después de revisar los términos y condiciones, marque el recuadro de selección **He leído y acepto los acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}} y de {{site.data.keyword.filestorage_short}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Solicitud de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)
+{: #orderingthroughConsolePerformance}
 
-1. Inicie la sesión en el [catálogo de IBM Cloud](https://{DomainName}/catalog){: external} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
-
-   También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**. En la parte superior derecha, pulse **Realizar pedido de {{site.data.keyword.blockstorageshort}}**.
+1. Inicie una sesión en el [catálogo de {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} y pulse **Almacenamiento**. A continuación, seleccione {{site.data.keyword.blockstorageshort}} y pulse **Crear**.
 2. Pulse **Ubicación** y seleccione el centro de datos.
    - Asegúrese de que el nuevo almacenamiento se añada en la misma ubicación que el host o los hosts de cálculo que tiene.
 3. Facturación. Si ha seleccionado un centro de datos con prestaciones mejoradas (marcados con un asterisco), podrá elegir entre facturación mensual o por horas.
-     1. Con la facturación **por hora**, el número de horas que el LUN de bloque existía en la cuenta se calcula en el momento en que se suprime el LUN o al final del ciclo de facturación. Lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas solo está disponible para el almacenamiento suministrado en estos [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+     1. Con la facturación **por hora**, el número de horas que la LUN de bloque existía en la cuenta se calcula en el momento en que se suprime la LUN o al final del ciclo de facturación. Lo que se produzca primero. La facturación por horas es una buena opción para el almacenamiento que se utiliza unos pocos días o menos de un mes completo. La facturación por horas solo está disponible para el almacenamiento suministrado en estos [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
      2. Con la **facturación mensual**, el cálculo del precio se prorratea desde la fecha de creación hasta la finalización del ciclo de facturación y se factura al momento. No se reembolsará si un LUN de bloque de archivos se suprime antes de finalizar el ciclo de facturación. La facturación mensual es una buena opción para el almacenamiento utilizado en cargas de trabajo de producción que utilizan datos que tienen que almacenarse, y por tanto acceder a ellos, durante largo periodos de tiempo (un mes o más).
 
         El tipo de facturación mensual se utiliza de forma predeterminada para el almacenamiento suministrado en centros de datos que **no** están actualizados con prestaciones mejoradas.
@@ -80,7 +77,7 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 7. Pulse **Especificar tamaño de espacio para instantáneas** y seleccione el tamaño de instantánea en la lista. Este espacio se añade al espacio utilizable. Para consultar consideraciones y recomendaciones sobre el espacio de instantáneas, consulte [Solicitud de instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Elija el **Tipo de sistema operativo** en la lista.<br/>
 
-   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+   Esta selección depende del sistema operativo en el que se ejecuta el host y no se puede modificar posteriormente. Por ejemplo, si su servidor es Ubuntu o RHEL, seleccione Linux. Si su host es un servidor Windows 2012 o Windows 2016, seleccione la opción Windows 2008+ en la lista. Para obtener más información sobre las distintas opciones de Windows, consulte [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. En la parte derecha, revise el resumen del pedido y aplique su código de promoción si lo tiene.
 
@@ -89,7 +86,7 @@ De forma predeterminada, puede suministrar un total combinado de 250 volúmenes 
 10. Después de revisar los términos y condiciones, marque el recuadro de selección **He leído y acepto los acuerdos de servicio de terceros**.
 11. Pulse **Crear**. La nueva asignación de almacenamiento está disponible en pocos minutos.
 
-De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+De forma predeterminada, puede suministrar un total combinado de 250 volúmenes de {{site.data.keyword.blockstorageshort}} y de {{site.data.keyword.filestorage_short}}. Para aumentar el número de volúmenes, póngase en contacto con el representante de ventas. [Aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits) puede leer más información sobre cómo aumentar los límites.<br/><br/>Para obtener información sobre el límite en autorizaciones simultáneas, consulte las [Preguntas más frecuentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Conexión del nuevo almacenamiento
@@ -111,4 +108,4 @@ Si desea clonar su volumen y utilizarlo independientemente del volumen original,
 
 ## Identificación de {{site.data.keyword.blockstorageshort}} en la factura
 
-Todos los LUN aparecen en la factura como un elemento de línea. La Resistencia aparece como “Servicio de almacenamiento de resistencia” y Rendimiento aparece como "Servicio de almacenamiento de rendimiento". La tarifa varía en función de su nivel de almacenamiento. Puede ampliar la Resistencia o el Rendimiento para ver que es {{site.data.keyword.blockstorageshort}}.
+Todas las LUN aparecen en la factura como un elemento de línea. La Resistencia aparece como “Servicio de almacenamiento de resistencia” y Rendimiento aparece como "Servicio de almacenamiento de rendimiento". La tarifa varía en función de su nivel de almacenamiento. Puede ampliar la Resistencia o el Rendimiento para ver que es {{site.data.keyword.blockstorageshort}}.

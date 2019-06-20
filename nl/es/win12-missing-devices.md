@@ -2,29 +2,35 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
 ---
-
-{:external: target="_blank" .external}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
-
+{:external: target="_blank" .external}
 
 # Windows 2012 R2 - varios dispositivos iSCSI
 {: #troubleshootingWin12}
 
-Si utiliza más de dos dispositivos iSCSI, puede que este procedimiento le resulte útil, especialmente si las cuatro asignaciones iSCSI son del mismo dispositivo de almacenamiento. Si ve sólo dos dispositivos en el gestor de discos, deberá conectarse manualmente a cada dispositivo en el iniciador iSCSI en cada nodo de servidor.
+Si utiliza más de dos dispositivos iSCSI con el mismo host, puede que este procedimiento le resulte útil, especialmente si todas las conexiones iSCSI proceden del mismo dispositivo de almacenamiento.
+Si ve sólo dos dispositivos en el gestor de discos, deberá conectarse manualmente a cada dispositivo en el iniciador iSCSI en cada nodo de servidor.
+{:tsSymptoms}
+{:tsResolve}
+
 
 1. Abra el iniciador iSCSI de Windows.
-2. Pulse el separador **Destinos** y, a continuación, pulse **Dispositivos**.
+2. En el separador **Destinos**, pulse **Dispositivos**.
 
    ![propiedades del iniciador iSCSI](/images/win12-ts1.png)
 3. Confirme el número de dispositivos que se muestran. Si ve dos dispositivos, en lugar de los cuatro que estaban autorizados, continúe en el paso siguiente.
@@ -42,7 +48,7 @@ Si utiliza más de dos dispositivos iSCSI, puede que este procedimiento le resul
 
    ![Configuración avanzada, CHAP](/images/win12-ts4.png)
 9. Pulse **Aceptar**.
-10. Repita los pasos 5-9 para cada IP que haya especificado en el iniciador iSCSI. Cuando haya terminado, pulse el separador **Dispositivos** y revise los resultados. Debería ver todos los LUN que ha configurado enumerados dos veces.
+10. Repita los pasos 5-9 para cada IP que haya especificado en el iniciador iSCSI. Cuando haya terminado, pulse el separador **Dispositivos** y revise los resultados. Debería ver todas las LUN que ha configurado enumeradas dos veces.
 
     ![Separador Dispositivos](/images/win12-ts5.png)
 11. Pulse **Aceptar**.

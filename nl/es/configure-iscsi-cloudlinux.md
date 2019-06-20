@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -16,19 +16,20 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Conexión a los LUN iSCSI en CloudLinux
+# Conexión a las LUN iSCSI en CloudLinux
 {: #mountingCloudLinux}
 
-Siga estas instrucciones para instalar el LUN de iSCSI con la multivía de acceso en el release 6.10 de CloudLinux Server.
+Siga estas instrucciones para montar la LUN de iSCSI con la multivía de acceso en el release 6.10 de CloudLinux Server.
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de empezar, asegúrese de que el host puede acceder al volumen de {{site.data.keyword.blockstoragefull}} mediante la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
 {:tip}
 
-1. Inicie la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-2. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
-3. Pulse **Autorizar host**.
-4. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
-5. Anote el nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino.
+1. Inicie una sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. En el **menú**, seleccione **Infraestructura clásica**.
+2. Pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+3. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
+4. Pulse **Autorizar host**.
+5. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
+6. Anote el nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino.
 
 De manera alternativa, puede autorizar el host mediante SLCLI.
 ```
@@ -36,11 +37,10 @@ De manera alternativa, puede autorizar el host mediante SLCLI.
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
-  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
-  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
-                            que se va a autorizar
-  --ip-address TEXTO         Una dirección IP que se va a autorizar
+  -h, --hardware-id TEXT    El ID de un servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 {:codeblock}
@@ -107,18 +107,18 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
      ```
      {: codeblock}
 
-   - Actualice los valores de CHAP `/etc/iscsi/iscsid.conf` añadiendo el nombre de usuario, la contraseña.
+   - Actualice los valores de CHAP `/etc/iscsi/iscsid.conf` añadiendo el nombre de usuario y la contraseña.
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <valor de nombre de usuario de la consola>
+     node.session.auth.password = <valor de contraseña de la consola>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <valor de nombre de usuario de la consola>
+     discovery.sendtargets.auth.password = <valor de contraseña de la consola>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
    ```
    {: pre}
 
-4. Descubra el dispositivo utilizando la dirección IP de destino obtenida desde el {{site.data.keyword.slportal}}.
+4. Descubra el dispositivo utilizando la dirección IP de destino obtenida de la consola de {{site.data.keyword.cloud_notm}}.
 
      A. Ejecute el descubrimiento en la matriz de iSCSI.
        ```

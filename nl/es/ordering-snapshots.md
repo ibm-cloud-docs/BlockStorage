@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -10,7 +10,7 @@ subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
-{:codeblock: .codeblock} 
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -49,9 +49,7 @@ Además, para la mayoría de las cargas de trabajo, cuanto mayor sea un volumen,
 
 ## Solicitud de espacio de instantáneas mediante la consola de {{site.data.keyword.cloud_notm}}
 
-1. Inicie la sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} y pulse el icono de menú de la parte superior izquierda. Seleccione **Infraestructura clásica**.
-
-   También puede iniciar la sesión en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+1. Inicie una sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/catalog){: external} y pulse el icono de menú en la parte superior izquierda. Luego seleccione **Infraestructura clásica**.
 2. Acceda a su LUN de almacenamiento a través de **Almacenamiento** >**{{site.data.keyword.blockstorageshort}}**.
 2. Pulse **Cambiar espacio de instantáneas** en el marco Instantáneas.
 3. Seleccione la cantidad de espacio que necesita y el método de pago.

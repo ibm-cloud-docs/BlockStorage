@@ -13,6 +13,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Gestión de los límites de almacenamiento
 {: #managingstoragelimits}
@@ -30,7 +31,7 @@ Opciones:
   -h, --help             Mostrar este mensaje y salir.
 ```
 
-Puede solicitar un aumento del límite enviando un caso de soporte en el [portal](https://cloud.ibm.com/unifiedsupport/cases/add){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
+Puede solicitar un aumento del límite enviando un caso de soporte en el [portal](https://{DomainName}/unifiedsupport/cases/add){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
 
 Para solicitar un aumento del límite, abra un caso de soporte y diríjalo a su representante de ventas.
 

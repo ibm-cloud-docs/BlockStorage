@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # Expandir la capacidad de almacenamiento en bloque
 {: #expandingcapacity}
 
-Con esta nueva característica, los usuarios actuales de {{site.data.keyword.blockstoragefull}} pueden ampliar el tamaño de su {{site.data.keyword.blockstorageshort}} existente en incrementos de GB de hasta 12 TB inmediatamente. No es necesario que creen un duplicado ni que migren los datos manualmente a un volumen más grande. No se producen paradas ni falta de acceso al almacenamiento mientras se realiza el redimensionamiento.
+Con esta característica, los usuarios actuales de {{site.data.keyword.blockstoragefull}} pueden ampliar el tamaño de su {{site.data.keyword.blockstorageshort}} existente en incrementos de GB de hasta 12 TB inmediatamente. No es necesario que creen un duplicado ni que migren los datos manualmente a un volumen más grande. No se producen paradas ni falta de acceso al almacenamiento mientras se realiza el redimensionamiento.
 
 Los datos de facturación del volumen se actualizan automáticamente para añadir al ciclo de facturación actual la diferencia prorrateada del nuevo precio. El nuevo importe completo se factura en el siguiente ciclo de facturación.
 
@@ -47,8 +47,8 @@ Las limitaciones de tamaño actuales para {{site.data.keyword.blockstorageshort}
 ## Redimensionamiento de almacenamiento
 {: #resizingsteps}
 
-1. En el portal de {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**, o bien desde la consola de {{site.data.keyword.cloud}} pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
-2. Seleccione el LUN de la lista y pulse **Acciones** > **Modificar LUN**
+1. En la consola de {{site.data.keyword.cloud}}, pulse el icono de **menú**. Luego pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+2. Seleccione la LUN de la lista y pulse **Acciones** > **Modificar LUN**
 3. Especifique el nuevo tamaño de almacenamiento en GB.
 4. Revise su selección y el nuevo precio.
 5. Marque el recuadro de selección **He leído el Acuerdo de servicio maestro...** y pulse **Realizar pedido**.

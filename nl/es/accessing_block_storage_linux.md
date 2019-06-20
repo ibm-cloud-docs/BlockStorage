@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -17,16 +17,16 @@ subcollection: BlockStorage
 {:important: .important}
 
 
-# Conexión a los LUN iSCSI en Linux
+# Conexión a las LUN iSCSI en Linux
 {: #mountingLinux}
 
 Estas instrucciones se aplican principalmente a RHEL6 y Centos6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso.
 {:note}
 
-Encontrará las instrucciones de Ubuntu para configurar el iniciador de iSCSI [aquí](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} y para configurar la multivía de acceso de DM [aquí](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+Por ejemplo, para obtener más información sobre temas específicos de Ubuntu, consulte [Configuración del iniciador de iSCSI](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} y [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado previamente a través del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de empezar, asegúrese de que se ha autorizado al host que accede al volumen de {{site.data.keyword.blockstoragefull}} mediante la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 {:important}
 
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
@@ -39,11 +39,10 @@ De manera alternativa, puede autorizar el host mediante SLCLI.
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
-  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
-  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
-                            que se va a autorizar
-  --ip-address TEXTO         Una dirección IP que se va a autorizar
+  -h, --hardware-id TEXT    El ID del servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 {:codeblock}
@@ -51,9 +50,9 @@ Opciones:
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
+Siga estos pasos para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
-El nombre calificado iSCSI (IQN) del host, nombre de usuario, contraseña y dirección de destino a los que se hace referencia en las instrucciones pueden obtenerse en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Encontrará el IQN de host, el nombre de usuario, la contraseña y la dirección de destino a los que se hace referencia en las instrucciones en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** de la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.
@@ -61,7 +60,8 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
 1. Instale los programas de utilidad multivía e iSCSI en el host.
   - RHEL y CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -180,12 +180,14 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
     RHEL 7 y CentOS 7 pueden devolver el mensaje No fc_host device, que se puede pasar por alto.
 
-5. Actualice el archivo `/etc/iscsi/initiatorname.iscsi` con el nombre calificado iSCSI (IQN) del {{site.data.keyword.slportal}}. Escriba el valor en minúsculas.
+5. Actualice el archivo `/etc/iscsi/initiatorname.iscsi` con el nombre calificado iSCSI (IQN) que obtendrá en la consola de {{site.data.keyword.cloud}}. Escriba el valor en minúsculas.
+
    ```
    InitiatorName=<valor-del-Portal>
    ```
    {: pre}
-6. Edite los valores de CHAP en `/etc/iscsi/iscsid.conf` con el nombre de usuario y la contraseña del {{site.data.keyword.slportal}}. Utilice mayúsculas para los nombres de CHAP.
+
+6. Edite los valores de CHAP en `/etc/iscsi/iscsid.conf` con el nombre de usuario y la contraseña que verá en la consola de {{site.data.keyword.cloud}}. Utilice mayúsculas para los nombres de CHAP.
    ```
    node.session.auth.authmethod = CHAP
     node.session.auth.username = <Valor-nombreUsuario-del-Portal>
@@ -247,11 +249,11 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
 
    - Para otras distribuciones, consulte la documentación del proveedor del sistema operativo.
 
-8. Descubra el dispositivo utilizando la dirección IP de destino obtenida desde el {{site.data.keyword.slportal}}.
+8. Descubra el dispositivo utilizando la dirección IP de destino obtenida de la consola de {{site.data.keyword.cloud}}.
 
    A. Ejecute el descubrimiento en la matriz de iSCSI.
     ```
-    iscsiadm -m discovery -t sendtargets -p <valor-ip-del-Portal-SL>
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
     ```
     {: pre}
 
@@ -279,10 +281,12 @@ Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortaf
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
+
   Este mandato informa de algo similar al ejemplo siguiente.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   El volumen ahora está montado y es accesible en el host.
 
 ## Creación de un sistema de archivos (opcional)

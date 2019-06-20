@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -38,7 +38,7 @@ Consulte la Tabla 1 para ver la lista completa de disponibilidad de centros de d
 
 ## Creación de la réplica inicial
 
-Las réplicas se basan en una planificación de réplica. Primero debe tener un espacio de instantáneas y una planificación de instantáneas para el volumen de origen antes de poder replicar. Si intenta configurar la réplica y uno o el otro no está en su lugar, se le solicitará que compre más espacio o que establezca una planificación. Las réplicas se gestionan bajo **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Las réplicas se basan en una planificación de réplica. Primero debe tener un espacio de instantáneas y una planificación de instantáneas para el volumen de origen antes de poder replicar. Si intenta configurar la réplica y uno o el otro no está en su lugar, se le solicitará que compre más espacio o que establezca una planificación. Las réplicas se gestionan bajo **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Pulse el volumen de almacenamiento.
 2. Pulse **Réplica** y pulse **Adquirir una réplica**.
@@ -56,7 +56,7 @@ Las réplicas se basan en una planificación de réplica. Primero debe tener un 
 
 ## Edición de una réplica existente
 
-Puede editar la planificación de réplica y cambiar el espacio de réplica desde el separador **Primario** o **Réplica** de **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Puede editar la planificación de réplica y cambiar el espacio de réplica desde el separador **Primario** o **Réplica** de **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 
 ## Edición de la planificación de réplica
@@ -148,6 +148,11 @@ Cuando se cancela un volumen primario, la planificación de réplica y el volume
  2. Pulse **Acciones** y seleccione **Cancelar {{site.data.keyword.blockstorageshort}}**.
  3. Seleccione cuándo desea cancelarla. Elija **Inmediatamente** o **Fecha de aniversario**, y pulse **Continuar**.
  4. Pulse **Reconozco que a causa de la cancelación, es posible que se pierdan datos** y pulse **Cancelar**.
+
+ Puede esperar que la LUN siga resultando visible en la lista de almacenamiento durante al menos 24 horas (cancelación inmediata) o hasta la fecha de aniversario. Algunas características dejarán de estar disponibles, pero el volumen sigue resultando visible hasta que se reclame. Sin embargo, la facturación se detiene inmediatamente después de que pulse Suprimir/Cancelar.
+
+ La activación de réplicas puede bloquear la reclamación del volumen de almacenamiento. Asegúrese de que el volumen ya no esté montado, de que las autorizaciones de host se hayan revocado y de que la réplica se haya cancelado antes de intentar cancelar el volumen original.
+
 
 ## Mandatos relacionados con la réplica en SLCLI
 {: #clicommands}

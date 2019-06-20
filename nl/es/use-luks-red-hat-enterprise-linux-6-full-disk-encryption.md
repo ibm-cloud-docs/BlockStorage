@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Cómo conseguir el cifrado de disco completo con LUKS en Red Hat Enterprise Linux
+# Cómo conseguir el cifrado de disco completo con LUKS en RHEL6
 {: #LUKSencryption}
 
-Puede cifrar las particiones del servidor Red Hat Enterprise Linux 6 con el formato denominado Linux Unified Key Setup-on-disk (LUKS), que es importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
+Puede cifrar las particiones del servidor RHEL6 con LUKS (Linux Unified Key Setup-on-disk), lo cual es importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
 
 En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Para obtener más información sobre cómo conectar {{site.data.keyword.blockstorageshort}} a un host Linux, consulte [Conexión a LUN iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 

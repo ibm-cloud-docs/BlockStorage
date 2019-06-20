@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Ajuste de IOPS
 {: #adjustingIOPS}
 
-Con esta nueva característica, los usuarios de almacenamiento {{site.data.keyword.blockstoragefull}} podrán ajustar IOPS de su {{site.data.keyword.blockstorageshort}} existente de inmediato. No tienen que crear un duplicado ni copiar los datos manualmente en el almacenamiento nuevo. Los usuarios no experimentan ningún tipo de parada ni falta de acceso al almacenamiento mientras se realiza el ajuste.
+Con esta característica, los usuarios de almacenamiento {{site.data.keyword.blockstoragefull}} podrán ajustar IOPS de su {{site.data.keyword.blockstorageshort}} existente de inmediato. No tienen que crear un duplicado ni copiar los datos manualmente en el almacenamiento nuevo. Los usuarios no experimentan ningún tipo de parada ni falta de acceso al almacenamiento mientras se realiza el ajuste.
 
 La facturación del almacenamiento se actualiza para añadir la diferencia prorrateada del nuevo precio en el ciclo de facturación actual. El nuevo importe completo se factura en el siguiente ciclo de facturación.
 
@@ -44,10 +44,8 @@ Si el volumen tiene réplica, la réplica se actualiza automáticamente para coi
 ## Ajuste de IOPS en el almacenamiento
 {: #adjustingsteps}
 
-1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}
-   - En el {{site.data.keyword.slportal}}, pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**
-   - Desde la consola de {{site.data.keyword.cloud}}, pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
-2. Seleccione el LUN de la lista y pulse **Acciones** > **Modificar LUN**
+1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}. En la consola de {{site.data.keyword.cloud}}, pulse el icono de **menú** y luego pulse **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+2. Seleccione la LUN de la lista y pulse **Acciones** > **Modificar LUN**
 3. En las **Opciones IOPS de almacenamiento**, realice una nueva selección:
     - En Resistencia (IOPS por niveles), seleccione un nivel de IOPS superior a 0,25 IOPS/GB de su almacenamiento. Puede aumentar el nivel de IOPS en cualquier momento. Sin embargo, la disminución solo está disponible una vez al mes.
     - En Rendimiento (IOPS asignado), Especifique la nueva opción de IOPS para su almacenamiento especificando un valor en el rango de 100 a 48.000 IOPS.

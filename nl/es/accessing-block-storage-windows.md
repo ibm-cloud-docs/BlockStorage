@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -15,10 +15,10 @@ subcollection: BlockStorage
 {:important: .important}
 {:codeblock: .codeblock}
 
-# Conexión a los LUN iSCSI en Microsoft Windows
+# Conexión a las LUN iSCSI en Microsoft Windows
 {: #mountingWindows}
 
-Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través de la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**. Pulse **Autorizar host**.
 2. En la lista, seleccione el host o los hosts que accederán al volumen y pulse **Enviar**.
@@ -29,11 +29,10 @@ De manera alternativa, puede autorizar el host mediante SLCLI.
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXTO    El id de un SoftLayer_Hardware que se va a autorizar
-  -v, --virtual-id TEXTO     El id de un SoftLayer_Virtual_Guest que se va a autorizar
-  -i, --ip-address-id TEXTO  El id de una SoftLayer_Network_Subnet_IpAddress
-                            que se va a autorizar
-  --ip-address TEXTO         Una dirección IP que se va a autorizar
+  -h, --hardware-id TEXT    El ID del servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 {:codeblock}
@@ -41,7 +40,7 @@ Opciones:
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-A continuación se describen los pasos necesarios para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Windows a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO). El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo (SO).
+Siga estos pasos para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Windows a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO). El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo (SO).
 
 ### Configuración de la característica MPIO
 
@@ -68,19 +67,19 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
     - Pulse **Cambiar** para sustituir los valores existentes por su nombre calificado iSCSI (IQN).
     ![Propiedades del iniciador de iSCSI](/images/iSCSI.png)
 
-      El nombre IQN se puede obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+      Encontrará el nombre de IQN en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
-    - Pulse el separador **Descubrir** y pulse **Descubrir portal**.
-    - Especifique la dirección IP del destino iSCSI y deje el puerto en el valor predeterminado de 3260.
+    - Pulse **Descubrir** y luego pulse **Descubrir portal**.
+    - Especifique la dirección IP del destino iSCSI y para el puerto el valor predeterminado, 3260.
     - Pulse **Avanzado** para abrir la ventana Configuración avanzada.
     - Seleccione **Habilitar inicio de sesión CHAP** para activar la autenticación CHAP.
     ![Habilitar inicio de sesión CHAP](/images/Advanced_0.png)
 
     Los campos Nombre y Secreto de destino distinguen entre mayúsculas y minúsculas.
     {:important}
-         - En el campo **Nombre**, suprima las entradas existentes y la entrada correspondiente al nombre de usuario del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
-         - En el campo **Secreto de destino**, escriba la contraseña del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+         - En el campo **Nombre**, suprima las entradas existentes y especifique el nombre de usuario de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+         - En el campo **Secreto de destino**, escriba la contraseña de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
     - Pulse **Aceptar** en las ventanas **Configuración avanzada** y **Descubrir portal de destino** para volver a la pantalla principal de propiedades del iniciador de iSCSI. Si recibe errores de autenticación, compruebe las entradas de nombre de usuario y contraseña.
     ![Destino inactivo](/images/Inactive_0.png)
 
@@ -107,7 +106,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
 ### Configuración de MPIO en el iniciador iSCSI
 
 1. Inicie el iniciador iSCSI y, en el separador Destinos, pulse **Propiedades**.
-2. Pulse **Añadir sesión** en la ventana Propiedades para abrir la ventana Conectar a destino.
+2. Pulse **Añadir sesión** en la ventana Propiedades.
 3. En el recuadro de diálogo Conectar con destino, marque el recuadro de selección **Habilitar multivía de acceso** y pulse **Avanzado**.
   ![Destino](/images/Target.png)
 
@@ -116,7 +115,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
    - En la lista de IP de iniciador, seleccione la dirección IP del host.
    - En la lista de IP de portal de destino, seleccione la IP de la interfaz del dispositivo.
    - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
-   - Escriba los valores secretos Nombre y Destino obtenidos en el portal y pulse **Aceptar**.
+   - Escriba los valores secretos Nombre y Destino obtenidos de la consola y pulse **Aceptar**.
    - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades.
 
 5. Pulse **Propiedades**. En el recuadro de diálogo Propiedades, vuelva a pulsar **Añadir sesión** para añadir la segunda vía de acceso.
@@ -126,14 +125,14 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
    - En la lista de IP de iniciador, seleccione la dirección IP correspondiente al host. En este caso, va a conectar dos interfaces de red del dispositivo de almacenamiento a una sola interfaz de red del host. Por lo tanto, la interfaz es la misma que la proporcionada para la primera sesión.
    - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos que está habilitada en el dispositivo de almacenamiento.
 
-     Puede encontrar la segunda dirección IP en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} del [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+     Encontrará la segunda dirección IP en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
-   - Escriba los valores secretos Nombre y Destino obtenidos en el portal y pulse **Aceptar**.
+   - Escriba los valores secretos Nombre y Destino obtenidos de la consola y pulse **Aceptar**.
    - Pulse **Aceptar** en la ventana Conectar a destino para volver a la ventana Propiedades.
 8. Ahora la ventana Propiedades muestra más de una sesión dentro del panel Identificador. Tiene más de una sesión en el almacenamiento de iSCSI.
 
-   Si el host tiene varias interfaces que desea conectar con el almacenamiento ISCSI, puede configurar otra conexión con la dirección IP del otro NIC en el campo de IP del iniciador. Sin embargo, asegúrese de autorizar a la segunda dirección IP del iniciador en el [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} antes de intentar establecer la conexión.
+   Si el host tiene varias interfaces que desea conectar con el almacenamiento ISCSI, puede configurar otra conexión con la dirección IP del otro NIC en el campo de IP del iniciador. Sin embargo, asegúrese de autorizar a la segunda dirección IP del iniciador en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external} antes de intentar establecer la conexión.
    {:note}
 9. En la ventana Propiedades, pulse **Dispositivos** para abrir la ventana Dispositivos. El nombre de la interfaz de dispositivo empieza por `mpio`. <br/>
   ![Dispositivos](/images/Devices.png)
@@ -155,7 +154,7 @@ Para verificar si MPIO de Windows está configurado, primero debe asegurarse de 
 Una vez completado el reinicio y añadido el dispositivo de almacenamiento, puede verificar si MPIO se ha configurado y funciona. Para ello, vaya a **Detalles del dispositivo de destino** y pulse **MPIO**:
 ![DetallesDispositivo_0](/images/DeviceDetails_0.png)
 
-Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se puede desconectar y aparecer inhabilitado cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.cloud}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con operaciones de lectura/escritura activas en el LUN.
+Si MPIO no se ha configurado correctamente, el dispositivo de almacenamiento se puede desconectar y aparecer inhabilitado cuando se produzca un corte en la red o cuando los equipos de {{site.data.keyword.cloud}} realizan tareas de mantenimiento. MPIO garantiza un nivel adicional de conectividad durante estos casos y mantiene una sesión establecida con operaciones de lectura/escritura activas en la LUN.
 
 ## Desmontaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #unmountingWin}
@@ -164,7 +163,7 @@ A continuación se describen los pasos necesarios para desconectar una instancia
 
 ### Inicio del iniciador iSCSI
 
-1. Pulse el separador **Destinos**.
+1. Pulse **Destinos**.
 2. Seleccione los destinos que desee eliminar y pulse **Desconectar**.
 
 ### Eliminar destinos

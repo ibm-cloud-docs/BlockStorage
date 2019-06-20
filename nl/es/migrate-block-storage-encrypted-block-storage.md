@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,10 +35,10 @@ Todos los volúmenes de {{site.data.keyword.blockstorageshort}} mejorados sumini
 Cuando realice un pedido con API, especifique el paquete "Almacenamiento como un servicio" para asegurarse de recibir las características actualizadas con el nuevo almacenamiento.
 {:important}
 
-Puede solicitar un LUN mejorado desde la consola de IBM Cloud y el {{site.data.keyword.slportal}}. El nuevo LUN debe tener el mismo tamaño o mayor que el volumen original para facilitar la migración.
+Puede solicitar una LUN mejorada desde la consola de IBM Cloud. El nuevo LUN debe tener el mismo tamaño o mayor que el volumen original para facilitar la migración.
 
-- [Solicitud de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [Solicitud de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [Solicitud de {{site.data.keyword.blockstorageshort}} con los niveles de IOPS predefinidos (Resistencia)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [Solicitud de {{site.data.keyword.blockstorageshort}} con IOPS personalizados (Rendimiento)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 Su nuevo almacenamiento está preparado para que se monte en pocos minutos. Puede verlo en la lista de recursos y en la lista de {{site.data.keyword.blockstorageshort}}.
 
@@ -60,19 +60,19 @@ Si su centro de datos de destino de réplica no se ha actualizado aún, no puede
 
 ## Migración de los datos
 
-1. Conéctese a los LUN de {{site.data.keyword.blockstorageshort}} originales y nuevos.
+1. Conéctese a las LUN de {{site.data.keyword.blockstorageshort}} originales y nuevas.
 
    Si necesita ayuda para conectar los dos LUN a su host, abra un caso de soporte.
    {:tip}
 
-2. Piense en el tipo de datos que tiene en el LUN de {{site.data.keyword.blockstorageshort}} original y decida la mejor forma de copiarlos en el nuevo LUN.
+2. Piense en el tipo de datos que tiene en la LUN de {{site.data.keyword.blockstorageshort}} original y decida la mejor forma de copiarlos en el nuevo LUN.
   - Si tiene copias de seguridad, contenido estático y cosas que no se espera que cambien durante la copia, no debe preocuparse demasiado.
   - Si está ejecutando una base de datos o una máquina virtual en su {{site.data.keyword.blockstorageshort}}, asegúrese de que los datos no se modifiquen durante la copia para evitar que resulten dañados.
   - Si tiene problemas con el ancho de banda, realice la migración fuera de las horas punta.
   - Si necesita ayuda con estas consideraciones, abra un caso de soporte.
 
 3. Copie los datos.
-   - Para **Microsoft Windows**, formatee el nuevo almacenamiento y copie los datos del LUN de {{site.data.keyword.blockstorageshort}} original en el nuevo LUN mediante Windows Explorer.
+   - Para **Microsoft Windows**, formatee el nuevo almacenamiento y copie los datos de la LUN de {{site.data.keyword.blockstorageshort}} original en la nueva LUN mediante Windows Explorer.
    - Para **Linux**, puede utilizar `rsync` para copiar los datos.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
@@ -80,4 +80,4 @@ Si su centro de datos de destino de réplica no se ha actualizado aún, no puede
 
    Es una buena idea utilizar el mandato anterior con el distintivo `--dry-run` una vez para asegurarse de que las vías de acceso se alinean correctamente. Si este proceso se interrumpe, puede suprimir el último archivo de destino que se ha copiado para asegurarse de que se copie en la nueva ubicación desde el principio.<br/>
    Cuando este mandato finaliza sin el distintivo `--dry-run`, los datos se copian en el nuevo LUN de {{site.data.keyword.blockstorageshort}}. Ejecute el mandato de nuevo para asegurarse de que no hace falta nada. También puede revisar manualmente ambas ubicaciones por si se ha omitido algo.<br/>
-   Una vez completada la migración, puede pasar el entorno de producción al nuevo LUN. A continuación, puede desconectar y suprimir el LUN original de la configuración. La supresión también elimina cualquier instantánea o réplica en el sitio de destino que estuviera asociada al LUN original.
+   Una vez completada la migración, puede pasar el entorno de producción al nuevo LUN. A continuación, puede desconectar y suprimir la LUN original de la configuración. La supresión también elimina cualquier instantánea o réplica en el sitio de destino que estuviera asociada al LUN original.

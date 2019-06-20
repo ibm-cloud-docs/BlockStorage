@@ -37,8 +37,8 @@ La característica de cifrado en reposo gestionado por el proveedor está dispon
 
 Al realizar el pedido de {{site.data.keyword.blockstorageshort}}, seleccione un centro de datos marcado con un asterisco (*) (`*`). Puede ver un icono de bloqueo a la derecha del campo Nombre de volumen/LUN, que indica que el volumen está cifrado.
 
-![El icono de bloqueo indica que el LUN está cifrado](/images/encryptedstorage.png)
-<caption>Figura 1. Ejemplo del icono de bloqueo que muestra que el LUN está cifrado.</caption>
+![El icono de bloqueo indica que la LUN está cifrada](/images/encryptedstorage.png)
+<caption>Figura 1. Ejemplo del icono de bloqueo que muestra que la LUN está cifrada.</caption>
 
 
 
