@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -19,11 +19,11 @@ subcollection: BlockStorage
 # RHEL6 での LUKS を使用したフルディスク暗号化の実現
 {: #LUKSencryption}
 
-RHEL6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。これは、モバイル・コンピューターおよび取り外し可能メディアで重要です。LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
+RHEL6 サーバー上のパーティションは、Linux Unified Key Setup-on-disk-format (LUKS) を使用して暗号化できます。これは、モバイル・コンピューターおよび取り外し可能メディアで重要です。 LUKS を使用すると、パーティションのバルク暗号化に使用されたマスター鍵を、複数のユーザー鍵で暗号化解除できます。
 
-以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。 {{site.data.keyword.blockstorageshort}}の Linux ホストへの接続について詳しくは、[Linux での iSCSI LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)を参照してください。
+以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。 Linux ホストへの {{site.data.keyword.blockstorageshort}} の接続について詳しくは、[Linux 上のストレージへの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)を参照してください。
 
-[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)にプロビジョンされた {site.data.keyword.blockstorageshort}} は、プロバイダー管理の保存データの暗号化を使用して自動的にプロビジョンされます。 詳しくは、[データの保護 - プロバイダー管理の保存データの暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)を参照してください。
+[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)でプロビジョンされる {site.data.keyword.blockstorageshort}} は、プロバイダー管理の保存データの暗号化を使用して自動的にプロビジョンされます。詳しくは、[データの保護 - プロバイダー管理の保存データの暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)を参照してください。
 {:note}
 
 ## LUKS にある機能

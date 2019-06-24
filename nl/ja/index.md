@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,13 +32,13 @@ subcollection: BlockStorage
    - 個々のボリュームに対するプロトコル・レベルの IOPS の割り振りによって提供されます。
 - **強力な耐久性と回復力**
    - データの保全性を保護し、保守イベントおよび計画外の障害の際に可用性を維持します。そのため、独立ディスク (RAID) アレイを使用してオペレーティング・システム・レベルの冗長アレイを作成および管理する必要はありません。
-- **Data at Rest 暗号化** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Data at Rest (保存されたデータ) の暗号化** ([ほとんどのデータ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Data at Rest (保存されたデータ) のためのプロバイダー管理の暗号化を追加コストなしで利用できます。
-- **オール・フラッシュ・ストレージによるバッキング** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **オール・フラッシュ・バックアップ・ストレージ** ([ほとんどのデータ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - 2 IOPS/GB 以上のレベルの「エンデュランス」または「パフォーマンス」でプロビジョンされるボリューム用のオール・フラッシュ・ストレージ。
-- **スナップショット** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **スナップショット** ([ほとんどのデータ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - 処理を中断せずに、特定時点のデータ・スナップショットをキャプチャーします。
-- **レプリケーション** ([選択データ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **レプリケーション** ([ほとんどのデータ・センターで使用可能](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - パートナーの {{site.data.keyword.cloud}} データ・センターにスナップショットを自動的にコピーします。
 - **可用性の高い接続**
    - 冗長ネットワーキング接続を使用して可用性を最大化します。
@@ -68,7 +68,7 @@ subcollection: BlockStorage
 
 - **4 IOPS/GB** は、高負荷ワークロード用に設計されています。 通常、これらのワークロードには、いつも大部分のデータがアクティブであるという特徴があります。 アプリケーションの例として、トランザクション・データベースやその他の高いパフォーマンスを必要とするデータベースが挙げられます。
 
-- **10 IOPS/GB** は、NoSQL データベースや Analytics のデータ処理などで作成される最も厳しいワークロード用に設計されています。 この層は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)にプロビジョンされた最大サイズ 4 TB のストレージに対してのみ使用可能です。
+- **10 IOPS/GB** は、NoSQL データベースや Analytics のデータ処理などで作成される最も厳しいワークロード用に設計されています。 この層は、[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)でプロビジョンされる最大 4 TB のストレージに対して使用できます。
 
 12 TB のエンデュランス・ボリュームでは、最大 48,000 IOPS が使用可能です。
 
@@ -100,7 +100,7 @@ subcollection: BlockStorage
 {: caption="表による比較" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![脚注](/images/numberone.png) *一部のデータ・センターでは、6,000 を超える IOPS 制限が使用可能です。*
+![脚注](/images/numberone.png) *ほとんどのデータ・センターで、6,000 を超える IOPS 制限を使用できます。*
 
 パフォーマンス・ボリュームは、プロビジョンされた IOPS レベルに一貫して近いレベルで動作するように設計されています。 一貫性により、特定レベルのパフォーマンスを持つアプリケーション環境のサイズ変更やスケーリングが容易になります。 さらに、理想的な価格対パフォーマンスの比率でボリュームを構築することによって、環境を最適化することもできます。
 
@@ -109,7 +109,7 @@ subcollection: BlockStorage
 
 ブロック LUN に対して、1 時間ごとまたは月ごとの請求処理を選択できます。 LUN に対して選択した請求のタイプは、その LUN のスナップショット・スペースおよびレプリカに適用されます。 例えば、毎時請求を指定して LUN をプロビジョンすると、スナップショット料金またはレプリカ料金は時間単位で請求されます。 月次請求を指定して LUN をプロビジョンすると、スナップショット料金またはレプリカ料金は月単位で請求されます。
 
- * **毎時請求**では、ブロック LUN がアカウント上に存在していた時間数は、LUN が削除された時点、または請求サイクルの終了時の、どちらか早い方の時点で計算されます。 使用期間が数日ないし 1 カ月未満のストレージには毎時請求が適しています。 毎時請求は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)にプロビジョンされたストレージに対してのみ使用可能です。
+ * **毎時請求**では、ブロック LUN がアカウント上に存在していた時間数は、LUN が削除された時点、または請求サイクルの終了時の、どちらか早い方の時点で計算されます。 使用期間が数日ないし 1 カ月未満のストレージには毎時請求が適しています。 毎時請求は、[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)で使用できます。
 
  * **月次請求**では、作成日から請求サイクルの終了までの料金が日割りで計算され、 即時に請求されます。 請求サイクルの終了前に LUN が削除された場合、返金はありません。 月次請求は、長期間 (1 カ月以上) の保管およびアクセスが必要なデータを利用する実動ワークロードに使用するストレージに適しています。
 

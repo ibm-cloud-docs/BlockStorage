@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -33,7 +33,7 @@ subcollection: BlockStorage
 ## OS 設定の異なる複数の LUN を接続できますか?
 {: faq}
 
-いいえ。OS タイプの異なる複数の LUN に同時にアクセスすることをホストに許可できません。単一の OS タイプの LUN へのアクセスのみをホストに許可できます。OS タイプの異なる複数の LUN へのアクセスを許可しようとすると、操作がエラーとなります。
+いいえ。OS タイプの異なる複数の LUN に同時にアクセスすることをホストに許可できません。 単一の OS タイプの LUN へのアクセスのみをホストに許可できます。 OS タイプの異なる複数の LUN へのアクセスを許可しようとすると、操作がエラーとなります。
 
 ## Block Storage LUN に対してどの Windows バージョンを選択すればよいですか?
 {: #windowsOStypes}
@@ -93,7 +93,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## エンデュランス 10 IOPS/GB 層の {{site.data.keyword.blockstorageshort}} を注文できるデータ・センターと、できないデータ・センターがあるのはなぜですか?
 {: faq}
 
-エンデュランス・タイプの 10 IOPS/GB 層 {{site.data.keyword.blockstorageshort}} は、限定されたデータ・センターのみで使用可能ですが、使用可能な新しいデータ・センターが徐々に追加されています。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)で見つけることができます。
+エンデュランス・タイプの 10 IOPS/GB 層 {{site.data.keyword.blockstorageshort}} は、ほとんどの[データ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)で使用できます。
 
 ## どの {{site.data.keyword.blockstorageshort}} ボリュームが暗号化されているかを知る方法はありますか?
 {: faq}
@@ -103,14 +103,14 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 ## アップグレードされたデータ・センターで {{site.data.keyword.blockstorageshort}} をプロビジョンしていることはどこで分かりますか?
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} を注文すると、アップグレードされたデータ・センターはすべて、注文フォームにアスタリスク (`*`) が表示されるほか、暗号化機能を備えたストレージをプロビジョンしようとしていることが示されます。 ストレージがプロビジョンされると、ストレージ・リストに、そのストレージが暗号化されていることを示すアイコンが表示されます。 暗号化された LUN はすべて、アップグレードされたデータ・センターでのみプロビジョンされます。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)で見つけることができます。
+{{site.data.keyword.blockstorageshort}} を注文すると、アップグレードされたデータ・センターはすべて、注文フォームにアスタリスク (`*`) が表示されるほか、暗号化機能を備えたストレージをプロビジョンしようとしていることが示されます。 ストレージがプロビジョンされると、ストレージ・リストに、そのストレージが暗号化されていることを示すアイコンが表示されます。 暗号化された LUN はすべて、アップグレードされたデータ・センターでのみプロビジョンされます。 アップグレードされたデータ・センターと使用可能な機能の完全なリストを[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)で見つけることができます。
 
 ## 最近アップグレードされたデータ・センターに暗号化されていない {{site.data.keyword.blockstorageshort}} を所有している場合は、その {{site.data.keyword.blockstorageshort}} を暗号化できますか?
 {: faq}
 
 データ・センターのアップグレード前にプロビジョンされた {{site.data.keyword.blockstorageshort}} は、暗号化できません。
 アップグレードされたデータ・センターで新たにプロビジョンされた {{site.data.keyword.blockstorageshort}} は、自動的に暗号化されます。 つまり、暗号化するかどうかを選択する設定はありません。自動で暗号化されます。
-アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、新しいブロック LUN を作成してから、ホスト・ベースのマイグレーションを使用してそのデータを暗号化された新しい LUN にコピーします。 手順については、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)をクリックしてください。
+アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、LUN を作成してから、ホスト・ベースのマイグレーションを使用して暗号化された新しい LUN にそのデータをコピーします。詳しくは、[既存の {{site.data.keyword.blockstorageshort}} の拡張 {{site.data.keyword.blockstorageshort}} へのアップグレード](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)を参照してください。
 
 ## {{site.data.keyword.blockstorageshort}} は、Db2 pureScale 用に I/O フェンシングを実装するための SCSI-3 永続予約をサポートしますか?
 {: faq}

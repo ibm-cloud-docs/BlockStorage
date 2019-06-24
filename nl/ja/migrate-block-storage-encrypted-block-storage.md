@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 既存の {{site.data.keyword.blockstorageshort}} の拡張 {{site.data.keyword.blockstorageshort}} へのアップグレード
 {: #migratestorage}
 
-限定されたデータ・センターで、拡張 {{site.data.keyword.blockstoragefull}} が使用可能になりました。 アップグレードされたデータ・センターと、調整可能な IOPS レートや拡張可能なボリュームなどの使用可能な機能のリストを確認するには、[ここ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)をクリックしてください。 プロバイダー管理の暗号化ストレージについて詳しくは、[{{site.data.keyword.blockstorageshort}} 保存データの暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)を参照してください。
+拡張 {{site.data.keyword.blockstoragefull}} は、ほとんどの[データ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)で使用できるようになりました。
 
 推奨されるマイグレーション・パスは、両方の LUN に同時に接続し、一方の LUN からもう一方にデータを直接転送することです。 詳細は、ご使用のオペレーティング・システム、およびコピー操作中にデータの変更が想定されるかどうかによって異なります。
 
@@ -35,7 +35,7 @@ subcollection: BlockStorage
 API を使用して注文する場合は、「Storage as a Service」パッケージを指定して、更新済みの機能を新規ストレージと一緒に取得してください。
 {:important}
 
-拡張 LUN は IBM Cloud コンソールで注文できます。マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
+拡張 LUN は IBM Cloud コンソールで注文できます。 マイグレーションを円滑にするために、新しい LUN は、元のボリュームと同じかそれより大きいサイズにしてください。
 
 - [定義済み IOPS 層 (エンデュランス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
 - [カスタム IOPS (パフォーマンス) を備えた {{site.data.keyword.blockstorageshort}} の注文](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)

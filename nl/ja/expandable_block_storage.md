@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,11 +19,11 @@ subcollection: BlockStorage
 # ブロック・ストレージ容量の拡張
 {: #expandingcapacity}
 
-この機能を使用すると、{{site.data.keyword.blockstoragefull}} の現行ユーザーは、既存の {{site.data.keyword.blockstorageshort}} のサイズを GB 単位で増やして最大 12 TB まで即時に拡張できます。複製ボリュームを作成する必要も、より大きなボリュームにデータを手動でマイグレーションする必要もありません。 サイズ変更の実行中に、ストレージへのアクセスが停止することも、ストレージへアクセスできなくなることもありません。
+この機能を使用すると、{{site.data.keyword.blockstoragefull}} の現行ユーザーは、既存の {{site.data.keyword.blockstorageshort}} のサイズを GB 単位で増やして最大 12 TB まで即時に拡張できます。 複製ボリュームを作成する必要も、より大きなボリュームにデータを手動でマイグレーションする必要もありません。 サイズ変更の実行中に、ストレージへのアクセスが停止することも、ストレージへアクセスできなくなることもありません。
 
 ボリュームに対する請求は自動更新されて、新価格の差額が日割り計算で現在の請求サイクルに追加されます。 その後、次の請求サイクルでは新しい金額全体が請求されます。
 
-この機能は、[限定されたデータ・センター ](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)で使用可能です。
+この機能は、[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)で使用できます。
 
 ## 拡張可能なストレージの利点
 
@@ -38,7 +38,7 @@ subcollection: BlockStorage
 ## 制限
 {: #limitsofexpandingstorage}
 
-この機能は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)にプロビジョンされたストレージに対して使用可能です。
+この機能は、[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)でプロビジョンされるストレージに対して使用できます。
 
 この機能がリリースされる前の **2017 年 4 月から 2017 年 12 月 14 日**の間に、これらのデータ・センターでプロビジョンされたストレージは、元のサイズの 10 倍までしか増やすことができません。 **2017 年 12 月 14 日**より後にプロビジョンされたストレージは、最大 12 TB まで増やすことができます。
 
@@ -47,7 +47,7 @@ subcollection: BlockStorage
 ## ストレージのサイズ変更
 {: #resizingsteps}
 
-1. {{site.data.keyword.cloud}} コンソールから、**「メニュー」**アイコンをクリックします。続いて、**「インフラストラクチャー」**>**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+1. {{site.data.keyword.cloud}} コンソールから、**「メニュー」**アイコンをクリックします。 続いて、**「インフラストラクチャー」**>**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
 3. 新しいストレージ・サイズを GB 単位で入力します。
 4. 選択内容と新しい価格設定を確認します。

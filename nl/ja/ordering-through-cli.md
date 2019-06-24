@@ -17,9 +17,9 @@ subcollection: BlockStorage
 # SLCLI を使用した {{site.data.keyword.blockstorageshort}} の注文
 {: #orderingthroughCLI}
 
-通常は [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}で注文する製品については、SLCLI を使用して注文することができます。SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
+通常は [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}で注文する製品については、SLCLI を使用して注文することができます。 SL API では 1 つの注文が複数の注文コンテナーで構成されている可能性があります。 注文の CLI は、1 つの注文コンテナーに対してのみ適用されます。
 
-SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
+SLCLI をインストールして使用する方法について詳しくは、[Python CLI クライアント](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
 {:tip}
 
 ## 入手可能な {{site.data.keyword.blockstorageshort}} オファーの検索
@@ -130,7 +130,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-ご使用のストレージと同じデータ・センターにあるホストを許可および接続できます。 複数のアカウントを持つことはできますが、あるアカウントのホストから別のアカウントのストレージへのアクセスを許可することはできません。また、OS タイプの異なる複数の LUN に同時にアクセスすることをホストに許可できません。単一の OS タイプの LUN へのアクセスのみをホストに許可できます。OS タイプの異なる複数の LUN へのアクセスを許可しようとすると、操作がエラーとなります。
+ご使用のストレージと同じデータ・センターにあるホストを許可および接続できます。 複数のアカウントを持つことはできますが、あるアカウントのホストから別のアカウントのストレージへのアクセスを許可することはできません。 また、OS タイプの異なる複数の LUN に同時にアクセスすることをホストに許可できません。 単一の OS タイプの LUN へのアクセスのみをホストに許可できます。 OS タイプの異なる複数の LUN へのアクセスを許可しようとすると、操作がエラーとなります。
 {:note}
 {:important}
 

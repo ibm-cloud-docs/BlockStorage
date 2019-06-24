@@ -23,7 +23,7 @@ subcollection: BlockStorage
 
 ## 2 次サイトにあるレプリカ・ボリュームの複製を使用するフェイルオーバー
 
-1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインして、左上にある**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインして、左上にある**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. リスト内の LUN のレプリカをクリックして、**「詳細」**ページを表示します。
 4. **「詳細」**ページで、下にスクロールして既存のスナップショットを選択し、**「アクション」** > **「複製」**をクリックします。
@@ -37,7 +37,7 @@ subcollection: BlockStorage
 
 元の 1 次サイトに実動を戻す場合は、以下のステップを実行する必要があります。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインして、左上にある**「メニュー」**アイコンをクリックします。**「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインして、左上にある**「メニュー」**アイコンをクリックします。 **「クラシック・インフラストラクチャー」**を選択します。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. LUN 名をクリックし、スナップショット・スケジュールを作成します (まだ存在していない場合)。
 

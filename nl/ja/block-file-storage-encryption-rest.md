@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ subcollection: BlockStorage
 
 ## 暗号化機能を備えたストレージのプロビジョン
 
-プロバイダー管理の保存中の暗号化機能は、[限定されたデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)でプロビジョンされる {{site.data.keyword.blockstorageshort}} で使用可能です。 それらのデータ・センターで注文されたすべてのストレージは、自動的に暗号化されてプロビジョンされます。
+プロバイダー管理の保存データの暗号化機能は、[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)でプロビジョンされる {{site.data.keyword.blockstorageshort}} に対して使用できます。それらのデータ・センターで注文されたすべてのストレージは、自動的に暗号化されてプロビジョンされます。
 
 {{site.data.keyword.blockstorageshort}} を注文するときに、アスタリスク (`*`) で示されたデータ・センターを選択します。 「LUN/ボリューム名」フィールドの右に、ボリュームが暗号化されていることを示すロック・アイコンが表示されます。
 

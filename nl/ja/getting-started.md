@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -73,12 +73,16 @@ subcollection: BlockStorage
 ## 注文の送信
 {: #submitorder}
 
-注文を送信する準備ができたら、[コンソール](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)または [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) を通してその注文を出すことができます。
+注文を送信する準備ができたら、[コンソール](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)、[SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)、または [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order) を使用して注文することができます。
+
+API を使用した {{site.data.keyword.blockstorageshort}} の注文については、[order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external} を参照してください。
+すべての新規機能を利用できるようにするには、「`Storage-as-a-Service Package 759`」を発注してください。
+{:tip}
 
 ## 新規ストレージの接続
 {: #mountingstorage}
 
-プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
+プロビジョニング要求が完了したら、ホストに対して新規ストレージへのアクセスを許可し、接続を構成します。 ホストのオペレーティング・システムに応じて、適切なリンクをたどってください。
 - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -87,4 +91,4 @@ subcollection: BlockStorage
 
 ## 新しいストレージの管理
 
-ポータルまたは SLCLI により、ホストの許可や取り消しなど、{{site.data.keyword.blockstorageshort}} のさまざまな側面を管理できます。詳しくは、[{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)を参照してください。
+ポータルまたは SLCLI により、ホストの許可や取り消しなど、{{site.data.keyword.blockstorageshort}} のさまざまな側面を管理できます。 詳しくは、[{{site.data.keyword.blockstorageshort}}の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)を参照してください。

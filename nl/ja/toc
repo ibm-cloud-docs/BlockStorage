@@ -1,13 +1,13 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started" path="infrastructure/BlockStorage"}
+{: .toc subcollection="BlockStorage" category="storage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started" path="infrastructure/BlockStorage"}
 IBM Cloud Storage - ブロック・ストレージ
 
     {: .navgroup id="learn"}
     getting-started.md
     index.md
-    new-ibm-block-and-file-storage-location-and-features.md
+    selectdatacenters.md
     snapshots.md
     {: .navgroup-end}
 

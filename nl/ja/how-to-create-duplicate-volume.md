@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 データ・コピーが完了すると、複製は、完全に独立したボリュームとして管理したり使用したりできるようになります。
 
-この機能は、ほとんどのロケーションで使用できます。 詳しくは、[使用可能なデータ・センターのリスト](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)を参照してください。
+この機能は、ほとんどのロケーションで使用できます。 詳しくは、[使用可能なデータ・センターのリスト](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)を参照してください。
 
 {{site.data.keyword.containerlong}} の「専用」アカウント・ユーザーである場合は、[{{site.data.keyword.containerlong_notm}} 資料](/docs/containers?topic=containers-block_storage#block_backup_restore)にある、ボリュームを複製するためのオプションを参照してください。
 {:tip}

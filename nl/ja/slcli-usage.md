@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} の SLCLI コマンド
 {: #SLCLIcommands}
 
-通常は [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}で処理する操作を、SLCLI を使用して実行することができます。例えば、新規ボリュームやスナップショット・スペースおよびレプリケーションの注文、許可の更新、ボリュームのキャンセルなどを、SLCLI で行うことができます。
+通常は [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}で処理する操作を、SLCLI を使用して実行することができます。 例えば、新規ボリュームやスナップショット・スペースおよびレプリケーションの注文、許可の更新、ボリュームのキャンセルなどを、SLCLI で行うことができます。
 
 SLCLI をインストールして使用する方法について詳しくは、[Python API クライアント](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}を参照してください。
 {:tip}

@@ -180,14 +180,14 @@ Options:
 
     RHEL 7 および CentOS 7 では「No fc_host device」が返される場合がありますが、これは無視してかまいません。
 
-5. {{site.data.keyword.cloud}} コンソールから取得した IQN で `/etc/iscsi/initiatorname.iscsi` ファイルを更新します。値を小文字で入力します。
+5. {{site.data.keyword.cloud}} コンソールから取得した IQN で `/etc/iscsi/initiatorname.iscsi` ファイルを更新します。 値を小文字で入力します。
 
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
 
-6. {{site.data.keyword.cloud}} コンソールから取得したユーザー名とパスワードを使用して `/etc/iscsi/iscsid.conf` 内の CHAP 設定を編集します。CHAP 名には大文字を使用します。
+6. {{site.data.keyword.cloud}} コンソールから取得したユーザー名とパスワードを使用して `/etc/iscsi/iscsid.conf` 内の CHAP 設定を編集します。 CHAP 名には大文字を使用します。
    ```
    node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>

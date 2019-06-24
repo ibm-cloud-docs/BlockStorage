@@ -40,7 +40,7 @@ Options:
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 {: #mountWin}
 
-以下のステップを実行して、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続します。この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
+以下のステップを実行して、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続します。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
 
 ### MPIO 機能の構成
 
@@ -121,7 +121,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
 6. 「ターゲットへの接続」ダイアログ・ボックスで、**「複数パスを有効にする」**チェック・ボックスを選択します。 **「詳細設定」**をクリックします。
 7. 「詳細設定」ウィンドウで、以下のようにします。
    - 「ローカル アダプタ」リストで、「Microsoft iSCSI イニシエーター」を選択します。
-   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
+   - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
    - 「ターゲット ポータル IP」リストで、ストレージ・デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
 
      2 番目の IP アドレスは、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic/storage){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面にあります。

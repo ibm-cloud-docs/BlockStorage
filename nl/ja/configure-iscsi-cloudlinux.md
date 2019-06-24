@@ -24,7 +24,7 @@ subcollection: BlockStorage
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic){: external}を介して事前に許可されていることを確認してください。
 {:tip}
 
-1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。**「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。 **「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
 3. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
 4. **「ホストの許可」**をクリックします。
