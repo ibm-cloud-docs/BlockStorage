@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 기존 {{site.data.keyword.blockstorageshort}}을 개선된 {{site.data.keyword.blockstorageshort}}로 업그레이드
 {: #migratestorage}
 
-개선된 {{site.data.keyword.blockstoragefull}}는 이제 데이터 센터 선택에서 사용할 수 있습니다. 업그레이드된 데이터 센터 및 사용 가능한 기능(예: 조정 가능한 IOPS 속도 및 확장 가능한 볼륨) 목록을 보려면 [여기](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)를 클릭하십시오. 제공자 관리 암호화된 스토리지에 대한 자세한 정보는 [{{site.data.keyword.blockstorageshort}} 저장 시 암호화](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)를 참조하십시오.
+고급 {{site.data.keyword.blockstoragefull}}는 이제 대부분의 [데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 사용할 수 있습니다.
 
 선호하는 마이그레이션 경로는 두 LUN 모두에 동시 연결되고 임의의 LUN에서 다른 LUN으로 데이터를 직접 전송합니다. 스펙은 운영 체제 및 데이터가 복사 오퍼레이션 중에 변경되는지 여부에 따라 다릅니다.
 

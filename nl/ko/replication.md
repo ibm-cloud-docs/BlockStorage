@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -43,7 +43,7 @@ subcollection: BlockStorage
 1. 스토리지 볼륨을 클릭하십시오.
 2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
 3. 복제에서 사용하려는 기존 스냅샷 스케줄을 선택하십시오. 목록에는 모든 활성 스냅샷 스케줄이 포함됩니다. <br />
-   시간별, 일별, 주별이 혼합되어 있어도 스케줄은 하나만 선택할 수 있습니다. 이전 복제 주기 이후에 캡처된 모든 스냅샷은 이를 생성한 스케줄에 상관없이 복제됩니다.<br />설정된 스냅샷이 없는 경우, 복제 주문 전에 이를 수행하도록 프롬프트됩니다. 세부사항은 [스냅샷 관련 작업](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)을 참조하십시오.
+   시간별, 일별, 주별이 혼합되어 있어도 스케줄은 하나만 선택할 수 있습니다. 이전 복제 주기 이후에 캡처된 모든 스냅샷은 이를 생성한 스케줄에 상관없이 복제됩니다.<br />설정된 스냅샷이 없는 경우, 복제 주문 전에 이를 수행하도록 프롬프트됩니다. 자세한 정보는 [스냅샷 작업](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)을 참조하십시오.
    {:important}
 3. **위치**를 클릭하고 DR 사이트가 되는 데이터 센터를 선택하십시오.
 4. **계속**을 클릭하십시오.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 데이터 복사가 완료되면 복제본은 독립된 볼륨으로 관리 및 사용될 수 있습니다.
 
-이 기능은 대부분의 위치에서 사용할 수 있습니다. 자세한 정보는 [사용 가능한 데이터 센터 목록](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)을 참조하십시오.
+이 기능은 대부분의 위치에서 사용할 수 있습니다. 자세한 정보는 [사용 가능한 데이터 센터 목록](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)을 참조하십시오.
 
 {{site.data.keyword.containerlong}}의 데디케이티드 계정 사용자인 경우에는 [{{site.data.keyword.containerlong_notm}} 문서](/docs/containers?topic=containers-block_storage#block_backup_restore)에서 볼륨 복제에 대한 옵션을 참조하십시오.
 {:tip}
@@ -88,41 +88,53 @@ SLCLI에서 다음 명령을 사용하여 복제 {{site.data.keyword.blockstorag
 
 ```
 # slcli block volume-duplicate --help
-사용법: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
+Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
 
-옵션:
+Options:
   -o, --origin-snapshot-id INTEGER
-                                  복제에 사용할 원래 볼륨 스냅샷의 ID.
-  -c, --duplicate-size INTEGER    복제 블록 볼륨의 크기(GB). ***크기가
-                                  지정되지 않은 경우 원래 볼륨의 크기가
-                                  사용됩니다.***
-                                  가능한 크기:
+                                  ID of an origin volume snapshot to use for
+                                  duplcation.
+  -c, --duplicate-size INTEGER    Size of duplicate block volume in GB. ***If
+                                  no size is specified, the size of the origin
+                                  volume will be used.***
+                                  Potential Sizes:
                                   [20, 40, 80, 100, 250, 500, 1000, 2000,
-                                  4000, 8000, 12000] 최소: [원래 볼륨의
-                                  크기]
-  -i, --duplicate-iops INTEGER    Performance 스토리지 IOPS(100 - 6000 사이의
-                                  100의 배수) [Performance 볼륨에만 사용됨]
-                                  ***IOPS 값이 지정되지 않는 경우 원래
-                                  볼륨의 IOPS 값이 사용됩니다.***
-                                  요구사항: [원래 볼륨의 IOPS/GB가 0.3 미만인
-                                  경우 복제 볼륨의 IOPS/GB도 0.3 미만이어야
-                                  합니다. 원래 볼륨의 IOPS/GB가 0.3 이상인 경우
-                                  복제 볼륨의 IOPS/GB도 0.3 이상이어야 합니다.]
+                                  4000, 8000, 12000] Minimum: [the size of the
+                                  origin volume]
+  -i, --duplicate-iops INTEGER    Performance Storage IOPS, between 100 and
+                                  6000 in multiples of 100 [only used for
+                                  performance volumes] ***If no IOPS value is
+                                  specified, the IOPS value of the origin
+                                  volume will be used.***
+                                  Requirements: [If
+                                  IOPS/GB for the origin volume is less than
+                                  0.3, IOPS/GB for the duplicate must also be
+                                  less than 0.3. If IOPS/GB for the origin
+                                  volume is greater than or equal to 0.3,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than or equal to 0.3.]
   -t, --duplicate-tier [0.25|2|4|10]
-                                  Endurance 스토리지 티어(IOPS/GB) [Endurance
-                                  볼륨에만 사용됨] ***티어가 지정되지 않은 경우
-                                  원래 볼륨의 티어가 사용됩니다.***
-                                  요구사항: [원래 볼륨의 IOPS/GB가 0.25인 경우
-                                  복제 볼륨의 IOPS/GB도 0.25여야 합니다. 원래 볼륨의 IOPS/GB가 0.25보다 큰 경우
-                                  복제 볼륨의 IOPS/GB도 0.25보다 커야 합니다.
+                                  Endurance Storage Tier (IOPS per GB) [only
+                                  used for endurance volumes] ***If no tier is
+                                  specified, the tier of the origin volume
+                                  will be used.***
+                                  Requirements: [If IOPS/GB
+                                  for the origin volume is 0.25, IOPS/GB for
+                                  the duplicate must also be 0.25. If IOPS/GB
+                                  for the origin volume is greater than 0.25,
+                                  IOPS/GB for the duplicate must also be
+                                  greater than 0.25.]
   -s, --duplicate-snapshot-size INTEGER
-                                  복제를 위해 주문할 스냅샷 영역의 크기. *** 스냅샷 영역 크기가 지정되지 않은 경우
-                                  원래 블록 볼륨의 스냅샷 영역 크기가
-                                  사용됩니다.***
-                                  스냅샷 영역이 없는 복제 볼륨을 주문하려면
-                                  이 매개변수에 "0"을 입력하십시오.
-  --billing [hourly|monthly]      청구 비율에 대한 선택적 매개변수(기본값 monthly)
-  -h, --help                      이 메시지를 표시하고 종료합니다.
+                                  The size of snapshot space to order for the
+                                  duplicate. ***If no snapshot space size is
+                                  specified, the snapshot space size of the
+                                  origin block volume will be used.***
+                                  Input
+                                  "0" for this parameter to order a duplicate
+                                  volume with no snapshot space.
+  --billing [hourly|monthly]      Optional parameter for Billing rate (default
+                                  to monthly)
+  -h, --help                      Show this message and exit.
 ```
 {:codeblock}
 

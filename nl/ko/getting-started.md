@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -45,14 +45,14 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 
 |블록 크기(KB) |IOPS |처리량(MB/s) |
 |-----|-----|-----|
-|4 |1,000 |16 |
-|8 |1,000 |16 |
-|16 |1,000 |16 |
-|32 |500 |16 |
-|64 |250 |16 |
-|128 |128 |16 |
-|512 |32 |16 |
-|1024 |16 |16 |
+| 4 | 1,000 | 16 |
+| 8 | 1,000 | 16 |
+| 16 | 1,000 | 16 |
+| 32 | 500 | 16 |
+| 64 | 250 | 16 |
+| 128 | 128 | 16 |
+| 512 | 32 | 16 |
+| 1024 | 16 | 16 |
 {: caption="표 1에는 블록 크기 및 IOPS가 처리량에 미치는 영향에 대한 예가 표시되어 있습니다.<br/평균 IO 크기 x IOPS = 처리량(MB/초)" caption-side="top"}
 
 ### 권한 부여된 호스트
@@ -73,7 +73,11 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 ## 주문 제출
 {: #submitorder}
 
-주문을 제출할 준비가 되면 [콘솔](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)이나 [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)를 통해 주문을 제출하십시오.
+주문을 제출할 준비가 되면 [콘솔](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) 또는 [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order)를 통해 주문을 제출하십시오.
+
+API를 통해 {{site.data.keyword.blockstorageshort}}를 주문하는 데 관한 정보는 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}을 참조하십시오.
+새 기능에 모두 액세스할 수 있으려면 `Storage-as-a-Service Package 759`를 주문하십시오.
+{:tip}
 
 ## 새 스토리지 연결
 {: #mountingstorage}

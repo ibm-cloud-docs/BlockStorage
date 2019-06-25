@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 
 볼륨에 대한 비용 청구는 현재 비용 청구 주기에 대해 새 가격의 비례 배분된 금액 차이가 추가되도록 자동으로 업데이트됩니다. 그런 다음 비용 청구 주기에는 신규 비용 전체가 청구됩니다.
 
-이 기능은 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)에 사용할 수 있습니다.
+이 기능은 [대부분의 데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에 사용할 수 있습니다.
 
 ## 확장 가능 스토리지의 이점
 
@@ -38,7 +38,7 @@ subcollection: BlockStorage
 ## 제한사항
 {: #limitsofexpandingstorage}
 
-이 기능은 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)에서 프로비저닝된 스토리지에 사용할 수 있습니다.
+이 기능은 [대부분의 데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 프로비저닝된 스토리지에 사용할 수 있습니다.
 
 이 기능이 릴리스되기 전에 **2017년 4월 - 2017년 12월 14일** 동안 이러한 데이터 센터에서 프로비저닝된 스토리지는 원래 크기의 10배로만 늘어날 수 있습니다. **2017년 12월 14일** 이후에 프로비저닝된 스토리지는 최대 12TB까지 확장이 가능합니다.
 
@@ -58,28 +58,37 @@ Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대�
 
 ```
 # slcli block volume-modify --help
-사용법: slcli block volume-modify [OPTIONS] VOLUME_ID
+Usage: slcli block volume-modify [OPTIONS] VOLUME_ID
 
-옵션:
-  -c, --new-size INTEGER        블록 볼륨의 새 크기(GB). ***크기가 제공되지
-                                않은 경우 볼륨의 원래 크기가 사용됩니다.***
-                                가능한 크기: [20, 40, 80, 100, 250, 500,
-                                1000, 2000, 4000, 8000, 12000]
-                                최소: [볼륨의 원래 크기]
-  -i, --new-iops INTEGER        Performance 스토리지 IOPS(100 - 6000 사이의
-                                100의 배수) [Performance 볼륨에만 해당]
-                                ***IOPS 값이 지정되지 않은 경우 볼륨의
-                                원래 IOPS 값이 사용됩니다.***
-                                요구사항: [볼륨의 원래 IOPS/GB가 0.3 미만인
-                                경우 새 IOPS/GB도 0.3 미만이어야 합니다. 볼륨의 원래 IOPS/GB가 0.3 이상인 경우 볼륨의
-                                새 IOPS/GB도 0.3 이상이어야 합니다.]
-  -t, --new-tier [0.25|2|4|10]  Endurance 스토리지 티어(IOPS/GB) [Endurance
-                                볼륨에만 해당] ***티어가 지정되지 않은 경우
-                                볼륨의 원래 티어가 사용됩니다.***
-                                요구사항: [볼륨의 원래 IOPS/GB가 0.25인 경우
-                                볼륨의 새 IOPS/GB도 0.25여야 합니다. 볼륨의 원래 IOPS/GB가 0.25보다 큰 경우
-                                볼륨의 새 IOPS/GB도 0.25보다 커야 합니다.]
-  -h, --help                    이 메시지를 표시하고 종료합니다.
+Options:
+  -c, --new-size INTEGER        New Size of block volume in GB. ***If no size
+                                is given, the original size of volume is
+                                used.***
+                                Potential Sizes: [20, 40, 80, 100,
+                                250, 500, 1000, 2000, 4000, 8000, 12000]
+                                Minimum: [the original size of the volume]
+  -i, --new-iops INTEGER        Performance Storage IOPS, between 100 and 6000
+                                in multiples of 100 [only for performance
+                                volumes] ***If no IOPS value is specified, the
+                                original IOPS value of the volume will be
+                                used.***
+                                Requirements: [If original IOPS/GB
+                                for the volume is less than 0.3, new IOPS/GB
+                                must also be less than 0.3. If original
+                                IOPS/GB for the volume is greater than or
+                                equal to 0.3, new IOPS/GB for the volume must
+                                also be greater than or equal to 0.3.]
+  -t, --new-tier [0.25|2|4|10]  Endurance Storage Tier (IOPS per GB) [only for
+                                endurance volumes] ***If no tier is specified,
+                                the original tier of the volume will be
+                                used.***
+                                Requirements: [If original IOPS/GB
+                                for the volume is 0.25, new IOPS/GB for the
+                                volume must also be 0.25. If original IOPS/GB
+                                for the volume is greater than 0.25, new
+                                IOPS/GB for the volume must also be greater
+                                than 0.25.]
+  -h, --help                    Show this message and exit.
 ```
 {:codeblock}
 

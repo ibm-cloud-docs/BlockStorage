@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ subcollection: BlockStorage
 
 ## 암호화를 사용하여 스토리지 프로비저닝
 
-제공자 관리 저장 시 암호화 기능은 [데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)에서 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 사용할 수 있습니다. 해당 데이터 센터에서 주문되는 모든 스토리지는 암호화를 사용하여 자동으로 프로비저닝됩니다.
+제공자 관리 저장 시 암호화 기능은 [대부분의 데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 사용할 수 있습니다. 해당 데이터 센터에서 주문되는 모든 스토리지는 암호화를 사용하여 자동으로 프로비저닝됩니다.
 
 {{site.data.keyword.blockstorageshort}} 주문 시, 별표(`*`)가 있는 데이터 센터를 선택하십시오. 볼륨이 암호화되어 있음을 나타내는 잠금 아이콘이 LUN/볼륨 이름 필드의 오른쪽에 표시됩니다.
 

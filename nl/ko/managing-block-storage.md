@@ -49,7 +49,7 @@ subcollection: BlockStorage
 또는 SLCLI에서 다음 명령을 사용할 수 있습니다.
 ```
 # slcli block access-authorize --help
-사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
   -h, --hardware-id TEXT    The ID of a hardware server to authorize.
@@ -83,7 +83,7 @@ Options:
 
 연결에 필요한 정보(LUN 이름, 스토리지 유형, 대상 주소, 용량, 위치)를 포함하여 호스트가 액세스 권한이 있는 LUN을 볼 수 있습니다.
 
-1. **디바이스** -> **디바이스 목록**을 클릭하고 적절한 디바이스를 클릭하십시오.
+1. [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}에서 **디바이스** -> **디바이스 목록**을 클릭하고 적절한 디바이스를 클릭하십시오.
 2. **스토리지** 탭을 선택하십시오.
 
 이 특정 호스트가 액세스할 수 있는 스토리지 목록이 표시됩니다. 목록은 스토리지 유형(블록, 파일, 기타)별로 그룹화되어 표시됩니다. **조치**를 클릭하여 추가 스토리지를 권한 부여하거나 액세스 권한을 제거할 수 있습니다.

@@ -372,7 +372,7 @@ Options:
 | `Select partition 1.` |파티션 1이 특정 유형으로 설정되도록 선택합니다. |
 | `Hex code: 83` |유형으로 Linux를 선택합니다(83은 Linux의 16진 코드). ** |
 | `Command: w` |디스크에 새 파티션 정보를 기록합니다. ** |
-{: caption="표 1 - <codefdisk</code> 명령 표의 왼쪽에는 명령이 표시되고 오른쪽에는 예상되는 결과가 표시됩니다." caption-side="top"}
+{: caption="표 1 - <code>fdisk</code> 명령 표의 왼쪽에는 명령이 표시되고 오른쪽에는 예상되는 결과가 표시됩니다." caption-side="top"}
 
 (`*`)도움말을 보려면 m을 입력하십시오.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -21,9 +21,9 @@ subcollection: BlockStorage
 
 LUKS(Linux Unified Key Setup-on-disk-format)를 사용하면 RHEL6 서버에서 파티션을 암호화할 수 있으며 이는 모바일 컴퓨터 및 이동식 매체에서 사용하는 경우에 중요합니다. LUKS를 사용하면 다중 사용자 키로 파티션의 벌크 암호화에 사용되는 마스터 키를 복호화할 수 있습니다.
 
-이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않았으며 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 수 있는 것으로 가정합니다. Linux 호스트에 {{site.data.keyword.blockstorageshort}} 연결에 대한 자세한 정보는 [Linux에서 iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)을 참조하십시오.
+이 단계에서는 서버가 형식화되지 않았거나 마운트되지 않았으며 암호화되지 않은 새 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스할 수 있는 것으로 가정합니다. Linux 호스트에 {{site.data.keyword.blockstorageshort}} 연결에 대한 자세한 정보는 [Linux에서 스토리지에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)을 참조하십시오.
 
-[데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)에서 프로비저닝된 {site.data.keyword.blockstorageshort}}는 저장 중에 제공자 관리 암호화를 통해 자동으로 프로비저닝됩니다. 자세한 정보는 [저장 중 데이터 제공자 관리 암호화 보안](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)을 참조하십시오.
+[대부분의 데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 프로비저닝된 {site.data.keyword.blockstorageshort}}는 제공자 관리 저장 시 암호화를 통해 자동으로 프로비저닝됩니다. 자세한 정보는 [데이터 제공자 관리 저장 시 암호화 보안](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)을 참조하십시오.
 {:note}
 
 ## LUKS가 수행하는 작업

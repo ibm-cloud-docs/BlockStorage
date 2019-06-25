@@ -34,7 +34,7 @@ subcollection: BlockStorage
 또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
 ```
 # slcli block access-authorize --help
-사용법: slcli block access-authorize [OPTIONS] VOLUME_ID
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
   -h, --hardware-id TEXT    The ID of one hardware server to authorize.

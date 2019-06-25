@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,13 +32,13 @@ subcollection: BlockStorage
    - 개별 볼륨에 대해 프로토콜 레벨의 IOPS 할당을 통해 제공됩니다.
 - **뛰어난 내구성 및 복원성**
    - 데이터 무결성을 보호하고 개별 디스크(RAID) 배열에 대한 운영 체제 레벨의 중복 배열을 작성 및 관리할 필요없이 유지보수 이벤트 및 플랜되지 않은 실패를 통해 가용성을 유지보수합니다.
-- **비활성 데이터(Data-At-Rest) 암호화**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
-   - 비활성 데이터(Data-At-Rest)에 대한 제공자 관리 암호화
-- **모든 플래시 지원 스토리지**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **저장 데이터 암호화**([대부분의 데이터 센터에서 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
+   - 저장 데이터에 대한 제공자 관리 암호화
+- **모든 플래시 지원 스토리지**([대부분의 데이터 센터에서 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - 2 IOPS/GB 이상 레벨로 Endurance및 Performance를 사용하여 프로비저닝된 볼륨에 대한 모든 플래시 스토리지
-- **스냅샷**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **스냅샷**([대부분의 데이터 센터에서 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - 중단 없이 특정 시점의 데이터 스냅샷 캡처
-- **복제**([데이터 센터 선택 시 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **복제**([대부분의 데이터 센터에서 사용 가능](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - 파트너 {{site.data.keyword.cloud}} 데이터 센터에 스냅샷 자동 복사
 - **고가용성의 연결**
    - 가용성을 극대화하기 위해 중복 네트워킹 연결 사용
@@ -68,7 +68,7 @@ Endurance{{site.data.keyword.blockstorageshort}}는 다양한 애플리케이션
 
 - **4 IOPS/GB**는 집약도 높은 워크로드를 대상으로 디자인되었습니다. 일반적으로 해당 워크로드는 임의 시점에 활성 데이터의 비율이 높은 특성이 있습니다. 예를 들어, 트랜잭션 데이터베이스 또는 그 외 성능에 민감한 데이터베이스가 이에 해당합니다.
 
-- **10 IOPS/GB**는 NoSQL 데이터베이스로 작성된 워크로드 및 분석을 위한 데이터 처리와 같이 가장 수요가 많은 워크로드를 대상으로 디자인되었습니다. 이 티어는 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) 시에만 최대 4TB의 스토리지 프로비저닝에 사용할 수 있습니다.
+- **10 IOPS/GB**는 NoSQL 데이터베이스로 작성된 워크로드 및 분석을 위한 데이터 처리와 같이 가장 수요가 많은 워크로드를 대상으로 디자인되었습니다. 이 티어는 [대부분의 데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 최대 4TB의 스토리지 프로비저닝에 사용할 수 있습니다.
 
 12TB Endurance 볼륨으로 최대 48,000IOPS까지 사용 가능합니다.
 
@@ -100,7 +100,7 @@ Performance는 Endurance티어 내에는 잘 맞지 않는 성능 요구사항�
 {: caption="표 비교" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![각주](/images/numberone.png) *6,000보다 큰 IOPS 한계는 특정 데이터 센터에서 사용 가능합니다.*
+![각주](/images/numberone.png) *6,000보다 큰 IOPS 한계는 대부분의 데이터 센터에서 사용 가능합니다.*
 
 Performance 볼륨은 프로비저닝된 IOPS 레벨과 계속 근접하게 작동하도록 디자인되었습니다. 일관성이 있으며 특정 성능 레벨로 애플리케이션 환경을 크기 조정하고 스케일링하기 쉬워집니다. 또한 이상적인 가격 대 성능 비율의 볼륨을 빌드하여 환경을 최적화할 수 있습니다.
 
@@ -109,14 +109,14 @@ Performance 볼륨은 프로비저닝된 IOPS 레벨과 계속 근접하게 작�
 
 블록 LUN에 대해 시간별 또는 월별 비용 청구를 선택할 수 있습니다. LUN에 대해 선택한 비용 청구 유형은 해당 스냅샷 영역 및 복제본에 적용됩니다. 예를 들어, LUN을 시간별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 시간별로 청구됩니다. LUN을 월별 비용 청구로 프로비저닝하는 경우, 모든 스냅샷 및 복제본 비용은 월별로 청구됩니다.
 
- * **시간별 비용 청구**를 사용하면 계정에서 블록 LUN이 존재하는 시간은 LUN이 삭제되는 시점 또는 비용 청구 주기 종료 시점(둘 중 빠른 경우)에 계산합니다. 시간별 비용 청구는 며칠 정도 또는 한 달 미만으로 사용되는 스토리지에 적합합니다. 시간별 비용 청구는 [데이터 센터 선택](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)에서 프로비저닝된 스토리지에만 사용할 수 있습니다.
+ * **시간별 비용 청구**를 사용하면 계정에서 블록 LUN이 존재하는 시간은 LUN이 삭제되는 시점 또는 비용 청구 주기 종료 시점(둘 중 빠른 경우)에 계산합니다. 시간별 비용 청구는 며칠 정도 또는 한 달 미만으로 사용되는 스토리지에 적합합니다. 시간별 비용 청구는 [대부분의 데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에 사용할 수 있습니다.
 
  * **월별 비용 청구**를 사용하는 경우, 비용 계산은 작성 날짜부터 비용 청구 주기 종료 시점까지 비례 배분되며 즉시 청구됩니다. 비용 청구 주기 종료 전에 LUN이 삭제되는 경우에는 환불되지 않습니다. 월별 비용 청구는 장시간(한달 이상) 저장 및 액세스해야 하는 데이터를 사용하는 프로덕션 워크로드에서 사용되는 스토리지에 적합합니다.
 
 ### Endurance
 {: #pricing-comparison-endurance}
 
-| 사전 정의된 IOPS 티어의 가격 옵션 |0.25IOPS |2 IOPS/GB |4 IOPS/GB |10 IOPS/GB |
+| 사전 정의된 IOPS 티어의 가격 옵션 |0.25IOPS |2IOPS/GB |4IOPS/GB |10IOPS/GB |
 |-----|-----|-----|-----|-----|
 |월별 가격 |$0.06/GB |$0.15/GB |$0.20/GB |$0.58/GB |
 |시간별 가격 |$0.0001/GB |$0.0002/GB |$0.0003/GB |$0.0009/GB |

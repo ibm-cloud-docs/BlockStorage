@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 일반적으로 [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}을 통해 주문하는 제품을 주문하는 데 SLCLI를 사용할 수 있습니다. SL API에서, 주문은 여러 주문 컨테이너로 구성됩니다. 주문 CLI는 하나의 주문 컨테이너와만 작동합니다.
 
-SLCLI 설치 및 사용 방법에 대한 자세한 정보는 [Python API 클라이언트](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}를 참조하십시오.
+SLCLI 설치 및 사용 방법에 대한 자세한 정보는 [Python CLI 클라이언트](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}를 참조하십시오.
 {:tip}
 
 ## 사용 가능한 {{site.data.keyword.blockstorageshort}} 오퍼 검색
