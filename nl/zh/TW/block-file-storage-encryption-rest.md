@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ subcollection: BlockStorage
 
 ## 佈建具有加密的儲存空間
 
-提供者管理的靜態加密特性適用於[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內所佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內訂購的所有儲存空間，佈建時都會自動具有加密。
+提供者管理的靜態加密特性適用於[大部分資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內所佈建的 {{site.data.keyword.blockstorageshort}}。在這些資料中心內訂購的所有儲存空間，佈建時都會自動具有加密。
 
 訂購 {{site.data.keyword.blockstorageshort}} 時，請選取已註記星號 (`*`) 的資料中心。您可以看到「LUN/磁區名稱」欄位的右側有一個鎖定圖示，這表示磁區已加密。
 

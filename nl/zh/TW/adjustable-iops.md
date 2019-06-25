@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 ## 限制
 {: #limitsofIOPSadjustment}
 
-只有[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內才提供此特性。
+[大部分資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內提供此特性。
 
 用戶端在調整其 IOPS 時無法切換「耐久性」與「效能」。不過，他們可以依據下列準則和限制，指定儲存空間的新 IOPS 層級或 IOPS 層次：
 

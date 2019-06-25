@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -73,7 +73,11 @@ subcollection: BlockStorage
 ## 提交訂單
 {: #submitorder}
 
-當您準備好提交訂單時，可以透過[主控台](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)或 [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) 下訂單。
+當您準備好提交訂單時，可以透過[主控台](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole)、[SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) 或 [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order) 下訂單。
+
+如需透過 API 來訂購 {{site.data.keyword.blockstorageshort}} 的相關資訊，請參閱 [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}。
+若要能夠存取所有新增特性，請訂購 `Storage-as-a-Service Package 759`。
+{:tip}
 
 ## 連接新的儲存空間
 {: #mountingstorage}

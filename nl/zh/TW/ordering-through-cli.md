@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 您可以使用 SLCLI 來訂購通常是透過 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}來訂購的產品。在 SL API 中，一張訂單可能是由多重訂單容器所組成。訂單 CLI 只能用於一個訂單容器。
 
-若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python API 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
+若要進一步瞭解如何安裝及使用 SLCLI，請參閱 [Python CLI 用戶端](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
 
 ## 搜尋可用的 {{site.data.keyword.blockstorageshort}} 供應項目

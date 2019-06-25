@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -93,7 +93,7 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 為什麼可以在某些資料中心內訂購具有「耐久性 10 IOPS/GB」層級的 {{site.data.keyword.blockstorageshort}}，但不能在其他資料中心內進行？
 {: faq}
 
-「耐久性」類型 {{site.data.keyword.blockstorageshort}} 的 10 IOPS/GB 層級只能用於精選資料中心，並且正在逐步新增新的資料中心。您可以在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)找到完整的已升級資料中心及可用特性清單。
+「耐久性」類型 {{site.data.keyword.blockstorageshort}} 的 10 IOPS/GB 層級適用於大部分[資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)。
 
 ## 如何分辨哪些 {{site.data.keyword.blockstorageshort}} 磁區已加密？
 {: faq}
@@ -103,12 +103,12 @@ IOPS 根據具有隨機 50% 讀取及 50% 寫入之 16 KB 區塊的載入設定�
 ## 如何知道是否在已升級資料中心內佈建 {{site.data.keyword.blockstorageshort}}？
 {: faq}
 
-當您訂購 {{site.data.keyword.blockstorageshort}} 時，會在訂單表格中以星號 (`*`) 表示所有已升級的資料中心，並指出您即將佈建具有加密的儲存空間。佈建儲存空間時，您可以在儲存空間清單中看到一個圖示，顯示該儲存空間已加密。所有已加密的磁區及 LUN 都只會佈建在已升級的資料中心內。您可以在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)找到完整的已升級資料中心及可用特性清單。
+當您訂購 {{site.data.keyword.blockstorageshort}} 時，會在訂單表格中以星號 (`*`) 表示所有已升級的資料中心，並指出您即將佈建具有加密的儲存空間。佈建儲存空間時，您可以在儲存空間清單中看到一個圖示，顯示該儲存空間已加密。所有已加密的磁區及 LUN 都只會佈建在已升級的資料中心內。您可以在[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)找到完整的已升級資料中心及可用特性清單。
 
 ## 如果我們在最近升級的資料中心擁有未加密的 {{site.data.keyword.blockstorageshort}}，可以加密該 {{site.data.keyword.blockstorageshort}} 嗎？
 {: faq}
 
-無法加密在資料中心升級之前所佈建的 {{site.data.keyword.blockstorageshort}}。佈建在已升級資料中心內的新 {{site.data.keyword.blockstorageshort}} 會自動加密。沒有任何加密設定可供選擇，它是自動的。您可以加密已升級資料中心內未加密儲存空間的資料，方法是建立新的「區塊 LUN」，然後利用主機型移轉，將資料複製到新的加密 LUN。如需指示，請按一下[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)。
+無法加密在資料中心升級之前所佈建的 {{site.data.keyword.blockstorageshort}}。佈建在已升級資料中心內的新 {{site.data.keyword.blockstorageshort}} 會自動加密。沒有任何加密設定可供選擇，它是自動的。您可以加密已升級資料中心內未加密儲存空間的資料，方法是建立 LUN，然後利用主機型移轉，將資料複製到新的加密 LUN。如需相關資訊，請參閱[將現有的 {{site.data.keyword.blockstorageshort}} 升級至加強型 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)。
 
 ## {{site.data.keyword.blockstorageshort}} 是否支援「SCSI-3 持續保留」來實作 Db2 pureScale 的 I/O 隔離？
 {: faq}

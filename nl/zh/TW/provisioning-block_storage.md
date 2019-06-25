@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -32,7 +32,7 @@ subcollection: BlockStorage
 2. 選取您的部署**位置**（資料中心）。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
-     1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費只適用於這些[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內所佈建的儲存空間。
+     1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費適用於這些[資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內所佈建的儲存空間。
      2. 使用**按月**計費，價格是從建立日期到計費週期結束按比例計算，並立即計費。如果區塊 LUN 在計費週期結束之前遭到刪除，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
         
 
@@ -44,7 +44,7 @@ subcollection: BlockStorage
     - **每 GB 0.25 IOPS** 是為了低 I/O 強度的工作負載而設計。這些工作負載的特點通常是在某個時間會有大百分比的非作用中資料。應用程式範例包括儲存信箱或部門層次檔案共用。
     - **每 GB 2 IOPS** 是針對最通用用途而設計。應用程式範例包括管理小型資料庫，支持 Web 應用程式或 Hypervisor 的虛擬機器磁碟映像檔。
     - **每 GB 4 IOPS** 是為了較高強度工作負載而設計。這些工作負載的特點通常是在某個時間會有高百分比的作用中資料。應用程式範例包括交易式資料庫及其他效能相關的資料庫。
-    - **每 GB 10 IOPS** 是為了最嚴苛的工作負載（例如 NoSQL 資料庫所建立的工作負載）以及進行分析的資料處理而設計。此層級適用於[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內最多佈建 4 TB 的儲存空間。
+    - **每 GB 10 IOPS** 是為了最嚴苛的工作負載（例如 NoSQL 資料庫所建立的工作負載）以及進行分析的資料處理而設計。此層級適用於[大部分資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內最多佈建 4 TB 的儲存空間。
 7. 按一下**指定 Snapshot 空間大小**，然後從清單中選取 Snapshot 大小。這是您可以使用的空間之外的額外空間。如需 Snapshot 空間考量及建議，請閱讀[訂購 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots)。
 8. 從清單中，選擇您的 **OS 類型**。<br/>
 
@@ -67,7 +67,7 @@ subcollection: BlockStorage
 2. 按一下**位置**，然後選取資料中心。
    - 確定將新的「儲存空間」新增至與您具有的運算主機相同的位置。
 3. 計費。如果您已選取具有改良功能的資料中心（已標示星號），則可以選擇「按月計費」或「按小時計費」。
-     1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費只適用於這些[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內所佈建的儲存空間。
+     1. 使用**按小時**計費，會在刪除 LUN 或計費週期結束時，計算區塊 LUN 存在於帳戶上的小時數。看何者為先。如果儲存空間使用期間為幾天或不到一整個月，則每小時計費是一個良好的選擇。按小時計費適用於這些[資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內所佈建的儲存空間。
      2. 使用**按月**計費，價格是從建立日期到計費週期結束按比例計算，並立即計費。如果區塊 LUN 在計費週期結束之前遭到刪除，則不會退款。如果儲存空間用於正式作業工作負載，而正式作業工作負載使用需要長期（一個月或更久）儲存及存取的資料，則按月計費是一個良好的選擇。
         
 

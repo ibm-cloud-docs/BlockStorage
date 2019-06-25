@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 將現有的 {{site.data.keyword.blockstorageshort}} 升級至加強型 {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 
-精選資料中心內現在提供加強型 {{site.data.keyword.blockstoragefull}}。若要查看已升級資料中心及可用特性（例如可調整的 IOPS 速率及可擴充的磁區）的清單，請按一下[這裡](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。如需提供者管理的已加密儲存空間的相關資訊，請參閱 [{{site.data.keyword.blockstorageshort}} 靜態加密](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
+大部分[資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內現在提供加強型 {{site.data.keyword.blockstoragefull}}。
 
 偏好的移轉路徑是同時連接至兩個 LUN，並將資料直接從某個 LUN 傳送至另一個 LUN。細節會取決於作業系統，以及是否預期在複製作業期間變更資料。
 

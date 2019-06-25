@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -21,9 +21,9 @@ subcollection: BlockStorage
 
 您可以將具有 Linux Unified Key Setup-on-disk-format (LUKS) 之 RHEL6 伺服器上的分割區加密，這在涉及行動電腦及抽取式媒體時很重要。LUKS 容許使用多個使用者金鑰來解密用於分割區大量加密的主要金鑰。
 
-這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接至 Linux 主機的相關資訊，請參閱，請參閱[在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)。
+這些步驟假設伺服器可以存取尚未格式化或裝載的全新未加密 {{site.data.keyword.blockstoragefull}} 磁區。如需將 {{site.data.keyword.blockstorageshort}} 連接至 Linux 主機的相關資訊，請參閱[在 Linux 上連接至儲存空間](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)。
 
-[選取資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)中佈建的 {{site.data.keyword.blockstorageshort}}，會使用提供者管理的靜態加密自動佈建。如需相關資訊，請參閱[保護資料安全 - 提供者管理的靜態加密 (Encryption-At-Rest)](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
+[大部分資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內佈建的 {{site.data.keyword.blockstorageshort}}，會使用提供者管理的靜態加密自動佈建。如需相關資訊，請參閱[保護資料安全 - 提供者管理的靜態加密 (Encryption-At-Rest)](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 {:note}
 
 ## LUKS 可以執行的作業

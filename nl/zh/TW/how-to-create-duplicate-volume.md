@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 資料複製完成時，就可以管理重複磁區，並用來作為獨立的磁區。
 
-此特性適用於大部分位置。如需相關資訊，請參閱[可用的資料中心清單](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。
+此特性適用於大部分位置。如需相關資訊，請參閱[可用的資料中心清單](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)。
 
 如果您是 {{site.data.keyword.containerlong}} 的「專用」帳戶使用者，請參閱 [{{site.data.keyword.containerlong_notm}} 文件](/docs/containers?topic=containers-block_storage#block_backup_restore)中您用於複製磁區的選項。
 {:tip}

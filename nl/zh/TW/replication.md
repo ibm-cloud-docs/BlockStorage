@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -42,8 +42,8 @@ subcollection: BlockStorage
 2. 按一下**抄本**，然後按一下**購買抄寫**。
 
 3. 選取您要抄寫遵循的現有 Snapshot 排程。此清單包含所有作用中 Snapshot 排程。<br />
-   您只能選取一個排程，即使是混合使用每小時、每日及每週。將會抄寫自前次抄寫週期以來擷取到的所有 Snapshot，不論其原始的排程為何。<br />如果您未設定 Snapshot，則系統會先提示您這樣做，才能訂購抄寫。如需詳細資料，請參閱[使用 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)。
-   {:important}
+   您只能選取一個排程，即使是混合使用每小時、每日及每週。將會抄寫自前次抄寫週期以來擷取到的所有 Snapshot，不論其原始的排程為何。<br />如果您未設定 Snapshot，則系統會先提示您這樣做，才能訂購抄寫。如需相關資訊，請參閱[使用 Snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)。
+{:important}
 3. 按一下**位置**，然後選取作為您 DR 網站的資料中心。
 4. 按一下**繼續**。
 5. 如果您有**促銷代碼**，請輸入促銷代碼，然後按一下**重新計算**。依預設，會完成視窗中的其他欄位。

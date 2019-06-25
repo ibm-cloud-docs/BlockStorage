@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 
 會自動更新磁區的計費，以將新價格的按比例差額新增至現行計費週期。然後在下一個計費週期計算完整的新金額。
 
-[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內提供此特性。
+[大部分資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內提供此特性。
 
 ## 可擴充儲存空間的優點
 
@@ -38,7 +38,7 @@ subcollection: BlockStorage
 ## 限制
 {: #limitsofexpandingstorage}
 
-此特性適用於[精選資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)內所佈建的儲存空間。
+此特性適用於[大部分資料中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)內所佈建的儲存空間。
 
 在此特性發行之前（**2017 年 4 月 - 2017 年 12 月 14 日**期間），這些資料中心內所佈建的儲存空間可以增加至其原始大小的 10 倍，不能再更大。在 **2017 年 12 月 14 日**之後所佈建的儲存空間最多可以增加至 12 TB。
 
