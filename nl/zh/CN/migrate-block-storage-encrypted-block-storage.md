@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # 将现有 {{site.data.keyword.blockstorageshort}} 升级到增强型 {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 
-现在，增强型 {{site.data.keyword.blockstoragefull}} 在精选数据中心内提供。要查看已升级的数据中心和可用功能（例如，可调整 IOPS 速率和可扩展卷）的列表，请单击[此处](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。有关提供者管理的加密存储器的更多信息，请参阅 [{{site.data.keyword.blockstorageshort}} 静态加密](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
+现在，增强型 {{site.data.keyword.blockstoragefull}} 在大多数[数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内提供。
 
 首选迁移路径是同时连接两个 LUN，并将数据从一个 LUN 直接传输到另一个 LUN。具体操作取决于您的操作系统以及在复制操作期间数据是否会更改。
 

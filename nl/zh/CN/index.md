@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,13 +32,13 @@ subcollection: BlockStorage
    - 通过为各个卷分配协议级别的 IOPS 来提供。
 - **持久性高，弹性大**
    - 在发生维护事件和意外故障期间保护数据完整性并保持可用性，而无需创建和管理操作系统级别的独立磁盘冗余阵列 (RAID)。
-- **静态数据加密**（[在精选数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)）
+- **静态数据加密**（[在大多数数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)）
    - 免费对静态数据进行提供者管理的加密。
-- **所有支持闪存的存储器**（[在精选数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)）
+- **所有支持闪存的存储器**（[在大多数数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)）
    - 用于在 2 IOPS/GB 或更高级别供应使用“耐久性”或“性能”类型供应的卷的所有闪存存储器。
-- **快照**（[在精选数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)）
+- **快照**（[在大多数数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)）
    - 以非破坏性方式捕获时间点数据快照。
-- **复制**（[在精选数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)）
+- **复制**（[在大多数数据中心内提供](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)）
    - 自动将快照复制到合作伙伴的 {{site.data.keyword.cloud}} 数据中心。
 - **高度可用的连接**
    - 使用冗余网络连接以最大限度提高可用性
@@ -68,7 +68,7 @@ subcollection: BlockStorage
 
 - **4 IOPS/GB** 适用于高强度工作负载。这些工作负载的典型特点是在任意时间都有较高比例的活动数据。示例应用包括事务型数据库和其他性能敏感型数据库。
 
-- **10 IOPS/GB** 适用于要求最苛刻的工作负载，例如由 NoSQL 数据库创建的工作负载以及为 Analytics 进行的数据处理。此层仅在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)内提供，用于供应的最高达 4 TB 的存储器。
+- **10 IOPS/GB** 适用于要求最苛刻的工作负载，例如由 NoSQL 数据库创建的工作负载以及为 Analytics 进行的数据处理。此层在[大多数数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内提供，用于供应的最高达 4 TB 的存储器。
 
 12 TB 耐久性卷最高提供 48,000 IOPS。
 
@@ -100,7 +100,7 @@ subcollection: BlockStorage
 {: caption="表比较" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![脚注](/images/numberone.png) *在精选数据中心内提供了大于 6,000 的 IOPS 限制。*
+![脚注](/images/numberone.png) *在大多数数据中心内提供了大于 6,000 的 IOPS 限制。*
 
 性能卷旨在以一致地接近所供应 IOPS 级别的方式来运行。通过一致性，能更轻松地调整特定性能级别的应用程序环境的大小和扩展此环境。此外，通过构建具有理想的价格/性能比率的卷，可以优化环境。
 
@@ -109,7 +109,7 @@ subcollection: BlockStorage
 
 可以选择按小时或按月对块 LUN 计费。为 LUN 选择的计费类型将应用于其快照空间和副本。例如，如果供应的 LUN 按小时计费，那么任何快照或副本费用都会按小时记帐。如果供应的 LUN 按月计费，那么任何快照或副本费用都会按月记帐。
 
- * 对于**按小时计费**，在删除 LUN 时或在计费周期结束时（以先发生者为准），将计算块 LUN 在帐户上存在的小时数。对于使用了数天或不足一个月的存储器，按小时计费是不错的选择。按小时计费仅可用于在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations)内供应的存储器。
+ * 对于**按小时计费**，在删除 LUN 时或在计费周期结束时（以先发生者为准），将计算块 LUN 在帐户上存在的小时数。对于使用了数天或不足一个月的存储器，按小时计费是不错的选择。按小时计费在[大多数数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内提供。
 
  * 对于**按月计费**，将从创建日期一直到记帐周期结束按比例计算价格并立即记帐。如果在计费周期结束之前删除了 LUN，那么不会有任何退款。对于所用数据需要长期（一个月或更长时间）存储和访问的生产工作负载，使用按月计费的存储器是不错的选择。
 

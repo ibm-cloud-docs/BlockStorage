@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ subcollection: BlockStorage
 
 数据复制完成后，就可以将复制项作为独立卷进行管理和使用。
 
-此功能在大多数位置中提供。有关更多信息，请参阅[可用数据中心的列表](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)。
+此功能在大多数位置中提供。有关更多信息，请参阅[可用数据中心的列表](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)。
 
 如果您是 {{site.data.keyword.containerlong}} 的 Dedicated 帐户用户，请参阅 [{{site.data.keyword.containerlong_notm}} 文档](/docs/containers?topic=containers-block_storage#block_backup_restore)中有关复制卷的选项。
 {:tip}

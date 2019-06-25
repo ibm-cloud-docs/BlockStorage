@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -21,9 +21,9 @@ subcollection: BlockStorage
 
 可以通过 Linux Unified Key Setup-on-disk-format (LUKS) 在 RHEL6 服务器上加密分区，这对于移动计算机和可移动介质非常重要。LUKS 支持使用多个用户密钥对用于分区批量加密的主密钥进行解密。
 
-以下步骤假定服务器可以访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。有关将 {{site.data.keyword.blockstorageshort}} 连接到 Linux 主机的更多信息，请参阅[在 Linux 上连接到 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)。
+以下步骤假定服务器可以访问尚未格式化或安装的新的未加密 {{site.data.keyword.blockstoragefull}} 卷。有关将 {{site.data.keyword.blockstorageshort}} 连接到 Linux 主机的更多信息，请参阅[连接到 Linux 上存储器](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)。
 
-将使用提供者管理的静态加密自动供应在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内供应的 {site.data.keyword.blockstorageshort}}。有关更多信息，请参阅[确保数据安全 - 提供者管理的静态加密](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
+将使用提供者管理的静态加密自动供应在[大多数数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内供应的 {site.data.keyword.blockstorageshort}}。有关更多信息，请参阅[确保数据安全 - 提供者管理的静态加密](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)。
 {:note}
 
 ## LUKS 可执行以下操作

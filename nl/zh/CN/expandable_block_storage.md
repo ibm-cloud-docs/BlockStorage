@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 
 对卷的记帐会自动更新，以将新价格的按比例差值添加到当前计费周期。在下一个计费周期中将采用新的完整金额记帐。
 
-此功能在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内提供。
+此功能在[大多数数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内提供。
 
 ## 可扩展存储器的优点
 
@@ -38,7 +38,7 @@ subcollection: BlockStorage
 ## 限制
 {: #limitsofexpandingstorage}
 
-此功能可用于在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内供应的存储器。
+此功能可用于在[大多数数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内供应的存储器。
 
 发布此功能（**2017 年 4 月到 2017 年 12 月 14 日**期间）之前在这些数据中心内供应的存储器最多只能增大到原始大小的 10 倍。在 **2017 年 12 月 14 日**之后供应的存储器可以增大到最高 12 TB。
 

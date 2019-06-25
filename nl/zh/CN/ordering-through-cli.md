@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 您可以使用 SLCLI 以针对通常通过 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}订购的产品下订单。在 SL API 中，订单可由多个订单容器组成。订单 CLI 仅使用一个订单容器。
 
-有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python API 客户机](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
+有关如何安装和使用 SLCLI 的更多信息，请参阅 [Python CLI 客户机](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}。
 {:tip}
 
 ## 搜索可用的 {{site.data.keyword.blockstorageshort}} 产品

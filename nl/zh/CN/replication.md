@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -43,7 +43,7 @@ subcollection: BlockStorage
 1. 单击存储卷。
 2. 单击**副本**，然后单击**购买复制**。
 3. 选择希望复制遵循的现有快照安排。此列表包含所有有效的快照安排。<br />
-只能选择一个安排，即便有每小时、每天和每周的混合安排也是如此。将复制自上一个复制周期以来捕获到的所有快照，而不管这些快照源自哪个安排。<br />如果没有设置“快照”，系统将提示您进行设置，然后才能订购复制。有关更多详细信息，请参阅[使用快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)。
+只能选择一个安排，即便有每小时、每天和每周的混合安排也是如此。将复制自上一个复制周期以来捕获到的所有快照，而不管这些快照源自哪个安排。<br />如果没有设置“快照”，系统将提示您进行设置，然后才能订购复制。有关更多信息，请参阅[使用快照](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)。
    {:important}
 3. 单击**位置**，然后选择将作为 DR 站点的数据中心。
 4. 单击**继续**。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ subcollection: BlockStorage
 
 ## 为存储器供应加密
 
-提供者管理的静态加密功能可用于在[精选数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-news)内供应的 {{site.data.keyword.blockstorageshort}}。对于在这些数据中心内订购的所有存储器，都自动供应了加密。
+提供者管理的静态加密功能可用于在[大多数数据中心](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)内供应的 {{site.data.keyword.blockstorageshort}}。对于在这些数据中心内订购的所有存储器，都自动供应了加密。
 
 订购 {{site.data.keyword.blockstorageshort}} 时，请选择标有星号 (`*`) 的数据中心。您可以在“LUN/卷名”字段右侧看到“锁定”图标，指示已对该卷进行加密。
 

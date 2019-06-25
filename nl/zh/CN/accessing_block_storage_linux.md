@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,13 +20,13 @@ subcollection: BlockStorage
 # 在 Linux 上连接到 iSCSI LUN
 {: #mountingLinux}
 
-这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
+这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅您的特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
 
-例如，您可以在[此处](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}找到 Ubuntu 有关 iSCSI 启动器配置的指示信息，在[此处](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}找到有关 DM-Multipath 设置的指示信息。
+例如，有关 Ubuntu 细节的更多信息，请参阅 [iSCSI 启动器配置](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}及 [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}。
 {: tip}
 
-开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 授权。
+开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}授权。
 {:important}
 
 1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
@@ -38,21 +38,21 @@ subcollection: BlockStorage
 # slcli block access-authorize --help
 用法：slcli block access-authorize [OPTIONS] VOLUME_ID
 
-选项：
-  -h, --hardware-id TEXT    要授权的 SoftLayer_Hardware 的标识
-  -v, --virtual-id TEXT     要授权的 SoftLayer_Virtual_Guest 的标识
-  -i, --ip-address-id TEXT  要授权的 SoftLayer_Network_Subnet_IpAddress 的标识
-  --ip-address TEXT         要授权的 IP 地址
-  --help                    显示此消息并退出。
+Options:
+  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  --help                    Show this message and exit.
 ```
 {:codeblock}
 
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 {: #mountLin}
 
-下面是将基于 Linux 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN) 所需的步骤。
+完成以下步骤，将基于 Linux 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN)。
 
-指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} 的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
+指示信息中引用的主机 IQN、用户名、密码和目标地址可从 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic/storage){: external}的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
 {: tip}
 
 最好是在绕过防火墙的 VLAN 上运行存储流量。通过软件防火墙运行存储流量会延长等待时间，并对存储器性能产生负面影响。
@@ -60,7 +60,8 @@ subcollection: BlockStorage
 
 1. 将 iSCSI 和多路径实用程序安装到主机。
   - RHEL 和 CentOS
-     ```
+
+    ```
    yum install iscsi-initiator-utils device-mapper-multipath
    ```
     {: pre}
@@ -179,12 +180,14 @@ subcollection: BlockStorage
 
     RHEL 7 和 CentOS 7 可能会返回“无 fc_host 设备”，您可以忽略此消息。
 
-5. 使用 {{site.data.keyword.slportal}}中的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 文件。请以小写输入值。
+5. 使用 {{site.data.keyword.cloud}} 控制台中的 IQN 更新 `/etc/iscsi/initiatorname.iscsi` 文件。请以小写输入值。
+
    ```
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
-6. 使用 {{site.data.keyword.slportal}} 中的用户名和密码来编辑 `/etc/iscsi/iscsid.conf` 中的 CHAP 设置。对 CHAP 名称请使用大写。
+
+6. 使用 {{site.data.keyword.cloud}} 控制台中的用户名和密码来编辑 `/etc/iscsi/iscsid.conf` 中的 CHAP 设置。对 CHAP 名称请使用大写。
    ```
     node.session.auth.authmethod = CHAP
     node.session.auth.username = <Username-value-from-Portal>
@@ -246,12 +249,12 @@ systemctl start iscsid
 
    - 对于其他分发版，请查看相应的操作系统供应商文档。
 
-8. 使用从 {{site.data.keyword.slportal}} 中获取的目标 IP 地址来发现该设备。
+8. 使用从 {{site.data.keyword.cloud}} 控制台中获取的目标 IP 地址来发现该设备。
 
    A. 针对 iSCSI 阵列运行发现。
     ```
-         iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
-     ```
+    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
+    ```
     {: pre}
 
    B. 将主机设置为自动登录到 iSCSI 阵列。
@@ -278,11 +281,14 @@ systemctl start iscsid
    fdisk -l | grep /dev/mapper
    ```
     {: pre}
-  此命令报告类似于以下示例的内容。
+
+    此命令报告类似于以下示例的内容。
+    
     ```
-    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
+        Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
-  现在卷已安装到主机上并可供访问。
+
+    现在卷已安装到主机上并可供访问。
 
 ## 创建文件系统（可选）
 
