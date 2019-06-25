@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,13 +32,13 @@ Profitez des fonctionnalités suivantes de {{site.data.keyword.blockstorageshort
    - Fournie grâce à l'allocation d'IOPS de niveau protocole à des volumes individuels.
 - **Durabilité et résilience élevées**
    - Protège l'intégrité des données et assure la disponibilité pendant des événements de maintenance et des pannes inattendues, sans avoir besoin de créer et gérer des grappes RAID au niveau du système d'exploitation.
-- **Chiffrement des données au repos** ([disponible dans certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Chiffrement des données au repos** ([Disponible dans la plupart des centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Chiffrement géré par le fournisseur pour les données au repos sans coût supplémentaire
-- **Stockage entièrement sécurisé par mémoire flash** ([disponible dans certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Stockage entièrement sécurisé par mémoire flash** ([Disponible dans la plupart des centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Stockage entièrement sécurisé par mémoire flash pour les volumes mis à disposition avec Endurance ou Performance à 2 IOPS/Go au minimum
-- **Instantanés** ([disponibles dans certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Instantanés** ([Disponible dans la plupart des centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Capture des instantanés de données ponctuels de manière transparente.
-- **Réplication** ([disponible dans certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Réplication** ([Disponible dans la plupart des centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Copie automatiquement des instantanés vers un centre de données {{site.data.keyword.cloud}} partenaire.
 - **Connectivité hautement disponible**
    - Utilise des connexions réseau redondantes pour accroître la disponibilité
@@ -68,7 +68,7 @@ Des numéros d'unité logique {{site.data.keyword.blockstorageshort}} peuvent ê
 
 - L'option **4 IOPS par Go** est adaptée aux charges de travail plus exigeantes en E-S. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données actives à un moment donné. Exemples d'applications : bases de données transactionnelles, bases de données sensibles aux performances.
 
-- L'option **10 IOPS par Go** est adaptée aux charges de travail les plus intensives, telles que celles créées par les bases de données NoSQL et le traitement de données pour Analytics. Ce niveau est disponible pour le stockage mis à disposition jusqu'à 4 To uniquement dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
+- L'option **10 IOPS par Go** est adaptée aux charges de travail les plus intensives, telles que celles créées par les bases de données NoSQL et le traitement de données pour Analytics. Ce niveau est disponible pour du stockage mis à disposition jusqu'à 4 To dans [la plupart des centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Un volume de type Endurance de 12 To comporte un maximum de 48 000 IOPS disponibles.
 
@@ -100,7 +100,7 @@ Le niveau Performance pour {{site.data.keyword.blockstorageshort}} est accessibl
 {: caption="Comparaison de tableaux" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![note de bas de page](/images/numberone.png) *Vous pouvez opter pour un nombre d'IOPS supérieur à 6 000 dans des centres de données sélectionnés.*
+![Note de bas de page](/images/numberone.png) *Vous pouvez opter pour un nombre d'IOPS supérieur à 6 000 dans la plupart des centres de données.*
 
 Les volumes Performance sont conçus pour fonctionner d'une manière cohérente proche du niveau d'IOPS mis à disposition. La cohérence facilite le dimensionnement et la mise à l'échelle des environnements d'application avec un niveau de performance donné. De plus, il est possible d'optimiser un environnement en créant un volume avec le rapport idéal prix/performance.
 
@@ -109,7 +109,7 @@ Les volumes Performance sont conçus pour fonctionner d'une manière cohérente 
 
 Vous pouvez sélectionner une facturation à l'heure ou au mois pour un numéro d'unité logique Block Storage. Le type de facturation sélectionné pour un numéro d'unité logique s'applique à son espace d'instantané et à ses répliques. Par exemple, si vous mettez à disposition un numéro d'unité logique avec une facturation horaire, tous les frais liés aux instantanés ou aux répliques seront facturés à l'heure. Si vous mettez à disposition un numéro d'unité logique avec une facturation mensuelle, tous les frais liés aux instantanés ou aux répliques sont facturés au mois.
 
- * Avec la **facturation horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, selon l'événement qui se produit en premier. La facturation horaire est un bon choix si vous avez besoin d'un stockage pour quelques jours ou pour moins d'un mois complet. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
+ * Avec la **facturation horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, selon l'événement qui se produit en premier. La facturation horaire est un bon choix si vous avez besoin d'un stockage pour quelques jours ou pour moins d'un mois complet. La fonctionnalité de facturation à l'heure est disponible dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
  * Avec la **facturation mensuelle**, le calcul du prix est calculé au prorata depuis la date de création jusqu'à la fin du cycle de facturation et la facturation est immédiate. Aucun remboursement n'est possible si un numéro d'unité logique est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus).
 

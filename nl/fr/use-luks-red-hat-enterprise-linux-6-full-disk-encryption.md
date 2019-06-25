@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -21,9 +21,9 @@ subcollection: BlockStorage
 
 Vous pouvez chiffrer des partitions sur votre serveur RHEL6 avec Linux Unified Key Setup-on-disk-format (LUKS), ce qui est important lorsqu'il s'agit d'ordinateurs portables et de support amovible. LUKS permet à plusieurs clés d'utilisateur de déchiffrer une clé principale utilisée pour le chiffrement en bloc de la partition.
 
-Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Pour plus d'informations sur la connexion de {{site.data.keyword.blockstorageshort}} à un hôte Linux, voir [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
+Cette procédure suppose que le serveur peut accéder à un nouveau volume {{site.data.keyword.blockstoragefull}}, non chiffré, qui n'a été ni formaté, ni monté. Pour plus d'informations sur la connexion de {{site.data.keyword.blockstorageshort}} à un hôte Linux, voir [Connexion à du stockage sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{site.data.keyword.blockstorageshort}} qui mis à disposition dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) est automatiquement doté du chiffrement au repos géré par le fournisseur. Pour plus d'information, voir [Sécurisation des données - Chiffrement au repos géré par le fournisseur](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+Le stockage {site.data.keyword.blockstorageshort}} mis à disposition dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) est fourni avec un chiffrement au repos géré par le fournisseur. Pour plus d'information, voir [Sécurisation des données - Chiffrement au repos géré par le fournisseur](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Opérations possibles avec LUKS

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ Tous les instantanés et répliques de données chiffrées {{site.data.keyword.b
 
 ## Mise à disposition du stockage avec chiffrement
 
-La fonction de chiffrement au repos géré par le fournisseur est uniquement disponible pour le service {{site.data.keyword.blockstorageshort}} qui est mis à disposition dans [certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). La totalité du stockage qui est commandé dans ces centres de données est automatiquement doté du chiffrement.
+La fonction de chiffrement au repos géré par le fournisseur est disponible pour le service {{site.data.keyword.blockstorageshort}} mis à disposition dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC). La totalité du stockage qui est commandé dans ces centres de données est automatiquement doté du chiffrement.
 
 Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, sélectionnez un centre de données signalé par un astérisque (`*`). Une icône en forme de verrou figure à droite de la zone Numéro d'unité logique/nom de volume pour indiquer que le volume est chiffré.
 

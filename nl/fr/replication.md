@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -44,7 +44,7 @@ Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abo
 1. Cliquez sur votre volume de stockage.
 2. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
 3. Sélectionnez le planning d'instantané existant que vous souhaitez que votre réplication suive. La liste contient tous vos plannings d'instantané actifs. <br />
-   Vous ne pouvez sélectionner qu'un seul planning, même si vous combinez des réplications horaires, quotidiennes et hebdomadaires. Tous les instantanés qui ont été capturés depuis le cycle de réplication précédent sont répliqués quel que soit leur planning d'origine.<br />Si vous n'avez pas configuré d'instantanés, vous êtes invité à le faire avant de pouvoir commander la réplication. Pour plus de détails, voir [Utilisation d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
+   Vous ne pouvez sélectionner qu'un seul planning, même si vous combinez des réplications horaires, quotidiennes et hebdomadaires. Tous les instantanés qui ont été capturés depuis le cycle de réplication précédent sont répliqués quel que soit leur planning d'origine.<br />Si vous n'avez pas configuré d'instantanés, vous êtes invité à le faire avant de pouvoir commander la réplication. Pour plus d'informations, voir [Gestion des instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Cliquez sur **Emplacement** et sélectionnez le centre de données qui est votre site de reprise après incident.
 4. Cliquez sur **Continuer**.

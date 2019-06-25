@@ -107,7 +107,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
      ```
      {: codeblock}
 
-   - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe. 
+   - Mettez à niveau vos paramètres CHAP `/etc/iscsi/iscsid.conf` en ajoutant le nom d'utilisateur et le mot de passe.
 
      ```
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
@@ -137,7 +137,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
    ```
    {: pre}
 
-4. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue depuis la console {{site.data.keyword.cloud_notm}}. 
+4. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue depuis la console {{site.data.keyword.cloud_notm}}.
 
      A. Exécutez la reconnaissance sur la grappe iSCSI.
        ```

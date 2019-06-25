@@ -83,12 +83,13 @@ Options:
 
 Vous pouvez afficher les numéros d'unité logique auxquels un hôte a accès, notamment les informations nécessaires pour établir une connexion (Nom LUN, Type de stockage, Adresse cible, capacité et emplacement) :
 
-1. Cliquez sur **Unités** -> **Liste des unités** puis cliquez sur l'unité appropriée. 
+1. Cliquez sur **Unités** -> **Liste des unités** sur la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}, puis cliquez sur l'unité appropriée. 
 2. Sélectionnez l'onglet **Stockage**.
 
 Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). Vous pouvez autoriser davantage de stockage ou supprimer l'accès en cliquant sur **Actions**.
 
-Un hôte ne peut pas être autorisé à accéder en même temps à des numéros d'unité logique de différents types de système d'exploitation. Un hôte peut uniquement être autorisé à accéder à des numéros d'unité logique d'un type unique de système d'exploitation. Si vous tentez d'autoriser l'accès à plusieurs numéros d'unité logique de types de système d'exploitation différents, l'opération se traduit par une erreur.{:note}
+Un hôte ne peut pas être autorisé à accéder en même temps à des numéros d'unité logique de différents types de système d'exploitation. Un hôte peut uniquement être autorisé à accéder à des numéros d'unité logique d'un type unique de système d'exploitation. Si vous tentez d'autoriser l'accès à plusieurs numéros d'unité logique de types de système d'exploitation différents, l'opération se traduit par une erreur.
+{:note}
 
 ## Montage et démontage de {{site.data.keyword.blockstorageshort}}
 

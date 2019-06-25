@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Mise à niveau d'un service {{site.data.keyword.blockstorageshort}} vers un service {{site.data.keyword.blockstorageshort}} amélioré
 {: #migratestorage}
 
-Le service {{site.data.keyword.blockstoragefull}} amélioré est désormais disponible dans certains centres de données. Pour afficher la liste des centres de données mis à niveau et des fonctions disponibles telles que les débits d'IOPS ajustables et les volumes extensibles, cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Pour plus d'informations sur le stockage chiffré géré par un fournisseur, voir [Chiffrement au repos pour {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+Enhanced {{site.data.keyword.blockstoragefull}} est désormais disponible dans la plupart des [centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Le chemin de migration préféré consiste à se connecter simultanément aux deux numéros d'unité logique et à transférer les données directement d'un LUN à l'autre. Les spécificités dépendent de votre système d'exploitation et du fait que les données doivent changer ou non lors de l'opération de copie.
 

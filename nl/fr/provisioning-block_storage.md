@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,8 +22,8 @@ subcollection: BlockStorage
 
 Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'ajuster en fonction de vos besoins en termes de capacité et d'IOPS (IOPS). Profitez pleinement de votre stockage grâce à deux options vous permettant de spécifier les performances.
 
-- Vous pouvez effectuer une mise à disposition avec des niveaux **Endurance** qui proposent des niveaux de performances prédéfinis afin de prendre en charge les charges de travail pour lesquelles il n'existe aucune exigence bien définie en matière de performances. 
-- Vous pouvez ajuster votre stockage en fonction d'exigences de performances spécifiques et générer un environnement de **Performance** haute puissance en spécifiant le nombre total d'IOPS (opérations d'E-S par seconde). 
+- Vous pouvez effectuer une mise à disposition avec des niveaux **Endurance** qui proposent des niveaux de performances prédéfinis afin de prendre en charge les charges de travail pour lesquelles il n'existe aucune exigence bien définie en matière de performances.
+- Vous pouvez ajuster votre stockage en fonction d'exigences de performances spécifiques et générer un environnement de **Performance** haute puissance en spécifiant le nombre total d'IOPS (opérations d'E-S par seconde).
 
 ## Commande de {{site.data.keyword.blockstorageshort}} avec des niveaux d'IOPS prédéfinis (Endurance)
 {: #orderingthroughConsoleEndurance}
@@ -32,7 +32,7 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
 2. Sélectionnez l'**Emplacement** de votre déploiement (centre de données).
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
 3. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure.
-     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation à l'heure est disponible pour le stockage mis à disposition dans ces [centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
      2. Avec une facturation **au mois**, le calcul du prix est proportionnel à la durée écoulée entre la date de création et la fin du cycle de facturation, et facturé immédiatement. Aucun remboursement n'est possible si un numéro d'unité logique de bloc est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus).
 
         La facturation mensuelle est utilisée par défaut pour le stockage fourni dans les centres de données qui n'ont **pas** été mis à jour avec les fonctionnalités améliorées.
@@ -43,7 +43,7 @@ Vous pouvez mettre à disposition {{site.data.keyword.blockstorageshort}} et l'a
     - **0,25 IOPS par Go** est adapté aux charges de travail avec une faible intensité d'E-S. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données inactives à un moment donné. Exemples d'applications : stockage de boîtes aux lettres ou partages de fichiers au niveau d'un service dans une entreprise.
     - **2 IOPS par Go** est adapté à des usages plus généraux. Exemples d'applications : hébergement de petites bases de données qui sauvegardent des applications Web ou des images de disques de machine virtuelle pour un hyperviseur.
     - **4 IOPS par Go** est adapté aux charges de travail de forte intensité. Ces charges de travail sont généralement caractérisées par un pourcentage élevé de données actives à un moment donné. Exemples d'applications : bases de données transactionnelles, bases de données sensibles aux performances.
-    - **10 IOPS par Go** est adapté aux charges de travail les plus exigeantes telles que celles créées par les bases de données NoSQL, et au traitement de données pour analyse. Ce niveau est disponible dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) pour un stockage qui est mis à disposition à hauteur de 4 To.
+    - **10 IOPS par Go** est adapté aux charges de travail les plus exigeantes telles que celles créées par les bases de données NoSQL, et au traitement de données pour analyse. Ce niveau est disponible dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) pour le stockage mis à disposition jusqu'à 4 To.
 7. Cliquez sur **Indiquer la taille de l'espace d'instantané** et sélectionnez la taille de l'image instantanée dans la liste. Cet espace vient en complément de votre espace utilisable. Pour les considérations et recommandations relatives à l'espace d'instantané, lisez la section [Commande d'instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choisissez votre **Type OS** dans la liste.<br/>
 
@@ -66,7 +66,7 @@ Par défaut, vous pouvez mettre à disposition un total combiné de 250 volumes 
 2. Cliquez sur **Emplacement** et sélectionnez votre centre de données.
    - Vérifiez que le nouveau stockage est ajouté au même emplacement que celui du ou des hôtes de calcul dont vous disposez.
 3. Facturation. Si vous avez sélectionné un centre de données avec des possibilités améliorées (signalé par un astérisque), vous avez le choix entre une facturation au mois ou à l'heure.
-     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation horaire est disponible uniquement pour le stockage qui est mis à disposition dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+     1. Avec la facturation **horaire**, le nombre d'heures d'existence du numéro d'unité logique de bloc sur le compte est calculé lors de la suppression du numéro d'unité logique ou à la fin du cycle de facturation, à la première occurrence de l'un de ces deux événements. La facturation à l'heure représente un bon choix pour un stockage qui est utilisé pendant quelques jours ou moins d'un mois entier. La facturation à l'heure est disponible pour le stockage mis à disposition dans ces [centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
      2. Avec une facturation **au mois**, le calcul du prix est proportionnel à la durée écoulée entre la date de création et la fin du cycle de facturation, et facturé immédiatement. Aucun remboursement n'est possible si un numéro d'unité logique de bloc est supprimé avant la fin du cycle de facturation. La facturation mensuelle convient si vous avez besoin d'un stockage pour des charges de travail qui utilisent des données devant être stockées et rester accessibles pour de longues périodes (un mois ou plus).
 
         La facturation mensuelle est utilisée par défaut pour le stockage fourni dans les centres de données qui n'ont **pas** été mis à jour avec les fonctionnalités améliorées.

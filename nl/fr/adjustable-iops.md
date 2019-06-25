@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -29,7 +29,7 @@ La facturation du stockage est mise à jour : la différence calculée au prorat
 ## Limitations
 {: #limitsofIOPSadjustment}
 
-Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Cette fonctionnalité est disponible dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Les clients ne peuvent pas basculer entre Endurance et Performance lorsqu'ils ajustent leurs IOPS. En revanche, ils peuvent spécifier un nouveau niveau d'IOPS pour leur stockage en fonction des restrictions et critères suivants :
 

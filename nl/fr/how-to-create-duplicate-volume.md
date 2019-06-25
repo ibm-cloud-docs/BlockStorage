@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès l
 
 Une fois la copie de données terminée, le doublon peut être géré et utilisé en tant que volume indépendant.
 
-Cette fonctionnalité est disponible dans la plupart des emplacements. Pour plus d'informations, voir [la liste des data centers disponibles](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Cette fonctionnalité est disponible dans la plupart des emplacements. Pour plus d'informations, voir [la liste des centres de données disponibles](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Si vous êtes un utilisateur de compte Dedicated d'{{site.data.keyword.containerlong}}, consultez vos options de duplication d'un volume dans la [{{site.data.keyword.containerlong_notm}}documentation ](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}

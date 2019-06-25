@@ -43,7 +43,8 @@ Une fois le basculement démarré, la relation de réplication est inversée. Vo
 
 Les basculements sont démarrés sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** dans la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
-Avant d'exécuter ces étapes, déconnectez le volume. Si vous omettez cette étape, des données seront endommagées ou perdues. {:important}
+Avant d'exécuter ces étapes, déconnectez le volume. Si vous omettez cette étape, des données seront endommagées ou perdues.
+{:important}
 
 1. Cliquez sur votre numéro d'unité logique actif ("source").
 2. Cliquez sur **Réplique**, puis sur **Actions**.

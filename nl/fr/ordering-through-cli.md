@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 Vous pouvez utiliser l'interface de ligne de commande SL pour commander des produits habituellement commandés via la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dans l'API SL, une commande peut se composer de plusieurs conteneurs de commandes. L'interface de ligne de commande pour les commandes fonctionne avec un seul conteneur de commandes.
 
-Pour plus d'informations sur la manière d'installer et d'utiliser l'interface de ligne de commande SL, voir [Client API Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Pour plus d'informations sur la manière d'installer et d'utiliser l'interface de ligne de commande SL, voir [Client CLI Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Recherche des offres {{site.data.keyword.blockstorageshort}} disponibles
@@ -130,7 +130,8 @@ Options:
   --help                    Show this message and exit.
 ```
 
-Vous pouvez autoriser et connecter des hôtes qui se trouvent dans le même centre de données que votre stockage. Si vous pouvez disposer de plusieurs comptes, vous ne pouvez pas autoriser un hôte à partir d'un compte à accéder à votre stockage sur un autre compte. Notez également qu'un hôte ne peut pas être autorisé à accéder en même temps à plusieurs numéros d'unité logique (LUN) de types de système d'exploitation différents. Un hôte peut uniquement être autorisé à accéder à des numéros d'unité logique d'un type unique de système d'exploitation. Si vous tentez d'autoriser l'accès à plusieurs numéros d'unité logique de types de système d'exploitation différents, l'opération se traduit par une erreur.{:note}
+Vous pouvez autoriser et connecter des hôtes qui se trouvent dans le même centre de données que votre stockage. Si vous pouvez disposer de plusieurs comptes, vous ne pouvez pas autoriser un hôte à partir d'un compte à accéder à votre stockage sur un autre compte. Notez également qu'un hôte ne peut pas être autorisé à accéder en même temps à plusieurs numéros d'unité logique (LUN) de types de système d'exploitation différents. Un hôte peut uniquement être autorisé à accéder à des numéros d'unité logique d'un type unique de système d'exploitation. Si vous tentez d'autoriser l'accès à plusieurs numéros d'unité logique de types de système d'exploitation différents, l'opération se traduit par une erreur.
+{:note}
 {:important}
 
 Pour plus d'informations sur l'autorisation des hôtes à accéder à {{site.data.keyword.blockstorageshort}} via l'API, voir [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}

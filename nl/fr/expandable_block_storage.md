@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -23,7 +23,7 @@ Cette fonctionnalité permet aux utilisateurs d'{{site.data.keyword.blockstorage
 
 La facturation du volume est automatiquement mise à jour pour ajouter la différence au prorata du nouveau prix au cycle de facturation en cours. Le nouveau montant total est ensuite facturé dans le cycle de facturation suivant.
 
-Cette fonctionnalité est disponible uniquement dans des [centres de données sélectionnés](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Cette fonctionnalité est disponible dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Avantages du stockage extensible
 
@@ -38,7 +38,7 @@ L'extension de l'espace de stockage principal entraîne un redimensionnement aut
 ## Limitations
 {: #limitsofexpandingstorage}
 
-Cette fonction est disponible pour le stockage mis à disposition dans [certains centres de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Cette fonctionnalité est disponible pour du stockage mis à disposition dans [la plupart des centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Le stockage qui a été mis à disposition dans ces centres de données avant la mise sur le marché de cette fonction, d'**avril 2017 au 14 décembre 2017**, ne peut être augmenté que d'une taille équivalente à 10 fois sa taille d'origine. Le stockage mis à disposition après le **14 décembre 2017** peut être augmenté jusqu'à 12 To.
 

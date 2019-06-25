@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -93,7 +93,7 @@ Le temps d'attente cible dans le stockage est < 1 ms. Le stockage est connecté 
 ## Pourquoi {{site.data.keyword.blockstorageshort}} avec un niveau Endurance de 10 IOPS peut-il être commandé dans certains centres de données et pas dans d'autres ?
 {: faq}
 
-Le niveau 10 IOPS/Go du type de stockage {{site.data.keyword.blockstorageshort}} Endurance est uniquement disponible dans certains centres de données, mais la liste de ces centres va bientôt être enrichie. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Le niveau 10 IOPS/Go de {{site.data.keyword.blockstorageshort}} de type Endurance est disponible dans la plupart des [centre de données](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Comment savoir quels volumes {{site.data.keyword.blockstorageshort}} sont chiffrés ?
 {: faq}
@@ -103,14 +103,14 @@ Lorsque vous consultez votre liste de services {{site.data.keyword.blockstorages
 ## Comment savoir si l'ont met à disposition un stockage {{site.data.keyword.blockstorageshort}} dans un centre de données mis à niveau ?
 {: faq}
 
-Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres de données mis à niveau sont signalés par un astérisque (`*`) dans le formulaire de commande, ainsi que par un message indiquant que vous êtes sur le point de mettre à disposition un stockage avec chiffrement. Une fois le stockage mis à disposition, une icône apparaît dans la liste de stockage pour indiquer que le stockage est chiffré. Tous les volumes et numéros d'unité logique chiffrés sont mis à disposition uniquement dans des centres de données mis à niveau. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Lorsque vous commandez {{site.data.keyword.blockstorageshort}}, tous les centres de données mis à niveau sont signalés par un astérisque (`*`) dans le formulaire de commande, ainsi que par un message indiquant que vous êtes sur le point de mettre à disposition un stockage avec chiffrement. Une fois le stockage mis à disposition, une icône apparaît dans la liste de stockage pour indiquer que le stockage est chiffré. Tous les volumes et numéros d'unité logique chiffrés sont mis à disposition uniquement dans des centres de données mis à niveau. Vous trouverez la liste complète des centres de données mis à niveau et des fonctions disponibles [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Si nous possédons un stockage {{site.data.keyword.blockstorageshort}} non chiffré dans un centre de données qui a été récemment mis à jour, pouvons-nous chiffrer ce stockage {{site.data.keyword.blockstorageshort}} ?
 {: faq}
 
 Un service {{site.data.keyword.blockstorageshort}} qui est mis à disposition avant la mise à niveau du centre de données ne peut pas être chiffré.
 Un nouveau stockage {{site.data.keyword.blockstorageshort}} mis à disposition dans des centres de données mis à niveau est automatiquement chiffré. Vous n'avez pas à choisir de paramètre de chiffrement, car la procédure est automatique.
-Les données situées sur un stockage non chiffré dans un centre de données mis à niveau peuvent être chiffrées en créant un numéro d'unité logique de bloc, puis en copiant les données sur le nouveau numéro d'unité logique chiffré à l'aide d'une migration basée sur l'hôte. Cliquez [ici](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) pour obtenir des instructions.
+Les données sur du stockage non chiffré dans un centre de données mis à niveau peuvent être chiffrées via la création d'un numéro d'unité logique (LUN), puis via la copie des données sur le nouveau LUN chiffré avec migration basée sur l'hôte. Pour plus d'informations, voir [Mise à niveau d'un service {{site.data.keyword.blockstorageshort}} vers un service {{site.data.keyword.blockstorageshort}} amélioré](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## {{site.data.keyword.blockstorageshort}} prend-il en charge la réservation persistante SCSI-3 pour implémenter la protection d'E-S pour Db2 pureScale ?
 {: faq}
