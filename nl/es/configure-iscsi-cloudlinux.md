@@ -37,10 +37,10 @@ De manera alternativa, puede autorizar el host mediante SLCLI.
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXT    El ID de un servidor de hardware que se va a autorizar.
-  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
-  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
-  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
+  -h, --hardware-id TEXTO   El ID de un servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXTO    El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXTO El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXTO    Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 {:codeblock}

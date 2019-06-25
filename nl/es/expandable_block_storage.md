@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -23,7 +23,7 @@ Con esta característica, los usuarios actuales de {{site.data.keyword.blockstor
 
 Los datos de facturación del volumen se actualizan automáticamente para añadir al ciclo de facturación actual la diferencia prorrateada del nuevo precio. El nuevo importe completo se factura en el siguiente ciclo de facturación.
 
-Esta característica está disponible en [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esta característica está disponible en [la mayoría de los centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Ventajas de almacenamiento expandible
 
@@ -38,7 +38,7 @@ La acción de ampliar el almacenamiento primario genera un redimensionamiento au
 ## Limitaciones
 {: #limitsofexpandingstorage}
 
-Esta característica está disponible para el almacenamiento suministrado en [determinados centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esta característica está disponible para el almacenamiento suministrado en [la mayoría de los centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 El almacenamiento suministrado a estos centros de datos antes de sacar al mercado esta característica, durante el periodo **Abril de 2017 - 14 de diciembre de 2017**, se puede incrementar hasta 10 veces su tamaño original y no más. El almacenamiento suministrado después del **14 de diciembre de 2017** se puede aumentar hasta alcanzar 12 TB.
 

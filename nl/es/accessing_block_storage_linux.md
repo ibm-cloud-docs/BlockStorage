@@ -39,10 +39,10 @@ De manera alternativa, puede autorizar el host mediante SLCLI.
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXT    El ID del servidor de hardware que se va a autorizar.
-  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
-  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
-  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
+  -h, --hardware-id TEXTO   El ID del servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXTO    El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXTO El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXTO    Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 {:codeblock}
@@ -372,7 +372,7 @@ Siga estos pasos para crear un sistema de archivos en el volumen montado recient
 | `Select partition 1.` | Selecciona la partición 1 para configurarla como un tipo específico. |
 | `Hex code: 83` | Selecciona Linux como el Tipo (83 es el código hexadecimal para Linux). ** |
 | `Command: w` | Escribe la información de la nueva partición en el disco. ** |
-{: caption="Tabla 1 - La tabla de mandatos <code>fdisk</code> muestra los mandatos a la izquierda y los resultados esperados a la derecha." caption-side="top"}
+{: caption="Tabla 1 - La tabla de mandatos <codefdisk</code> muestra los mandatos a la izquierda y los resultados esperados a la derecha." caption-side="top"}>
 
 (`*`) Escriba m para obtener ayuda.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -29,7 +29,7 @@ La facturación del almacenamiento se actualiza para añadir la diferencia prorr
 ## Limitaciones
 {: #limitsofIOPSadjustment}
 
-Esta característica solo está disponible en [centros de datos seleccionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esta característica está disponible en [la mayoría de los centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Los clientes no pueden cambiar entre Resistencia y Rendimiento al ajustar su IOPS. Sin embargo, pueden especificar un nuevo nivel de IOPS para su almacenamiento en función de los siguientes criterios y restricciones:
 

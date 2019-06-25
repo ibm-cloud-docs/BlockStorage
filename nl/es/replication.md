@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -43,7 +43,7 @@ Las réplicas se basan en una planificación de réplica. Primero debe tener un 
 1. Pulse el volumen de almacenamiento.
 2. Pulse **Réplica** y pulse **Adquirir una réplica**.
 3. Seleccione la planificación de instantáneas existente que quiera que siga su réplica. La lista contiene todas las planificaciones de instantáneas activas. <br />
-   Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Consulte [Trabajar con instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) para obtener más detalles.
+   Solo puede seleccionar una planificación, incluso si tiene una combinación de por hora, a diario y mensual. Todas las instantáneas capturadas desde el ciclo de réplica anterior se replicarán, independientemente de la planificación que las originó.<br />Si no tiene configuradas las instantáneas, se le solicitará que lo haga para poder solicitar una réplica. Para obtener más información, consulte [Trabajar con instantáneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Pulse **Ubicación** y seleccione el centro de datos que es su sitio de recuperación tras desastre.
 4. Pulse **Continuar**.
@@ -210,7 +210,7 @@ Uso: slcli block replica-locations [OPCIONES] ID_VOLUMEN
   Opciones:
   --replicant-id TEXTO ID del volumen replicante
   --immediate          Migrar tras error al replicante de inmediato.
-  -h, --help      Mostrar este mensaje y salir.
+  -h, --help           Mostrar este mensaje y salir.
   ```
 
 * Restablecer un volumen de bloques desde un volumen replicante específico.

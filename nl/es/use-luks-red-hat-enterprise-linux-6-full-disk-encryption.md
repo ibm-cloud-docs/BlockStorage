@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -21,9 +21,9 @@ subcollection: BlockStorage
 
 Puede cifrar las particiones del servidor RHEL6 con LUKS (Linux Unified Key Setup-on-disk), lo cual es importante en lo que respecta a los sistemas móviles y soportes extraíbles. LUKS permite que múltiples claves de usuario descifren una clave maestra que se utiliza para el cifrado masivo de la partición.
 
-En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Para obtener más información sobre cómo conectar {{site.data.keyword.blockstorageshort}} a un host Linux, consulte [Conexión a LUN iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
+En estos pasos se supone que el servidor puede acceder a un nuevo volumen de {{site.data.keyword.blockstoragefull}} no cifrado que no se ha formateado ni montado. Para obtener más información sobre cómo conectar {{site.data.keyword.blockstorageshort}} a un host Linux, consulte [Conexión con el almacenamiento en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{site.data.keyword.blockstorageshort}} que se suministra en [determinados centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) se suministra automáticamente con cifrado en reposo gestionado por el proveedor. Para obtener más información, consulte [Protección de los datos: cifrado en reposo gestionado por el proveedor](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+El almacenamiento {{site.data.keyword.blockstorageshort}} que se suministra en [la mayoría de los centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) se suministra automáticamente con cifrado en reposo gestionado por el proveedor. Para obtener más información, consulte [Protección de los datos: cifrado en reposo gestionado por el proveedor](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Qué hace LUKS

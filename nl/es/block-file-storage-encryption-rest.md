@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ Todas las instantáneas y réplicas de {{site.data.keyword.blockstorageshort}} c
 
 ## Suministro del almacenamiento con cifrado
 
-La característica de cifrado en reposo gestionado por el proveedor está disponible para {{site.data.keyword.blockstorageshort}} suministrado en [determinados centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Todo el almacenamiento solicitado en estos centros de datos se suministra automáticamente con cifrado.
+La característica de cifrado en reposo gestionado por el proveedor está disponible para {{site.data.keyword.blockstorageshort}} suministrado en [la mayoría de los centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC). Todo el almacenamiento solicitado en estos centros de datos se suministra automáticamente con cifrado.
 
 Al realizar el pedido de {{site.data.keyword.blockstorageshort}}, seleccione un centro de datos marcado con un asterisco (*) (`*`). Puede ver un icono de bloqueo a la derecha del campo Nombre de volumen/LUN, que indica que el volumen está cifrado.
 

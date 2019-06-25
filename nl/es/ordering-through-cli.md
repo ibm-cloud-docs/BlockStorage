@@ -19,7 +19,7 @@ subcollection: BlockStorage
 
 Puede utilizar SLCLI para realizar pedidos de productos que normalmente se solicitan a través de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. En la API de SL, un pedido puede consistir en varios contenedores de pedidos. La CLI de pedidos funciona con un solo contenedor de pedidos.
 
-Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [Cliente de API de Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Para obtener más información sobre cómo instalar y utilizar SLCLI, consulte [Cliente de CLI de Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Búsqueda de las ofertas disponibles de {{site.data.keyword.blockstorageshort}}
@@ -50,7 +50,7 @@ Uso: slcli order package-list [OPCIONES]
       slcli order package-list --keyword server
 
 Opciones:
-  --keyword TEXTO  Una palabra (o serie) que se utiliza para filtrar nombres de paquetes.
+  --keyword TEXTO Una palabra (o serie) que se utiliza para filtrar nombres de paquetes.
   -h, --help      Mostrar este mensaje y salir.
 ```
 
@@ -122,10 +122,10 @@ Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 Autoriza a los hosts a acceder a un volumen determinado
 
 Opciones:
-  -h, --hardware-id TEXT    El ID de un servidor de hardware que se va a autorizar.
-  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
-  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
-  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
+  -h, --hardware-id TEXTO   El ID de un servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXTO    El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXTO El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXTO    Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -93,7 +93,7 @@ La latencia de destino en el almacenamiento es de <1 ms. El almacenamiento está
 ## ¿Por qué se puede solicitar {{site.data.keyword.blockstorageshort}} con un nivel 10 de IOPS/GB de Resistencia en algunos centros de datos y no en otros?
 {: faq}
 
-El nivel 10 de IOPS/GB de tipo Resistencia {{site.data.keyword.blockstorageshort}} solo está disponible en centros de datos seleccionados, y se están añadiendo nuevos centros de datos gradualmente. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+El nivel 10 de IOPS/GB de tipo Resistencia de {{site.data.keyword.blockstorageshort}} está disponible en [la mayoría de los centros de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## ¿Cómo podemos saber cuáles de los volúmenes de {{site.data.keyword.blockstorageshort}} están cifrados?
 {: faq}
@@ -103,14 +103,14 @@ Si consulta la lista de {{site.data.keyword.blockstorageshort}} en la [consola d
 ## ¿Cómo sabemos cuándo estamos suministrando {{site.data.keyword.blockstorageshort}} en un centro de datos actualizado?
 {: faq}
 
-Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos actualizados se marcan con un asterisco (`*`) en el formulario de pedido y una indicación de que está a punto de suministrar almacenamiento con cifrado. Una vez suministrado el almacenamiento, puede ver un icono en la lista de almacenamiento que muestra que dicho almacenamiento está cifrado. Todos los volúmenes cifrados y LUN se suministran únicamente en centros de datos actualizados. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Al solicitar {{site.data.keyword.blockstorageshort}}, todos los centros de datos actualizados se marcan con un asterisco (`*`) en el formulario de pedido y una indicación de que está a punto de suministrar almacenamiento con cifrado. Una vez suministrado el almacenamiento, puede ver un icono en la lista de almacenamiento que muestra que dicho almacenamiento está cifrado. Todos los volúmenes cifrados y LUN se suministran únicamente en centros de datos actualizados. Puede consultar una lista completa de centros de datos actualizados y características disponibles [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Si tenemos {{site.data.keyword.blockstorageshort}} no cifrado en un centro de datos actualizado recientemente, ¿podemos cifrar dicho {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
 {{site.data.keyword.blockstorageshort}} suministrado antes de la actualización del centro de datos no se puede cifrar.
 El nuevo {{site.data.keyword.blockstorageshort}} que se suministra en centros de datos actualizados se cifra automáticamente. No hay que elegir ningún valor de cifrado; es automático.
-Los datos que residen en almacenamiento no cifrado en un centro de datos actualizado se pueden cifrar creando un nuevo LUN de bloque para posteriormente copiar los datos al nuevo LUN cifrado con migración basada en host. Pulse [aquí](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) para obtener instrucciones.
+Los datos que residen en almacenamiento no cifrado en un centro de datos actualizado se pueden cifrar creando un LUN para posteriormente copiar los datos al nuevo LUN cifrado con migración basada en host. Para obtener más información, consulte [Actualización de {{site.data.keyword.blockstorageshort}} existente a {{site.data.keyword.blockstorageshort}} mejorado](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## ¿{{site.data.keyword.blockstorageshort}} da soporte a la reserva persistente SCSI-3 para implementar una barrera de E/S para Db2 pureScale?
 {: faq}

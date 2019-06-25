@@ -52,10 +52,10 @@ De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 Uso: slcli block access-authorize [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXT    El ID del servidor de hardware que se va a autorizar.
-  -v, --virtual-id TEXT     El ID de un servidor virtual que se va a autorizar.
-  -i, --ip-address-id TEXT  El ID de una dirección IP que se va a autorizar.
-  -p, --ip-address TEXT     Una dirección IP que se va a autorizar.
+  -h, --hardware-id TEXTO   El ID del servidor de hardware que se va a autorizar.
+  -v, --virtual-id TEXTO    El ID de un servidor virtual que se va a autorizar.
+  -i, --ip-address-id TEXTO El ID de una dirección IP que se va a autorizar.
+  -p, --ip-address TEXTO    Una dirección IP que se va a autorizar.
   --help                    Mostrar este mensaje y salir.
 ```
 
@@ -83,7 +83,7 @@ Opciones:
 
 Puede ver las LUN a las cuales un host tiene acceso, incluida la información necesaria para realizar una conexión: nombre de LUN, tipo de almacenamiento, dirección de destino, capacidad y ubicación:
 
-1. Pulse **Dispositivos** -> **Lista de dispositivos** en el y pulse sobre el dispositivo adecuado.
+1. Pulse **Dispositivos** -> **Lista de dispositivos** en la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} y pulse sobre el dispositivo adecuado.
 2. Seleccione el separador **Almacenamiento**.
 
 Se le presentará una lista de las LUN de almacenamiento a las cuales este host tiene acceso. La lista está agrupada por tipo de almacenamiento (bloque, archivo, otros). Puede autorizar más almacenamiento o puede eliminar el acceso pulsando **Acciones**.
@@ -140,10 +140,10 @@ De manera alternativa, puede utilizar el mandato siguiente en SLCLI.
 Uso: slcli block access-revoke [OPCIONES] ID_VOLUMEN
 
 Opciones:
-  -h, --hardware-id TEXT    El ID del servidor de hardware cuya autorización se va a revocar.
-  -v, --virtual-id TEXT     El ID de un servidor virtual cuya autorización se va a revocar.
-  -i, --ip-address-id TEXT  El ID de una dirección IP cuya autorización se va a revocar.
-  -p, --ip-address TEXT     Una dirección IP cuya autorización se va a revocar.
+  -h, --hardware-id TEXTO   El ID del servidor de hardware cuya autorización se va a revocar.
+  -v, --virtual-id TEXTO    El ID de un servidor virtual cuya autorización se va a revocar.
+  -i, --ip-address-id TEXTO El ID de una dirección IP cuya autorización se va a revocar.
+  -p, --ip-address TEXTO    Una dirección IP cuya autorización se va a revocar.
   --help                    Mostrar este mensaje y salir.
 ```
 

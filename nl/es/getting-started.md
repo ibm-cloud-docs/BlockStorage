@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -53,7 +53,7 @@ El tamaño de bloque que utiliza la aplicación afecta directamente al rendimien
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="En la Tabla 1 se muestran ejemplos de cómo el tamaño de bloque e IOPS afectan al rendimiento.<br/>Tamaño promedio de E/S x IOPS = Rendimiento en MB/s." caption-side="top"}
+{: caption="En la Tabla 1 se muestran ejemplos de cómo el tamaño de bloque e IOPS afectan al rendimiento.<br/Tamaño promedio de E/S x IOPS = Rendimiento en MB/s." caption-side="top"}>
 
 ### Hosts autorizados
 
@@ -73,7 +73,11 @@ El tráfico de almacenamiento se incluye en el uso total de la red de los servid
 ## Envío de su pedido
 {: #submitorder}
 
-Cuando esté listo para enviar el pedido, puede realizarlo a través de la [consola](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) o de la [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI).
+Cuando esté listo para enviar el pedido, puede realizarlo mediante la [consola](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), la [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) o la [CLI de IBMCLOUD](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
+
+Para obtener información sobre cómo solicitar {{site.data.keyword.blockstorageshort}} a través de la API, consulte [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Para poder acceder a todas las nuevas características, solicite `el paquete 759 de almacenamiento como servicio`.
+{:tip}
 
 ## Conexión del nuevo almacenamiento
 {: #mountingstorage}

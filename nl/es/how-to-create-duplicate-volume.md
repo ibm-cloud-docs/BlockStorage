@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ Se puede acceder a los volúmenes duplicados mediante un host para lectura/escri
 
 Una vez completada la copia de datos, el duplicado se puede gestionar y utilizar como un volumen independiente.
 
-Esta característica está disponible en la mayoría de las ubicaciones. Para obtener más información, consulte [la lista de centros de datos disponibles](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esta característica está disponible en la mayoría de las ubicaciones. Para obtener más información, consulte [la lista de centros de datos disponibles](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Si es un usuario de cuenta dedicada de {{site.data.keyword.containerlong}}, consulte las opciones de deduplicación de un volumen en la [documentación de {{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}
