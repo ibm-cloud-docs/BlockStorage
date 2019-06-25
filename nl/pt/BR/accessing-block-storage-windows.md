@@ -176,7 +176,7 @@ A seguir estão as etapas necessárias para desconectar uma instância de cálcu
 
 ### Iniciando o Inicializador iSCSI
 
-1. Clique em **Destinos**. 
+1. Clique em **Destinos**.
 2. Selecione os destinos que você deseja remover e clique em **Desconectar**.
 
 ### Removendo destinos

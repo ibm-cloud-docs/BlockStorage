@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -80,7 +80,11 @@ O tráfego de armazenamento é incluído no uso total de rede de Virtual Servers
 ## Enviando sua Ordem
 {: #submitorder}
 
-Quando você estiver pronto para enviar seu pedido, poderá fazer isso por meio do [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) ou da [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI).
+Quando você estiver pronto para enviar seu pedido, será possível fazê-lo por meio do [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), da [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) ou da [CLI do IBM Cloud](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
+
+Para obter informações sobre como pedir o {{site.data.keyword.blockstorageshort}} por meio da API, consulte [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Para poder acessar todos os novos recursos, peça o `Storage-as-a-Service Package 759`.
+{:tip}
 
 ## Conectando seu novo armazenamento
 {: #mountingstorage}

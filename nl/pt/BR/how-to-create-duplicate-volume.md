@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -31,7 +31,7 @@ Os volumes duplicados podem ser acessados por um host para leitura/gravação as
 Quando a cópia de dados for concluída, a duplicata poderá ser gerenciada e usada como um volume independente.
 
 Esse recurso está disponível na maioria dos locais. Para obter mais informações, veja [a lista de data centers
-disponíveis](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+disponíveis](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Se você for um usuário da conta Dedicada do {{site.data.keyword.containerlong}}, consulte suas opções para duplicar um volume na [{{site.data.keyword.containerlong_notm}}documentação](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {:tip}

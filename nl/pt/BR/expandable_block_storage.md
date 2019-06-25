@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -24,7 +24,7 @@ expandir imediatamente o tamanho do seu {{site.data.keyword.blockstorageshort}} 
 
 O faturamento para o volume é atualizado automaticamente para incluir a diferença rateada do novo preço no ciclo de faturamento atual. A nova quantia integral será faturada no próximo ciclo de faturamento.
 
-Esse recurso está disponível em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esse recurso está disponível na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Vantagens do Armazenamento Expandível
 
@@ -41,7 +41,7 @@ A ação de expansão nos resultados de armazenamento primário resulta no redim
 ## Limitações
 {: #limitsofexpandingstorage}
 
-Esse recurso está disponível para armazenamentos provisionados em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esse recurso está disponível para o armazenamento que é provisionado na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 O armazenamento que foi fornecido nesses data centers antes da liberação desse recurso, durante **abril de 2017 e 14 de dezembro de 2017**, pode ser aumentado para 10 vezes seu tamanho original, não mais que isso. O armazenamento que foi fornecido após **14 de dezembro de 2017** pode ser aumentado até 12 TB.
 

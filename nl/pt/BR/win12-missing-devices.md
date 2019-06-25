@@ -23,7 +23,8 @@ subcollection: BlockStorage
 # Windows 2012 R2 - múltiplos dispositivos iSCSI
 {: #troubleshootingWin12}
 
-Se você usar mais de dois dispositivos iSCSI com o mesmo host, poderá considerar esse procedimento útil, principalmente se todas as conexões iSCSI forem do mesmo dispositivo de armazenamento. Se você vir apenas dois dispositivos no Disk Manager, será necessário se conectar manualmente a cada dispositivo no inicializador iSCSI em cada nó do servidor.
+Se você usar mais de dois dispositivos iSCSI com o mesmo host, poderá considerar esse procedimento útil, principalmente se todas as conexões iSCSI forem do mesmo dispositivo de armazenamento.
+Se você vir apenas dois dispositivos no Disk Manager, será necessário se conectar manualmente a cada dispositivo no inicializador iSCSI em cada nó do servidor.
 {:tsSymptoms}
 {:tsResolve}
 

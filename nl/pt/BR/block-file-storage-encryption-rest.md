@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ Todas as capturas instantâneas e réplicas do {{site.data.keyword.blockstorages
 
 ## Fornecimento de armazenamento com criptografia
 
-O recurso de criptografia em repouso gerenciada por provedor está disponível para o {{site.data.keyword.blockstorageshort}} que é provisionado em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Todo o armazenamento pedido nesses data centers é provisionado automaticamente com criptografia.
+O recurso de criptografia em repouso gerenciada por provedor está disponível para o {{site.data.keyword.blockstorageshort}} que é provisionado na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC). Todo o armazenamento pedido nesses data centers é provisionado automaticamente com criptografia.
 
 Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center anotado com um asterisco (`*`). É possível ver um ícone de bloqueio à direita do campo Nome do LUN/Volume indicando que o volume está criptografado.
 

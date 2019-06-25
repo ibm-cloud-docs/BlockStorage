@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -30,7 +30,7 @@ O faturamento para o armazenamento é atualizado para incluir a diferença ratea
 ## Limitações
 {: #limitsofIOPSadjustment}
 
-Esse recurso está disponível somente em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Esse recurso está disponível na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Os clientes não podem alternar entre Endurance e Performance ao ajustarem sua IOPS. No entanto, eles podem especificar uma nova camada ou nível IOPS para seu armazenamento com base nos critérios e restrições a seguir:
 

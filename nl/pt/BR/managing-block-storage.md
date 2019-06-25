@@ -86,13 +86,12 @@ Options:
 
 É possível visualizar os LUNs aos quais um host tem acesso, incluindo as informações que são necessárias para fazer uma conexão - Nome do LUN, Tipo de armazenamento, Endereço de destino, capacidade e local:
 
-1. Clique em **Dispositivos** -> **Lista de dispositivos** e clique no dispositivo apropriado.
+1. Clique em **Dispositivos** -> **Lista de dispositivos** no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} e clique no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
 
 É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). É possível autorizar mais armazenamento ou remover o acesso clicando em **Ações**.
 
-Um host não pode estar autorizado a acessar LUNs de tipos de S.O. diferentes ao mesmo tempo. Um
-host pode estar autorizado a acessar somente LUNs de um único tipo de S.O. Se você tentar
+Um host não pode estar autorizado a acessar LUNs de tipos de S.O. diferentes ao mesmo tempo. Um host pode estar autorizado a acessar somente LUNs de um único tipo de S.O. Se você tentar
 autorizar o acesso a múltiplos LUNs com diferentes tipos de S.O., a operação resultará em um erro.
 {:note}
 

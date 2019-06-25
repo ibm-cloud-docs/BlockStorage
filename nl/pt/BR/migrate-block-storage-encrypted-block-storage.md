@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Fazendo upgrade do {{site.data.keyword.blockstorageshort}} existente para o {{site.data.keyword.blockstorageshort}} aprimorado
 {: #migratestorage}
 
-O {{site.data.keyword.blockstoragefull}} aprimorado está agora disponível nos data centers selecionados. Para ver a lista de data centers submetidos a upgrade e recursos disponíveis, como taxas de IOPS ajustáveis e volumes expansíveis, clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Para obter mais informações sobre o armazenamento criptografado gerenciado pelo provedor, consulte [{{site.data.keyword.blockstorageshort}}Criptografia em repouso](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+O {{site.data.keyword.blockstoragefull}} aprimorado está disponível agora na maioria dos [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 O caminho de migração preferencial é conectar-se aos dois LUNs simultaneamente e transferir dados diretamente de um LUN para outro. Os detalhes dependerão de seu sistema operacional e se os dados são esperados mudar durante a operação de cópia.
 

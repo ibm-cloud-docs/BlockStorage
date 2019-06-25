@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -23,12 +23,9 @@ subcollection: BlockStorage
 (LUKS), que é importante quando se trata de computadores móveis e de mídia removível. O LUKS permite que múltiplas chaves de usuário decriptografem uma chave mestra
 que é usada para a criptografia em massa da partição.
 
-Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Para
-obter mais informações sobre como conectar o {{site.data.keyword.blockstorageshort}} a um host do Linux,
-consulte [Conectando-se aos LUNs do iSCSI
-em Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
+Estas etapas assumem que o servidor pode acessar um novo volume não criptografado do {{site.data.keyword.blockstoragefull}} que não estava formatado nem montado. Para obter mais informações sobre como conectar o {{site.data.keyword.blockstorageshort}} a um host do Linux, consulte [Conectando-se ao armazenamento no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-O {site.data.keyword.blockstorageshort}} que é fornecido em [Selecionar data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) é fornecido automaticamente com criptografia em repouso gerenciada pelo provedor. Para obter mais informações, consulte [Protegendo seus dados: criptografia em repouso gerenciada pelo provedor](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+O {site.data.keyword.blockstorageshort}} que é provisionado na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) é provisionado automaticamente com a criptografia em repouso gerenciada por provedor. Para obter mais informações, consulte [Protegendo seus dados: criptografia em repouso gerenciada pelo provedor](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## O que o LUKS faz

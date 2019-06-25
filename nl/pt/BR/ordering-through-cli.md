@@ -20,7 +20,7 @@ subcollection: BlockStorage
 É possível usar a SLCLI para fazer pedidos de produtos que normalmente são pedidos por meio
 do [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Na API do SL, um pedido pode consistir em múltiplos contêineres de pedido. A CLI do pedido funciona com apenas um contêiner de pedido.
 
-Para obter mais informações sobre como instalar e usar a SLCLI, consulte [Cliente da API do Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Para obter mais informações sobre como instalar e usar a SLCLI, consulte [Cliente da CLI do Python](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Procurando ofertas disponíveis do {{site.data.keyword.blockstorageshort}}

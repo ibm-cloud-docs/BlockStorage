@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -32,13 +32,13 @@ Aproveite os recursos do {{site.data.keyword.blockstorageshort}} a seguir:
    - Fornecido por meio da alocação de IOPS de nível de protocolo para volumes individuais.
 - **Altamente durável e resiliente**
    - Protege a integridade dos dados e mantém a disponibilidade por meio dos eventos de manutenção e de falhas não planejadas sem a necessidade de criar e gerenciar matrizes Redundant Array of Independent Disks (RAID) no nível do sistema operacional.
-- **Criptografia de dados em repouso** ([Disponível em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Criptografia de dados em repouso** ([disponível na maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Criptografia gerenciada por provedor para dados em repouso sem custo adicional.
-- **Todo armazenamento suportado em flash** ([Disponível em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Todos os armazenamentos suportados por flash** ([disponível na maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Armazenamento totalmente em flash para volumes provisionados com o Endurance ou o Performance em níveis de 2 IOPS/GB ou mais altos.
-- **Capturas instantâneas** ([Disponíveis em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Capturas instantâneas** ([disponível na maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Obtém capturas instantâneas de dados de um momento de modo ininterrupto.
-- **Replicação** ([Disponível em data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations))
+- **Replicação** ([disponível na maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Copia capturas instantâneas automaticamente para um data center parceiro do {{site.data.keyword.cloud}}.
 - **Conectividade altamente disponível**
    - Usa conexões de rede redundantes para maximizar a disponibilidade
@@ -70,7 +70,7 @@ E/S. Essas cargas de trabalho geralmente são caracterizadas por ter uma grande 
 
 - **4 IOPS por GB** é projetado para cargas de trabalho com maior intensidade. Essas cargas de trabalho geralmente são caracterizadas por ter uma alta porcentagem de dados ativos a qualquer momento. Aplicativos de exemplo incluem bancos de dados transacionais e outros sensíveis a desempenho.
 
-- **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento provisionado até 4 TB em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations) apenas.
+- **10 IOPS por GB** é projetado para as cargas de trabalho mais exigentes, como aquelas criadas por bancos de dados NoSQL, e para processamento de dados para Analytics. Essa camada está disponível para o armazenamento que é provisionado até 4 TB na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Até 48.000 IOPS estão disponíveis com um volume do Endurance de 12 TB.
 
@@ -104,7 +104,7 @@ e contagens de IOPS maiores. Os volumes do Performance podem ser pedidos de acor
 {: caption="Comparação de tabela" caption-side="top"}
 {: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
-![Nota de rodapé](/images/numberone.png) *Os limites de IOPS maiores que 6.000 estão disponíveis nos data centers selecionados.*
+![Nota de rodapé](/images/numberone.png) *Os limites de IOPS superiores a 6.000 estão disponíveis na maioria dos data centers.*
 
 Os volumes do Performance foram projetados para operar consistentemente próximo ao nível de IOPS provisionado. A consistência facilita dimensionar e escalar ambientes de aplicativos com um nível específico de desempenho. Além disso, é possível otimizar um ambiente construindo um volume com a proporção preço/desempenho ideal.
 
@@ -113,7 +113,7 @@ Os volumes do Performance foram projetados para operar consistentemente próximo
 
 É possível selecionar o faturamento por hora ou mensal para um LUN de bloco. O tipo de faturamento selecionado para um LUN aplica-se a seu espaço de captura instantânea e réplicas. Por exemplo, se você provisionar um LUN com o faturamento por hora, quaisquer taxas de capturas instantâneas ou de réplica serão faturadas por hora. Se você provisionar um LUN com faturamento mensal, quaisquer taxas de capturas instantâneas ou de réplicas serão faturadas mensalmente.
 
- * Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível para o armazenamento provisionado somente em [data centers selecionados](/docs/infrastructure/BlockStorage?topic=BlockStorage-news#new-locations).
+ * Com **faturamento por hora**, o número de horas de existência do LUN de bloco na conta é calculado no momento em que o LUN é excluído ou no término do ciclo de faturamento, o que vier primeiro. O faturamento por hora é uma boa opção para armazenamento usado por alguns dias ou menos de um mês completo. O faturamento por hora está disponível na [maioria dos data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
  * Com o **faturamento mensal**, o cálculo do preço é rateado a partir da data
 de criação até o término do ciclo de faturamento e é cobrado imediatamente. Se um LUN for excluído antes do término do ciclo de faturamento, não haverá reembolso. O faturamento mensal é uma boa opção para o armazenamento usado em cargas de trabalho de produção que usam dados que precisam ser armazenados e acessados por longos períodos de tempo (um mês ou mais).

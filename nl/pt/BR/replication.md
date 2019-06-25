@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -43,8 +43,7 @@ As replicações funcionam com base em um planejamento de captura instantânea. 
 1. Clique em seu volume de armazenamento.
 2. Clique em **Réplica** e em **Comprar uma replicação**.
 3. Selecione o planejamento de captura instantânea existente que você deseja que sua replicação siga. A lista contém todos os seus planejamentos de captura instantânea ativa. <br />
-   É possível selecionar apenas um planejamento mesmo se você tiver uma combinação de horário, diário e semanal. Todas as capturas instantâneas que foram capturadas desde o ciclo de replicação anterior são replicadas independentemente do planejamento que as originou.<br />Se você não tiver Capturas instantâneas configuradas, será solicitado que faça isso antes de poder pedir replicação. Consulte [Trabalhando
-com capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) para obter mais detalhes.
+   É possível selecionar apenas um planejamento mesmo se você tiver uma combinação de horário, diário e semanal. Todas as capturas instantâneas que foram capturadas desde o ciclo de replicação anterior são replicadas independentemente do planejamento que as originou.<br />Se você não tiver Capturas instantâneas configuradas, será solicitado que faça isso antes de poder pedir replicação. Para obter mais informações, consulte [Trabalhando com capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Clique em **Local** e selecione o data center que é seu site de DR.
 4. Clique em **Continuar**.

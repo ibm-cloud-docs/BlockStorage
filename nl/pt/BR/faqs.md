@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -102,9 +102,7 @@ A latência de destino dentro do armazenamento é <1 ms. O armazenamento é cone
 ## Por que o {{site.data.keyword.blockstorageshort}} com uma camada de 10 IOPS/GB do Endurance pode ser pedido em alguns data centers e em outros não?
 {: faq}
 
-A camada de 10 IOPS/GB do Endurance tipo {{site.data.keyword.blockstorageshort}} está disponível somente em data centers selecionados e novos data centers estão sendo incluídos gradualmente. É possível localizar uma lista completa de
-data centers submetidos a upgrade e de recursos disponíveis
-[aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+O {{site.data.keyword.blockstorageshort}} com a camada de 10 IOPS/GB do tipo Endurance está disponível na maioria dos [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Como podemos dizer quais volumes do {{site.data.keyword.blockstorageshort}} são criptografados?
 {: faq}
@@ -116,15 +114,14 @@ Ao verificar a sua lista do {{site.data.keyword.blockstorageshort}} no [console 
 
 Ao pedir o {{site.data.keyword.blockstorageshort}}, todos os data centers submetidos a upgrade são denotados com um asterisco (`*`) no formulário de pedido e uma indicação de que você está prestes a provisionar armazenamento com criptografia. Quando o armazenamento é provisionado, é possível ver um ícone na lista de armazenamento mostrando esse armazenamento como criptografado. Todos os volumes criptografados e os LUNs são provisionados somente em data centers submetidos a upgrade. É possível localizar uma lista completa de
 data centers submetidos a upgrade e de recursos disponíveis
-[aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+[aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Se possuímos um {{site.data.keyword.blockstorageshort}} não criptografado em um data center que tenha sido submetido a upgrade recentemente, podemos criptografar esse {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
 O {{site.data.keyword.blockstorageshort}} que é provisionado antes do upgrade do data center não pode ser criptografado.
 O novo {{site.data.keyword.blockstorageshort}} que é fornecido em data centers com upgrade é criptografado automaticamente. Não há configuração de criptografia para escolher, é automático.
-Os dados em armazenamento não criptografado em um data center submetido a upgrade podem ser criptografados
-criando um novo LUN de bloco e, em seguida, copiando os dados para o novo LUN criptografado com migração baseada em host. Clique [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage) para obter instruções.
+Os dados no armazenamento não criptografado em um data center submetido a upgrade podem ser criptografados criando um LUN e, em seguida, copiando os dados para o novo LUN criptografado com a migração baseada em host. Para obter mais informações, consulte [Fazendo upgrade do {{site.data.keyword.blockstorageshort}} existente para o {{site.data.keyword.blockstorageshort}} aprimorado](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## O {{site.data.keyword.blockstorageshort}} suporta a Reserva Persistente SCSI-3
 para implementar o fence de E/S para Db2 pureScale?
