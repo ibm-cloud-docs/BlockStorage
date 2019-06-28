@@ -49,7 +49,7 @@ In the case, provide the following information:
 *For example, your answer might be something similar to "25x Performance 20 GB @ 10 IOPS in DAL09" or "50x Endurance 2 TB @ 0.25 IOPS in SJC03".*
 
 - **Provide an estimate of when you expect or plan to provision all of the requested volume increase.** <br />
- "*For example, your answer might be something similar to "90 days".*
+*For example, your answer might be something similar to "90 days".*
 
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.** <br />
 *For example, your answer might be something similar to "expect 25 percent to be used in 30 days, 50 percent to be used in 60 days and 75 percent to be used in 90 days".*
