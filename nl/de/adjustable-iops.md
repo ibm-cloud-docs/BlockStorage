@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # IOPS anpassen
 {: #adjustingIOPS}
 
-Mit dieser neuen Funktion können {{site.data.keyword.blockstoragefull}}-Speicherbenutzer die IOPS ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell in einen neuen Speicher migrieren. Während der Anpassung erleben die Benutzer keinerlei Ausfall oder Zugriffsbeschränkung.
+Mit dieser Funktion können {{site.data.keyword.blockstoragefull}}-Speicherbenutzer die IOPS ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell in einen neuen Speicher migrieren. Während der Anpassung erleben die Benutzer keinerlei Ausfall oder Zugriffsbeschränkung.
 
 Die Abrechnung für den Speicher wird so aktualisiert, dass die anteilige Differenz des neuen Preises zum aktuellen Abrechnungszyklus hinzugefügt wird. Der gesamte neue Betrag wird beim nächsten Abrechnungszyklus abgerechnet.
 
@@ -29,7 +29,7 @@ Die Abrechnung für den Speicher wird so aktualisiert, dass die anteilige Differ
 ## Einschränkungen
 {: #limitsofIOPSadjustment}
 
-Diese Funktion ist nur in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) verfügbar.
+Diese Funktion ist in den [meisten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) verfügbar.
 
 Kunden können beim Anpassen ihrer IOPS nicht zwischen Endurance und Performance wechseln. Sie können jedoch auf Basis der folgenden Bedingungen/Einschränkungen ein neues IOPS-Tier oder eine neue IOPS-Ebene für ihren Speicher angeben:
 
@@ -44,9 +44,7 @@ Wenn die Replikation auf dem Datenträger eingerichtet wurde, wird das Replikat 
 ## IOPS im Speicher anpassen
 {: #adjustingsteps}
 
-1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste:
-   - Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-   - Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste. Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf das **Menüsymbol** und anschließend auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Treffen Sie im Bereich **IOPS-Optionen für Speicher** eine neue Auswahl:
     - Wählen Sie für 'Endurance (Gestaffelte IOPS)' Sie ein IOPS-Tier aus, das größer als 0,25 IOPS/GB Ihres Speichers ist. Sie können den Wert für das IOPS-Tier jederzeit erhöhen. Seine Verringerung ist jedoch nur einmal pro Monat möglich.

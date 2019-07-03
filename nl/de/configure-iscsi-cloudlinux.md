@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -19,16 +19,17 @@ subcollection: BlockStorage
 # Verbindung zu iSCSI-LUNs unter CloudLinux herstellen
 {: #mountingCloudLinux}
 
-Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 zu installieren.
+Führen Sie die folgenden Anweisungen aus, um die iSCSI-LUN mit Multipath auf CloudLinux Server Release 6.10 anzuhängen.
 
-Stellen Sie vor Beginn sicher, dass der Host, von dem auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} zuvor autorisiert wurde.
+Stellen Sie vor Beginn sicher, dass der Host, von dem aus auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/classic){: external} zuvor autorisiert wurde.
 {:tip}
 
-1. Melden Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} an.
-2. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
-3. Klicken Sie auf **Host autorisieren**.
-4. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
-5. Notieren Sie Host-IQN, Benutzername, Kennwort und Zieladresse.
+1. Melden Sie sich bei der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} an. Wählen Sie im **Menü** die **Klassische Infrastruktur** aus.
+2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+3. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
+4. Klicken Sie auf **Host autorisieren**.
+5. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
+6. Notieren Sie Host-IQN, Benutzername, Kennwort und Zieladresse.
 
 Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```
@@ -36,11 +37,10 @@ Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
 
 Optionen:
-  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
-  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
-  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
-                            zur Berechtigung
-  --ip-address TEXT         IP-Adresse zur Berechtigung
+  -h, --hardware-id TEXT    Die ID eines Servers zur Autorisierung.
+  -v, --virtual-id TEXT     Die ID eines virtuellen Servers zur Autorisierung.
+  -i, --ip-address-id TEXT  Die ID einer IP-Adresse zur Autorisierung.
+  -p, --ip-address TEXT     Eine IP-Adresse zur Autorisierung.
   --help                    Diese Nachricht anzeigen und Ausführung beenden.
 ```
 {:codeblock}
@@ -114,11 +114,11 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
      node.startup = automatic
      node.leading_login = No
      node.session.auth.authmethod = CHAP
-     node.session.auth.username = <USER NAME VALUE FROM PORTAL>
-     node.session.auth.password = <PASSWORD VALUE FROM PORTAL>
+     node.session.auth.username = <user name value from the console>
+     node.session.auth.password = <password value from the console>
      discovery.sendtargets.auth.authmethod = CHAP
-     discovery.sendtargets.auth.username = <USER NAME VALUE FROM PORTAL>
-     discovery.sendtargets.auth.password = <PASSWORD VALUE FROM PORTAL>
+     discovery.sendtargets.auth.username = <user name value from the console>
+     discovery.sendtargets.auth.password = <password value from the console>
      ```
      {: codeblock}
 
@@ -137,7 +137,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
    ```
    {: pre}
 
-4. Führen Sie die Erkennung des Geräts mithilfe der aus dem {{site.data.keyword.slportal}} abgerufenen Ziel-IP-Adresse aus.
+4. Führen Sie die Erkennung des Geräts mithilfe der aus der {{site.data.keyword.cloud_notm}}-Konsole abgerufenen Ziel-IP-Adresse aus.
 
      A. Führen Sie die Erkennung für das iSCSI-Array aus.
        ```

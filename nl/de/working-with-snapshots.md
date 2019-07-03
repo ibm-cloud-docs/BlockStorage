@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 ## Snapshotplan erstellen
 
-Sie entscheiden, wie oft und wann eine Referenz mit Zeitangabe des Speicherdatenträgers mit Snapshotplänen erstellt werden soll. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Zeitpläne werden über die Registerkarte **Speicher** > **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} verwaltet.
+Sie entscheiden, wie oft und wann eine Referenz mit Zeitangabe des Speicherdatenträgers mit Snapshotplänen erstellt werden soll. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Zeitpläne werden über die Registerkarte **Speicher** > **{{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwaltet.
 
 Damit Sie einen ersten Plan konfigurieren können, müssen Sie vorher einen Snapshotbereich kaufen, sofern Sie noch keinen während der Ersteinrichtung des Speicherdatenträgers gekauft haben. Weitere Informationen finden Sie unter [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
@@ -42,7 +42,7 @@ Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle 
    - Wöchentlich
       - Geben Sie den Tag der Woche, die Stunde und die Minute des Zeitpunkts an, an dem der Snapshot ausgeführt werden soll. Der Standardwert ist der aktuelle Tag, die aktuelle Stunde und die aktuelle Minute.
       - Wählen Sie die Anzahl der wöchentlichen Snapshots aus, die aufbewahrt werden sollen, bevor der älteste gelöscht wird.
-3. Klicken Sie auf **Speichern** und erstellen Sie einen anderen Plan mit einer anderen Häufigkeit. Wenn die Gesamtzahl der geplanten Snapshots 50 übersteigt, erhalten Sie eine Warnnachricht und können nicht speichern.
+3. Klicken Sie auf **Speichern**. Sie können dann einen anderen Plan mit einer anderen Häufigkeit erstellen. Wenn die Gesamtzahl der geplanten Snapshots 50 übersteigt, erhalten Sie eine Warnnachricht und können nicht speichern.
 
 Die Liste der Snapshots wird in der Reihenfolge ihrer Ausführung im Abschnitt **Snapshots** der Seite **Details** angezeigt.
 
@@ -163,9 +163,9 @@ Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach
 {:important}
 
 1. Hängen Sie Ihren Speicherdatenträger vom Host ab.
-   - [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Verbindung zu iSCSI-LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
-2. Klicken Sie im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
+   - [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+2. Klicken Sie in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
 3. Blättern Sie nach unten und klicken Sie auf den Datenträger, der wiederhergestellt werden soll. Im Abschnitt **Snapshots** der Seite **Details** wird die Liste aller gespeicherten Snapshots mit Angabe ihrer Größe und ihres Erstellungsdatums angezeigt.
 4. Klicken Sie auf **Aktionen** neben dem Snapshot, der verwendet werden soll, und klicken Sie auf **Wiederherstellen**. <br/>
 

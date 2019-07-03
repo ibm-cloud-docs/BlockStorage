@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: Block Storage, new features, new locations, Block Storage, mount point changes, select data centers, ISCSI,
 
@@ -54,7 +54,7 @@ Der neue {{site.data.keyword.blockstorageshort}} ist in den folgenden Regionen b
 ## Neuer Mountpunkt für verschlüsselten Speicherdatenträger
 {: #mountpoints}
 
-Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Überprüfen Sie die Informationen zum Mountpunkt auf der Seite mit den **Datenträger-Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}, um sicherzustellen, dass Sie den korrekten Mountpunkt verwenden. Sie können die richtigen Mountpunktinformationen auch über einen API-Aufruf abrufen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
+Alle erweiterten Speicherdatenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Überprüfen Sie die Informationen zum Mountpunkt auf der Seite mit den **Datenträger-Details** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic/storage/block){: external}, um sicherzustellen, dass Sie den korrekten Mountpunkt verwenden. Sie können die richtigen Mountpunktinformationen auch über einen API-Aufruf abrufen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
 
 Um auf alle neuen Funktionen zugreifen zu können, wählen Sie `Storage-as-a-Service Package 759` aus, wenn Sie Ihre Bestellung über die API aufgeben. Weitere Informationen zur {{site.data.keyword.blockstorageshort}}-Bestellung über die API finden Sie unter [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 {:important}

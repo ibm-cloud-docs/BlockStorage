@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -38,12 +38,12 @@ In Tabelle 1 finden Sie eine vollständige Liste der Verfügbarkeit der Rechenze
 
 ## Erstreplikation erstellen
 
-Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen zuerst über einen Snapshotbereich und einen Snapshotplan für den Quellendatenträger verfügen, um replizieren zu können. Wenn Sie versuchen, eine Replikation zu konfigurieren und sich der eine oder andere nicht an seiner Position befindet, werden Sie aufgefordert, mehr Speicherplatz zu erwerben oder einen Zeitplan einzurichten. Replikationen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} verwaltet.
+Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen zuerst über einen Snapshotbereich und einen Snapshotplan für den Quellendatenträger verfügen, um replizieren zu können. Wenn Sie versuchen, eine Replikation zu konfigurieren und sich der eine oder andere nicht an seiner Position befindet, werden Sie aufgefordert, mehr Speicherplatz zu erwerben oder einen Zeitplan einzurichten. Replikationen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwaltet.
 
 1. Klicken Sie auf Ihren Speicherdatenträger.
 2. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
 3. Wählen Sie einen vorhandenen Snapshotplan für Ihre Replikationen aus. Die Liste enthält alle Ihre aktiven Snapshotpläne. <br />
-   Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus stündlicher, täglicher und wöchentlicher Rechnungsstellung haben. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Genauere Informationen hierzu finden Sie im Abschnitt [Mit Snapshots arbeiten](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
+   Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus stündlicher, täglicher und wöchentlicher Rechnungsstellung haben. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Weitere Informationen finden Sie unter [Mit Snapshots arbeiten](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das Sie als Standort für das Disaster-Recovery-Standort verwenden möchten.
 4. Klicken Sie auf **Weiter**.
@@ -56,7 +56,7 @@ Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen 
 
 ## Vorhandene Replikation bearbeiten
 
-Sie können im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} entweder auf der Registerkarte **Primär** oder auf der Registerkarte **Replikat** unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** Ihren Replikationsplan bearbeiten und Ihren Replikationsspeicherbereich ändern.
+Sie können in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} entweder auf der Registerkarte **Primär** oder auf der Registerkarte **Replikat** unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** Ihren Replikationsplan bearbeiten und Ihren Replikationsspeicherbereich ändern.
 
 
 ## Replikationszeitplan bearbeiten
@@ -148,6 +148,11 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
  2. Klicken Sie auf **Aktionen** und wählen Sie **{{site.data.keyword.blockstorageshort}} abbrechen** aus.
  3. Wählen Sie den Zeitpunkt des Abbruchs aus. Wählen Sie **Sofort** oder **Stichtag** aus und klicken Sie auf **Weiter**.
  4. Aktivieren Sie **Ich bestätige, dass der Abbruch einen Datenverlust zur Folge haben kann** und klicken Sie auf **Abbrechen**.
+
+ Naturgemäß bleibt die LUN in Ihrer Speicherliste mindestens 24 Stunden (sofortiger Abbruch) oder bis zum Ablauf eines Jahres sichtbar. Bestimmte Features bleiben zwar nicht mehr sichtbar, doch der Datenträger bleibt so lange sichtbar, bis er freigegeben wird. Die Fakturierung wird jedoch unmittelbar nach dem Klicken auf 'Löschen/Abbrechen' gestoppt.
+
+ Aktive Replikate können die Freigabe des Speicherdatenträgers blockieren. Stellen Sie sicher, dass der Datenträger nicht mehr angehängt ist, dass Hostberechtigungen widerrufen werden und dass die Replikation abgebrochen wird, bevor Sie versuchen, den ursprünglichen Datenträger abzubrechen.
+
 
 ## SLCLI-Befehle im Zusammenhang mit der Replikation
 {: #clicommands}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,15 +19,15 @@ subcollection: BlockStorage
 # Blockspeicherkapazität erweitern
 {: #expandingcapacity}
 
-Mit dieser neuen Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz sofort in Schritten von bis zu 12 GB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung.
+Mit dieser Funktion können aktuelle {{site.data.keyword.blockstoragefull}}-Benutzer die Größe ihrer vorhandenen {{site.data.keyword.blockstorageshort}}-Instanz in GB sofort in Schritten von bis zu 12 TB anpassen. Sie müssen nicht ein Duplikat erstellen oder Daten manuell auf einen größeren Datenträger migrieren. Während der Größenänderung kommt es nicht zu einem Ausfall oder einer Zugriffsbeschränkung.
 
 Die Abrechnung für den Datenträger wird so aktualisiert, dass die anteilige Differenz des neuen Preises zum aktuellen Abrechnungszyklus hinzugefügt wird. Der gesamte neue Betrag wird dann beim nächsten Abrechnungszyklus abgerechnet.
 
-Diese Funktion ist in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) verfügbar.
+Diese Funktion ist in den [meisten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) verfügbar.
 
 ## Vorteile des erweiterbaren Speichers
 
-- **Kostenmanagement** - Sie können erkennen, dass es ein Potenzial für eine Zunahme Ihrer Daten gibt, aber Sie benötigen eine kleinere Speichermenge, um zu beginnen. Die Möglichkeit zur Erweiterung ermöglicht es den Kunden, Kosten für den Speicher zu sparen und ihn anschließend zu erhöhen, um ihn an ihre Anforderungen anzupassen.  
+- **Kostenmanagement** - Sie können erkennen, dass es ein Potenzial für eine Zunahme Ihrer Daten gibt, aber Sie benötigen eine kleinere Speichermenge, um zu beginnen. Die Möglichkeit zur Erweiterung ermöglicht es den Kunden, Kosten für den Speicher zu sparen und ihn zu einem späteren Zeitpunkt zur Anpassung an die jeweiligen Anforderungen zu vergrößern.  
 
 - **Steigender Speicherbedarf** - Kunden mit einem hohen Datenzuwachs benötigen eine Möglichkeit, die Größe Ihres Speichers für die Verwaltung schnell und problemlos zu erhöhen.
 
@@ -38,7 +38,7 @@ Eine Erweiterungsaktion des primären Speichers hat eine automatische Größenä
 ## Einschränkungen
 {: #limitsofexpandingstorage}
 
-Diese Funktion ist für Speicher verfügbar, der in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt wird.
+Diese Funktion ist für Speicher verfügbar, der in den [meisten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) bereitgestellt wird.
 
 Speicher, der vor der Freigabe dieser Funktion (**April 2017 - 14. Dezember 2017**) in diesen Rechenzentren bereitgestellt wird, kann maximal auf das 10-fache seiner Originalgröße vergrößert werden. Speicher, der nach dem **14. Dezember 2017** bereitgestellt wird, kann bis zur maximalen Größe von 12 TB erhöht werden.
 
@@ -47,7 +47,7 @@ Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.
 ## Größe des Speichers ändern
 {: #resizingsteps}
 
-1. Klicken Sie im {{site.data.keyword.slportal}} auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** ODER klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+1. Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf das **Menüsymbol**. Klicken Sie anschließend auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
 2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
 3. Geben Sie die neue Speichergröße in GB ein.
 4. Prüfen Sie Ihre Auswahl und die neue Preisstruktur.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,19 +22,17 @@ subcollection: BlockStorage
 
 Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entsprechend Ihrer Kapazität und Ihren IOPS-Anforderungen optimieren. Mit zwei Optionen zum Angeben der Leistung können Sie die Nutzung des Speichers optimieren.
 
-- Sie können aus Endurance-IOPS-Stufen auswählen, die vordefinierte Leistungsstufen für Workloads enthalten, die nicht über definierte Leistungsanforderungen verfügen.
-- Sie können mit Performance die Gesamtzahl der E/A-Operationen pro Sekunde (IOPS) angeben, um Ihren Speicher zu optimieren und an spezielle Leistungsanforderungen anzupassen.
+- Sie können die Bereitstellung mit **Endurance**-Tiers durchführen, die vordefinierte Leistungsstufen für Workloads enthalten, die nicht über definierte Leistungsanforderungen verfügen.
+- Zur Erfüllung bestimmter Leistungsanforderungen und zur Erstellung einer starken **Leistungsumgebung** können Sie Ihren Speicher optimieren, indem Sie die Gesamtzahl der IOPS (E/A-Operationen pro Sekunde) angeben.
 
 ## {{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers bestellen (Endurance)
+{: #orderingthroughConsoleEndurance}
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){: external} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
-
-   Alternativ können Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
-
+1. Melden Sie sich beim [{{site.data.keyword.cloud_notm}}-Katalog](https://{DomainName}/catalog){: external} an und klicken Sie auf **Speicher**. Wählen Sie anschließend **{{site.data.keyword.blockstorageshort}}** aus und klicken Sie auf **Erstellen**.
 2. Wählen Sie Ihre Bereitstellungs**position** (Rechenzentrum) aus.
    - Stellen Sie sicher, dass der neue Speicher an derselben Position des vorhandenen Rechenhosts bzw. der vorhandenen Rechenhosts hinzugefügt wird.
 3. Abrechnung. Wenn Sie ein Rechenzentrum mit verbesserten Leistungsmerkmalen (mit einem Stern gekennzeichnet) ausgewählt haben, haben Sie die Auswahl zwischen monatlicher und stündlicher Abrechnung.
-     1. Bei **stündlicher** Abrechnung wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus. Dies hängt davon ab, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in diesen [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt wird.
+     1. Bei **stündlicher** Abrechnung wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus. Dies hängt davon ab, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist für Speicher verfügbar, der in diesen [Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) bereitgestellt wird.
      2. Bei **monatlicher** Abrechnung wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine Block-LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger).
 
         Der monatliche Abrechnungstyp wird standardmäßig für Speicher verwendet, der in Rechenzentren bereitgestellt wird, die **nicht** mit verbesserten Funktionen aktualisiert werden.
@@ -45,11 +43,11 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
     - **0,25 IOPS pro GB** ist für Workloads mit niedriger Ein-/Ausgabeintensität gedacht. Bei diesen Workloads ist in der Regel zu einem Zeitpunkt ein großer Prozentsatz der Daten inaktiv. Beispielanwendungen sind Speichermailboxen oder gemeinsam genutzte Dateiressourcen auf Abteilungsebene.
     - **2 IOPS pro GB** ist für die meisten allgemeinen Verwendungszwecke gedacht. Beispielanwendungen sind Hostings kleiner Datenbanken, Sicherungen von Webanwendungen oder Plattenimages virtueller Maschinen für einen Hypervisor.
     - **4 IOPS pro GB** ist für Workloads mit höherer Intensität gedacht. Bei diesen Workloads ist in der Regel zu einem Zeitpunkt ein hoher Prozentsatz der Daten aktiv. Beispielanwendungen sind transaktionsorientierte und andere leistungskritische Datenbanken.
-    - **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse. Dieses Tier ist in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) für Speicher bis zu 4 TB verfügbar.
+    - **10 IOPS pro GB** ist für die anspruchsvollsten Workloads gedacht, beispielsweise für solche, die durch NoSQL-Datenbanken erstellt werden, sowie für die Analyse. Dieses Tier ist in den [meisten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) für Speicher bis zu 4 TB verfügbar.
 7. Klicken Sie auf **Größe des Snapshotbereichs angeben** und wählen Sie die Snapshotgröße aus der Liste aus. Dieser Speicherplatz wird zusätzlich zum verwendbaren Speicherplatz hinzugefügt. Überlegungen und Empfehlungen zum Snapshotbereich finden Sie im Abschnitt [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.<br/>
 
-   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
 
@@ -58,18 +56,17 @@ Sie können {{site.data.keyword.blockstorageshort}} bereitstellen und entspreche
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}- und {{site.data.keyword.filestorage_short}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQ)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## {{site.data.keyword.blockstorageshort}} mit angepassten IOPS-Raten bestellen (Performance)
+{: #orderingthroughConsolePerformance}
 
-1. Melden Sie sich beim [IBM-Cloud-Katalog](https://{DomainName}/catalog){: external} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
-
-   Alternativ können Sie sich am [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden und auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken. Klicken Sie rechts oben auf **{{site.data.keyword.blockstorageshort}} bestellen**.
+1. Melden Sie sich beim [{{site.data.keyword.cloud_notm}}-Katalog](https://{DomainName}/catalog){: external} an und klicken Sie auf **Speicher**. Wählen Sie anschließend {{site.data.keyword.blockstorageshort}} aus und klicken Sie auf **Erstellen**.
 2. Klicken Sie auf die Liste **Position** und wählen Sie Ihr Rechenzentrum aus.
    - Stellen Sie sicher, dass der neue Speicher an derselben Position des vorhandenen Rechenhosts bzw. der vorhandenen Rechenhosts hinzugefügt wird.
 3. Abrechnung. Wenn Sie ein Rechenzentrum mit verbesserten Leistungsmerkmalen (mit einem Stern gekennzeichnet) ausgewählt haben, haben Sie die Auswahl zwischen monatlicher und stündlicher Abrechnung.
-     1. Bei **stündlicher** Abrechnung wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus. Dies hängt davon ab, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist nur für Speicher verfügbar, der in diesen [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt wird.
+     1. Bei **stündlicher** Abrechnung wird die Anzahl der Stunden, die die Block-LUN auf dem Konto vorhanden war, zu dem Zeitpunkt berechnet, an dem die LUN gelöscht wird, oder am Ende des Abrechnungszyklus. Dies hängt davon ab, was zuerst eintritt. Die stündliche Abrechnung ist eine gute Wahl für Speicher, der nur für einige Tage oder weniger als einen Monat verwendet wird. Die stündliche Abrechnung ist für Speicher verfügbar, der in diesen [Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) bereitgestellt wird.
      2. Bei **monatlicher** Abrechnung wird die Abrechnung anteilmäßig vom Datum der Erstellung bis zum Ende des Abrechnungszyklus berechnet und sofort abgerechnet. Wenn eine Block-LUN vor dem Ende des Abrechnungszyklus gelöscht wird, gibt es keine Rückerstattung. Die monatliche Abrechnung ist eine gute Wahl für Speicher, der in Produktionsworkloads verwendet wird, die Daten verwenden, die über längere Zeiträume gespeichert werden und verfügbar sein müssen (einen Monat oder länger).
 
         Der monatliche Abrechnungstyp wird standardmäßig für Speicher verwendet, der in Rechenzentren bereitgestellt wird, die **nicht** mit verbesserten Funktionen aktualisiert werden.
@@ -80,7 +77,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 7. Klicken Sie auf **Größe des Snapshotbereichs angeben** und wählen Sie die Snapshotgröße aus der Liste aus. Dieser Speicherplatz wird zusätzlich zum verwendbaren Speicherplatz hinzugefügt. Überlegungen und Empfehlungen zum Snapshotbereich finden Sie im Abschnitt [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Wählen Sie in der Liste Ihren **Betriebssystemtyp** aus.<br/>
 
-   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+   Diese Auswahl basiert auf dem Betriebssystem, auf dem Ihr Host ausgeführt wird, und kann später nicht mehr geändert werden. Läuft Ihr Server zum Beispiel unter Ubuntu oder RHEL, so wählen Sie Linux aus. Wenn Ihr Host ein Windows 2012 oder Windows 2016 Server ist, wählen Sie die Option 'Windows 2008+' aus der Liste aus. Weitere Informationen zu verschiedenen Windows-Optionen finden Sie im Abschnitt mit [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. Überprüfen Sie auf der rechten Seite Ihre Bestellübersicht und wenden Sie gegebenenfalls Ihren Werbeaktionscode an.
 
@@ -89,7 +86,7 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 10. Danach markieren Sie das Kontrollkästchen **Die im Folgenden aufgeführten Servicevereinbarungen anderer Anbieter habe ich gelesen und stimme ihnen zu:**.
 11. Klicken Sie auf **Erstellen**. Ihre neue Speicherzuordnung ist in wenigen Minuten verfügbar.
 
-Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}}- und {{site.data.keyword.filestorage_short}}-Datenträger bereitstellen. Wenden Sie sich an Ihren Vertriebsbeauftragten, wenn Sie die Anzahl Ihrer Datenträger erhöhen möchten. Weitere Informationen zum Erhöhen von Grenzwerten finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQ)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Neuen Speicher verbinden

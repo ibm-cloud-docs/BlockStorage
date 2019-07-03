@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -10,7 +10,7 @@ subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
-{:codeblock: .codeblock} 
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -49,9 +49,7 @@ Außerdem gilt bei den meisten Workloads, dass anfangs umso weniger Speicherplat
 
 ## Snapshotbereich über die {{site.data.keyword.cloud_notm}}-Konsole bestellen
 
-1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/catalog){: external} an und klicken Sie auf das Menüsymbol oben links. Wählen Sie **Klassische Infrastruktur** aus.
-
-   Alternativ können Sie sich beim [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} anmelden.
+1. Melden Sie sich an der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/catalog){: external} an und klicken Sie auf das Menüsymbol oben links. Wählen Sie anschließend **Klassische Infrastruktur** aus.
 2. Greifen Sie über **Speicher** >**{{site.data.keyword.blockstorageshort}}** auf Ihre Speicher-LUN zu.
 2. Klicken Sie im Rahmen 'Snapshots' auf die Option zum Ändern des Snapshotbereichs.
 3. Wählen Sie die Menge an benötigtem Speicherplatz und die Zahlungsmethode aus.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage Encryption, industry standard protocols, IBM Block Storage, LUN, provider-managed encryption
 
@@ -33,7 +33,7 @@ Auch alle Screenshots und Replikate von verschlüsseltem {{site.data.keyword.blo
 
 ## Speicher mit Verschlüsselung bereitstellen
 
-Die anbietergesteuerte ruhende Verschlüsselungsfunktion ist für {{site.data.keyword.blockstorageshort}}-Instanzen verfügbar, die in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) bereitgestellt werden. Der gesamte in diesen Rechenzentren bestellte Speicher wird automatisch mit Verschlüsselung für ruhende Daten bereitgestellt.
+Die anbietergesteuerte ruhende Verschlüsselungsfunktion ist für {{site.data.keyword.blockstorageshort}}-Instanzen verfügbar, die in [den meisten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) bereitgestellt werden. Der gesamte in diesen Rechenzentren bestellte Speicher wird automatisch mit Verschlüsselung für ruhende Daten bereitgestellt.
 
 Wählen Sie bei der Bestellung von {{site.data.keyword.blockstorageshort}} ein Rechenzentrum aus, das mit einem Stern (`*`) markiert ist. Rechts neben dem Feld mit der LUN bzw. dem Datenträgernamen wird ein Sperrsymbol für die Verschlüsselung des Datenträgers angezeigt.
 

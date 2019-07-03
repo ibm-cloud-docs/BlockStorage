@@ -2,29 +2,35 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 
 ---
-
-{:external: target="_blank" .external}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
-
+{:external: target="_blank" .external}
 
 # Windows 2012 R2 - mehrere iSCSI-Geräte
 {: #troubleshootingWin12}
 
-Wenn Sie mehr als zwei iSCSI-Geräte verwenden, finden Sie diese Prozedur möglicherweise nützlich. Dies gilt insbesondere dann, wenn alle vier iSCSI-Kontingente vom selben Speichermedium stammen. Wenn in Disk Manager nur zwei Geräte angezeigt werden, müssen Sie auf jedem Serverknoten manuell eine Verbindung zu jedem Gerät im iSCSI-Initiator herstellen.
+Wenn Sie mehr als zwei iSCSI-Geräte mit demselben Host verwenden, finden Sie diese Prozedur möglicherweise nützlich. Dies gilt insbesondere dann, wenn alle iSCSI-Verbindungen vom selben Speichermedium stammen.
+Wenn in Disk Manager nur zwei Geräte angezeigt werden, müssen Sie auf jedem Serverknoten manuell eine Verbindung zu jedem Gerät im iSCSI-Initiator herstellen.
+{:tsSymptoms}
+{:tsResolve}
+
 
 1. Öffnen Sie den Windows iSCSI-Initiator.
-2. Klicken Sie auf die Registerkarte **Ziele** und klicken Sie dann auf **Geräte**.
+2. Klicken Sie auf der Registerkarte **Ziele** auf **Geräte**.
 
    ![Eigenschaften des iSCSI-Initiators](/images/win12-ts1.png)
 3. Bestätigen Sie die Anzahl der Geräte, die angezeigt werden. Wenn Sie zwei Geräte statt vier sehen, die berechtigt wurden, fahren Sie mit dem nächsten Schritt fort.

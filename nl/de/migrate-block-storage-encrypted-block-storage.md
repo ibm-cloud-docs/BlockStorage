@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # Upgrade für vorhandenen {{site.data.keyword.blockstorageshort}} auf erweiterten {{site.data.keyword.blockstorageshort}} durchführen
 {: #migratestorage}
 
-In ausgewählten Rechenzentren ist jetzt erweiterter {{site.data.keyword.blockstoragefull}} verfügbar. Wenn Sie eine Liste der aktualisierten Rechenzentren und verfügbaren Funktionen anzeigen möchten, zum Beispiel konfigurierbare IOPS-Raten und erweiterbare Datenträger, klicken Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news). Weitere Informationen zum vom Provider verwalteten verschlüsselten Speicher finden Sie unter [{{site.data.keyword.blockstorageshort}}-Verschlüsselung ruhender Daten](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+In den meisten [Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) ist jetzt erweiterter {{site.data.keyword.blockstoragefull}} verfügbar.
 
 Der bevorzugte Migrationspfad ist die gleichzeitige Verbindung zu beiden LUNs und die direkte Übertragung der Daten von einer LUN zur anderen. Die jeweiligen technischen Daten hängen vom Betriebssystem ab und ob erwartet wird, dass die Daten während der Kopieroperation geändert werden.
 
@@ -35,10 +35,10 @@ Alle erweiterten {{site.data.keyword.blockstorageshort}}-Datenträger, die in di
 Wenn Sie einen Auftrag mit einer API erteilen, geben Sie das Paket 'Storage as a Service' an, um sicherzustellen, dass Sie die aktualisierten Funktionen mit dem neuen Speicher erhalten.
 {:important}
 
-Sie können eine erweiterte LUN über die IBM Cloud-Konsole und das {{site.data.keyword.slportal}} bestellen. Die neue LUN muss dieselbe Größe wie der Originaldatenträger aufweisen oder größer als der Originaldatenträger sein, damit die Migration möglich ist.
+Sie können eine erweiterte LUN über die IBM Cloud-Konsole bestellen. Die neue LUN muss dieselbe Größe wie der Originaldatenträger aufweisen oder größer als der Originaldatenträger sein, damit die Migration möglich ist.
 
-- [{{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers (Endurance) bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-pre-defined-iops-tiers-endurance-)
-- [{{site.data.keyword.blockstorageshort}} mit angepassten IOPS (Performance) bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#ordering-block-storage-with-custom-iops-performance-)
+- [{{site.data.keyword.blockstorageshort}} mit vordefinierten IOPS-Tiers (Endurance) bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [{{site.data.keyword.blockstorageshort}} mit angepassten IOPS (Performance) bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 Der neue Speicher ist in einigen Minuten zum Anhängen verfügbar. Er kann in der Ressourcenliste und der {{site.data.keyword.blockstorageshort}}-Liste angezeigt werden.
 

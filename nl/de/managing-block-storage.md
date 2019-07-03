@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} verwalten
 {: #managingstorage}
 
-Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} verwalten.
+Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über die [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwalten. Wählen Sie im **Menü** die **Klassische Infrastruktur** aus, um mit klassischen Services zu interagieren.
 
 ## Details zu {{site.data.keyword.blockstorageshort}}-LUN anzeigen
 
@@ -52,11 +52,10 @@ Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden.
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
 
 Optionen:
-  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
-  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
-  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
-                            zur Berechtigung
-  --ip-address TEXT         IP-Adresse zur Berechtigung
+  -h, --hardware-id TEXT    Die ID eines Servers zur Autorisierung.
+  -v, --virtual-id TEXT     Die ID eines virtuellen Servers zur Autorisierung.
+  -i, --ip-address-id TEXT  Die ID einer IP-Adresse zur Autorisierung.
+  -p, --ip-address TEXT     Eine IP-Adresse zur Autorisierung.
   --help                    Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
@@ -84,10 +83,13 @@ Optionen:
 
 Sie können die LUNs anzeigen, auf die ein Host Zugriff hat, sowie die Informationen, die zum Herstellen einer Verbindung erforderlich sind – LUN-Name, Speichertyp, Zieladresse, Kapazität und Position:
 
-1. Klicken Sie im [{{site.data.keyword.slportal}}](http://control.softlayer.com/){: external} auf **Geräte** -> **Geräteliste** und klicken Sie auf das entsprechende Gerät.
+1. Klicken Sie in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} auf **Geräte** -> **Geräteliste** und klicken Sie auf das entsprechende Gerät.
 2. Wählen Sie die Registerkarte **Speicher** aus.
 
 Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Durch Klicken auf **Aktionen** können Sie weiteren Speicher autorisieren oder Zugriff widerrufen.
+
+Ein Host kann nicht für den Zugriff auf LUNs unterschiedlicher Betriebssystemtypen gleichzeitig berechtigt werden. Ein Host kann nur für den Zugriff auf LUNs eines einzigen Betriebssystemtyps berechtigt werden. Wenn Sie versuchen, den Zugriff auf mehrere LUNs mit unterschiedlichen Betriebssystemtypen zu berechtigen, führt die Operation zu einem Fehler.
+{:note}
 
 ## {{site.data.keyword.blockstorageshort}} anhängen und abhängen
 
@@ -111,9 +113,9 @@ Sie können den Zugriff über die **Geräteliste** oder die **Speicheransicht** 
 
 ### Zugriff über Geräteliste widerrufen
 
-1. Klicken Sie auf **Geräte** > **Geräteliste** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} und doppelklicken Sie auf das entsprechende Gerät.
+1. Klicken Sie auf **Geräte** > **Geräteliste** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} und doppelklicken Sie auf das entsprechende Gerät.
 2. Wählen Sie die Registerkarte **Speicher** aus.
-3. Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Wählen Sie neben dem Namen der LUN **Aktion** aus und klicken Sie auf 'Zugriff widerrufen'**.
+3. Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Wählen Sie neben dem Namen der LUN **Aktion** aus und klicken Sie auf **Zugriff widerrufen**.
 4. Bestätigen Sie, dass Sie den Zugriff für eine LUN widerrufen möchten, weil die Aktion nicht rückgängig gemacht werden kann. Klicken Sie auf **Ja**, um den LUN-Zugriff zu widerrufen, oder auf **Nein**, um die Aktion abzubrechen.
 
 Wenn Sie mehrere LUNS von einem bestimmten Host trennen möchten, müssen Sie die Aktion 'Zugriff widerrufen' für jede LUN wiederholen.
@@ -138,13 +140,10 @@ Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden.
 Syntax: slcli block access-revoke [OPTIONEN] DATENTRÄGER-ID
 
 Optionen:
-  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zum Widerrufen der
-                            Berechtigung
-  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zum
-                            Widerrufen der Berechtigung
-  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
-                            zum Widerrufen der Berechtigung
-  --ip-address TEXT         IP-Adresse zum Widerrufen der Berechtigung
+  -h, --hardware-id TEXT    Die ID eines Servers zum Widerrufen der Autorisierung.
+  -v, --virtual-id TEXT     Die ID eines virtuellen Servers zum Widerrufen der Autorisierung.
+  -i, --ip-address-id TEXT  Die ID einer IP-Adresse zum Widerrufen der Autorisierung.
+  -p, --ip-address TEXT     Eine IP-Adresse zum Widerrufen der Autorisierung.
   --help                    Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
@@ -175,3 +174,7 @@ Optionen:
                  am Abrechnungsstichtag.
   -h, --help     Diese Nachricht anzeigen und Ausführung beenden.
 ```
+
+Naturgemäß bleibt die LUN in Ihrer Speicherliste mindestens 24 Stunden (sofortiger Abbruch) oder bis zum Ablauf eines Jahres sichtbar. Bestimmte Features bleiben zwar nicht mehr sichtbar, doch der Datenträger bleibt so lange sichtbar, bis er freigegeben wird. Die Fakturierung wird jedoch unmittelbar nach dem Klicken auf 'Löschen/Abbrechen' gestoppt.
+
+Aktive Replikate können die Freigabe des Speicherdatenträgers blockieren. Stellen Sie sicher, dass der Datenträger nicht mehr angehängt ist, dass Hostberechtigungen widerrufen werden und dass die Replikation abgebrochen wird, bevor Sie versuchen, den ursprünglichen Datenträger abzubrechen.

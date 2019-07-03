@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -29,7 +29,7 @@ Der Lese- und Schreibzugriff auf duplizierte Datenträger kann durch einen Host 
 
 Sobald die Datenkopie abgeschlossen ist, kann das Duplikat als unabhängiger Datenträger verwaltet und verwendet werden.
 
-Diese Funktion steht an den meisten Standorten zur Verfügung. Klicken Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news), um eine Liste mit den verfügbaren Rechenzentren anzuzeigen.
+Diese Funktion steht an den meisten Standorten zur Verfügung. Weitere Informationen hierzu finden Sie [in der Liste der verfügbaren Rechenzentren ](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 Als Benutzer mit einem dedizierten Konto für {{site.data.keyword.containerlong}} finden Sie in der [{{site.data.keyword.containerlong_notm}}-Dokumentation](/docs/containers?topic=containers-block_storage#block_backup_restore) Informationen zu Optionen für die Duplizierung eines Datenträgers.
 {:tip}
@@ -42,14 +42,12 @@ Nachstehend einige gängige Anwendungen für duplizierte Datenträger:
 - **Entwicklung und Test**: Erstellen Sie gleichzeitig bis zu vier simultane Duplikate eines Datenträgers, um duplizierte Daten zu Entwicklungs- und Testzwecken zu erstellen.
 - **Größenänderung des Speichers**: Erstellen Sie einen Datenträger mit der neuen Größe und/oder den IOPS-Raten, ohne die Daten verschieben zu müssen.  
 
-Es gibt mehrere Möglichkeiten zur Erstellung eines duplizierten Datenträgers über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external}.
+Es gibt mehrere Möglichkeiten zur Erstellung eines duplizierten Datenträgers über die [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external}.
 
 
 ## Duplikat von einem bestimmten Datenträger in der Speicherliste erstellen
 
-1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste:
-    - Klicken Sie im Kundenportal auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-    - Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+1. Rufen Sie die {{site.data.keyword.blockstorageshort}}-Liste in der {{site.data.keyword.cloud_notm}}-Konsole auf, indem Sie auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken.
 2. Wählen Sie in der Liste einen Datenträger aus und klicken Sie auf **Aktionen** > **Duplizierte LUN (Datenträger)**.
 3. Wählen Sie Ihre Snapshotoption aus:
     - Wenn Sie von einem **Nicht-Replikat**-Datenträger bestellen:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -23,10 +23,10 @@ subcollection: BlockStorage
 Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
 {:note}
 
-Die Anweisungen für Ubuntu zur Konfiguration des iSCSI-Initiators finden Sie zum Beispiel [hier](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} und die Anweisungen zur Konfiguration von Device-Mapper Multipathing finden Sie [hier](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+Beispiel: Weitere Informationen zu Ubuntu-Spezifikationen finden Sie unter [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} und unter [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Stellen Sie vor Beginn sicher, dass der Host, von dem auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} zuvor autorisiert wurde.
+Stellen Sie vor Beginn sicher, dass der Host, von dem aus auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} zuvor autorisiert wurde.
 {:important}
 
 1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
@@ -39,11 +39,10 @@ Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 Syntax: slcli block access-authorize [OPTIONEN] DATENTRÄGER_ID
 
 Optionen:
-  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
-  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
-  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
-                            zur Berechtigung
-  --ip-address TEXT         IP-Adresse zur Berechtigung
+  -h, --hardware-id TEXT    Die ID eines Servers zur Autorisierung.
+  -v, --virtual-id TEXT     Die ID eines virtuellen Servers zur Autorisierung.
+  -i, --ip-address-id TEXT  Die ID einer IP-Adresse zur Autorisierung.
+  -p, --ip-address TEXT     Eine IP-Adresse zur Autorisierung.
   --help                    Diese Nachricht anzeigen und Ausführung beenden.
 ```
 {:codeblock}
@@ -51,9 +50,9 @@ Optionen:
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 {: #mountLin}
 
-Nachfolgend werden die Schritte beschrieben, die zum Herstellen einer Verbindung von einer Linux-basierten {{site.data.keyword.cloud}}-Recheninstanz zu einer MPIO-iSCSI-LUN erforderlich sind (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
+Führen Sie die folgenden Schritte aus, um eine Verbindung von einer Linux-basierten {{site.data.keyword.cloud}}-Recheninstanz zu einer MPIO-iSCSI-LUN herzustellen (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number).
 
-Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige mit den **{{site.data.keyword.blockstorageshort}}-Details** im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} abgerufen werden.
+Der Host-IQN, der Benutzername, das Kennwort und die Zieladresse, auf die in den Anweisungen verwiesen wird, können in der Anzeige mit den **{{site.data.keyword.blockstorageshort}}-Details** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic/storage){: external} abgerufen werden.
 {: tip}
 
 Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die Firewall umgeht. Eine Ausführung des Speicherdatenverkehrs über Software-Firewalls erhöht die Latenz und beeinträchtigt die Speicherleistung.
@@ -61,7 +60,8 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
 1. Installieren Sie die iSCSI- und Multipath-Dienstprogramme auf Ihrem Host.
   - RHEL und CentOS
-     ```
+
+    ```
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
@@ -121,7 +121,7 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
       {: pre}
 
   - Die Datei `multipath.conf` kann bei RHEL7/CentOS7 leer sein, da das Betriebssystem über integrierte Konfigurationen verfügt.
-  - Ubuntu verwendet 
+  - Ubuntu verwendet `multipath.conf` nicht, da es in `multipath-tools` integriert ist.
 
 3. Laden Sie das Multipath-Modul, starten Sie die Multipath-Services und legen Sie fest, dass es beim Booten gestartet werden soll.
   - RHEL 6
@@ -180,12 +180,14 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
     Möglicherweise geben RHEL 7 und CentOS 7 die Nachricht zurück, dass kein fc_host-Gerät vorhanden ist. Dies kann ignoriert werden.
 
-5. Aktualisieren Sie die Datei `/etc/iscsi/initiatorname.iscsi` mit dem IQN aus dem {{site.data.keyword.slportal}}. Geben Sie den Wert in Kleinbuchstaben ein.
+5. Aktualisieren Sie die Datei `/etc/iscsi/initiatorname.iscsi` mit dem IQN aus der {{site.data.keyword.cloud}}-Konsole. Geben Sie den Wert in Kleinbuchstaben ein.
+
    ```
    InitiatorName=<Wert-aus-Portal>
    ```
    {: pre}
-6. Bearbeiten Sie die CHAP-Einstellungen in `/etc/iscsi/iscsid.conf` mit dem Benutzernamen und dem Kennwort aus dem {{site.data.keyword.slportal}}. Geben Sie die CHAP-Namen in Großbuchstaben ein.
+
+6. Bearbeiten Sie die CHAP-Einstellungen in `/etc/iscsi/iscsid.conf` mit dem Benutzernamen und dem Kennwort aus der {{site.data.keyword.cloud}}-Konsole. Geben Sie die CHAP-Namen in Großbuchstaben ein.
    ```
    node.session.auth.authmethod = CHAP
     node.session.auth.username = <Wert-des-Benutzernamens-aus-Portal>
@@ -247,11 +249,11 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
 
    - Lesen Sie bei anderen Distributionen die Dokumentation des Anbieters des Betriebssystems.
 
-8. Führen Sie die Erkennung des Geräts mithilfe der aus dem {{site.data.keyword.slportal}} abgerufenen Ziel-IP-Adresse aus.
+8. Führen Sie die Erkennung des Geräts mithilfe der aus der {{site.data.keyword.cloud}}-Konsole abgerufenen Ziel-IP-Adresse aus.
 
    A. Führen Sie die Erkennung für das iSCSI-Array aus.
     ```
-    iscsiadm -m discovery -t sendtargets -p <ip-Wert-aus-SL-Portal>
+    iscsiadm -m discovery -t sendtargets -p <IP-Wert aus IBM Cloud-Konsole>
     ```
     {: pre}
 
@@ -279,10 +281,12 @@ Es wird empfohlen, den Speicherdatenverkehr über ein VLAN auszuführen, das die
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
+
   Dieser Befehl meldet Ähnliches wie im folgenden Beispiel.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
+
   Nun ist der Datenträger angehängt und der Zugriff darauf ist über den Host möglich.
 
 ## Dateisystem erstellen (optional)

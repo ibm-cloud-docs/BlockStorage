@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -17,9 +17,9 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} über die SLCLI bestellen
 {: #orderingthroughCLI}
 
-Sie können die SLCLI verwenden, um Bestellungen für Produkte zu platzieren, die normalerweise über das [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} bestellt werden. In der SL-API kann eine Bestellung aus mehreren Bestellungscontainern bestehen. Die Bestell-Befehlszeilenschnittstelle funktioniert nur mit einem Bestellcontainer.
+Sie können die SLCLI verwenden, um Bestellungen für Produkte zu platzieren, die normalerweise über die [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} bestellt werden. In der SL-API kann eine Bestellung aus mehreren Bestellungscontainern bestehen. Die Bestell-Befehlszeilenschnittstelle funktioniert nur mit einem Bestellcontainer.
 
-Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter [Python-API-Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter [Python-CLI-Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
 
 ## Nach verfügbaren {{site.data.keyword.blockstorageshort}}-Angeboten suchen
@@ -84,9 +84,7 @@ Optionen:
                                  Blockspeicher; gibt die Größe (in GB) des zu
                                  bestellenden Snapshotspeicherbereichs an
  --service-offering [storage_as_a_service|enterprise|performance]
-                                 Serviceangebotspaket, das für die Bestellung
-                                 verwendet werden soll [optional, Standardwert:
-                                 'storage_as_a_service']
+                                 Standardwert: 'storage_as_a_service']
  --billing [hourly|monthly]      Optionaler Parameter für den Abrechnungssatz
                                  (Standardwert: monatlich)
  -h, --help                      Diese Nachricht anzeigen und Ausführung beenden.
@@ -95,6 +93,8 @@ Optionen:
 Weitere Informationen zur {{site.data.keyword.blockstorageshort}}-Bestellung über die API finden Sie unter [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 Um auf alle neuen Funktionen zugreifen zu können, müssen Sie `Storage-as-a-Service Package 759` bestellen.
 {:tip}
+
+Weitere Informationen zu den Typen von Windows-Betriebssystem finden Sie im Abschnitt mit den [FAQs](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
 
 
 ## Bestellung aufgeben
@@ -120,22 +120,26 @@ Standardmäßig können Sie insgesamt 250 {{site.data.keyword.blockstorageshort}
 slcli block access-authorize --help
 Syntax: slcli block access-authorize [OPTIONS] VOLUME_ID
 
-  Host für den Zugriff auf einen angegebenen Datenträger berechtigen.
+Host für den Zugriff auf einen angegebenen Datenträger berechtigen.
 
 Optionen:
-  -h, --hardware-id TEXT    ID einer SoftLayer-Hardware zur Berechtigung
-  -v, --virtual-id TEXT     ID eines virtuellen SoftLayer-Gastsystems zur Berechtigung
-  -i, --ip-address-id TEXT  ID der Teilnetz-IP-Adresse eines SoftLayer-Netzes
-                            zur Berechtigung
-  --ip-address TEXT         IP-Adresse zur Berechtigung
+  -h, --hardware-id TEXT    Die ID eines Servers zur Autorisierung.
+  -v, --virtual-id TEXT     Die ID eines virtuellen Servers zur Autorisierung.
+  -i, --ip-address-id TEXT  Die ID einer IP-Adresse zur Autorisierung.
+  -p, --ip-address TEXT     Eine IP-Adresse zur Autorisierung.
   --help                    Diese Nachricht anzeigen und Ausführung beenden.
 ```
+
+Sie können Hosts autorisieren und verbinden, die sich in demselben Rechenzentrum wie Ihr Speicher befinden. Sie können mehrere Konten haben, Sie können jedoch nicht einen Host über das eine Konto für den Zugriff auf Ihren Speicher in einem anderen Konto berechtigen. Beachten Sie auch, dass ein Host nicht für den Zugriff auf mehrere LUNs unterschiedlicher Betriebssystemtypen gleichzeitig berechtigt werden kann. Ein Host kann nur für den Zugriff auf LUNs eines einzigen Betriebssystemtyps berechtigt werden. Wenn Sie versuchen, den Zugriff auf mehrere LUNs mit unterschiedlichen Betriebssystemtypen zu berechtigen, führt die Operation zu einem Fehler.
+{:note}
+{:important}
 
 Weitere Informationen zum Autorisieren von Hosts für den Zugriff auf {{site.data.keyword.blockstorageshort}} über die API finden Sie unter [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}
 {:tip}
 
 Informationen zum Grenzwert für gleichzeitige Autorisierungen finden Sie im Abschnitt [Häufig gestellte Fragen (FAQs)](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
+
 
 ## Neuen Speicher verbinden
 {: #mountingCLI}

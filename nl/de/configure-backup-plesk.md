@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-12"
 
 keywords: Block storage, Plesk, backups, mountpoint, ISCSI
 
@@ -28,7 +28,7 @@ Weitere Informationen finden Sie in der Dokumentation von Plesk zum Thema Sicher
 
    Plesk bietet zwei Optionen zum Speichern von Sicherungen. Die eine ist der interne Plesk-Speicher (ein Sicherungsspeicher auf dem Plesk-Server). Die andere ist ein externer FTP-Speicher (ein Sicherungsspeicher, der sich auf einem externen Server im Web oder im lokalen Netz befindet). In der Regel werden interne Sicherungen in Plesk-Fenstern im Pfad `/var/lib/psa/dumps` gespeichert und verwenden `/tmp` als temporäres Verzeichnis. Im vorliegenden Beispiel wird das temporäre Verzeichnis lokal beibehalten, das Speicherauszugsverzeichnis jedoch auf das {{site.data.keyword.blockstorageshort}}-Ziel (`/backup/psa/dumps`) verschoben. Es sind keine FTP-Benutzerberechtigungsnachweise erforderlich.
    {:note}   
-3. Konfigurieren Sie Ihre {{site.data.keyword.blockstorageshort}}-Instanz entsprechend der Beschreibung im Abschnitt [Verbindung zu MPIO-iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Hängen Sie {{site.data.keyword.blockstorageshort}} an `/backup` an und konfigurieren Sie `/etc/fstab`, um das Anhängen beim Starten zu ermöglichen.
+3. Konfigurieren Sie Ihre {{site.data.keyword.blockstorageshort}}-Instanz entsprechend der Beschreibung im Abschnitt [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Hängen Sie {{site.data.keyword.blockstorageshort}} an `/backup` an und konfigurieren Sie `/etc/fstab`, um das Anhängen beim Starten zu ermöglichen.
 4. **Optional**: Kopieren Sie die vorhandenen Sicherungen in den neuen Speicher. Sie können `rsync` verwenden.
    ```
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps

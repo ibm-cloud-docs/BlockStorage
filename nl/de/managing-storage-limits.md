@@ -13,6 +13,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:DomainName: data-hd-keyref="DomainName"}
 
 # Speichergrenzwerte verwalten
 {: #managingstoragelimits}
@@ -30,7 +31,7 @@ Optionen:
   -h, --help             Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
-Sie können eine Erhöhung des Grenzwerts anfordern, indem Sie einen Supportfall beim [Portal](https://cloud.ibm.com/unifiedsupport/cases/add){: external} einreichen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
+Sie können eine Erhöhung des Grenzwerts anfordern, indem Sie einen Supportfall beim [Portal](https://{DomainName}/unifiedsupport/cases/add){: external} einreichen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
 
 Um eine Erhöhung eines Grenzwerts anzufordern, müssen Sie einen Fall öffnen und an Ihren Vertriebsbeauftragten weiterleiten.
 
@@ -48,7 +49,7 @@ Geben Sie in dem Fall die folgenden Informationen an:
 *Ihre Antwort könnte beispielsweise "25x Performance 20GB @ 10 IOPS in DAL09" oder "50x Endurance 2TB @ 0,25 IOPS in SJC03" sein.*
 
 - **Geben Sie einen geschätzten Zeitpunkt an, zu dem Sie erwarten, dass alle angeforderten Datenträgervergrößerungen bereitgestellt oder geplant sind.** <br />
- "*Ihre Antwort könnte beispielsweise "90 Tage" sein.*
+*Ihre Antwort könnte beispielsweise "90 Tage" sein.*
 
 - **Treffen Sie eine Prognose über die erwartete durchschnittliche Kapazitätsnutzung dieser Datenträger in den nächsten 90 Tagen.** <br />
 *Ihre Antwort könnte beispielsweise sein: "Nutzung von 25 Prozent in 30 Tagen, von 50 Prozent in 60 Tagen und von 75 Prozent in 90 Tagen".*

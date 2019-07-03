@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -30,7 +30,13 @@ Standardmäßig können Sie insgesamt 250 Block- und Dateispeicher bereitstellen
 
 Dies ist abhängig von der Kapazität des Hostbetriebssystems, nicht von {{site.data.keyword.cloud}}-Grenzwerten. Die Dokumentation des jeweiligen Betriebssystems enthält Informationen zu den Grenzwerten für die Anzahl der Datenträger, die angehängt werden können.
 
+## Kann ich mehrere LUNs mit unterschiedlichen Betriebssystemeinstellungen anhängen?
+{: faq}
+
+Nein. Ein Host kann nicht für den Zugriff auf LUNs unterschiedlicher Betriebssystemtypen gleichzeitig berechtigt werden. Ein Host kann nur für den Zugriff auf LUNs eines einzigen Betriebssystemtyps berechtigt werden. Wenn Sie versuchen, den Zugriff auf mehrere LUNs mit unterschiedlichen Betriebssystemtypen zu berechtigen, führt die Operation zu einem Fehler.
+
 ## Welche Windows-Version sollte ich für meine Blockspeicher-LUN auswählen?
+{: #windowsOStypes}
 {: faq}
 
 Wenn Sie eine LUN erstellen, müssen Sie den Betriebssystemtyp angeben. Der Betriebssystemtyp muss auf dem Betriebssystem basieren, das die Hosts verwenden, die auf die LUN zugreifen. Der Betriebssystemtyp kann nicht geändert werden, nachdem die LUN erstellt wurde. Die tatsächliche Größe der LUN kann je nach Betriebssystemtyp der LUN geringfügig variieren.
@@ -87,24 +93,24 @@ Die Ziellatenz im Speicher beträgt <1 ms. Da der vorliegende Speicher mit Reche
 ## Warum kann {{site.data.keyword.blockstorageshort}} in manchen Rechenzentren mit einem Endurance-10/GB-IOPS-Tier bestellt werden und in anderen nicht?
 {: faq}
 
-Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichertyps 10 ist nur in ausgewählten Rechenzentren verfügbar, weitere Rechenzentren folgende nach und nach. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Das {{site.data.keyword.blockstorageshort}}-Endurance-IOPS/GB-Tier des Speichertyps 10 ist in den meisten [Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) verfügbar.
 
 ## Wie kann man erkennen, welche {{site.data.keyword.blockstorageshort}}-Datenträger verschlüsselt sind?
 {: faq}
 
-Wenn Sie sich die {{site.data.keyword.blockstorageshort}}-Liste im [{{site.data.keyword.slportal}}](https://control.softlayer.com/){: external} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
+Wenn Sie sich die {{site.data.keyword.blockstorageshort}}-Liste in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic/storage){: external} ansehen, wird neben dem Datenträgernamen für die LUNs, die verschlüsselt sind, ein Sperrsymbol angezeigt.
 
 ## Wie weiß ich, dass ich {{site.data.keyword.blockstorageshort}} in einem aktualisierten Rechenzentrum bereitstelle?
 {: faq}
 
-Bei der Bestellung von {{site.data.keyword.blockstorageshort}} werden alle aktualisierten Rechenzentren mit einem Stern (`*`) im Bestellformular und mit einem Hinweis gekennzeichnet, dass Sie dabei sind, Speicher mit Verschlüsselung bereitzustellen. Sobald der Speicher bereitgestellt wird, wird in der Speicherliste ein Symbol angezeigt, das auf die Verschlüsselung des Speichers hinweist. Alle verschlüsselten Datenträger und LUNs werden nur in aktualisierten Rechenzentren bereitgestellt. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-news).
+Bei der Bestellung von {{site.data.keyword.blockstorageshort}} werden alle aktualisierten Rechenzentren mit einem Stern (`*`) im Bestellformular und mit einem Hinweis gekennzeichnet, dass Sie dabei sind, Speicher mit Verschlüsselung bereitzustellen. Sobald der Speicher bereitgestellt wird, wird in der Speicherliste ein Symbol angezeigt, das auf die Verschlüsselung des Speichers hinweist. Alle verschlüsselten Datenträger und LUNs werden nur in aktualisierten Rechenzentren bereitgestellt. Eine vollständige Liste der aktualisierten Rechenzentren und der verfügbaren Funktionen finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## Wenn ich über nicht verschlüsselten {{site.data.keyword.blockstorageshort}} in einem Rechenzentrum verfüge, der vor kurzem aktualisiert wurde, kann dieser {{site.data.keyword.blockstorageshort}} dann verschlüsselt werden?
 {: faq}
 
 {{site.data.keyword.blockstorageshort}}, der vor der Aktualisierung des Rechenzentrums bereitgestellt wurde, kann nicht verschlüsselt werden.
 Neuer {{site.data.keyword.blockstorageshort}}, der in aktualisierten Rechenzentren bereitgestellt wird, wird automatisch verschlüsselt. Es kann keine Einstellung für die Verschlüsselung ausgewählt werden. Diese erfolgt automatisch.
-Um Daten auf einem nicht verschlüsselten Speicher in einem aktualisierten Rechenzentrum zu verschlüsseln, können Sie eine neue Block-LUN erstellen und die Daten anschließend mithilfe von hostbasierter Migration an die neu verschlüsselte LUN kopieren. Die Anweisungen dazu finden Sie [hier](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
+Um Daten auf einem nicht verschlüsselten Speicher in einem aktualisierten Rechenzentrum zu verschlüsseln, können Sie eine LUN erstellen und die Daten anschließend mithilfe von hostbasierter Migration an die neu verschlüsselte LUN kopieren. Weitere Informationen finden Sie in [Upgrade für vorhandenen {{site.data.keyword.blockstorageshort}} auf erweiterten {{site.data.keyword.blockstorageshort}} durchführen](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## Unterstützt {{site.data.keyword.blockstorageshort}} die permanente SCSI-3-Reservierung zur Implementierung der E/A-Abschirmung für Db2 pureScale?
 {: faq}

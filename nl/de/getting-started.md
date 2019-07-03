@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-08"
+lastupdated: "2019-06-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -73,7 +73,11 @@ Der Speicherdatenverkehr ist in der gesamten Netznutzung von öffentlichen virtu
 ## Bestellung aufgeben
 {: #submitorder}
 
-Wenn Sie bereit sind, die Bestellung aufzugeben, können Sie dies über die [Konsole](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole) oder die [SL-CLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) tun.
+Wenn Sie bereit sind, die Bestellung aufzugeben, können Sie dies über die [Konsole](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), die [SL-CLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) oder die [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order) tun.
+
+Informationen zur {{site.data.keyword.blockstorageshort}}-Bestellung über die API finden Sie unter [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+Um auf alle neuen Funktionen zugreifen zu können, müssen Sie `Storage-as-a-Service Package 759` bestellen.
+{:tip}
 
 ## Neuen Speicher verbinden
 {: #mountingstorage}
@@ -87,4 +91,4 @@ Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Host
 
 ## Neuen Speicher verwalten
 
-Über das Portal oder die SL-CLI können Sie verschiedene Aspekte des Dateispeichers verwalten, z. B. Hostberechtigungen und Stornierungen. Weitere Informationen finden Sie in [{{site.data.keyword.blockstorageshort}}verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Über das Portal oder die SL-CLI können Sie verschiedene Aspekte des {{site.data.keyword.blockstorageshort}} verwalten, z. B. Hostberechtigungen und Stornierungen. Weitere Informationen finden Sie in [{{site.data.keyword.blockstorageshort}}verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

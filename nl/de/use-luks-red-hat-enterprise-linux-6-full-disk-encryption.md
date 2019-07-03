@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-06-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -16,14 +16,14 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 
-# Vollständige Plattenverschlüsselung mit LUKS in Red Hat Enterprise Linux erzielen
+# Vollständige Plattenverschlüsselung mit LUKS in RHEL6 erzielen
 {: #LUKSencryption}
 
-Sie können Partitionen auf dem Red Hat Enterprise Linux 6-Server im LUKS-Plattenformat (LUKS - Linux Unified Key Setup-on-disk-format) verschlüsseln, was für tragbare Computer und und Wechseldatenträger von Bedeutung ist. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
+Sie können Partitionen auf dem RHEL6-Server im LUKS-Plattenformat (LUKS - Linux Unified Key Setup-on-disk-format) verschlüsseln, was für tragbare Computer und und Wechseldatenträger von Bedeutung ist. Mithilfe von LUKS können mehrere Benutzerschlüssel einen Masterschlüssel entschlüsseln, der zur Massenverschlüsselung der Partition verwendet wird.
 
-Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
+Bei diesen Schritten wird angenommen, dass vom Server auf einen neuen, nicht verschlüsselten {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen werden kann, der nicht formatiert oder angehängt wurde. Weitere Informationen zum Herstellen einer Verbindung von {{site.data.keyword.blockstorageshort}} zu einem Linux-Host finden Sie unter [Verbindung zu Speicher unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{site.data.keyword.blockstorageshort}} wird in [ausgewählten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-news) automatisch durch providerseits verwaltete Verschlüsselung ruhender Daten bereitgestellt. Weitere Informationen finden Sie im Abschnitt [Daten schützen - durch providerseits verwaltete Verschlüsselung ruhender Daten](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+{site.data.keyword.blockstorageshort}} wird in den [meisten Rechenzentren](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC) automatisch durch providerseits verwaltete Verschlüsselung ruhender Daten bereitgestellt. Weitere Informationen finden Sie im Abschnitt [Daten schützen - durch providerseits verwaltete Verschlüsselung ruhender Daten](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
 {:note}
 
 ## Möglichkeiten bei Verwendung von LUKS
