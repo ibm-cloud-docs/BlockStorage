@@ -15,6 +15,7 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui-linked}
 
 
 # コンソールを使用した {{site.data.keyword.blockstorageshort}} の注文
@@ -97,8 +98,8 @@ subcollection: BlockStorage
 - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 - [XenServer 共有ストレージでの LUN のマウント](/docs/infrastructure/virtualization?topic=Virtualization-setting-up-and-mounting-an-iscsi-node-in-xenserver-shared-storage)
-- [cPanel を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [Plesk を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
+- [cPanel を使用したバックアップ用の Block Storage の構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Plesk を使用したバックアップ用の Block Storage の構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 ## 災害復旧の際の考慮事項
 

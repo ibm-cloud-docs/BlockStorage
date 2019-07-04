@@ -18,12 +18,12 @@ subcollection: BlockStorage
 ## {{site.data.keyword.blockstorageshort}} ボリュームを共有できるインスタンスの数はいくつですか?
 {: faq}
 
-ブロック・ボリュームごとに許可される数の制限は、デフォルトでは 8 です。 つまり、最大 8 個のホストがブロック・ストレージ LUN にアクセスする権限を持つことができます。 制限の引き上げを要求する場合は、営業担当員にお問い合わせください。
+ブロック・ボリュームごとに許可される数の制限は、デフォルトでは 8 です。 つまり、最大 8 個のホストが Block Storage LUN にアクセスする権限を持つことができます。 制限の引き上げを要求する場合は、営業担当員にお問い合わせください。
 
 ## 注文できるボリュームの数はいくつですか?
 {: faq}
 
-デフォルトでは、合計 250 のブロック・ストレージとファイル・ストレージをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
+デフォルトでは、合計 250 の Block Storage とファイル・ストレージをプロビジョンできます。 ボリュームの制限を引き上げる場合は、営業担当員にお問い合わせください。 詳しくは、[ストレージの制限の管理](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)を参照してください。
 
 ## ホストにマウントできる {{site.data.keyword.blockstorageshort}} ボリュームの数はいくつですか?
 {: faq}
@@ -110,7 +110,7 @@ IOPS は、ランダムな 50% の読み取りと 50% の書き込みを使っ�
 
 データ・センターのアップグレード前にプロビジョンされた {{site.data.keyword.blockstorageshort}} は、暗号化できません。
 アップグレードされたデータ・センターで新たにプロビジョンされた {{site.data.keyword.blockstorageshort}} は、自動的に暗号化されます。 つまり、暗号化するかどうかを選択する設定はありません。自動で暗号化されます。
-アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、LUN を作成してから、ホスト・ベースのマイグレーションを使用して暗号化された新しい LUN にそのデータをコピーします。詳しくは、[既存の {{site.data.keyword.blockstorageshort}} の拡張 {{site.data.keyword.blockstorageshort}} へのアップグレード](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)を参照してください。
+アップグレードされたデータ・センター内にある非暗号化ストレージ上のデータを暗号化するには、LUN を作成してから、ホスト・ベースのマイグレーションを使用して暗号化された新しい LUN にそのデータをコピーします。 詳しくは、[既存の {{site.data.keyword.blockstorageshort}} の拡張 {{site.data.keyword.blockstorageshort}} へのアップグレード](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage#migratestorage)を参照してください。
 
 ## {{site.data.keyword.blockstorageshort}} は、Db2 pureScale 用に I/O フェンシングを実装するための SCSI-3 永続予約をサポートしますか?
 {: faq}

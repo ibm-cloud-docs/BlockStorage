@@ -98,8 +98,8 @@ OS タイプの異なる複数の LUN に同時にアクセスすることをホ
 - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-- [cPanel を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [Plesk を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
+- [cPanel を使用したバックアップ用の Block Storage の構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Plesk を使用したバックアップ用の Block Storage の構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 
 ## {{site.data.keyword.blockstorageshort}}に対するホストのアクセス権の取り消し

@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="BlockStorage" category="storage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started" path="infrastructure/BlockStorage"}
-IBM Cloud Storage - ブロック・ストレージ
+IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
     getting-started.md
@@ -45,7 +45,7 @@ IBM Cloud Storage - ブロック・ストレージ
 
     {: .topicgroup}
     データの保護
-        block-file-storage-encryption-rest.md
+        encryption-rest.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
     {: .navgroup-end}
 

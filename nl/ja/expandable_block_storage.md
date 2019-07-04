@@ -16,7 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# ブロック・ストレージ容量の拡張
+# Block Storage の容量の拡張
 {: #expandingcapacity}
 
 この機能を使用すると、{{site.data.keyword.blockstoragefull}} の現行ユーザーは、既存の {{site.data.keyword.blockstorageshort}} のサイズを GB 単位で増やして最大 12 TB まで即時に拡張できます。 複製ボリュームを作成する必要も、より大きなボリュームにデータを手動でマイグレーションする必要もありません。 サイズ変更の実行中に、ストレージへのアクセスが停止することも、ストレージへアクセスできなくなることもありません。

@@ -23,7 +23,7 @@ RHEL6 サーバー上のパーティションは、Linux Unified Key Setup-on-di
 
 以下のステップでは、サーバーが、フォーマット設定もマウントもされていない新規の非暗号化 {{site.data.keyword.blockstoragefull}} ボリュームにアクセスできることを前提としています。 Linux ホストへの {{site.data.keyword.blockstorageshort}} の接続について詳しくは、[Linux 上のストレージへの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)を参照してください。
 
-[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)でプロビジョンされる {site.data.keyword.blockstorageshort}} は、プロバイダー管理の保存データの暗号化を使用して自動的にプロビジョンされます。詳しくは、[データの保護 - プロバイダー管理の保存データの暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)を参照してください。
+[ほとんどのデータ・センター](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)でプロビジョンされる {site.data.keyword.blockstorageshort}} は、プロバイダー管理の保存データの暗号化を使用して自動的にプロビジョンされます。 詳しくは、[データの保護 - プロバイダー管理の保存データの暗号化](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption)を参照してください。
 {:note}
 
 ## LUKS にある機能

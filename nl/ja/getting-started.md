@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui-linked}
 
 # 入門チュートリアル
 {: #getting-started}
@@ -86,8 +87,8 @@ API を使用した {{site.data.keyword.blockstorageshort}} の注文につい�
 - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
 - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-- [cPanel を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [Plesk を使用したバックアップ用のブロック・ストレージの構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
+- [cPanel を使用したバックアップ用の Block Storage の構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Plesk を使用したバックアップ用の Block Storage の構成](/docs/infrastructure/BlockStorage?topic=BlockStorage-PleskBackups)
 
 ## 新しいストレージの管理
 
