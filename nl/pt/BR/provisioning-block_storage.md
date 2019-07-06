@@ -15,6 +15,7 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui-linked}
 
 
 # Pedindo o {{site.data.keyword.blockstorageshort}} por meio do Console

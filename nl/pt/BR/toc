@@ -45,7 +45,7 @@ IBM Cloud Storage - Block Storage
 
     {: .topicgroup}
     Protegendo dados
-        block-file-storage-encryption-rest.md
+        encryption-rest.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
     {: .navgroup-end}
 

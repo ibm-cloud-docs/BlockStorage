@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui-linked}
 
 # Tutorial de Introdução
 {: #getting-started}
@@ -29,7 +30,7 @@ O {{site.data.keyword.blockstorageshort}} traz os melhores níveis de durabilida
 de Começar
 {: #prereqs}
 
-Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser fornecidos de 20 GB a 12 TB com duas opções: <br/>
+Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser provisionados de 20 GB a 12 TB com duas opções: <br/>
 - Provisiona camadas do **Endurance** que apresentam níveis de desempenho predefinidos e outros recursos, como capturas instantâneas e replicação.
 - Construa um ambiente de **Desempenho** poderoso com operações de
 entrada/saída por segundo (IOPS) alocadas.

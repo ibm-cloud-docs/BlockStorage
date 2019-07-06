@@ -14,6 +14,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:ui-linked}
 
 # Locais do {{site.data.keyword.blockstorageshort}}
 {: #selectDC}
