@@ -49,7 +49,7 @@ Nel caso, fornisci le seguenti informazioni:
 *Ad esempio, la tua risposta potrebbe essere qualcosa di simile a "25x Performance 20 GB @ 10 IOPS in DAL09" o "50x Endurance 2 TB @ 0,25 IOPS in SJC03".*
 
 - **Fornisci una stima di quando prevedi o pianifichi di eseguire il provisioning di tutto l'aumento di volumi richiesto.** <br />
- "*Ad esempio, la tua risposta potrebbe essere qualcosa di simile a "90 giorni".*
+*Ad esempio, la tua risposta potrebbe essere qualcosa di simile a "90 giorni".*
 
 - **Fornisci una previsione a 90 giorni dell'utilizzo della capacità medio previsto di questi volumi.** <br />
 *Ad esempio, la tua risposta potrebbe essere qualcosa di simile a "prevedo un utilizzo al 25 percento entro 30 giorni, al 50 percento entro 60 giorni e al 75 percento entro 90 giorni".*

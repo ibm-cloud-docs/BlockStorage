@@ -374,9 +374,9 @@ Segui questa procedura per creare un file system sul volume appena montato. Un f
 | `Command: w` | Scrive le informazioni sulla nuova partizione sul disco. ** |
 {: caption="Tabella 1 - La tabella comandi <codefdisk</code> contiene i comandi sulla sinistra e i risultati previsti sulla destra." caption-side="top"}>
 
-(`*`)Type m for Help.
+(`*`) Type m for Help.
 
-(`**`)Type L to list the hex codes
+(`**`) Type L to list the hex codes
 
 ### Creazione di un file system con `parted`
 {: #parted}

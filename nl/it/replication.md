@@ -44,7 +44,7 @@ Le repliche funzionano in base a una pianificazione delle istantanee. Prima di p
 2. Fai clic su **Replica** e fai clic su **Purchase a replication**.
 3. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla tua replica. L'elenco contiene tutte le tue pianificazioni delle istantanee attive. <br />
    Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Per ulteriori informazioni, vedi [Gestione delle istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
-{:important}
+   {:important}
 3. Fai clic su **Location** e seleziona il data center che è il tuo sito di ripristino di emergenza (DR, disaster recovery).
 4. Fai clic su **Continue**.
 5. Immetti un codice promozionale (**Promo Code**), se ne hai uno, e fai clic su **Recalculate**. Gli altri campi nella finestra sono completati per impostazione predefinita.
