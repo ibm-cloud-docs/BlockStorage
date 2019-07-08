@@ -97,7 +97,7 @@ subcollection: BlockStorage
 {: row-headers}
 {: class="comparison-table"}
 {: caption="表格比較" caption-side="top"}
-{: summary="表 1 顯示根據磁區大小的可能最小與最大 IOPS 速率。這個表格有列和欄標頭。列標頭識別磁區大小範圍。欄標頭識別最小和最大 IOPS 層次。若要瞭解您可以預期的儲存空間 IOPS 速率，請導覽至列，然後檢閱兩個選項。"}
+{: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
 ![註腳](/images/numberone.png) *大部分資料中心內提供大於 6,000 的 IOPS 限制。*
 
@@ -122,7 +122,7 @@ subcollection: BlockStorage
 {: row-headers}
 {: class="comparison-table"}
 {: caption="表格比較" caption-side="top"}
-{: summary="表 2 顯示每個層級的耐久性儲存空間價格（按月計費和按小時計費選項）。這個表格有列和欄標頭。列標頭識別計費選項。欄標頭識別為服務選擇的 IOPS 層次。若要瞭解您的價格在表格中位於何處，請導覽至欄，然後檢閱該 IOPS 層級的兩個不同計費選項。"}
+{: summary="Table 2 is showing the prices for Endurance Storage for each tier with monthly and hourly billing options. This table has row and column headers. The row headers identify the billing options. The column headers identify the IOPS level that is chosen for the service. To understand what your price is located in the table, navigate to the column and review the two different billing options for that IOPS tier."}
 
 ### 效能
 {: #pricing-comparison-performance}
@@ -134,4 +134,4 @@ subcollection: BlockStorage
 {: row-headers}
 {: class="comparison-table"}
 {: caption="表格比較" caption-side="top"}
-{: summary="表 3 顯示效能儲存空間價格（按月計費和按小時計費）。這個表格有列和欄標頭。列標頭識別計費選項。若要查看儲存空間的成本，請導覽至您有興趣之計費選項的列。"}
+{: summary="Table 3 is showing the prices for Performance Storage with monthly and hourly billing. This table has row and column headers. The row headers identify the billing options. To see what your cost for Storage is, navigate to the row of the billing option you are interested in."}

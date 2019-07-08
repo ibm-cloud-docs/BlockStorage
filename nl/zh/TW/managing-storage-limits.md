@@ -49,7 +49,7 @@ Options:
 *例如，您的答案可能類似於 "25x Performance 20 GB @ 10 IOPS in DAL09" 或 "50x Endurance 2 TB @ 0.25 IOPS in SJC03"。*
 
 - **提供您預期或計劃佈建所有要求磁區增加的預估時間。** <br />
- *例如，您的答案可能類似於 "90 days"。*
+*例如，您的答案可能類似於 "90 days"。*
 
 - **提供這些磁區的預期平均容量使用率的 90 天預測。** <br />
 *例如，您的答案可能類似於 "expect 25 percent to be used in 30 days, 50 percent to be used in 60 days and 75 percent to be used in 90 days"。*
