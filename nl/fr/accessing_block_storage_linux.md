@@ -50,7 +50,7 @@ Options:
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 {: #mountLin}
 
-Exécutez la procédure suivante pour connecter une instance de calcul {{site.data.keyword.cloud}} basée Linux à un numéro d'unité logique d'interface iSCSI MPIO. 
+Exécutez la procédure suivante pour connecter une instance de calcul {{site.data.keyword.cloud}} basée Linux à un numéro d'unité logique d'interface iSCSI MPIO.
 
 Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus depuis l'écran **Détails {{site.data.keyword.blockstorageshort}}** de la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
 {: tip}
@@ -249,7 +249,7 @@ Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtue
 
    - Pour les autres distributions, consultez la documentation du fournisseur du système d'exploitation.
 
-8. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue depuis la console {{site.data.keyword.cloud}}. 
+8. Reconnaissez le périphérique à l'aide de l'adresse IP cible obtenue depuis la console {{site.data.keyword.cloud}}.
 
    A. Exécutez la reconnaissance sur la grappe iSCSI.
     ```

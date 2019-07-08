@@ -14,8 +14,9 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:ui-linked}
 
-# Emplacements {{site.data.keyword.blockstorageshort}} 
+# Emplacements {{site.data.keyword.blockstorageshort}}
 {: #selectDC}
 
 {{site.data.keyword.blockstoragefull}} avec fonctions étendues est disponible dans les régions et centres de données ci-dessous :

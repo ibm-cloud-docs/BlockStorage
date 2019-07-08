@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui-linked}
 
 # Tutoriel d'initiation
 {: #getting-started}
@@ -74,7 +75,7 @@ Le trafic de stockage est inclus dans l'utilisation réseau totale des serveurs 
 ## Soumission de votre commande
 {: #submitorder}
 
-Lorsque vous êtes prêt à passer votre commande, utilisez la [console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), l'interface [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) ou l'interface [CLI IBMCLOUD](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order). 
+Lorsque vous êtes prêt à passer votre commande, utilisez la [console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), l'interface [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) ou l'interface [CLI IBMCLOUD](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
 
 Pour des informations sur les commandes {{site.data.keyword.blockstorageshort}} via l'API, voir [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 Pour pouvoir accéder à toutes les nouvelles fonctions, commandez `Storage-as-a-Service Package 759`.
