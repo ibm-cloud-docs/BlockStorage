@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui-linked}
 
 # Lernprogramm zur Einführung
 {: #getting-started}
