@@ -82,7 +82,8 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstorageshort}} 的「效能」會透過「多路徑 I/O (MPIO) 網際網路小型電腦系統介面 (iSCSI)」連線存取及裝載。{{site.data.keyword.blockstorageshort}} 通常用於單一伺服器存取磁區的情況。可以將多個磁區裝載至主機，並將其分段合在一起，以達到較大的磁區及更高的 IOPS 計數。您可以根據 Linux、XEN 及 Windows 作業系統的「表 3」中的大小和 IOPS 速率來訂購「效能」磁區。
 
-|大小 (GB)|最小 IOPS|最大 IOPS|-----|-----|-----|
+|大小 (GB)|最小 IOPS|最大 IOPS
+|-----|-----|-----|
 |20|100|1,000|
 |40|100|2,000|
 |80|100|4,000|
