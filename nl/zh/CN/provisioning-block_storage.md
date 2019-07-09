@@ -15,6 +15,7 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui-linked}
 
 
 # 通过控制台订购 {{site.data.keyword.blockstorageshort}}
