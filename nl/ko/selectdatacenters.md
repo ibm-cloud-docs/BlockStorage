@@ -14,6 +14,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:ui-linked}
 
 # {{site.data.keyword.blockstorageshort}} 위치
 {: #selectDC}
@@ -21,7 +22,7 @@ subcollection: BlockStorage
 향상된 기능이 있는 {{site.data.keyword.blockstoragefull}}는 다음 지역과 데이터 센터에서 사용할 수 있습니다.
 
 
-| 기능|DAL01 |          DAL05 |DAL09 |DAL10 |DAL12 |DAL13 |HOU02 |SJC01 |SJC03 |SJC04 |WDC01 |WDC04 |WDC06 |WDC07 |
+| 기능 |DAL01 |          DAL05 |DAL09 |DAL10 |DAL12 |DAL13 |HOU02 |SJC01 |SJC03 |SJC04 |WDC01 |WDC04 |WDC06 |WDC07 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | 10 IOPS/GB 옵션 |  |  | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | | | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) |![선택 표시 아이콘](../../icons/checkmark-icon.svg) | | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) |![선택 표시 아이콘](../../icons/checkmark-icon.svg) |![선택 표시 아이콘](../../icons/checkmark-icon.svg) |
 | [조정 가능 IOPS](/docs/infrastructure/FileStorage?topic=FileStorage-adjustingIOPS) |  |  | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) | | | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) |![선택 표시 아이콘](../../icons/checkmark-icon.svg) | | ![선택 표시 아이콘](../../icons/checkmark-icon.svg) |![선택 표시 아이콘](../../icons/checkmark-icon.svg) |![선택 표시 아이콘](../../icons/checkmark-icon.svg) |

@@ -93,7 +93,7 @@ IOPS는 랜덤 50퍼센트 읽기와 50퍼센트 쓰기인 16KB 블록의 로드
 ## Endurance10 IOPS/GB 티어가 있는 {{site.data.keyword.blockstorageshort}}는 일부 데이터 센터에서는 주문할 수 있지만 다른 데이터 센터에서는 주문할 수 없는 이유는 무엇입니까?
 {: faq}
 
-Endurance 유형 {{site.data.keyword.blockstorageshort}}의  10 IOPS/GB는 대부분의 [데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 사용할 수 있습니다.
+Endurance 유형 {{site.data.keyword.blockstorageshort}}의 10 IOPS/GB는 대부분의 [데이터 센터](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC)에서 사용할 수 있습니다.
 
 ## 암호화된 {{site.data.keyword.blockstorageshort}} 볼륨을 어떻게 알 수 있습니까?
 {: faq}

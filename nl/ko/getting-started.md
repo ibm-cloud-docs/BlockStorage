@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui-linked}
 
 # 시작하기 튜토리얼
 {: #getting-started}
@@ -53,7 +54,7 @@ Endurance 및 Performance의 IOPS는 50/50 읽기/쓰기 50/50 랜덤/순차 워
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="표 1에는 블록 크기 및 IOPS가 처리량에 미치는 영향에 대한 예가 표시되어 있습니다.<br/평균 IO 크기 x IOPS = 처리량(MB/초)" caption-side="top"}
+{: caption="표 1에는 블록 크기 및 IOPS가 처리량에 미치는 영향에 대한 예가 표시되어 있습니다.<br/>평균 IO 크기 x IOPS = 처리량(MB/초)" caption-side="top"}
 
 ### 권한 부여된 호스트
 
