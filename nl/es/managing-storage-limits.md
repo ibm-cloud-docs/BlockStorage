@@ -49,7 +49,7 @@ En el caso, proporcione la siguiente información:
 *Por ejemplo, su respuesta podría ser similar a "25x Rendimiento 20 GB @ 10 IOPS en DAL09" o "50x Resistencia 2 TB @ 0,25 IOPS en SJC03".*
 
 - **Proporcione una estimación de cuándo espera o planea suministrar todo el aumento de volumen solicitado.** <br />
- "*Por ejemplo, su respuesta podría ser similar a "90 días".*
+*Por ejemplo, su respuesta podría ser similar a "90 días".*
 
 - **Proporcione una previsión de 90 días del promedio de uso de capacidad esperado de estos volúmenes.** <br />
 *Por ejemplo, su respuesta podría ser similar a "esperar una utilización del 25 % en 30 días, 50 % en 60 días y 75 % en 90 días".*

@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui-linked}
 
 # Guía de aprendizaje de iniciación
 {: #getting-started}
@@ -53,7 +54,7 @@ El tamaño de bloque que utiliza la aplicación afecta directamente al rendimien
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="En la Tabla 1 se muestran ejemplos de cómo el tamaño de bloque e IOPS afectan al rendimiento.<br/Tamaño promedio de E/S x IOPS = Rendimiento en MB/s." caption-side="top"}>
+{: caption="En la Tabla 1 se muestran ejemplos de cómo el tamaño de bloque e IOPS afectan al rendimiento.<br/>Tamaño promedio de E/S x IOPS = Rendimiento en MB/s." caption-side="top"}
 
 ### Hosts autorizados
 
