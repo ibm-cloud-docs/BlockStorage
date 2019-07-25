@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
-1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**. Click **Authorize Host**.
-2. From the list, select the host or hosts that are to access the volume and click **Submit**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Locate the new volume and click **...**.
+4. Click **Authorize Host**.
+5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
+   - if you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - if you choose IP Address, first, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
 ```
@@ -40,7 +46,7 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN). The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI volume. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
 
 ### Configuring the MPIO feature
 
@@ -67,7 +73,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN).
     ![iSCSI Initiator Properties](/images/iSCSI.png)
 
-      The IQN name can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
+      The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
       {: tip}
 
     - Click **Discovery**, and click **Discover Portal**.
@@ -96,7 +102,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    ![Enable CHAP](/images/chap_0.png)
 4. Enter the user name in the Name field, and enter the password in the Target secret field.
 
-   The Name and Target secret field values can be obtained from the {{site.data.keyword.blockstorageshort}} Details screen.
+   The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    {:tip}
 5. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
    ![Connected status](/images/Connected.png)
@@ -124,7 +130,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
    - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the storage device.
 
-     You can find the second IP address in the {{site.data.keyword.blockstorageshort}} Details screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage){: external}.
+     You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Click **Enable CHAP log on** check box
    - Enter the Name and Target secret values that were obtained from the console and click **OK**.

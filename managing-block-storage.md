@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -24,7 +24,7 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [
 You can view a summary the key information for the selected storage LUN including extra snapshot and replication capabilities that were added to the storage.
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
-2. Click the appropriate LUN Name from the list.
+2. Click the appropriate Volume name from the list.
 
 Alternatively, you can use the following command in SLCLI.
 ```
@@ -42,9 +42,13 @@ Options:
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {:important}
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your LUN Name.
-2. Scroll to the **Authorized Hosts** section of the page.
-3. On the right, click **Authorize Host**. Select the hosts that can access that particular LUN.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Locate the volume and click **...**.
+4. Click **Authorize Host**.
+5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
+   - if you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - if you choose IP Address, first, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can use the following command in SLCLI.
 ```
@@ -61,7 +65,7 @@ Options:
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your LUN Name.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
 2. Scroll down to the **Authorized Hosts** section.
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – user name, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
@@ -113,9 +117,9 @@ You can revoke access from the **Device List** or the **Storage view**.
 
 ### Revoking access from the Device List
 
-1. Click **Devices**, **Device List** from the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external} and double-click the appropriate device.
+1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices**, **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
-3. You are presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). Next to the LUN name, select **Action**, and click **Revoke Access**.
+3. You are presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). Next to the Volume name, click **Actions**, and click **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
 
 If you want to disconnect multiple LUNs from a specific host, you need to repeat the Revoke Access action for each LUN.
@@ -155,7 +159,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
-2. Click **Actions** for the LUN to be canceled and select **Cancel {{site.data.keyword.blockstorageshort}}**.
+2. Select the volume to be canceled, click **Actions** and select **Cancel {{site.data.keyword.blockstorageshort}}**.
 3. Confirm if want to cancel the LUN immediately or on the anniversary date of when the LUN was provisioned.
 
    If you select the option to cancel the LUN on its anniversary date, you can void the cancellation request before its anniversary date.

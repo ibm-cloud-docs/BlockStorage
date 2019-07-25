@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
+3. Locate the new volume and click **...**.
 4. Click **Authorize Host**.
-5. From the list, select the host or hosts that can access the volume and click **Submit**.
-6. Take note of the Host IQN, user name, password, and target address.
+5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
+   - if you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - if you choose IP Address, first, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
 ```

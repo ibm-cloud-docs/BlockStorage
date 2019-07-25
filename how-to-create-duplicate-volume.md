@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -48,37 +48,41 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 ## Creating a duplicate from a specific volume in the Storage List
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Select a volume from the list and click **Actions** > **Duplicate LUN (Volume)**
+2. Select a volume from the list and click **...** > **Duplicate LUN**
 3. Choose your snapshot option:
     - If you order from a **non-replica** volume,
-      - Select **Create from new snapshot** – this action creates a snapshot to be used for the duplicate. Use this option if your volume doesn't have current snapshots or if you want to create a duplicate right then.<br/>
-      - Select **Create from latest snapshot** – this action creates a duplicate from the most recent snapshot that exists for this volume.
+      - Select **Create a new snapshot to clone* – this action creates a snapshot to be used for the duplicate. Use this option if your volume doesn't have current snapshots or if you want to create a duplicate right then.<br/>
+      - Select **Use latest snapshot to clone LUN** – this action creates a duplicate from the most recent snapshot that exists for this volume.
     - If you order from a **replica** volume the only option for snapshot is to use the most recent snapshot available.
 4. Storage Type and Location remain the same as the original volume.
 5. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
-5. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
-    - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-    - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
 6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
 
    {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
    {:tip}
-7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default.
-8. Click **Continue** to place your order.
+7. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
+       - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
+       - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
+8. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
+9. You can select the OS Type.
+10. Check the box if you read and agreed to the Master Service Agreement.
+11. Click **Place Order** to continue.
 
 ## Creating a duplicate from a specific Snapshot
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
-3. Scroll down and select an existing snapshot from the list on the details page and click **Actions** > **Duplicate**.   
-4. Storage Type (Endurance or Performance) and Location remain the same as the original volume.
-5. Available Performance and size combinations are displayed. The IOPs designation of the original volume is set by default. You can specify IOPS or IOPS Tier for the new volume.
-    - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-    - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
+3. Scroll down and select an existing snapshot from the list on the detail page and click **Actions** > **Duplicate**.   
+4. The Location remain the same as the original volume.
+5. You can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can change the selection.
 6. You can update the size of the new volume so that it is larger than the original. The size of the original volume is set by default.
 
    {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
    {:tip}
+6. Available Performance and size combinations are displayed. The IOPs designation of the original volume is set by default. You can specify IOPS or IOPS Tier for the new volume.
+    - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
+    - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
+
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space. The snapshot space of the original volume is set by default.
 8. Click **Continue** to place your order for the duplicate.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -41,7 +41,7 @@ See Table 1 for the complete list of data center availability and replication ta
 Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. If you try to set up replication and one or the other isn't in place, you are going to be prompted to purchase more space or set up a schedule. Replications are managed under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 1. Click your storage volume.
-2. Click **Replica** and click **Purchase a replication**.
+2. Click **Replica** and click **Purchase replication**.
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
    You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />If you don't have Snapshots set up, you are prompted to do so before you can order replication. For more information, see [Working with Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
@@ -76,20 +76,20 @@ However, if you want to change the time of day when your **Daily** replication o
 Your primary snapshot space and your replica space must be the same. If you change the space on the **Primary** or **Replica** tab, it automatically adds space to both your source and destination data centers. Increasing snapshot space triggers an immediate replication update also.
 
 1. Click **Actions** on either the **Primary** or **Replica** tab.
-2. Select **Add More Snapshot Space**.
+2. Select **Change Snapshot Space**.
 3. Select the storage size from the list and click **Continue**.
 4. Enter in a **Promo Code** if you have one and click **Recalculate**. The other fields in the dialog box are completed by default.
 5. Click the **I have read the Master Service Agreement…** check box and click **Place Order**.
 
 
-## Viewing the replica volumes in the Volume List
+## Viewing the replica volumes in the {{site.data.keyword.blockstorageshort}} List
 
-You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. The **LUN Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica. The **Target Address** is N/A because the replica volume isn't mounted at the replica data center, and the **Status** shows Inactive.
+You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. Original and Replica volumes are grouped together. The **LUN Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
 
 
 ## Viewing a replicated volume's details at the replica data center
 
-You can view the replica volume details on the **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}**. Another option is to select the replica volume from the **{{site.data.keyword.blockstorageshort}}** page and click the **Replica** tab.
+You can view the replica volume details by clicking on the **Replica** tab while viewing details of the original volume. Another option is to select the replica volume from the **{{site.data.keyword.blockstorageshort}}** list and click the **Replica** tab.
 
 
 ## Increasing the Snapshot space in the replica data center when Snapshot space is increased in the primary data center
@@ -119,7 +119,7 @@ Duplicates can be created from both primary and replica volumes. The new duplica
 
 Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete.
 
-For more information, see [Creating a duplicate Block Volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
+For more information, see [Creating a duplicate {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Using replicas to failover when disaster strikes
 
@@ -144,14 +144,16 @@ You can cancel replication either immediately or on the anniversary date, which 
 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
- 1. Highlight your volume on the **{{site.data.keyword.blockstorageshort}}** page.
- 2. Click **Actions** and select **Cancel {{site.data.keyword.blockstorageshort}}**.
+ 1. Click the volume name on the **{{site.data.keyword.blockstorageshort}}** page.
+ 2. On the **{{site.data.keyword.blockstorageshort}}** Detail page, click **Actions** and select **Cancel Replica**.
  3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
- 4. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel**.
+ 4. Confirm that you understand that data loss might occur when you cancel the volume by checking the box.
+ 5. Click **Cancel Replica**.
 
- You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
+ You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
 
  Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
+ {:important}
 
 
 ## Replication-related commands in SLCLI

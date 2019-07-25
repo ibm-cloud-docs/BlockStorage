@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -25,13 +25,13 @@ If a catastrophic failure or disaster causes an outage on the primary site, cust
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Click the replica of the LUN in the list to view its **Details** page.
-4. On the **Details** page, scroll down and select an existing snapshot, then click **Actions** > **Duplicate**.
+3. Click the replica of the LUN in the list to view its **{{site.data.keyword.blockstorageshort}} Detail** page.
+4. On the **{{site.data.keyword.blockstorageshort}} Detail** page, scroll down and select an existing snapshot, then click **Actions** > **Duplicate**.
 5. Make any necessary updates to the capacity (to increase size) or IOPs for the new volume.
 6. Update the snapshot space for the new volume if needed.
 7. Click **Continue** to place the order for the duplicate.
 
-As soon as the volume is created, it can be attached to a host and perform read/write operations. While data is being copied from the original volume to the duplicate, the details page that shows that the duplication is in progress. When the duplication process is complete, the new volume becomes independent from the original and can be managed with snapshots and replication as normal.
+As soon as the volume is created, it can be attached to a host and perform read/write operations. While data is being copied from the original volume to the duplicate, the detail page that shows that the duplication is in progress. When the duplication process is complete, the new volume becomes independent from the original and can be managed with snapshots and replication as normal.
 
 ## Fail back to the original primary site
 
@@ -53,8 +53,8 @@ After replication is complete, you need to create a duplicate volume of the new 
 {:important}
 
 1. Go back to **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Click the replica of the LUN in the list to view its **Details** page.
-3. On the **Details** page, scroll down, and select an existing snapshot, then click **Actions** > **Duplicate**.
+2. Click the replica of the LUN in the list to view its **{{site.data.keyword.blockstorageshort}} Detail** page.
+3. On the **{{site.data.keyword.blockstorageshort}} Detail** page, scroll down, and select an existing snapshot, then click **Actions** > **Duplicate**.
 4. Make any necessary updates to the capacity (to increase size) or IOPs for the new volume.
 5. Update the snapshot space for the new volume if needed.
 6. Click **Continue** to place your order for the duplicate.

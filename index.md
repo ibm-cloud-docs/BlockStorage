@@ -56,7 +56,6 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
-
 ### Provisioning with Endurance Tiers
 {: #provendurance}
 

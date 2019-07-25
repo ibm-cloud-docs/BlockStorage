@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ The preferred migration path is to connect to both LUNs simultaneously and trans
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
-- [Connecting to LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Connecting to LUNs on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connecting to LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-All enhanced {{site.data.keyword.blockstorageshort}} volumes that are provisioned in these data centers have a different mount point than non-encrypted volumes. To ensure you're using the correct mount point for both storage volumes, you can view the mount point information in the **Volume Details** page in the console. You can also access the correct mount point through an API call: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
-{:tip}
+- [Connecting storage volumes on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting storage volumes on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connecting storage volumes on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## Creating a {{site.data.keyword.blockstorageshort}}
 
@@ -46,9 +43,14 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 
 "Authorized" hosts are hosts that were given access to a volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the user name, password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your LUN Name.
-2. Scroll to **Authorized Hosts**.
-3. On the right, click **Authorize Host**. Select the hosts that can access the volume.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Locate the new volume and click **...**.
+4. Select **Authorize Host**.
+5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
+   - if you choose Devices, you can select from Bare Metal Servers or Virtual servers.
+   - if you choose IP Address, first, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 
 ## Snapshots and Replication
@@ -56,6 +58,7 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 Do you have snapshots and replication established for your original LUN? If yes, you need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume.
 
 If your replication target data center is not upgraded yet, you can't establish replication for the new volume until that data center is upgraded.
+{:note}
 
 
 ## Migrating your data
@@ -78,6 +81,6 @@ If your replication target data center is not upgraded yet, you can't establish 
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
 
-   It's a good idea to use the previous command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.<br/>
+   It is advisable to use the previous command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.<br/>
    When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} LUN. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.<br/>
    When your migration is complete, you can move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original LUN.

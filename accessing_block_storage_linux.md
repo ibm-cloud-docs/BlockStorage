@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNs on Linux
 {: #mountingLinux}
 
-These instructions are mainly for RHEL6 and Centos6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
 {:note}
 
 For example, for more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
@@ -29,9 +29,14 @@ For example, for more information about Ubuntu specifics, see [iSCSI Initiator C
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 {:important}
 
-1. From the {{site.data.keyword.blockstorageshort}} listing page, locate the new volume and click **Actions**.
-2. Click **Authorize Host**.
-3. From the list, select the host or hosts that can access the volume and click **Submit**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Locate the new volume and click **...**.
+4. Click **Authorize Host**.
+5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
+   - if you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - if you choose IP Address, first, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
 ```
@@ -52,7 +57,7 @@ Options:
 
 Complete the Following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
 
-The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Details** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external}.
+The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.

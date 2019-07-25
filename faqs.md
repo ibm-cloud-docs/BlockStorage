@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: faq}
 
-The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. To request a limit increase, contact your sales representative.
+The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment may request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## How many volumes can be ordered?
 {: faq}
