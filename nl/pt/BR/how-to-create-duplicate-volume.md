@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -50,24 +50,26 @@ Alguns usos comuns para um volume duplicado:
 ## Criando uma duplicata de um volume específico na Lista de armazenamento
 
 1. Acesse sua lista do {{site.data.keyword.blockstorageshort}} no console do {{site.data.keyword.cloud_notm}} clicando em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
-2. Selecione um volume na lista e clique em **Ações** > **Duplicar LUN (volume)**
+2. Selecione um volume na lista e clique em **...** > **Duplicar LUN**
 3. Escolha sua opção de captura instantânea:
     - Se você pedir por meio de um volume que **não é de réplica**,
-      - Selecione **Criar de uma nova captura instantânea** - essa ação cria uma captura instantânea a ser usada para a duplicata. Use essa opção se o seu volume não tiver capturas instantâneas atuais ou se você desejar criar uma duplicata nesse momento.<br/>
-      - Selecione **Criar da captura instantânea mais recente** - essa ação cria uma duplicata da captura instantânea mais recente existente para esse volume.
+      - Selecione **Criar de uma nova captura instantânea para clonar* – essa ação cria uma captura instantânea a ser usada para a duplicata. Use essa opção se o seu volume não tiver capturas instantâneas atuais ou se você desejar criar uma duplicata logo em seguida.<br/>
+      - Selecione **Usar captura instantânea mais recente para clonar o LUN** – essa ação cria uma duplicata da captura instantânea mais recente que existe para esse volume.
     - Se você pedir usando um volume de **réplica**, a única opção para a captura instantânea será usar a captura instantânea mais recente disponível.
 4. O Tipo de armazenamento e o Local permanecem iguais aos do volume original.
 5. Faturamento por hora ou mensal – é possível escolher provisionar o LUN duplicado com faturamento por hora ou mensal. O tipo de faturamento para o volume original é selecionado automaticamente. Se você deseja escolher um tipo de faturamento diferente para seu armazenamento duplicado, é possível fazer essa seleção aqui.
-5. É possível especificar o IOPS ou a Camada de IOPS para o novo volume, caso deseje. A designação de IOPS do volume original é configurada por padrão. As combinações de desempenho e tamanho disponíveis são exibidas.
-    - Se o seu volume original for a camada 0,25 IOPS Endurance, não será possível fazer uma nova seleção.
-    - Se seu volume original for a camada de 2, 4 ou 10 IOPR do Endurance, será possível se mover em qualquer lugar entre essas camadas para o novo volume.
 6. É possível atualizar o tamanho do novo volume para que seja maior que o do original. O tamanho do volume original é configurado por padrão.
 
    O {{site.data.keyword.blockstorageshort}} pode ser redimensionado para 10 vezes o tamanho original do
 volume.
    {:tip}
-7. É possível atualizar o espaço de captura instantânea do novo volume para incluir mais, menos ou nenhum espaço de captura instantânea. O espaço de captura instantânea do volume original é configurado por padrão.
-8. Clique em **Continuar** para fazer seu pedido.
+7. É possível especificar o IOPS ou a Camada de IOPS para o novo volume, caso deseje. A designação de IOPS do volume original é configurada por padrão. As combinações de desempenho e tamanho disponíveis são exibidas.
+       - Se o seu volume original for a camada 0,25 IOPS Endurance, não será possível fazer uma nova seleção.
+       - Se seu volume original for a camada de 2, 4 ou 10 IOPR do Endurance, será possível se mover em qualquer lugar entre essas camadas para o novo volume.
+8. É possível atualizar o espaço de captura instantânea do novo volume para incluir mais, menos ou nenhum espaço de captura instantânea.
+9. É possível selecionar o tipo de S.O.
+10. Marque a caixa se você leu e concordou com o Contrato de Prestação de Serviços Principal.
+11. Clique em **Fazer pedido** para continuar.
 
 ## Criando uma duplicata de uma Captura instantânea específica
 
@@ -75,15 +77,17 @@ volume.
 2. Clique em um LUN na lista para visualizar a página de detalhes. (Ele
 pode ser um volume de réplica ou não de réplica).
 3. Role para baixo e selecione uma captura instantânea existente na lista na página de detalhes e clique em **Ações** > **Duplicar**.   
-4. O Tipo de armazenamento (Endurance ou Performance) e o Local permanecem iguais aos do volume original.
-5. As combinações de desempenho e tamanho disponíveis são exibidas. A designação de IOPs do volume original é configurada por padrão. É possível especificar o IOPS ou a Camada de IOPS para o novo volume.
-    - Se o seu volume original for a camada 0,25 IOPS Endurance, não será possível fazer uma nova seleção.
-    - Se seu volume original for a camada de 2, 4 ou 10 IOPS do Endurance, será possível se mover em qualquer lugar entre essas camadas para o novo volume.
+4. A Localização permanece a mesma que o volume original.
+5. É possível optar por provisionar o LUN duplicado com faturamento por hora ou mensal. O tipo de faturamento para o volume original é selecionado automaticamente. Se você desejar escolher um tipo de faturamento diferente para o seu armazenamento duplicado, será possível mudar a seleção.
 6. É possível atualizar o tamanho do novo volume para que seja maior que o original. O tamanho do volume original é configurado por padrão.
 
    O {{site.data.keyword.blockstorageshort}} pode ser redimensionado para 10 vezes o tamanho original do
 volume.
    {:tip}
+6. As combinações de desempenho e tamanho disponíveis são exibidas. A designação de IOPs do volume original é configurada por padrão. É possível especificar o IOPS ou a Camada de IOPS para o novo volume.
+    - Se o seu volume original for a camada 0,25 IOPS Endurance, não será possível fazer uma nova seleção.
+    - Se seu volume original for a camada de 2, 4 ou 10 IOPS do Endurance, será possível se mover em qualquer lugar entre essas camadas para o novo volume.
+
 7. É possível atualizar o espaço de captura instantânea do novo volume para incluir mais, menos ou nenhum espaço de captura instantânea. O espaço de captura instantânea do volume original é configurado por padrão.
 8. Clique em **Continuar** para fazer seu pedido para a duplicata.
 

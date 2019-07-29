@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 Antes de iniciar, certifique-se de que o host que está acessando o volume do {{site.data.keyword.blockstoragefull}} tenha sido autorizado por meio do [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
-1. Na página de listagem do {{site.data.keyword.blockstorageshort}}, localize o novo volume e clique em **Ações**. Clique em **Autorizar host**.
-2. Na lista, selecione o host ou os hosts que devem acessar o volume e clique em **Enviar**.
+1. Efetue login no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. No **menu**, selecione **Infraestrutura clássica**.
+2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+3. Localize o novo volume e clique em **...**.
+4. Clique em **Autorizar host**.
+5. Para ver a lista de dispositivos ou endereços IP disponíveis, primeiro selecione se você deseja autorizar o acesso com base em tipos de dispositivo ou sub-redes.
+   - Se você escolher Dispositivos, será possível selecionar entre servidores bare metal ou instâncias do servidor virtual.
+   - Se você escolher Endereço IP, primeiro, selecione a sub-rede na qual seu host reside.
+6. Na lista filtrada, selecione um ou mais hosts que podem acessar o volume e clique em **Salvar**.
 
 Como alternativa, é possível autorizar o host por meio da SLCLI.
 ```
@@ -40,9 +46,7 @@ Options:
 ## Montando  {{site.data.keyword.blockstorageshort}}  Volumes
 {: #mountWin}
 
-Conclua as etapas a seguir para conectar uma instância do {{site.data.keyword.cloud}}
-Compute baseada em Windows a um número da unidade lógica (LUN) Internet Small Computer System Interface
-(iSCSI) multipath input/output (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
+Conclua as etapas a seguir para conectar uma instância do {{site.data.keyword.cloud}} Compute baseada em Windows a um volume iSCSI de entrada/saída de caminhos múltiplos (MPIO). O exemplo é baseado no Windows Server 2012. As etapas podem ser ajustadas para outras versões do Windows de acordo com a documentação do fornecedor do sistema operacional (S.O.).
 
 ### Configurando o recurso MPIO
 
@@ -71,8 +75,7 @@ reivindicar todos os dispositivos iSCSI para MPIO, o que requer uma conexão com
     - Clique em **Mudar** para substituir os valores existentes pelo nome qualificado de
 iSCSI (IQN). ![Propriedades do inicializador iSCSI](/images/iSCSI.png)
 
-      O nome IQN pode ser obtido na tela Detalhes do {{site.data.keyword.blockstorageshort}}
-no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
+      O nome do IQN pode ser obtido na tela **Detalhes do {{site.data.keyword.blockstorageshort}}** no console do [{{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
     - Clique em **Descoberta** e clique em **Portal de descoberta**.
@@ -102,7 +105,7 @@ no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){:
    ![Ativar CHAP](/images/chap_0.png)
 4. Insira o nome do usuário no campo Nome e insira a senha no campo Segredo de destino.
 
-   Os valores de campo Nome e Segredo de destino podem ser obtidos por meio da tela Detalhes do {{site.data.keyword.blockstorageshort}}.
+   Os valores de campo Nome e Segredo de destino podem ser obtidos na tela **Detalhes do {{site.data.keyword.blockstorageshort}}**.
    {:tip}
 5. Clique em **OK** até que a janela **Propriedades do inicializador iSCSI** seja exibida. O status do destino na seção **Destinos descobertos** muda de **Inativo** para **Conectado**.
 ![Status Conectado](/images/Connected.png)
@@ -133,8 +136,7 @@ sessão** novamente para incluir o segundo caminho.
 interfaces de rede no dispositivo de armazenamento a uma única interface de rede no host. Portanto, essa interface é a mesma que foi fornecida para a primeira sessão.
    - Na lista IP do portal de destino, selecione o endereço IP para a segunda interface de dados que é permitida no dispositivo de armazenamento.
 
-     É possível localizar o segundo endereço IP na tela Detalhes
-do {{site.data.keyword.blockstorageshort}} no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+     É possível localizar o segundo endereço IP na tela **Detalhes do {{site.data.keyword.blockstorageshort}}** no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Clique na caixa de seleção **Ativar logon do CHAP**
    - Insira os valores secretos de Nome e de Destino que foram obtidos do console e clique em **OK**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -25,13 +25,13 @@ No caso de uma falha catastrófica ou de um desastre que cause uma indisponibili
 
 1. Efetue login no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external} e clique no ícone de **menu** na parte superior esquerda. Selecione **Infraestrutura clássica**.
 2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
-3. Clique na réplica do LUN na lista para visualizar a sua página de **Detalhes**.
-4. Na página de **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
+3. Clique na réplica da LUN na lista para visualizar sua página **Detalhes do {{site.data.keyword.blockstorageshort}}**.
+4. Na página **Detalhes do {{site.data.keyword.blockstorageshort}}**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
 5. Faça quaisquer atualizações necessárias para a capacidade (para aumentar o tamanho) ou os IOPs para o novo volume.
 6. Atualize o espaço de captura instantânea para o novo volume, se necessário.
 7. Clique em **Continuar** para fazer o pedido da duplicata.
 
-Assim que o volume é criado, ele pode ser anexado a um host e executar operações de leitura/gravação. Enquanto os dados estão sendo copiados do volume original para a duplicata, a página de detalhes mostra que a duplicação está em andamento. Quando o processo de duplicação for concluído, o novo volume se tornará independente do original e poderá ser gerenciado com capturas instantâneas e replicação normalmente.
+Assim que o volume é criado, ele pode ser anexado a um host e executar operações de leitura/gravação. Enquanto os dados estão sendo copiados do volume original para a duplicata, a página de detalhes que mostra que a duplicação está em andamento. Quando o processo de duplicação for concluído, o novo volume se tornará independente do original e poderá ser gerenciado com capturas instantâneas e replicação normalmente.
 
 ## Failback para o site primário original
 
@@ -53,8 +53,8 @@ Após a conclusão da replicação, é necessário criar um volume duplicado da 
 {:important}
 
 1. Volte para **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
-2. Clique na réplica do LUN na lista para visualizar a sua página de **Detalhes**.
-3. Na página **Detalhes**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
+2. Clique na réplica da LUN na lista para visualizar sua página **Detalhes do {{site.data.keyword.blockstorageshort}}**.
+3. Na página **Detalhes do {{site.data.keyword.blockstorageshort}}**, role para baixo e selecione uma captura instantânea existente e, em seguida, clique em **Ações** > **Duplicar**.
 4. Faça quaisquer atualizações necessárias para a capacidade (para aumentar o tamanho) ou os IOPs para o novo volume.
 5. Atualize o espaço de captura instantânea para o novo volume, se necessário.
 6. Clique em **Continuar** para fazer seu pedido para a duplicata.

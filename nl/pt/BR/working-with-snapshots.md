@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -33,8 +33,8 @@ Para poder configurar seu planejamento inicial, deve-se primeiramente comprar um
 Os planejamentos de capturas instantâneas podem ser configurados em intervalos, como por hora,
 diários e semanais, cada um com um ciclo de retenção diferente. O limite máximo de capturas instantâneas é 50 por volume de armazenamento, que pode ser uma combinação de planejamentos por hora, diários e semanais e capturas instantâneas manuais.
 
-1. Clique em seu volume de armazenamento, clique em **Ações** e clique em **Planejar captura instantânea**.
-2. Na janela Nova captura instantânea de planejamento, é possível selecionar entre três frequências de captura instantânea diferentes. Use qualquer combinação das três frequências para criar um planejamento de captura
+1. Clique em seu volume de armazenamento, clique em **Ações** e clique em **Editar planejamento de captura instantânea**.
+2. Na janela Planejamento de captura instantânea, é possível selecionar entre três frequências de captura instantânea diferentes. Use qualquer combinação das três frequências para criar um planejamento de captura
 instantânea abrangente.
    - Hora em Hora
       - Especifique o minuto de cada hora em que uma captura instantânea deve ser tirada. O padrão é o minuto atual.
@@ -47,7 +47,7 @@ instantânea abrangente.
       - Selecione o número de capturas instantâneas semanais a serem retidas antes que a mais antiga seja descartada.
 3. Clique em  ** Salvar **. Em seguida, é possível criar outro planejamento com uma frequência diferente. Se o número total de capturas instantâneas planejadas for maior que 50, você receberá uma mensagem de aviso e não poderá salvar.
 
-A lista de capturas instantâneas é exibida conforme obtida na seção **Capturas instantâneas** da página **Detalhe**.
+A lista de capturas instantâneas é exibida conforme obtida na seção **Capturas instantâneas** da página **{{site.data.keyword.blockstorageshort}}Detalhe**.
 
 Também é possível ver a lista dos planejamentos de captura instantânea por meio da CLI do SL com o comando a seguir.
 ```
@@ -69,7 +69,7 @@ O limite máximo de capturas instantâneas por volume de armazenamento é 50.
 1. Clique em seu volume de armazenamento.
 2. Clique em ** Ações**.
 3. Clique em **Executar captura instantânea manual**.
-A captura instantânea é tomada e exibida na seção **Capturas instantâneas** da página **Detalhe**. Seu planejamento aparece Manual.
+A captura instantânea é tomada e exibida na seção **Capturas instantâneas** da página **{{site.data.keyword.blockstorageshort}}Detalhe**. Seu planejamento aparece Manual.
 
 Como alternativa, é possível usar o comando a seguir para criar uma captura instantânea por meio da CLI do SL.
 ```
@@ -85,7 +85,7 @@ Options:
 ## Listando todas as capturas instantâneas com informações de espaço usado e funções de gerenciamento
 
 Uma lista de capturas instantâneas retidas e o espaço que é usado podem ser vistos na página
-de **Detalhes**.  As funções de gerenciamento (editando planejamentos e incluindo mais espaço) são conduzidas na página Detalhe usando o menu **Ações** ou links nas várias seções na página.
+de **{{site.data.keyword.blockstorageshort}}Detalhes**.  As funções de gerenciamento (planejamentos de edição e inclusão de mais espaço) são realizadas na **página Detalhes do {{site.data.keyword.blockstorageshort}}** usando o menu **Ações** ou os links nas várias seções da página.
 
 ## Visualizando a lista de Capturas instantâneas retidas
 
@@ -105,7 +105,7 @@ Options:
 
 ## Visualizando a quantia de espaço de Captura instantânea usado
 
-O gráfico de pizza na página **Detalhes** exibe quanto espaço é usado e quanto espaço resta. Você recebe notificações ao atingir limites de espaço - 75 por cento, 90 por cento e 95 por cento.
+O gráfico de pizza na **página Detalhes do {{site.data.keyword.blockstorageshort}}** exibe quanto espaço é usado e quanto espaço resta. Você recebe notificações ao atingir limites de espaço - 75 por cento, 90 por cento e 95 por cento.
 
 ## Mudando a quantia de espaço de Captura instantânea para um volume
 
@@ -116,7 +116,7 @@ O espaço de captura instantânea somente pode ser aumentado. Ele não pode ser 
 
 O espaço de captura instantânea é mudado por meio de **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Clique em seus volumes de armazenamento, clique em **Ações** e clique em **Incluir mais espaço de captura instantânea**.
+1. Clique em seu volume de armazenamento, clique em **Ações** e clique em **Incluir espaço de captura instantânea**/**Mudar espaço de captura instantânea**.
 2. Selecione em um intervalo de tamanhos no prompt. Os tamanhos geralmente variam de 0 até o tamanho
 de seu volume.
 3. Clique em **Continuar**.
@@ -136,7 +136,7 @@ As notificações são enviadas por meio dos casos de suporte para o usuário pr
 
 Os planejamentos de captura instantânea podem ser cancelados por meio de **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Clique no planejamento a ser excluído no quadro **Planejamentos de captura instantânea** na página **Detalhes**.
+1. Clique no planejamento a ser excluído no quadro **Planejamentos de captura instantânea** na **página Detalhes do {{site.data.keyword.blockstorageshort}}**.
 2. Clique na caixa de seleção ao lado do planejamento a ser excluído e clique em **Salvar**.<br />
 
 Se você estiver usando o recurso de replicação, certifique-se de que o planejamento que está sendo excluído não
@@ -174,11 +174,11 @@ captura instantânea que foi usada para a restauração.
 {:important}
 
 1. Desmonte e separe seu volume de armazenamento do host.
-   - [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Conectando volumes iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Conectando volumes iSCSI no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
-3. Role para baixo e clique no seu volume a ser restaurado. A seção **Capturas instantâneas** da página **Detalhes** exibe a lista de todas as capturas instantâneas salvas juntamente com seu tamanho e data de criação.
-4. Clique em **Ações** ao lado da captura instantânea a ser usada e clique em **Restaurar**. <br/>
+3. Role para baixo e clique no seu volume a ser restaurado. A seção **Capturas instantâneas** da página **{{site.data.keyword.blockstorageshort}}Detalhes** exibe a lista de todas as capturas instantâneas salvas juntamente com seu tamanho e data de criação.
+4. Clique em **Ações** próximo à captura instantânea a ser usada e clique em **Restaurar**. <br/>
 
    A conclusão da restauração resulta na perda dos dados que foram criados ou modificados depois que a captura
 instantânea foi obtida. Essa perda de dados ocorre porque seu volume de armazenamento retorna para o mesmo estado em que estava no momento da captura instantânea.
@@ -188,9 +188,9 @@ instantânea foi obtida. Essa perda de dados ocorre porque seu volume de armazen
    Espere uma mensagem na página indicando que o volume está sendo restaurado usando a captura instantânea selecionada. Além disso, aparece um ícone próximo ao seu volume no {{site.data.keyword.blockstorageshort}} indicando que uma transação ativa está em andamento. Passar o mouse sobre o ícone produz uma janela que mostra a transação. O ícone desaparece quando a transação está concluída.
    {:note}
 6. Monte e reconecte seu volume de armazenamento ao host.
-   - [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Conectando volumes iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Conectando volumes iSCSI no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Conectando volumes iSCSI no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Como alternativa, depois que o volume for removido do host, será possível usar o comando a seguir na CLI do SL para
 iniciar uma restauração.

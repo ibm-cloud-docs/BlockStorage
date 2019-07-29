@@ -17,7 +17,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Solicitando capturas instantâneas
+# Pedindo capturas instantâneas
 {: #orderingsnapshots}
 
 Para criar capturas instantâneas de seu volume de armazenamento, seja automaticamente ou manualmente, é necessário comprar espaço para mantê-las. É possível comprar capacidade até sua quantia de volume de armazenamento (durante a compra do volume inicial ou posteriormente usando as etapas descritas aqui).

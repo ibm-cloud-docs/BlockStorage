@@ -51,7 +51,7 @@ informações, consulte o [Guia de segurança do RHEL](https://access.redhat.com
 O processo de criptografia de dados cria um carregamento no host que pode potencialmente afetar o desempenho.
 {:note}
 
-1. Digite o comando a seguir em um prompt de shell como raiz para instalar o pacote necessário: <br/>
+1. Digite o seguinte comando em um prompt de shell como raiz para instalar o pacote necessário:   <br/>
    ```
    # yum install cryptsetup-luks
    ```
@@ -99,7 +99,7 @@ O processo de criptografia de dados cria um carregamento no host que pode potenc
      mode:    read/write
      Command successful
    ```
-8. Grave dados aleatórios em `/dev/mapper/cryptData` no dispositivo criptografado. Essa ação assegura que o mundo exterior veja isso como dados aleatórios, o que significa que são protegidos contra a divulgação de padrões de uso. Essa etapa pode demorar um pouco.<br/>
+8. Grave dados aleatórios em `/dev/mapper/cryptData` no dispositivo criptografado. Essa ação assegura que o mundo exterior veja isso como dados aleatórios, o que significa que são protegidos contra a divulgação de padrões de uso. Esta etapa pode demorar um pouco.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```

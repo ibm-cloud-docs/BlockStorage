@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -41,7 +41,7 @@ Veja a Tabela 1 para a lista completa de disponibilidade de data center e destin
 As replicações funcionam com base em um planejamento de captura instantânea. Deve-se primeiro ter espaço de captura instantânea e um planejamento de captura instantânea para o volume de origem antes de poder replicar. Se você tentar configurar a replicação e uma ou a outra não estiver em vigor, será solicitado que compre mais espaço ou configure um planejamento. As replicações são gerenciadas em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}** no [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Clique em seu volume de armazenamento.
-2. Clique em **Réplica** e em **Comprar uma replicação**.
+2. Clique em **Réplica** e clique em **Comprar replicação**.
 3. Selecione o planejamento de captura instantânea existente que você deseja que sua replicação siga. A lista contém todos os seus planejamentos de captura instantânea ativa. <br />
    É possível selecionar apenas um planejamento mesmo se você tiver uma combinação de horário, diário e semanal. Todas as capturas instantâneas que foram capturadas desde o ciclo de replicação anterior são replicadas independentemente do planejamento que as originou.<br />Se você não tiver Capturas instantâneas configuradas, será solicitado que faça isso antes de poder pedir replicação. Para obter mais informações, consulte [Trabalhando com capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
@@ -76,22 +76,21 @@ No entanto, se você deseja mudar o horário do dia em que a replicação **Diá
 Seu espaço de captura instantânea primário e seu espaço de réplica devem ser os mesmos. Se você mudar o espaço na guia **Primário** ou **Réplica**, ele incluirá automaticamente o espaço nos data centers de origem e de destino. Aumentar o espaço de captura instantânea também aciona uma atualização de replicação imediata.
 
 1. Clique em **Ações** na guia **Primário** ou **Réplica**.
-2. Selecione **Incluir mais espaço de captura instantânea**.
+2. Selecione **Mudar espaço de captura instantânea**.
 3. Selecione o tamanho de armazenamento na lista e clique em **Continuar**.
 4. Insira um **Código promocional** se você tiver um e clique em **Recalcular**. Os outros campos na caixa de diálogo são concluídos por padrão.
 5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principais…** e
 clique em **Fazer pedido**.
 
 
-## Visualizando os volumes de réplica na Lista de volumes
+## Visualizando os volumes de réplica na lista do {{site.data.keyword.blockstorageshort}}
 
-É possível visualizar seus volumes de replicação na página do {{site.data.keyword.blockstorageshort}} em **Armazenamento > {{site.data.keyword.blockstorageshort}}**. O **Nome do LUN** mostra o nome do volume primário seguido por REP. O **Tipo** é Endurance ou Performance - Réplica. O **Endereço de destino** é N/A porque o volume da réplica não está montado no data center da réplica e o **Status** mostra Inativo.
+É possível visualizar seus volumes de replicação na página do {{site.data.keyword.blockstorageshort}} em **Armazenamento > {{site.data.keyword.blockstorageshort}}**. Os volumes original e de réplica são agrupados juntos. O **Nome do LUN** mostra o nome do volume primário seguido por REP. O **Tipo** é Endurance ou Performance - Réplica.
 
 
 ## Visualizando os detalhes de um volume replicado no data center de réplica
 
-É possível visualizar os detalhes do volume de réplica na guia **Réplica** em
-**Armazenamento**, **{{site.data.keyword.blockstorageshort}}**. Outra opção é selecionar o volume de réplica na página **{{site.data.keyword.blockstorageshort}}** e clicar na guia **Réplica**.
+É possível visualizar os detalhes do volume de réplica clicando na guia **Réplica** durante a visualização dos detalhes do volume original. Outra opção é selecionar o volume de réplica na **lista do {{site.data.keyword.blockstorageshort}}** e clicar na guia **Réplica**.
 
 
 ## Aumentando o espaço de Captura instantânea no data center de réplica quando o espaço de Captura instantânea é aumentado no data center primário
@@ -124,7 +123,7 @@ As duplicatas podem ser criadas de ambos os volumes, o primário e o de réplica
 Os volumes duplicados podem ser acessados por um host para leitura/gravação assim que o armazenamento
 é provisionado. No entanto, capturas instantâneas e replicação não são permitidas até que a cópia de dados do original para a duplicata seja concluída.
 
-Para obter mais informações, consulte [Criando um volume de bloco duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
+Para obter mais informações, consulte [Criando um {{site.data.keyword.blockstorageshort}} duplicado](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Usando réplicas para failover quando ocorre um desastre
 
@@ -151,17 +150,19 @@ com um volume primário inacessível](/docs/infrastructure/BlockStorage?topic=Bl
 
 Quando um volume primário é cancelado, o planejamento de replicação e o volume no data center de réplica são excluídos. As réplicas são canceladas na página {{site.data.keyword.blockstorageshort}}.
 
- 1. Destaque seu volume na página **{{site.data.keyword.blockstorageshort}}**.
- 2. Clique em **Ações** e selecione **Cancelar {{site.data.keyword.blockstorageshort}}**.
+ 1. Clique no nome do volume na **página do {{site.data.keyword.blockstorageshort}}**.
+ 2. Na **página Detalhes do {{site.data.keyword.blockstorageshort}}**, clique em **Ações** e selecione **Cancelar réplica**.
  3. Selecione quando cancelar. Escolha **Imediatamente** ou **Data de aniversário** e clique em **Continuar**.
- 4. Clique em **Eu reconheço que, devido ao cancelamento, a perda de dados pode ocorrer** e clique em **Cancelar**.
+ 4. Confirme que você entende que a perda de dados pode ocorrer ao cancelar o volume marcando a caixa.
+ 5. Clique em **Cancelar réplica**.
 
  É possível esperar que o LUN permaneça visível em sua lista de armazenamento por pelo menos 24 horas (cancelamento imediato) ou até a data do aniversário. Alguns recursos não estarão disponíveis por mais tempo,
-mas o volume permanecerá visível até que seja recuperado. No entanto, o faturamento será interrompido imediatamente depois de clicar em Excluir/Cancelar.
+mas o volume permanecerá visível até que seja recuperado. No entanto, o faturamento será interrompido imediatamente depois de clicar em Excluir/cancelar réplica.
 
  As réplicas ativas podem bloquear a recuperação do volume de armazenamento. Certifique-se de que
 o volume não esteja mais montado, as autorizações de host sejam revogadas e a replicação seja cancelada
 antes de tentar cancelar o volume original.
+ {:important}
 
 
 ## Comandos relacionados a replicação na SLCLI

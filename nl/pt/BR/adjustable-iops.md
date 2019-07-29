@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -47,15 +47,15 @@ Se o volume tiver a replicação em vigor, a réplica será atualizada automatic
 
 1. Acesse a sua lista de {{site.data.keyword.blockstorageshort}}. No console do {{site.data.keyword.cloud}}, clique no ícone de **menu** e, em seguida, clique
 em **Infraestrutura** > **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
-2. Selecione o LUN na lista e clique em **Ações** > **Modificar LUN**
-3. Em **Opções de IOPS de armazenamento**, faça uma nova seleção:
+2. Selecione o volume iSCSI na lista e clique em **...** > **Modificar LUN**
+3. Em **Ajustar IOPS de armazenamento**, faça uma nova seleção:
     - Para Endurance (IOPS em camada), selecione uma camada de IOPS maior que 0,25 IOPS/GB de seu armazenamento. É possível aumentar a camada de IOPS a qualquer momento. No entanto, o decréscimo está disponível somente uma vez por mês.
     - Para Performance (IOPS alocado), especifique a nova opção de IOPS para seu armazenamento digitando um valor no intervalo de 100 a 48.000 IOPS.
 
     Certifique-se de consultar quaisquer limites específicos que sejam requeridos por tamanho no formulário de
 pedido.
     {:tip}
-4. Revise a sua seleção e a nova precificação.
+4. Revise a sua seleção e os detalhes de precificação.
 5. Clique na caixa de seleção **Eu li o Contrato de Prestação de Serviços Principais...** e clique em **Fazer pedido**.
 6. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 

@@ -57,7 +57,6 @@ Os LUNs do {{site.data.keyword.blockstorageshort}} podem ser provisionados de 20
 - Construa um ambiente de **Desempenho** poderoso com operações de
 entrada/saída por segundo (IOPS) alocadas.
 
-
 ### Fornecimento com Camadas de Endurance
 {: #provendurance}
 

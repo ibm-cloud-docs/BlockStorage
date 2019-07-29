@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## Quantas instâncias podem compartilhar o uso de um volume do {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
-O limite padrão do número de autorizações por volume de bloco é oito. Isso significa que até oito hosts podem ser autorizados a acessar o LUN do Block Storage. Para solicitar um aumento de limite, entre em contato com o representante de vendas.
+O limite padrão do número de autorizações por volume de bloco é oito. Isso significa que até oito hosts podem ser autorizados a acessar o LUN do Block Storage. Os clientes que usam o {{site.data.keyword.blockstorageshort}} em sua implementação do VMware podem solicitar o aumento do limite de autorização para 64. Para solicitar um aumento de limite, entre em contato com seu representante de vendas ou abra um [Caso de suporte](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## Quantos volumes podem ser solicitados?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ O caminho de migração preferencial é conectar-se aos dois LUNs simultaneament
 
 A suposição é que você já tem o LUN não criptografado conectado ao seu host. Se não, siga as instruções que se ajustam melhor ao seu sistema operacional para realizar essa tarefa:
 
-- [Conectando-se a LUNs no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Conectando-se a LUNs no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Conectando-se a LUNS no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-Todos os volumes aprimorados do {{site.data.keyword.blockstorageshort}} provisionados nesses data centers têm um ponto de montagem diferente de volumes não criptografados. Para assegurar que você esteja usando o ponto de montagem correto para os dois volumes de armazenamento, é possível visualizar as informações do ponto de montagem na página **Detalhes do volume** no console. Também é possível acessar o ponto de montagem correto por meio de uma chamada API: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
-{:tip}
+- [Conectando volumes de armazenamento no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Conectando volumes de armazenamento no CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Conectando volumes de armazenamento no Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## Criando um {{site.data.keyword.blockstorageshort}}
 
@@ -47,9 +44,14 @@ na lista de recursos e na lista do {{site.data.keyword.blockstorageshort}}.
 
 Hosts "autorizados" são aqueles que receberam acesso a um volume. Sem a autorização do host, não é possível acessar nem usar o armazenamento de seu sistema. A autorização de um host para acessar seu volume gera o nome do usuário, a senha e o nome qualificado de iSCSI (IQN), que são necessários para montar a conexão iSCSI de Multipath I/O (MPIO).
 
-1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** e depois em seu Nome do LUN.
-2. Role para **Hosts autorizados**.
-3. À direita, clique em **Autorizar host**. Selecione os hosts que podem acessar o volume.
+1. Efetue login no [console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. No **menu**, selecione **Infraestrutura clássica**.
+2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+3. Localize o novo volume e clique em **...**.
+4. Selecione **Autorizar host**.
+5. Para ver a lista de dispositivos ou endereços IP disponíveis, primeiro selecione se você deseja autorizar o acesso com base em tipos de dispositivo ou sub-redes.
+   - Se você escolher Dispositivos, será possível selecionar entre servidores bare metal ou servidores virtuais.
+   - Se você escolher Endereço IP, primeiro, selecione a sub-rede na qual seu host reside.
+6. Na lista filtrada, selecione um ou mais hosts que podem acessar o volume e clique em **Salvar**.
 
 
 ## Capturas instantâneas e replicação
@@ -57,6 +59,7 @@ Hosts "autorizados" são aqueles que receberam acesso a um volume. Sem a autoriz
 Você tem capturas instantâneas e replicação estabelecidas para o seu LUN original? Em caso positivo, será necessário configurar a replicação, o espaço de captura instantânea e criar planejamentos de captura instantânea para o novo LUN com as mesmas configurações que as do volume original.
 
 Se o data center de destino de replicação ainda não tiver sido submetido a upgrade, não será possível estabelecer a replicação do novo volume até que seja feito upgrade desse data center.
+{:note}
 
 
 ## Migrando seus Dados
@@ -80,6 +83,6 @@ durante a cópia, não precisa se preocupar.
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
 
-   É uma boa ideia usar o comando anterior com a sinalização `--dry-run` uma vez para certificar-se de que os caminhos sejam alinhados corretamente. Se esse processo for interrompido, será possível excluir o último arquivo de destino que estava sendo copiado para certificar-se de que ele seja copiado para o novo local desde o início.<br/>
-   Quando esse comando for concluído sem a sinalização `--dry-run`, seus dados serão copiados para o novo LUN do {{site.data.keyword.blockstorageshort}}. Execute o comando novamente para certificar-se de que nada foi perdido. Também é possível revisar manualmente os dois locais para procurar qualquer coisa que possa estar ausente.<br/>
+   É aconselhável usar o comando anterior com a sinalização `--dry-run` uma vez para certificar-se de que os caminhos sejam alinhados corretamente. Se esse processo for interrompido, será possível excluir o último arquivo de destino que estava sendo copiado para certificar-se de que ele seja copiado para o novo local do início.<br/>
+   Quando esse comando for concluído sem a sinalização `--dry-run`, seus dados serão copiados para o novo LUN do {{site.data.keyword.blockstorageshort}}. Execute o comando novamente para certificar-se de que nada foi perdido. Também é possível revisar manualmente ambos os locais para procurar qualquer coisa que possa estar ausente.<br/>
    Quando a migração estiver concluída, será possível mover a produção para o novo LUN. Em seguida, será possível separar e excluir o LUN original da sua configuração. A exclusão também remove qualquer captura instantânea ou réplica no site de destino que tenha sido associada ao LUN original.

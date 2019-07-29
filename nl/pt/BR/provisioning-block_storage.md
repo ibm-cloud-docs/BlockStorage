@@ -62,7 +62,7 @@ consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=Block
 10. Depois de ter revisado os termos e as condições, marque a caixa **Eu li e concordo com os Contratos de Prestação de Serviços de terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
-Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, veja as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre como aumentar os limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite em autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Solicitando  {{site.data.keyword.blockstorageshort}}  com IOPS Customizado (Desempenho)
@@ -94,7 +94,7 @@ consulte as [Perguntas frequentes](/docs/infrastructure/BlockStorage?topic=Block
 10. Depois de ter revisado os termos e as condições, marque a caixa **Eu li e concordo com os Contratos de Prestação de Serviços de terceiro**.
 11. Clique em **Criar**. Sua nova alocação de armazenamento estará disponível em alguns minutos.
 
-Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre o aumento dos limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite de autorizações simultâneas, veja as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
+Por padrão, é possível provisionar um total combinado de 250 volumes {{site.data.keyword.blockstorageshort}} e {{site.data.keyword.filestorage_short}}. Para aumentar o número de seus volumes, entre em contato com o representante de vendas. Leia sobre como aumentar os limites [aqui](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>Para o limite em autorizações simultâneas, consulte as [Perguntas mais frequentes](/docs/infrastructure/BlockStorage?topic=block-storage-faqs).
 {:important}
 
 ## Conectando seu novo armazenamento

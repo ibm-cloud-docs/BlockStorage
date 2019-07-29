@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -25,7 +25,7 @@ subcollection: BlockStorage
 É possível visualizar um resumo das informações chave para o LUN de armazenamento selecionado, incluindo recursos extras de captura instantânea e de replicação que foram incluídos no armazenamento.
 
 1. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}**.
-2. Clique no nome do LUN apropriado na lista.
+2. Clique no nome do volume apropriado na lista.
 
 Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
@@ -44,10 +44,13 @@ Hosts "autorizados" são aqueles que receberam acesso a um LUN específico. Sem 
 múltiplas contas, mas não é possível autorizar um host de uma conta a acessar o armazenamento em outra conta.
 {:important}
 
-1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** e depois em seu Nome do LUN.
-2. Role para a seção **Hosts autorizados** da página.
-3. À direita, clique em **Autorizar host**. Selecione os hosts
-que podem acessar esse LUN específico.
+2. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}**.
+3. Localize o volume e clique em **...**.
+4. Clique em **Autorizar host**.
+5. Para ver a lista de dispositivos disponíveis ou endereços IP, primeiro selecione se você deseja autorizar o acesso com base no tipo de dispositivo ou sub-redes.
+   - Se você escolher Dispositivos, será possível selecionar entre servidores bare metal ou instâncias do servidor virtual.
+   - Se você escolher Endereço IP, primeiro, selecione a sub-rede na qual seu host reside.
+6. Na lista filtrada, selecione um ou mais hosts que podem acessar o volume e clique em **Salvar**.
 
 Como alternativa, é possível usar o comando a seguir na SLCLI.
 ```
@@ -64,7 +67,7 @@ Options:
 
 ## Visualizando a lista de hosts autorizados a acessar um LUN do {{site.data.keyword.blockstorageshort}}
 
-1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** e depois em seu Nome do LUN.
+1. Clique em **Armazenamento** > **{{site.data.keyword.blockstorageshort}}** e clique em seu nome do volume.
 2. Role para baixo até a seção **Hosts autorizados**.
 
 Lá é possível ver a lista dos hosts que estão atualmente autorizados a acessar o LUN. Também é possível ver as informações sobre autenticação que são necessárias para fazer uma conexão - nome de usuário, senha e Host do IQN. O endereço de Destino é listado na página **Detalhe de armazenamento**. Para NFS, o endereço de destino é descrito como um nome DNS e, para iSCSI, é o endereço IP do portal de destino de descoberta.
@@ -118,10 +121,9 @@ o acesso para evitar unidades ausentes ou distorção de dados.
 
 ### Revogando o acesso a partir da Lista de Dis
 
-1. Clique em **Dispositivos**, **Lista de dispositivos** no
-[console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} e clique duas vezes no dispositivo apropriado.
+1. No [console do {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}, clique no ícone Infraestrutura clássica. Em seguida, clique em **Dispositivos**, **Lista de dispositivos** e dê um clique duplo no dispositivo apropriado.
 2. Selecione a guia **Armazenamento**.
-3. É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). Próximo ao nome de LUN, selecione **Ação** e clique em **Revogar acesso**.
+3. É apresentada uma lista de LUNs de armazenamento ao quais esse host específico tem acesso. A lista é agrupada por tipo de armazenamento (bloco, arquivo, outro). Ao lado do nome do volume, clique em **Ações** e clique em **Revogar acesso**.
 4. Confirme se você deseja revogar o acesso para um LUN porque a ação não pode ser desfeita. Clique em **Sim** para revogar acesso ao LUN ou **Não** para cancelar a ação.
 
 Se você desejar desconectar múltiplos LUNs de um host específico, será necessário repetir a ação Revogar
@@ -165,7 +167,7 @@ Para cancelar um LUN de armazenamento, é necessário revogar o acesso de quaisq
 {:important}
 
 1. Clique em **Armazenamento**, **{{site.data.keyword.blockstorageshort}}**.
-2. Clique em **Ações** para o LUN a ser cancelado e selecione **Cancelar o {{site.data.keyword.blockstorageshort}}**.
+2. Selecione o volume a ser cancelado, clique em **Ações** e selecione **Cancelar {{site.data.keyword.blockstorageshort}}**.
 3. Confirme se deseja cancelar o LUN imediatamente ou na data de aniversário de quando o LUN foi provisionado.
 
    Se você selecionar a opção para cancelar o LUN em sua data de aniversário, será possível anular a solicitação

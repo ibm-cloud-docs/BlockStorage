@@ -42,7 +42,5 @@ Ao pedir o {{site.data.keyword.blockstorageshort}}, selecione um data center ano
 
 
 
-O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você tiver armazenamento não criptografado em um data center atualizado e desejar armazenamento criptografado, será necessário criar um novo volume e migrar seus dados. Para obter mais informações, consulte
-[Migração
-do {{site.data.keyword.blockstorageshort}} em data centers com upgrade](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
+O armazenamento não criptografado que foi fornecido antes do upgrade do data center **não** é criptografado automaticamente. Se você tiver armazenamento não criptografado em um data center atualizado e desejar armazenamento criptografado, será necessário criar um novo volume e migrar seus dados. Para obter mais informações, consulte [Migração do {{site.data.keyword.blockstorageshort}} em data centers com upgrade](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}

@@ -48,7 +48,7 @@ Para obter mais informações sobre como instalar e usar a SLCLI, consulte [Clie
 
 ## Comandos da SLCLI relacionados a capturas instantâneas
 
-* [Solicitando capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Pedindo capturas instantâneas](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```
