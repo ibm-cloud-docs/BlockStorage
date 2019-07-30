@@ -92,4 +92,4 @@ Wenn die Bereitstellungsanforderung abgeschlossen ist, autorisieren Sie die Host
 
 ## Neuen Speicher verwalten
 
-Über das Portal oder die SL-CLI können Sie verschiedene Aspekte des {{site.data.keyword.blockstorageshort}} verwalten, z. B. Hostberechtigungen und Stornierungen. Weitere Informationen finden Sie in [{{site.data.keyword.blockstorageshort}}verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).
+Über das Portal oder die SL-CLI können Sie verschiedene Aspekte des {{site.data.keyword.blockstorageshort}} verwalten, z. B. Hostberechtigungen und Abbrüche. Weitere Informationen finden Sie in [{{site.data.keyword.blockstorageshort}}verwalten](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage).

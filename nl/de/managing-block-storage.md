@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -24,7 +24,7 @@ Sie können Ihre {{site.data.keyword.blockstoragefull}}-Datenträger über die [
 Sie können eine Zusammenfassung der wichtigsten Informationen für die ausgewählte Speicher-LUN einschließlich zusätzlicher Snapshot- und Replikationsfunktionen anzeigen, die zum Speicher hinzugefügt wurden.
 
 1. Klicken Sie auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
-2. Klicken Sie in der Liste auf den entsprechenden LUN-Namen.
+2. Klicken Sie auf den entsprechenden Datenträgernamen in der Liste. 
 
 Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden.
 ```
@@ -42,9 +42,13 @@ Berechtigte ("autorisierte") Hosts sind Hosts, denen Zugriff auf eine bestimmte 
 Sie können Hosts autorisieren und verbinden, die sich in demselben Rechenzentrum wie Ihr Speicher befinden. Sie können mehrere Konten haben, Sie können jedoch nicht einen Host über das eine Konto für den Zugriff auf Ihren Speicher in einem anderen Konto berechtigen.
 {:important}
 
-1. Klicken Sie auf **Speicher** -> **{{site.data.keyword.blockstorageshort}}** und klicken Sie auf den Namen Ihrer LUN.
-2. Blättern Sie zum Bereich **Autorisierte Hosts** der Seite.
-3. Klicken Sie auf der rechten Seite auf **Host autorisieren**. Wählen Sie die Hosts aus, die auf die entsprechende LUN zugreifen können.
+2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+3. Suchen Sie den Datenträger und klicken Sie auf **...**.
+4. Klicken Sie auf **Host autorisieren**.
+5. Zum Aufrufen einer Liste mit verfügbaren Geräten oder IP-Adressen wählen Sie zuerst aus, ob Zugriffsberechtigungen auf der Basis des Gerätetyps oder auf der Basis von Teilnetzen erteilt werden sollen. 
+   - Wenn Sie 'Geräte' auswählen, können Sie Bare Metal Server- oder Virtual Server-Instanzen auswählen. 
+   - Wenn Sie 'IP-Adressen' auswählen, wählen Sie zuerst das Teilnetz aus, in dem sich der Host befindet. 
+6. Wählen Sie in der gefilterten Liste einen oder mehrere Hosts aus, die über Zugriff auf den Datenträger verfügen, und klicken Sie auf **Speichern**.
 
 Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden.
 ```
@@ -61,7 +65,7 @@ Optionen:
 
 ## Liste der Hosts anzeigen, die für Zugriff auf {{site.data.keyword.blockstorageshort}}-LUN autorisiert sind
 
-1. Klicken Sie auf **Speicher** -> **{{site.data.keyword.blockstorageshort}}** und klicken Sie auf den Namen Ihrer LUN.
+1. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}** und dann auf den Namen Ihres Datenträgers. 
 2. Blättern Sie abwärts zum Abschnitt **Autorisierte Hosts**.
 
 Dort wird eine Liste der Hosts angezeigt, die derzeit für den Zugriff auf die LUN berechtigt sind. Außerdem werden die Authentifizierungsdaten aufgeführt, die zum Herstellen einer Verbindung erforderlich sind - Benutzername, Kennwort und IQN-Host. Die Zieladresse wird auf der Seite **Speicherdetails** aufgelistet. Die Zieladresse wird für NFS als DNS-Name beschrieben, für iSCSI ist es die IP-Adresse von 'Zielportal ermitteln'.
@@ -113,9 +117,9 @@ Sie können den Zugriff über die **Geräteliste** oder die **Speicheransicht** 
 
 ### Zugriff über Geräteliste widerrufen
 
-1. Klicken Sie auf **Geräte** > **Geräteliste** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} und doppelklicken Sie auf das entsprechende Gerät.
+1. Klicken Sie in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} auf das Symbol für die klassische Infrastruktur. Klicken Sie dann auf **Geräte**, **Geräteliste** und anschließend doppelt auf das entsprechende Gerät. 
 2. Wählen Sie die Registerkarte **Speicher** aus.
-3. Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Wählen Sie neben dem Namen der LUN **Aktion** aus und klicken Sie auf **Zugriff widerrufen**.
+3. Es wird eine Liste der Speicher-LUNs angezeigt, auf die dieser Host zugreifen kann. Die Liste ist nach Speichertypen gruppiert (Blockspeicher, Dateispeicher, etc.). Klicken Sie neben dem Datenträgernamen auf **Aktionen**  und dann auf **Zugriffsberechtigung widerrufen**.
 4. Bestätigen Sie, dass Sie den Zugriff für eine LUN widerrufen möchten, weil die Aktion nicht rückgängig gemacht werden kann. Klicken Sie auf **Ja**, um den LUN-Zugriff zu widerrufen, oder auf **Nein**, um die Aktion abzubrechen.
 
 Wenn Sie mehrere LUNS von einem bestimmten Host trennen möchten, müssen Sie die Aktion 'Zugriff widerrufen' für jede LUN wiederholen.
@@ -155,10 +159,10 @@ Zum Abbrechen einer Speicher-LUN müssen Sie zunächst den Zugriff von allen Hos
 {:important}
 
 1. Klicken Sie auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
-2. Klicken Sie für die LUN, die storniert werden soll, auf **Aktionen**, und wählen Sie **{{site.data.keyword.blockstorageshort}} stornieren** aus.
-3. Geben Sie an, ob die LUN sofort storniert werden soll oder am Stichtag der Bereitstellung der LUN.
+2. Wählen Sie den Datenträger aus, für den ein Abbruch erfolgen soll, klicken Sie auf **Aktionen** und wählen Sie **{{site.data.keyword.blockstorageshort}} abbrechen** aus.
+3. Geben Sie an, ob die LUN sofort abgebrochen werden soll oder am Stichtag der Bereitstellung der LUN.
 
-   Wenn Sie die Option auswählen, um die LUN an ihrem Stichtag zu stornieren, können Sie die Stornierungsanforderung vor ihrem Stichtag annullieren.
+   Wenn Sie die Option auswählen, um die LUN an ihrem Stichtag abzubrechen, können Sie die Abbruchanforderung vor ihrem Stichtag annullieren.
    {:tip}
 4. Klicken Sie auf **Weiter** oder **Schließen**.
 5. Klicken Sie auf das Kontrollkästchen **Bestätigung** und klicken Sie auf **Bestätigen**.
@@ -169,12 +173,12 @@ Alternativ dazu können Sie den folgenden Befehl in der SLCLI verwenden.
 Syntax: slcli block volume-cancel [OPTIONEN] DATENTRÄGER-ID
 
 Optionen:
-  --reason TEXT  Optionaler Grund für die Stornierung
-  --immediate    Storniert den Blockspeicherdatenträger sofort, nicht
-                 am Abrechnungsstichtag.
+  --reason TEXT  Optionaler Grund für den Abbruch
+  --immediate    Bricht den Blockspeicherdatenträger sofort ab,
+                 nicht am Abrechnungsstichtag.
   -h, --help     Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
-Naturgemäß bleibt die LUN in Ihrer Speicherliste mindestens 24 Stunden (sofortiger Abbruch) oder bis zum Ablauf eines Jahres sichtbar. Bestimmte Features bleiben zwar nicht mehr sichtbar, doch der Datenträger bleibt so lange sichtbar, bis er freigegeben wird. Die Fakturierung wird jedoch unmittelbar nach dem Klicken auf 'Löschen/Abbrechen' gestoppt.
+Normalerweise bleibt die LUN in Ihrer Speicherliste mindestens 24 Stunden (sofortiger Abbruch) oder bis zum Ablauf eines Jahres sichtbar. Bestimmte Features bleiben zwar nicht mehr sichtbar, doch der Datenträger bleibt so lange sichtbar, bis er freigegeben wird. Die Fakturierung wird jedoch unmittelbar nach dem Klicken auf 'Löschen/Abbrechen' gestoppt.
 
-Aktive Replikate können die Freigabe des Speicherdatenträgers blockieren. Stellen Sie sicher, dass der Datenträger nicht mehr angehängt ist, dass Hostberechtigungen widerrufen werden und dass die Replikation abgebrochen wird, bevor Sie versuchen, den ursprünglichen Datenträger abzubrechen.
+Aktive Replikate können die Freigabe des Speicherdatenträgers blockieren. Stellen Sie sicher, dass der Datenträger nicht mehr angehängt ist, dass Hostberechtigungen widerrufen werden und dass die Replikation abgebrochen wird, bevor Sie versuchen, den ursprünglichen Datenträger abzubrechen. 

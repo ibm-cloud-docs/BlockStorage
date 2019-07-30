@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ Der bevorzugte Migrationspfad ist die gleichzeitige Verbindung zu beiden LUNs un
 
 Es wird davon ausgegangen, dass Sie bereits über eine nicht verschlüsselte LUN verfügen, die mit dem Host verbunden ist. Falls dies nicht der Fall ist, gehen Sie gemäß den Anweisungen vor, die für Ihr Betriebssystem am besten geeignet sind, um die folgende Task auszuführen:
 
-- [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-Alle erweiterten {{site.data.keyword.blockstorageshort}}-Datenträger, die in diesen Rechenzentren bereitgestellt werden, verfügen über einen anderen Mountpunkt als nicht verschlüsselte Datenträger. Um sicherzustellen, dass Sie für beide Speicherdatenträger den richtigen Mountpunkt verwenden, können Sie die Mountpunktinformationen auf der Seite **Datenträgerdetails** in der Konsole anzeigen. Sie können auf den korrekten Mountpunkt auch über einen API-Aufruf zugreifen: `SoftLayer_Network_Storage::getNetworkMountAddress()`.
-{:tip}
+- [Verbindung zu Speicherdatenträgern unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verbindung zu Speicherdatenträgern unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Verbindung zu Speicherdatenträgern unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## {{site.data.keyword.blockstorageshort}} erstellen
 
@@ -46,16 +43,22 @@ Der neue Speicher ist in einigen Minuten zum Anhängen verfügbar. Er kann in de
 
 Berechtigte ("autorisierte") Hosts sind Hosts, denen Zugriff auf einen Datenträger erteilt wurden. Ohne die Hostberechtigung können Sie über das System nicht auf den Speicher zugreifen und ihn nicht verwenden. Durch das Berechtigen eines Hosts für den Zugriff auf den Datenträger werden der Benutzername, das Kennwort und der IQN (iSCSI Qualified Name) generiert, die zum Bereitstellen der MPIO-iSCSI-Verbindung (MPIO - Multipath I/O) erforderlich sind.
 
-1. Klicken Sie auf **Speicher** -> **{{site.data.keyword.blockstorageshort}}** und klicken Sie auf den Namen Ihrer LUN.
-2. Blättern Sie zu **Autorisierte Hosts**.
-3. Klicken Sie auf der rechten Seite auf **Host autorisieren**. Wählen Sie die Hosts aus, die auf den Datenträger zugreifen können.
+1. Melden Sie sich bei der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} an. Wählen Sie im **Menü** die **Klassische Infrastruktur** aus.
+2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+3. Suchen Sie den neuen Datenträger und klicken Sie auf **...**.
+4. Wählen Sie **Host autorisieren** aus. 
+5. Zum Aufrufen einer Liste mit verfügbaren Geräten oder IP-Adressen wählen Sie zuerst aus, ob Zugriffsberechtigungen auf der Basis von Gerätetypen oder von Teilnetzen erteilt werden sollen. 
+   - Wenn Sie 'Geräte' auswählen, können Sie Bare Metal Server- oder Virtual Server-Instanzen auswählen. 
+   - Wenn Sie 'IP-Adressen' auswählen, wählen Sie zuerst das Teilnetz aus, in dem sich der Host befindet. 
+6. Wählen Sie in der gefilterten Liste einen oder mehrere Hosts aus, die über Zugriff auf den Datenträger verfügen, und klicken Sie auf **Speichern**.
 
 
 ## Snapshots und Replikation
 
-Haben Sie Snapshots und Replikation für Ihre Original-LUN eingerichtet? Falls ja, müssen Sie für die neue LUN eine Replikation und einen Snapshotbereich konfigurieren und Snapshotpläne erstellen; dabei müssen Sie dieselben Einstellungen verwenden, die auch auf den Originaldatenträger angewendet wurden.
+Haben Sie Snapshots und Replikation für Ihre Original-LUN eingerichtet? Falls ja, müssen Sie für die neue LUN eine Replikation und einen Snapshotbereich konfigurieren und Snapshotzeitpläne erstellen; dabei müssen Sie dieselben Einstellungen verwenden, die auch auf den Originaldatenträger angewendet wurden.
 
 Falls das Rechenzentrum des Replikationsziels noch nicht aktualisiert wurde, können Sie für den neuen Datenträger erst eine Replikation erstellen, wenn für das Rechenzentrum ein Upgrade durchgeführt wurde.
+{:note}
 
 
 ## Daten migrieren

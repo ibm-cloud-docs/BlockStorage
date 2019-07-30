@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## Wie viele Instanzen können einen bereitgestellten {{site.data.keyword.blockstorageshort}}-Datenträger gemeinsam nutzen?
 {: faq}
 
-Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger ist 8. Dies bedeutet, dass bis zu 8 Hosts für den Zugriff auf die Blockspeicher-LUN berechtigt werden können. Wenn Sie eine Erhöhung des Grenzwerts anfordern möchten, wenden Sie sich an den zuständigen Vertriebsbeauftragten.
+Der Standardgrenzwert für die Anzahl der Berechtigungen pro Blockdatenträger ist 8. Dies bedeutet, dass bis zu 8 Hosts für den Zugriff auf die Blockspeicher-LUN berechtigt werden können. Kunden, die {{site.data.keyword.blockstorageshort}} in ihrer VMware-Bereitstellung nutzen, können eine Anforderung für eine Erhöhung des Grenzwerts für Berechtigungen auf 64 senden. Wenn Sie eine Erhöhung des Grenzwerts anfordern möchten, wenden Sie sich an den Vertriebsbeauftragten oder öffnen Sie einen [Supportfall](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## Wie viele Datenträger können bestellt werden?
 {: faq}

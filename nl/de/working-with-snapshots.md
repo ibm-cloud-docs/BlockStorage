@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -19,20 +19,20 @@ subcollection: BlockStorage
 # Snapshots verwalten
 {: #managingSnapshots}
 
-## Snapshotplan erstellen
+## Snapshotzeitplan erstellen
 
-Sie entscheiden, wie oft und wann eine Referenz mit Zeitangabe des Speicherdatenträgers mit Snapshotplänen erstellt werden soll. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Zeitpläne werden über die Registerkarte **Speicher** > **{{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwaltet.
+Sie entscheiden, wie oft und wann eine Referenz mit Zeitangabe des Speicherdatenträgers mit Snapshotzeitplänen erstellt werden soll. Auf einem Speicherdatenträger können maximal 50 Snapshots vorhanden sein. Zeitpläne werden über die Registerkarte **Speicher** > **{{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwaltet.
 
 Damit Sie einen ersten Plan konfigurieren können, müssen Sie vorher einen Snapshotbereich kaufen, sofern Sie noch keinen während der Ersteinrichtung des Speicherdatenträgers gekauft haben. Weitere Informationen finden Sie unter [Snapshots bestellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
 
-### Snapshotplan hinzufügen
+### Snapshotzeitplan hinzufügen
 {: #addingschedule}
 
-Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle und einen bestimmten Aufbewahrungszyklus eingerichtet werden. Pro Speicherdatenträger besteht ein Grenzwert von maximal 50 (kann eine Mischung aus stündlichen, täglichen und wöchentlichen Zeitplänen) und manuellen Snapshots.
+Snapshotzeitpläne können für stündliche, tägliche und wöchentliche Intervalle und einen bestimmten Aufbewahrungszyklus eingerichtet werden. Pro Speicherdatenträger besteht ein Grenzwert von maximal 50 (kann eine Mischung aus stündlichen, täglichen und wöchentlichen Zeitplänen) und manuellen Snapshots.
 
-1. Klicken Sie auf den Speicherdatenträger, klicken Sie auf **Aktionen** und klicken Sie auf **Snapshot planen**.
-2. Im Fenster für den neuen Snapshotzeitplan können Sie aus drei verschiedenen Snapshothäufigkeiten wählen. Verwenden Sie eine beliebige Kombination dieser drei Optionen, um einen umfassenden Snapshotplan zu erstellen
+1. Klicken Sie auf den Speicherdatenträger, klicken Sie auf **Aktionen** und klicken Sie auf **Snapshotzeitplan bearbeiten**.
+2. Im Fenster für den Snapshotzeitplan können Sie aus drei verschiedenen Snapshothäufigkeiten wählen. Verwenden Sie eine beliebige Kombination dieser drei Optionen, um einen umfassenden Snapshotzeitplan zu erstellen
    - Stündlich
       - Geben Sie die Minute jeder Stunde an, zu der der Snapshot durchgeführt werden soll. Der Standardwert ist die aktuelle Minute.
       - Geben Sie die Anzahl der stündlichen Snapshots an, die aufbewahrt werden sollen, bevor der älteste gelöscht wird.
@@ -44,9 +44,9 @@ Snapshotpläne können für stündliche, tägliche und wöchentliche Intervalle 
       - Wählen Sie die Anzahl der wöchentlichen Snapshots aus, die aufbewahrt werden sollen, bevor der älteste gelöscht wird.
 3. Klicken Sie auf **Speichern**. Sie können dann einen anderen Plan mit einer anderen Häufigkeit erstellen. Wenn die Gesamtzahl der geplanten Snapshots 50 übersteigt, erhalten Sie eine Warnnachricht und können nicht speichern.
 
-Die Liste der Snapshots wird in der Reihenfolge ihrer Ausführung im Abschnitt **Snapshots** der Seite **Details** angezeigt.
+Die Liste der Snapshots wird in der Reihenfolge ihrer Ausführung im Abschnitt **Snapshots** der Seite **{{site.data.keyword.blockstorageshort}}Details** angezeigt.
 
-Mit dem folgenden Befehl können Sie die Liste der Snapshotpläne auch über die SL-CLI anzeigen.
+Mit dem folgenden Befehl können Sie die Liste der Snapshotzeitpläne auch über die SL-CLI anzeigen.
 ```
 # slcli block snapshot-schedule-list --help
 Syntax: slcli block snapshot-schedule-list [OPTIONEN] DATENTRÄGER-ID
@@ -65,7 +65,7 @@ Die Anzahl der Snapshots ist auf maximal 50 pro Speicherdatenträger begrenzt.
 1. Klicken Sie auf Ihren Speicherdatenträger.
 2. Klicken Sie auf **Aktionen**.
 3. Klicken Sie auf **Manuellen Snapshot machen**.
-Der Snapshot wird erstellt und im Abschnitt **Snapshots** der Seite **Details** angezeigt. Für seinen Plan ist 'Manuell' festgelegt.
+Der Snapshot wird erstellt und im Abschnitt **Snapshots** der Seite **{{site.data.keyword.blockstorageshort}}Details** angezeigt. Für seinen Plan ist 'Manuell' festgelegt.
 
 Alternativ dazu können Sie mit dem folgenden Befehl einen Snapshot über die SL-CLI erstellen.
 ```
@@ -80,7 +80,7 @@ Optionen:
 
 ## Alle Snapshots mit den Funktionen für belegten Speicherplatz und die Verwaltung auflisten
 
-Eine Liste mit den aufbewahrten Snapshots und dem belegten Speicherplatz kann auf der Seite **Details** angezeigt werden.  Verwaltungsfunktionen (Bearbeiten von Plänen und Hinzufügen von zusätzlichem Speicherplatz) können auf der Seite 'Details' mithilfe des Menüs **Aktionen** oder Links im unterschiedlichen Abschnitten auf der Seite ausgeführt werden.
+Eine Liste mit den aufbewahrten Snapshots und dem belegten Speicherplatz kann auf der Seite **{{site.data.keyword.blockstorageshort}}Details** angezeigt werden.  Verwaltungsfunktionen (Bearbeiten von Plänen und Hinzufügen von zusätzlichem Speicherplatz) können auf der Seite mit **Details zu {{site.data.keyword.blockstorageshort}}** über das Menü **Aktionen** oder Links im unterschiedlichen Abschnitten auf der Seite ausgeführt werden.
 
 ## Liste der aufbewahrten Snapshots anzeigen
 
@@ -100,18 +100,18 @@ Optionen:
 
 ## Menge des belegten Snapshotbereichs anzeigen
 
-Das Kreisdiagramm auf der Seite **Details** zeigt an, wieviel Speicherbereich belegt ist und wieviel Speicherbereich noch verfügbar ist. Sie erhalten Benachrichtigungen, wenn die Schwellenwerte für den Speicherplatz erreicht werden - 75 Prozent, 90 Prozent und 95 Prozent.
+Das Kreisdiagramm auf der Seite mit **Details zu {{site.data.keyword.blockstorageshort}}** zeigt, wie viel Speicherbereich belegt ist und wie viel Speicherbereich noch verfügbar ist. Sie erhalten Benachrichtigungen, wenn die Schwellenwerte für den Speicherplatz erreicht werden - 75 Prozent, 90 Prozent und 95 Prozent.
 
 ## Menge des Snapshotbereichs für Datenträger ändern
 
 Es kann vorkommen, dass Sie Snapshotbereich zu einem Datenträger hinzufügen möchten, auf dem vorher keiner vorhanden war oder dass Sie zusätzlichen Snapshotbereich benötigen. Sie können je nach Bedarf zwischen 5 GB und 4.000 GB hinzufügen.
 
-Der Snapshotbereich kann nur vergrößert werden. Es kann nicht reduziert werden. Sie können zunächst einen kleinere Speichergröße auswählen, bis Sie ermittelt haben, wieviel Speicherbereich Sie benötigen. Bedenken Sie dabei, dass der Speicherplatz gemeinsam von automatisierten und manuellen Snapshots verwendet wird.
+Der Snapshotbereich kann nur vergrößert werden. Es kann nicht reduziert werden. Sie können zunächst einen kleinere Speichergröße auswählen, bis Sie ermittelt haben, wie viel Speicherbereich Sie benötigen. Bedenken Sie dabei, dass der Speicherplatz gemeinsam von automatisierten und manuellen Snapshots verwendet wird.
 {:note}
 
 Der Snapshotbereich kann über **Speicher** > **{{site.data.keyword.blockstorageshort}}** geändert werden.
 
-1. Klicken Sie auf die Speicherdatenträger, klicken Sie auf **Aktionen** und klicken Sie auf **Mehr Snapshotbereich hinzufügen**.
+1. Klicken Sie auf den Speicherdatenträger, klicken Sie auf **Aktionen** und klicken Sie auf **Snapshotbereich hinzufügen**/**Snapshotbereich ändern**. 
 2. Wählen Sie an der Eingabeaufforderung einen Wert aus einem Größenbereich aus. In der Regel reichen die Größen von 0 bis zur Größe Ihres Datenträgers.
 3. Klicken Sie auf **Weiter**.
 4. Geben Sie gegebenenfalls den Werbeaktionscode ein und klicken Sie auf **Neu berechnen**. In den Feldern für die Gebühren dieser Bestellung und für die Bestellungsprüfung stehen die Standardwerte.
@@ -125,11 +125,11 @@ Benachrichtigungen werden über die Supportfälle an den Masterbenutzer eines Ko
 - Bei **90 Prozent der Kapazität** wird eine zweite Warnung gesendet, wenn die Belegung des Snapshotbereichs 90 Prozent überschritten hat. Wie bei Erreichen von 75 Prozent der Kapazität gilt, dass die Aktion notiert und der Fall geschlossen wird, wenn Sie die entsprechenden Aktionen durchführen, um den belegten Speicherplatz zu verringern. Wenn Sie nichts tun, müssen Sie den Fall manuell bestätigen, damit er geschlossen wird.
 - Bei **95 Prozent der Kapazität** wird eine letzte Warnung gesendet. Wenn keine Aktion ausgeführt wird, um die Speicherbelegung unter den Schwellenwert zu senken, wird eine Benachrichtigung generiert und eine automatische Löschung durchgeführt, sodass zukünftige Snapshots erstellt werden können. Geplante Snapshots werden gelöscht, beginnend mit dem ältesten, bis die Belegung unter 95 Prozent liegt. Wenn die Belegung 95 Prozent überschreitet, werden Snapshots so lange gelöscht, bis die Belegung unter dem Schwellenwert liegt. Wenn der Speicherbereich manuell vergrößert oder Snapshots gelöscht werden, wird die Warnung zurückgesetzt und erneut ausgegeben, wenn der Schwellenwert wieder überschritten wird. Wenn Sie nichts unternehmen, ist dies die einzige Warnung, die Sie erhalten.
 
-## Snapshotplan löschen
+## Snapshotzeitplan löschen
 
-Snapshotpläne können über **Speicher** > **{{site.data.keyword.blockstorageshort}}** gelöscht werden.
+Snapshotzeitpläne können über **Speicher** > **{{site.data.keyword.blockstorageshort}}** gelöscht werden.
 
-1. Klicken Sie im Rahmen **Snapshotpläne** auf der Seite **Details** auf den Plan, der gelöscht werden soll.
+1. Klicken Sie im Fensterbereich **Snapshotzeitpläne** auf der Seite mit **Details zu {{site.data.keyword.blockstorageshort}}** auf den zu löschenden Zeitplan. 
 2. Klicken Sie auf das Kontrollkästchen neben dem zu löschenden Plan und klicken Sie auf **Speichern**.<br />
 
 Wenn Sie die Replikationsfunktion verwenden, müssen Sie sicherstellen, dass der Zeitplan, den Sie löschen, nicht der von der Replikation verwendete Zeitplan ist. Weitere Informationen zum Löschen eines Replikationszeitplans finden Sie unter [Daten replizieren](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
@@ -163,10 +163,10 @@ Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach
 {:important}
 
 1. Hängen Sie Ihren Speicherdatenträger vom Host ab.
-   - [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Verbindung zu iSCSI-Datenträgern unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Verbindung zu iSCSI-Datenträgern unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Klicken Sie in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} auf **Speicher**, **{{site.data.keyword.blockstorageshort}}**.
-3. Blättern Sie nach unten und klicken Sie auf den Datenträger, der wiederhergestellt werden soll. Im Abschnitt **Snapshots** der Seite **Details** wird die Liste aller gespeicherten Snapshots mit Angabe ihrer Größe und ihres Erstellungsdatums angezeigt.
+3. Blättern Sie nach unten und klicken Sie auf den Datenträger, der wiederhergestellt werden soll. Im Abschnitt **Snapshots** der Seite **{{site.data.keyword.blockstorageshort}}Details** wird die Liste aller gespeicherten Snapshots mit Angabe ihrer Größe und ihres Erstellungsdatums angezeigt.
 4. Klicken Sie auf **Aktionen** neben dem Snapshot, der verwendet werden soll, und klicken Sie auf **Wiederherstellen**. <br/>
 
    Bei der Wiederherstellung gehen die Daten verloren, die nach der Erstellung des Snapshots erstellt oder geändert wurden. Dieser Datenverlust tritt auf, weil der Speicherdatenträger in den Zustand zurückgesetzt wird, in dem er sich vor dem Snapshot befunden hat.
@@ -176,9 +176,9 @@ Beim Zurücksetzen eines Datenträgers werden alle Snapshots gelöscht, die nach
    Quer über den Bereich der Seite wird die Nachricht angezeigt, dass der Datenträger mit dem ausgewählten Snapshot wiederhergestellt wird. Außerdem wird neben Ihrem Datenträger auf dem {{site.data.keyword.blockstorageshort}} ein Symbol angezeigt, das angibt, dass eine aktive Transaktion läuft. Wenn Sie den Mauszeiger über das Symbol bewegen, wird ein Fenster mit Angaben zur Transaktion angezeigt. Sobald die Transaktion abgeschlossen ist, wird das Symbol ausgeblendet.
    {:note}
 6. Hängen Sie Ihren Speicherdatenträger wieder an den Host an und verbinden Sie ihn erneut.
-   - [Verbindung zu LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [Verbindung zu LUNs unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Verbindung zu LUNS unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Verbindung zu iSCSI-Datenträgern unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Verbindung zu iSCSI-Datenträgern unter CloudLinux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Verbindung zu iSCSI-Datenträgern unter Microsoft Windows herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Alternativ dazu können Sie nach dem Abhängen des Datenträgers vom Host den folgenden Befehl in der SL-CLI verwenden um eine Wiederherstellung zu starten.
 ```

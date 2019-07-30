@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 Stellen Sie vor Beginn sicher, dass der Host, von dem aus auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} autorisiert wurde.
 
-1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**. Klicken Sie auf **Host autorisieren**.
-2. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen soll(en), und klicken Sie auf **Abschicken**.
+1. Melden Sie sich bei der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} an. Wählen Sie im **Menü** die **Klassische Infrastruktur** aus.
+2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+3. Suchen Sie den neuen Datenträger und klicken Sie auf **...**.
+4. Klicken Sie auf **Host autorisieren**.
+5. Zum Aufrufen einer Liste mit verfügbaren Geräten oder IP-Adressen wählen Sie zuerst aus, ob Zugriffsberechtigungen auf der Basis von Gerätetypen oder von Teilnetzen erteilt werden sollen. 
+   - Wenn Sie 'Geräte' auswählen, können Sie Bare Metal Server- oder Virtual Server-Instanzen auswählen. 
+   - Wenn Sie 'IP-Adressen' auswählen, wählen Sie zuerst das Teilnetz aus, in dem sich der Host befindet. 
+6. Wählen Sie in der gefilterten Liste einen oder mehrere Hosts aus, die über Zugriff auf den Datenträger verfügen, und klicken Sie auf **Speichern**.
 
 Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```
@@ -40,20 +46,20 @@ Optionen:
 ## {{site.data.keyword.blockstorageshort}}-Datenträger anhängen
 {: #mountWin}
 
-Führen Sie die folgenden Schritte aus, um eine Verbindung von einer Windows-basierten {{site.data.keyword.cloud}}-Recheninstanz zu einer MPIO-iSCSI-LUN herzustellen (MPIO = Multipath Input/Output; iSCSI = internet Small Computer System Interface; LUN = Logical Unit Number). Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
+Führen Sie die folgenden Schritte aus, um eine Verbindung von einer Windows-basierten {{site.data.keyword.cloud}}-Datenverarbeitungsinstanz zu einem MPIO-iSCSI-Datenträger (MPIO = Multipath Input/Output) herzustellen. Das Beispiel basiert auf Windows Server 2012. Die Schritte können für andere Windows-Versionen gemäß der Dokumentation des Anbieters für das Betriebssystem angepasst werden.
 
 ### Funktion MPIO konfigurieren
 
 1. Starten Sie den Servermanager und navigieren Sie zu **Verwalten**, **Rollen und Features hinzufügen**.
 2. Klicken Sie auf **Weiter**, um das Menü 'Features' zu öffnen.
-3. Blättern Sie nach unten und markieren Sie **Multipfad-E/A**.
+3. Blättern Sie nach unten und markieren Sie **Multipath I/O**.
 4. Klicken Sie auf **Installieren**, um MPIO auf dem Host-Server zu installieren.
 ![Rollen und Funktionen im Servermanager hinzufügen](/images/Roles_Features.png)
 
 ### iSCSI-Unterstützung für MPIO hinzufügen
 
 1. Öffnen Sie das Fenster für die MPIO-Eigenschaften, indem Sie auf **Start** klicken, auf **Verwaltung** zeigen und auf **MPIO** klicken.
-2. Klicken Sie auf **Multipfade suchen**.
+2. Klicken Sie auf **Multipaths suchen**.
 3. Markieren Sie **Unterstützung für iSCSI-Geräte hinzufügen** und klicken Sie auf **Hinzufügen**. Klicken Sie bei der Aufforderung zum Neustart des Computers auf **Ja**.
 
 Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch das Hinzufügen von Unterstützung für iSCSI alle iSCSI-Geräte für MPIO übernehmen, wofür zuerst eine Verbindung zu einem iSCSI-Ziel erforderlich ist.
@@ -67,7 +73,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
     - Klicken Sie auf **Ändern**, um die vorhandenen Werte durch Ihren qualifizierten iSCSI-Namen (IQN) zu ersetzen.
     ![Eigenschaften des iSCSI-Initiators](/images/iSCSI.png)
 
-      Der IQN-Name kann aus der Detailanzeige zu {{site.data.keyword.blockstorageshort}} in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/classic){: external} abgerufen werden.
+      Der IQN-Name kann aus der Anzeige mit den **Details zu {{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/classic){: external} abgerufen werden.
       {: tip}
 
     - Klicken Sie auf **Erkennung** und anschließend auf **Portal erkennen**.
@@ -90,14 +96,14 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 ### Ziel aktivieren
 
 1. Klicken Sie auf **Verbinden**, um eine Verbindung zu dem Ziel herzustellen.
-2. Wählen Sie das Kontrollkästchen **Multipfad aktivieren** aus, um Multipath IO für das Ziel zu aktivieren.
+2. Wählen Sie das Kontrollkästchen **Multipath aktivieren** aus, um Multipath I/O für das Ziel zu aktivieren.
 <br/>
-   ![Multipfad aktivieren](/images/Connect_0.png)
+   ![Multipath aktivieren](/images/Connect_0.png)
 3. Klicken Sie auf **Erweitert** und wählen Sie **CHAP-Anmeldung aktivieren** aus.</br>
    ![CHAP aktivieren](/images/chap_0.png)
 4. Geben Sie in das Feld 'Name' den Benutzernamen und in das Feld 'Zielschlüssel' das Kennwort ein.
 
-   Die Werte der Felder 'Name' und 'Zielschlüssel' können aus der Detailanzeige zu {{site.data.keyword.blockstorageshort}} abgerufen werden.
+   Die Werte der Felder für den Namen und den Zielschlüssel können aus der Anzeige mit den **Details zu {{site.data.keyword.blockstorageshort}}** abgerufen werden.
    {:tip}
 5. Klicken Sie auf **OK**, bis das Fenster **Eigenschaften des iSCSI-Initiators** angezeigt wird. Der Status des Ziels im Abschnitt **Erkannte Ziele** wechselt von **Inaktiv** zu **Verbunden**.
 ![Verbundener Status](/images/Connected.png)
@@ -107,7 +113,7 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
 
 1. Starten Sie den iSCSI-Initiator und klicken Sie auf der Registerkarte 'Ziele' auf **Eigenschaften**.
 2. Klicken Sie im Fenster 'Eigenschaften' auf **Sitzung hinzufügen**.
-3. Wählen Sie im Dialogfenster 'Verbindung mit Ziel herstellen' das Kontrollkästchen **Multipfad aktivieren** aus und klicken Sie auf **Erweitert**.
+3. Wählen Sie im Dialogfenster 'Verbindung mit Ziel herstellen' das Kontrollkästchen **Multipath aktivieren** aus und klicken Sie auf **Erweitert**.
   ![Ziel](/images/Target.png)
 
 4. Im Fenster 'Erweiterte Einstellungen' ![Einstellungen](/images/Settings.png)
@@ -119,13 +125,13 @@ Bei Windows Server 2008 kann das Microsoft Device Specific Module (MSDSM) durch 
    - Klicken Sie im Fenster 'Verbindung mit Ziel herstellen' auf **OK**, um zum Fenster 'Eigenschaften' zurückzukehren.
 
 5. Klicken Sie auf **Eigenschaften**. Klicken Sie im Dialog 'Eigenschaften' erneut auf **Sitzung hinzufügen**, um den zweiten Pfad hinzuzufügen.
-6. Wählen Sie im Fenster 'Verbindung mit Ziel herstellen' das Kontrollkästchen **Multipfad aktivieren** aus. Klicken Sie auf **Erweitert**.
+6. Wählen Sie im Fenster 'Verbindung mit Ziel herstellen' das Kontrollkästchen **Multipath aktivieren** aus. Klicken Sie auf **Erweitert**.
 7. Im Fenster "Erweiterte Einstellungen"
    - Wählen Sie in der Liste lokaler Adapter den Eintrag 'Microsoft iSCSI Initiator' aus.
    - Wählen Sie in der Liste mit Initiator-IPs die IP-Adresse aus, die dem Host entspricht. In diesem Fall verbinden Sie zwei Netzschnittstellen auf dem Speichermedium mit einer einzigen Netzschnittstelle auf dem Host. Daher ist diese Schnittstelle mit der für die erste Sitzung bereitgestellten Schnittstelle identisch.
    - Wählen Sie in der Liste mit den Zielportal-IPs die IP-Adresse für die zweite Datenschnittstelle aus, die auf dem Speichermedium aktiviert ist.
 
-     Die zweite IP-Adresse finden Sie in der Detailanzeige zu {{site.data.keyword.blockstorageshort}} in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/classic/storage){: external}.
+     Die zweite IP-Adresse finden Sie in der Anzeige mit den **Details zu {{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Klicken Sie auf das Kontrollkästchen **CHAP-Anmeldung aktivieren**.
    - Geben Sie die Werte für die geheimen Schlüsselfelder 'Name' und 'Ziel' ein, die Sie aus der Konsole abgerufen haben, und klicken Sie auf **OK**.

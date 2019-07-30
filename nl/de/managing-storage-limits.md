@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -31,7 +31,7 @@ Optionen:
   -h, --help             Diese Nachricht anzeigen und Ausführung beenden.
 ```
 
-Sie können eine Erhöhung des Grenzwerts anfordern, indem Sie einen Supportfall beim [Portal](https://{DomainName}/unifiedsupport/cases/add){: external} einreichen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
+Sie können eine Erhöhung des Grenzwerts anfordern, indem Sie einen Supportfall über die [Konsole](https://{DomainName}/unifiedsupport/cases/add){: external} öffnen. Wenn die Anforderung genehmigt wurde, wird ein Datenträgergrenzwert für ein bestimmtes Rechenzentrum festgelegt.  
 
 Um eine Erhöhung eines Grenzwerts anzufordern, müssen Sie einen Fall öffnen und an Ihren Vertriebsbeauftragten weiterleiten.
 

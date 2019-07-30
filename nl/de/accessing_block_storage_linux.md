@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Verbindung zu iSCSI-LUNs unter Linux herstellen
 {: #mountingLinux}
 
-Diese Anweisungen gelten hauptsächlich für RHEL6 und Centos6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
+Diese Anweisungen gelten hauptsächlich für RHEL6 und CentOS6. Es wurden zwar Hinweise für andere Betriebssysteme hinzugefügt, aber dennoch gilt diese Dokumentation **nicht** für alle Linux-Distributionen. Falls Sie ein anderes Linux-Betriebssystem verwenden, finden Sie Informationen hierzu in der Dokumentation zu Ihrer jeweiligen Distribution; stellen Sie sicher, dass ALUA von Multipath für die Pfadpriorität unterstützt wird.
 {:note}
 
 Beispiel: Weitere Informationen zu Ubuntu-Spezifikationen finden Sie unter [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} und unter [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
@@ -29,9 +29,14 @@ Beispiel: Weitere Informationen zu Ubuntu-Spezifikationen finden Sie unter [iSCS
 Stellen Sie vor Beginn sicher, dass der Host, von dem aus auf den {{site.data.keyword.blockstoragefull}}-Datenträger zugegriffen wird, in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} zuvor autorisiert wurde.
 {:important}
 
-1. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
-2. Klicken Sie auf **Host autorisieren**.
-3. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
+1. Melden Sie sich bei der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} an. Wählen Sie im **Menü** die **Klassische Infrastruktur** aus.
+2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
+3. Suchen Sie den neuen Datenträger und klicken Sie auf **...**.
+4. Klicken Sie auf **Host autorisieren**.
+5. Zum Aufrufen einer Liste mit verfügbaren Geräten oder IP-Adressen wählen Sie zuerst aus, ob Zugriffsberechtigungen auf der Basis des Gerätetyps oder auf der Basis von Teilnetzen erteilt werden sollen. 
+   - Wenn Sie 'Geräte' auswählen, können Sie Bare Metal Server- oder Virtual Server-Instanzen auswählen. 
+   - Wenn Sie 'IP-Adressen' auswählen, wählen Sie zuerst das Teilnetz aus, in dem sich der Host befindet. 
+6. Wählen Sie in der gefilterten Liste einen oder mehrere Hosts aus, die über Zugriff auf den Datenträger verfügen, und klicken Sie auf **Speichern**.
 
 Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ Stellen Sie vor Beginn sicher, dass der Host, von dem aus auf den {{site.data.ke
 
 1. Melden Sie sich bei der [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} an. Wählen Sie im **Menü** die **Klassische Infrastruktur** aus.
 2. Klicken Sie auf **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-3. Suchen Sie auf der Seite mit der {{site.data.keyword.blockstorageshort}}-Liste den neuen Datenträger und klicken Sie auf **Aktionen**.
+3. Suchen Sie den neuen Datenträger und klicken Sie auf **...**.
 4. Klicken Sie auf **Host autorisieren**.
-5. Wählen Sie in der Liste den Host oder die Hosts aus, der bzw. die auf den Datenträger zugreifen kann bzw. können, und klicken Sie auf **Abschicken**.
-6. Notieren Sie Host-IQN, Benutzername, Kennwort und Zieladresse.
+5. Zum Aufrufen einer Liste mit verfügbaren Geräten oder IP-Adressen wählen Sie zuerst aus, ob Zugriffsberechtigungen auf der Basis von Gerätetypen oder von Teilnetzen erteilt werden sollen. 
+   - Wenn Sie 'Geräte' auswählen, können Sie Bare Metal Server- oder Virtual Server-Instanzen auswählen. 
+   - Wenn Sie 'IP-Adressen' auswählen, wählen Sie zuerst das Teilnetz aus, in dem sich der Host befindet. 
+6. Wählen Sie in der gefilterten Liste einen oder mehrere Hosts aus, die über Zugriff auf den Datenträger verfügen, und klicken Sie auf **Speichern**.
 
 Alternativ dazu können Sie den Host auch über die SL-CLI berechtigen.
 ```

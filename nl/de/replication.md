@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -17,12 +17,12 @@ subcollection: BlockStorage
 # Daten replizieren
 {: #replication}
 
-Bei der Replikation werden Snapshots mithilfe eines Ihrer Snapshotpläne automatisch auf einen Zieldatenträger in einem fernen Rechenzentrum kopiert. Im Fall beschädigter Daten oder einer Katastrophe können die Kopien an dem fernen Standort wiederhergestellt werden.
+Bei der Replikation werden Snapshots mithilfe eines Ihrer Snapshotzeitpläne automatisch auf einen Zieldatenträger in einem fernen Rechenzentrum kopiert. Im Fall beschädigter Daten oder einer Katastrophe können die Kopien an dem fernen Standort wiederhergestellt werden.
 
 Die Replikation hält Ihre Daten an zwei verschiedenen Positionen synchron. Wenn Sie Ihren Datenträger klonen und unabhängig vom ursprünglichen Datenträger verwenden möchten, lesen Sie den Abschnitt [Duplikat des Blockdatenträgers erstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 {:tip}
 
-Um Replikationen durchführen zu können, müssen Sie einen Snapshotplan erstellen.
+Um Replikationen durchführen zu können, müssen Sie einen Snapshotzeitplan erstellen.
 {:important}
 
 
@@ -38,11 +38,11 @@ In Tabelle 1 finden Sie eine vollständige Liste der Verfügbarkeit der Rechenze
 
 ## Erstreplikation erstellen
 
-Replikationen werden auf der Basis eines Snapshotplans ausgeführt. Sie müssen zuerst über einen Snapshotbereich und einen Snapshotplan für den Quellendatenträger verfügen, um replizieren zu können. Wenn Sie versuchen, eine Replikation zu konfigurieren und sich der eine oder andere nicht an seiner Position befindet, werden Sie aufgefordert, mehr Speicherplatz zu erwerben oder einen Zeitplan einzurichten. Replikationen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwaltet.
+Replikationen werden auf der Basis eines Snapshotzeitplans ausgeführt. Sie müssen zuerst über einen Snapshotbereich und einen Snapshotzeitplan für den Quellendatenträger verfügen, um replizieren zu können. Wenn Sie versuchen, eine Replikation zu konfigurieren und sich der eine oder andere nicht an seiner Position befindet, werden Sie aufgefordert, mehr Speicherplatz zu erwerben oder einen Zeitplan einzurichten. Replikationen werden unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/classic){: external} verwaltet.
 
 1. Klicken Sie auf Ihren Speicherdatenträger.
-2. Klicken Sie auf die Registerkarte **Replikat** und klicken Sie auf **Replikation kaufen**.
-3. Wählen Sie einen vorhandenen Snapshotplan für Ihre Replikationen aus. Die Liste enthält alle Ihre aktiven Snapshotpläne. <br />
+2. Klicken Sie auf **Replikat** und anschließende auf **Replikation kaufen**.
+3. Wählen Sie einen vorhandenen Snapshotzeitplan für Ihre Replikationen aus. Die Liste enthält alle Ihre aktiven Snapshotzeitpläne. <br />
    Sie können nur einen einzigen Plan auswählen, selbst wenn Sie einen Mix aus stündlicher, täglicher und wöchentlicher Rechnungsstellung haben. Alle seit dem letzten Replikationszyklus erfassten Snapshots werden unabhängig von dem Plan repliziert, aus dem sie stammen.<br />Wenn Sie keine Snapshots eingerichtet haben, werden Sie aufgefordert, dies vor der Bestellung der Replikation zu tun. Weitere Informationen finden Sie unter [Mit Snapshots arbeiten](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
 3. Klicken Sie auf **Position** und wählen Sie das Rechenzentrum aus, das Sie als Standort für das Disaster-Recovery-Standort verwenden möchten.
@@ -61,12 +61,12 @@ Sie können in der [{{site.data.keyword.cloud}}-Konsole](https://{DomainName}/cl
 
 ## Replikationszeitplan bearbeiten
 
-Der Replikationsplan basiert auf einem vorhandenen Snapshotplan. Um den Replikationsplan von 'Stündlich' in 'Täglich' oder 'Wöchentlich' zu ändern oder umgekehrt, müssen Sie den Replikatdatenträger löschen und einen neuen einrichten.
+Der Replikationsplan basiert auf einem vorhandenen Snapshotzeitplan. Um den Replikationsplan von 'Stündlich' in 'Täglich' oder 'Wöchentlich' zu ändern oder umgekehrt, müssen Sie den Replikatdatenträger löschen und einen neuen einrichten.
 
 Wenn Sie jedoch die Tageszeit ändern möchten, zu der die **tägliche** Replikation stattfindet, können Sie den vorhandenen Zeitplan auf der Registerkarte des Primärdatenträgers oder des Replikatdatenträgers ändern.
 
 1. Klicken Sie entweder auf der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
-2. Wählen Sie **Snapshotplan bearbeiten** aus.
+2. Wählen Sie **Snapshotzeitplan bearbeiten** aus.
 3. Überprüfen Sie im Rahmen **Snapshot** die Angaben unter **Plan**, um festzustellen, welchen Plan Sie für die Replikation verwenden. Ändern Sie den gewünschten Zeitplan.
 4. Klicken Sie auf **Speichern**.
 
@@ -76,20 +76,20 @@ Wenn Sie jedoch die Tageszeit ändern möchten, zu der die **tägliche** Replika
 Der primäre Replikationsbereich und der Replikatsbereich müssen identisch sein. Wenn Sie den Bereich auf der Registerkarte **Primär** oder **Replikat** ändern, wird automatisch Speicherplatz zu Ihrem Quellen- und Ihrem Zielrechenzentrum hinzugefügt. Wird der Snapshotbereich vergrößert, wird auch eine sofortige Aktualisierung der Replikation ausgelöst.
 
 1. Klicken Sie entweder auf der Registerkarte **Primär** oder **Replikat** auf **Aktionen**
-2. Wählen Sie **Mehr Snapshotbereich hinzufügen** aus.
+2. Wählen Sie **Snapshotbereich ändern** aus.
 3. Wählen Sie in der Liste die Speichergröße aus und klicken Sie auf **Weiter**.
 4. Geben Sie einen **Werbeaktionscode** ein, sofern vorhanden, und klicken Sie auf **Neu berechnen**. Die anderen Felder im Dialogfeld nehmen die Standardwerte an.
 5. Aktivieren Sie das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen…** und klicken Sie auf **Bestellung aufgeben**.
 
 
-## Replikatdatenträger in der Datenträgerliste anzeigen
+## Replikatdatenträger in der {{site.data.keyword.blockstorageshort}}-Liste anzeigen
 
-Sie können Ihre Replikationsdatenträger auf der Seite {{site.data.keyword.blockstorageshort}} unter **Speicher > {{site.data.keyword.blockstorageshort}}** anzeigen. Der **LUN-Name** weist den Namen des Primärdatenträgers auf, an den REP angehängt ist. Der **Typ** ist 'Endurance - Replikat' oder 'Performance - Replikat'. Die **Zieladresse** ist  'Nicht zutreffend', weil der Replikatdatenträger nicht im Replikatrechenzentrum angehängt ist, und der **Status** ist 'Inaktiv'.
+Sie können Ihre Replikationsdatenträger auf der Seite {{site.data.keyword.blockstorageshort}} unter **Speicher > {{site.data.keyword.blockstorageshort}}** anzeigen. Der ursprüngliche Datenträger und der Replikatdatenträger werden in einer Gruppe zusammengefasst. Der **LUN-Name** weist den Namen des Primärdatenträgers auf, an den REP angehängt ist. Der **Typ** ist 'Endurance - Replikat' oder 'Performance - Replikat'.
 
 
 ## Details eines replizierten Datenträgers im Replikatrechenzentrum anzeigen
 
-Sie können die Details des Replikatdatenträgers unter **Speicher**, **{{site.data.keyword.blockstorageshort}}** auf der Registerkarte **Replikat** anzeigen. Eine andere Option besteht darin, den Replikatdatenträger auf der Seite **{{site.data.keyword.blockstorageshort}}**  auszuwählen und auf die Registerkarte **Replikat** zu klicken.
+Sie können Details zum Replikatdatenträger anzeigen, indem Sie auf die Registerkarte **Replikat** klicken, während Details zum ursprünglichen Datenträger angezeigt werden. Eine weitere Option besteht darin, den Replikatdatenträger in der **{{site.data.keyword.blockstorageshort}}**-Liste auszuwählen und auf die Registerkarte **Replikat** zu klicken. 
 
 
 ## Snapshotbereich im Replikatrechenzentrum erhöhen, wenn der Snapshotbereich im primären Rechenzentrum erhöht wird
@@ -119,7 +119,7 @@ Duplikate können sowohl für den Primär- als auch für den Replikatdatenträge
 
 Der Lese- und Schreibzugriff auf duplizierte Datenträger kann durch einen Host erfolgen, sobald der Speicher bereitgestellt wurde. Snapshots und Replikation sind dagegen erst zulässig, nachdem die Daten vollständig vom Original auf das Duplikat kopiert wurden.
 
-Weitere Informationen finden Sie unter [Duplikat eines Blockdatenträgers erstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
+Weitere Informationen finden Sie in [Duplikat von {{site.data.keyword.blockstorageshort}} erstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Verwenden von Replikaten für ein Failover bei einem Ausfall
 
@@ -142,16 +142,18 @@ Der Abbruch kann sofort oder am Stichtag erfolgen und bewirkt das Ende der Abrec
 
 ## Replikation beim Abbrechen des Primärdatenträgers abbrechen
 
-Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und der Datenträger im Replikatrechenzentrum gelöscht. Replikate werden auf der Seite '{{site.data.keyword.blockstorageshort}}' abgebrochen.
+Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und der Datenträger im Replikatrechenzentrum gelöscht. Replikate werden auf der Seite '{{site.data.keyword.blockstorageshort}}' abgebrochen. 
 
- 1. Heben Sie auf der Seite '**{{site.data.keyword.blockstorageshort}}**' Ihren Datenträger hervor.
- 2. Klicken Sie auf **Aktionen** und wählen Sie **{{site.data.keyword.blockstorageshort}} abbrechen** aus.
+ 1. Klicken Sie auf der Seite von **{{site.data.keyword.blockstorageshort}}** auf den Datenträgernamen. 
+ 2. Klicken Sie auf der Detailseite von **{{site.data.keyword.blockstorageshort}}** auf **Aktionen** und wählen Sie **Replikat abbrechen** aus.
  3. Wählen Sie den Zeitpunkt des Abbruchs aus. Wählen Sie **Sofort** oder **Stichtag** aus und klicken Sie auf **Weiter**.
- 4. Aktivieren Sie **Ich bestätige, dass der Abbruch einen Datenverlust zur Folge haben kann** und klicken Sie auf **Abbrechen**.
+ 4. Bestätigen Sie, dass Ihnen bekannt ist, dass es beim Abbrechen der Aktion für den Datenträger zu Datenverlust kommen kann, indem Sie das Feld auswählen. 
+ 5. Klicken Sie auf **Replikat abbrechen**. 
 
- Naturgemäß bleibt die LUN in Ihrer Speicherliste mindestens 24 Stunden (sofortiger Abbruch) oder bis zum Ablauf eines Jahres sichtbar. Bestimmte Features bleiben zwar nicht mehr sichtbar, doch der Datenträger bleibt so lange sichtbar, bis er freigegeben wird. Die Fakturierung wird jedoch unmittelbar nach dem Klicken auf 'Löschen/Abbrechen' gestoppt.
+ Naturgemäß bleibt die LUN in Ihrer Speicherliste mindestens 24 Stunden (sofortiger Abbruch) oder bis zum Ablauf eines Jahres sichtbar. Bestimmte Features bleiben zwar nicht mehr sichtbar, doch der Datenträger bleibt so lange sichtbar, bis er freigegeben wird. Die Abrechnung wird jedoch unmittelbar nach dem Klicken auf die Schaltfläche zum Löschen oder Abbrechen des Replikats gestoppt. 
 
  Aktive Replikate können die Freigabe des Speicherdatenträgers blockieren. Stellen Sie sicher, dass der Datenträger nicht mehr angehängt ist, dass Hostberechtigungen widerrufen werden und dass die Replikation abgebrochen wird, bevor Sie versuchen, den ursprünglichen Datenträger abzubrechen.
+ {:important}
 
 
 ## SLCLI-Befehle im Zusammenhang mit der Replikation
@@ -175,7 +177,7 @@ Wenn ein Primärdatenträger abgebrochen wird, werden der Replikationsplan und d
 
   Optionen:
   -s, --snapshot-schedule [INTERVAL|HOURLY|DAILY|WEEKLY]
-                                  Snapshotplan für die Replikation,
+                                  Snapshotzeitplan für die Replikation,
                                   (INTERVAL | HOURLY | DAILY | WEEKLY)
                                   [erforderlich]
   -l, --location TEXT             Kurzname des Rechenzentrums für den

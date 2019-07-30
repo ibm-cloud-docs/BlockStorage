@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -48,7 +48,7 @@ Die bestehenden Größenbegrenzungen für mit Endurance bereitgestellten {{site.
 {: #resizingsteps}
 
 1. Klicken Sie in der {{site.data.keyword.cloud}}-Konsole auf das **Menüsymbol**. Klicken Sie anschließend auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}**.
-2. Wählen Sie in der Liste die LUN aus und klicken Sie auf **Aktionen** > **LUN ändern**.
+2. Wählen Sie den iSCSI-Datenträger in der Liste aus und klicken Sie auf **...** > **LUN ändern**. 
 3. Geben Sie die neue Speichergröße in GB ein.
 4. Prüfen Sie Ihre Auswahl und die neue Preisstruktur.
 5. Klicken Sie auf das Kontrollkästchen **Ich habe die Rahmenvereinbarung gelesen** und klicken Sie auf **Bestellung aufgeben**.

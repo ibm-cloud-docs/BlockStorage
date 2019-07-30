@@ -21,7 +21,7 @@ Snapshots sind eine Funktion von {{site.data.keyword.blockstoragefull}}. Ein Sna
 
 {{site.data.keyword.blockstorageshort}} bietet Ihnen zwei Möglichkeiten, Snapshots zu erstellen.
 
-* Zum einen über einen konfigurierbaren Snapshotplan, der Snapshotkopien automatisch für die einzelnen Speicherdatenträger erstellt und löscht. Je nach Ihren Anforderungen können Sie auch weitere Snapshotpläne erstellen, Kopien manuell löschen und Pläne verwalten.
+* Zum einen über einen konfigurierbaren Snapshotzeitplan, der Snapshotkopien automatisch für die einzelnen Speicherdatenträger erstellt und löscht. Je nach Ihren Anforderungen können Sie auch weitere Snapshotzeitpläne erstellen, Kopien manuell löschen und Pläne verwalten.
 * Die zweite Möglichkeit besteht in einer manuellen Snapshotaufnahme.
 
 Eine Snapshotkopie ist eine schreibgeschützte Abbildung einer {{site.data.keyword.blockstorageshort}}-LUN, die den Zustand des Datenträgers zu einem bestimmten Zeitpunkt erfasst. Snapshotkopien sind effizient, was die benötigte Zeit zur Erstellung und den Speicherplatz anbelangt. Die Erstellung einer {{site.data.keyword.blockstorageshort}}-Snapshotkopie dauert nur wenige Sekunden. In der Regel dauert es sogar weniger als 1 Sekunde, unabhängig von der Größe des Datenträgers und der Aktivitätsstufe auf dem Datenträger. Nachdem eine Snapshotkopie erstellt wurde, werden Änderungen an Datenobjekten in Aktualisierungen der aktuellen Version der Objekte abgebildet, so als wären keine Snapshotkopien vorhanden. Gleichzeitig bleibt die Kopie der Daten stabil.

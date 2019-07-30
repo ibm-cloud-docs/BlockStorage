@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -48,39 +48,43 @@ Es gibt mehrere Möglichkeiten zur Erstellung eines duplizierten Datenträgers �
 ## Duplikat von einem bestimmten Datenträger in der Speicherliste erstellen
 
 1. Rufen Sie die {{site.data.keyword.blockstorageshort}}-Liste in der {{site.data.keyword.cloud_notm}}-Konsole auf, indem Sie auf **Infrastruktur** > **Speicher** > **{{site.data.keyword.blockstorageshort}}** klicken.
-2. Wählen Sie in der Liste einen Datenträger aus und klicken Sie auf **Aktionen** > **Duplizierte LUN (Datenträger)**.
+2. Wählen Sie einen Datenträger in der Liste aus und klicken Sie auf **...** > **LUN duplizieren**. 
 3. Wählen Sie Ihre Snapshotoption aus:
     - Wenn Sie von einem **Nicht-Replikat**-Datenträger bestellen:
-      - Wählen Sie **Aus neuem Snapshot erstellen** aus: Damit wird ein neuer Snapshot für das Duplikat erstellt. Verwenden Sie diese Option, wenn der Datenträger keine aktuellen Snapshots aufweist oder wenn Sie zu diesem Zeitpunkt ein Duplikat erstellen wollen. <br/>
-      - Wählen Sie **Aus letztem Snapshot erstellen** aus: Damit wird ein Duplikat aus dem letzten für diesen Datenträger vorhandenen Snapshot erstellt.
+      - Wählen Sie **Neuen Snapshot zum Klonen erstellen* aus. Mit dieser Aktion wird ein neuer Snapshot für das Duplikat erstellt. Verwenden Sie diese Option, wenn der Datenträger keine aktuellen Snapshots aufweist oder wenn Sie zu diesem Zeitpunkt ein Duplikat erstellen wollen. <br/>
+      - Wählen Sie **Neuesten Snapshot zum Klonen der LUN verwenden** aus. Mit dieser Aktion wird ein Duplikat aus dem letzten für diesen Datenträger vorhandenen Snapshot erstellt. 
     - Bei einer Bestellung über einen **Replikat**-Datenträger: Die einzige Option für einen Snapshot ist die Verwendung des neuesten verfügbaren Snapshots.
 4. Speichertyp und Position bleiben die gleichen wie beim ursprünglichen Datenträger.
 5. Stündliche oder monatliche Abrechnung: Sie können wählen, ob die duplizierte LUN mit stündlicher oder monatlicher Abrechnung bereitgestellt wird. Der Abrechnungstyp für den Originaldatenträger wird automatisch ausgewählt. Wenn Sie jedoch für Ihren neuen duplizierten Speicher einen anderen Abrechnungstyp wählen möchten, können Sie das hier tun.
-5. Bei Bedarf können Sie IOPS oder ein IOPS-Tier für den neuen Datenträger angeben. Die IOPS-Bezeichnung wird für den Originaldatenträger standardmäßig festgelegt. Die verfügbaren Kombinationen aus Leistung und Größe werden angezeigt.
-    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
-    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
 6. Bei Bedarf können Sie die Größe des neuen Datenträgers aktualisieren, sodass er größer als der Originaldatenträger ist. Die Größe des Originaldatenträgers wird standardmäßig festgelegt.
 
    {{site.data.keyword.blockstorageshort}} kann bis auf das Zehnfache der ursprünglichen Größe des Datenträgers erhöht werden
 .
    {:tip}
-7. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen. Der Snapshotbereich wird für den Originaldatenträger standardmäßig festgelegt.
-8. Klicken Sie auf **Weiter**, um Ihre Bestellung abzusetzen.
+7. Bei Bedarf können Sie IOPS oder ein IOPS-Tier für den neuen Datenträger angeben. Die IOPS-Bezeichnung wird für den Originaldatenträger standardmäßig festgelegt. Die verfügbaren Kombinationen aus Leistung und Größe werden angezeigt.
+       - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
+       - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
+8. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen.
+9. Sie können den Betriebssystemtyp auswählen. 
+10. Wählen Sie das Feld aus, wenn Sie die Rahmenvereinbarung gelesen haben und dieser zustimmen. 
+11. Klicken Sie auf **Bestellen**, um den Vorgang fortzusetzen. 
 
 ## Duplikat aus einem bestimmten Snapshot erstellen
 
 1. Navigieren Sie zur {{site.data.keyword.blockstorageshort}}-Liste.
 2. Klicken Sie in der Liste auf ein LUN, um die Detailseite anzuzeigen. (Es kann sich um einen Replikatdatenträger oder einen Nichtreplikatdatenträger handeln.)
 3. Blättern Sie abwärts, wählen Sie in der Liste auf der Detailseite einen vorhandenen Snapshot aus und klicken Sie auf **Aktionen** > **Duplikate**.   
-4. Speichertyp (Endurance oder Performance) und Position bleiben mit dem Originaldatenträger identisch.
-5. Die verfügbaren Kombinationen aus Leistung und Größe werden angezeigt. Die IOPS-Bezeichnung wird für den Originaldatenträger standardmäßig festgelegt. Sie können IOPS oder ein IOPS-Tier für den neuen Datenträger angeben.
-    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
-    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
+4. Die Position bleibt die gleiche wie beim ursprünglichen Datenträger.
+5. Sie können wählen, ob die duplizierte LUN mit stündlicher oder monatlicher Abrechnung bereitgestellt wird. Der Abrechnungstyp für den Originaldatenträger wird automatisch ausgewählt. Wenn Sie jedoch für Ihren neuen duplizierten Speicher einen anderen Abrechnungstyp wählen möchten, können Sie die Auswahl ändern. 
 6. Bei Bedarf können Sie die Größe des neuen Datenträgers aktualisieren, sodass er größer als der Originaldatenträger ist. Die Größe des Originaldatenträgers wird standardmäßig festgelegt.
 
    {{site.data.keyword.blockstorageshort}} kann bis auf das Zehnfache der ursprünglichen Größe des Datenträgers erhöht werden
 .
    {:tip}
+6. Die verfügbaren Kombinationen aus Leistung und Größe werden angezeigt. Die IOPS-Bezeichnung wird für den Originaldatenträger standardmäßig festgelegt. Sie können IOPS oder ein IOPS-Tier für den neuen Datenträger angeben.
+    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 0,25 IOPS ist, können Sie keine neue Auswahl treffen.
+    - Wenn Ihr Originaldatenträger ein Endurance-Tier mit 2, 4 oder 10 IOPS ist, können Sie für den neuen Datenträger einen beliebigen Wert zwischen diesen Tiers auswählen.
+
 7. Bei Bedarf können Sie den Snapshotbereich für den neuen Datenträger aktualisieren und mehr, weniger oder keinen Snapshotbereich hinzufügen. Der Snapshotbereich wird für den Originaldatenträger standardmäßig festgelegt.
 8. Klicken Sie auf **Weiter**, um Ihre Bestellung des Duplikats abzusetzen.
 
@@ -141,4 +145,4 @@ Optionen:
 
 ## Duplizierten Datenträger verwalten
 
-Während die Daten vom Originaldatenträger auf das Duplikat kopiert werden, wird auf der Detailseite der Status angezeigt, der angibt, dass die Duplizierung in Bearbeitung ist. In dieser Zeit können Sie eine Verbindung zu einem Host herstellen, von dem Datenträger lesen und auf ihn schreiben, jedoch keine Snapshotpläne erstellen. Wenn der Duplizierungsprozess abgeschlossen ist, ist der neue Datenträger unabhängig vom Original und kann mit Snapshots und Replikation normal verwaltet werden.
+Während die Daten vom Originaldatenträger auf das Duplikat kopiert werden, wird auf der Detailseite der Status angezeigt, der angibt, dass die Duplizierung in Bearbeitung ist. In dieser Zeit können Sie eine Verbindung zu einem Host herstellen, von dem Datenträger lesen und auf ihn schreiben, jedoch keine Snapshotzeitpläne erstellen. Wenn der Duplizierungsprozess abgeschlossen ist, ist der neue Datenträger unabhängig vom Original und kann mit Snapshots und Replikation normal verwaltet werden.

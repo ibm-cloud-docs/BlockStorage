@@ -19,7 +19,7 @@ subcollection: BlockStorage
 # SLCLI-Befehle für {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-Sie können die SLCLI verwenden, um Aktionen auszuführen, die normalerweise über die [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} ausgeführt werden. So können Sie über die SLCLI beispielsweise Datenträger, Snapshotbereiche und Replikationen bestellen, Berechtigungen aktualisieren, Datenträger stornieren usw.
+Sie können die SLCLI verwenden, um Aktionen auszuführen, die normalerweise über die [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/){: external} ausgeführt werden. So können Sie über die SLCLI beispielsweise Datenträger, Snapshotbereiche und Replikationen bestellen, Berechtigungen aktualisieren, Datenträger abbrechen usw.
 
 Weitere Informationen zur Installation und Verwendung der SLCLI finden Sie unter [Python-API-Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}

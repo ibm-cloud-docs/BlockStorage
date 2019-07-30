@@ -56,7 +56,6 @@ Nutzen Sie die folgenden Funktionen von {{site.data.keyword.blockstorageshort}}:
 - Stellen Sie **Endurance**-Tiers mit vordefinierten Leistungsstufen und weiteren Funktionen wie Snapshots und Replikation bereit.
 - Erstellen Sie eine leistungsfähige **Performance**-Umgebung mit zugeordneten E/A-Operationen pro Sekunde (IOPS).
 
-
 ### Mit Endurance-Tiers bereitstellen
 {: #provendurance}
 
