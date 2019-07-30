@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -31,8 +31,8 @@ subcollection: BlockStorage
 
 スナップショット・スケジュールは、時間単位、日単位、週単位の間隔でセットアップでき、それぞれに異なる保存期間を指定できます。 ストレージ・ボリュームごとのスナップショットの最大数は 50 個です。これは時間単位、日単位、週単位のスケジュールによるスナップショットと手動のスナップショットが混在していても構いません。
 
-1. ストレージ・ボリュームをクリックして、**「アクション」**をクリックし、**「スナップショットのスケジュール」**をクリックします。
-2. 「新規スケジュール・スナップショット (New Schedule Snapshot)」ウィンドウでは、3 つの異なるスナップショット頻度から選択できます。 3 つの任意の組み合わせを使用して、包括的なスナップショット・スケジュールを作成します。
+1. ストレージ・ボリュームをクリックして、**「アクション」**をクリックし、**「スナップショット・スケジュールの編集」**をクリックします。
+2. 「スナップショット・スケジュール (Snapshot Schedule)」ウィンドウでは、3 つの異なるスナップショットの頻度から選択できます。3 つの任意の組み合わせを使用して、包括的なスナップショット・スケジュールを作成します。
    - 時間単位
       - スナップショットを実行する 1 時間ごとの分を指定します。 デフォルトは、現在の分です。
       - 最も古いスナップショットが破棄されるまでに保持される、時間単位のスナップショットの数を指定します。
@@ -44,7 +44,7 @@ subcollection: BlockStorage
       - 最も古いスナップショットが破棄されるまでに保持される、週単位のスナップショットの数を選択します。
 3. **「保存」**をクリックします。 そして、頻度が異なる別のスケジュールを作成することができます。 スケジュールされたスナップショットの総数が 50 を超えると、警告メッセージが表示され、保存できなくなります。
 
-取得されたスナップショットのリストは、**「詳細」**ページの**「スナップショット」**セクションに表示されます。
+取得されたスナップショットのリストは、**「{{site.data.keyword.blockstorageshort}} の詳細」**ページの**「スナップショット」**セクションに表示されます。
 
 SLCLI で次のコマンドを使用して、スナップショット・スケジュールのリストを参照することもできます。
 ```
@@ -65,7 +65,7 @@ Options:
 1. ストレージ・ボリュームをクリックします。
 2. **「アクション」**をクリックします。
 3. **「手動スナップショットの取得 (Take Manual Snapshot)」**をクリックします。
-スナップショットが取得され、**「詳細」**ページの**「スナップショット」**セクションに表示されます。 そのスケジュールは、手動として表示されます。
+スナップショットが取得され、**「{{site.data.keyword.blockstorageshort}} の詳細」**ページの**「スナップショット」**セクションに表示されます。そのスケジュールは、手動として表示されます。
 
 あるいは、次のコマンドを使用して、SLCLI でスナップショットを作成できます。
 ```
@@ -80,7 +80,7 @@ Options:
 
 ## すべてのスナップショット (使用スペース情報付き) のリスト、および管理機能のリスト
 
-**「詳細」**」ページに、保持されているスナップショットと使用されているスペースのリストを表示できます。  管理機能 (スケジュールの編集とスペースの追加) は、「詳細」ページで**「アクション」**メニューを使用するか、ページのさまざまなセクションにあるリンクを使用して実施します。
+**「{{site.data.keyword.blockstorageshort}} の詳細」**ページに、保持されているスナップショットと使用されているスペースのリストを表示できます。管理機能 (スケジュールの編集とスペースの追加) は、**「{{site.data.keyword.blockstorageshort}} の詳細」**ページで**「アクション」**メニューを使用するか、ページのさまざまなセクションにあるリンクを使用して実施します。
 
 ## 保存スナップショットのリストの表示
 
@@ -100,7 +100,7 @@ Options:
 
 ## 使用されているスナップショット・スペースの量の表示
 
-**「詳細」**ページの円グラフに、使用済みのスペースの量と残りのスペースの量が表示されます。 スペースしきい値 (75%、90%、および 95%) に達すると、通知を受け取ります。
+**「{{site.data.keyword.blockstorageshort}} の詳細」**ページ上部の円グラフに、使用済みのスペースの量と残りのスペースの量が表示されます。スペースしきい値 (75%、90%、および 95%) に達すると、通知を受け取ります。
 
 ## ボリュームのスナップショット・スペースの量の変更
 
@@ -111,7 +111,7 @@ Options:
 
 スナップショット・スペースは、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**から変更します。
 
-1. ストレージ・ボリュームをクリックして、**「アクション」**をクリックし、**「さらにスナップショット・スペースを追加 (Add More Snapshot Space)」**をクリックします。
+1. ストレージ・ボリュームをクリックして、**「アクション」**をクリックし、**「スナップショット・スペースの追加」**/**「スナップショット・スペースの変更」**をクリックします。
 2. プロンプトからサイズの範囲を選択します。 一般に、サイズの範囲は、0 からご使用のボリュームのサイズまでです。
 3. **「続行」**をクリックします。
 4. お持ちのプロモーション・コードを入力して、**「再計算」**をクリックします。 「この注文の課金」フィールドと「注文の検討」フィールドは、デフォルトで入力されています。
@@ -129,7 +129,7 @@ Options:
 
 スナップショット・スケジュールは、**「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**からキャンセルできます。
 
-1. **「詳細」**ページの**「スナップショットのスケジュール」**フレームで、削除するスケジュールをクリックします。
+1. **「{{site.data.keyword.blockstorageshort}} の詳細」**ページの**「スナップショット・スケジュール」**フレームで、削除するスケジュールをクリックします。
 2. 削除するスケジュールの横にあるチェック・ボックスをクリックして、**「保存」**をクリックします。<br />
 
 レプリケーション機能を使用している場合は、削除するスケジュールがレプリケーションで使用されるスケジュールでないことを確認してください。 レプリケーション・スケジュールの削除について詳しくは、[データのレプリケーション](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication)を参照してください。
@@ -163,10 +163,10 @@ Options:
 {:important}
 
 1. ストレージ・ボリュームをホストからアンマウントして、切り離します。
-   - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Linux での iSCSI ボリュームの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Microsoft Windows での iSCSI ボリュームの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}で、**「ストレージ」**、**「{{site.data.keyword.blockstorageshort}}」**の順にクリックします。
-3. スクロールダウンして、復元するボリュームをクリックします。 **「詳細」**ページの**「スナップショット」**セクションに、保存されているすべてのスナップショットのリストがサイズと作成日とともに表示されます。
+3. スクロールダウンして、復元するボリュームをクリックします。 **「{{site.data.keyword.blockstorageshort}} の詳細」**ページの**「スナップショット」**セクションに、保存されているすべてのスナップショットのリストがサイズと作成日とともに表示されます。
 4. 使用するスナップショットの横の**「アクション」**をクリックし、**「復元」** をクリックします。 <br/>
 
    復元を完了すると、スナップショットが作成された後に作成または変更されたデータは失われます。 このデータ損失は、ストレージ・ボリュームがスナップショットの実行時と同じ状態に戻るために発生します。
@@ -176,9 +176,9 @@ Options:
    選択したスナップショットを使用してボリュームが復元されることを示すメッセージが、ページに表示されます。 また、{{site.data.keyword.blockstorageshort}} 上のボリュームの横に、アクティブなトランザクションが進行中であることを示すアイコンが表示されます。 アイコンの上にカーソルを移動すると、トランザクションを示すウィンドウが生成されます。 アイコンは、トランザクションが完了すると表示されなくなります。
    {:note}
 6. ストレージ・ボリュームをホストにマウントして、再接続します。
-   - [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Linux での iSCSI ボリュームの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [CloudLinux での iSCSI ボリュームの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Microsoft Windows での iSCSI ボリュームの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 あるいは、ホストからボリュームが切り離された後で、SLCLI の次のコマンドを使用して、復元を開始できます。
 ```

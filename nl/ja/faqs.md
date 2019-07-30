@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## {{site.data.keyword.blockstorageshort}} ボリュームを共有できるインスタンスの数はいくつですか?
 {: faq}
 
-ブロック・ボリュームごとに許可される数の制限は、デフォルトでは 8 です。 つまり、最大 8 個のホストが Block Storage LUN にアクセスする権限を持つことができます。 制限の引き上げを要求する場合は、営業担当員にお問い合わせください。
+ブロック・ボリュームごとに許可される数の制限は、デフォルトでは 8 です。 つまり、最大 8 個のホストが Block Storage LUN にアクセスする権限を持つことができます。 VMware デプロイメントで {{site.data.keyword.blockstorageshort}} を使用するお客様は、許可制限を 64 に引き上げる要求を出すことができます。制限の引き上げを要求する場合は、営業担当員に問い合わせるか、[サポート Case](https://{DomainName}/unifiedsupport/cases/add){: external} に上げてください。
 
 ## 注文できるボリュームの数はいくつですか?
 {: faq}

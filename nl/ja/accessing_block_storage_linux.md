@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Linux での iSCSI LUN への接続
 {: #mountingLinux}
 
-ここでの説明は、主に RHEL6 および Centos6 向けのものです。 他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
+ここでの説明は、主に RHEL6 および CentOS6 向けのものです。他の OS に関する注記を追加しましたが、本書は、すべての Linux ディストリビューションをカバーするものでは**ありません**。 別の Linux オペレーティング・システムを使用している場合は、ご使用の特定のディストリビューションの資料を参照し、マルチパスがパスの優先順位として ALUA をサポートしていることを確認してください。
 {:note}
 
 例えば、Ubuntu に固有の詳細情報については、[iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} および [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external} を参照してください。
@@ -29,9 +29,14 @@ subcollection: BlockStorage
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}を介して事前に許可されていることを確認してください。
 {:important}
 
-1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
-2. **「ホストの許可」**をクリックします。
-3. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。 **「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
+2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+3. 新規ボリュームを見つけて、**「...」**をクリックします。
+4. **「ホストの許可」**をクリックします。
+5. 使用可能なデバイスまたは IP アドレスのリストを表示するには、最初に、デバイス・タイプまたはサブネットのどちらに基づいてアクセス権限を許可するかを選択します。
+   - 「デバイス」を選択した場合、「ベアメタル・サーバー」または「Virtual Server インスタンス」から選択できます。
+   - 「IP アドレス」を選択した場合、最初に、ホストがあるサブネットを選択します。
+6. フィルターされたリストから、ボリュームにアクセスできる 1 つ以上のホストを選択して、**「保存」**をクリックします。
 
 あるいは、SLCLI を使用してホストを許可できます。
 ```

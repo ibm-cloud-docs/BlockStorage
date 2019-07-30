@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ subcollection: BlockStorage
 
 1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。 **「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
 2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-3. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。
+3. 新規ボリュームを見つけて、**「...」**をクリックします。
 4. **「ホストの許可」**をクリックします。
-5. リストから、ボリュームにアクセスできるホストを選択し、**「送信」**をクリックします。
-6. ホスト IQN、ユーザー名、パスワード、およびターゲット・アドレスを書き留めます。
+5. 使用可能なデバイスまたは IP アドレスのリストを表示するには、最初に、デバイス・タイプまたはサブネットのどちらに基づいてアクセス権限を許可するかを選択します。
+   - 「デバイス」を選択した場合、「ベアメタル・サーバー」または「Virtual Server インスタンス」から選択できます。
+   - 「IP アドレス」を選択した場合、最初に、ホストがあるサブネットを選択します。
+6. フィルターされたリストから、ボリュームにアクセスできる 1 つ以上のホストを選択して、**「保存」**をクリックします。
 
 あるいは、SLCLI を使用してホストを許可できます。
 ```

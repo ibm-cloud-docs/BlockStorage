@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -45,14 +45,14 @@ subcollection: BlockStorage
 {: #adjustingsteps}
 
 1. {{site.data.keyword.blockstorageshort}} のリストに進みます。 {{site.data.keyword.cloud}} コンソールから、**「メニュー」**アイコンをクリックしてから、**「インフラストラクチャー」**>**「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックします。
-2. リストから LUN を選択し、**「アクション」** > **「LUN の変更 (Modify LUN)」**をクリックします。
-3. **「ストレージ IOPS オプション (Storage IOPS Options)」**の下で、新しい選択を行います。
+2. リストから iSCSI ボリュームを選択し、**「...」**>**「LUN の変更 (Modify LUN)」**をクリックします。
+3. **「ストレージ IOPS の調整 (Adjust Storage IOPS)」**で、新しい選択を行います。
     - エンデュランス (層化 IOPS) の場合、0.25 IOPS/GB より大きい IOPS 層をストレージに選択します。 IOPS 層はいつでも増やすことができます。 ただし、下げることができるのは、月に 1 回のみです。
     - パフォーマンス (割り振り IOPS) の場合、100 から 48,000 IOPS までの値を入力して、ストレージの新しい IOPS オプションを指定します。
 
     注文フォームで、サイズ別に必要な特定の境界を必ず確認してください。
     {:tip}
-4. 選択内容と新しい価格設定を確認します。
+4. 選択内容と価格の詳細を確認します。
 5. **「マスター・サービス契約を読み ... (I have read the Master Service Agreement ...)」**チェック・ボックスをクリックし、**「注文する (Place Order)」**をクリックします。
 6. 新規ストレージ割り振りは数分後に使用可能になります。
 

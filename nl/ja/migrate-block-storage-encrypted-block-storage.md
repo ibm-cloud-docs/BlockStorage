@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ subcollection: BlockStorage
 
 ホストに非暗号化 LUN が既に接続されていることを前提としています。 接続されていない場合は、ご使用のオペレーティング・システムに最適な指示に従って、このタスクを実行してください。
 
-- [Linux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [CloudLinux での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Microsoft Windows での LUN への接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-これらのデータ・センターでプロビジョンされる拡張{{site.data.keyword.blockstorageshort}}・ボリュームはすべて、非暗号化ボリュームとは異なるマウント・ポイントになります。 両方のストレージ・ボリュームに正しいマウント・ポイントを使用するために、コンソールの**「ボリュームの詳細」**ページでマウント・ポイント情報を確認することができます。 API 呼び出し `SoftLayer_Network_Storage::getNetworkMountAddress()` を使用して正しいマウント・ポイントを取得することもできます。
-{:tip}
+- [Linux でのストレージ・ボリュームへの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux でのストレージ・ボリュームへの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows でのストレージ・ボリュームへの接続](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## {{site.data.keyword.blockstorageshort}}の作成
 
@@ -46,9 +43,14 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 
 「許可」ホストとは、ボリュームに対するアクセス権が付与されたホストのことです。 ホストの許可がなければ、システムからストレージにアクセスすることも、ストレージを使用することもできません。 ホストにボリュームへのアクセスを許可すると、ユーザー名とパスワードの他に、iSCSI 修飾名 (IQN) が生成されます。これは、マルチパス入出力 (MPIO) iSCSI 接続をマウントするために必要です。
 
-1. **「ストレージ」**>**「{{site.data.keyword.blockstorageshort}}」**をクリックし、使用する LUN 名をクリックします。
-2. **「許可ホスト (Authorized Hosts)」**にスクロールします。
-3. 右側で、**「ホストの許可」**をクリックします。 ボリュームにアクセスできるホストをすべて選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。 **「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
+2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+3. 新規ボリュームを見つけて、**「...」**をクリックします。
+4. **「ホストの許可」**を選択します。
+5. 使用可能なデバイスまたは IP アドレスのリストを表示するには、最初に、デバイス・タイプまたはサブネットのどちらに基づいてアクセス権限を許可するかを選択します。
+   - 「デバイス」を選択した場合、「Bare Metal Server」または「仮想サーバー」から選択できます。
+   - 「IP アドレス」を選択した場合、最初に、ホストがあるサブネットを選択します。
+6. フィルターされたリストから、ボリュームにアクセスできる 1 つ以上のホストを選択して、**「保存」**をクリックします。
 
 
 ## スナップショットおよび複製
@@ -56,6 +58,7 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
 元の LUN に対してスナップショットと複製が確立されていますか? 「はい」の場合、元のボリュームと同じ設定で複製とスナップショット・スペースをセットアップし、新しい LUN のスナップショット・スケジュールを作成する必要があります。
 
 レプリケーション・ターゲット・データ・センターがまだアップグレードされていない場合は、そのデータ・センターがアップグレードされるまで、新規ボリュームの複製を確立することはできません。
+{:note}
 
 
 ## データのマイグレーション
@@ -78,6 +81,6 @@ API を使用して注文する場合は、「Storage as a Service」パッケ�
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
 
-   上記のコマンドを、一度 `--dry-run` フラグを指定して実行し、パスがすべて正しく並んでいることを確認するようお勧めします。 このプロセスが中断される場合は、コピーされていた最後の宛先ファイルを削除して、そのファイルが最初から新しい場所にコピーされるようにします。<br/>
+   一度 `--dry-run` フラグを指定して前述のコマンドを使用し、パスの並びが正しいことを確認することをお勧めします。このプロセスが中断される場合は、コピーされていた最後の宛先ファイルを削除して、そのファイルが最初から新しい場所にコピーされるようにします。<br/>
    `--dry-run` フラグを使わずにこのコマンドが完了すれば、データは新規 {{site.data.keyword.blockstorageshort}} LUN にコピーされます。 このコマンドを再度実行し、何も欠落していないことを確認してください。 両方の場所を手動で見直し、欠落している可能性のあるものを探すこともできます。<br/>
    マイグレーションが完了すれば、実動を新規 LUN に移動できます。 その後、構成から元の LUN を切り離して削除できます。 この削除により、元の LUN に関連付けられたターゲット・サイト上のスナップショットやレプリカもすべて削除されます。

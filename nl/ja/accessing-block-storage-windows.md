@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 開始する前に、{{site.data.keyword.blockstoragefull}} ボリュームにアクセスしているホストが、[{{site.data.keyword.cloud}} コンソール](https://{DomainName}/classic){: external}を介して許可されていることを確認してください。
 
-1. {{site.data.keyword.blockstorageshort}} のリスト・ページで、新規ボリュームを見つけ、**「アクション」**をクリックします。 **「ホストの許可」**をクリックします。
-2. リストから、ボリュームにアクセスするホストを選択し、**「送信」**をクリックします。
+1. [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/){: external}にログインします。 **「メニュー」**から、**「クラシック・インフラストラクチャー」**を選択します。
+2. **「ストレージ」** > **「{{site.data.keyword.blockstorageshort}}」**をクリックします。
+3. 新規ボリュームを見つけて、**「...」**をクリックします。
+4. **「ホストの許可」**をクリックします。
+5. 使用可能なデバイスまたは IP アドレスのリストを表示するには、最初に、デバイス・タイプまたはサブネットのどちらに基づいてアクセス権限を許可するかを選択します。
+   - 「デバイス」を選択した場合、「ベアメタル・サーバー」または「Virtual Server インスタンス」から選択できます。
+   - 「IP アドレス」を選択した場合、最初に、ホストがあるサブネットを選択します。
+6. フィルターされたリストから、ボリュームにアクセスできる 1 つ以上のホストを選択して、**「保存」**をクリックします。
 
 あるいは、SLCLI を使用してホストを許可できます。
 ```
@@ -40,7 +46,7 @@ Options:
 ## {{site.data.keyword.blockstorageshort}} ボリュームのマウント
 {: #mountWin}
 
-以下のステップを実行して、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) internet Small Computer System Interface (iSCSI) 論理装置番号 (LUN) に接続します。 この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
+以下のステップを実行して、Windows ベースの {{site.data.keyword.cloud}} コンピューティング・インスタンスをマルチパス入出力 (MPIO) iSCSI ボリュームに接続します。この例は、Windows Server 2012 に基づいています。 その他の Windows バージョンの場合、オペレーティング・システム (OS) のベンダーの資料に従って、ステップを調整してください。
 
 ### MPIO 機能の構成
 
@@ -66,7 +72,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
     - 「イニシエーター名」フィールドには、`iqn.1991-05.com.microsoft:` のような項目が既に取り込まれている場合があります。
     - **「変更」** をクリックして、既存の値をご使用の iSCSI 修飾名 (IQN) に置き換えます。![iSCSI イニシエーターのプロパティー](/images/iSCSI.png)
 
-      IQN 名は、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面で取得できます。
+      IQN 名は、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic){: external}の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面で取得できます。
       {: tip}
 
     - **「探索」**をクリックし、**「ポータルの探索」**をクリックします。
@@ -96,7 +102,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
    ![CHAP ログオンを有効にする](/images/chap_0.png)
 4. 「名前」フィールドにユーザー名を入力し、「ターゲット シークレット」フィールドにパスワードを入力します。
 
-   「名前」および「ターゲット シークレット」フィールドの値は、「{{site.data.keyword.blockstorageshort}} 詳細」画面から取得できます。
+   「名前」および「ターゲット シークレット」フィールドの値は、**「{{site.data.keyword.blockstorageshort}} 詳細」**画面から取得できます。
    {:tip}
 5. **「iSCSI イニシエーターのプロパティ」**ウィンドウが表示されるまで**「OK」**をクリックします。 **「検出されたターゲット」**セクションのターゲットの状況が、**「非アクティブ」**から**「接続完了」**に変わります。
 ![「接続完了」状況](/images/Connected.png)
@@ -124,7 +130,7 @@ Windows Server 2008 では、iSCSI のサポートを追加すると、Microsoft
    - 「イニシエーター IP」リストで、ホストに対応する IP アドレスを選択します。 この場合、ストレージ・デバイス上の 2 つのネットワーク・インターフェースをホスト上の単一のネットワーク・インターフェースに接続します。 したがって、このインターフェースは、最初のセッションで提供されたものと同じです。
    - 「ターゲット ポータル IP」リストで、ストレージ・デバイスで有効になっている 2 番目のデータ・インターフェースの IP アドレスを選択します。
 
-     2 番目の IP アドレスは、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic/storage){: external}の「{{site.data.keyword.blockstorageshort}} の詳細」画面にあります。
+     2 番目の IP アドレスは、[{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/classic/storage){: external}の**「{{site.data.keyword.blockstorageshort}} の詳細」**画面にあります。
       {: tip}
    - **「CHAP ログオンを有効にする」**チェック・ボックスをクリックします。
    - コンソールから取得した「名前」と「ターゲット シークレット」の値を入力し、**「OK」**をクリックします。

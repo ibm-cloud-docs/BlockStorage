@@ -42,5 +42,5 @@ subcollection: BlockStorage
 
 
 
-データ・センターがアップグレードされる前にプロビジョンされた非暗号化ストレージは、自動的には**暗号化されません**。 アップグレードされたデータ・センターに暗号化されていないストレージを所有していて、暗号化ストレージが必要な場合は、新しいボリュームを作成し、データをマイグレーションする必要があります。 詳しくは、[{{site.data.keyword.blockstorageshort}} アップグレード済みのデータ・センターでのマイグレーション](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage)を参照してください。
+データ・センターがアップグレードされる前にプロビジョンされた非暗号化ストレージは、自動的には**暗号化されません**。 アップグレードされたデータ・センターに暗号化されていないストレージを所有していて、暗号化ストレージが必要な場合は、新規ボリュームを作成し、データをマイグレーションする必要があります。 詳しくは、[{{site.data.keyword.blockstorageshort}} アップグレード済みのデータ・センターでのマイグレーション](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage)を参照してください。
 {:important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -31,7 +31,7 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-[ポータル](https://{DomainName}/unifiedsupport/cases/add){: external}でサポート Case を送信することによって、制限の引き上げを要求できます。 要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
+[コンソール](https://{DomainName}/unifiedsupport/cases/add){: external}でサポート Case を送信することによって、制限の引き上げを要求できます。要求が承認されると、特定のデータ・センターに対して設定されているボリューム制限が分かります。  
 
 制限の引き上げを要求するには、Case をオープンして営業担当員に送信します。
 
