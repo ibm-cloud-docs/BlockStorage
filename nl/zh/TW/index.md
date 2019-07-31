@@ -56,7 +56,6 @@ subcollection: BlockStorage
 - 佈建**耐久性層級**，其特色是預先定義的效能層次，以及例如 Snapshot 及抄寫等其他特性。
 - 建置具有已配置每秒輸入/輸出作業 (IOPS) 的高功率**效能**環境。
 
-
 ### 使用耐久性層級進行佈建
 {: #provendurance}
 

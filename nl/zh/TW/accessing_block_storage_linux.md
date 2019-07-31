@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -29,9 +29,14 @@ subcollection: BlockStorage
 開始之前，請確定存取 {{site.data.keyword.blockstoragefull}} 磁區的主機先前已透過 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}獲得授權。
 {:important}
 
-1. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
-2. 按一下**授權主機**。
-3. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}。從**功能表**中，選取**標準基礎架構**。
+2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+3. 找出新的磁區，然後按一下 **...**。
+4. 按一下**授權主機**。
+5. 若要查看可用裝置或 IP 位址的清單，請選取您要根據裝置類型還是子網路來授權存取。
+   - 如果選擇「裝置」，您可以從 Bare Metal Server 或 Virtual Server 實例選取。
+   - 如果選擇「IP 位址」，首先請選取您的主機所在的子網路。
+6. 從已過濾的清單中，選取可以存取磁區的一個以上主機，然後按一下**儲存**。
 
 或者，您可以透過 SLCLI 來授權主機。
 ```
@@ -50,7 +55,7 @@ Options:
 ## 裝載 {{site.data.keyword.blockstorageshort}} 磁區
 {: #mountLin}
 
-請完成下列步驟，以將 Linux 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN) 所需的步驟。
+請完成下列步驟，以將 Linux 型「{{site.data.keyword.cloud}} 運算」實例連接至多路徑輸入/輸出 (MPIO)「網際網路小型電腦系統介面 (iSCSI)」邏輯裝置號碼 (LUN)。
 
 指示中所參照的「主機 IQN」、使用者名稱、密碼及目標位址，可從 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic/storage){: external}中的 **{{site.data.keyword.blockstorageshort}} 詳細資料**畫面取得。
 {: tip}
@@ -457,7 +462,7 @@ Options:
    - 建立一個分割區名稱 `PerfDisk`，或您要裝載檔案系統的位置。
 
      ```
-     mkdir /PerfDisk
+mkdir /PerfDisk
      ```
      {: pre}
 

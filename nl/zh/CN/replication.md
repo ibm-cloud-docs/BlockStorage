@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -76,22 +76,21 @@ subcollection: BlockStorage
 主快照空间和副本空间必须相同。如果在**主**或**副本**选项卡上更改空间，那么会自动将该空间添加到源和目标数据中心。增大快照空间还会触发立即复制更新。
 
 1. 单击**主**或**副本**选项卡上的**操作**。
-2. 选择**添加更多快照空间**。
-
+2. 选择**更改快照空间**。
 3. 从列表中选择存储器大小，然后单击**继续**。
 
 4. 如果您有促销码，请在**促销码**中进行输入，然后单击**重新计算**。缺省情况下，已填写对话框中的其他字段。
 5. 单击**我已阅读主服务协议...** 复选框，然后单击**下订单**。
 
 
-## 在卷列表中查看副本卷
+## 在 {{site.data.keyword.blockstorageshort}} 列表中查看副本卷
 
-您可以在**存储 > {{site.data.keyword.blockstorageshort}}** 下的 {{site.data.keyword.blockstorageshort}} 页面中查看复制卷。**LUN 名称**显示为主卷名称后跟 REP。**类型**为“耐久性 - 副本”或“性能 - 副本”。**目标地址**为“不适用”（因为副本卷未安装在副本数据中心上），**状态**显示为“不活动”。
+您可以在**存储 > {{site.data.keyword.blockstorageshort}}** 下的 {{site.data.keyword.blockstorageshort}} 页面中查看复制卷。原始卷和副本卷会分组在一起。**LUN 名称**显示为主卷名称后跟 REP。**类型**为“耐久性 - 副本”或“性能 - 副本”。
 
 
 ## 在副本数据中心查看复制卷的详细信息
 
-您可以在**存储** > **{{site.data.keyword.blockstorageshort}}** 下的**副本**选项卡中查看副本卷详细信息。另一个选择是在 **{{site.data.keyword.blockstorageshort}}** 页面中选择副本卷，然后单击**副本**选项卡。
+查看原始卷的详细信息时，可以通过单击**副本**选项卡来查看副本卷详细信息。另一个选择是在 **{{site.data.keyword.blockstorageshort}}** 列表中选择副本卷，然后单击**副本**选项卡。
 
 
 ## 在主数据中心内增大快照空间时，也增大副本数据中心内的快照空间
@@ -121,7 +120,7 @@ subcollection: BlockStorage
 
 供应存储器后，主机即可以访问复制卷以进行读/写。但是，在完成从原始项到复制项的数据复制之后，才允许使用快照和复制。
 
-有关更多信息，请参阅[创建复制块卷](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)。
+有关更多信息，请参阅[创建复制 {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)。
 
 ## 在灾难发生时使用副本进行故障转移
 
@@ -146,14 +145,16 @@ subcollection: BlockStorage
 
 取消主卷后，将删除副本数据中心内的复制安排和卷。副本将在 {{site.data.keyword.blockstorageshort}} 页面中取消。
 
- 1. 在 **{{site.data.keyword.blockstorageshort}}** 页面上，突出显示卷。
- 2. 单击**操作**，然后选择**取消 {{site.data.keyword.blockstorageshort}}**。
+ 1. 在 **{{site.data.keyword.blockstorageshort}}** 页面上，单击卷名。
+ 2. 在“**{{site.data.keyword.blockstorageshort}}** 详细信息”页面上，单击**操作**，然后选择**取消副本**。
  3. 选择取消时间。选择**立即**或**周年日期**，然后单击**继续**。
- 4. 单击**我确认取消操作可能会导致数据丢失**，然后单击**取消**。
+ 4. 通过选中相应框来确认您了解取消卷时可能会发生数据丢失。
+ 5. 选择**取消副本**。
 
- LUN 会在存储器列表中保持可见至少 24 小时（立即取消）或直到周年日。特定功能将不再可用，但卷在回收之前将保持可见。但在您单击“删除/取消”后，计费将立即停止。
+ LUN 会在存储器列表中保持可见至少 24 小时（立即取消）或直到周年日。特定功能将不再可用，但卷在回收之前将保持可见。不过，在您单击“删除/取消副本”后，计费将立即停止。
 
  活动副本可能会阻止回收存储卷。请确保该卷不再处于安装状态，已撤销主机授权，并已取消复制，然后再尝试取消原始卷。
+ {:important}
 
 
 ## SLCLI 中与复制相关的命令

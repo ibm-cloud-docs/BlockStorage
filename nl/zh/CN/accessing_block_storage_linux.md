@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # 在 Linux 上连接到 iSCSI LUN
 {: #mountingLinux}
 
-这些指示信息适用于 RHEL6 和 Centos6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅您的特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
+这些指示信息主要适用于 RHEL6 和 CentOS6。添加了针对其他操作系统的注释，但本文档**并未**涵盖所有 Linux 分发版。如果使用的是其他 Linux 操作系统，请参阅您的特定分发版的文档，并确保多路径支持 ALUA 以划分路径优先级。
 {:note}
 
 例如，有关 Ubuntu 细节的更多信息，请参阅 [iSCSI 启动器配置](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external}及 [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}。
@@ -29,9 +29,14 @@ subcollection: BlockStorage
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机先前已通过 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}授权。
 {:important}
 
-1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
-2. 单击**授权主机**。
-3. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}。在**菜单**中，选择**经典基础架构**。
+2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
+3. 找到新卷，然后单击 **...**。
+4. 单击**授权主机**。
+5. 要查看可用设备或 IP 地址的列表，请首先选择是要根据设备类型还是子网授予访问权。
+   - 如果选择“设备”，那么可以从“裸机服务器”或“虚拟服务器”实例中进行选择。
+   - 如果选择 IP 地址，请首先选择主机所在的子网。
+6. 从过滤后的列表中，选择可以访问该卷的一个或多个主机，然后单击**保存**。
 
 或者，可以通过 SLCLI 来授权主机。
 ```

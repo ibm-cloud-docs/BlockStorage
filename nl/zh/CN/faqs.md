@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## 一个 {{site.data.keyword.blockstorageshort}} 卷可以由多少个实例共享使用？
 {: faq}
 
-每个块卷的缺省授权数限制为 8。这意味着，最多可授权 8 个主机来访问 Block Storage LUN。要请求增大此限制，请联系销售代表。
+每个块卷的缺省授权数限制为 8。这意味着，最多可授权 8 个主机来访问 Block Storage LUN。在其 VMware 部署中使用 {{site.data.keyword.blockstorageshort}} 的客户可请求将授权数限制增大到 64。要请求增大限制，请联系销售代表或提交[支持案例](https://{DomainName}/unifiedsupport/cases/add){: external}。
 
 ## 可以订购多少个卷？
 {: faq}

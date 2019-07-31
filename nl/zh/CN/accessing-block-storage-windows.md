@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 开始之前，请确保正在访问 {{site.data.keyword.blockstoragefull}} 卷的主机已通过 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}授权。
 
-1. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。单击**授权主机**。
-2. 从列表中选择将访问该卷的一个或多个主机，然后单击**提交**。
+1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}。在**菜单**中，选择**经典基础架构**。
+2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
+3. 找到新卷，然后单击 **...**。
+4. 单击**授权主机**。
+5. 要查看可用设备或 IP 地址的列表，请首先选择是要根据设备类型还是子网授予访问权。
+   - 如果选择“设备”，那么可以从“裸机服务器”或“虚拟服务器”实例中进行选择。
+   - 如果选择 IP 地址，请首先选择主机所在的子网。
+6. 从过滤后的列表中，选择可以访问该卷的一个或多个主机，然后单击**保存**。
 
 或者，可以通过 SLCLI 来授权主机。
 ```
@@ -40,7 +46,7 @@ Options:
 ## 安装 {{site.data.keyword.blockstorageshort}} 卷
 {: #mountWin}
 
-完成以下步骤，将基于 Windows 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) 因特网小型计算机系统接口 (iSCSI) 逻辑单元号 (LUN)。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
+完成以下步骤，将基于 Windows 的 {{site.data.keyword.cloud}} 计算实例连接到多路径输入/输出 (MPIO) iSCSI 卷。示例基于 Windows Server 2012。对于其他 Windows 版本，可以根据相应操作系统 (OS) 供应商文档来调整这些步骤。
 
 ### 配置 MPIO 功能
 
@@ -67,7 +73,7 @@ Options:
     - 单击**更改**以将现有值替换为 iSCSI 限定名 (IQN)。
     ![iSCSI 启动器属性](/images/iSCSI.png)
 
-      可以从 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic){: external}的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取 IQN 名称。
+      可以从 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic){: external}的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取 IQN 名称。
       {: tip}
 
     - 单击**发现**，然后单击**发现门户网站**。
@@ -95,7 +101,7 @@ Options:
    ![启用 CHAP](/images/chap_0.png)
 4. 在“名称”字段中输入用户名，然后在“目标私钥”字段中输入密码。
 
-   “名称”和“目标私钥”字段值可以从“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中获取。
+   “名称”和“目标私钥”字段值可以从 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中获取。
    {:tip}
 5. 单击**确定**，直至显示 **iSCSI 启动器属性**窗口。**发现的目标**部分中目标的状态已从**不活动**变为**已连接**。
 ![“已连接”状态](/images/Connected.png)
@@ -123,7 +129,7 @@ Options:
    - 在“启动器 IP”列表中，选择与主机对应的 IP 地址。在此情况下，您要将存储设备上的两个网络接口连接到主机上的单个网络接口。因此，此接口与为第一个会话提供的接口相同。
    - 在“目标门户网站 IP”列表中，为存储设备上启用的第二个数据接口选择 IP 地址。
 
-     您可以在 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic/storage){: external}的“{{site.data.keyword.blockstorageshort}} 详细信息”屏幕中找到第二个 IP 地址。
+     您可以在 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/classic/storage){: external}的 **{{site.data.keyword.blockstorageshort}} 详细信息**屏幕中找到第二个 IP 地址。
       {: tip}
    - 单击**启用 CHAP 登录**复选框。
    - 输入从控制台中获取的“名称”和“目标私钥”值，然后单击**确定**。

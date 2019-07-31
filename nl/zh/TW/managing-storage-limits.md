@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -31,7 +31,7 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-您可以在 [入口網站](https://{DomainName}/unifiedsupport/cases/add){: external} 中提交支援案例，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
+您可以在 [主控台](https://{DomainName}/unifiedsupport/cases/add){: external} 中提交支援案例，以要求提高限制。要求經核准之後，您會得到針對特定資料中心設定的磁區限制。  
 
 若要要求提高限制，請開立案例，並將它導向給您的業務代表。
 

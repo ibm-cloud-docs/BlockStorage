@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -31,7 +31,7 @@ subcollection: BlockStorage
   -h, --help             显示此消息并退出。
 ```
 
-您可以通过在[门户网站](https://{DomainName}/unifiedsupport/cases/add){: external}中提交支持案例来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
+您可以通过在[控制台](https://{DomainName}/unifiedsupport/cases/add){: external}中提交支持案例来请求增大限制。请求得到核准后，您将获得针对特定数据中心设置的卷限制。  
 
 要请求增大限制，请打开案例并将其提交给销售代表。
 

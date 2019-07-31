@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ subcollection: BlockStorage
 
 1. 登录到 [{{site.data.keyword.cloud_notm}} 控制台](https://{DomainName}/){: external}。在**菜单**中，选择**经典基础架构**。
 2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
-3. 在 {{site.data.keyword.blockstorageshort}} 列表页面中，找到新卷，然后单击**操作**。
+3. 找到新卷，然后单击 **...**。
 4. 单击**授权主机**。
-5. 从列表中选择可以访问该卷的一个或多个主机，然后单击**提交**。
-6. 记下主机 IQN、用户名、密码和目标地址。
+5. 要查看可用设备或 IP 地址的列表，请首先选择是要根据设备类型还是子网授予访问权。
+   - 如果选择“设备”，那么可以从“裸机服务器”或“虚拟服务器”实例中进行选择。
+   - 如果选择 IP 地址，请首先选择主机所在的子网。
+6. 从过滤后的列表中，选择可以访问该卷的一个或多个主机，然后单击**保存**。
 
 或者，可以通过 SLCLI 来授权主机。
 ```

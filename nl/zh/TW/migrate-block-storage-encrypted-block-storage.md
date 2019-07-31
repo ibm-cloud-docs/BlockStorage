@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ subcollection: BlockStorage
 
 我們假設您已將未加密 LUN 連接至主機。若否，請遵循最適合您作業系統的指示來完成此作業：
 
-- [在 Linux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [在 CloudLinux 上連接至 LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [在 Microsoft Windows 上連接至 LUNS](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-這些資料中心內佈建的所有加強型 {{site.data.keyword.blockstorageshort}} 磁區，都有不同於未加密磁區的裝載點。為了確保兩個儲存空間磁區都是使用正確的裝載點，您可以在主控台的**磁區詳細資料**頁面中檢視裝載點資訊。您也可以透過 API 呼叫來存取正確的裝載點：`SoftLayer_Network_Storage::getNetworkMountAddress()`。
-{:tip}
+- [在 Linux 上連接儲存空間磁區](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [在 CloudLinux 上連接儲存空間磁區](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [在 Microsoft Windows 上連接儲存空間磁區](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## 建立 {{site.data.keyword.blockstorageshort}}
 
@@ -46,16 +43,21 @@ subcollection: BlockStorage
 
 「授權的」主機是已獲得磁區存取權的主機。如果沒有主機授權，就無法從系統中存取或使用儲存空間。授權主機存取磁區會產生使用者名稱、密碼及 iSCSI 完整名稱 (IQN)（這是裝載多路徑 I/O (MPIO) iSCSI 連線所需要的項目）。
 
-1. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，然後按一下「LUN 名稱」。
-2. 捲動至**授權主機**。
-3. 在右側，按一下**授權主機**。選取可存取磁區的主機。
+1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}。從**功能表**中，選取**標準基礎架構**。
+2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+3. 找出新的磁區，然後按一下 **...**。
+4. 選取**授權主機**。
+5. 若要查看可用裝置或 IP 位址的清單，請選取您要根據裝置類型還是子網路來授權存取。
+   - 如果選擇「裝置」，您可以從 Bare Metal Server 或 Virtual Server 選取。
+   - 如果選擇「IP 位址」，首先請選取您的主機所在的子網路。
+6. 從已過濾的清單中，選取可以存取磁區的一個以上主機，然後按一下**儲存**。
 
 
 ## Snapshot 及抄寫
 
 您是否已為原始 LUN 建立 Snapshot 及抄寫？如果是，您需要為新的 LUN 使用與原始磁區相同的設定，設定抄寫、Snapshot 空間，以及建立 Snapshot 排程。
 
-如果尚未升級您的抄寫目標資料中心，則在升級該資料中心之前，無法建立新磁區的抄寫。
+如果尚未升級您的抄寫目標資料中心，則在升級該資料中心之前，無法建立新磁區的抄寫。{:note}
 
 
 ## 移轉資料
@@ -79,5 +81,5 @@ subcollection: BlockStorage
    ```
 
    建議您搭配使用先前的指令與 `--dry-run` 旗標一次，以確定正確地排列路徑。如果此處理程序遭到岔斷，您可以刪除最後一個正在複製的目的地檔案，以確定從頭將它複製到新位置。<br/>
-這個指令在沒有 `--dry-run` 旗標的情況下完成時，資料會複製到新的 {{site.data.keyword.blockstorageshort}} LUN。重新執行指令，以確定未遺漏任何項目。您也可以手動檢閱這兩個位置，以尋找任何可能遺漏的項目。<br/>
-移轉完成後，您就可以將正式作業移至新的 LUN。然後，您可以分離並刪除配置中的原始 LUN。刪除作業也會移除目標網站上與原始 LUN 相關聯的任何 Snapshot 或抄本。
+   這個指令在沒有 `--dry-run` 旗標的情況下完成時，資料會複製到新的 {{site.data.keyword.blockstorageshort}} LUN。重新執行指令，以確定未遺漏任何項目。您也可以手動檢閱這兩個位置，以尋找任何可能遺漏的項目。<br/>
+   移轉完成後，您就可以將正式作業移至新的 LUN。然後，您可以分離並刪除配置中的原始 LUN。刪除作業也會移除目標網站上與原始 LUN 相關聯的任何 Snapshot 或抄本。

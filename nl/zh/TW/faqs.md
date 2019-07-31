@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## 有多少實例可以共用 {{site.data.keyword.blockstorageshort}} 磁區？
 {: faq}
 
-每個區塊磁區的授權數目預設限制是 8。這表示最多可以授權 8 個主機存取 Block Storage LUN。若要要求提高限制，請與業務代表聯絡。
+每個區塊磁區的授權數目預設限制是 8。這表示最多可以授權 8 個主機存取 Block Storage LUN。在 VMWare 部署中使用 {{site.data.keyword.blockstorageshort}} 的客戶，可以要求將授權限制提高到 64。若要要求提高限制，請與業務代表聯絡，或是提出[支援案例](https://{DomainName}/unifiedsupport/cases/add){: external}。
 
 ## 可以訂購多少個磁區？
 {: faq}

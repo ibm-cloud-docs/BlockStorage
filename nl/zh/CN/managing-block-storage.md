@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -24,7 +24,7 @@ subcollection: BlockStorage
 您可以查看所选存储器 LUN 的关键信息摘要，包括已添加到存储器的额外快照和复制功能。
 
 1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
-2. 单击列表中相应的 LUN 名称。
+2. 单击列表中相应的卷名。
 
 或者，您可以在 SLCLI 中使用以下命令。
 ```
@@ -42,9 +42,13 @@ subcollection: BlockStorage
 您可以授权和连接与存储器位于同一数据中心的主机。您可以有多个帐户，但不能授权一个帐户中的主机来访问其他帐户上的存储器。
 {:important}
 
-1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**，然后单击 LUN 名称。
-2. 滚动到页面的**已授权主机**部分。
-3. 在右侧，单击**授权主机**。选择可以访问该特定 LUN 的主机。
+2. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
+3. 找到该卷，然后单击 **...**。
+4. 单击**授权主机**。
+5. 要查看可用设备或 IP 地址的列表，请首先选择是要根据设备类型还是子网授予访问权。
+   - 如果选择“设备”，那么可以从“裸机服务器”或“虚拟服务器”实例中进行选择。
+   - 如果选择 IP 地址，请首先选择主机所在的子网。
+6. 从过滤后的列表中，选择可以访问该卷的一个或多个主机，然后单击**保存**。
 
 或者，您可以在 SLCLI 中使用以下命令。
 ```
@@ -61,7 +65,7 @@ Options:
 
 ## 查看有权访问 {{site.data.keyword.blockstorageshort}} LUN 的主机的列表
 
-1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**，然后单击 LUN 名称。
+1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**，然后单击卷名。
 2. 向下滚动到**已授权主机**部分。
 
 在此，您可以看到当前已授权访问 LUN 的主机的列表。还可以看到建立连接所需的认证信息 - 用户名、密码和 IQN 主机。“目标地址”在**存储器详细信息**页面上列出。对于 NFS，会将“目标地址”描述为 DNS 名称，对于 iSCSI，会描述为“发现目标门户网站”的 IP 地址。
@@ -113,9 +117,9 @@ Options:
 
 ### 通过设备列表撤销访问权
 
-1. 在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}中，单击**设备** > **设备列表**，然后双击相应的设备。
+1. 在 [{{site.data.keyword.cloud}} 控制台](https://{DomainName}/classic){: external}中，单击“经典基础架构”图标。接着，单击**设备** > **设备列表**，然后双击相应的设备。
 2. 选择**存储**选项卡。
-3. 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。在 LUN 名称旁边，选择**操作**，然后单击**撤销访问**。
+3. 这将向您显示此特定主机有权访问的存储器 LUN 的列表。此列表按存储类型（块、文件或其他）进行分组。单击卷名旁边的**操作**，然后单击**撤销访问权**。
 4. 确认是否要撤销对 LUN 的访问权，因为该操作无法撤销。单击**是**以撤销 LUN 访问权，或单击**否**以取消该操作。
 
 如果要断开一个特定主机与多个 LUN 的连接，需要对每个 LUN 重复“撤销访问权”操作。
@@ -155,7 +159,7 @@ Options:
 {:important}
 
 1. 单击**存储** > **{{site.data.keyword.blockstorageshort}}**。
-2. 单击要取消的 LUN 的**操作**，然后选择**取消 {{site.data.keyword.blockstorageshort}}**。
+2. 选择要取消的卷，单击**操作**，然后选择**取消 {{site.data.keyword.blockstorageshort}}**。
 3. 确认是要立即取消 LUN，还是在供应 LUN 的周年日期取消。
 
    如果选择在 LUN 的周年日期取消 LUN 的选项，那么可以在 LUN 的周年日期之前使取消请求失效。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ subcollection: BlockStorage
 
 1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}。從**功能表**中，選取**標準基礎架構**。
 2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
-3. 從 {{site.data.keyword.blockstorageshort}} 的清單頁面中，找出新的磁區，然後按一下**動作**。
+3. 找出新的磁區，然後按一下 **...**。
 4. 按一下**授權主機**。
-5. 從清單中，選取可以存取磁區的主機，然後按一下**提交**。
-6. 記下「主機 IQN」、使用者名稱、密碼及目標位址。
+5. 若要查看可用裝置或 IP 位址的清單，請選取您要根據裝置類型還是子網路來授權存取。
+   - 如果選擇「裝置」，您可以從 Bare Metal Server 或 Virtual Server 實例選取。
+   - 如果選擇「IP 位址」，首先請選取您的主機所在的子網路。
+6. 從已過濾的清單中，選取可以存取磁區的一個以上主機，然後按一下**儲存**。
 
 或者，您可以透過 SLCLI 來授權主機。
 ```

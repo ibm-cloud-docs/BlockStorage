@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -25,8 +25,8 @@ subcollection: BlockStorage
 
 1. 登入 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}，然後按一下左上角的**功能表**圖示。選取**標準基礎架構**。
 2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
-3. 按一下清單中的 LUN 抄本，以檢視其**詳細資料**頁面。
-4. 在**詳細資料**頁面上，向下捲動並選取現有的 Snapshot，然後按一下**動作** > **複製**。
+3. 按一下清單中的 LUN 抄本，以檢視其 **{{site.data.keyword.blockstorageshort}} 詳細資料**頁面。
+4. 在 **{{site.data.keyword.blockstorageshort}} 詳細資料**頁面上，向下捲動並選取現有的 Snapshot，然後按一下**動作** > **複製**。
 5. 針對新磁區的容量（為了增加大小）或 IOP 進行任何必要的更新。
 6. 必要的話，請更新新磁區的 Snapshot 空間。
 7. 按一下**繼續**，以訂購此複製項目。
@@ -54,8 +54,8 @@ subcollection: BlockStorage
 {:important}
 
 1. 回到**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
-2. 按一下清單中的 LUN 抄本，以檢視其**詳細資料**頁面。
-3. 在**詳細資料**頁面上，向下捲動，並選取現有的 Snapshot，然後按一下**動作** > **複製**。
+2. 按一下清單中的 LUN 抄本，以檢視其 **{{site.data.keyword.blockstorageshort}} 詳細資料**頁面。
+3. 在 **{{site.data.keyword.blockstorageshort}} 詳細資料**頁面上，向下捲動並選取現有的 Snapshot，然後按一下**動作** > **複製**。
 4. 針對新磁區的容量（為了增加大小）或 IOP 進行任何必要的更新。
 5. 必要的話，請更新新磁區的 Snapshot 空間。
 6. 按一下**繼續**，以訂購重複項目。

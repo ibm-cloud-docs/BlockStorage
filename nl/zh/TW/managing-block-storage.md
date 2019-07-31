@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -24,7 +24,7 @@ subcollection: BlockStorage
 您可以檢視所選取之儲存空間 LUN 的金鑰資訊摘要，包括已新增至儲存空間的額外 Snapshot 及抄寫功能。
 
 1. 按一下**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
-2. 從清單中按一下適當的「LUN 名稱」。
+2. 從清單中按一下適當的磁區名稱。
 
 或者，您可以在 SLCLI 中使用下列指令。
 ```
@@ -42,9 +42,13 @@ Options:
 您可以授權及連接與您的儲存空間位於相同資料中心的主機。您可以有多個帳戶，但無法授權某個帳戶的主機存取您在另一個帳戶上的儲存空間。
 {:important}
 
-1. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，然後按一下「LUN 名稱」。
-2. 捲動至頁面的**授權主機**區段。
-3. 在右側，按一下**授權主機**。選取可以存取該特定 LUN 的主機。
+2. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**。
+3. 找出磁區，然後按一下 **...**。
+4. 按一下**授權主機**。
+5. 若要查看可用裝置或 IP 位址的清單，請選取您要根據裝置類型還是子網路來授權存取。
+   - 如果選擇「裝置」，您可以從 Bare Metal Server 或 Virtual Server 實例選取。
+   - 如果選擇「IP 位址」，首先請選取您的主機所在的子網路。
+6. 從已過濾的清單中，選取可以存取磁區的一個以上主機，然後按一下**儲存**。
 
 或者，您可以在 SLCLI 中使用下列指令。
 ```
@@ -61,7 +65,7 @@ Options:
 
 ## 檢視獲授權存取 {{site.data.keyword.blockstorageshort}} LUN 的主機清單
 
-1. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，然後按一下「LUN 名稱」。
+1. 按一下**儲存空間** > **{{site.data.keyword.blockstorageshort}}**，然後按一下您的磁區名稱。
 2. 向下捲動至**授權主機**區段。
 
 在這裡，您可以看到目前已獲授權存取 LUN 的主機清單。您也可以看到建立連線所需的鑑別資訊 - 使用者名稱、密碼和 IQN 主機。「目標」位址列在**儲存空間詳細資料**頁面。若為 NFS，「目標」位址會描述為 DNS 名稱，若為 iSCSI，它是「探索目標入口網站」的 IP 位址。
@@ -113,9 +117,9 @@ Options:
 
 ### 從裝置清單撤銷存取權
 
-1. 從 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}中，按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
+1. 在 [{{site.data.keyword.cloud}} 主控台](https://{DomainName}/classic){: external}中，按一下「標準基礎架構」圖示。然後按一下**裝置**、**裝置清單**，然後按兩下適當的裝置。
 2. 選取**儲存空間**標籤。
-3. 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。在 LUN 名稱旁，選取**動作**，然後按一下**撤銷存取權**。
+3. 系統會向您呈現此特定主機具有存取權之儲存空間 LUN 的清單。此清單是依儲存空間類型（區塊、檔案、其他）分組。在磁區名稱旁，按一下**動作**，然後按一下**撤銷存取權**。
 4. 確認您要撤銷 LUN 的存取權，因為該動作無法復原。按一下**是**以撤銷 LUN 存取權，或按一下**否**以取消動作。
 
 如果您要中斷多個 LUN 與特定主機的連線，則需要針對每一個 LUN 重複「撤銷存取權」動作。
@@ -155,7 +159,7 @@ Options:
 {:important}
 
 1. 按一下**儲存空間**、**{{site.data.keyword.blockstorageshort}}**。
-2. 按一下要取消之 LUN 的**動作**，然後選取**取消 {{site.data.keyword.blockstorageshort}}**。
+2. 選取要取消的磁區、按一下**動作**，然後選取**取消 {{site.data.keyword.blockstorageshort}}**。
 3. 確認要立即取消 LUN，還是在佈建 LUN 的週年日取消 LUN。
 
    如果您選取在其週年日取消 LUN 的選項，則可以在其週年日之前使取消要求失效。

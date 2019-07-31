@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -48,7 +48,7 @@ subcollection: BlockStorage
 {: #resizingsteps}
 
 1. 在 {{site.data.keyword.cloud}} 控制台中，单击**菜单**图标。然后单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
-2. 从列表中选择 LUN，然后单击**操作** > **修改 LUN**。
+2. 从列表中选择 iSCSI 卷，然后单击 **...** > **修改 LUN**。
 3. 输入新的存储器大小（以 GB 为单位）。
 4. 复查您的选择和新的定价。
 5. 单击**我已阅读主服务协议...** 复选框，然后单击**下订单**。

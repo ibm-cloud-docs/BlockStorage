@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -45,14 +45,14 @@ subcollection: BlockStorage
 {: #adjustingsteps}
 
 1. 转至 {{site.data.keyword.blockstorageshort}} 的列表。在 {{site.data.keyword.cloud}} 控制台中，单击**菜单**图标，然后单击**基础架构** > **存储** > **{{site.data.keyword.blockstorageshort}}**。
-2. 从列表中选择 LUN，然后单击**操作** > **修改 LUN**。
-3. 在**存储器 IOPS 选项**下，进行新的选择：
+2. 从列表中选择 iSCSI 卷，然后单击 **...** > **修改 LUN**。
+3. 在**调整存储器 IOPS** 下，进行新的选择：
     - 对于耐久性（分层 IOPS），选择存储器中大于 0.25 IOPS/GB 的 IOPS 层。可以随时增大 IOPS 层。但是，一个月只能减小一次。
     - 对于性能（分配的 IOPS），通过输入 100 到 48,000 IOPS 之间的值，为存储器指定新的 IOPS 选项。
 
 请务必查看订购表单中根据大小所需的任何特定边界。
     {:tip}
-4. 复查您的选择和新的定价。
+4. 复查您的选择和定价详细信息。
 5. 单击**我已阅读主服务协议...** 复选框，然后单击**下订单**。
 6. 新的存储器分配会在几分钟后可用。
 
