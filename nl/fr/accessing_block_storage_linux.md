@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux
 {: #mountingLinux}
 
-Ces instructions s'appliquent principalement à RHEL6 et Centos6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
+Ces instructions s'appliquent principalement à RHEL6 et CentOS6. Des remarques pour les autres systèmes d'exploitation ont été ajoutées, mais cette documentation **NE COUVRE PAS** toutes les distributions Linux. Si vous utilisez d'autres systèmes d'exploitation Linux, consultez la documentation de votre distribution spécifique et vérifiez que le multi-accès prend en charge ALUA pour la priorité des chemins.
 {:note}
 
 Par exemple, pour obtenir des informations supplémentaires spécifiques à Ubuntu, voir [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} et [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
@@ -29,9 +29,14 @@ Par exemple, pour obtenir des informations supplémentaires spécifiques à Ubun
 Avant de commencer, assurez-vous que l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}} a été précédemment autorisé via la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 {:important}
 
-1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**.
-2. Cliquez sur **Hôte autorisé**.
-3. Dans la liste, sélectionnez l'hôte ou les hôtes qui peuvent accéder au volume et cliquez sur **Soumettre**.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dans le **menu**, sélectionnez **Infrastructure classique**.
+2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Recherchez le nouveau volume puis cliquez sur **...**.
+4. Cliquez sur **Hôte autorisé**.
+5. Pour voir la liste des adresses IP ou des périphériques disponibles, indiquez tout d'abord si vous souhaitez autoriser l'accès en fonction des types de périphérique ou des sous-réseaux.
+   - Si vous choisissez Périphériques, vous pouvez sélectionner Serveur bare metal ou Instances de serveur virtuel.
+   - Si vous choisissez Adresse IP, sélectionnez tout d'abord le sous-réseau dans lequel se trouve votre hôte.
+6. Dans la liste filtrée, sélectionnez un ou plusieurs hôtes pouvant accéder au volume puis cliquez sur **Sauvegarder**.
 
 Vous pouvez également autoriser l'hôte via l'interface SLCLI.
 ```
@@ -52,7 +57,7 @@ Options:
 
 Exécutez la procédure suivante pour connecter une instance de calcul {{site.data.keyword.cloud}} basée Linux à un numéro d'unité logique d'interface iSCSI MPIO.
 
-Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions peuvent être obtenus depuis l'écran **Détails {{site.data.keyword.blockstorageshort}}** de la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
+Le nom qualifié iSCSI hôte, le nom d'utilisateur, le mot de passe et l'adresse cible qui sont référencés dans les instructions sont disponibles sur l'écran des détails de **{{site.data.keyword.blockstorageshort}}** de la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 Il est recommandé d'exécuter le trafic de stockage sur un réseau local virtuel qui ignore le pare-feu. L'exécution du trafic de stockage via des pare-feu logiciels augmente le temps d'attente et a un impact négatif sur les performances de stockage.
@@ -372,11 +377,11 @@ Procédez comme indiqué ci-après pour créer un système de fichiers sur le vo
 | `Select partition 1.` | Sélectionne la partition 1 pour la configurer en tant que type spécifique. |
 | `Hex code: 83` | Sélectionne Linux comme type (83 est le code hexadécimal pour Linux). ** |
 | `Command: w` | Ecrit les informations de la nouvelle partition sur le disque. ** |
-{: caption="Table 1 - Le tableau de la commande <codefdisk</code> contient les commandes à gauche et les résultats attendus à droite." caption-side="top"}
+{: caption="Table 1 - Le tableau de la commande <code>fdisk</code> contient les commandes à gauche et les résultats attendus à droite." caption-side="top"}
 
-(`*`)Saisissez m pour obtenir de l'aide.
+(`*`) Saisissez m pour obtenir de l'aide.
 
-(`**`)Saisissez L pour obtenir la liste des codes hexadécimaux.
+(`**`) Saisissez L pour obtenir la liste des codes hexadécimaux.
 
 ### Création d'un système de fichiers avec `parted`
 {: #parted}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -24,7 +24,7 @@ Vous pouvez gérer vos volumes {{site.data.keyword.blockstoragefull}} via la [co
 Vous pouvez afficher un récapitulatif des principales informations du numéro d'unité logique de stockage sélectionné, notamment les fonctions supplémentaires d'instantané et de réplication qui ont été ajoutées au stockage.
 
 1. Cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}**.
-2. Cliquez sur le nom LUN approprié dans la liste.
+2. Cliquez sur le nom de volume approprié dans la liste.
 
 Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
 ```
@@ -42,9 +42,13 @@ Les hôtes "autorisés" sont des hôtes auxquels des droits d'accès à un numé
 Vous pouvez autoriser et connecter des hôtes qui se trouvent dans le même centre de données que votre stockage. Si vous pouvez disposer de plusieurs comptes, vous ne pouvez pas autoriser un hôte à partir d'un compte à accéder à votre stockage sur un autre compte.
 {:important}
 
-1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique.
-2. Faites défiler la page jusqu'à la section** Hôtes autorisés**.
-3. A droite, cliquez sur **Hôte autorisé**. Sélectionnez les hôtes qui peuvent accéder à ce numéro d'unité logique spécifique.
+2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Recherchez le volume puis cliquez sur **...**.
+4. Cliquez sur **Hôte autorisé**.
+5. Pour voir la liste des adresses IP ou des périphériques disponibles, indiquez tout d'abord si vous souhaitez autoriser l'accès en fonction des types de périphérique ou des sous-réseaux.
+   - Si vous choisissez Périphériques, vous pouvez sélectionner Serveur bare metal ou Instances de serveur virtuel.
+   - Si vous choisissez Adresse IP, sélectionnez tout d'abord le sous-réseau dans lequel se trouve votre hôte.
+6. Dans la liste filtrée, sélectionnez un ou plusieurs hôtes pouvant accéder au volume puis cliquez sur **Sauvegarder**.
 
 Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
 ```
@@ -61,7 +65,7 @@ Options:
 
 ## Affichage de la liste des hôtes autorisés à accéder à un numéro d'unité logique {{site.data.keyword.blockstorageshort}}
 
-1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique.
+1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}** puis sur le nom de votre volume.
 2. Faites défiler l'écran jusqu'à la section **Hôtes autorisés**.
 
 Cette section affiche la liste des hôtes actuellement autorisés à accéder au numéro d'unité logique. Sont également affichées les informations d'authentification nécessaires pour établir une connexion : nom d'utilisateur, mot de passe et nom qualifié iSCSI hôte. L'adresse cible figure sur la page contenant les détails du stockage. Pour NFS, elle est décrite sous forme de DNS, tandis que pour iSCSI, il s'agit de l'adresse IP du portail cible Discover.
@@ -113,9 +117,9 @@ Vous pouvez révoquer l'accès à partir de la **Liste des unités** ou de la **
 
 ### Révocation de l'accès à partir de la liste des unités
 
-1. Cliquez sur **Unités**, **Liste des unités** depuis la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external} puis cliquez deux fois sur l'unité appropriée.
+1. Dans la console [{{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}, cliquez sur l'icône Infrastructure classique. Cliquez ensuite sur **Périphériques**, **Liste de terminaux** puis cliquez deux fois sur l'élément approprié.
 2. Sélectionnez l'onglet **Stockage**.
-3. Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). En regard du nom LUN, sélectionnez **Action** puis cliquez sur **Révoquer le droit d'accès**.
+3. Vous voyez ensuite s'afficher la liste des numéros d'unité logique de stockage auxquels cet hôte spécifique a accès. La liste est regroupée par type de stockage (bloc, fichier, autre). En regard du nom du volume, cliquez sur **Actions** puis sur **Révoquer le droit d'accès**.
 4. Confirmez l'action car elle ne peut pas être annulée. Cliquez sur **Oui** pour révoquer l'accès d'un numéro d'unité logique, ou sur **Non** pour annuler l'action.
 
 Si vous souhaitez déconnecter plusieurs numéros d'unité logique d'un hôte spécifique, vous devez répéter l'action Révoquer le droit d'accès pour chaque LUN.
@@ -155,13 +159,13 @@ Pour ce faire, vous devez d'abord révoquer l'accès à partir de tous les hôte
 {:important}
 
 1. Cliquez sur **Stockage**, **{{site.data.keyword.blockstorageshort}}**.
-2. Cliquez sur **Actions** en regard du numéro d'unité logique à annuler, puis sélectionnez **Annuler stockage par blocs**.
+2. Sélectionnez le volume à annuler, cliquez sur **Actions** et sélectionnez l'option d'annulation de {{site.data.keyword.blockstorageshort}}****.
 3. Confirmez l'annulation du numéro d'unité logique immédiatement ou à la date anniversaire de sa mise à disposition.
 
    Si vous sélectionnez l'option d'annulation du numéro d'unité logique à sa date anniversaire, vous pouvez annuler la demande d'annulation avant sa date anniversaire.
    {:tip}
 4. Cliquez sur **Continuer** ou sur **Fermer**.
-5. Cochez la case d'accusé de réception et cliquez sur **Confirmer**.
+5. Cochez la case d'accusé de réception**** puis cliquez sur **Confirmer**.
 
 Vous pouvez également utiliser la commande suivante dans l'interface SLCLI.
 ```

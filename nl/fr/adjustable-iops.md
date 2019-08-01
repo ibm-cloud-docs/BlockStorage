@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -45,14 +45,14 @@ Si la réplication est activée sur le volume, la réplique est automatiquement 
 {: #adjustingsteps}
 
 1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}. Depuis la console {{site.data.keyword.cloud}}, cliquez sur l'icône de **menu**, puis sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
-3. Sous les options d'IOPS de stockage, effectuez une nouvelle sélection :
+2. Choisissez le volume iSCSI dans la liste, cliquez sur **...** puis sélectionnez l'option de modification d'unité logique****
+3. Sous les options de réglage d'IOPS de stockage****, effectuez une nouvelle sélection :
     - Pour Endurance (IOPS hiérarchisées), sélectionnez un niveau d'IOPS supérieur à 0,25 IOPS/Go de votre stockage. Vous pouvez augmenter le niveau d'IOPS à tout moment. Toutefois, vous ne pouvez le diminuer qu'une seule fois par mois.
     - Pour Performance (IOPS allouées), indiquez la nouvelle option d'IOPS pour votre stockage en saisissant une valeur comprise entre 100 et 48 000 IOPS.
 
     Prenez soin de tenir compte des limites spécifiques requises par la taille dans le formulaire de commande.
     {:tip}
-4. Vérifiez votre sélection et la nouvelle tarification.
+4. Passez en revue votre sélection et les détails de la tarification.
 5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
 6. Votre nouvelle allocation de stockage est disponible en quelques minutes.
 

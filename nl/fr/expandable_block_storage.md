@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -48,7 +48,7 @@ Les limitations de taille existantes pour le stockage {{site.data.keyword.blocks
 {: #resizingsteps}
 
 1. Depuis la console {{site.data.keyword.cloud}}, cliquez sur l'icône de **menu**. Cliquez ensuite sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Sélectionnez le numéro d'unité logique dans la liste et cliquez sur **Actions** > **Modifier le numéro d'unité logique**.
+2. Sélectionnez le volume iSCSI dans la liste, cliquez sur **...** puis sélectionnez l'option de modification d'unité logique****
 3. Saisissez la nouvelle taille du stockage en Go.
 4. Passez en revue votre sélection et la nouvelle tarification.
 5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service...** et cliquez sur **Valider la commande**.

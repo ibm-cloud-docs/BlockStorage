@@ -1,4 +1,4 @@
----
+﻿---
 
 copyright:
   years: 2014, 2019
@@ -54,7 +54,7 @@ La taille de bloc utilisée par votre application a une incidence directe sur le
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="Le tableau 1 présente des exemples de l'impact de la taille de bloc et des opérations d'entrée-sortie par seconde sur le débit.<br/Taille E-S moyennes x IOPS = Débit en Mo/s." caption-side="top"}
+{: caption="Le tableau 1 présente des exemples de l'impact de la taille de bloc et des opérations d'entrée-sortie par seconde sur le débit.<br/>Taille E-S moyennes x IOPS = Débit en Mo/s." caption-side="top"}
 
 ### Hôtes autorisés
 

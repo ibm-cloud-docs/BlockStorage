@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ Le chemin de migration préféré consiste à se connecter simultanément aux de
 
 Nous supposons que votre LUN non chiffré est déjà connecté à votre hôte. Si tel n'est pas le cas, suivez les instructions qui s'appliquent à votre système d'exploitation pour accomplir cette tâche :
 
-- [Connexion à des numéros d'unité logique (LUN) sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Connexion à des numéros d'unité logique (LUN) sous CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connexion à des numéros d'unité logique (LUN) sous Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-Tous les volumes {{site.data.keyword.blockstorageshort}} améliorés mis à disposition dans ces centres de données ont un point de montage différent de celui des volumes non chiffrés. Pour vérifier que vous utilisez le bon point de montage pour les deux types de volume de stockage, vous pouvez afficher les informations sur le point de montage sur la page **Détails du volume** de la console. Vous pouvez également accéder au point de montage correct via un appel API : `SoftLayer_Network_Storage::getNetworkMountAddress()`.
-{:tip}
+- [Connexion de volumes de stockage sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connexion de volumes de stockage sous CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connexion de volumes de stockage sous Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## Création d'un {{site.data.keyword.blockstorageshort}}
 
@@ -46,9 +43,14 @@ Votre nouveau stockage est disponible pour montage en quelques minutes. Il figur
 
 Les hôtes "autorisés" sont des hôtes auxquels des droits d'accès à un volume ont été accordés. Sans autorisation d'hôte, vous ne pouvez pas accéder au stockage ni l'utiliser depuis votre système. L'autorisation d'un hôte pour accéder à votre volume génère le nom d'utilisateur, le mot de passe et le nom qualifié iSCSI, qui est nécessaire pour monter la connexion iSCSI d'E-S multi-accès.
 
-1. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**, puis cliquez sur votre nom de numéro d'unité logique.
-2. Faites défiler la page jusqu'à **Hôtes autorisés**.
-3. A droite, cliquez sur **Hôte autorisé**. Sélectionnez les hôtes qui peuvent accéder au volume.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dans le **menu**, sélectionnez **Infrastructure classique**.
+2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Recherchez le nouveau volume puis cliquez sur **...**.
+4. Sélectionnez **Hôte autorisé**.
+5. Pour voir la liste des adresses IP ou des périphériques disponibles, indiquez tout d'abord si vous souhaitez autoriser l'accès en fonction des types de périphérique ou des sous-réseaux.
+   - Si vous choisissez Périphériques, vous pouvez sélectionner Serveur bare metal ou Serveurs virtuels.
+   - Si vous choisissez Adresse IP, sélectionnez tout d'abord le sous-réseau dans lequel se trouve votre hôte.
+6. Dans la liste filtrée, sélectionnez un ou plusieurs hôtes pouvant accéder au volume puis cliquez sur **Sauvegarder**.
 
 
 ## Instantanés et réplication
@@ -56,6 +58,7 @@ Les hôtes "autorisés" sont des hôtes auxquels des droits d'accès à un volum
 Des instantanés et une réplication sont-ils établis pour votre numéro d'unité logique d'origine ? Si tel est le cas, vous devrez configurer la réplication, l'espace d'image instantanée et créer des plannings d'instantané pour le nouveau numéro d'unité logique avec les mêmes paramètres que le volume d'origine.
 
 Si votre centre de données cible de réplication n'a pas encore été mis à niveau, vous ne pouvez pas établir la réplication pour le nouveau volume tant que le centre de données n'est pas mis à niveau.
+{:note}
 
 
 ## Migration de vos données

@@ -56,7 +56,6 @@ Des numéros d'unité logique {{site.data.keyword.blockstorageshort}} peuvent ê
 - Effectuez la mise à disposition avec des niveaux **Endurance** offrant des niveaux de performance prédéfinis et d'autres fonctionnalités telles que les instantanés et la réplication.
 - Créez un environnement de **Performance** haute puissance avec des opérations d'entrée-sortie par seconde (IOPS) allouées.
 
-
 ### Mise à disposition avec des niveaux Endurance
 {: #provendurance}
 

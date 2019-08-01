@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## Combien d'instances peuvent partager l'utilisation d'un volume {{site.data.keyword.blockstorageshort}} ?
 {: faq}
 
-Le nombre d'autorisations par volume de blocs est limité par défaut à 8. Cela signifie que jusqu'à 8 hôtes peuvent être autorisés à accéder au numéro d'unité logique Block Storage. Pour augmenter la limite, contactez votre commercial.
+Le nombre d'autorisations par volume de blocs est limité par défaut à 8. Cela signifie que jusqu'à 8 hôtes peuvent être autorisés à accéder au numéro d'unité logique Block Storage. Les clients qui utilisent {{site.data.keyword.blockstorageshort}} dans leur déploiement VMware peuvent demander à ce que la limite d'autorisation soit augmentée jusqu'à 64. Pour demander une augmentation de limite, contactez votre ingénieur commercial ou créez un [cas de support](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## Combien de volumes peuvent être commandés ?
 {: faq}

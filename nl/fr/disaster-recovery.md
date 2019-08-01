@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -25,13 +25,13 @@ En cas de défaillance catastrophique ou d'un incident entraînant une indisponi
 
 1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external} et cliquez sur l'icône **menu** dans l'angle supérieur gauche. Sélectionnez **Infrastructure classique**.
 2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Cliquez sur la réplique du numéro d'unité logique dans la liste pour afficher la page **Détails** correspondante.
-4. Sur la page **Détails**, faites défiler l'écran et sélectionnez un instantané existant, puis cliquez sur **Actions** > **Dupliquer**.
+3. Cliquez sur la réplique du numéro d'unité logique dans la liste pour afficher la page des détails de **{{site.data.keyword.blockstorageshort}}**.
+4. Sur la page des détails de **{{site.data.keyword.blockstorageshort}}**, faites défiler l'écran et sélectionnez un instantané existant puis cliquez sur **Actions** > **Dupliquer**.
 5. Apportez les mises à jour nécessaires à la capacité (pour augmenter la taille) ou aux opérations d'entrée-sortie par seconde pour le nouveau volume.
 6. Mettez à jour l'espace d'instantané pour le nouveau volume, si besoin.
 7. Cliquez sur **Continuer** pour passer votre commande du doublon.
 
-Dès que le volume est créé, il peut être associé à un hôte et effectuer des opérations d'écriture/de lecture. Pendant que les données sont copiées depuis le volume d'origine vers le la page des détails indique que la duplication est en cours. Une fois le processus de duplication terminé, le nouveau volume devient indépendant du volume d'origine ; il peut être géré avec des instantanés et des réplications comme un volume normal.
+Dès que le volume est créé, il peut être associé à un hôte et effectuer des opérations d'écriture/de lecture. Pendant que les données sont copiées depuis le volume d'origine vers le doublon, la page des détails indique que la duplication est en cours. Une fois le processus de duplication terminé, le nouveau volume devient indépendant du volume d'origine ; il peut être géré avec des instantanés et des réplications comme un volume normal.
 
 ## Reprise par restauration sur le site principal d'origine
 
@@ -53,8 +53,8 @@ Une fois la réplication terminée, vous devez créer un volume dupliqué de la 
 {:important}
 
 1. Revenez dans **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Cliquez sur la réplique du numéro d'unité logique dans la liste pour afficher la page **Détails** correspondante.
-3. Sur la page **Détails**, faites défiler l'écran et sélectionnez un instantané existant, puis cliquez sur **Actions** > **Dupliquer**.
+2. Cliquez sur la réplique du numéro d'unité logique dans la liste pour afficher la page des détails de **{{site.data.keyword.blockstorageshort}}**.
+3. Sur la page des détails de **{{site.data.keyword.blockstorageshort}}**, faites défiler l'écran et sélectionnez un instantané existant puis cliquez sur **Actions** > **Dupliquer**.
 4. Apportez les mises à jour nécessaires à la capacité (pour augmenter la taille) ou aux opérations d'entrée-sortie par seconde pour le nouveau volume.
 5. Mettez à jour l'espace d'instantané pour le nouveau volume, si besoin.
 6. Cliquez sur **Continuer** pour passer votre commande du doublon.

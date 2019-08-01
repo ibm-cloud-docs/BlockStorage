@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 Avant de commencer, assurez-vous que l'hôte qui accède au volume {{site.data.keyword.blockstoragefull}} a été autorisé via la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
-1. Sur la page de liste {{site.data.keyword.blockstorageshort}}, repérez le nouveau volume et cliquez sur **Actions**. Cliquez sur **Hôte autorisé**.
-2. Dans la liste, sélectionnez l'hôte ou les hôtes qui doivent avoir accès au volume et cliquez sur **Soumettre**.
+1. Connectez-vous à la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dans le **menu**, sélectionnez **Infrastructure classique**.
+2. Cliquez sur **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Recherchez le nouveau volume puis cliquez sur **...**.
+4. Cliquez sur **Hôte autorisé**.
+5. Pour voir la liste des adresses IP ou des périphériques disponibles, indiquez tout d'abord si vous souhaitez autoriser l'accès en fonction des types de périphérique ou des sous-réseaux.
+   - Si vous choisissez Périphériques, vous pouvez sélectionner Serveur bare metal ou Instances de serveur virtuel.
+   - Si vous choisissez Adresse IP, sélectionnez tout d'abord le sous-réseau dans lequel se trouve votre hôte.
+6. Dans la liste filtrée, sélectionnez un ou plusieurs hôtes pouvant accéder au volume puis cliquez sur **Sauvegarder**.
 
 Vous pouvez également autoriser l'hôte via l'interface SLCLI.
 ```
@@ -40,7 +46,7 @@ Options:
 ## Montage de volumes {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-Exécutez la procédure suivante pour connecter une instance de calcul {{site.data.keyword.cloud}} basée Windows à un numéro d'unité logique d'interface iSCSI MPIO. L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
+Procédez comme suit pour connecter une instance de calcul {{site.data.keyword.cloud}} de type Windows à un volume iSCSCI MPIO. L'exemple se fonde sur Windows Server 2012. Les étapes peuvent être ajustées pour les autres versions de Windows en fonction de la documentation du fournisseur du système d'exploitation.
 
 ### Configuration de la fonction MPIO
 
@@ -67,7 +73,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
     - Cliquez sur **Modifier** pour remplacer les valeurs existantes par votre nom qualifié iSCSI.
     ![Propriétés de l'initiateur iSCSI](/images/iSCSI.png)
 
-      Le nom qualifié iSCSI peut être obtenu à partir de l'écran des détails de {{site.data.keyword.blockstorageshort}}, sur la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
+      Le nom qualifié iSCSI est disponible sur l'écran des détails de **{{site.data.keyword.blockstorageshort}}** de la console [{{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
     - Cliquez sur **Découverte**, puis sur **Découvrir un portail**.
@@ -97,7 +103,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
    ![Activer CHAP](/images/chap_0.png)
 4. Saisissez le nom d'utilisateur dans la zone Nom et le mot de passe dans la zone Secret de la cible.
 
-   Les valeurs figurant dans les zones Nom et Secret de la cible peuvent être obtenues à partir de l'écran Détails {{site.data.keyword.blockstorageshort}}.
+   Les valeurs figurant dans les zones Nom et Secret de la cible sont disponibles sur l'écran des détails de **{{site.data.keyword.blockstorageshort}}.
    {:tip}
 5. Cliquez sur **OK** jusqu'à ce que la fenêtre **Propriétés de l'initiateur iSCSI** s'affiche. Le statut de la cible dans la section **Cibles découvertes** passe d'**Inactif** à **Connecté**.
 ![Statut Connecté](/images/Connected.png)
@@ -125,7 +131,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
    - Dans la liste IP de l'initiateur, sélectionnez l'adresse IP de l'hôte. Dans ce cas, vous connectez deux interfaces réseau sur le périphérique de stockage à une seule interface réseau sur l'hôte. Par conséquent, cette interface est la même que celle qui a été fournie pour la première session.
    - Dans la liste IP du portail cible, sélectionnez l'adresse IP de la seconde interface de données activée sur le périphérique de stockage.
 
-     La deuxième adresse IP figure dans l'écran des détails de {{site.data.keyword.blockstorageshort}}, sur la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+     La deuxième adresse IP figure sur l'écran des détails de {{site.data.keyword.blockstorageshort}} de la [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Cochez la case **Activer l'ouverture de session CHAP**.
    - Entrez les valeurs des zones Nom et Secret de la cible obtenues à partir de la console et cliquez sur **OK**.
@@ -135,7 +141,7 @@ Dans Windows Server 2008, l'ajout de la prise en charge iSCSI permet à Microsof
    Si votre hôte comporte plusieurs interfaces que vous souhaitez voir se connecter au stockage ISCSI, vous pouvez configurer une autre connexion avec l'adresse IP de l'autre carte d'interface réseau dans la zone IP de l'initiateur. Toutefois, prenez soin d'autoriser la seconde adresse IP de l'initiateur sur la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external} avant d'essayer d'établir la connexion.
    {:note}
 9. Dans la fenêtre Propriétés, cliquez sur **Périphériques** pour ouvrir la fenêtre correspondante. Le nom de l'interface de périphérique débute par `mpio`. <br/>
-  ![Devices](/images/Devices.png)
+  ![Périphériques](/images/Devices.png)
 
 10. Cliquez sur **MPIO** pour ouvrir la fenêtre **Détails du périphérique**. Elle vous permet de choisir les règles d'équilibrage de charge pour MPIO et vous indique les chemins d'accès à l'interface iSCSI. Dans cet exemple, deux chemins sont disponibles pour MPIO avec une règle d'équilibrage de charge Round Robin avec sous-ensemble.
   ![Boîte de dialogue Détails du périphérique affichant deux chemins d'accès disponibles pour MPIO avec une règle d'équilibrage de charge Round Robin avec sous-ensemble](/images/DeviceDetails.png)

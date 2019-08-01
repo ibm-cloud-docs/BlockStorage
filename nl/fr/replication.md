@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -42,7 +42,7 @@ Pour obtenir la liste complète de la disponibilité des centres de données et 
 Les réplications fonctionnent selon un planning d'instantané. Vous devez d'abord configurer un espace d'instantané et un planning d'instantané pour le volume source avant de pouvoir répliquer. Si vous tentez de configurer la réplication alors que l'espace d'instantané ou le planning d'instantané n'existe pas, vous serez invité à acheter davantage d'espace ou à configurer un planning. Les réplications sont gérées sous **Stockage**, **{{site.data.keyword.blockstorageshort}}** sur la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Cliquez sur votre volume de stockage.
-2. Cliquez sur **Réplique**, puis sur **Acheter une réplication**.
+2. Cliquez sur **Réplique** puis sur l'option permettant d'acheter une réplication****.
 3. Sélectionnez le planning d'instantané existant que vous souhaitez que votre réplication suive. La liste contient tous vos plannings d'instantané actifs. <br />
    Vous ne pouvez sélectionner qu'un seul planning, même si vous combinez des réplications horaires, quotidiennes et hebdomadaires. Tous les instantanés qui ont été capturés depuis le cycle de réplication précédent sont répliqués quel que soit leur planning d'origine.<br />Si vous n'avez pas configuré d'instantanés, vous êtes invité à le faire avant de pouvoir commander la réplication. Pour plus d'informations, voir [Gestion des instantanés](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
@@ -77,20 +77,20 @@ Cependant, si vous voulez modifier l'heure à laquelle la réplication selon un 
 Votre espace d'image instantanée principal et votre espace de réplique doivent être identiques. Si vous modifiez l'espace sur l'onglet **Principal** ou **Réplique**, l'espace est automatiquement ajouté à vos centres de données source et de destination. L'augmentation de l'espace d'image instantanée déclenche également une mise à jour immédiate de la réplication.
 
 1. Cliquez sur **Actions** sur l'onglet **Principal** ou **Réplique**.
-2. Sélectionnez **Ajouter de l'espace d'image instantanée supplémentaire**.
+2. Sélectionnez **Modifier l'espace d'instantané**.
 3. Sélectionnez la taille de stockage dans la liste, puis cliquez sur **Continuer**.
 4. Entrez un **Code Promo** le cas échéant et cliquez sur **Recalculer**. Les autres zones de la boîte de dialogue contiennent les valeurs par défaut.
 5. Cochez la case **J'ai lu et j'accepte l'intégralité du Contrat cadre de service**, puis cliquez sur **Valider la commande**.
 
 
-## Affichage des volumes de réplique dans la liste de volumes
+## Affichage des volumes de réplique dans la liste {{site.data.keyword.blockstorageshort}}
 
-Vous pouvez afficher vos volumes de réplication sur la page {{site.data.keyword.blockstorageshort}} sous **Stockage > {{site.data.keyword.blockstorageshort}}**. Le **Nom LUN** contient le nom du volume principal suivi de REP. Le **Type** est Endurance ou Performance – Réplique. L'**Adresse cible** est Sans objet car le volume de réplique n'est pas monté sur le centre de données de réplique, et le **Statut** indique Inactif.
+Vous pouvez afficher vos volumes de réplication sur la page {{site.data.keyword.blockstorageshort}} sous **Stockage > {{site.data.keyword.blockstorageshort}}**. Les volumes d'origine et les volumes de réplique sont regroupés au même emplacement. Le **Nom LUN** contient le nom du volume principal suivi de REP. Le **Type** est Endurance ou Performance – Réplique.
 
 
 ## Affichage des détails d'un volume répliqué dans le centre de données de la réplique
 
-Vous pouvez afficher les détails du volume de réplique sur l'onglet **Réplique** sous **Stockage**, **{{site.data.keyword.blockstorageshort}}**. Une autre option consiste à sélectionner le volume de réplique à partir de la page **{{site.data.keyword.blockstorageshort}}** et à cliquer sur l'onglet **Réplique**.
+Vous pouvez afficher les détails du volume de réplique en cliquant sur l'onglet **Réplique** lorsque les détails du volume d'origine sont affichés. Vous pouvez également sélectionner le volume de réplique dans la liste **{{site.data.keyword.blockstorageshort}}** et cliquer sur l'onglet **Réplique**. 
 
 
 ## Augmentation de l'espace d'image instantanée dans le centre de données de réplique lorsque l'espace d'image instantanée est augmenté dans le centre de données principal.
@@ -120,7 +120,7 @@ Vous pouvez créer des doublons à partir de volumes principaux et de volumes de
 
 Les volumes dupliqués sont accessibles par un hôte en lecture/écriture dès la mise à disposition du stockage. Toutefois, les instantanés et la réplication ne sont pas autorisés tant que la copie des données depuis le volume d'origine vers le doublon n'est pas terminée.
 
-Pour plus d'informations, voir [Création d'un volume de blocs en double](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
+Pour plus d'informations, voir la rubrique présentant la [création d'un élément de type {{site.data.keyword.blockstorageshort}} en double](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Utilisation de répliques afin d'effectuer un basculement en cas de sinistre
 
@@ -145,14 +145,16 @@ Vous pouvez annuler la réplication immédiatement ou à la date anniversaire, c
 
 Lorsqu'un volume principal est annulé, le planning de réplication et le volume figurant dans le centre de données de réplique sont supprimés. Les répliques sont annulées à partir de la page {{site.data.keyword.blockstorageshort}}.
 
- 1. Mettez en évidence votre volume sur la page **{{site.data.keyword.blockstorageshort}}**.
- 2. Cliquez sur **Actions** et sélectionnez **Annuler stockage par bloc**.
+ 1. Cliquez sur le nom du volume sur la page **{{site.data.keyword.blockstorageshort}}**.
+ 2. Sur la page des détails de **{{site.data.keyword.blockstorageshort}}**, cliquez sur **Actions** et sélectionnez **Annuler la réplique**.
  3. Choisissez le moment de l'annulation du volume, Choisissez **Immédiatement** ou **Date anniversaire**, puis cliquez sur **Continuer**.
- 4. Cliquez sur **Je comprends les risques de perte de données liés à cette annulation** puis sur **Annuler**.
+ 4. Sélectionnez la case à cocher pour indiquer que vous avez compris que l'annulation du volume peut entraîner une perte de données.
+ 5. Cliquez sur **Annuler la réplique**.
 
- Vous pouvez prévoir que le numéro d'unité logique reste visible dans votre liste de stockage pour au moins 24 heures (annulation immédiate) ou jusqu'à sa date anniversaire. Certaines fonctionnalités ne seront plus disponibles, mais le volume restera visible tant qu'il n'aura pas été récupéré. Toutefois, la facturation s'interrompt immédiatement après que vous avez cliqué sur Supprimer/Annuler.
+ Vous pouvez prévoir que le numéro d'unité logique reste visible dans votre liste de stockage pour au moins 24 heures (annulation immédiate) ou jusqu'à sa date anniversaire. Certaines fonctionnalités ne seront plus disponibles, mais le volume restera visible tant qu'il n'aura pas été récupéré. Toutefois, la facturation s'interrompt immédiatement une fois que vous avez cliqué sur Supprimer/Annuler la réplique.
 
  Des répliques actives peuvent bloquer la récupération du volume de stockage. Assurez-vous que le volume n'est plus monté, que les autorisations d'hôte sont révoquées, et que la réplication a été annulée avant de tenter d'annuler le volume d'origine.
+ {:important}
 
 
 ## Commandes liées à la réplication dans SLCLI

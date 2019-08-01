@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -48,37 +48,41 @@ Il existe deux manières de créer un volume dupliqué via la [console {{site.da
 ## Création d'un doublon à partir d'un volume spécifique dans la liste de stockage
 
 1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}} sur la console {{site.data.keyword.cloud_notm}} en cliquant sur **Infrastructure** > **Stockage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Sélectionnez un volume dans la liste et cliquez sur **Actions** > **Doublon du numéro d'unité logique/volume**.
+2. Choisissez un volume dans la liste, cliquez sur **...** puis sélectionnez l'option de duplication de numéro d'unité logique****
 3. Choisissez une option d'instantané :
     - Si vous effectuez votre commande à partir d'un volume **qui n'est pas un volume de réplique**,
-      - Sélectionnez **Créer à partir d'un nouvel instantané** pour créer un nouvel instantané qui sera utilisé pour le volume dupliqué. Utilisez cette option s'il n'existe aucun instantané pour votre volume ou si vous souhaitez créer un doublon à ce point de cohérence.<br/>
-      - Sélectionnez **Créer à partir du dernier instantané** pour créer un doublon à partir du dernier instantané existant pour ce volume.
+      - Sélectionnez l'option de création d'un nouvel instantané à cloner – cette action crée un instantané à utiliser pour le doublon. Utilisez cette option s'il n'existe aucun instantané pour votre volume ou si vous souhaitez créer un doublon à ce point de cohérence.<br/>
+      - Sélectionnez l'option d'utilisation du dernier instantané pour cloner le numéro d'unité logique**** – cette action crée un doublon à partir du dernier instantané de ce volume.
     - Si vous effectuez votre commande à partir d'un volume de **réplique**, l'unique option d'instantané consiste à utiliser le dernier instantané disponible.
 4. Le type de stockage et l'emplacement restent identiques à ce qui est indiqué pour le volume d'origine.
 5. Facturation à l'heure ou au mois - vous pouvez choisir de mettre à disposition le numéro d'unité logique du doublon avec une facturation à l'heure ou au mois. Le type de facturation pour le volume d'origine est automatiquement sélectionné. Si vous voulez en choisir un autre pour votre stockage en double, vous pouvez le sélectionner ici.
-5. Si vous le souhaitez, vous pouvez spécifier des IOPS ou un niveau d'IOPS pour le nouveau volume. Les IOPS du volume d'origine sont définies par défaut. Les combinaisons de performances et de taille disponibles sont affichées.
-    - Si le volume d'origine a un niveau Endurance avec 0,25 IOPS, vous ne pourrez pas effectuer de nouvelle sélection.
-    - Si votre volume d'origine est un niveau Endurance de 2, 4 ou 10 IOPS, vous pouvez choisir l'un de ces niveaux pour le nouveau volume.
 6. Vous pouvez mettre à jour la taille du nouveau volume pour qu'elle soit supérieure à celle du volume d'origine. La taille du volume d'origine est définie par défaut.
 
    Le redimensionnement de {{site.data.keyword.blockstorageshort}} est soumis à la limite de 10 fois la taille du volume d'origine.
    {:tip}
-7. Vous pouvez mettre à jour l'espace d'instantané pour le nouveau volume en ajoutant plus, moins ou pas du tout d'espace d'instantané. L'espace d'instantané du volume d'origine est défini par défaut.
-8. Cliquez sur **Continuer** pour passer commande.
+7. Si vous le souhaitez, vous pouvez spécifier des IOPS ou un niveau d'IOPS pour le nouveau volume. Les IOPS du volume d'origine sont définies par défaut. Les combinaisons de performances et de taille disponibles sont affichées.
+       - Si le volume d'origine a un niveau Endurance avec 0,25 IOPS, vous ne pourrez pas effectuer de nouvelle sélection.
+       - Si votre volume d'origine est un niveau Endurance de 2, 4 ou 10 IOPS, vous pouvez choisir l'un de ces niveaux pour le nouveau volume.
+8. Vous pouvez mettre à jour l'espace d'instantané pour le nouveau volume en ajoutant plus, moins ou pas du tout d'espace d'instantané.
+9. Vous pouvez sélectionner le type de système d'exploitation.
+10. Cochez la case à cocher si vous avez lu et que vous acceptez le contrat principal de services.
+11. Cliquez sur **Passer une commande** pour continuer.
 
 ## Création d'un doublon à partir d'un instantané spécifique
 
 1. Accédez à votre liste de {{site.data.keyword.blockstorageshort}}.
 2. Cliquez sur un numéro d'unité logique dans la liste pour afficher la page des détails. (Il peut s'agir d'un volume de réplique ou non).
 3. Faites défiler l'écran et sélectionnez un instantané existant sur la page des détails, puis cliquez sur **Actions** > **Dupliquer**.   
-4. Le type de stockage (Endurance ou Performance) et l'emplacement restent identiques à ce qui est indiqué pour le volume d'origine.
-5. Les combinaisons de performances et de taille disponibles sont affichées. Les IOPS du volume d'origine sont définies par défaut. Vous pouvez spécifier des IOPS ou un niveau d'IOPS pour le nouveau volume.
-    - Si le volume d'origine a un niveau Endurance avec 0,25 IOPS, vous ne pourrez pas effectuer de nouvelle sélection.
-    - Si le volume d'origine a un niveau Endurance avec 2, 4 ou 10 IOPS, vous pouvez indiquer n'importe lequel de ces niveaux pour le nouveau volume.
+4. L'emplacement est identique à celui du volume d'origine.
+5. Vous pouvez choisir de mettre à disposition le numéro d'unité logique du doublon avec une facturation à l'heure ou au mois. Le type de facturation pour le volume d'origine est automatiquement sélectionné. Si vous voulez en choisir un autre pour votre stockage en double, vous pouvez changer la sélection.
 6. Vous pouvez mettre à jour la taille du nouveau volume pour qu'elle soit supérieure à celle du volume d'origine. La taille du volume d'origine est définie par défaut.
 
    Le redimensionnement de {{site.data.keyword.blockstorageshort}} est soumis à la limite de 10 fois la taille du volume d'origine.
    {:tip}
+6. Les combinaisons de performances et de taille disponibles sont affichées. Les IOPS du volume d'origine sont définies par défaut. Vous pouvez spécifier des IOPS ou un niveau d'IOPS pour le nouveau volume.
+    - Si le volume d'origine a un niveau Endurance avec 0,25 IOPS, vous ne pourrez pas effectuer de nouvelle sélection.
+    - Si le volume d'origine a un niveau Endurance avec 2, 4 ou 10 IOPS, vous pouvez indiquer n'importe lequel de ces niveaux pour le nouveau volume.
+
 7. Vous pouvez mettre à jour l'espace d'instantané pour le nouveau volume en ajoutant plus, moins ou pas du tout d'espace d'instantané. L'espace d'instantané du volume d'origine est défini par défaut.
 8. Cliquez sur **Continuer** pour passer votre commande du doublon.
 
