@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -45,14 +45,14 @@ subcollection: BlockStorage
 {: #adjustingsteps}
 
 1. {{site.data.keyword.blockstorageshort}} 목록으로 이동하십시오. {{site.data.keyword.cloud}} 콘솔에서 **메뉴** 아이콘을 클릭한 다음 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
-3. **스토리지 IOPS 옵션**에서 새로 선택하십시오.
+2. 목록에서 iSCSI 볼륨을 선택하고 **...** > **LUN 수정**을 클릭하십시오.
+3. **스토리지 IOPS 조정**에서 새 선택사항을 작성하십시오.
     - Endurance(계층 IOPS)의 경우 스토리지의 0.25IOPS/GB보다 큰 IOPS 계층을 선택하십시오. IOPS 티어는 언제든지 늘릴 수 있습니다. 그렇지만 줄이는 것은 한 달에 한 번만 가능합니다.
     - Performance(할당된 IOPS)의 경우 100 - 48,000 IOPS 범위의 값을 입력하여 스토리지에 대해 새 IOPS 옵션을 지정하십시오.
 
 주문 양식에서 크기별로 필요한 특정 경계를 확인하십시오.
     {:tip}
-4. 선택사항 및 새 가격을 검토하십시오.
+4. 선택사항 및 가격 책정 세부사항을 검토하십시오.
 5. **마스터 서비스 계약을 읽었습니다...** 선택란을 클릭하고 **주문하기**를 클릭하십시오.
 6. 몇 분 내에 새 스토리지 할당이 사용 가능해야 합니다.
 

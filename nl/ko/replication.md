@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -41,7 +41,7 @@ subcollection: BlockStorage
 복제는 스냅샷 스케줄을 기반으로 작동합니다. 복제하기 전에 우선 소스 볼륨의 스냅샷 스케줄과 스냅샷 영역이 있어야 합니다. 복제를 설정하려고 하는데 둘 중 하나가 없으면 추가 영역을 구매하거나 스케줄을 설정하도록 프롬프트가 표시됩니다. 복제는 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**에서 관리합니다.
 
 1. 스토리지 볼륨을 클릭하십시오.
-2. **복제본**을 클릭하고 **복제본 구매**를 클릭하십시오.
+2. **복제본**을 클릭한 후 **복제본 구매**를 클릭하십시오.
 3. 복제에서 사용하려는 기존 스냅샷 스케줄을 선택하십시오. 목록에는 모든 활성 스냅샷 스케줄이 포함됩니다. <br />
    시간별, 일별, 주별이 혼합되어 있어도 스케줄은 하나만 선택할 수 있습니다. 이전 복제 주기 이후에 캡처된 모든 스냅샷은 이를 생성한 스케줄에 상관없이 복제됩니다.<br />설정된 스냅샷이 없는 경우, 복제 주문 전에 이를 수행하도록 프롬프트됩니다. 자세한 정보는 [스냅샷 작업](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots)을 참조하십시오.
    {:important}
@@ -76,20 +76,20 @@ subcollection: BlockStorage
 기본 스냅샷 영역 및 복제본 영역은 동일해야 합니다. **기본** 또는 **복제본** 탭에서 영역을 변경하는 경우, 소스 및 대상 데이터 센터에 자동으로 영역이 추가됩니다. 스냅샷 영역을 늘리면 즉시 복제 업데이트도 트리거됩니다.
 
 1. **기본** 또는 **복제본** 탭에서 **조치**를 클릭하십시오.
-2. **추가 스냅샷 영역 추가**를 선택하십시오.
+2. **스냅샷 영역 변경**을 선택하십시오.
 3. 목록에서 스토리지 크기를 선택하고 **계속**을 클릭하십시오.
 4. **프로모션 코드**를 입력(있는 경우)하고 **다시 계산**을 클릭하십시오. 기본적으로 대화 상자의 기타 필드가 완료됩니다.
 5. **마스터 서비스 계약을 읽었습니다…** 선택란을 클릭하고 **주문하기**를 클릭하십시오.
 
 
-## 볼륨 목록에서 복제본 볼륨 보기
+## {{site.data.keyword.blockstorageshort}} 목록에서 복제본 볼륨 보기
 
-**스토리지 > {{site.data.keyword.blockstorageshort}}**의 {{site.data.keyword.blockstorageshort}} 페이지에서 복제 볼륨을 볼 수 있습니다. **LUN 이름**은 뒤에 REP가 표시된 기본 볼륨 이름을 표시합니다. **유형**은 Endurance또는 Performance - 복제본입니다. **대상 주소**는 복제본 볼륨이 복제본 데이터 센터에 마운트되지 않기 때문에 해당 없음이고 **상태**는 비활성을 표시합니다.
+**스토리지 > {{site.data.keyword.blockstorageshort}}**의 {{site.data.keyword.blockstorageshort}} 페이지에서 복제 볼륨을 볼 수 있습니다. 원본 및 복제본 볼륨이 함께 그룹화됩니다. **LUN 이름**은 뒤에 REP가 표시된 기본 볼륨 이름을 표시합니다. **유형**은 Endurance또는 Performance - 복제본입니다.
 
 
 ## 복제본 데이터 센터에서 복제된 볼륨의 세부사항 보기
 
-**스토리지**, **{{site.data.keyword.blockstorageshort}}**의 **복제본** 탭에서 복제본 볼륨 세부사항을 볼 수 있습니다. 또는, **{{site.data.keyword.blockstorageshort}}** 페이지에서 복제본 볼륨을 선택하고, **복제본** 탭을 클릭해서도 볼 수 있습니다.
+원래 볼륨의 세부사항을 확인하는 중에 **복제본** 탭을 클릭하여 복제본 볼륨 세부사항을 확인할 수 있습니다. 다른 옵션은 **{{site.data.keyword.blockstorageshort}}** 목록에서 복제본 볼륨을 선택하고 **복제본** 탭을 클릭하는 것입니다.
 
 
 ## 기본 데이터 센터에서 스냅샷 영역을 늘리면 복제본 데이터 센터에서 스냅샷 영역 증가
@@ -119,7 +119,7 @@ subcollection: BlockStorage
 
 복제 볼륨은 스토리지가 프로비저닝되는 즉시 읽기/쓰기를 위해 호스트에서 액세스 가능합니다. 그러나 원본에서 복제까지 데이터 복사가 완료되지 않으면 스냅샷 및 복제가 허용되지 않습니다.
 
-자세한 정보는 [복제 블록 볼륨 작성](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)을 참조하십시오.
+자세한 정보는 [복제 {{site.data.keyword.blockstorageshort}} 작성](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)을 참조하십시오.
 
 ## 재해 발생 시 복제본을 사용하여 장애 복구
 
@@ -144,14 +144,16 @@ subcollection: BlockStorage
 
 기본 볼륨이 취소되면 복제 스케줄 및 복제본 데이터 센터의 볼륨은 삭제됩니다. 복제본은 {{site.data.keyword.blockstorageshort}} 페이지에서 취소됩니다.
 
- 1. **{{site.data.keyword.blockstorageshort}}** 페이지에서 볼륨을 강조표시하십시오.
- 2. **조치**에서 **{{site.data.keyword.blockstorageshort}} 취소**를 선택하십시오.
+ 1. **{{site.data.keyword.blockstorageshort}}** 페이지에서 볼륨 이름을 클릭하십시오.
+ 2. **{{site.data.keyword.blockstorageshort}}** 세부사항 페이지에서 **조치**를 클릭한 후 **복제본 취소**를 선택하십시오.
  3. 취소 시기를 선택하십시오. **즉시** 또는 **매년 지정일**을 선택하고 **계속**을 클릭하십시오.
- 4. **취소로 인해 데이터 유실이 발생할 수 있음을 인지합니다.**를 클릭하고 **취소**를 클릭하십시오.
+ 4. 상자를 클릭하여 볼륨을 취소할 때 데이터가 유실될 수도 있다는 점에 주의하십시오.
+ 5. **복제본 취소**를 클릭하십시오.
 
- LUN이 최소 24시간 동안(즉시 취소) 또는 기념일까지 스토리지 목록에 표시되기를 원할 수 있습니다. 특정 기능은 더 이상 사용할 수 없지만 볼륨은 재확보될 때까지 표시됩니다. 하지만 삭제/취소를 클릭하면 바로 청구가 중지됩니다.
+ LUN이 최소 24시간 동안(즉시 취소) 또는 기념일까지 스토리지 목록에 표시되기를 원할 수 있습니다. 특정 기능은 더 이상 사용할 수 없지만 볼륨은 재확보될 때까지 표시됩니다. 하지만 복제본 삭제/취소를 클릭하면 즉시 청구가 중지됩니다.
 
  활성 복제본이 스토리지 볼륨의 재확보를 차단할 수 있습니다. 원본 볼륨을 취소하기 전에 볼륨이 더 이상 마운트되지 않고 호스트 권한이 취소되었으며 복제가 취소되었는지 확인하십시오.
+ {:important}
 
 
 ## SLCLI의 복제 관련 명령

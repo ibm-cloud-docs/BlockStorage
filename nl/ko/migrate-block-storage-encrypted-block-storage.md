@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,12 +23,9 @@ subcollection: BlockStorage
 
 이 경우, 이미 호스트에 암호화되지 않은 LUN을 연결했다고 가정합니다. 그렇지 않으면, 이 태스크를 완료하기 위해 운영 체제에 가장 적합한 지시사항에 따라 수행하십시오.
 
-- [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
-
-이러한 데이터 센터에서 프로비저닝된 모든 개선된 {{site.data.keyword.blockstorageshort}} 볼륨에는 암호화되지 않은 볼륨과는 다른 마운트 지점이 있습니다. 두 스토리지 볼륨에 올바른 마운트 지점을 사용 중임을 확인하기 위해 콘솔의 **볼륨 세부사항** 페이지에서 마운트 지점 정보를 볼 수 있습니다. 또한 API 호출(`SoftLayer_Network_Storage::getNetworkMountAddress()`)을 통해 올바른 마운트 지점에 액세스할 수도 있습니다.
-{:tip}
+- [Linux에서 스토리지 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+- [CloudLinux에서 스토리지 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Microsoft Windows에서 스토리지 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## {{site.data.keyword.blockstorageshort}} 작성
 
@@ -46,9 +43,14 @@ IBM Cloud 콘솔을 통해 개선된 LUN을 주문할 수 있습니다. 새 LUN�
 
 "권한 부여된" 호스트는 볼륨에 대한 액세스 권한이 부여된 호스트입니다. 호스트 권한이 없는 경우, 시스템에서 스토리지에 액세스하거나 이를 사용할 수 없습니다. 볼륨에 액세스하도록 호스트에 권한을 부여하면 사용자 이름, 비밀번호, 다중 경로 I/O(MPIO) iSCSI 연결을 마운트하는 데 필요한 iSCSI 규정된 이름(IQN)이 생성됩니다.
 
-1. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하고 LUN 이름을 클릭하십시오.
-2. **권한 부여된 호스트**로 스크롤하십시오.
-3. 오른쪽에 있는 **호스트 권한 부여**를 클릭하십시오. 볼륨에 액세스할 수 있는 호스트를 선택하십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}에 로그인하십시오. **메뉴**에서 **클래식 인프라**를 선택하십시오.
+2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+3. 새 볼륨을 찾은 후 **...**를 클릭하십시오.
+4. **호스트에 권한 부여**를 선택하십시오.
+5. 사용 가능한 디바이스 또는 IP 주소의 목록을 확인하려면 먼저 디바이스 유형에 따라 액세스 권한을 부여할 것인지 또는 서브넷에 따라 액세스 권한을 부여할 것인지 여부를 선택하십시오.
+   - 디바이스를 선택하는 경우 Bare Metal Server 또는 Virtual Server 중에서 선택할 수 있습니다.
+   - IP 주소를 선택하는 경우 먼저 호스트가 상주하는 서브넷을 선택하십시오.
+6. 필터링된 목록에서 볼륨에 액세스할 수 있는 호스트를 하나 이상 선택하고 **저장**을 클릭하십시오.
 
 
 ## 스냅샷 및 복제
@@ -56,6 +58,7 @@ IBM Cloud 콘솔을 통해 개선된 LUN을 주문할 수 있습니다. 새 LUN�
 원본 LUN에 대해 스냅샷 및 복제가 설정되어 있습니까? 설정된 경우, 복제, 스냅샷 영역을 설정해야 하며 원본 볼륨과 동일한 설정으로 새 LUN에 대해 스냅샷 스케줄을 작성해야 합니다.
 
 복제 대상 데이터 센터가 아직 업그레이드되지 않은 경우, 해당 데이터 센터를 업그레이드해야 새 볼륨에 대해 복제를 설정할 수 있습니다.
+{:note}
 
 
 ## 데이터 마이그레이션
@@ -78,6 +81,6 @@ IBM Cloud 콘솔을 통해 개선된 LUN을 주문할 수 있습니다. 새 LUN�
 [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
 
-   경로가 제대로 설정되도록 `--dry-run` 플래그와 같이 이전 명령을 사용하는 것이 좋습니다. 이 프로세스가 인터럽트되는 경우 복사 중이던 마지막 대상 파일을 삭제하여 처음부터 새 위치에 복사되도록 할 수 있습니다.<br/>
+   경로가 올바르게 설정되도록 `--dry-run` 플래그가 한 번만 포함된 이전 명령을 사용하는 것이 좋습니다. 이 프로세스가 인터럽트되는 경우 복사 중이던 마지막 대상 파일을 삭제하여 처음부터 새 위치에 복사되도록 할 수 있습니다.<br/>
    `--dry-run` 플래그를 사용하지 않고 이 명령을 완료하면 데이터가 암호화된 {{site.data.keyword.blockstorageshort}} LUN으로 복사되어야 합니다. 명령을 다시 실행하여 누락된 항목이 없게 하십시오. 두 위치를 수동으로 검토하여 누락된 항목이 없는지 살펴볼 수도 있습니다.<br/>
    마이그레이션이 완료되면 프로덕션을 새 LUN으로 이동할 수 있습니다. 그런 다음 원본 LUN을 구성에서 분리하고 삭제할 수 있습니다. 삭제하면 원본 LUN에 연관되어 있는 대상 사이트에서 모든 스냅샷과 복제본도 제거됩니다.

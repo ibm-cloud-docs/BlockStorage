@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -48,7 +48,7 @@ Endurance로 프로비저닝된 {{site.data.keyword.blockstorageshort}}에 대�
 {: #resizingsteps}
 
 1. {{site.data.keyword.cloud}} 콘솔에서 **메뉴** 아이콘을 클릭하십시오. 그런 다음 **인프라** > **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-2. 목록에서 LUN을 선택하고 **조치** > **LUN 수정**을 클릭하십시오.
+2. 목록에서 iSCSI 볼륨을 선택하고 **...** > **LUN 수정**을 클릭하십시오.
 3. GB 단위로 새 스토리지 크기를 입력하십시오.
 4. 선택사항 및 새 가격을 검토하십시오.
 5. **마스터 서비스 계약을 읽었습니다...** 선택란을 클릭하고 **주문하기**를 클릭하십시오.

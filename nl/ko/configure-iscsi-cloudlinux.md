@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ subcollection: BlockStorage
 
 1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}에 로그인하십시오. **메뉴**에서 **클래식 인프라**를 선택하십시오.
 2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-3. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
+3. 새 볼륨을 찾은 후 **...**를 클릭하십시오.
 4. **호스트 권한 부여**를 클릭하십시오.
-5. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
-6. 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소를 기록해 두십시오.
+5. 사용 가능한 디바이스 또는 IP 주소의 목록을 확인하려면 먼저 디바이스 유형에 따라 액세스 권한을 부여할 것인지 또는 서브넷에 따라 액세스 권한을 부여할 것인지 여부를 선택하십시오.
+   - 디바이스를 선택하는 경우 Bare Metal Server 또는 Virtual Server 인스턴스 중에서 선택할 수 있습니다.
+   - IP 주소를 선택하는 경우 먼저 호스트가 상주하는 서브넷을 선택하십시오.
+6. 필터링된 목록에서 볼륨에 액세스할 수 있는 호스트를 하나 이상 선택하고 **저장**을 클릭하십시오.
 
 또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
 ```

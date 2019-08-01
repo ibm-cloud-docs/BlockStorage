@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## {{site.data.keyword.blockstorageshort}} 볼륨의 사용을 몇 개의 인스턴스에서 공유할 수 있습니까?
 {: faq}
 
-블록 볼륨당 권한 부여 수에 대한 기본 한계는 8개입니다. 이는 Block Storage LUN에 액세스하도록 최대 8개의 호스트에 권한을 부여할 수 있음을 의미합니다. 한계를 늘리도록 요청하려면 영업 담당자에게 문의하십시오.
+블록 볼륨당 권한 부여 수에 대한 기본 한계는 8개입니다. 이는 Block Storage LUN에 액세스하도록 최대 8개의 호스트에 권한을 부여할 수 있음을 의미합니다. VMware 배치에서 {{site.data.keyword.blockstorageshort}}를 사용하는 고객은 권한 한계를 64로 늘리도록 요청할 수 있습니다. 한계 늘리기를 요청하려면 영업 담당자에게 문의하거나 [지원 케이스](https://{DomainName}/unifiedsupport/cases/add){: external}를 격상하십시오.
 
 ## 주문할 수 있는 볼륨은 얼마나 됩니까?
 {: faq}

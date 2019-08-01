@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -31,7 +31,7 @@ subcollection: BlockStorage
   -h, --help             이 메시지를 표시하고 종료합니다.
 ```
 
-[포털](https://{DomainName}/unifiedsupport/cases/add){: external}에서 지원 사례를 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
+[콘솔](https://{DomainName}/unifiedsupport/cases/add){: external}에서 지원 케이스를 제출하여 한계 늘리기를 요청할 수 있습니다. 요청이 승인되면 특정 데이터 센터에 대해 설정되는 볼륨 한계가 표시됩니다.  
 
 한계 증가를 요청하려면 케이스를 열고 이를 영업 담당자에게 보내십시오.
 

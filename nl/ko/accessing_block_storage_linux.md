@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Linux에서 iSCSI LUN에 연결
 {: #mountingLinux}
 
-다음의 지시사항은 주로 RHEL6 및 Centos6용입니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
+다음 지시사항은 주로 RHEL6 및 CentOS6에 해당됩니다. 다른 OS에 대한 참고사항이 추가되었지만 이 문서에는 모든 Linux 배포판이 포함되지는 **않습니다**. 다른 Linux 운영 체제를 사용 중인 경우에는 사용자에 해당하는 배포 문서를 참조하고 다중 경로가 경로 우선순위에 대해 ALUA를 지원하는지 확인하십시오.
 {:note}
 
 예를 들어, Ubuntu 세부사항에 대한 자세한 정보는 [iSCSI 이니시에이터 구성](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} 및 [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}를 참조하십시오.
@@ -29,9 +29,14 @@ subcollection: BlockStorage
 시작하기 전에 {{site.data.keyword.blockstoragefull}} 볼륨에 액세스하는 호스트의 권한이 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic){: external}을 통해 이전에 부여되었는지 확인하십시오.
 {:important}
 
-1. {{site.data.keyword.blockstorageshort}} 나열 페이지에서 새 볼륨을 찾고 **조치**를 클릭하십시오.
-2. **호스트 권한 부여**를 클릭하십시오.
-3. 목록에서 볼륨에 대한 액세스 권한이 있는 호스트를 선택하고 **제출**을 클릭하십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}에 로그인하십시오. **메뉴**에서 **클래식 인프라**를 선택하십시오.
+2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
+3. 새 볼륨을 찾은 후 **...**를 클릭하십시오.
+4. **호스트 권한 부여**를 클릭하십시오.
+5. 사용 가능한 디바이스 또는 IP 주소의 목록을 확인하려면 먼저 디바이스 유형에 따라 액세스 권한을 부여할 것인지 또는 서브넷에 따라 액세스 권한을 부여할 것인지 여부를 선택하십시오.
+   - 디바이스를 선택하는 경우 Bare Metal Server 또는 Virtual Server 인스턴스 중에서 선택할 수 있습니다.
+   - IP 주소를 선택하는 경우 먼저 호스트가 상주하는 서브넷을 선택하십시오.
+6. 필터링된 목록에서 볼륨에 액세스할 수 있는 호스트를 하나 이상 선택하고 **저장**을 클릭하십시오.
 
 또는 SLCLI를 통해 호스트에 권한을 부여할 수 있습니다.
 ```
@@ -52,7 +57,7 @@ Options:
 
 다음 단계를 완료하여 Linux 기반 {{site.data.keyword.cloud}} 컴퓨팅 인스턴스를 다중 경로 입출력(I/O)(MPIO) iSCSI(internet Small Computer System Interface) 논리 장치 번호(LUN)에 연결하십시오.
 
-지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic/storage){: external}의 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 가져올 수 있습니다.
+지시사항에서 참조되는 호스트 IQN, 사용자 이름, 비밀번호 및 대상 주소는 [{{site.data.keyword.cloud}} 콘솔](https://{DomainName}/classic/storage){: external}에서 **{{site.data.keyword.blockstorageshort}} 세부사항** 화면에서 얻을 수 있습니다.
 {: tip}
 
 방화벽을 우회하는 VLAN을 통해 스토리지 트래픽을 실행하는 것이 가장 좋습니다. 소프트웨어 방화벽을 통해 스토리지 트래픽을 실행하면 대기 시간이 늘어나서 결국 스토리지 성능이 저하됩니다.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -31,8 +31,8 @@ subcollection: BlockStorage
 
 스냅샷 스케줄은 시간별, 일별, 주별 간격으로 설정할 수 있으며 이들 각각에는 개별적인 보유 주기가 있습니다. 스토리지 볼륨당 스냅샷의 최대 한계는 50개이며, 이는 시간별, 일별 및 주별 스케줄을 혼합할 수 있고 수동 스냅샷입니다.
 
-1. 스토리지 볼륨을 클릭하고 **조치**를 클릭한 후 **스케줄 스냅샷**을 클릭하십시오.
-2. 새 스케줄 스냅샷 창에서 세 가지 서로 다른 스냅샷 빈도 중에 선택할 수 있습니다. 이 세 개의 조합 중 임의의 조합을 사용하여 포괄적인 스냅샷 스케줄을 작성하십시오.
+1. 스토리지 볼륨을 클릭하고 **조치**를 클릭한 후 **스냅샷 스케줄 편집**을 클릭하십시오.
+2. 스냅샷 스케줄 창에 있는 세 개의 서로 다른 스냅샷 빈도 중에서 선택할 수 있습니다. 이 세 개의 조합 중 임의의 조합을 사용하여 포괄적인 스냅샷 스케줄을 작성하십시오.
    - 시간별
       - 스냅샷을 작성할 각 시간의 분을 지정하십시오. 기본값은 현재 분입니다.
       - 가장 오래된 스냅샷을 삭제하기 전에 유지해야 하는 시간별 스냅샷 수를 지정하십시오.
@@ -44,7 +44,7 @@ subcollection: BlockStorage
       - 가장 오래된 스냅샷을 삭제하기 전에 유지해야 하는 주별 스냅샷 수를 선택하십시오.
 3. **저장**을 클릭하십시오. 그런 다음 다른 빈도로 다른 스케줄을 작성할 수 있습니다. 스케줄된 스냅샷의 총 수가 50개를 넘으면 경고 메시지가 수신되며 저장할 수 없게 됩니다.
 
-스냅샷이 작성되면 **세부사항** 페이지의 **스냅샷** 섹션에 스냅샷 목록이 표시됩니다.
+스냅샷이 작성되면 **세부사항** 페이지의 **{{site.data.keyword.blockstorageshort}}스냅샷** 섹션에 스냅샷 목록이 표시됩니다.
 
 또한 다음 명령을 사용하여 SLCLI를 통해 스냅샷 스케줄 목록을 볼 수 있습니다.
 ```
@@ -65,7 +65,7 @@ subcollection: BlockStorage
 1. 스토리지 볼륨을 클릭하십시오.
 2. **조치**를 클릭하십시오.
 3. **수동 스냅샷 작성**을 클릭하십시오.
-스냅샷이 작성되고 **세부사항** 페이지의 **스냅샷** 섹션에 표시됩니다. 해당 스케줄은 수동입니다.
+스냅샷이 작성되고 **세부사항** 페이지의 **{{site.data.keyword.blockstorageshort}}스냅샷** 섹션에 표시됩니다. 해당 스케줄은 수동입니다.
 
 또는 다음 명령을 사용하여 SLCLI를 통해 스냅샷을 작성할 수 있습니다.
 ```
@@ -80,7 +80,7 @@ subcollection: BlockStorage
 
 ## 사용된 영역 정보 및 관리 기능이 포함된 모든 스냅샷 나열
 
-유지된 스냅샷 및 사용된 영역의 목록은 **세부사항** 페이지에서 볼 수 있습니다.  관리 기능(스케줄 편집 및 추가 영역 추가)은 **조치** 메뉴 또는 페이지에 있는 다양한 섹션의 링크를 사용하여 세부사항 페이지에서 수행됩니다.
+유지된 스냅샷 및 사용된 영역의 목록은 **{{site.data.keyword.blockstorageshort}}세부사항** 페이지에서 볼 수 있습니다.  관리 기능(스케줄 편집 및 영역 추가)은 **조치** 메뉴 또는 페이지에 있는 다양한 섹션의 링크를 사용하여 **{{site.data.keyword.blockstorageshort}} 세부사항** 페이지에서 수행됩니다.
 
 ## 유지된 스냅샷 목록 보기
 
@@ -100,7 +100,7 @@ subcollection: BlockStorage
 
 ## 사용된 스냅샷 영역의 크기 보기
 
-**세부사항** 페이지의 원형 차트에서는 사용된 영역의 양과 남은 영역의 양을 표시합니다. 영역 임계값(75%, 90%, 95%)에 도달하면 알림이 수신됩니다.
+**{{site.data.keyword.blockstorageshort}} 세부사항** 페이지의 원형 차트에는 사용된 영역 및 남아 있는 영역의 크기가 표시됩니다. 영역 임계값(75%, 90%, 95%)에 도달하면 알림이 수신됩니다.
 
 ## 볼륨의 스냅샷 영역 크기 변경
 
@@ -111,7 +111,7 @@ subcollection: BlockStorage
 
 스냅샷 영역은 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 통해 변경됩니다.
 
-1. 스토리지 볼륨을 클릭하고 **조치**를 클릭한 후 **추가 스냅샷 영역 추가**를 클릭하십시오.
+1. 볼륨 스토리지를 클릭하고 **조치**를 클릭한 후 **스냅샷 영역 추가**/**스냅샷 영역 변경**을 클릭하십시오.
 2. 프롬프트에서 크기 범위를 선택하십시오. 일반적으로 크기 범위는 0에서 사용자 볼륨 크기까지 입니다.
 3. **계속**을 클릭하십시오.
 4. 사용자에게 있는 임의 프로모션 코드를 입력하고 **다시 계산**을 클릭하십시오. 기본적으로 이 주문에 대한 비용 및 주문 검토 필드가 완료됩니다.
@@ -129,7 +129,7 @@ subcollection: BlockStorage
 
 스냅샷 스케줄은 **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 통해 취소됩니다.
 
-1. **세부사항** 페이지의 **스냅샷 스케줄** 프레임에서 삭제할 스케줄을 클릭하십시오.
+1. **{{site.data.keyword.blockstorageshort}} 세부사항** 페이지의 **스냅샷 스케줄** 프레임에서 삭제할 스케줄을 클릭하십시오.
 2. 삭제되는 스케줄 옆에 있는 선택란을 클릭하고 **저장**을 클릭하십시오.<br />
 
 복제 기능을 사용 중인 경우에는 삭제 중인 스케줄이 복제에서 사용하는 스케줄이 아닌지 확인하십시오. 복제 스케줄의 삭제에 대한 자세한 정보는 [데이터 복제](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication)를 참조하십시오.
@@ -163,10 +163,10 @@ subcollection: BlockStorage
 {:important}
 
 1. 호스트에서 스토리지 볼륨을 마운트 해제하고 분리하십시오.
-   - [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Linux에서 iSCSI 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Microsoft Windows에서 iSCSI 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}의 **스토리지**, **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-3. 아래로 스크롤한 후에 복원되는 볼륨을 클릭하십시오. **세부사항** 페이지의 **스냅샷** 섹션에 해당 크기 및 작성 날짜와 같이 저장된 모든 스냅샷 목록이 표시됩니다.
+3. 아래로 스크롤한 후에 복원되는 볼륨을 클릭하십시오. **세부사항** 페이지의 **{{site.data.keyword.blockstorageshort}}스냅샷** 섹션에 해당 크기 및 작성 날짜와 같이 저장된 모든 스냅샷 목록이 표시됩니다.
 4. 사용할 스냅샷 옆에 있는 **조치**를 클릭하고 **복원**을 클릭하십시오. <br/>
 
    복원을 완료하면 스냅샷을 작성한 이후 수정되거나 작성된 데이터가 유실됩니다. 이와 같은 데이터 유실은 스토리지 볼륨이 스냅샷 작성 시와 동일한 상태로 돌아가기 때문에 발생합니다.
@@ -176,9 +176,9 @@ subcollection: BlockStorage
    선택된 스냅샷을 사용하여 볼륨이 복원되고 있음을 알리는 메시지가 페이지에 표시됩니다. 또한, 활성 트랜잭션이 진행 중임을 나타내는 아이콘이 {{site.data.keyword.blockstorageshort}}의 볼륨 옆에 표시됩니다. 아이콘 위에 마우스 커서를 두면 트랜잭션을 표시하는 창이 작성됩니다. 아이콘은 트랜잭션이 완료되면 없어집니다.
    {:note}
 6. 스토리지 볼륨을 호스트에 마운트하고 다시 접속하십시오.
-   - [Linux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [CloudLinux에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Microsoft Windows에서 LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Linux에서 iSCSI 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [CloudLinux에서 iSCSI 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Microsoft Windows에서 iSCSI 볼륨에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 또는 호스트에서 볼륨이 분리된 후에 SLCLI에서 다음 명령을 사용하여 복원을 시작할 수 있습니다.
 ```

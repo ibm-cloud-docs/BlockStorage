@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -25,13 +25,13 @@ subcollection: BlockStorage
 
 1. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/){: external}에 로그인하여 왼쪽 상단에 있는 **메뉴** 아이콘을 클릭하십시오. **클래식 인프라**를 선택하십시오.
 2. **스토리지** > **{{site.data.keyword.blockstorageshort}}**를 클릭하십시오.
-3. 목록에서 LUN의 복제본을 클릭하여 **세부사항** 페이지를 보십시오.
-4. **세부사항** 페이지에서 아래로 스크롤하여 기존 스냅샷을 선택하고 **조치** > **복제**를 클릭하십시오.
+3. 목록에서 LUN의 복제본을 클릭하여 **{{site.data.keyword.blockstorageshort}} 세부사항** 페이지를 확인하십시오.
+4. **{{site.data.keyword.blockstorageshort}} 세부사항** 페이지에서 아래로 스크롤하여 기존 스냅샷을 선택한 후 **조치** > **복제**를 클릭하십시오.
 5. 필요에 따라 새 볼륨의 IOP 또는 용량(크기 늘리기)을 업데이트하십시오.
 6. 필요하면 새 볼륨의 스냅샷 영역을 업데이트하십시오.
 7. **계속**을 클릭하여 복제에 대한 주문을 제출하십시오.
 
-볼륨이 작성되는 즉시, 이는 호스트에 연결되어 읽기/쓰기 오퍼레이션을 수행할 수 있습니다. 원래 볼륨에서 복제로 데이터가 복사되는 동안 세부사항 페이지는 복제가 진행 중임을 표시합니다. 복제 프로세스가 완료되면 새 볼륨은 원본으로부터 독립되며 정상적으로 스냅샷 및 복제의 관리가 가능합니다.
+볼륨이 작성되는 즉시, 이는 호스트에 연결되어 읽기/쓰기 오퍼레이션을 수행할 수 있습니다. 원래 볼륨에서 복제본으로 데이터가 복사되는 동안 세부사항 페이지에는 복제가 진행 중임이 표시됩니다. 복제 프로세스가 완료되면 새 볼륨은 원본으로부터 독립되며 정상적으로 스냅샷 및 복제의 관리가 가능합니다.
 
 ## 원래 1차 사이트로 장애 조치
 
@@ -53,8 +53,8 @@ subcollection: BlockStorage
 {:important}
 
 1. **스토리지** > **{{site.data.keyword.blockstorageshort}}**로 되돌아가십시오.
-2. 목록에서 LUN의 복제본을 클릭하여 **세부사항** 페이지를 보십시오.
-3. **세부사항** 페이지에서 아래로 스크롤하여 기존 스냅샷을 선택하고 **조치** > **복제**를 클릭하십시오.
+2. 목록에서 LUN의 복제본을 클릭하여 **{{site.data.keyword.blockstorageshort}} 세부사항** 페이지를 확인하십시오.
+3. **{{site.data.keyword.blockstorageshort}} 세부사항** 페이지에서 아래로 스크롤하여 기존 스냅샷을 선택한 후 **조치** > **복제**를 클릭하십시오.
 4. 필요에 따라 새 볼륨의 IOP 또는 용량(크기 늘리기)을 업데이트하십시오.
 5. 필요하면 새 볼륨의 스냅샷 영역을 업데이트하십시오.
 6. **계속**을 클릭하여 복제에 대한 주문을 제출하십시오.

@@ -56,7 +56,6 @@ subcollection: BlockStorage
 - 사전 정의된 성능 레벨과 스냅샷 및 복제와 같은 기타 기능을 제공하는 **Endurance** 티어를 프로비저닝합니다.
 - 초당 할당된 입출력(I/O) 오퍼레이션(IOPS)이 있는 강력한 **Performance** 환경을 빌드합니다.
 
-
 ### Endurance 티어를 사용하여 프로비저닝
 {: #provendurance}
 
