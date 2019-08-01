@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -31,8 +31,8 @@ Prima di poter configurare la tua pianificazione iniziale, devi procedere all'ac
 
 Le pianificazioni delle istantanee possono essere configurate per intervalli orari, giornalieri e settimanali, ciascuno con un distinto ciclo di conservazione. Il limite massimo di istantanee è di 50 per volume di archiviazione, che può essere una combinazione di pianificazioni orarie, giornaliere e settimanali e di istantanee manuali.
 
-1. Fai clic sul tuo volume di archiviazione, fai clic su **Actions** e fai clic su **Schedule Snapshot**.
-2. Nella finestra New Schedule Snapshot, puoi scegliere tra tre diverse frequenze di istantanea. Usa qualsiasi combinazione di queste tre frequenze per creare una pianificazione delle istantanee completa.
+1. Fai clic sul tuo volume di archiviazione, fai clic su **Actions** e fai clic su **Edit Snapshot Schedule**.
+2. Nella finestra Snapshot Schedule, puoi scegliere tra tre diverse frequenze di istantanea. Usa qualsiasi combinazione di queste tre frequenze per creare una pianificazione delle istantanee completa.
    - Hourly
       - Specifica il minuto di ciascuna ora in cui deve essere eseguita un'istantanea. Il valore predefinito è il minuto corrente.
       - Specifica il numero di istantanee orarie da conservare prima di eliminare quella meno recente.
@@ -44,7 +44,7 @@ Le pianificazioni delle istantanee possono essere configurate per intervalli ora
       - Seleziona il numero di istantanee settimanali da conservare prima di eliminare quella meno recente.
 3. Fai clic su **Save**. Successivamente, puoi creare un'altra pianificazione con una frequenza diversa. Se il numero totale di istantanee pianificate è superiore a 50, ricevi un messaggio di avvertenza e non puoi eseguire il salvataggio.
 
-L'elenco delle istantanee viene visualizzato man mano che vengono eseguite nella sezione **Snapshots** della pagina **Detail**.
+L'elenco delle istantanee viene visualizzato man mano che vengono eseguite nella sezione **Snapshots** della pagina **{{site.data.keyword.blockstorageshort}}Detail**.
 
 Puoi anche visualizzare l'elenco delle tue pianificazioni delle istantanee tramite la CLI SL con il seguente comando.
 ```
@@ -65,7 +65,7 @@ Il limite massimo di istantanee per volume di archiviazione è di 50.
 1. Fai clic sul tuo volume di archiviazione.
 2. Fai clic su **Actions**.
 3. Fai clic su **Take Manual Snapshot**.
-L'istantanea viene acquisita e visualizzata nella sezione **Snapshots** della pagina **Detail**. La sua pianificazione è manuale (Manual).
+L'istantanea viene acquisita e visualizzata nella sezione **Snapshots** della pagina **{{site.data.keyword.blockstorageshort}}Detail**. La sua pianificazione è manuale (Manual).
 
 In alternativa, puoi utilizzare il seguente comando per creare un'istantanea tramite la CLI SL.
 ```
@@ -80,7 +80,7 @@ Options:
 
 ## Elenco di tutte le istantanee con funzioni di gestione e informazione dello spazio utilizzato
 
-Un elenco di istantanee conservate e spazio utilizzato può essere visualizzato nella pagina **Detail**.  Le funzioni di gestione (modifica di pianificazioni e aggiunta di ulteriore spazio) vengono eseguite nella pagina Detail utilizzando il menu **Actions** o i link nelle diverse sezioni della pagina.
+Un elenco di istantanee conservate e spazio utilizzato può essere visualizzato nella pagina **{{site.data.keyword.blockstorageshort}}Detail**.  Le funzioni di gestione (modifica di pianificazioni e aggiunta di ulteriore spazio) vengono eseguite nella pagina **{{site.data.keyword.blockstorageshort}} Detail** utilizzando il menu **Actions** o i link nelle diverse sezioni della pagina.
 
 ## Visualizzazione dell'elenco delle istantanee conservate
 
@@ -100,7 +100,7 @@ Options:
 
 ## Visualizzazione della quantità di spazio istantanea utilizzato.
 
-Il grafico a torta nella pagina **Details** visualizza quanto spazio è utilizzato e quanto spazio è rimasto. Ricevi delle notifiche quando raggiungerai le soglie di spazio – 75 percento, 90 percento e 95 percento.
+Il grafico a torta nella pagina **{{site.data.keyword.blockstorageshort}} Detail** visualizza quanto spazio è utilizzato e quanto spazio è rimasto. Ricevi delle notifiche quando raggiungerai le soglie di spazio – 75 percento, 90 percento e 95 percento.
 
 ## Modifica della quantità di spazio di istantanea per un volume
 
@@ -111,7 +111,7 @@ Lo spazio di istantanea può essere solo aumentato. Non può essere ridotto. Puo
 
 Lo spazio di istantanea viene modificato tramite **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Fai clic sui tuoi volumi di archiviazione, fai clic su **Actions** e fai clic su **Add More Snapshot Space**.
+1. Fai clic sul tuo volume di archiviazione, fai clic su **Actions** e su **Add Snapshot Space**/**Change Snapshot Space**.
 2. Seleziona un intervallo di dimensioni dal prompt. Le dimensioni di norma vanno da 0 alla dimensione del tuo volume.
 3. Fai clic su **Continue**.
 4. Immetti l'eventuale codice promozionale a tua disposizione e fai clic su **Recalculate**. Gli addebiti (Charges) per questo ordine e il riesame dell'ordine (Order Review) vengono completati per impostazione predefinita.
@@ -129,7 +129,7 @@ Le notifiche vengono inviate tramite i casi di supporto all'utente master sul tu
 
 Le pianificazioni delle istantanee possono essere eliminate tramite **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Fai clic sulla pianificazione da eliminare nel frame **Snapshot Schedules** nella pagina **Details**.
+1. Fai clic sulla pianificazione da eliminare nel frame **Snapshot Schedules** nella pagina **{{site.data.keyword.blockstorageshort}} Detail**.
 2. Fai clic sulla casella di spunta accanto alla pianificazione da eliminare e fai clic su **Save**.<br />
 
 Se stai utilizzando la funzione di replica, assicurati che la pianificazione che stai eliminando non sia la pianificazione utilizzata dalla replica. Per ulteriori informazioni sull'eliminazione di una pianificazione della replica, consulta [Replica dei dati](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
@@ -163,10 +163,10 @@ Il ripristino di un volume determina l'eliminazione di tutte le istantanee acqui
 {:important}
 
 1. Smonta e scollega il tuo volume di archiviazione dall'host.
-   - [Connessione ai LUN su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Connessione ai LUN su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Connessione dei volumi iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Connessione dei volumi iSCSI su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Fai clic su **Storage**, **{{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
-3. Scorri verso il basso e fai clic sul tuo volume da ripristinare. la sezione **Snapshots** della pagina **Detail** visualizza l'elenco di tutte le istantanee selezionate insieme alle relative dimensione e data di creazione.
+3. Scorri verso il basso e fai clic sul tuo volume da ripristinare. la sezione **Snapshots** della pagina **{{site.data.keyword.blockstorageshort}}Detail** visualizza l'elenco di tutte le istantanee selezionate insieme alle relative dimensione e data di creazione.
 4. Fai clic su **Actions** accanto all'istantanea da utilizzare e fai clic su **Restore**. <br/>
 
    Il completamento del ripristino comporta la perdita dei dati creati o modificati dopo l'acquisizione dell'istantanea. Questa perdita di dati si verifica perché il tuo volume di archiviazione restituisce lo stesso stato in cui si trovava al momento dell'istantanea.
@@ -176,9 +176,9 @@ Il ripristino di un volume determina l'eliminazione di tutte le istantanee acqui
    Aspettati un messaggio nella pagina che indica che il volume è stato ripristinato utilizzando l'istantanea selezionata. Compare inoltre un'icona accanto al tuo volume in {{site.data.keyword.blockstorageshort}} che indica che è in corso una transazione attiva. Se passi il puntatore del mouse sull'icona, verrà visualizzata una finestra che indica la transazione. Una volta completata la transazione, l'icona scompare.
    {:note}
 6. Monta e ricollega il tuo volume di archiviazione all'host.
-   - [Connessione ai LUN su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [Connessione ai LUN su CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Connessione ai LUN su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Connessione dei volumi iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Connessione dei volumi iSCSI su CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Connessione dei volumi iSCSI su Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 In alternativa, una volta che il volume è stato scollegato dall'host, puoi utilizzare il seguente comando nella CLI SL per avviare un ripristino.
 ```

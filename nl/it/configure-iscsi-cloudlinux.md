@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -26,10 +26,12 @@ Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data
 
 1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dal **menu**, seleziona **Classic Infrastructure**.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
+3. Individua il nuovo volume e fai clic su **...**.
 4. Fai clic su **Authorize Host**.
-5. Dall'elenco, seleziona l'host o gli host che possono accedere al volume e fai clic su **Submit**.
-6. Prendi nota dell'IQN host, del nome utente, della password e dell'indirizzo di destinazione.
+5. Per visualizzare l'elenco di dispositivi o indirizzi IP disponibili, devi prima selezionare se vuoi autorizzare l'accesso basato sui tipi di dispositivo o sulle sottoreti.
+   - se scegli Devices, puoi scegliere tra istanze del server bare metal o virtuali.
+   - se scegli IP Address, devi prima selezionare la sottorete in cui risiede il tuo host.
+6. Dall'elenco filtrato, seleziona uno o più host che possono accedere al volume e fai clic su **Save**.
 
 In alternativa, puoi autorizzare l'host tramite la CLI SL.
 ```

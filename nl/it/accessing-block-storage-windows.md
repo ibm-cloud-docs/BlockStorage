@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato autorizzato tramite la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
-1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**. Fai clic su **Authorize Host**.
-2. Dall'elenco, seleziona l'host o gli host che devono accedere al volume e fai clic su **Submit**.
+1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dal **menu**, seleziona **Classic Infrastructure**.
+2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Individua il nuovo volume e fai clic su **...**.
+4. Fai clic su **Authorize Host**.
+5. Per visualizzare l'elenco di dispositivi o indirizzi IP disponibili, devi prima selezionare se vuoi autorizzare l'accesso basato sui tipi di dispositivo o sulle sottoreti.
+   - se scegli Devices, puoi scegliere tra istanze del server bare metal o virtuali.
+   - se scegli IP Address, devi prima selezionare la sottorete in cui risiede il tuo host.
+6. Dall'elenco filtrato, seleziona uno o più host che possono accedere al volume e fai clic su **Save**.
 
 In alternativa, puoi autorizzare l'host tramite la CLI SL.
 ```
@@ -40,7 +46,7 @@ Options:
 ## Montaggio di volumi {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-Completa la seguente procedura per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Windows a un LUN (logical unit number) iCSCI (internet Small Computer System Interface) MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
+Completa la seguente procedura per connettere un'istanza di elaborazione {{site.data.keyword.cloud}} basata su Windows a un volume iSCSI MPIO (multipath input/output). L'esempio è basato su Windows Server 2012. La procedura può essere regolata per altre versioni di Windows in base alla documentazione del fornitore del sistema operativo.
 
 ### Configurazione della funzione MPIO
 
@@ -67,7 +73,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
     - Fai clic su **Modifica** per sostituire i valori esistenti con il tuo nome qualificato iSCSI (IQN, iSCSI Qualified Name).
     ![Proprietà iniziatore iSCSI](/images/iSCSI.png)
 
-      Il nome IQN può essere ottenuto dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}} nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
+      Il nome IQN può essere ottenuto dalla schermata **Dettagli di {{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
     - Fai clic su **Individuazione** e fai clic su **Individua portale**.
@@ -97,7 +103,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
    ![Attiva CHAP](/images/chap_0.png)
 4. Immetti il nome utente nel campo Nome e immetti la password nel campo Segreto destinazione.
 
-   I valori dei campi Nome e Segreto destinazione possono essere ottenuti dalla schermata Dettagli di {{site.data.keyword.blockstorageshort}}.
+   I valori dei campi Nome e Segreto destinazione possono essere ottenuti dalla schermata **Dettagli di {{site.data.keyword.blockstorageshort}}**.
    {:tip}
 5. Fai clic su **OK** finché non viene visualizzata la finestra **Proprietà iniziatore iSCSI**. Lo stato della destinazione nella sezione **Destinazioni individuate** cambia da **Inattivo** a **Connesso**.
 ![Stato Connesso](/images/Connected.png)
@@ -125,7 +131,7 @@ In Windows Server 2008, l'aggiunta del supporto per iSCSI consente a un Modulo s
    - Nell'elenco IP iniziatore, seleziona l'indirizzo IP corrispondente all'host. In questo caso, stai connettendo due interfacce di rete sul dispositivo di archiviazione a una singola interfaccia di rete sull'host. Di conseguenza, questa interfaccia è la stessa di quella fornita per la prima sessione.
    - Nell'elenco IP portale di destinazione, seleziona l'indirizzo IP della seconda interfaccia dati abilitata sul dispositivo di archiviazione.
 
-     Puoi trovare il secondo indirizzo IP nella schermata Dettagli di {{site.data.keyword.blockstorageshort}} nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+     Puoi trovare il secondo indirizzo IP nella schermata **Dettagli di {{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Fai clic sulla casella di spunta **Attiva accesso CHAP**
    - Immetti i valori Nome e Segreto destinazione ottenuti dalla console e fai clic su **OK**.

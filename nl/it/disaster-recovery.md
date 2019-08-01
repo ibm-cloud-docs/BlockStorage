@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -25,8 +25,8 @@ Se un errore catastrofico o un'emergenza causa un'interruzione sul sito primario
 
 1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external} e fai clic sull'icona **menu** in alto a sinistra. Seleziona **Classic Infrastructure**.
 2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Fai clic sulla replica del LUN nell'elenco per visualizzare la relativa pagina **Details**.
-4. Nella pagina **Details**, scorri verso il basso, seleziona un'istantanea esistente e fai clic su **Actions** > **Duplicate**.
+3. Fai clic sulla replica del LUN nell'elenco per visualizzare la relativa pagina **{{site.data.keyword.blockstorageshort}}Detail**.
+4. Nella pagina **{{site.data.keyword.blockstorageshort}}Detail**, scorri verso il basso, seleziona un'istantanea esistente e fai clic su **Actions** > **Duplicate**.
 5. Apporta tutti gli aggiornamenti necessari alla capacità (per aumentare la dimensione) o IOPs per il nuovo volume.
 6. Aggiorna lo spazio di istantanea per il nuovo volume se necessario.
 7. Fai clic su **Continue** per effettuare l'ordine per il duplicato.
@@ -53,8 +53,8 @@ Dopo che la replica è completa, devi creare un volume duplicato della nuova rep
 {:important}
 
 1. Torna a **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Fai clic sulla replica del LUN nell'elenco per visualizzare la relativa pagina **Details**.
-3. Nella pagina **Details**, scorri verso il basso, seleziona un'istantanea esistente e fai clic su **Actions** > **Duplicate**.
+2. Fai clic sulla replica del LUN nell'elenco per visualizzare la relativa pagina **{{site.data.keyword.blockstorageshort}}Detail**.
+3. Nella pagina **{{site.data.keyword.blockstorageshort}}Detail**, scorri verso il basso, seleziona un'istantanea esistente e fai clic su **Actions** > **Duplicate**.
 4. Apporta tutti gli aggiornamenti necessari alla capacità (per aumentare la dimensione) o IOPs per il nuovo volume.
 5. Aggiorna lo spazio di istantanea per il nuovo volume se necessario.
 6. Fai clic su **Continue** per effettuare il tuo ordine per il duplicato.

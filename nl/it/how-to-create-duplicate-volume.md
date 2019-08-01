@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -48,37 +48,41 @@ Puoi creare un volume duplicato tramite la [console {{site.data.keyword.cloud_no
 ## Creazione di un duplicato da un volume specifico nell'elenco archiviazioni
 
 1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}} nella console {{site.data.keyword.cloud_notm}} facendo clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Seleziona un volume dall'elenco e fai clic su **Actions** > **Duplicate LUN (Volume)**
+2. Seleziona un volume dall'elenco e fai clic su **...** > **Duplicate LUN**
 3. Scegli la tua opzione di istantanea:
     - Se ordini da un volume **non di replica**,
-      - Seleziona **Create from new snapshot** – questa azione crea un'istantanea da utilizzare per il duplicato. Utilizza questa opzione se il tuo volume non dispone al momento di istantanee o se vuoi creare un duplicato in questo momento.<br/>
-      - Seleziona **Create from latest snapshot** - questa azione crea un duplicato dall'istantanea più recente che esiste per questo volume.
+      - Seleziona **Create a new snapshot to clone* – questa azione crea un'istantanea da utilizzare per il duplicato. Utilizza questa opzione se il tuo volume non dispone al momento di istantanee o se vuoi creare un duplicato in questo momento.<br/>
+      - Seleziona **Use latest snapshot to clone LUN** - questa azione crea un duplicato dall'istantanea più recente che esiste per questo volume.
     - Se ordini da un volume di **replica** la sola opzione per l'istantanea consiste nell'utilizzare l'istantanea più recente disponibile.
 4. Il tipo di archiviazione e l'ubicazione rimangono gli stessi del volume originale.
 5. Fatturazione oraria o mensile - puoi scegliere di eseguire il provisioning del LUN duplicato con fatturazione oraria o mensile. Il tipo di fatturazione per il volume originale viene selezionato automaticamente. Se vuoi scegliere un tipo di fatturazione differente per l'archiviazione duplicata, puoi operare tale selezione qui.
-5. Volendo, puoi specificare l'IOPS o il livello IOPS per il nuovo volume. La designazione degli IOPS del volume originale è impostata per impostazione predefinita. Vengono visualizzate le combinazioni di Performance e dimensioni disponibili.
-    - Se il tuo volume originale è al livello Endurance 0,25 IOPS, non puoi effettuare una nuova selezione.
-    - Se il tuo volume originale è al livello Endurance 2, 4 o 10 IOPS, puoi spostarti dovunque tra questi livelli per il nuovo volume.
 6. Puoi aggiornare la dimensione del nuovo volume in modo che sia più grande dell'originale. La dimensione del volume originale è impostata per impostazione predefinita.
 
    La dimensione di {{site.data.keyword.blockstorageshort}} può essere modificata fino a 10 volte la dimensione originale del volume.
    {:tip}
-7. Puoi aggiornare lo spazio di istantanea per il nuovo volume per aggiungere più, meno o zero spazio di istantanea. Lo spazio di istantanea del volume originale viene impostato per impostazione predefinita.
-8. Fai clic su **Continue** per effettuare il tuo ordine.
+7. Volendo, puoi specificare l'IOPS o il livello IOPS per il nuovo volume. La designazione degli IOPS del volume originale è impostata per impostazione predefinita. Vengono visualizzate le combinazioni di Performance e dimensioni disponibili.
+       - Se il tuo volume originale è al livello Endurance 0,25 IOPS, non puoi effettuare una nuova selezione.
+       - Se il tuo volume originale è al livello Endurance 2, 4 o 10 IOPS, puoi spostarti dovunque tra questi livelli per il nuovo volume.
+8. Puoi aggiornare lo spazio di istantanea per il nuovo volume per aggiungere più, meno o zero spazio di istantanea.
+9. Puoi selezionare il tipo di SO.
+10. Seleziona la casella se hai letto e accetti l'accordo di servizio master.
+11. Fai clic su **Place Order** per continuare.
 
 ## Creazione di un duplicato da un'istantanea specifica
 
 1. Vai al tuo elenco di {{site.data.keyword.blockstorageshort}}.
 2. Fai clic su un LUN dall'elenco per visualizzare la pagina dei dettagli. (Può essere un volume di replica o non di replica).
 3. Scorri verso il basso e seleziona un'istantanea esistente dall'elenco nella pagina dei dettagli e fai clic su **Actions** > **Duplicate**.   
-4. Il tipo di archiviazione (Endurance o Performance) e l'ubicazione rimangono gli stessi del volume originale.
-5. Vengono visualizzate le combinazioni di Performance e dimensioni disponibili. La designazione degli IOPS del volume originale è impostata per impostazione predefinita. Puoi specificare l'IOPS o il livello IOPS per il nuovo volume.
-    - Se il tuo volume originale è al livello Endurance 0,25 IOPS, non puoi effettuare una nuova selezione.
-    - Se il tuo volume originale è al livello Endurance 2, 4 o 10 IOPS, puoi spostarti dovunque tra questi livelli per il nuovo volume.
+4. L'ubicazione rimane la stessa del volume originale.
+5. Puoi scegliere di eseguire il provisioning del LUN duplicato con fatturazione oraria o mensile. Il tipo di fatturazione per il volume originale viene selezionato automaticamente. Se vuoi scegliere un tipo di fatturazione differente per l'archiviazione duplicata, puoi modificare la selezione.
 6. Puoi aggiornare la dimensione del nuovo volume in modo che sia più grande dell'originale. La dimensione del volume originale è impostata per impostazione predefinita.
 
    La dimensione di {{site.data.keyword.blockstorageshort}} può essere modificata fino a 10 volte la dimensione originale del volume.
    {:tip}
+6. Vengono visualizzate le combinazioni di Performance e dimensioni disponibili. La designazione degli IOPS del volume originale è impostata per impostazione predefinita. Puoi specificare l'IOPS o il livello IOPS per il nuovo volume.
+    - Se il tuo volume originale è al livello Endurance 0,25 IOPS, non puoi effettuare una nuova selezione.
+    - Se il tuo volume originale è al livello Endurance 2, 4 o 10 IOPS, puoi spostarti dovunque tra questi livelli per il nuovo volume.
+
 7. Puoi aggiornare lo spazio di istantanea per il nuovo volume per aggiungere più, meno o zero spazio di istantanea. Lo spazio di istantanea del volume originale viene impostato per impostazione predefinita.
 8. Fai clic su **Continue** per effettuare il tuo ordine per il duplicato.
 

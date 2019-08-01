@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -48,7 +48,7 @@ I limiti di dimensione esistenti per {{site.data.keyword.blockstorageshort}} di 
 {: #resizingsteps}
 
 1. Dalla console {{site.data.keyword.cloud}}, fai clic sull'icona **menu**. Quindi fai clic su **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Seleziona il LUN dall'elenco e fai clic su **Actions** > **Modify LUN**
+2. Seleziona il volume iSCSI dall'elenco e fai clic su **...** > **Modify LUN**
 3. Immetti la nuova dimensione dell'archiviazione in GB.
 4. Riesamina la tua selezione e la nuova determinazione del prezzo.
 5. Fai clic sulla casella di spunta **I have read the Master Service Agreement...** e fai clic su **Place Order**.

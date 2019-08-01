@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Connessione ai LUN iSCSI su Linux
 {: #mountingLinux}
 
-Queste istruzioni sono principalmente per RHEL6 e Centos6. Sono state aggiunte delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione della tua specifica distribuzione e assicurati che il multipath supporti ALUA per la priorità di percorso.
+Queste istruzioni sono principalmente per RHEL6 e CentOS6. Sono state aggiunte delle note per altri sistemi operativi ma questa documentazione **non** copre tutte le distribuzioni di Linux. Se stai utilizzando altri sistemi operativi Linux, fai riferimento alla documentazione della tua specifica distribuzione e assicurati che il multipath supporti ALUA per la priorità di percorso.
 {:note}
 
 Ad esempio, per ulteriori informazioni sulle specifiche Ubuntu, vedi [Configurazione iniziatore iSCSI](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} e [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
@@ -29,9 +29,14 @@ Ad esempio, per ulteriori informazioni sulle specifiche Ubuntu, vedi [Configuraz
 Prima di iniziare, assicurati che l'host che sta accedendo al volume {{site.data.keyword.blockstoragefull}} sia stato precedentemente autorizzato tramite la [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 {:important}
 
-1. Dalla pagina di elenco {{site.data.keyword.blockstorageshort}}, individua il nuovo volume e fai clic su **Actions**.
-2. Fai clic su **Authorize Host**.
-3. Dall'elenco, seleziona l'host o gli host che possono accedere al volume e fai clic su **Submit**.
+1. Accedi alla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. Dal **menu**, seleziona **Classic Infrastructure**.
+2. Fai clic su **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Individua il nuovo volume e fai clic su **...**.
+4. Fai clic su **Authorize Host**.
+5. Per visualizzare l'elenco di dispositivi o indirizzi IP disponibili, devi prima selezionare se vuoi autorizzare l'accesso basato sul tipo di dispositivo o sulle sottoreti.
+   - se scegli Devices, puoi scegliere tra istanze del server bare metal o virtuali.
+   - se scegli IP Address, devi prima selezionare la sottorete in cui risiede il tuo host.
+6. Dall'elenco filtrato, seleziona uno o più host che possono accedere al volume e fai clic su **Save**.
 
 In alternativa, puoi autorizzare l'host tramite la CLI SL.
 ```

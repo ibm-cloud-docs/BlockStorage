@@ -45,7 +45,7 @@ Il {site.data.keyword.blockstorageshort}} di cui è stato eseguito il provisioni
 L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe, potenzialmente, avere un impatto sulle prestazioni.
 {:note}
 
-1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:  <br/>
+1. Immetti il seguente comando in un prompt della shell come root per installare il pacchetto richiesto:   <br/>
    ```
    # yum install cryptsetup-luks
    ```
@@ -80,7 +80,7 @@ L'elaborazione della crittografia dei dati crea un carico sull'host che potrebbe
    ```
    {: pre}
 6. Immetti la passphrase.
-7. Verificare l'associazione e lo stato della vista del volume crittografato.  <br/>
+7. Verificare l'associazione e lo stato della vista del volume crittografato.   <br/>
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.

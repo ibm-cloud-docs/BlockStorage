@@ -56,7 +56,6 @@ Avvaliti delle seguenti funzioni di {{site.data.keyword.blockstorageshort}}:
 - Esegui il provisioning di livelli **Endurance** che offrono livelli di prestazioni predefiniti e altre funzioni quali istantanee e replica.
 - Crea un ambiente **Performance** molto potente con IOPS (input/output operations per second) allocato.
 
-
 ### Provisioning con i livelli Endurance
 {: #provendurance}
 

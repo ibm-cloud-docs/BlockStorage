@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -41,7 +41,7 @@ Vedi la Tabella 1 per l'elenco completo della disponibilità dei data center e d
 Le repliche funzionano in base a una pianificazione delle istantanee. Prima di poter eseguire la replica, devi già avere lo spazio di istantanea e una pianificazione delle istantanee per il volume di origine. Se tenti di impostare la replica e non disponi di uno o l'altro, ti viene richiesto di acquistare più spazio o di impostare una pianificazione. Le repliche vengono gestite in **Storage**, **{{site.data.keyword.blockstorageshort}}** nella [console {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
 1. Fai clic sul tuo volume di archiviazione.
-2. Fai clic su **Replica** e fai clic su **Purchase a replication**.
+2. Fai clic su **Replica** e fai clic su **Purchase replication**.
 3. Seleziona la pianificazione delle istantanee esistente che vuoi venga seguita dalla tua replica. L'elenco contiene tutte le tue pianificazioni delle istantanee attive. <br />
    Puoi selezionare solo una pianificazione, anche se hai una combinazione di orarie, giornaliere e settimanali. Tutte le istantanee acquisite a partire dal ciclo di replica precedente vengono replicate indipendentemente dalla pianificazione che ha dato loro origine.<br />Se non hai delle istantanee configurate, ti viene richiesto di farlo prima che tu possa ordinare la replica. Per ulteriori informazioni, vedi [Gestione delle istantanee](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).
    {:important}
@@ -76,20 +76,20 @@ Tuttavia, se vuoi modificare l'ora del giorno di quando si verifica la replica *
 Il tuo spazio di istantanea primario e il tuo spazio di replica devono essere uguali. Se modifichi lo spazio nella scheda **Primary** o in quella **Replica**, viene automaticamente aggiunto dello spazio sia al data center di origine sia a quello di destinazione. L'aumento dello spazio dell'istantanea attiva anche un aggiornamento di replica immediato.
 
 1. Fai clic su **Actions** nella scheda **Primary** o in quella **Replica**.
-2. Seleziona **Add More Snapshot Space**.
+2. Seleziona **Change Snapshot Space**.
 3. Seleziona la dimensione di archiviazione dall'elenco e fai clic su **Continue**.
 4. Immetti un codice promozionale (**Promo Code**), se ne hai uno, e fai clic su **Recalculate**. Gli altri campi nella finestra di dialogo sono completati per impostazione predefinita.
 5. Fai clic sulla casella di spunta **I have read the Master Service Agreement…** e fai clic su **Place Order**.
 
 
-## Visualizzazione dei volumi di replica nell'elenco volumi
+## Visualizzazione dei volumi di replica nell'elenco {{site.data.keyword.blockstorageshort}} 
 
-Puoi visualizzare i tuoi volumi di replica nella pagina {{site.data.keyword.blockstorageshort}} in **Storage > {{site.data.keyword.blockstorageshort}}**. Il nome LUN (**LUN Name**) mostra il nome del volume primario seguito da REP. Il tipo (**Type**) è Endurance o Performance – Replica. L'indirizzo di destinazione (**Target Address**) non è disponibile (N/A) perché il volume di replica non è montato nel data center di replica e lo stato (**Status**) mostra inattivo (Inactive).
+Puoi visualizzare i tuoi volumi di replica nella pagina {{site.data.keyword.blockstorageshort}} in **Storage > {{site.data.keyword.blockstorageshort}}**. I volumi di replica e originali sono raggruppati tra loro. Il nome LUN (**LUN Name**) mostra il nome del volume primario seguito da REP. Il tipo (**Type**) è Endurance o Performance – Replica.
 
 
 ## Visualizzazione dei dettagli di un volume replicato nel data center di replica
 
-Puoi visualizzare i dettagli del volume di replica nella scheda **Replica** in **Storage**, **{{site.data.keyword.blockstorageshort}}**. Un'altra opzione consiste nel selezionare il volume di replica dalla pagina **{{site.data.keyword.blockstorageshort}}** e fare clic sulla scheda **Replica**.
+Puoi visualizzare i dettagli del volume di replica facendo clic sulla scheda **Replica** durante la visualizzazione dei dettagli del volume originale. Un'altra opzione è di selezionare il volume di replica dall'elenco **{{site.data.keyword.blockstorageshort}}** e fare clic sulla scheda **Replica**.
 
 
 ## Aumenta lo spazio dell'istantanea nel data center di replica quando lo spazio dell'istantanea viene aumentato nel data center primario
@@ -119,7 +119,7 @@ I duplicati possono essere creati sia dal volume primario che da quello di repli
 
 I volumi duplicati solo accessibili da un host per la lettura/scrittura non appena viene seguito il provisioning dell'archiviazione. Tuttavia, le istantanee e le repliche sono consentite solo dopo il completamento della copia dei dati dall'originale al duplicato.
 
-Per ulteriori informazioni, vedi [Creazione di un volume di blocco duplicato](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
+Per ulteriori informazioni, vedi [Creazione di un {{site.data.keyword.blockstorageshort}} duplicato](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Utilizzo delle repliche per eseguire il failover quando si verifica un'emergenza
 
@@ -144,20 +144,22 @@ Puoi annullare la replica immediatamente o alla data dell'anniversario, che caus
 
 Quando un volume primario viene annullato, la pianificazione replica e il volume nel data center di replica vengono eliminati. Le repliche vengono annullate dalla pagina {{site.data.keyword.blockstorageshort}}.
 
- 1. Evidenzia il tuo volume nella pagina **{{site.data.keyword.blockstorageshort}}**.
- 2. Fai clic su **Actions** e seleziona **Cancel {{site.data.keyword.blockstorageshort}}**.
+ 1. Fai clic sul nome del volume nella pagina **{{site.data.keyword.blockstorageshort}}**.
+ 2. Nella pagina **{{site.data.keyword.blockstorageshort}}** Detail, fai clic su **Actions** e seleziona **Cancel Replica**.
  3. Seleziona quando annullare. Scegli **Immediately** o **Anniversary Date** e fai clic su **Continue**.
- 4. Fai clic su **I acknowledge that due to cancellation, data loss may occur** e fai clic su **Cancel**.
+ 4. Conferma di aver compreso che potrebbe verificarsi una perdita di dati quando annulli il volume selezionando questa casella.
+ 5. Fai clic su **Cancel Replica**.
 
- Puoi aspettarti che il LUN rimanga visibile nel tuo elenco di archiviazione per almeno 24 ore (annullamento immediato) oppure fino alla data di anniversario. Alcune funzioni non saranno più disponibili, ma il volume rimane visibile fino a quando non viene recuperato. Tuttavia, la fatturazione viene arrestata immediatamente dopo aver fatto clic su Elimina/Annulla.
+ Puoi aspettarti che il LUN rimanga visibile nel tuo elenco di archiviazione per almeno 24 ore (annullamento immediato) oppure fino alla data di anniversario. Alcune funzioni non saranno più disponibili, ma il volume rimane visibile fino a quando non viene recuperato. Tuttavia, la fatturazione viene arrestata immediatamente dopo aver fatto clic su Delete/Cancel Replica.
 
  Le repliche attive possono bloccare il recupero del volume di archiviazione. Assicurati che il volume non sia più montato, che le autorizzazioni host siano state revocate e che la replica sia stata annullata prima di tentare di annullare il volume originale.
+ {:important}
 
 
 ## Comandi correlati alla replica nella SLCLI
 {: #clicommands}
 
-* Elenca i datacenter di replica appropriati per un volume specifico.
+* Elenca i data center di replica appropriati per un volume specifico.
   ```
   # slcli block replica-locations --help
   Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
