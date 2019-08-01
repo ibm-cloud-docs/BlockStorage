@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Conexión a las LUN iSCSI en Linux
 {: #mountingLinux}
 
-Estas instrucciones se aplican principalmente a RHEL6 y Centos6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso.
+Estas instrucciones se aplican principalmente a RHEL6 y CentOS6. Se han añadido notas para otros sistemas operativos, pero la documentación **no** cubre todas las distribuciones Linux. Si está utilizando otros sistemas operativos Linux, consulte la documentación de la distribución específica y asegúrese de que la multivía dé soporte a ALUA para la prioridad de vía de acceso.
 {:note}
 
 Por ejemplo, para obtener más información sobre temas específicos de Ubuntu, consulte [Configuración del iniciador de iSCSI](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} y [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
@@ -29,9 +29,14 @@ Por ejemplo, para obtener más información sobre temas específicos de Ubuntu, 
 Antes de empezar, asegúrese de que se ha autorizado al host que accede al volumen de {{site.data.keyword.blockstoragefull}} mediante la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 {:important}
 
-1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**.
-2. Pulse **Autorizar host**.
-3. En la lista, seleccione el host o los hosts que pueden acceder al volumen y pulse **Enviar**.
+1. Inicie una sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. En el **menú**, seleccione **Infraestructura clásica**.
+2. Pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+3. Localice el nuevo volumen y pulse **...**.
+4. Pulse **Autorizar host**.
+5. Para ver la lista de dispositivos o direcciones IP disponibles, primero seleccione si desea autorizar el acceso basado en tipo de dispositivo o subredes.
+   - Si elige Dispositivos, puede seleccionar entre instancias de Servidor nativo o Servidor virtual.
+   - Si elige Dirección IP, primero seleccione la subred donde reside su host.
+6. En la lista filtrada, seleccione uno o más hosts que pueden acceder al volumen y pulse **Guardar**.
 
 De manera alternativa, puede autorizar el host mediante SLCLI.
 ```
@@ -52,7 +57,7 @@ Opciones:
 
 Siga estos pasos para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Linux a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO).
 
-Encontrará el IQN de host, el nombre de usuario, la contraseña y la dirección de destino a los que se hace referencia en las instrucciones en la pantalla **Detalles de {{site.data.keyword.blockstorageshort}}** de la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
+Encontrará el IQN de host, el nombre de usuario, la contraseña y la dirección de destino a los que se hace referencia en las instrucciones en la pantalla **Detalle de {{site.data.keyword.blockstorageshort}}** de la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic/storage){: external}.
 {: tip}
 
 Es mejor ejecutar el tráfico de almacenamiento en una VLAN, que omita el cortafuegos. La ejecución del tráfico de almacenamiento a través de cortafuegos de software aumenta la latencia y afecta negativamente al rendimiento del almacenamiento.

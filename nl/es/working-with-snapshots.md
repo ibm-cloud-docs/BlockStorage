@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -31,8 +31,8 @@ Para poder configurar la planificación inicial, debe adquirir el espacio de ins
 
 Las planificaciones de instantáneas se pueden configurar para intervalos por horas, diarios y semanales, cada uno con un ciclo de retención distinto. El límite máximo de instantáneas es de 50 por volumen de almacenamiento, que puede ser una combinación de planificaciones por horas, diarias y semanales, y de instantáneas manuales.
 
-1. Pulse el volumen de almacenamiento, pulse **Acciones** y luego pulse **Planificar instantánea**.
-2. En la ventana Nueva planificación de instantáneas, puede elegir entre tres frecuencias de instantáneas distintas. Utilice cualquier combinación de las tres para crear una planificación de instantáneas completa.
+1. Pulse el volumen de almacenamiento, pulse **Acciones** y luego pulse **Editar planificación de instantáneas**.
+2. En la ventana Planificación de instantáneas, puede elegir entre tres frecuencias de instantáneas distintas. Utilice cualquier combinación de las tres para crear una planificación de instantáneas completa.
    - Por hora
       - Especifique el minuto de cada hora en el que se debe tomar una instantánea. El valor predeterminado es el minuto actual.
       - Especifique el número de instantáneas por hora que se conservarán antes de descartar las más antiguas.
@@ -44,7 +44,7 @@ Las planificaciones de instantáneas se pueden configurar para intervalos por ho
       - Seleccione el número de instantáneas semanales que se deben conservar antes de descartar las más antiguas.
 3. Pulse **Guardar**. Luego puede crear otra planificación con una frecuencia distinta. Si el número total de instantáneas planificada es superior a 50, recibe un mensaje de aviso y no puede guardar.
 
-La lista de instantáneas se muestra tal como se han tomado en la sección **Instantáneas** de la página **Detalles**.
+La lista de instantáneas se muestra tal como se han tomado en la sección **Instantáneas** de la página **Detalle de {{site.data.keyword.blockstorageshort}}**.
 
 Puede ver la lista de planificaciones de instantánea mediante SLCLI con el mandato siguiente.
 ```
@@ -65,7 +65,7 @@ El límite máximo de instantáneas por volumen de almacenamiento es de 50.
 1. Pulse el volumen de almacenamiento.
 2. Pulse **Acciones**.
 3. Pulse **Realizar instantánea manual**.
-Se realiza la instantánea y se muestra en la sección **Instantáneas** de la página **Detalles**. Su planificación es Manual.
+Se realiza la instantánea y se muestra en la sección **Instantáneas** de la página **Detalle de {{site.data.keyword.blockstorageshort}}**. Su planificación es Manual.
 
 De manera alternativa, puede utilizar el mandato siguiente para crear una instantánea mediante SLCLI.
 ```
@@ -80,7 +80,7 @@ Opciones:
 
 ## Listado de todas las instantáneas con información de espacio utilizado y de funciones de gestión
 
-Se puede visualizar una lista de las instantáneas retenidas y el espacio utilizado en la página **Detalles**.  Las funciones de gestión (editar planificaciones y añadir más espacio) se realizan en la página Detalles utilizando el menú **Acciones** o los enlaces de las distintas secciones de la página.
+Se puede visualizar una lista de las instantáneas retenidas y el espacio utilizado en la página **Detalle de {{site.data.keyword.blockstorageshort}}**.  Las funciones de gestión (editar planificaciones y añadir más espacio) se realizan en la página **Detalle de {{site.data.keyword.blockstorageshort}}** utilizando el menú **Acciones** o los enlaces de las distintas secciones de la página.
 
 ## Visualización de la lista de instantáneas retenidas
 
@@ -100,7 +100,7 @@ Opciones:
 
 ## Visualización de la cantidad de espacio de instantáneas que se utiliza
 
-El gráfico circular de la página **Detalles** muestra la cantidad de espacio que se utiliza y la cantidad de espacio que queda. Recibirá notificaciones cuando empiece a alcanzar los umbrales de espacio: 75 %, 90 % y 95 %.
+El gráfico circular de la página **Detalle de {{site.data.keyword.blockstorageshort}}** muestra la cantidad de espacio que se utiliza y la cantidad de espacio que queda. Recibirá notificaciones cuando empiece a alcanzar los umbrales de espacio: 75 %, 90 % y 95 %.
 
 ## Cambio de la cantidad de espacio de instantáneas para un volumen
 
@@ -111,7 +111,7 @@ El espacio de instantáneas solo se puede aumentar. No se puede reducir. Puede s
 
 El espacio de instantáneas se cambia seleccionando **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Pulse los volúmenes de almacenamiento, pulse **Acciones** y luego pulse **Añadir más espacio de instantáneas**.
+1. Pulse el volumen de almacenamiento, pulse **Acciones** y luego pulse **Añadir espacio de instantáneas**/**Cambiar espacio de instantáneas**.
 2. Seleccione entre un rango de tamaños que se le ofrece. Los tamaños normalmente oscilan entre 0 y el tamaño de su volumen.
 3. Pulse **Continuar**.
 4. Especifique cualquier código promocional que tenga y pulse **Recalcular**. Los campos Cargos para este pedido y Revisión de pedido contienen información de forma predeterminada.
@@ -129,7 +129,7 @@ Las notificaciones se envían a través de casos de soporte al usuario maestro e
 
 Las planificaciones de instantáneas se pueden cancelar seleccionando **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Pulse la planificación que se va a suprimir en el marco **Planificaciones de instantáneas** de la página **Detalles**.
+1. Pulse la planificación que se va a suprimir en el marco **Planificaciones de instantáneas** de la página **Detalle de {{site.data.keyword.blockstorageshort}}**.
 2. Marque el recuadro de selección junto a la planificación que se va a suprimir y pulse **Guardar**.<br />
 
 Si está utilizando la característica de réplica, asegúrese de que la planificación que está suprimiendo no sea la planificación utilizada por la réplica. Para obtener más información sobre cómo suprimir una planificación de réplica, consulte [Réplica de datos](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
@@ -163,10 +163,10 @@ La restauración de un volumen da lugar a la supresión de todas las instantáne
 {:important}
 
 1. Desmonte y desconecte el volumen de almacenamiento del host.
-   - [Conexión a LUN en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Conexión a LUN en Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Conexión de volúmenes iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
+   - [Conexión de volúmenes iSCSI en Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
 2. Pulse **Almacenamiento**, **{{site.data.keyword.blockstorageshort}}** en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
-3. Desplácese y pulse el volumen que se va a restaurar. La sección **Instantáneas** de la página **Detalles** mostrará una lista de todas las instantáneas guardadas junto con su tamaño y fecha de creación.
+3. Desplácese y pulse el volumen que se va a restaurar. La sección **Instantáneas** de la página **Detalle de {{site.data.keyword.blockstorageshort}}** mostrará una lista de todas las instantáneas guardadas junto con su tamaño y fecha de creación.
 4. Pulse **Acciones** junto a la instantánea que se va a utilizar y pulse **Restaurar**. <br/>
 
    La restauración de los resultados da como resultado la pérdida de los datos que se han creado o modificado después de que la instantánea se haya realizado. Esta pérdida de datos se produce porque el volumen de almacenamiento vuelve al mismo estado en el que se encontraba en el momento de la instantánea.
@@ -176,9 +176,9 @@ La restauración de un volumen da lugar a la supresión de todas las instantáne
    Recibirá un mensaje en la página que indicará que el volumen se ha restaurado utilizando la instantánea seleccionada. También aparecerá un icono junto al volumen en {{site.data.keyword.blockstorageshort}} que indicará que hay una transacción activa en curso. Al pasar el ratón sobre el icono se abre una ventana que muestra la transacción. El icono desaparecerá una vez completada la transacción.
    {:note}
 6. Monte y vuelva a conectar el volumen de almacenamiento al host.
-   - [Conexión a LUN en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [Conexión a LUN en CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Conexión a LUN en Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Conexión de volúmenes iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Conexión de volúmenes iSCSI en CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Conexión de volúmenes iSCSI en Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
 
 De manera alternativa, después de que el volumen se haya desconectado del host, puede utilizar el mandato siguiente de la SLCLI para iniciar una restauración.
 ```

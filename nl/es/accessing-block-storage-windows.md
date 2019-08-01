@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,8 +20,14 @@ subcollection: BlockStorage
 
 Antes de empezar, asegúrese de que el host que está accediendo al volumen de {{site.data.keyword.blockstoragefull}} se haya autorizado a través de la [consola de {{site.data.keyword.cloud}}](https://{DomainName}/classic){: external}.
 
-1. En la página de listado de {{site.data.keyword.blockstorageshort}}, localice el nuevo volumen y pulse **Acciones**. Pulse **Autorizar host**.
-2. En la lista, seleccione el host o los hosts que accederán al volumen y pulse **Enviar**.
+1. Inicie una sesión en la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}. En el **menú**, seleccione **Infraestructura clásica**.
+2. Pulse **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
+3. Localice el nuevo volumen y pulse **...**.
+4. Pulse **Autorizar host**.
+5. Para ver la lista de dispositivos o direcciones IP disponibles, primero seleccione si desea autorizar el acceso basado en tipos de dispositivo o subredes.
+   - Si elige Dispositivos, puede seleccionar entre instancias de Servidor nativo o Servidor virtual.
+   - Si elige Dirección IP, primero seleccione la subred donde reside su host.
+6. En la lista filtrada, seleccione uno o más hosts que pueden acceder al volumen y pulse **Guardar**.
 
 De manera alternativa, puede autorizar el host mediante SLCLI.
 ```
@@ -40,7 +46,7 @@ Opciones:
 ## Montaje de volúmenes de {{site.data.keyword.blockstorageshort}}
 {: #mountWin}
 
-Siga estos pasos para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Windows a un número de unidad lógica (LUN) de interfaz para pequeños sistemas (iSCSI) de E/S de multivía de acceso (MPIO). El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo (SO).
+Siga estos pasos para conectar una instancia de cálculo de {{site.data.keyword.cloud}} basada en Windows a un volumen iSCSI de E/S de multivía de acceso (MPIO). El ejemplo se basa en Windows Server 2012. Los pasos pueden ajustarse para otras versiones de Windows de acuerdo con la documentación del proveedor del sistema operativo (SO).
 
 ### Configuración de la característica MPIO
 
@@ -67,7 +73,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
     - Pulse **Cambiar** para sustituir los valores existentes por su nombre calificado iSCSI (IQN).
     ![Propiedades del iniciador de iSCSI](/images/iSCSI.png)
 
-      Encontrará el nombre de IQN en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
+      Encontrará el nombre de IQN en la pantalla **Detalle de {{site.data.keyword.blockstorageshort}}** de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic){: external}.
       {: tip}
 
     - Pulse **Descubrir** y luego pulse **Descubrir portal**.
@@ -97,7 +103,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
    ![Habilitar CHAP](/images/chap_0.png)
 4. Especifique el nombre de usuario en el campo Nombre y especifique la contraseña en el campo secreto de destino.
 
-   Los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla Detalles de {{site.data.keyword.blockstorageshort}}.
+   Los valores de los campos Nombre y Secreto de destino se pueden obtener en la pantalla **Detalle de {{site.data.keyword.blockstorageshort}}**.
    {:tip}
 5. Pulse **Aceptar** hasta que aparezca la ventana **Propiedades del iniciador de iSCSI**. El estado del destino en la sección **Destinos descubiertos** pasa de **Inactivo** a **Conectado**.
 ![Estado Conectado](/images/Connected.png)
@@ -125,7 +131,7 @@ En Windows Server 2008, añadir soporte para iSCSI permite que Microsoft Device 
    - En la lista de IP de iniciador, seleccione la dirección IP correspondiente al host. En este caso, va a conectar dos interfaces de red del dispositivo de almacenamiento a una sola interfaz de red del host. Por lo tanto, la interfaz es la misma que la proporcionada para la primera sesión.
    - En la lista de IP de portal de destino, seleccione la dirección IP de la segunda interfaz de datos que está habilitada en el dispositivo de almacenamiento.
 
-     Encontrará la segunda dirección IP en la pantalla Detalles de {{site.data.keyword.blockstorageshort}} de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
+     Encontrará la segunda dirección IP en la pantalla **Detalle de {{site.data.keyword.blockstorageshort}}** de la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/classic/storage){: external}.
       {: tip}
    - Marque el recuadro de selección **Habilitar inicio de sesión CHAP**
    - Escriba los valores secretos Nombre y Destino obtenidos de la consola y pulse **Aceptar**.

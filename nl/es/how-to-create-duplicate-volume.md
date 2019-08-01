@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -48,39 +48,43 @@ Puede crear un volumen duplicado a través de la [consola de {{site.data.keyword
 ## Creación de un duplicado a partir de un volumen específico en la lista de almacenamiento
 
 1. Vaya a la lista de {{site.data.keyword.blockstorageshort}} en la consola de {{site.data.keyword.cloud_notm}} pulsando **Infraestructura** > **Almacenamiento** > **{{site.data.keyword.blockstorageshort}}**.
-2. Seleccione un volumen de la lista y pulse **Acciones** > **Duplicar LUN (Volumen)**
+2. Seleccione un volumen de la lista y pulse **...** > **Duplicar LUN**.
 3. Elija la opción de instantánea:
     - Si solicita a partir de un volumen **no de réplica**,
-      - Seleccione **Crear desde nueva instantánea**: Esta acción crea una instantánea que se utilizará para el duplicado. Utilice esta opción si actualmente el volumen no tiene instantáneas o si desea crear un duplicado inmediatamente.<br/>
-      - Seleccione **Crear desde la última instantánea**: Esta acción crea un duplicado desde la instantánea más reciente que exista para este volumen.
+      - Seleccione **Crear una nueva instantánea para clonar**: Esta acción crea una instantánea que se utilizará para el duplicado. Utilice esta opción si actualmente el volumen no tiene instantáneas o si desea crear un duplicado inmediatamente.<br/>
+      - Seleccione **Utilizar la última instantánea para clonar LUN**: Esta acción crea un duplicado desde la instantánea más reciente que exista para este volumen.
     - Si solicita a partir de un volumen **de réplica**, la única opción para la instantánea es utilizar la instantánea más reciente disponible.
 4. El tipo de almacenamiento y la ubicación siguen siendo los mismos que el volumen original.
 5. Facturación mensual o por horas: puede elegir si suministrar el nuevo LUN duplicado con facturación mensual o por horas. El tipo de facturación para el volumen original se selecciona automáticamente. Si quiere elegir otro tipo de facturación para el almacenamiento de duplicado, puede seleccionarlo aquí.
-5. Si lo desea, puede especificar IOPS o el nivel de IOPS para el nuevo volumen. La designación de IOPS del volumen original se establece de forma predeterminada. Se mostrarán las combinaciones de tamaño y rendimiento disponibles.
-    - Si su volumen original es de nivel de Resistencia de IOPS 0,25, no se puede realizar una nueva selección.
-    - Si el volumen original es de nivel de Resistencia de IOPS 2, 4 o 10, puede moverse entre estos niveles para el nuevo volumen.
 6. Puede actualizar el tamaño del nuevo volumen de modo que sea mayor que el original. El tamaño del volumen original se establece de forma predeterminada.
 
    {{site.data.keyword.blockstorageshort}} se puede redimensionar hasta 10 veces el tamaño original del volumen.
    {:tip}
-7. Puede actualizar el espacio de instantáneas para el nuevo volumen para añadir más, menos o ningún espacio de instantáneas. El espacio de instantáneas del volumen original se establece de forma predeterminada.
-8. Pulse **Continuar** para realizar el pedido.
+7. Si lo desea, puede especificar IOPS o el nivel de IOPS para el nuevo volumen. La designación de IOPS del volumen original se establece de forma predeterminada. Se mostrarán las combinaciones de tamaño y rendimiento disponibles.
+       - Si su volumen original es de nivel de Resistencia de IOPS 0,25, no se puede realizar una nueva selección.
+       - Si el volumen original es de nivel de Resistencia de IOPS 2, 4 o 10, puede moverse entre estos niveles para el nuevo volumen.
+8. Puede actualizar el espacio de instantáneas para el nuevo volumen para añadir más, menos o ningún espacio de instantáneas.
+9. Puede seleccionar el tipo de sistema operativo.
+10. Marque el recuadro si ha leído el Acuerdo de servicio maestro y lo acepta.
+11. Pulse **Realizar pedido** para continuar.
 
 ## Creación de un duplicado a partir de una instantánea específica
 
 1. Vaya a su lista de {{site.data.keyword.blockstorageshort}}.
 2. Pulse un LUN de la lista para ver la página de detalles. (Puede ser un volumen de réplica o sin réplica).
-3. Desplácese hacia abajo y seleccione una instantánea existente de la lista en la página de detalles y pulse **Acciones** > **Duplicar**.   
-4. El Tipo de almacenamiento (Resistencia o Rendimiento) y la Ubicación son los mismos que el volumen original.
-5. Se mostrarán las combinaciones de tamaño y rendimiento disponibles. La designación de IOPS del volumen original se establece de forma predeterminada. Puede especificar IOPS o el nivel de IOPS para el nuevo volumen.
-    - Si su volumen original es de nivel de Resistencia de IOPS 0,25, no se puede realizar una nueva selección.
-    - Si el volumen original es de nivel de Resistencia de IOPS 2, 4 o 10, puede moverse entre estos niveles para el nuevo volumen.
+3. Desplácese hacia abajo y seleccione una instantánea existente de la lista en la página de detalle y pulse **Acciones** > **Duplicar**.   
+4. La ubicación es la misma que el volumen original.
+5. Puede elegir si suministrar el nuevo LUN duplicado con facturación mensual o por horas. El tipo de facturación para el volumen original se selecciona automáticamente. Si quiere elegir otro tipo de facturación para el almacenamiento de duplicado, puede cambiar la selección.
 6. Puede actualizar el tamaño del nuevo volumen de modo que sea mayor que el original. El tamaño del volumen original se establece de forma predeterminada.
 
    {{site.data.keyword.blockstorageshort}} se puede redimensionar hasta 10 veces el tamaño original del volumen.
    {:tip}
+6. Se mostrarán las combinaciones de tamaño y rendimiento disponibles. La designación de IOPS del volumen original se establece de forma predeterminada. Puede especificar IOPS o el nivel de IOPS para el nuevo volumen.
+    - Si su volumen original es de nivel de Resistencia de IOPS 0,25, no se puede realizar una nueva selección.
+    - Si el volumen original es de nivel de Resistencia de IOPS 2, 4 o 10, puede moverse entre estos niveles para el nuevo volumen.
+
 7. Puede actualizar el espacio de instantáneas para el nuevo volumen para añadir más, menos o ningún espacio de instantáneas. El espacio de instantáneas del volumen original se establece de forma predeterminada.
-8. Pulse **Continuar** para realizar el orden de los duplicados.
+8. Pulse **Continuar** para realizar el pedido del duplicado.
 
 
 ## Creación de un duplicado mediante SLCLI

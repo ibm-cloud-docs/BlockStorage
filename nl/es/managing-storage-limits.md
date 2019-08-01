@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-07-22"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -31,7 +31,7 @@ Opciones:
   -h, --help             Mostrar este mensaje y salir.
 ```
 
-Puede solicitar un aumento del límite enviando un caso de soporte en el [portal](https://{DomainName}/unifiedsupport/cases/add){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
+Puede solicitar un aumento del límite enviando un caso de soporte en la [consola](https://{DomainName}/unifiedsupport/cases/add){: external}. Cuando se aprueba la solicitud, se obtiene un límite de volumen que se establece para un centro de datos específico.  
 
 Para solicitar un aumento del límite, abra un caso de soporte y diríjalo a su representante de ventas.
 

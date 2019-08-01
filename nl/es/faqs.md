@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## ¿Cuántas instancias pueden compartir el uso de un volumen de {{site.data.keyword.blockstorageshort}}?
 {: faq}
 
-El límite predeterminado de número de autorizaciones por volumen de bloque es de ocho. Esto significa que se pueden autorizar hasta 8 hosts para acceder al LUN de almacenamiento en bloque. Para solicitar un aumento del límite, póngase en contacto con su representante de ventas.
+El límite predeterminado de número de autorizaciones por volumen de bloque es de ocho. Esto significa que se pueden autorizar hasta 8 hosts para acceder al LUN de almacenamiento en bloque. Es posible que los clientes que utilizan {{site.data.keyword.blockstorageshort}} en su despliegue de VMware pidan que se aumente el límite de autorizaciones a 64. Para solicitar un aumento del límite, póngase en contacto con su representante de ventas o cree un [caso de soporte](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## ¿Cuántos volúmenes se pueden pedir?
 {: faq}

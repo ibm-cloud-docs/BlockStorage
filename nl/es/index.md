@@ -56,7 +56,6 @@ Las LUN de {{site.data.keyword.blockstorageshort}} se pueden suministrar de 20 G
 - Suministro de niveles de **Resistencia** que presentan niveles de rendimiento predefinidos y otras características como instantáneas y réplica.
 - Crear un entorno de **Rendimiento** de alta potencia con operaciones de entrada/salida asignadas por segundo (IOPS).
 
-
 ### Suministro con niveles de Resistencia
 {: #provendurance}
 
