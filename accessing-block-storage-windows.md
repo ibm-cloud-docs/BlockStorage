@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-08-07"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -46,7 +46,7 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI volume. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's (OS) vendor documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI volume. You're going to create two connections from one network interface of your host to two target IPs of the storage device. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation. 
 
 ### Configuring the MPIO feature
 
@@ -118,7 +118,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 4. In the Advanced Settings window ![Settings](/images/Settings.png)
    - On the Local adapter list, select Microsoft iSCSI Initiator.
    - On the Initiator IP list, select the IP address of the host.
-   - On the Target Portal IP list, select the IP of device interface.
+   - On the Target Portal IP list, select the IP of one of the storage device's interfaces.
    - Click **Enable CHAP log on** check box
    - Enter the Name and Target secret values that were obtained from the console and click **OK**.
    - Click **OK** on the Connect To Target window to go back to the Properties window.
@@ -128,7 +128,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 7. In the Advanced Settings window,
    - On the Local adapter list, select Microsoft iSCSI Initiator.
    - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
-   - On the Target Portal IP list, select the IP address for the second data interface that is enabled on the storage device.
+   - On the Target Portal IP list, select the IP address for the second interface that is enabled on the storage device.
 
      You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage){: external}.
       {: tip}
