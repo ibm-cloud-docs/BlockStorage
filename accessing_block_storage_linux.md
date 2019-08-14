@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-08-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -262,7 +262,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-   B. Set the host to automatically log in to the iSCSI array.
+   B. Log the host in to the iSCSI array.
     ```
     iscsiadm -m node -L automatic
     ```
