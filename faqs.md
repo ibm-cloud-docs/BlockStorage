@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-19"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -77,7 +77,7 @@ There's no need for pre-warming. You can observe specified throughput immediatel
 ## Can more throughput be achieved by using a faster Ethernet connection?
 {: faq}
 
-Throughput limits are set at a per-LUN level so using a faster Ethernet connection doesn't increase that set limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
+There are limits set at the LUN level and a faster Ethernet connection doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
 ## Do firewalls and security groups impact performance?
 {: #isolatedstoragetraffic}
