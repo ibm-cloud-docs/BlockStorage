@@ -13,11 +13,13 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:shortdesc: .shortdesc}
 
 # Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
 {: #orderingthroughCLI}
 
 You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. In the SL API, an order can consist of multiple order containers. The order CLI works with one order container only.
+{:shortdesc}
 
 For more information about how to install and use the SLCLI, see [Python CLI Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}

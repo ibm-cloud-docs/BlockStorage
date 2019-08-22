@@ -9,17 +9,18 @@ keywords: Block Storage, new feature, adjusting capacity, modify capacity, incre
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:shortdesc: .shortdesc}
 
 # Expanding Block Storage Capacity
 {: #expandingcapacity}
 
 With this feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume. There's no outage or lack of access to the storage while the resize is taking place.
+{:shortdesc}
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 

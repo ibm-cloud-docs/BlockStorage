@@ -14,6 +14,7 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 {:codeblock: .codeblock}
+{:shortdesc: .shortdesc}
 
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
@@ -46,7 +47,8 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI volume. You're going to create two connections from one network interface of your host to two target IPs of the storage device. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation. 
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IPs of the storage device. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
+{:shortdesc}
 
 ### Configuring the MPIO feature
 

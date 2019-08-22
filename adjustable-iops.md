@@ -9,15 +9,16 @@ keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:shortdesc: .shortdesc}
 
 # Adjusting IOPS
 {: #adjustingIOPS}
 
 With this feature, {{site.data.keyword.blockstoragefull}} storage users can adjust the IOPS of their existing {{site.data.keyword.blockstorageshort}} immediately. They don't need to create a duplicate or manually copy data to new storage. Users don't experience any kind of outage or lack of access to the storage while the adjustment is taking place.
+{:shortdesc}
 
 Billing for the storage is updated to add the pro-rated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
 

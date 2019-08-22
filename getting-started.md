@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-08-22"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 {:ui-linked}
 
-# Getting started tutorial
+# Getting started with {{site.data.keyword.blockstorageshort}}
 {: #getting-started}
 
 {{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi-path I/O (MPIO) connections.

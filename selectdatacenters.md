@@ -9,17 +9,18 @@ keywords: Block Storage, block storage, NFS, locations, data centers, iscsi
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:shortdesc: .shortdesc}
 {:ui-linked}
 
 # {{site.data.keyword.blockstorageshort}} locations
 {: #selectDC}
 
 {{site.data.keyword.blockstoragefull}} with enhanced capabilities is available in the following regions and data centers.
+{:shortdesc}
 
 
 | Capabilities | DAL01 | DAL05 | DAL09 | DAL10 | DAL12 | DAL13 | HOU02 | SJC01 | SJC03 | SJC04 | WDC01 | WDC04 | WDC06 | WDC07 |

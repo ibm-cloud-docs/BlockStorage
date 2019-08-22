@@ -15,11 +15,13 @@ subcollection: BlockStorage
 {:important: .important}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:shortdesc: .shortdesc}
 
 # Creating a duplicate Block Volume
 {: #duplicatevolume}
 
-You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.   
+You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.
+{:shortdesc}
 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots).  
 

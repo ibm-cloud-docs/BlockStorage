@@ -13,11 +13,13 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:shortdesc: .shortdesc}
 
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
 You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}. From the **menu**, select **Classic Infrastructure** to interact with classic services.
+{:shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details
 

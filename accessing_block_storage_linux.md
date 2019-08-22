@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-08-14"
+lastupdated: "2019-08-22"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -15,6 +15,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:shortdesc: .shortdesc}
 
 
 # Connecting to iSCSI LUNs on Linux
@@ -55,7 +56,8 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
 
-Complete the Following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) internet Small Computer System Interface (iSCSI) logical unit number (LUN).
+Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IPs of the storage device.
+{:shortdesc}
 
 The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external}.
 {: tip}

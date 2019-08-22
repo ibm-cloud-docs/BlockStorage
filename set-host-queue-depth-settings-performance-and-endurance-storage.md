@@ -9,12 +9,13 @@ keywords: Block Storage, performance tuning, host performance improvement,
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
+{:shortdesc: .shortdesc}
 
 # Adjusting host queue depth settings
 {: #hostqueuesettings}
 
 {{site.data.keyword.cloud}} suggests a maximum host and application input/output (I/O) queue depth for each performance tier.
+{:shortdesc}
 
 | Performance tier | Maximum host queue depth |
 |:------:|:------:|

@@ -18,7 +18,7 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{:shortdesc: .shortdesc}
 
 # Windows 2012 R2 - multiple iSCSI devices
 {: #troubleshootingWin12}

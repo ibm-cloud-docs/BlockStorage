@@ -14,6 +14,7 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 {:DomainName: data-hd-keyref="DomainName"}
+{:shortdesc: .shortdesc}
 
 # Managing storage limits
 {: #managingstoragelimits}
@@ -31,7 +32,8 @@ Options:
   -h, --help             Show this message and exit.
 ```
 
-You can request a limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.  
+You can request a limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
+{:shortdesc}
 
 To request a limit increase, open a case and direct it to your sales representative.
 

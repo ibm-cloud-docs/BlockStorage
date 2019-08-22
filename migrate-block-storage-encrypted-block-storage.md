@@ -13,6 +13,7 @@ subcollection: BlockStorage
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:shortdesc: .shortdesc}
 
 # Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
@@ -20,6 +21,7 @@ subcollection: BlockStorage
 Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
+{:shortdesc}
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 

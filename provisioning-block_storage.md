@@ -15,6 +15,7 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:shortdesc: .shortdesc}
 {:ui-linked}
 
 
@@ -22,6 +23,7 @@ subcollection: BlockStorage
 {: #orderingthroughConsole}
 
 You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
+{:shortdesc}
 
 - You can provision with **Endurance** tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.
 - You can fine-tune your storage to meet specific performance requirements and build a high-powered **Performance** environment by specifying the total number of input/output operations per second (IOPS)

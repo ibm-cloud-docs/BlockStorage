@@ -15,11 +15,13 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:shortdesc: .shortdesc}
 
 # Disaster Recovery - Fail over with an inaccessible Primary volume
 {: #dr-inaccessible}
 
 If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site.
+{:shortdesc}
 
 ## Fail over with a duplicate of a replica volume on the secondary site
 
