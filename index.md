@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-09-10"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -118,7 +118,7 @@ You can select hourly or monthly billing for a Block LUN. The type of billing th
 
 | Pricing options for predefined IOPS tiers | 0.25 IOPS | 2 IOPS/GB | 4 IOPS/GB | 10 IOPS/GB |
 |-----|-----|-----|-----|-----|
-| Monthly Price | $0.06/GB | $0.15/GB | $0.20/GB | $0.58/GB |
+| Monthly Price | $0.05/GB | $0.12/GB | $0.16/GB | $0.48/GB |
 | Hourly Price | $0.0001/GB | $0.0002/GB | $0.0003/GB | $0.0009/GB |
 {: row-headers}
 {: class="comparison-table"}
