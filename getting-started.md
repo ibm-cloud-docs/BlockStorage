@@ -66,7 +66,7 @@ The speed of your Ethernet connection must be faster than the expected maximum t
 
 To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](/docs/infrastructure/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings).
 
-Storage traffic should be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](/docs/infrastructure/BlockStorage?topic=block-storage-faqs#isolatedstoragetraffic).
+Storage traffic should be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](/docs/infrastructure/BlockStorage?topic=BlockStorage-block-storage-faqs#isolatedstoragetraffic).
 
 Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server documentation](/docs/vsi?topic=virtual-servers-about-public-virtual-servers#about-public-virtual-servers).
 {:tip}
