@@ -59,7 +59,7 @@ Options:
 Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IPs of the storage device.
 {:shortdesc}
 
-The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage){: external}.
+The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
 {: tip}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
