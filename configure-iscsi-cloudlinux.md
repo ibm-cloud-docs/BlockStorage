@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-11-11"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -31,8 +31,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click **...**.
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - if you choose Devices, you can select from Bare Metal Server or Virtual server instances.
-   - if you choose IP Address, first, select the subnet where your host resides.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-10-23"
 
-keywords: Block Storage, block storage, NFS, locations, data centers, iscsi
+keywords: Block Storage, locations, data centers, iscsi
 
 subcollection: BlockStorage
 
@@ -14,12 +14,13 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 {:shortdesc: .shortdesc}
+{:term: .term}
 {:ui-linked}
 
 # {{site.data.keyword.blockstorageshort}} locations
 {: #selectDC}
 
-{{site.data.keyword.blockstoragefull}} with enhanced capabilities is available in the following regions and data centers.
+{{site.data.keyword.blockstoragefull}} with enhanced capabilities is available in the following regions and [data centers](#x2439906){:term}.
 {:shortdesc}
 
 

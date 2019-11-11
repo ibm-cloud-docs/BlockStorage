@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-11-11"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -23,7 +23,7 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details
 
-You can view a summary the key information for the selected storage LUN including extra snapshot and replication capabilities that were added to the storage.
+You can view a summary of the key information for the selected storage LUN including extra snapshot and replication capabilities that were added to the storage.
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate Volume name from the list.
@@ -45,11 +45,11 @@ You can authorize and connect hosts that are located in the same data center as 
 {:important}
 
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the volume and click **...**.
+3. Locate the volume and click the ellipsis (**...**).
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
-   - if you choose Devices, you can select from Bare Metal Server or Virtual server instances.
-   - if you choose IP Address, first, select the subnet where your host resides.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can use the following command in SLCLI.

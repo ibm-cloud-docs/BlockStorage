@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-08-23"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Disaster Recovery - Fail over with an inaccessible Primary volume
 {: #dr-inaccessible}
 
-If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site.
+If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site. When the primary volume is inaccessible, you can't failover to the replica volume, but you can create a duplicate of the replica volume in the secondary site and failover operations to that clone volume.
 {:shortdesc}
 
 ## Fail over with a duplicate of a replica volume on the secondary site
