@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -32,7 +32,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the new volume and click **...**.
+3. Locate the new volume, and click the ellipsis (**...**).
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
@@ -56,7 +56,7 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
 
-Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage device.
+Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {:shortdesc}
 
 The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
@@ -264,7 +264,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-   B. Log the host in to the iSCSI array.
+   B. Log in the host to the iSCSI array.
     ```
     iscsiadm -m node -L automatic
     ```

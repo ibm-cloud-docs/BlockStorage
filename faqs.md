@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-08-19"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -18,7 +18,7 @@ subcollection: BlockStorage
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: faq}
 
-The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment may request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## How many volumes can be ordered?
 {: faq}
@@ -33,7 +33,7 @@ That depends on what the host operating system can handle, it’s not something 
 ## Can I attach multiple LUNs with different OS settings?
 {: faq}
 
-No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can only be authorized to access LUNs of a single OS type. If you attempt to authorize access to multiple LUNs with different OS types, the operation results in an error.
+No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 
 ## Which Windows version am I to choose for my Block Storage LUN?
 {: #windowsOStypes}
@@ -41,14 +41,15 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 
 When you create a LUN, you must specify the OS type. The OS type must be based on the operating system, which is used by the hosts that access the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
 
-**Windows 2008+**
-- The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
+**Windows GPT**
+-  The LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows support it.
 
 **Windows 2003**
 - The LUN stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
 
-**Windows GPT**
--  The LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows support it.
+**Windows 2008+**
+- The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
+
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: faq}

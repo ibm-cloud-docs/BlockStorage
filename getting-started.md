@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -74,9 +74,9 @@ Storage traffic is included in the total network usage of Public Virtual Servers
 ## Submitting your Order
 {: #submitorder}
 
-When you're ready to submit your order, you can place it through the [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), the [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI) or the [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
+When you're ready to submit your order, you can place it through the [Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole), the [SLCLI](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI), or the [IBMCLOUD CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage#sl_block_volume_order).
 
-For information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
 {:tip}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-11-14"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -45,7 +45,7 @@ Snapshots schedules can be set up for hourly, daily, and weekly intervals, each 
    - Weekly
       - Specify the day of the week, hour, and minute that a snapshot is to be taken. The default is the current day, hour, and minute.
       - Select the number of weekly snapshots to be retained before the oldest is discarded.
-3. Click **Save**. Then, you can create another schedule with a different frequency. If the total number of scheduled snapshots is over 50, you receive a warning message and are not be able to save.
+3. Click **Save**. Then, you can create another schedule with a different frequency. If the total number of scheduled snapshots is over 50, you receive a warning message and you are not be able to save another snapshot.
 
 The list of the snapshots is displayed as they're taken in the **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page.
 

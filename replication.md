@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -86,12 +86,12 @@ Your primary snapshot space and your replica space must be the same. If you chan
 
 ## Viewing the replica volumes in the {{site.data.keyword.blockstorageshort}} List
 
-You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. Original and Replica volumes are grouped together. The **LUN Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
+You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. Original and Replica volumes are grouped. The **LUN Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
 
 
 ## Viewing a replicated volume's details at the replica data center
 
-You can view the replica volume details by clicking on the **Replica** tab while viewing details of the original volume. Another option is to select the replica volume from the **{{site.data.keyword.blockstorageshort}}** list and click the **Replica** tab.
+You can view the replica volume details by clicking the **Replica** tab when you're looking at details of the original volume. Another option is to select the replica volume from the **{{site.data.keyword.blockstorageshort}}** list, and click the **Replica** tab.
 
 
 ## Increasing the Snapshot space in the replica data center when Snapshot space is increased in the primary data center
@@ -147,7 +147,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
  1. Click the volume name on the **{{site.data.keyword.blockstorageshort}}** page.
- 2. On the **{{site.data.keyword.blockstorageshort}}** Detail page, click **Actions** and select **Cancel Replica**.
+ 2. On the **{{site.data.keyword.blockstorageshort}}** Detail page, click **Actions**, and select **Cancel Replica**.
  3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
  4. Confirm that you understand that data loss might occur when you cancel the volume by checking the box.
  5. Click **Cancel Replica**.

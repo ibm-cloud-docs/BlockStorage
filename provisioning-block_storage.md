@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
 
@@ -22,7 +22,7 @@ subcollection: BlockStorage
 # Ordering {{site.data.keyword.blockstorageshort}} through the Console
 {: #orderingthroughConsole}
 
-You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and IOPS needs. Get the most out of your storage with two options for specifying performance.
+You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and operations-speed needs. Get the most out of your storage with two options for specifying performance.
 {:shortdesc}
 
 - You can provision with **Endurance** tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.

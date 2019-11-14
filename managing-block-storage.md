@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -94,7 +94,7 @@ You can view the LUNs to which a host has access to, including information that 
 
 You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
 
-A host cannot be authorized to access LUNs of differing OS types at the same time. A host can only be authorized to access LUNs of a single OS type. If you attempt to authorize access to multiple LUNs with different OS types, the operation results in an error.
+A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 {:note}
 
 ## Mounting and unmounting {{site.data.keyword.blockstorageshort}}
@@ -161,7 +161,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
-2. Select the volume to be canceled, click **Actions** and select **Cancel {{site.data.keyword.blockstorageshort}}**.
+2. Select the volume to be canceled, click **Actions**, and select **Cancel {{site.data.keyword.blockstorageshort}}**.
 3. Confirm if want to cancel the LUN immediately or on the anniversary date of when the LUN was provisioned.
 
    If you select the option to cancel the LUN on its anniversary date, you can void the cancellation request before its anniversary date.

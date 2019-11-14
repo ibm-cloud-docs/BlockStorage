@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-09-10"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -30,7 +30,7 @@ subcollection: BlockStorage
 Take advantage of the following features of {{site.data.keyword.blockstorageshort}}:
 
 - **Consistent performance baseline**
-   - Provided through the allocation of protocol-level IOPS to individual volumes.
+   - Provided through the allocation of protocol-level input/output operations per second (IOPS) to individual volumes.
 - **Highly durable and resilient**
    - Protects the integrity of the data and maintains availability through maintenance events and unplanned failures without the need to create and manage operating system-level redundant array of independent disk (RAID) arrays.
 - **Data-At-Rest Encryption** ([Available in most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
@@ -55,7 +55,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 
 {{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options: <br/>
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
-- Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
+- Build a high-powered **Performance** environment with allocated IOPS.
 
 ### Provisioning with Endurance Tiers
 {: #provendurance}
@@ -98,7 +98,7 @@ Performance for {{site.data.keyword.blockstorageshort}} is accessed and mounted 
 {: row-headers}
 {: class="comparison-table"}
 {: caption="Table comparison" caption-side="top"}
-{: summary="Table 1 is showing the possible minimum and maximum IOPS rates based of the volume size. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
+{: summary="Table 1 is showing the possible minimum and maximum IOPS rates that are based on the volume sizes. This table has row and column headers. The row headers identify the volume size range. The column headers identify the minimum and maximum IOPS levels. To understand what IOPS rates you can expect from your Storage, navigate to the row and review the two options."}
 
 ![Footnote](/images/numberone.png) *IOPS limits that are greater than 6,000 are available in most data centers.*
 

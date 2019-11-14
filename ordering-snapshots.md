@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-06-12"
+lastupdated: "2019-11-14"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -30,7 +30,7 @@ Generically speaking, snapshot space is used by snapshots based on two key facto
 - How much your active file system changes over time,
 - How long you plan to retain snapshots.  
 
-The way to calculate the amount of space that you need is **(Rate of Change)** x **(number of hours/days/weeks/months data is retained)**.
+The way to calculate the amount of space that you need is **(Rate of Change)** x **(number of hours/days/weeks/months data is kept)**.
 
 The first snapshot uses a negligible amount of space as it's just a copy of the metadata (pointers) that indicates the active file system blocks.
 {:note}

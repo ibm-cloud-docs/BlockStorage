@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-14"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -29,7 +29,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the new volume and click **...**.
+3. Locate the new volume and click the ellipsis (**...**).
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
@@ -53,13 +53,13 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IPs of the storage device. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IPs of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
 {:shortdesc}
 
 ### Installing the MPIO feature
 
 1. Start the Server Manager and browse to **Manage**, **Add Roles and Features**.
-2. Click **Next** to the Features menu.
+2. Click **Next** to open the Features menu.
 3. Scroll down and check **Multipath I/O**.
 4. Click **Install** to install MPIO on the host server.
 ![Adding Roles and Features in Server Manager](/images/Roles_Features.png)
@@ -126,7 +126,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    ![Settings](/images/Settings.png)
     - On the Local adapter list, select Microsoft iSCSI Initiator.
     - On the Initiator IP list, select the IP address of the host.
-    - On the Target Portal IP list, select the IP of one of the storage device's interfaces.
+    - On the Target Portal IP list, select the IP of one of the storage interfaces.
     - Click **Enable CHAP log on** check box
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
@@ -135,8 +135,8 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 6. In the Connect to Target window, select the **Enable multi-path** check box. Click **Advanced**.
 7. In the Advanced Settings window,
     - On the Local adapter list, select Microsoft iSCSI Initiator.
-    - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage device to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
-    - On the Target Portal IP list, select the IP address for the second interface that is enabled on the storage device.
+    - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
+    - On the Target Portal IP list, select the IP address for the second interface that is enabled on the storage array.
 
       You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
        {: tip}
@@ -166,7 +166,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 7. Assign a drive letter to the LUN, and then click **Next**.
 8. Enter the parameters to format the LUN.
   * On a Windows Server, only NTFS is supported.
-  * Set the allocation unit size to 64K.
+  * Set the allocation unit size to 64 K.
   * Provide a label for your Storage volume.
 9. Click **Next**.
 10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
@@ -179,10 +179,10 @@ To verify whether Windows MPIO is configured, you must first ensure that the MPI
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
-When the restart is complete and the Storage Device is added, you can verify whether MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
+When the restart is complete and the storage device is added, you can verify whether MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
 ![DeviceDetails_0](/images/DeviceDetails_0.png)
 
-If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.cloud}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session with active read/write operations going to the LUN.
+If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.cloud}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
