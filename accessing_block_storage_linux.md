@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-21"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -245,12 +245,12 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     {: pre}
 
     ```
-    systemctl start iscsi
+    systemctl restart iscsi
     ```
     {: pre}
 
     ```
-    systemctl start iscsid
+    systemctl restart iscsid
     ```
     {: pre}
 
