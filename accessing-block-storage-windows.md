@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-12-05"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -179,10 +179,21 @@ To verify whether Windows MPIO is configured, you must first ensure that the MPI
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 
-When the restart is complete and the storage device is added, you can verify whether MPIO is configured and working. To do so, look at **Target Device Details** and click **MPIO**:
-![DeviceDetails_0](/images/DeviceDetails_0.png)
+After the restart is complete, take the following steps to view all of the active paths.
+1. On the Windows desktop, click **Start**.
+2. In the Start Search field, type `diskmgmt.msc`.
+3. In the Programs list, click `diskmgmt`
+4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
+5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
+   ![Windows MPIO properties](/images/DeviceDetails_0.png)
 
-If MPIO wasn't configured correctly, your storage device might disconnect and appear disabled when a network outage occurs or when {{site.data.keyword.cloud}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+To verify multipathing using the command line, complete the following steps/
+
+1. Open Windows command prompt.
+2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.
+
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
