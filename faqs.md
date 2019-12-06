@@ -128,17 +128,17 @@ Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 per
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
-## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix this?
+## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 
-If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [Troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/infrastructure/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/infrastructure/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
-## My storage appears offline/read-only. Why did this happen and how do I fix it?
+## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: faq}
 
-There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network related but the status of the storage remains read-only from the host's perspective even when the network connection is restored.
+There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored.
 
-This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is configured right, then when there is an unplanned disruption or a planned maintenance, and one of the routes is taken down, the host can still access the attached storage through the second path. If MPIO is not configured correctly, the host loses connection to the storage and may or may not be able to reconnect to the storage when the connectivity issue is resolved. A reboot of the host solves the read-only state issue.
+This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is configured right, then when there is an unplanned disruption or a planned maintenance, and one of the routes is taken down, the host can still access the attached storage through the second path. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved. A reboot of the host solves the read-only state issue.
 
 For more information about validating the MPIO settings, see the following articles.
 - [Verifying MPIO on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
