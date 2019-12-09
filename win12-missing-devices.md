@@ -20,9 +20,12 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:support: data-reuse='support'}
 
 # Windows 2012 R2 - multiple iSCSI devices
 {: #troubleshootingWin12}
+{: troubleshoot}
+{: support}
 
 If you use more than two iSCSI devices with the same host, you might find this procedure useful; especially if all the iSCSI connections are from the same Storage device. When you use more than two devices, but can see only two devices in Disk Manager, then you need to manually connect to each device in iSCSI Initiator on every server node.
 {: tsSymptoms}
@@ -30,6 +33,7 @@ If you use more than two iSCSI devices with the same host, you might find this p
 ## Manually connecting storage devices
 {: #manualconnect}
 {: tsResolve}
+
 
 
 1. Open the Windows iSCSI Initiator.
