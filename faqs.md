@@ -11,33 +11,40 @@ subcollection: BlockStorage
 ---
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
+{:support: data-reuse='support'}
+{:help: data-hd-content-type='help'}
 
 # FAQs
 {: #block-storage-faqs}
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: faq}
+{: support}
 
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## How many volumes can be ordered?
 {: faq}
+{: support}
 
 By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: faq}
+{: support}
 
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
 {: faq}
+{: support}
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 
 ## Which Windows version am I to choose for my Block Storage LUN?
 {: #windowsOStypes}
 {: faq}
+{: support}
 
 When you create a LUN, you must specify the OS type. The OS type must be based on the operating system, which is used by the hosts that access the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
 
@@ -53,16 +60,19 @@ When you create a LUN, you must specify the OS type. The OS type must be based o
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: faq}
+{: support}
 
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## Measuring IOPS
 {: faq}
+{: support}
 
 IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
 
 ## What happens when a smaller block size is used to measure performance?
 {: faq}
+{: support}
 
 Maximum IOPS can still be obtained when you use smaller block sizes. However, throughput becomes smaller. For example, a volume with 6000 IOPS would have the following throughput at various block sizes:
 
@@ -72,42 +82,50 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 
 ## Does the volume need to be pre-warmed to achieve expected throughput?
 {: faq}
+{: support}
 
 There's no need for pre-warming. You can observe specified throughput immediately upon provisioning the volume.
 
 ## Can more throughput be achieved by using a faster Ethernet connection?
 {: faq}
+{: support}
 
 There are limits set at the LUN level and a faster Ethernet connection doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
 
 ## Do firewalls and security groups impact performance?
 {: #isolatedstoragetraffic}
 {: faq}
+{: support}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: faq}
+{: support}
 
 Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: faq}
+{: support}
 
 The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is available in most [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
+{: support}
 
 When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
+{: support}
 
 When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
 
 ## If we own non-encrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}
+{: support}
 
 {{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted.
 New {{site.data.keyword.blockstorageshort}} that is provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic.
@@ -115,30 +133,37 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
 {: faq}
+{: support}
 
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
 {: faq}
+{: support}
 
 {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
 {: faq}
+{: support}
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
-## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix this?
+## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
+{: help}
+{: support}
 
-If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [Troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/infrastructure/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/infrastructure/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
-## My storage appears offline/read-only. Why did this happen and how do I fix it?
+## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: faq}
+{: help}
+{: support}
 
-There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network related but the status of the storage remains read-only from the host's perspective even when the network connection is restored.
+There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored.
 
-This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is configured right, then when there is an unplanned disruption or a planned maintenance, and one of the routes is taken down, the host can still access the attached storage through the second path. If MPIO is not configured correctly, the host loses connection to the storage and may or may not be able to reconnect to the storage when the connectivity issue is resolved. A reboot of the host solves the read-only state issue.
+This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is configured right, then when there is an unplanned disruption or a planned maintenance, and one of the routes is taken down, the host can still access the attached storage through the second path. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved. A reboot of the host solves the read-only state issue.
 
 For more information about validating the MPIO settings, see the following articles.
 - [Verifying MPIO on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
