@@ -329,12 +329,12 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    ```
    {: pre}
 
-   - The new partition is listed with the disk, similar to `XXXlp1`, followed by the size, Type (83), and Linux.
-   - Take a note of the partition name, you need it in the next step. (The XXXlp1 represents the partition name.)
+   - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux.
+   - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
    - Create the file system:
 
      ```
-     mkfs.ext3 /dev/mapper/XXXlp1
+     mkfs.ext3 /dev/mapper/XXXp1
      ```
      {: pre}
 
@@ -348,7 +348,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
    - Mount the storage with the partition name.
      ```
-     mount /dev/mapper/XXXlp1 /PerfDisk
+     mount /dev/mapper/XXXp1 /PerfDisk
      ```
      {: pre}
 
@@ -362,7 +362,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3). <br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
+     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -453,7 +453,7 @@ To create a file system with `parted`, follow these steps.
 3. Create a file system on the new partition.
 
    ```
-   mkfs.ext3 /dev/mapper/XXXlp1
+   mkfs.ext3 /dev/mapper/XXXp1
    ```
    {: pre}
 
@@ -471,7 +471,7 @@ To create a file system with `parted`, follow these steps.
    - Mount the storage with the partition name.
 
      ```
-     mount /dev/mapper/XXXlp1 /PerfDisk
+     mount /dev/mapper/XXXp1 /PerfDisk
      ```
      {: pre}
 
@@ -486,7 +486,7 @@ To create a file system with `parted`, follow these steps.
    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3). <br />
 
      ```
-     /dev/mapper/XXXlp1    /PerfDisk    ext3    defaults,_netdev    0    1
+     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -559,7 +559,7 @@ To create a file system with `parted`, follow these steps.
 
 1. Unmount the file system.
    ```
-   umount /dev/mapper/XXXlp1 /PerfDisk
+   umount /dev/mapper/XXXp1 /PerfDisk
    ```
    {: pre}
 
