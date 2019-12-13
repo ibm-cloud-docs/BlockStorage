@@ -61,7 +61,7 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 
 ## Starting a failback from a volume to its replica
 
-When your original source volume is repaired, you can start a controlled Failback to your original source volume. In a controlled Failback:
+When your original source volume is repaired, you can start a controlled Failback to your original source volume. In a controlled Failback,
 
 - The acting source volume is taken offline.
 - A snapshot is taken.
