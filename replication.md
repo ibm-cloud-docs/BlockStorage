@@ -107,7 +107,7 @@ For more information about increasing Snapshot space, see [Ordering Snapshots](/
 Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes the following items.
 
 - The type for replication (failover or failback).
-- When it was started.
+- The time the replication started.
 - The snapshot that was used for the replication.
 - The size of the replication.
 - The time when the replication is completed.
@@ -206,7 +206,7 @@ When a primary volume is canceled, the replication schedule and the volume in th
   -h, --help      Show this message and exit.
   ```
 
-* Failover a block volume to a specific replicant volume.
+* Fail a block volume over to a specific replicant volume.
   ```
   # slcli block replica-failover --help
   Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
