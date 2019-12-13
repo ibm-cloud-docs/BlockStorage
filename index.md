@@ -42,7 +42,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
 - **Replication** ([Available in most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC))
    - Automatically copies snapshots to a partner {{site.data.keyword.cloud}} data center.
 - **Highly available connectivity**
-   - Uses redundant networking connections to maximize availability
+   - Uses redundant networking connections to maximize availability.
    - iSCSI-based {{site.data.keyword.blockstorageshort}} uses Multipath I/O (MPIO).
 - **Concurrent access**
    - Allows multiple hosts to simultaneously access block volumes (up to eight) for clustered configurations.

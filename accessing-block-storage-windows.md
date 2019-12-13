@@ -90,7 +90,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
   - Click **Advanced** to open the Advanced Settings window.
   - Select **Enable CHAP log on** to turn on CHAP authentication.
-    ![Enable CHAP login](/images/Advanced_0.png)
+    ![Enable CHAP login.](/images/Advanced_0.png)
 
     The Name and Target secret fields are case-sensitive.
     {:important}
@@ -98,7 +98,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
     - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
   - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
-  ![Inactive Target](/images/Inactive_0.png)
+  ![Inactive Target.](/images/Inactive_0.png)
 
   The name of your target appears in the Discovered targets section with an `Inactive` status.
   {:note}
@@ -107,13 +107,13 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 4. Select **Enable multi-path** check box to enable multi-path IO to the target.<br/>
    ![Enable Multi-path](/images/Connect_0.png)
 5. Click **Advanced**, and select **Enable CHAP log on**.</br>
-   ![Enable CHAP](/images/chap_0.png)
+   ![Enable CHAP.](/images/chap_0.png)
 6. Enter the user name in the Name field, and enter the password in the Target secret field.
 
    The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    {:tip}
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
-   ![Connected status](/images/Connected.png)
+   ![Connected status.](/images/Connected.png)
 
 ### Adding and configuring MPIO sessions in the iSCSI Initiator
 
@@ -127,7 +127,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - On the Local adapter list, select Microsoft iSCSI Initiator.
     - On the Initiator IP list, select the IP address of the host.
     - On the Target Portal IP list, select the IP of one of the storage interfaces.
-    - Click **Enable CHAP log on** check box
+    - Click **Enable CHAP log on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 
@@ -140,7 +140,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
       You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
        {: tip}
-    - Click **Enable CHAP log on** check box
+    - Click **Enable CHAP log on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
@@ -182,12 +182,12 @@ To verify whether Windows MPIO is configured, you must first ensure that the MPI
 After the restart is complete, take the following steps to view all of the active paths.
 1. On the Windows desktop, click **Start**.
 2. In the Start Search field, type `diskmgmt.msc`.
-3. In the Programs list, click `diskmgmt`
+3. In the Programs list, click `diskmgmt`.
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
-   ![Windows MPIO properties](/images/DeviceDetails_0.png)
+   ![Windows MPIO properties.](/images/DeviceDetails_0.png)
 
-To verify multipathing using the command line, complete the following steps/
+To verify multipathing using the command line, complete the following steps.
 
 1. Open Windows command prompt.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.

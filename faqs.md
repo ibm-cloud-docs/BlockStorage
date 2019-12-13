@@ -163,7 +163,7 @@ If you use more than two iSCSI LUNs with the same host, and if all the iSCSI con
 
 There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored.
 
-This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is configured right, then when there is an unplanned disruption or a planned maintenance, and one of the routes is taken down, the host can still access the attached storage through the second path. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved. A reboot of the host solves the read-only state issue.
+This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is configured right, then when an unplanned disruption or a planned maintenance occurs, and one of the routes is taken down, the host can still access the attached storage through the second path. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved. A reboot of the host solves the read-only state issue.
 
 For more information about validating the MPIO settings, see the following articles.
 - [Verifying MPIO on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
