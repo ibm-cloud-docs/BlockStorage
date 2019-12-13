@@ -155,7 +155,7 @@ Options:
 
 ## Canceling a storage LUN
 
-If you no longer need a specific LUN, you can cancel it at anytime.
+If you no longer need a specific LUN, you can cancel it at any time.
 
 To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
