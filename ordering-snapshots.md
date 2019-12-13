@@ -26,7 +26,7 @@ To create snapshots of your storage volume, either automated or manually, you ne
 
 ## Determining how much snapshot space to order
 
-Generically speaking, snapshot space is used by snapshots based on two key factors
+Generically speaking, snapshot space is used by snapshots based on two key factors:
 - How much your active file system changes over time,
 - How long you plan to retain snapshots.  
 
