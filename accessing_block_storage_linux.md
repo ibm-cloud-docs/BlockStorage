@@ -383,7 +383,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 (`*`) Type m for Help.
 
-(`**`) Type L to list the hex codes
+(`**`) Type L to list the hex codes.
 
 ### Creating a file system with `parted`
 {: #parted}
