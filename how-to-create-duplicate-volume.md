@@ -50,7 +50,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 ## Creating a duplicate from a specific volume in the Storage List
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Select a volume from the list and click the ellipsis (**...**) > **Duplicate LUN**
+2. Select a volume from the list and click the ellipsis (**...**) > **Duplicate LUN**.
 3. Choose your snapshot option:
     - If you order from a **non-replica** volume,
       - Select **Create a new snapshot to clone* – this action creates a snapshot to be used for the duplicate. Use this option if your volume doesn't have current snapshots or if you want to create a duplicate right then.<br/>
@@ -75,7 +75,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
 3. Scroll down and select an existing snapshot from the list on the detail page and click **Actions** > **Duplicate**.   
-4. The Location remain the same as the original volume.
+4. The Location remains the same as the original volume.
 5. You can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can change the selection.
 6. You can update the size of the new volume so that it is larger than the original. The size of the original volume is set by default.
 
