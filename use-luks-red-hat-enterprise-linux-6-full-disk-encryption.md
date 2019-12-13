@@ -30,7 +30,7 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 
 ## What LUKS does
 
-- Encrypts entire block devices and is therefore well-suited for protecting the contents of mobile devices such as removable storage media or Notebook disk drives.
+- Encrypts entire block devices and is therefore well suited for protecting the contents of mobile devices such as removable storage media or Notebook disk drives.
 - The underlying contents of the encrypted block device are arbitrary, making it useful for encrypting swap devices. The encrypting can also be useful with certain databases that use specially formatted block devices for data storage.
 - Uses the existing device mapper kernel subsystem.
 - Provides passphrase strengthening, which protects against dictionary attaches.
