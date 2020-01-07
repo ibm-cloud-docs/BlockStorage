@@ -89,7 +89,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
   - Click **Discovery**, and click **Discover Portal**.
   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
   - Click **Advanced** to open the Advanced Settings window.
-  - Select **Enable CHAP log on** to turn on CHAP authentication.
+  - Select **Enable CHAP log-on** to turn on CHAP authentication.
     ![Enable CHAP login.](/images/Advanced_0.png)
 
     The Name and Target secret fields are case-sensitive.
@@ -105,8 +105,8 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
 3. Click **Connect** to connect to the target.
 4. Select **Enable multi-path** check box to enable multi-path IO to the target.<br/>
-   ![Enable Multi-path](/images/Connect_0.png)
-5. Click **Advanced**, and select **Enable CHAP log on**.</br>
+   ![Enable Multi-path.](/images/Connect_0.png)
+5. Click **Advanced**, and select **Enable CHAP log-on**.</br>
    ![Enable CHAP.](/images/chap_0.png)
 6. Enter the user name in the Name field, and enter the password in the Target secret field.
 
@@ -127,7 +127,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
     - On the Local adapter list, select Microsoft iSCSI Initiator.
     - On the Initiator IP list, select the IP address of the host.
     - On the Target Portal IP list, select the IP of one of the storage interfaces.
-    - Click **Enable CHAP log on** check box.
+    - Click **Enable CHAP log-on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 
@@ -140,7 +140,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
       You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
        {: tip}
-    - Click **Enable CHAP log on** check box.
+    - Click **Enable CHAP log-on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
@@ -151,7 +151,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
    ![Devices](/images/Devices.png)
 
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balance policy.
-    ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy](/images/DeviceDetails.png)
+    ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.png)
 
 11. Click **OK** several times to exit the iSCSI Initiator.
 
