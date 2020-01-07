@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-07-22"
+  years: 2014, 2020
+lastupdated: "2020-01-07"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -15,9 +15,13 @@ subcollection: BlockStorage
 {:important: .important}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:support: data-reuse='support'}
+{:help: data-hd-content-type='help'}
 
 # Managing storage limits
 {: #managingstoragelimits}
+{: help}
+{: support}
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally.
 
