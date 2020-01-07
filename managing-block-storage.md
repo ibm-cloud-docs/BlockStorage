@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2020-01-07"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -14,6 +14,8 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 {:shortdesc: .shortdesc}
+{:support: data-reuse='support'}
+{:help: data-hd-content-type='help'}
 
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
@@ -22,6 +24,9 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [
 {:shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details
+{: #viewLUNdeetsUI}
+{: help}
+{: support}
 
 You can view a summary of the key information for the selected storage LUN including extra snapshot and replication capabilities that were added to the storage.
 
@@ -38,6 +43,9 @@ Options:
 ```
 
 ## Authorizing hosts to access to {{site.data.keyword.blockstorageshort}}
+{: #authhostUI}
+{: help}
+{: support}
 
 "Authorized" hosts are hosts that were given access to a particular LUN. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your LUN generates the user name, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
 
@@ -66,6 +74,9 @@ Options:
 ```
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN
+{: #viewauthhostUI}
+{: help}
+{: support}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
 2. Scroll down to the **Authorized Hosts** section.
@@ -86,6 +97,9 @@ Options:
 ```
 
 ## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized
+{: #viewLUNauthUI}
+{: help}
+{: support}
 
 You can view the LUNs to which a host has access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
@@ -98,6 +112,9 @@ A host cannot be authorized to access LUNs of differing OS types at the same tim
 {:note}
 
 ## Mounting and unmounting {{site.data.keyword.blockstorageshort}}
+{: #mountLUNUI}
+{: help}
+{: support}
 
 Based on the Operating System of your host, follow the appropriate instructions.
 
@@ -118,6 +135,9 @@ To avoid host side issues, unmount the storage LUN from your operating system be
 You can revoke access from the **Device List** or the **Storage view**.
 
 ### Revoking access from the Device List
+{: #revokeDeviceUI}
+{: help}
+{: support}
 
 1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices**, **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
@@ -129,6 +149,10 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 
 
 ### Revoking access from the Storage View
+{: #revokeDStorageUI}
+{: help}
+{: support}
+
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
 2. Scroll to **Authorized Hosts**.
@@ -139,6 +163,10 @@ If you want to disconnect multiple hosts from a specific LUN, you need to repeat
 {:tip}
 
 ### Revoking access through the SLCLI.
+{: #revokeSLCLI}
+{: help}
+{: support}
+
 
 Alternatively, you can use the following command in SLCLI.
 ```
@@ -154,6 +182,10 @@ Options:
 ```
 
 ## Canceling a storage LUN
+{: #rcancelLUNUI}
+{: help}
+{: support}
+
 
 If you no longer need a specific LUN, you can cancel it at any time.
 
