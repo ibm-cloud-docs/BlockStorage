@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-11-14"
+  years: 2014, 2020
+lastupdated: "2020-01-27"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -90,5 +90,6 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   ```
 * [Managing storage limits](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)  
   ```
+  slcli block volume-limit
   slcli block volume-count
   ```
