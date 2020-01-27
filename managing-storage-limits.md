@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-01-27"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -25,16 +25,22 @@ subcollection: BlockStorage
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally.
 
-If you're unsure how many volumes you have, you can list your volumes for each data center by using the following `slcli` command.
+If you're unsure how many volumes you have, you can list the number of your volumes by using the following `slcli` command.
 ```
-# slcli block volume-count --help
-Usage: slcli block volume-count [OPTIONS]
+# slcli block volume-limit
+```
+Example output:
+```
+[{'datacenterName': 'global', 'maximumAvailableCount': 250, 'provisioned Count':117}]
+:............:.......................:..................:
+: Datacenter : maximumAvailableCount : ProvisionedCount :
+:............:.......................:..................:
+:   global   :           250         :         117      :
+:............:.......................:..................:
+```
+The API call shows the combined number of {site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
+{:tip}
 
-Options:
-  -d, --datacenter TEXT  Datacenter shortname
-  --sortby TEXT          Column to sort by
-  -h, --help             Show this message and exit.
-```
 
 You can request a limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
 {:shortdesc}
