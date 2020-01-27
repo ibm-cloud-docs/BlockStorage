@@ -60,7 +60,7 @@ You can authorize and connect hosts that are located in the same data center as 
    - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
-Alternatively, you can use the following command in SLCLI.
+Alternatively, you can use the following commands in SLCLI.
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -71,6 +71,38 @@ Options:
   -i, --ip-address-id TEXT  The ID of an IP address to authorize.
   -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
+```
+
+```
+# slcli block subnets-list -h
+Usage: slcli block subnets-list [OPTIONS] ACCESS_ID
+  List block storage assigned subnets for the given host id.
+  access_id is the host_id obtained by: slcli block access-list <volume_id>
+
+Options:
+    -h, --help  Show this message and exit.
+```
+
+```
+slcli block subnets-assign -h
+Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
+  Assign block storage subnets to the given host id.
+  access_id is the host_id obtained by: slcli block access-list <volume_id>
+
+Options:
+  --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
+  -h, --help           Show this message and exit.
+```
+
+```
+slcli block subnets-remove -h
+Usage: slcli block subnets-remove [OPTIONS] ACCESS_ID
+  Remove block storage subnets for the given host id.
+  access_id is the host_id obtained by: slcli block access-list <volume_id>
+
+Options:
+  --subnet-id INTEGER  ID of the subnets to remove; e.g.: --subnet-id 1234
+  -h, --help           Show this message and exit.
 ```
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN

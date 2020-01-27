@@ -33,6 +33,9 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   slcli block access-list
   slcli block access-password
   slcli block access-revoke
+  slcli subnets-assign
+  slcli subnets-list
+  slcli subnets-remove
   ```
 
 ## Replication-related SLCLI commands
