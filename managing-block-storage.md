@@ -52,13 +52,13 @@ Options:
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {:important}
 
-2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the volume and click the ellipsis (**...**).
-4. Click **Authorize Host**.
-5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+2. Locate the volume and click the ellipsis (**...**).
+3. Click **Authorize Host**.
+4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
    - If you choose IP address, first, select the subnet where your host resides.
-6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
+5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 Alternatively, you can use the following commands in SLCLI.
 ```
