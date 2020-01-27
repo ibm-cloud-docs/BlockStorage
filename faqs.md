@@ -41,7 +41,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 
 **SLCLI**
 ```
-slcli block subnets-assign -h
+# slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>

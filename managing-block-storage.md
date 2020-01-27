@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2020-01-07"
+  years: 2014, 2020
+lastupdated: "2020-01-27"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -84,7 +84,7 @@ Options:
 ```
 
 ```
-slcli block subnets-assign -h
+# slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>
@@ -95,7 +95,7 @@ Options:
 ```
 
 ```
-slcli block subnets-remove -h
+# slcli block subnets-remove -h
 Usage: slcli block subnets-remove [OPTIONS] ACCESS_ID
   Remove block storage subnets for the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>

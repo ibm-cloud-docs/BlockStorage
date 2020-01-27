@@ -51,10 +51,11 @@ Options:
 {:codeblock}
 
 ```
-slcli block subnets-assign -h
+#slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>
+
 Options:
   --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
