@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" category="storage" audience="services" arm="3662724" href="/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started" path="infrastructure/BlockStorage"}
+{: .toc subcollection="BlockStorage" category="storage" audience="services" href="/docs/BlockStorage?topic=BlockStorage-getting-started" path="BlockStorage"}
 IBM Cloud Storage - Block Storage
 
     {: .navgroup id="learn"}
