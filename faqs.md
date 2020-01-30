@@ -185,6 +185,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/infrastructure/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
+{: #correctMPIO}
 {: faq}
 {: help}
 {: support}
