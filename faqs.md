@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-12-06"
+  years: 2014, 2020
+lastupdated: "2020-01-27"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -22,6 +22,34 @@ subcollection: BlockStorage
 {: support}
 
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+
+## In our VMWare deployment, the hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
+{: #authsubnets}
+{: faq}
+{: help}
+{: support}
+
+It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IPs on a subnet, complete the following steps.
+
+**Console UI**
+1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+2. Locate the volume and click the ellipsis (**...**).
+3. Click **Authorize Host**.
+4. To see the list of available IP addresses, select IP Address as the host type. Then, select the subnet where your host resides.
+5. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
+
+**SLCLI**
+```
+# slcli block subnets-assign -h
+Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
+  Assign block storage subnets to the given host id.
+  access_id is the host_id obtained by: slcli block access-list <volume_id>
+
+Options:
+  --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
+  -h, --help           Show this message and exit.
+```
 
 ## How many volumes can be ordered?
 {: faq}

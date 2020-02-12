@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-12-05"
+  years: 2014, 2020
+lastupdated: "2020-01-27"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -47,6 +47,18 @@ Options:
   -i, --ip-address-id TEXT  The ID of an IP address to authorize.
   -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
+```
+{:codeblock}
+
+```
+#slcli block subnets-assign -h
+Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
+  Assign block storage subnets to the given host id.
+  access_id is the host_id obtained by: slcli block access-list <volume_id>
+
+Options:
+  --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
+  -h, --help           Show this message and exit.
 ```
 {:codeblock}
 
