@@ -42,7 +42,7 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-## Authorizing hosts to access to {{site.data.keyword.blockstorageshort}}
+## Authorizing hosts to access {{site.data.keyword.blockstorageshort}}
 {: #authhostUI}
 {: help}
 {: support}
