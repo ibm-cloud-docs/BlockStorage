@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" category="storage" audience="services" href="/docs/BlockStorage?topic=BlockStorage-getting-started" path="BlockStorage"}
+{: .toc subcollection="BlockStorage" category="storage" audience="service" href="/docs/BlockStorage?topic=BlockStorage-getting-started" path="BlockStorage"}
 IBM Cloud Block Storage - Classic
 
     {: .navgroup id="learn"}
