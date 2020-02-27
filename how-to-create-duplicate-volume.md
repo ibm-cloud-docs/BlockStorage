@@ -24,6 +24,7 @@ You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}
 {:shortdesc}
 
 For information about dependent duplicates that can be refreshed from the original, primary volume, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
+{:note}
 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).  
 
