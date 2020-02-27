@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-11-14"
+  years: 2014, 2020
+lastupdated: "2020-02-27"
 
-keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning
+keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
 subcollection: BlockStorage
 
@@ -107,7 +107,9 @@ When your provisioning request is complete, authorize your hosts to access the n
 
 To avoid data-loss and to ensure business continuity, consider replicating your servers and storage in another data center. Replication keeps your data in sync in two different locations based on your snapshot schedule. For more information, see [Replicating data](/docs/BlockStorage?topic=BlockStorage-replication).
 
-If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
+If you want to clone your volume and use it independently from the original volume, see [Creating and managing independent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
+
+If you want to clone your volume and have the ability to refresh the duplicate on demand, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 
