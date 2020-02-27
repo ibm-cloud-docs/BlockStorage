@@ -18,16 +18,16 @@ subcollection: BlockStorage
 # Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 
-Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC).
+Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 {:shortdesc}
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
-- [Connecting storage volumes on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Connecting storage volumes on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connecting storage volumes on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Connecting storage volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting storage volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Connecting storage volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## Creating a {{site.data.keyword.blockstorageshort}}
 
@@ -36,8 +36,8 @@ When you place an order with API, specify the "Storage as a Service" package to 
 
 You can order an enhanced LUN through the IBM Cloud Console. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
-- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
-- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
+- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
+- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 

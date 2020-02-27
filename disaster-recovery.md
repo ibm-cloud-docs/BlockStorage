@@ -43,7 +43,7 @@ If you want to return production to the original primary site, you must perform 
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Click the LUN name, and create a snapshot schedule (if one does not exist already).
 
-   For more information about snapshot schedules, see [Managing Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
+   For more information about snapshot schedules, see [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
    {:tip}
 4. Click **Replica** and click **Purchase a replication**.
 5. Select the existing snapshot schedule that you want the replication to follow. The list contains all of the active snapshot schedules.

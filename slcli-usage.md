@@ -27,7 +27,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 {:tip}
 
 ## Access-related SLCLI commands
-* [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
+* [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block access-authorize
   slcli block access-list
@@ -40,7 +40,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Replication-related SLCLI commands
 
-* [Replication-related SLCLI commands](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [Replication-related SLCLI commands](/docs/BlockStorage?topic=BlockStorage-replication#clicommands)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -52,12 +52,12 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Snapshots-related SLCLI commands
 
-* [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
   ```
   slcli block snapshot-order
   ```
 
-* [Managing Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots)
+* [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots)
   ```
   slcli block snapshot-create
   slcli block snapshot-list
@@ -70,20 +70,20 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Volume-related SLCLI commands
 
-* [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughCLI)
-* [Creating a duplicate volume](/docs/infrastructure/BlockStorage?topic=BlockStorage-duplicatevolume)
+* [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingthroughCLI)
+* [Creating a duplicate volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
   ```
   slcli block volume-duplicate
   ```
-* [Adjusting the IOPS](/docs/infrastructure/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
+* [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS#steps)
   ```
   slcli block volume-modify
   ```
-* [Expanding the capacity](/docs/infrastructure/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
+* [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
   ```
   slcli block volume-modify
   ```
-* [Managing {{site.data.keyword.blockstorageshort}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstorage)  
+* [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block volume-cancel
   slcli block volume-count
@@ -91,7 +91,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   slcli block volume-list
   slcli block volume-set-lun-id
   ```
-* [Managing storage limits](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingstoragelimits)  
+* [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits)  
   ```
   slcli block volume-limit
   slcli block volume-count
