@@ -21,6 +21,9 @@ subcollection: BlockStorage
 {: #dependentduplicate}
 
 With the new dependent volume feature, {{site.data.keyword.cloud}} customers are able to create volume duplicates without incurring downtime on the primary volume and refresh the data on the dependent volume by using a snapshot from the primary volume whenever they want to.
+{:shortdesc}
+
+If you would like to know about creating a duplicate volume that is independent from the original volume, see [Creating a duplicate {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
 
 ## Ordering a dependent volume
 {: #orderdependentvol}
