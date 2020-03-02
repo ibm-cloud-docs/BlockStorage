@@ -79,7 +79,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   ```
   slcli block volume-modify
   ```
-* [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#steps)
+* [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
   ```
   slcli block volume-modify
   ```
