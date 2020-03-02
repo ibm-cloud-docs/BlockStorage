@@ -52,7 +52,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Snapshots-related SLCLI commands
 
-* [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots#ordering-snapshot-space-through-the-slcli)
+* [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots#ordersnapshotSLCLI)
   ```
   slcli block snapshot-order
   ```
