@@ -34,7 +34,7 @@ With snapshots, you can:
 - Non-disruptively create point-in-time recovery points,
 - Revert volumes to previous points-in-time.
 
-You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
+You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 
 ## Snapshot best practices
 
@@ -51,7 +51,7 @@ Snapshots are not replacements for actual off-site Disaster Recovery replication
 
 ## Security
 
-All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](/docs/infrastructure/BlockStorage?topic=BlockStorage-encryption).
+All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](/docs/BlockStorage?topic=BlockStorage-encryption).
 
 ## How Snapshots affect the disk space
 
@@ -67,4 +67,4 @@ In the active file system, the changed blocks are rewritten to different locatio
 | ![The space that is used when something changes after a snapshot copy was taken.](/images/bfcircle2.png "Changes after Snapshot Copy") | After `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. That's why deleting active file system data doesn't always free up disk space. |
 {: caption="Table 1 shows how snapshots affect the space usage on the Storage." caption-side="top"}
 
-For more information about snapshot space usage, see [Managing Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-managingSnapshots).
+For more information about snapshot space usage, see [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots).

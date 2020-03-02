@@ -34,7 +34,7 @@ All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} 
 
 ## Provisioning Storage with Encryption
 
-The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-selectDC). All storage that is ordered in these data centers is automatically provisioned with encryption.
+The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). All storage that is ordered in these data centers is automatically provisioned with encryption.
 
 When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon to the right of the LUN/Volume Name field that indicates that the volume is encrypted.
 
@@ -43,5 +43,5 @@ When you order {{site.data.keyword.blockstorageshort}}, select a data center not
 
 
 
-Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/infrastructure/BlockStorage?topic=BlockStorage-migratestorage).
+Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}

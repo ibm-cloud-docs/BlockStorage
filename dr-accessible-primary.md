@@ -56,7 +56,7 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
    {:note}
 4. Click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN (it was your previous target volume).
-6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
+6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
 
 ## Starting a failback from a volume to its replica
@@ -81,4 +81,4 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
    {:note}
 4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN ("source").
-6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
+6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).

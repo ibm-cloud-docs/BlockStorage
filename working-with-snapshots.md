@@ -26,7 +26,7 @@ Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot re
 
 You decide how often and when you want to create a point-in-time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
-Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingsnapshots).
+Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {:important}
 
 ### Adding a Snapshot schedule
@@ -135,7 +135,7 @@ Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.b
 1. Click the schedule to be deleted in the **Snapshot Schedules** frame on the **{{site.data.keyword.blockstorageshort}} Detail** page.
 2. Click the check box next to the schedule to be deleted and click **Save**.<br />
 
-If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/infrastructure/BlockStorage?topic=BlockStorage-replication).
+If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {:important}
 
 ## Deleting a snapshot
@@ -166,8 +166,8 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 {:important}
 
 1. Unmount and detach your storage volume from the host.
-   - [Connecting iSCSI Volumes on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#unmounting)
-   - [Connecting iSCSI Volumes on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Connecting iSCSI Volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
+   - [Connecting iSCSI Volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
@@ -179,9 +179,9 @@ Restoring a volume results in deleting all snapshots that were taken after the s
    Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {:note}
 6. Mount and reattach your storage volume to the host.
-   - [Connecting iSCSI Volumes on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [Connecting iSCSI Volumes on CloudLinux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Connecting iSCSI Volumes on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Connecting iSCSI Volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Connecting iSCSI Volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Connecting iSCSI Volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Alternatively, after the volume was detached from the host, you can use the following command in the SLCLI to start a restore.
 ```
