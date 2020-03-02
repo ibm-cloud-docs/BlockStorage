@@ -139,7 +139,7 @@ You can authorize and connect hosts that are located in the same data center as 
 For more information about authorizing hosts to access the {{site.data.keyword.blockstorageshort}} through the API, see [authorize_host_to_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.authorize_host_to_volume){: external}.
 {:tip}
 
-For the limit on simultaneous authorizations, see the [FAQs](/docs/BlockStorage?topic=block-storage-faqs).
+For the limit on simultaneous authorizations, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 {:important}
 
 

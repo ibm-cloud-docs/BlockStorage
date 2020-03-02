@@ -59,7 +59,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 10. After you reviewed the terms and conditions, check the **I have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=block-storage-faqs).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 {:important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} with Custom IOPS (Performance)
@@ -89,7 +89,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 10. After you reviewed the terms and conditions, check the **I have read and agree to the Third-Party Service Agreements** box.
 11. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=block-storage-faqs).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 {:important}
 
 ## Connecting your new storage

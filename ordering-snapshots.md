@@ -50,6 +50,7 @@ So when you determine how much Snapshot space you need, consider the rate of cha
 Additionally, for most workloads, the larger a volume is the less space needs to be set aside initially. It's primarily due to the underlying data efficiencies, and the nature of how snapshots work in the environment.
 
 ## Ordering Snapshot space through the {{site.data.keyword.cloud_notm}} console
+{: #ordersnapshotUI}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external}, and click the menu icon on the upper left. Then, select **Classic Infrastructure**.
 2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.
@@ -63,6 +64,7 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 6. Check the **I have read the Master Service Agreement and agree to the terms therein** box and click **Place Order**. Your snapshot space is provisioned in a few minutes.
 
 ## Ordering Snapshot space through the SLCLI
+{: #ordersnapshotSLCLI}
 
 ```
 # slcli block snapshot-order --help
