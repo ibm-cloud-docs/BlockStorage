@@ -167,7 +167,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 
 1. Unmount and detach your storage volume from the host.
    - [Connecting iSCSI Volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Connecting iSCSI Volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmounting)
+   - [Connecting iSCSI Volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
