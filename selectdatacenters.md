@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # {{site.data.keyword.blockstorageshort}} locations
 {: #selectDC}
 
-{{site.data.keyword.blockstoragefull}} with enhanced capabilities is available in the following regions and [data centers](#x2439906){:term}.
+{{site.data.keyword.blockstoragefull}} with enhanced capabilities is available in the following regions and data centers.
 {:shortdesc}
 
 
