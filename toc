@@ -35,6 +35,7 @@ IBM Cloud Block Storage - Classic
         expandable_block_storage.md
         adjustable-iops.md
         how-to-create-duplicate-volume.md
+        dependent-duplicate.md
         working-with-snapshots.md
 
     {: .topicgroup}
