@@ -199,7 +199,7 @@ After the restart is complete, take the following steps to view all of the activ
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
    ![Windows MPIO properties.](/images/DeviceDetails_0.png)
 
-To verify multipathing using the command line, complete the following steps.
+To verify multipathing by using the command line, complete the following steps.
 
 1. Open Windows command prompt.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.
