@@ -29,14 +29,14 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: help}
 {: support}
 
-It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IPs on a subnet, complete the following steps.
+It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IP addresses on a subnet, complete the following steps.
 
 **Console UI**
 1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Locate the volume and click the ellipsis (**...**).
 3. Click **Authorize Host**.
-4. To see the list of available IP addresses, select IP Address as the host type. Then, select the subnet where your host resides.
+4. To see the list of available IP addresses, select **IP address** as the host type. Then, select the subnet where your host resides.
 5. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
 **SLCLI**
