@@ -53,7 +53,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
    Discounts are applied when the order is processed.
    {:note}
-6. Review your order, and Click the **I have read the Master Service Agreement…** check box.
+6. Review your order, and click the **I have read the Master Service Agreement…** check box.
 7. Click **Place Order**.
 
 

@@ -45,7 +45,7 @@ If the volume has replication in place, the replica is automatically updated to 
 ## Adjusting the IOPS on your Storage
 {: #adjustingsteps}
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click on the **menu** icon, then click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click the **menu** icon, then click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify LUN**.
 3. Under **Adjust Storage IOPS**, make a new selection:
     - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.

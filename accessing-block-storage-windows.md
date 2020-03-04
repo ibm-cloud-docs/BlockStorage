@@ -65,7 +65,7 @@ Options:
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IPs of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
 {:shortdesc}
 
 ### Installing the MPIO feature
@@ -199,7 +199,7 @@ After the restart is complete, take the following steps to view all of the activ
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
    ![Windows MPIO properties.](/images/DeviceDetails_0.png)
 
-To verify multipathing using the command line, complete the following steps.
+To verify multipathing by using the command line, complete the following steps.
 
 1. Open Windows command prompt.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.

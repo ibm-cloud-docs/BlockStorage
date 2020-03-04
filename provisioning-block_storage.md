@@ -109,7 +109,7 @@ To avoid data-loss and to ensure business continuity, consider replicating your 
 
 If you want to clone your volume and use it independently from the original volume, see [Creating and managing independent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
 
-If you want to clone your volume and have the ability to refresh the duplicate on demand, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
+If you want to clone your volume and be able to refresh the duplicate on demand, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 

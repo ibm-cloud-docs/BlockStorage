@@ -133,12 +133,12 @@ Options:
 {: help}
 {: support}
 
-You can view the LUNs to which a host has access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
+You can view the LUNs to which a host has an access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
 1. Click **Devices** -> **Device List** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external} and click the appropriate device.
 2. Select the **Storage** tab.
 
-You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
+You're presented with a list of storage LUNs that this particular host has an access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
 
 A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 {:note}
@@ -173,7 +173,7 @@ You can revoke access from the **Device List** or the **Storage view**.
 
 1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices**, **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
-3. You are presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). Next to the Volume name, click **Actions**, and click **Revoke Access**.
+3. You are presented with a list of storage LUNs that this particular host has an access to. The list is grouped by storage type (block, file, other). Next to the Volume name, click **Actions**, and click **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
 
 If you want to disconnect multiple LUNs from a specific host, you need to repeat the Revoke Access action for each LUN.

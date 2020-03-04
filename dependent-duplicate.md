@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Creating and managing dependent duplicate volumes
 {: #dependentduplicate}
 
-With the new dependent volume feature, {{site.data.keyword.cloud}} customers are able to create volume duplicates without incurring downtime on the primary volume and refresh the data on the dependent volume by using a snapshot from the primary volume whenever they want to.
+With the new dependent volume feature, {{site.data.keyword.cloud}} customers are able to create volume duplicates and refresh the data on the dependent volume by using a snapshot from the primary volume whenever they want to.
 {:shortdesc}
 
 If you would like to know about creating a duplicate volume that is independent from the original volume, see [Creating and managing independent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
@@ -46,7 +46,7 @@ slcli block  volume-refresh <dependent-vol-id> <independent-snapshot-id>
 ## Converting a dependent volume to a normal, independent volume
 {: #convertdependentvol}
 
-If you want to use the dependent volume as a standalone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI.
+If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI.
 
 ```
 slcli block  volume-convert <dependent-vol-id>
