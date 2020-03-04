@@ -22,7 +22,7 @@ subcollection: BlockStorage
 You can use the following instructions to configure your backups in cPanel to be stored in {{site.data.keyword.blockstoragefull}}. The assumption is that root or sudo SSH and full WebHost Manager (WHM) access are available. These instructions are based on a **CentOS 7** host.
 {:shortdesc}
 
-For more information, see [cPanel Docs - Backup](https://docs.cpanel.net/knowledge-base/backup/){: external}.
+For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/){: external}.
 {:tip}
 
 1. Connect to the host through SSH.
