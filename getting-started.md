@@ -33,8 +33,7 @@ subcollection: BlockStorage
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
-For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](
-[What is Block Storage?](https://www.ibm.com/cloud/block-storage){:external}.
+For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/cloud/block-storage){:external}.
 
 ## Provisioning considerations
 
