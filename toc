@@ -1,11 +1,13 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="BlockStorage" category="storage" audience="service" href="/docs/BlockStorage?topic=BlockStorage-getting-started" product-page="https://www.ibm.com/cloud/block-storage" path="BlockStorage"}
+{: .toc subcollection="BlockStorage" category="storage" audience="service" href="/docs/BlockStorage?topic=BlockStorage-getting-started" path="BlockStorage"}
 IBM Cloud Block Storage - Classic
 
     {: .navgroup id="learn"}
     getting-started.md
+    [What is Block Storage](https://www.ibm.com/cloud/learn/block-storage)
+    [Why Block Storage?](https://www.ibm.com/cloud/block-storage)
     index.md
     selectdatacenters.md
     snapshots.md
