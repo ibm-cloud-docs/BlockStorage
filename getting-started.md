@@ -34,7 +34,7 @@ subcollection: BlockStorage
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
 For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](
-[What is Block Storage?](https://www.ibm.com/cloud/block-storage){external}.
+[What is Block Storage?](https://www.ibm.com/cloud/block-storage){:external}.
 
 ## Provisioning considerations
 
