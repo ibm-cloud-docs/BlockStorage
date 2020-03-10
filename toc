@@ -6,7 +6,8 @@ IBM Cloud Block Storage - Classic
 
     {: .navgroup id="learn"}
     getting-started.md
-    index.md
+    [What is Block Storage?](https://www.ibm.com/cloud/learn/block-storage)
+    [Why Block Storage?](https://www.ibm.com/cloud/block-storage)
     selectdatacenters.md
     snapshots.md
     {: .navgroup-end}

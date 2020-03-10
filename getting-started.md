@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-11-14"
+  years: 2014, 2020
+lastupdated: "2020-03-09"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -33,7 +33,7 @@ subcollection: BlockStorage
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
-For more information about the {{site.data.keyword.blockstorageshort}} offering, see [Learn about {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-About).
+For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/cloud/block-storage){:external}.
 
 ## Provisioning considerations
 
