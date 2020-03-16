@@ -141,7 +141,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
       {: pre}
 
   - **RHEL7** and **CentOS7**, `multipath.conf` can be blank as the OS has built-in configurations.
-  - **Ubuntu** has a multipath configuration file that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load balancing policy, which can leave your connection vulnerable to interruptions. Update the multipath configuration file as follows.
+  - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
 
       ```
       defaults {
@@ -177,6 +177,13 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
       }
       ```
       {: pre}
+
+      - Restart `multipathd` service so that the changes take effect.
+
+        ```
+        systemctl multipathd restart
+        ```
+        {: pre}
 
 3. Load the multipath module, start multipath services, and set it start on boot.
   - RHEL 6
