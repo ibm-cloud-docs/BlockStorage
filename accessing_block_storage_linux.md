@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-03-19"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -95,7 +95,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     {: pre}
 
 2. Create or edit your multipath configuration file if it is needed.
-  - RHEL 6 and CENTOS 6
+  - **RHEL** 6 and **CENTOS 6**
     * Edit **/etc/multipath.conf** with the following minimum configuration.
 
       ```
@@ -130,7 +130,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
       }
       }
       ```
-      {: codeblock}
+      {: pre}
 
     - Restart `iscsi` and `iscsid` services so that the changes take effect.
 
@@ -140,8 +140,50 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
       ```
       {: pre}
 
-  - RHEL7 and CentOS7, `multipath.conf` can be blank as the OS has built-in configurations.
-  - Ubuntu doesn't use `multipath.conf` because it's built into `multipath-tools`.
+  - **RHEL7** and **CentOS7**, `multipath.conf` can be blank as the OS has built-in configurations.
+  - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
+
+      ```
+      defaults {
+      user_friendly_names no
+      max_fds max
+      flush_on_last_del yes
+      queue_without_daemon no
+      dev_loss_tmo infinity
+      fast_io_fail_tmo 5
+      }
+      # All data under blacklist must be specific to your system.
+      blacklist {
+      wwid "SAdaptec*"
+      devnode "^hd[a-z]"
+      devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]"
+      devnode "^cciss."
+      }
+      devices {
+      device {
+      vendor "NETAPP"
+      product "LUN"
+      path_grouping_policy group_by_prio
+      features "2 pg_init_retries 50"
+      no_path_retry queue
+      prio "alua"
+      path_checker tur
+      failback immediate
+      path_selector "round-robin 0"
+      hardware_handler "1 alua"
+      rr_weight uniform
+      rr_min_io 128
+      }
+      }
+      ```
+      {: pre}
+
+      - Restart `multipathd` service so that the changes take effect.
+
+        ```
+        systemctl multipathd restart
+        ```
+        {: pre}
 
 3. Load the multipath module, start multipath services, and set it start on boot.
   - RHEL 6
