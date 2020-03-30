@@ -38,7 +38,7 @@ Example output:
 :   global   :           250         :         117      :
 :............:.......................:..................:
 ```
-The API call shows the combined number of {site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
+The API call shows the combined number of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
 {:tip}
 
 
