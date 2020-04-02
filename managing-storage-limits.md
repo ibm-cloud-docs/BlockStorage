@@ -25,9 +25,10 @@ subcollection: BlockStorage
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally.
 
-If you're unsure how many volumes you have, you can list the number of your volumes by using the following `slcli` command.
+## SLCLI
+If you're unsure how many volumes you have, you can list the number of your volumes by using the [volume-limits](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-limits) command in `slcli` (version 5.8.5 or higher) command.
 ```
-# slcli block volume-limit
+# slcli block volume-limits
 ```
 Example output:
 ```
@@ -38,6 +39,26 @@ Example output:
 :   global   :           250         :         117      :
 :............:.......................:..................:
 ```
+## IBMCLOUD
+
+This command is also available in the `sl` plugin for ibmcloud cli (v1.0 or higher)
+
+```
+# ibmcloud sl block volume-limits
+Datacenter   MaximumAvailableCount   ProvisionedCount
+global       300                     99
+
+```
+
+## REST API CALL
+
+To directly get this information from the API, use the following method [SoftLayer_Network_Storage/getVolumeCountLimits](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/getVolumeCountLimits/).
+
+```
+curl -u $SL_USER:$SL_APIKEY 'https://api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/getVolumeCountLimits.json'
+[{"datacenterName":"global","maximumAvailableCount":300,"provisionedCount":99}]
+```
+
 The API call shows the combined number of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
 {:tip}
 
