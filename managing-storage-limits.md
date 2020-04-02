@@ -36,6 +36,7 @@ You can list the number of your volumes by using the [volume-limits](https://sof
 ```
 # slcli block volume-limits
 ```
+
 Example output:
 ```
 [{'datacenterName': 'global', 'maximumAvailableCount': 250, 'provisioned Count':117}]
