@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-03-04"
+lastupdated: "2020-04-14"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Creating and managing dependent duplicate volumes
 {: #dependentduplicate}
 
-With the new dependent volume feature, {{site.data.keyword.cloud}} customers are able to create volume duplicates and refresh the data on the dependent volume by using a snapshot from the primary volume whenever they want to.
+With the new dependent volume feature, {{site.data.keyword.cloud}} customers are able to create volume duplicates and refresh the data on the dependent volume by using a snapshot from the primary volume whenever they want to. Replica volumes cannot be used to create or update dependent duplicate volumes.
 {:shortdesc}
 
 If you would like to know about creating a duplicate volume that is independent from the original volume, see [Creating and managing independent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
