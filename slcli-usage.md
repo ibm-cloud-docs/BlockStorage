@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-04-17"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -71,9 +71,15 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 ## Volume-related SLCLI commands
 
 * [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingthroughCLI)
-* [Creating a duplicate volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
+* [Creating an independent duplicate volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
   ```
   slcli block volume-duplicate
+  ```
+* [Creating and managing a dependent duplicate volume](/docs/BlockStorage?topic=BlockStorage-dependentduplicate)
+  ```
+  slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>|
+  slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
+  slcli block volume-convert <dependent-vol-id>
   ```
 * [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
   ```
