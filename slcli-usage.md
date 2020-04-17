@@ -71,6 +71,10 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 ## Volume-related SLCLI commands
 
 * [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingthroughCLI)
+  ```
+  slcli block volume-order
+  ```
+
 * [Creating an independent duplicate volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
   ```
   slcli block volume-duplicate
