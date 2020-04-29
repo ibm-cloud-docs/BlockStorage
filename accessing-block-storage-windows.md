@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-04-29"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -35,32 +35,6 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
    - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
-
-Alternatively, you can authorize the host through the SLCLI.
-```
-# slcli block access-authorize --help
-Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
-
-Options:
-  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
-  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
-  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
-  -p, --ip-address TEXT     An IP address to authorize.
-  --help                    Show this message and exit.
-```
-{:codeblock}
-
-```
-#slcli block subnets-assign -h
-Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
-  Assign block storage subnets to the given host id.
-  access_id is the host_id obtained by: slcli block access-list <volume_id>
-
-Options:
-  --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
-  -h, --help           Show this message and exit.
-```
-{:codeblock}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
