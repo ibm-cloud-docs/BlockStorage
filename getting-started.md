@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-03-09"
+lastupdated: "2020-04-30"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -80,13 +80,13 @@ For more information about ordering {{site.data.keyword.blockstorageshort}} thro
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
 {:tip}
 
-## Connecting your new storage
+## Connecting and configuring your new storage
 {: #mountingstorage}
 
 When your provisioning request is complete, authorize your hosts to access the new storage, and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [Connecting to LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connecting to LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+- [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Configuring Block Storage for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)
 - [Configuring Block Storage for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
 
