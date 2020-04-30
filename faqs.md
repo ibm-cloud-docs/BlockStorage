@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-04-30"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
