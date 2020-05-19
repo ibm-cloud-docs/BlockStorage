@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-14"
+  years: 2018, 2020
+lastupdated: "2020-05-19"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -15,6 +15,9 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:external: target="_blank" .external}
+{:support: data-reuse='support'}
+{:help: data-hd-content-type='help'}
 
 # Expanding Block Storage Capacity
 {: #expandingcapacity}
@@ -95,3 +98,10 @@ Options:
 
 For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
 {:tip}
+
+## Expanding Storage over 12 TB
+{: #increasecapacity}
+{: help}
+{: support}
+
+If you need to increase your Storage volume capacity beyond 12 TB, you can request to be added to the whitelist by submitting a [support case](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved by the Offering Manager, you're going to be notified of the update to your limits through the case process and see the option to increase your storage to 16 TB, 20 TB, 24 TB in the console.
