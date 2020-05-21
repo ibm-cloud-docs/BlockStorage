@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-21"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -104,4 +104,4 @@ For more information about expanding the file system (and partitions, if any) on
 {: help}
 {: support}
 
-If you need to increase your Storage volume capacity beyond 12 TB, you can request to be added to the whitelist by submitting a [support case](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved by the Offering Manager, you're going to be notified of the update to your limits through the case process and see the option to increase your storage to 16 TB, 20 TB, 24 TB in the console.
+If you need to increase your Storage volume capacity beyond 12 TB, you can request to be added to the whitelist by submitting a [support case](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved by the Offering Manager, you're going to be notified of the update to your limits through the case process and see the option to increase your storage up to 16 TB in the console.

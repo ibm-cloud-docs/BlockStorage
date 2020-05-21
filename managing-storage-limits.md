@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-05-19"
+lastupdated: "2020-05-21"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
