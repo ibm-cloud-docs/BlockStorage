@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-05-21"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -23,7 +23,9 @@ subcollection: BlockStorage
 {: help}
 {: support}
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally.
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process you can increase the number of volumes you can provision.
+
+For more information about increasing your storage volume capacity beyond 12 TB, see [Expanding Block Storage Capacity}(/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacity).
 
 ## Confirming your current limit and provisioning count.
 {: #confirmblocklimits}
@@ -70,13 +72,11 @@ curl -u $SL_USER:$SL_APIKEY 'https://api.softlayer.com/rest/v3.1/SoftLayer_Netwo
 The API call shows the combined number of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
 {:tip}
 
-## Requesting limit increase
+## Requesting volume limit increase
 {: #increaseblocklimits}
 
-You can request a limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
+You can request a provisioning limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
 {:shortdesc}
-
-To request a limit increase, open a case and direct it to your sales representative.
 
 In the case, provide the following information:
 

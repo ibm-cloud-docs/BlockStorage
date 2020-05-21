@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-03-04"
+lastupdated: "2020-05-21"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -99,7 +99,7 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Connecting to LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Connecting to LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Mounting a LUN in XenServer Shared Storage](/docs/virtualization?topic=Virtualization-setting-up-and-mounting-an-iscsi-node-in-xenserver-shared-storage)
+- [Mounting a LUN in XenServer Shared Storage](/docs/virtualization?topic=virtualization-setting-up-and-mounting-an-iscsi-node-in-xenserver-shared-storage)
 - [Configuring Block Storage for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)
 - [Configuring Block Storage for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
 
