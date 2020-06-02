@@ -19,6 +19,7 @@ subcollection: BlockStorage
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: faq}
+{: #authlimit}
 {: support}
 
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
@@ -53,18 +54,21 @@ Options:
 
 ## How many volumes can be ordered?
 {: faq}
+{: #orderlimit}
 {: support}
 
 By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: faq}
+{: #volumelimit}
 {: support}
 
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
 {: faq}
+{: #multiplelun}
 {: support}
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
@@ -88,18 +92,21 @@ When you create a LUN, you must specify the OS type. The OS type must be based o
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: faq}
+{: #iopslimit}
 {: support}
 
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## Measuring IOPS
 {: faq}
+{: #iopsmeasure}
 {: support}
 
 IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
 
 ## What happens when a smaller block size is used to measure performance?
 {: faq}
+{: #smallblock}
 {: support}
 
 Maximum IOPS can still be obtained when you use smaller block sizes. However, throughput becomes smaller. For example, a volume with 6000 IOPS would have the following throughput at various block sizes:
@@ -110,12 +117,14 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 
 ## Does the volume need to be pre-warmed to achieve expected throughput?
 {: faq}
+{: #prewarm}
 {: support}
 
 There's no need for pre-warming. You can observe specified throughput immediately upon provisioning the volume.
 
 ## Can more throughput be achieved by using a faster Ethernet connection?
 {: faq}
+{: #ethernet}
 {: support}
 
 There are limits set at the LUN level and a faster Ethernet connection doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
@@ -127,32 +136,59 @@ There are limits set at the LUN level and a faster Ethernet connection doesn't i
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
+## How do I route block storage traffic to its own VLAN interface and bypass a firewall?
+{: #howtoisolatedstorage}
+{:faq}
+
+To enact this best practice, follow these steps:
+1. Provision a new VLAN in the same data center as the host and the block storage device. See [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started).
+1. Provision a secondary private subnet to the new VLAN.
+1. Trunk the new VLAN to the private interface of the host.  
+Note:  This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
+1. Create a new 802.11q interface on the Linux or Windows host.
+1. Choose one of the unused secondary IP address from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to a new 802.11q interface on the Linux or Windows host.
+1. In VMware, create a new VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
+1. Add a new persistent static route on the host to the target iSCSI subnet.
+
+
+
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: faq}
+{: #latency}
 {: support}
 
 Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
+## I ordered a block storage LUN in the wrong data center.  Is it possible to move or migrate storage to another data center? 
+{: faq}
+{: #movedatacenter}
+
+You need to order new block storage in the right data center, and then cancel the block storage device you ordered in an incorrect location.
+
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: faq}
+{: #orderendurance}
 {: support}
 
 The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: faq}
+{: #volumeencrypt}
 {: support}
 
 When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
+{: #upgradedcenter}
 {: support}
 
 When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 ## If we own non-encrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}
+{: #encryptupgrade}
 {: support}
 
 {{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted.
@@ -161,24 +197,34 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
 {: faq}
+{: #scsi}
 {: support}
 
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
 {: faq}
+{: #deleted}
 {: support}
 
 {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
 {: faq}
+{: #decommission}
 {: support}
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
+## I cannot cancel a Block Storage volume because the Cancel action in the Cloud console is unavailable or grayed out. What’s happening?
+{: faq}
+{: #cancelstorage}
+
+The cancellation process for this storage device is in progress so the Cancel action is no longer available.  The volume remains visible for at least 24 hours until it’s reclaimed, with an hourglass or clock icon next to the device name to indicate that it’s in a waiting period.  The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
+
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
+{: #diskmanager}
 {: help}
 {: support}
 
@@ -205,3 +251,9 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 - [Verifying MPIO on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
 - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
+
+## I expanded the volume size of my block storage using the Cloud console, but the size on my server is still the same.  How do I fix it?
+{: faq}
+{: #expandsize}
+
+To see the new expanded LUN size, you need to configure your existing block storage disk on the server.  Check your operating system documentation for steps.
