@@ -83,7 +83,7 @@
     "How does my throughput change if I use a block size smaller than 16 Kb?",
     "Does my throughput deteriorate with smaller block size?
   ],
-  "storagelatency":[
+  "latency":[
     "What latency can be expected from the Block Storage?",
     "What latency can be expected from the Block Storage volume?",
     "What latency can be expected from the Block Storage LUN?",
@@ -92,14 +92,14 @@
     "Is there a lag for Storage volume operations?",
     "We experience latency, is this normal?"
   ],
-  "storagelocations":[
+  "orderendurance":[
     "Why can Block Storage with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?",
     "Can you order 10 IOPS/GB tier in every data center?",
     "Is 10 IOPS/GB tier available in every data center?",
     "Where is the 10 IOPS/GB tier available?",
     "Where can I order 10 IOPS/GB storage?"
   ],
-  "datadeletion":[
+  "deleted":[
     "What happens to the data when LUNs are deleted",
     "What happens to the data when storage volumes are deleted?",
     "What happens to the data when my storage is deleted?",
@@ -109,14 +109,14 @@
     "Is data wiped permanently when I delete a LUN?",
     "Is data wiped when a storage volume is deleted?"
   ],
-  "drivedecommission":[
+  "decommission":[
     "How does IBM treat disks that are decommissioned?",
     "Does IBM wipe all the storage disks that are decommissioned?",
     "Does IBM wipe the storage disks that are removed from a data center?",
     "When disks are removed from a DC, are they wiped?",
     "Can data still be accessed on disks that were removed from a data center?"
   ],
-  "win2012missingdisks":[
+  "diskmanager":[
     "My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?",
     "I can't see my storage LUNs in Windows Disk Manager",
     "My Windows 2012 can't see the storage volumes in Disk Manager. How do I fix it?",

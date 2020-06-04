@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-04-30"
+lastupdated: "2020-06-06"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -123,8 +123,8 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 - 4 KB * 6000 IOPS == ~23.44 MB/sec
 
 ## Does the volume need to be pre-warmed to achieve expected throughput?
-{: faq}
 {: #prewarm}
+{: faq}
 {: support}
 
 There's no need for pre-warming. You can observe specified throughput immediately upon provisioning the volume.
@@ -146,38 +146,36 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 ## How do I route block storage traffic to its own VLAN interface and bypass a firewall?
 {: #howtoisolatedstorage}
-{:faq}
+{: faq}
+{: support}
 
-To enact this best practice, follow these steps:
-1. Provision a new VLAN in the same data center as the host and the block storage device. See [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started).
+To enact this best practice, complete the following steps.
+1. Provision a VLAN in the same data center as the host and the block storage device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
 1. Provision a secondary private subnet to the new VLAN.
-1. Trunk the new VLAN to the private interface of the host.  
-Note:  This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
-1. Create a new 802.11q interface on the Linux or Windows host.
-1. Choose one of the unused secondary IP address from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to a new 802.11q interface on the Linux or Windows host.
-1. In VMware, create a new VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
-1. Add a new persistent static route on the host to the target iSCSI subnet.
-
-
+2. Trunk the new VLAN to the private interface of the host.  
+   This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
+   {:note}
+3. Create a network interface on the host.
+   * In Linux or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
+  * In VMware, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
+4. Add a new persistent static route on the host to the target iSCSI subnet.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
-{: #storagelatency}   
+{: #latency}  
 {: faq}
-{: #latency}
 {: support}
 
 Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
-## I ordered a block storage LUN in the wrong data center.  Is it possible to move or migrate storage to another data center? 
+## I ordered a {{site.data.keyword.blockstorageshort}} LUN in the wrong data center. Is it possible to move or migrate storage to another data center?
 {: faq}
 {: #movedatacenter}
 
-You need to order new block storage in the right data center, and then cancel the block storage device you ordered in an incorrect location.
+You need to order new {{site.data.keyword.blockstorageshort}} in the right data center, and then cancel the {{site.data.keyword.blockstorageshort}} device you ordered in an incorrect location.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
-{: #storagelocations}
-{: faq}
 {: #orderendurance}
+{: faq}
 {: support}
 
 The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
@@ -213,15 +211,13 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
-{: #datadeletion}
-{: faq}
 {: #deleted}
+{: faq}
 {: support}
 
 {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
-{: #drivedecommission}
 {: faq}
 {: #decommission}
 {: support}
@@ -235,7 +231,6 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 The cancellation process for this storage device is in progress so the Cancel action is no longer available.  The volume remains visible for at least 24 hours until it’s reclaimed, with an hourglass or clock icon next to the device name to indicate that it’s in a waiting period.  The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
-{: #win2012missingdisks}
 {: faq}
 {: #diskmanager}
 {: help}
