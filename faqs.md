@@ -18,6 +18,7 @@ subcollection: BlockStorage
 {: #block-storage-faqs}
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
+{: #authorizationlimit}
 {: faq}
 {: support}
 
@@ -52,18 +53,21 @@ Options:
 ```
 
 ## How many volumes can be ordered?
+{: #provisioninglimit}
 {: faq}
 {: support}
 
 By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
+{: #mountinglimit}
 {: faq}
 {: support}
 
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
+{: #nomultipleOS}
 {: faq}
 {: support}
 
@@ -87,18 +91,21 @@ When you create a LUN, you must specify the OS type. The OS type must be based o
 
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
+{: #iopslimit}
 {: faq}
 {: support}
 
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## Measuring IOPS
+{: #measuringIOPS}
 {: faq}
 {: support}
 
 IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
 
 ## What happens when a smaller block size is used to measure performance?
+{: #blocksizeIOPS}
 {: faq}
 {: support}
 
@@ -115,6 +122,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 There's no need for pre-warming. You can observe specified throughput immediately upon provisioning the volume.
 
 ## Can more throughput be achieved by using a faster Ethernet connection?
+{: #bandwidthIOPS}
 {: faq}
 {: support}
 
@@ -127,13 +135,15 @@ There are limits set at the LUN level and a faster Ethernet connection doesn't i
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
-## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
+## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
+{: #storagelatency}   
 {: faq}
 {: support}
 
 Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
+{: #storagelocations}
 {: faq}
 {: support}
 
@@ -166,18 +176,21 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
+{: #datadeletion}
 {: faq}
 {: support}
 
 {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
+{: #drivedecommission}
 {: faq}
 {: support}
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
+{: #win2012missingdisks}
 {: faq}
 {: help}
 {: support}
