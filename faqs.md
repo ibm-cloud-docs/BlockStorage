@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-06"
+lastupdated: "2020-06-04"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -18,9 +18,8 @@ subcollection: BlockStorage
 {: #block-storage-faqs}
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
-{: #authorizationlimit}
-{: faq}
 {: #authlimit}
+{: faq}
 {: support}
 
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
@@ -54,25 +53,22 @@ Options:
 ```
 
 ## How many volumes can be ordered?
-{: #provisioninglimit}
-{: faq}
 {: #orderlimit}
+{: faq}
 {: support}
 
 By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
-{: #mountinglimit}
-{: faq}
 {: #volumelimit}
+{: faq}
 {: support}
 
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
-{: #nomultipleOS}
-{: faq}
 {: #multiplelun}
+{: faq}
 {: support}
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
@@ -97,23 +93,20 @@ When you create a LUN, you must specify the OS type. The OS type must be based o
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: #iopslimit}
 {: faq}
-{: #iopslimit}
 {: support}
 
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## Measuring IOPS
-{: #measuringIOPS}
-{: faq}
 {: #iopsmeasure}
+{: faq}
 {: support}
 
 IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
 
 ## What happens when a smaller block size is used to measure performance?
-{: #blocksizeIOPS}
-{: faq}
 {: #smallblock}
+{: faq}
 {: support}
 
 Maximum IOPS can still be obtained when you use smaller block sizes. However, throughput becomes smaller. For example, a volume with 6000 IOPS would have the following throughput at various block sizes:
@@ -130,9 +123,8 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 There's no need for pre-warming. You can observe specified throughput immediately upon provisioning the volume.
 
 ## Can more throughput be achieved by using a faster Ethernet connection?
-{: #bandwidthIOPS}
-{: faq}
 {: #ethernet}
+{: faq}
 {: support}
 
 There are limits set at the LUN level and a faster Ethernet connection doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential bottleneck.
@@ -168,8 +160,9 @@ To enact this best practice, complete the following steps.
 Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
 ## I ordered a {{site.data.keyword.blockstorageshort}} LUN in the wrong data center. Is it possible to move or migrate storage to another data center?
-{: faq}
 {: #movedatacenter}
+{: faq}
+{: support}
 
 You need to order new {{site.data.keyword.blockstorageshort}} in the right data center, and then cancel the {{site.data.keyword.blockstorageshort}} device you ordered in an incorrect location.
 
@@ -181,8 +174,8 @@ You need to order new {{site.data.keyword.blockstorageshort}} in the right data 
 The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
-{: faq}
 {: #volumeencrypt}
+{: faq}
 {: support}
 
 When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
@@ -228,7 +221,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 {: faq}
 {: #cancelstorage}
 
-The cancellation process for this storage device is in progress so the Cancel action is no longer available.  The volume remains visible for at least 24 hours until it’s reclaimed, with an hourglass or clock icon next to the device name to indicate that it’s in a waiting period.  The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
+The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it’s reclaimed, with an hourglass or clock icon next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
@@ -263,5 +256,6 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 ## I expanded the volume size of my block storage using the Cloud console, but the size on my server is still the same.  How do I fix it?
 {: faq}
 {: #expandsize}
+{: support}
 
-To see the new expanded LUN size, you need to configure your existing block storage disk on the server.  Check your operating system documentation for steps.
+To see the new expanded LUN size, you need to configure your existing block storage disk on the server. Check your operating system documentation for steps.
