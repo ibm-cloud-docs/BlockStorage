@@ -18,6 +18,7 @@ subcollection: BlockStorage
 {: #block-storage-faqs}
 
 ## How many instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
+{: #authorizationlimit}
 {: faq}
 {: #authlimit}
 {: support}
@@ -53,6 +54,7 @@ Options:
 ```
 
 ## How many volumes can be ordered?
+{: #provisioninglimit}
 {: faq}
 {: #orderlimit}
 {: support}
@@ -60,6 +62,7 @@ Options:
 By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
+{: #mountinglimit}
 {: faq}
 {: #volumelimit}
 {: support}
@@ -67,6 +70,7 @@ By default, you can provision a combined total of 250 block and file storage. To
 That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
+{: #nomultipleOS}
 {: faq}
 {: #multiplelun}
 {: support}
@@ -91,6 +95,7 @@ When you create a LUN, you must specify the OS type. The OS type must be based o
 
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
+{: #iopslimit}
 {: faq}
 {: #iopslimit}
 {: support}
@@ -98,6 +103,7 @@ When you create a LUN, you must specify the OS type. The OS type must be based o
 IOPS is enforced at the volume level. Said differently, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
 ## Measuring IOPS
+{: #measuringIOPS}
 {: faq}
 {: #iopsmeasure}
 {: support}
@@ -105,6 +111,7 @@ IOPS is enforced at the volume level. Said differently, two hosts connected to a
 IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
 
 ## What happens when a smaller block size is used to measure performance?
+{: #blocksizeIOPS}
 {: faq}
 {: #smallblock}
 {: support}
@@ -123,6 +130,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 There's no need for pre-warming. You can observe specified throughput immediately upon provisioning the volume.
 
 ## Can more throughput be achieved by using a faster Ethernet connection?
+{: #bandwidthIOPS}
 {: faq}
 {: #ethernet}
 {: support}
@@ -153,6 +161,7 @@ Note:  This action momentarily disrupts the network traffic on the host while th
 
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
+{: #storagelatency}   
 {: faq}
 {: #latency}
 {: support}
@@ -166,6 +175,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 You need to order new block storage in the right data center, and then cancel the block storage device you ordered in an incorrect location.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
+{: #storagelocations}
 {: faq}
 {: #orderendurance}
 {: support}
@@ -203,6 +213,7 @@ Data on non-encrypted storage in an upgraded data center can be encrypted by cre
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
 ## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
+{: #datadeletion}
 {: faq}
 {: #deleted}
 {: support}
@@ -210,6 +221,7 @@ Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 per
 {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
+{: #drivedecommission}
 {: faq}
 {: #decommission}
 {: support}
@@ -223,6 +235,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 The cancellation process for this storage device is in progress so the Cancel action is no longer available.  The volume remains visible for at least 24 hours until it’s reclaimed, with an hourglass or clock icon next to the device name to indicate that it’s in a waiting period.  The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
+{: #win2012missingdisks}
 {: faq}
 {: #diskmanager}
 {: help}
