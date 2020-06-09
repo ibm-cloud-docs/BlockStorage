@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-09"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -551,7 +551,7 @@ To create a file system with `parted`, follow these steps.
 ## Verifying MPIO configuration
 {: #verifyMPIOLinux}
 
-1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
+1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique World Wide Identifier (WWID), which is persistent, as long as the volume exists.
 
   ```
   multipath -l
@@ -567,6 +567,7 @@ To create a file system with `parted`, follow these steps.
   ```
 
 2. Check that the disks are present. Expect to see two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+
   ```
   fdisk -l | grep Disk
   ```
@@ -581,6 +582,10 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
+
+    Note that the WWID is included in the device name that the multipath creates. The WWID should be used by your application. It's also possible, if needed, to assign more user-friendly names by using "user_friendly_names" and/or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
+    {:tip}
+
   - Example outputs of an incorrect configuration.
 
     ```
