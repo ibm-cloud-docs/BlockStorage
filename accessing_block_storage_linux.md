@@ -338,18 +338,22 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    This command reports the paths.
 
-10. Verify that the device is connected. By default the device attaches to `/dev/mapper/mpathX` where X is the generated ID of the connected device.
+10. Verify that the device is connected. By default the device attaches to `/dev/mapper/mpathX` where mpathX is the generated World Wide ID (WWID) of the connected storage device.
+
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
 
-  This command reports something similar to the following example.
+   This command reports something similar to the following example. In the example, 3600a0980383030523424457a4a695266 is the WWID, that is persistent as long as the volume exists.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
-  The volume is now mounted and accessible on the host.
+   Your application should use the WWID. It's also possible to assign more user-friendly names by using "user_friendly_names" and/or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
+   {:tip}
+
+  The volume is now mounted and accessible on the host. You can create a file system next.
 
 ## Creating a file system (optional)
 
@@ -551,7 +555,7 @@ To create a file system with `parted`, follow these steps.
 ## Verifying MPIO configuration
 {: #verifyMPIOLinux}
 
-1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique World Wide Identifier (WWID), which is persistent, as long as the volume exists.
+1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique World Wide Identifier (WWID), which is persistent, as long as the volume exists. In a correct configuration, you can expect two NetApp devices to show in the output.
 
   ```
   multipath -l
@@ -583,14 +587,9 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-    Note that the WWID is included in the device name that the multipath creates. The WWID should be used by your application. It's also possible, if needed, to assign more user-friendly names by using "user_friendly_names" and/or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
-    {:tip}
+    Note that the WWID is included in the device name that the multipath creates. The WWID should be used by your application.
 
-  - Example outputs of an incorrect configuration.
-
-    ```
-    No multipath output root@server:~# multipath -l root@server:~#
-    ```
+  - Example output of an incorrect configuration. There's no `/dev/mapper` disk.
 
     ```
     root@server:~# fdisk -l | grep Disk
