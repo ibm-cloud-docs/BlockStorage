@@ -345,7 +345,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
     ```
     {: pre}
 
-   This command reports something similar to the following example. In the example, 3600a0980383030523424457a4a695266 is the WWID, that is persistent as long as the volume exists.
+   This command reports something similar to the following example. In the example, `3600a0980383030523424457a4a695266` is the WWID, that is persistent as long as the volume exists.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
@@ -555,7 +555,7 @@ To create a file system with `parted`, follow these steps.
 ## Verifying MPIO configuration
 {: #verifyMPIOLinux}
 
-1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique World Wide Identifier (WWID), which is persistent, as long as the volume exists. In a correct configuration, you can expect two NetApp devices to show in the output.
+1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent as long as the volume exists. In a correct configuration, you can expect two NetApp devices to show in the output.
 
   ```
   multipath -l
