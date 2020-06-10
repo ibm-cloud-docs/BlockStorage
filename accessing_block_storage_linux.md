@@ -604,7 +604,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and shows which ones were added to the blacklist.
+* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blacklist.
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
