@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-09"
+lastupdated: "2020-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -566,7 +566,8 @@ To create a file system with `parted`, follow these steps.
   root@server:~# multipath -l
   3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
   |-+- policy='round-robin 0' prio=-1 status=active`
-  6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
+  6:0:0:101 sdd 8:48 active undef running `
+  -+- policy='round-robin 0' prio=-1 status=enabled`
   7:0:0:101 sde 8:64 active undef running
   ```
 
@@ -598,7 +599,7 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-3. Confirm that local discs are not included in the multipath devices. The following command shows the devices that are blacklisted.
+3. Confirm that no local disc is included in the multipath devices. The following command shows the devices that are blacklisted.
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
