@@ -65,6 +65,8 @@ Options:
 ```
 {:codeblock}
 
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{:important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
@@ -74,9 +76,6 @@ Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}
 
 The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
 {: tip}
-
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{:important}
 
 1. Install the iSCSI and multipath utilities to your host.
   - RHEL and CentOS
