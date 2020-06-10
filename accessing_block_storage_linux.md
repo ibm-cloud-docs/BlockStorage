@@ -30,6 +30,9 @@ For example, for more information about Ubuntu specifics, see [iSCSI Initiator C
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 {:important}
 
+## Authorizing the host
+{: #authhostlin}
+
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume, and click the ellipsis (**...**).

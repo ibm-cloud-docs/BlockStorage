@@ -24,6 +24,7 @@ This article describes how you can authorize your host to access your {{site.dat
 {:shortdesc}
 
 ## Prerequisites
+{: #authhostcWin}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
