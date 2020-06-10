@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-05-21"
+lastupdated: "2020-06-10"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -35,6 +35,9 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
    - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
+
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{:important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
@@ -179,7 +182,7 @@ To verify multipathing by using the command line, complete the following steps.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.
 3. Review the contents of `multipathconfig.txt`. Confirm that each of the two paths that are listed for the LUN contain distinct TPG_Id values.
 
-If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} Teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -75,7 +75,7 @@ Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}
 The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
 {: tip}
 
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {:important}
 
 1. Install the iSCSI and multipath utilities to your host.
@@ -338,18 +338,22 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    This command reports the paths.
 
-10. Verify that the device is connected. By default the device attaches to `/dev/mapper/mpathX` where X is the generated ID of the connected device.
+10. Verify that the device is connected by issuing the following command.
+
     ```
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
 
-  This command reports something similar to the following example.
+    By default the device attaches to `/dev/mapper/<wwid>`. WWID is the generated World Wide ID of the connected storage device, that is persistent as long as the volume exists. So that command reports something similar to the following example.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
-  The volume is now mounted and accessible on the host.
+    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more user-friendly names by using "user_friendly_names" and/or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
+    {:tip}
+
+  The volume is now mounted and accessible on the host. You can create a file system next.
 
 ## Creating a file system (optional)
 
@@ -551,7 +555,9 @@ To create a file system with `parted`, follow these steps.
 ## Verifying MPIO configuration
 {: #verifyMPIOLinux}
 
-1. To check whether multipath is picking up the devices, list the devices. If it is configured correctly, only two NETAPP devices show up.
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+
+* To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions.
 
   ```
   multipath -l
@@ -560,13 +566,18 @@ To create a file system with `parted`, follow these steps.
 
   ```
   root@server:~# multipath -l
-  3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
-  |-+- policy='round-robin 0' prio=-1 status=active`
-  6:0:0:101 sdd 8:48 active undef running `-+- policy='round-robin 0' prio=-1 status=enabled`
-  7:0:0:101 sde 8:64 active undef running
+  3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode
+  size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
+  |-+- policy='round-robin 0' prio=-1 status=active
+  | `6:0:0:101 sdd 8:48 active ready running
+  `-+- policy='round-robin 0' prio=-1 status=enabled
+    `- 7:0:0:101 sde 8:64 active ready running
   ```
 
-2. Check that the disks are present. Expect to see two disks with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+  The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent as long as the volume exists.
+
+* Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+
   ```
   fdisk -l | grep Disk
   ```
@@ -581,11 +592,10 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
-  - Example outputs of an incorrect configuration.
 
-    ```
-    No multipath output root@server:~# multipath -l root@server:~#
-    ```
+    Note that the WWID is included in the device name that the multipath creates. The WWID should be used by your application.
+
+  - Example output of an incorrect configuration. There's no `/dev/mapper` disk.
 
     ```
     root@server:~# fdisk -l | grep Disk
@@ -594,20 +604,12 @@ To create a file system with `parted`, follow these steps.
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-3. Confirm that local discs are not included in the multipath devices. The following command shows the devices that are blacklisted.
+* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blacklist.
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
 
-   ```
-   root@server:~# multipath -l -v 3 | grep sd Feb 17 19:55:02
-   | sda: device node name blacklisted Feb 17 19:55:02
-   | sdb: device node name blacklisted Feb 17 19:55:02
-   | sdc: device node name blacklisted Feb 17 19:55:02
-   | sdd: device node name blacklisted Feb 17 19:55:02
-   | sde: device node name blacklisted Feb 17 19:55:02
-   ```
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingLin}

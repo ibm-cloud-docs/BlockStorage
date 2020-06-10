@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-06-10"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -61,7 +61,7 @@ Options:
 ```
 {:codeblock}
 
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {:important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
@@ -226,7 +226,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    The volume is now mounted and accessible on the host.
 
-7. Verify whether MPIO is configured correctly by listing the devices. If the configuration is correct, only two NETAPP devices show up.
+7. Verify whether MPIO is configured correctly by listing the devices. If the configuration is correct, two NETAPP disks show in the output.
 
    ```
    # multipath -l
@@ -240,6 +240,6 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
    size=20G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
    |-+- policy='round-robin 0' prio=50 status=active
    | `- 1:0:0:1 sdb 8:16 active ready running
-   `-+- policy='round-robin 0' prio=10 status=enabled
-   `- 2:0:0:1 sdc 8:32 active ready running
+  `-+- policy='round-robin 0' prio=10 status=enabled
+    `- 2:0:0:1 sdc 8:32 active ready running
    ```
