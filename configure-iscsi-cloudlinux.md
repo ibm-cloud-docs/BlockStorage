@@ -24,7 +24,10 @@ Follow these instructions to mount your iSCSI LUN with multipath on a CloudLinux
 {:shortdesc}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
-{:tip}
+{:important}
+
+## Authorizing the host
+{: #authhostcloudlin}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
