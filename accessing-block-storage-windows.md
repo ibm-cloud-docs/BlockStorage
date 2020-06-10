@@ -39,7 +39,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {:important}
 
-## Mounting {{site.data.keyword.blockstorageshort}} Volumes
+## Mapping {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
 Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
