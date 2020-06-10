@@ -557,7 +557,7 @@ To create a file system with `parted`, follow these steps.
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-* To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent as long as the volume exists.
+* To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions.
 
   ```
   multipath -l
@@ -573,6 +573,8 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
   `-+- policy='round-robin 0' prio=-1 status=enabled
     `- 7:0:0:101 sde 8:64 active ready running
   ```
+
+  The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent as long as the volume exists.
 
 * Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
 
