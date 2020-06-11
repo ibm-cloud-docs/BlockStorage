@@ -27,7 +27,7 @@ These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were add
 For example, for more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
 {:important}
 
 ## Authorizing the host
@@ -35,12 +35,12 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the new volume, and click the ellipsis (**...**).
+3. Locate the new volume and click the ellipsis (**...**).
 4. Click **Authorize Host**.
-5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
+5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
-   - If you choose IP address, first, select the subnet where your host resides.
-6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
+   - If you choose IP address, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
 ```

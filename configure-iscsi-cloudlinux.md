@@ -23,7 +23,7 @@ subcollection: BlockStorage
 Follow these instructions to mount your iSCSI LUN with multipath on a CloudLinux Server release 6.10.
 {:shortdesc}
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume was previously authorized through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
 {:important}
 
 ## Authorizing the host
@@ -35,8 +35,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
-   - If you choose IP address, first, select the subnet where your host resides.
-6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
+   - If you choose IP address, select the subnet where your host resides.
+6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
 ```
