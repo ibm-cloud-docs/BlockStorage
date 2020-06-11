@@ -1,0 +1,283 @@
+{
+    "authlimit": [
+        "maximum hosts on a block storage volume",
+        "max servers on block storage",
+        "maximum servers on a block storage LUN",
+        "iSCSI disks be shared",
+        "cluster Block Storage",
+        "iSCSI storage cluster compatible",
+        "maximum iSCSI disks can be shared",
+        "Connect multiple servers to Block Storage",
+        "limitation on block storage devices",
+        "maximum authorized host limit block storage lun",
+        "multiple servers use a Block Storage LUN"
+    ],
+    "authsubnets": [
+        "subnet authorization for block storage",
+        "authorizing block storage subnet",
+        "auth subnet iscsi volume",
+        "ip auth lun volume on block storage",
+        "authorize a subnet to Block Storage",
+        "connect the same server from multiple IPs to the same Block Storage volume",
+        "Multiple IPs from same server to one Block Storage LUN",
+        "authorization on multiple servers in block storage using same credentials",
+        "multiple NICs to the same Block Storage with the same username and password",
+        "use same username and password to multiple NICs in Block Storage"
+    ],
+    "orderlimit": [
+        "maximum number of block storage accounts ordered",
+        "maximum storage device per account",
+        "block storage device limit per account",
+        "volume limit on block storage",
+        "order iscsi volumes",
+        "iscsi order limit",
+        "is there a LUN limit on block storage",
+        "a block storage count limit?"
+    ],
+    "volumelimit": [
+        "maximum block storage mount per host",
+        "o/s iscsi maximum limit",
+        "lun limitation per host",
+        "volume iscsi mount limit",
+        "host mount total limit",
+        "maximum mount limit for block storage",
+        "block storage volume attachment limit",
+        "max connections limit to Block Storage",
+        "iSCSI volumes can be connected to on one server",
+        "maximum amount of iSCSI LUNs to be mounted"
+    ],
+    "multiplelun": [
+        "connect lun to different o/s type",
+        "os lun settings",
+        "multiple lun os",
+        "connect differing OS types to the same server in block storage",
+        "add multiple LUNs with different OS settings",
+        "received an OS type error when I authorized in block storage"
+    ],
+    "windowsOStypes": [
+        "Windows OS type should be used for iSCSI?",
+        "Windows versionto choose for Block Storage LUN",
+        "lun on windows os",
+        "os windows for iscsi",
+        "block storage os type on windows",
+        "windows iscsi os type",
+        "lun windows o/s",
+        "windows 2012 2016 os type iscsi",
+        "OS type to use for Block Storage",
+        "OS type valid for my iSCSI disk?"
+    ],
+    "iopslimit": [
+        "allocated IOPS limit enforced by instance ",
+        "shared iops limit ",
+        "iops limit volume for block storage",
+        "lun iops limit on block storage",
+        "iops allocation limit",
+        " IOPS allocated to block storage servers"
+    ],
+    "measuring-iops": [
+        "measure iops speed",
+        "what is IOPS",
+        "explain standard workload profile",
+        "iops workload benchmark",
+        "fio iops testing on block storage",
+        "workload iops test",
+        "block storage iops benchmark",
+        "block storage performance testing"
+    ],
+    "smallblock": [
+        "smaller block size used to measure performance",
+        "block size impact performance",
+        "Block Storage performance factors",
+        "measure block size",
+        "how to check performance in ISCSI",
+        "how to benchmark block storage performance",
+        "iops performance block storage ",
+        "block sorage size matters how",
+        "throughput expected from Block Storage"
+    ],
+    "prewarm": [
+        "pre-warming necessary for iscsi storage",
+        "throughput prewarm performance for block storage",
+        "need to pre warm to get good performance in block storage",
+        "achieve throughput in iscsi volume",
+        "prewarm necessary  iscsi performance",
+        "block LUN need to be pre-warmed to achieve expected throughput"
+    ],
+    "ethernet": [
+        "lun throughput limit",
+        "network lun throughput",
+        "throughput limit for nic",
+        "network interface lun throughput",
+        "ethernet speed affect iscsi performance",
+        "upgrading my NIC improve block storage",
+        "more throughput by using a faster Ethernet connection"
+    ],
+    "isolatedstoragetraffic": [
+        "to route block storage traffic",
+        "block storage traffic routing",
+        "dedicated block storage traffic",
+        "block storage traffic isolation in network interface",
+        "firewalls reduce storage throughput",
+        "firewalls and security groups impact performance"
+    ],
+    "latency": [
+        "lun latency iscsi storage",
+        "latency expectation in Block Storage",
+        "block storage latency",
+        "iscsi latency in block storage lun",
+        " normal latency from iscsi storage",
+        "high latency iscsi",
+        "block storage expected latency",
+        "target storage latency for iscsi LUNs"
+    ],
+    "orderendurance": [
+        "10 IOPS/GB availability limited in block storage",
+        "limited datacenter 10 IOPS/GB for block storage",
+        "10 IOPS/GB can not order in block storage",
+        "cant order 10 IOPS/GB ",
+        "can't upgrade my Block Storage LUN",
+        "Unable to upgrade iscsi volume",
+        "Failed to upgrade iscsi lun",
+        "10 IOPS tier isn't working",
+        "Block Storage with Endurance 10 IOPS/GB tier ordering "
+    ],
+    "volumeencrypt": [
+        "padlock volume name on block storage",
+        "which Block Storage volumes are encrypted",
+        "iSCSI lun lock symbol",
+        "encrypted lun volume in ISCSI",
+        "encryption volume lock for block storage",
+        "block storage encryption",
+        "iscsi volume encryption",
+        "Is iscsi encrypted"
+    ],
+    "upgradedcenter": [
+        "upgraded data center for block storage",
+        "order in an upgraded datacenter for block storage",
+        "which datacenter should I order in for Block Storage",
+        "new data center encryption in block storage",
+        "to order an upgraded iSCSI disk",
+        "provision lun new datacenter ",
+        "asterisk on data center for iSCSI",
+        "encrypted add new lun datacenter",
+        "know if provisioning Block Storage in an upgraded data center"
+    ],
+    "encryptupgrade": [
+        "encrypt non encrypted iscsi volume",
+        "datacenter encrypt non encrypted iSCSI LUN",
+        "automatic encryption of lun",
+        "non encrypted volume for iSCSI disk",
+        "Upgrading non-encrypted iSCSI disk",
+        "upgrade an existing iSCSI disk to be encypted",
+        "encrytion within block storage",
+        "which Block Storage volumes are encrypted"
+    ],
+    "scsi": [
+        "persistent reservations",
+        "ISCSI-2 ISCSI-3 reservations",
+        "iscsi reservations ",
+        "persistent volume reservations on block storage",
+        "ISCSI-2 persistent volume",
+        "scsi-2 persistent reserve be used with Block Storage",
+        "SCSI-3 persistent reserve compatibility on iscsi for Db1 Purescale IO fencing?",
+        "Db2 Purescale  I/O fencing work on Block Storage",
+        "ISCSI-3 reservations",
+        "block storage use scsi-3 persistent reservation"
+    ],
+    "deleted": [
+        "NIST 800-88 compliance for block storage data",
+        "data wipe procedure when LUNs deleted",
+        "policy when cancelling data on Block storage",
+        "block storage volume data wipe before reuse",
+        " Block Storage sanitized before reuse",
+        "iscsi disks wiped after cancellation",
+        "happens to the data when Block Storage LUNs are deleted"
+    ],
+    "decommission": [
+        "are decommissioned drives dealt with",
+        "hard disk data wipe after decomissioning",
+        " drive desctruction process for IBM Cloud storage",
+        "What happens to decommissioned drives?",
+        "decomissioned storage disk in Cloud",
+        "happens to the drives that are decommissioned from the cloud data center"
+    ],
+    "diskmanager": [
+        "windows cant see lun",
+        "Unable to find iscsi disk in disk manager",
+        "troubleshoot windows iscsi disk manager",
+        "ordered block storage but cannot locate iscsi disk in Windows",
+        "Connected iscsi but cannot see disk in windows",
+        "ordered block storage but cannot locate disk in Windows",
+        "connect iSCSI storage on Windows",
+        "connect my block storage using Windows",
+        "windows host multiple block  storage but I can not see disk",
+        "can't see multiple Storage LUNs in Disk Manager"
+    ],
+    "StorageOffline": [
+        "iscsi read-only volume",
+        "block storage appears offline",
+        "block storage is read only",
+        "data corruption now read-only in block storage",
+        "reboot read-only LUN",
+        "iscsi volume read-only",
+        "iSCSI disk got disconnected now it is read only",
+        "issue with block storage being offline",
+        "offline lun read-only",
+        "iSCSI disk got disconnected and now I see errors"
+    ],
+    "correctMPIO": [
+        "configure linux mpio",
+        "configure multipath connections to the Block Storage volume",
+        "mpio windows ",
+        "multipath configuration linux",
+        "windows iscsi multipath",
+        "iscsi sessions mpio",
+        "proper mpio configuration for iscsi",
+        "set up multipath connection for block storage",
+        "Confirm multipath setup in block storage",
+        "make sure my iscsi connection is resilient",
+        "mpio best practice block storage storage",
+        "iscsi mpio verification",
+        "validate MPIO in block storage"
+    ],
+    "cancelstorage": [
+        "greyed out iscsi block storage",
+        "block storage can not cancel",
+        "grace period iscsi cancellation",
+        "void iscsi cancellation",
+        "cancel block storage",
+        "unable to cancel iscsi storage",
+        "can't cancel Block Storage",
+        "block Storage cancellation is unavailable",
+        "block Storage cancellation is greyed out",
+        "block storage can't be cancelled",
+        "unable to select cancel for block storage",
+        "how long to cancel block storage"
+    ],
+    "movedatacenter": [
+        "migrate Block Storage to another datacenter",
+        "to migrate iSCSI disk to another DC",
+        "move Block Storage to another datacenter?",
+        "Cross-DC migration of Block Storage",
+        "move my block storage to a different data center",
+        "move iSCSI disk to a new Data Center"
+    ],
+    "howtoisolatedstorage": [
+        "route block storage traffic to its own VLAN",
+        "How to route block storage traffic",
+        "can block storage traffic be rerouted",
+        "How to isolate block storage traffic",
+        "best practice iscsi traffic routing",
+        "to do iscsi storage traffic routing",
+        "block storage 3260 routing"
+    ],
+    "expandsize": [
+        "extend block storage size",
+        "block storage sizing extend",
+        "iscsi extend size not shown",
+        "cant see the new block storage entended size",
+        "why new block storage size not shown",
+        "new lun size not showing",
+        "expanded the volume size of my block storage"
+    ]
+}
