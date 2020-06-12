@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-10"
+lastupdated: "2020-06-12"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -611,6 +611,8 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
+
+* In the rare event of when a LUN is provisioned and attached while the second path is down, the host might see a single path returned when discovery scan is run for the first time. If you encounter this, please check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see if there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure all paths are properly discovered. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
