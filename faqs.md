@@ -261,3 +261,52 @@ In the rare event of when a LUN is provisioned and attached while the second pat
 {: support}
 
 To see the new expanded LUN size, you need to configure your existing block storage disk on the server. Check your operating system documentation for steps.
+
+## Why do I see two disks in Disk Management when adding a single storage device? 
+{: faq}
+{: #add-mpio}
+
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI.  To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+
+## How do I re-connect storage after a chassis swap?
+{: faq}
+{: #chassis-swap}
+
+Complete these tasks to connect storage after a swap:
+1. Remove the authorization (revoke access) from the storage devices, and then authorize the host again.
+1. Discover the storage devices again, with the new credentials gained from the re-discovery.
+
+See also [Managing Block Storage](/docs/BlockStorage?topic=BlockStorage-managingstorage).
+
+## How do I disconnect my storage device from a host?
+{: faq}
+{: #disconnect}
+
+Follow these steps to disconnect from a host:
+1. Remove operating system ISCSI sessions and, if applicable, unmount the device.
+1. Revoke access for the host from the storage device in the Cloud console.
+1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for ISCSI connections.  Remove auto mounts from NFS connections.
+
+## How do endurance and performance storage differ?
+{: faq}
+{: #tier-options}
+
+Endurance and Performance are provisioning options that you can select for storage devices.  Briefly, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. Refer to [Provisioning](/docs/BlockStorage?topic=BlockStorage-About#provisioning) for details.
+
+## Can I mount a single storage device to multiple hosts within IBM Cloud?
+{: faq}
+{: #multiple-hosts}
+
+Be aware of these options when trying to mount a single storage device to multiple hosts:
+- With NFS, yes, you can use this setup because NFS is a file-aware protocol.
+- With ISCSI, no, you cannot mount to multiple hosts; the operating system must have a cluster-aware file system (CSV, VMFS, OCFS, etc.)
+
+## What can affect the ability to upgrade or expand storage?  I am unable to upgrade storage.
+{: faq}
+{: #expand-fail}
+
+The following situations can affect the ablity to upgrade or expand storage:
+- If the original volume is the Endurance 0.25 tier, then the IOPS tier can’t be updated.
+- Older storage types cannot be upgraded.  Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding Block Storage Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
+- The permissions that you have been granted in the Cloud console can be a factor.  Review the topics within [User roles and permissions](/docs/iam?topic=iam-userroles) for information.
+
