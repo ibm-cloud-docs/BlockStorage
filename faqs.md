@@ -253,6 +253,8 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
+In the rare event of when a LUN is provisioned and attached while the second path is down, the host might see a single path returned when discovery scan is run for the first time. If you encounter this, please check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see if there is an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure all paths are properly discovered. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+
 ## I expanded the volume size of my block storage using the Cloud console, but the size on my server is still the same.  How do I fix it?
 {: faq}
 {: #expandsize}
