@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-12"
+lastupdated: "2020-06-15"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -151,6 +151,11 @@ To enact this best practice, complete the following steps.
    * In Linux or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
   * In VMware, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 4. Add a new persistent static route on the host to the target iSCSI subnet.
+5. Ensure the IP for the newly added interface is added to the host authorization list.
+6. Perform discovery/target portal login as described in the following topics.
+   - [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: #latency}  
@@ -255,9 +260,55 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 
 In the rare event of when a LUN is provisioned and attached while the second path is down, the host might see a single path returned when discovery scan is run for the first time. If you encounter this, please check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see if there is an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure all paths are properly discovered. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
-## I expanded the volume size of my block storage using the Cloud console, but the size on my server is still the same.  How do I fix it?
-{: faq}
+## I expanded the volume size of my block storage using the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
+{: faq}
 {: support}
 
 To see the new expanded LUN size, you need to configure your existing block storage disk on the server. Check your operating system documentation for steps.
+
+## Why do I see two disks in Disk Management when adding a single storage device?
+{: #add-mpio}
+{: faq}
+
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+
+## How do I re-connect storage after a chassis swap?
+{: #chassis-swap}
+{: faq}
+
+Complete these tasks to connect storage after a swap:
+1. Remove the authorization (revoke access) from the storage devices, and then authorize the host again.
+1. Discover the storage devices again, with the new credentials that were gained from the new authorization.
+
+For more information, see [Managing Block Storage](/docs/BlockStorage?topic=BlockStorage-managingstorage).
+
+## How do I disconnect my storage device from a host?
+{: #disconnect}
+{: faq}
+
+Perform the following steps to disconnect from a host:
+1. Remove operating system ISCSI sessions and, if applicable, unmount the device.
+1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
+1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for ISCSI connections.
+
+## How do endurance and performance storage differ?
+{: #tier-options}
+{: faq}
+
+Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [Provisioning](/docs/BlockStorage?topic=BlockStorage-About#provisioning).
+
+## I am unable to upgrade storage. What can affect the ability to upgrade or expand storage?
+{: #expand-fail}
+{: faq}
+
+The following situations can affect the ability to upgrade or expand storage:
+- If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
+- Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding Block Storage Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
+- The permissions that you have in the {{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles).
+
+## Are storage volumes thin or thick provisioned?
+{: #thin}
+{: faq}
+
+All File and {site.data.keyword.blockstorageshort}} services are thin-provisioned. This method is not modifiable.

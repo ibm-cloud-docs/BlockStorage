@@ -27,7 +27,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 {:important}
 
 ## Authorizing the host
-{: #authhostcloudlin}
+{: #authhostclin}
 
 ## Authorizing the host
 {: #authhostcloudlin}
