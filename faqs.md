@@ -311,4 +311,4 @@ The following situations can affect the ability to upgrade or expand storage:
 {: #thin}
 {: faq}
 
-All File and {site.data.keyword.blockstorageshort}} services are thin-provisioned. This method is not modifiable.
+All File and {{site.data.keyword.blockstorageshort}} services are thin-provisioned. This method is not modifiable.
