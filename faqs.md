@@ -151,6 +151,11 @@ To enact this best practice, complete the following steps.
    * In Linux or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
   * In VMware, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 4. Add a new persistent static route on the host to the target iSCSI subnet.
+5. Ensure the IP for the newly added interface is added to the host authorization list.
+6. Perform discovery/target portal login as described in the following topics.
+   - [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: #latency}  
