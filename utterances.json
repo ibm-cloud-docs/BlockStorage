@@ -279,5 +279,56 @@
         "why new block storage size not shown",
         "new lun size not showing",
         "expanded the volume size of my block storage"
+     ],
+    "add-mpio": [     
+        "two disks in windows iscsi disk management",
+        "iscsi is showing 2 disks in windows 2012 disk management",
+        "disk management 2 disks",
+        "mpio showing 2 disks instead of one",
+        "mpio is disabled",
+        "verify the MPIO configuration",
+        "verifying MPIO configuration"
+    ],
+    "chassis-swap": [  
+        "chassis swap block storage issue",
+        "storage wont connect after chassis swap",
+        "chassis swap LUN missing",
+        "missing iscsi after chassis swap",
+        "block storage authorization chassis swap",
+        "issue with block storage after chassis swap"
+     ],
+    "disconnect": [   
+       "remove block storage from host",
+        "uninstall iscsi disk from server",
+        "how to disconnect iscsi LUN from host",
+        "remove LUN from server",
+        "disconnect iscsi storage from server",
+        "disconnect my block storage device from a host"
+     ],
+    "tier-options": [  
+        "difference between endurance and performance tier block storage",
+        "iscsi tier endurance performance block storage",
+        "do endurance and performance storage differ in block storage",
+        "performance tier versus endurance tier LUN",
+        "advantage of performance versus endurance block storage",
+        "which is better endurance or performance iscsi"
+    ],
+    "multiple-hosts": [  
+        "mount a single storage device to multiple hosts within Block Storage",
+        "mounting storage device to multiple hosts",
+        "how to mount block storage device to multiple hosts",
+        "mount a single block storage device to multiple hosts",
+        "multi host storage device share",
+        "sharing single block storage to multi hosts",
+        "how many hosts one block storage device"
+     ],
+    "expand-fail": [     
+        "am unable to upgrade block storage",
+        "Endurance 0.25 tier not upgradeable for block storage",
+        "upgrade block storage tier",
+        "can you upgrade block storage iops",
+        "can not upgrade block storage",
+        "can't upgrade block storage",
+        "how to upgrade 0.25 tier in block storage"
     ]
 }
