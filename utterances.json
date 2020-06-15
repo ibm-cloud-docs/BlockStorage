@@ -280,7 +280,7 @@
         "new lun size not showing",
         "expanded the volume size of my block storage"
      ],
-    "add-mpio": [     
+    "add-mpio": [
         "two disks in windows iscsi disk management",
         "iscsi is showing 2 disks in windows 2012 disk management",
         "disk management 2 disks",
@@ -289,7 +289,7 @@
         "verify the MPIO configuration",
         "verifying MPIO configuration"
     ],
-    "chassis-swap": [  
+    "chassis-swap": [
         "chassis swap block storage issue",
         "storage wont connect after chassis swap",
         "chassis swap LUN missing",
@@ -297,7 +297,7 @@
         "block storage authorization chassis swap",
         "issue with block storage after chassis swap"
      ],
-    "disconnect": [   
+    "disconnect": [
        "remove block storage from host",
         "uninstall iscsi disk from server",
         "how to disconnect iscsi LUN from host",
@@ -305,7 +305,7 @@
         "disconnect iscsi storage from server",
         "disconnect my block storage device from a host"
      ],
-    "tier-options": [  
+    "tier-options": [
         "difference between endurance and performance tier block storage",
         "iscsi tier endurance performance block storage",
         "do endurance and performance storage differ in block storage",
@@ -313,16 +313,7 @@
         "advantage of performance versus endurance block storage",
         "which is better endurance or performance iscsi"
     ],
-    "multiple-hosts": [  
-        "mount a single storage device to multiple hosts within Block Storage",
-        "mounting storage device to multiple hosts",
-        "how to mount block storage device to multiple hosts",
-        "mount a single block storage device to multiple hosts",
-        "multi host storage device share",
-        "sharing single block storage to multi hosts",
-        "how many hosts one block storage device"
-     ],
-    "expand-fail": [     
+    "expand-fail": [
         "am unable to upgrade block storage",
         "Endurance 0.25 tier not upgradeable for block storage",
         "upgrade block storage tier",
