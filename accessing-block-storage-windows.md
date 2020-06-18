@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-18"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -79,6 +79,9 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
   - Click **Discovery**, and click **Discover Portal**.
   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
   - Click **Advanced** to open the Advanced Settings window.
+  - On the Local adapter list, select Microsoft iSCSI Initiator.
+  - On the Initiator IP list, select the IP address of the host.
+  - On the Target Portal IP list, select the IP of one of the storage interfaces.
   - Select **Enable CHAP log-on** to turn on CHAP authentication.
     ![Enable CHAP login.](/images/Advanced_0.png)
 
@@ -105,7 +108,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
    ![Connected status.](/images/Connected.png)
 
-### Adding and configuring MPIO sessions in the iSCSI Initiator
+### Adding and configuring multiple MPIO sessions in the iSCSI Initiator
 
 1. Start the iSCSI Initiator, and on the Targets tab, click **Properties**.
 2. Click **Add Session** on the Properties window.
