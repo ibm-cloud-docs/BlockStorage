@@ -246,7 +246,7 @@ There are a couple of scenarios where a host (bare metal or VM) loses connection
 
 This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
-## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do we have to use multipath?
+## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do I have to use multipath?
 {: #singlepath}
 {: faq}
 {: help}
@@ -254,9 +254,7 @@ This issue can be observed with hosts that do not have properly configured MPIO 
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
 - [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Verifying MPIO on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
 - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
