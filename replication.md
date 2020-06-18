@@ -173,7 +173,7 @@ When a primary volume is canceled, the replication schedule and the volume in th
   -h, --help      Show this message and exit.
   ```
 
-* Order a block storage replica volume.
+* Order a {{site.data.keyword.blockstorageshort}} replica volume.
   ```
   # slcli block replica-order --help
   Usage: slcli block replica-order [OPTIONS] VOLUME_ID

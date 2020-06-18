@@ -20,7 +20,7 @@ subcollection: BlockStorage
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
 
-# Expanding Block Storage Capacity
+# Expanding {{site.data.keyword.blockstorageshort}} Capacity
 {: #expandingcapacity}
 
 With this feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume. There's no outage or lack of access to the storage while the resize is taking place.

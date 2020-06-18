@@ -168,7 +168,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 ## Verifying whether MPIO is configured correctly in Windows Operating systems
 {: #verifyMPIOWindows}
 
-To verify whether Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and restart the server.
+It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and restart the server.
 
 ![Roles_Features_0](/images/Roles_Features_0.png)
 

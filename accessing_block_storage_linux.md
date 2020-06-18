@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-15"
+lastupdated: "2020-06-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -338,7 +338,7 @@ The Host IQN, user name, password, and target address that are referenced in the
    ```
    {: pre}
 
-   This command reports the paths.
+   This command reports the paths. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
 
 10. Verify that the device is connected by issuing the following command.
 
