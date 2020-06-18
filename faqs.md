@@ -22,7 +22,7 @@ subcollection: BlockStorage
 {: faq}
 {: support}
 
-The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the Block Storage LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 ## Our compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
 {: #authsubnets}
@@ -59,7 +59,7 @@ Options:
 
 By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
-## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
+## How ma{{site.data.keyword.blockstorageshort}}a.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: #volumelimit}
 {: faq}
 {: support}
@@ -73,7 +73,7 @@ That depends on what the host operating system can handle, it’s not something 
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 
-## Which Windows version am I to choose for my Block Storage LUN?
+## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
 {: #windowsOStypes}
 {: faq}
 {: support}
@@ -136,13 +136,13 @@ There are limits set at the LUN level and a faster Ethernet connection doesn't i
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance.
 
-## How do I route block storage traffic to its own VLAN interface and bypass a firewall?
+## How do I route {{site.data.keyword.blockstorageshort}} traffic to its own VLAN interface and bypass a firewall?
 {: #howtoisolatedstorage}
 {: faq}
 {: support}
 
 To enact this best practice, complete the following steps.
-1. Provision a VLAN in the same data center as the host and the block storage device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
+1. Provision a VLAN in the same data center as the host and the {{site.data.keyword.blockstorageshort}} device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
 1. Provision a secondary private subnet to the new VLAN.
 2. Trunk the new VLAN to the private interface of the host.  
    This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
@@ -222,7 +222,7 @@ Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 per
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
-## I cannot cancel a Block Storage volume because the Cancel action in the Cloud console is unavailable or grayed out. What’s happening?
+## I cannot cancel a {{site.data.keyword.blockstorageshort}} volume because the Cancel action in the Cloud console is unavailable or grayed out. What’s happening?
 {: faq}
 {: #cancelstorage}
 
@@ -246,6 +246,18 @@ There are a couple of scenarios where a host (bare metal or VM) loses connection
 
 This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
+## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do we have to use multipath?
+{: #singlepath}
+{: faq}
+{: help}
+{: support}
+
+It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
+- [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verifying MPIO on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
+- [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
+
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
 {: faq}
@@ -260,12 +272,13 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 
 In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
-## I expanded the volume size of my block storage using the Cloud console, but the size on my server is still the same. How do I fix it?
+## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} using the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
 {: faq}
 {: support}
 
-To see the new expanded LUN size, you need to configure your existing block storage disk on the server. Check your operating system documentation for steps.
+To see the new expanded LUN size, you need to configure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps.
+
 
 ## Why do I see two disks in Disk Management when adding a single storage device?
 {: #add-mpio}
@@ -281,7 +294,7 @@ Complete these tasks to connect storage after a swap:
 1. Remove the authorization (revoke access) from the storage devices, and then authorize the host again.
 1. Discover the storage devices again, with the new credentials that were gained from the new authorization.
 
-For more information, see [Managing Block Storage](/docs/BlockStorage?topic=BlockStorage-managingstorage).
+For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
 
 ## How do I disconnect my storage device from a host?
 {: #disconnect}
@@ -304,7 +317,7 @@ Endurance and Performance are provisioning options that you can select for stora
 
 The following situations can affect the ability to upgrade or expand storage:
 - If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
-- Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding Block Storage Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
+- Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
 - The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles).
 
 ## Are storage volumes thin or thick provisioned?

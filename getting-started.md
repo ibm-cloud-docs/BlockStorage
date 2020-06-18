@@ -87,8 +87,8 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Configuring Block Storage for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [Configuring Block Storage for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
+- [Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)
+- [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
 
 ## Managing your new Storage
 

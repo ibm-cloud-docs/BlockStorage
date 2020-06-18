@@ -229,7 +229,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    The volume is now mounted and accessible on the host.
 
-7. Verify whether MPIO is configured correctly by listing the devices. If the configuration is correct, two NETAPP disks show in the output.
+7. Verify whether MPIO is configured correctly by listing the devices. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. If the configuration is correct, two NETAPP disks show in the output.
 
    ```
    # multipath -l
