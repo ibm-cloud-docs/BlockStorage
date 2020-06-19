@@ -109,3 +109,4 @@ If you need to increase your Storage volume capacity beyond 12 TB, you can reque
 {:preview}
 
 There's a limit to how many operations can be performed on the storage. This limit is 180K IOPS. So if you want to provision a volume with 10 IOPS, your maximum volume size is 18 TB. If you want to provision the maximum size of 24 TB, then the maximum rate of reads and writes to the volume is 4 IOPS per GB.
+{:note}
