@@ -169,7 +169,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 {: faq}
 {: support}
 
-You need to order new {{site.data.keyword.blockstorageshort}} in the right data center, and then cancel the {{site.data.keyword.blockstorageshort}} device you ordered in an incorrect location.
+You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: #orderendurance}
@@ -226,7 +226,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 {: faq}
 {: #cancelstorage}
 
-The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it’s reclaimed, with an hourglass or clock icon next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
+The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it’s reclaimed. An hourglass or clock icon appears next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
@@ -244,7 +244,7 @@ If you use more than two iSCSI LUNs with the same host, and if all the iSCSI con
 
 There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A reboot of the host solves the read-only state issue.
 
-This issue can be observed with hosts that do not have properly configured MPIO settings. If MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved.
+This issue can be observed with hosts that have incorrect MPIO settings. When MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
 ## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do I have to use multipath?
 {: #singlepath}
@@ -270,7 +270,7 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 
 In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
-## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} using the Cloud console, but the size on my server is still the same. How do I fix it?
+## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
 {: faq}
 {: support}
