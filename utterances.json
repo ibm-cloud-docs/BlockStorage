@@ -29,6 +29,7 @@
         "maximum storage device per account",
         "block storage device limit per account",
         "volume limit on block storage",
+        "there a LUN limit",
         "order iscsi volumes",
         "iscsi order limit",
         "is there a LUN limit on block storage",
@@ -74,7 +75,7 @@
         "iops allocation limit",
         " IOPS allocated to block storage servers"
     ],
-    "measuring-iops": [
+    "iopsmeasure": [
         "measure iops speed",
         "what is IOPS",
         "explain standard workload profile",
@@ -100,7 +101,12 @@
         "throughput prewarm performance for block storage",
         "need to pre warm to get good performance in block storage",
         "achieve throughput in iscsi volume",
-        "prewarm necessary  iscsi performance",
+        "prewarm necessary iscsi performance",
+        "LUN need to be pre-warmed",
+        "prewarming necessary for block storage",
+        "pre-warming iscsi storage required",
+        "block storage need to be pre-warmed",
+        "iscsi storage needs to be prewarmed",
         "block LUN need to be pre-warmed to achieve expected throughput"
     ],
     "ethernet": [
@@ -109,15 +115,21 @@
         "throughput limit for nic",
         "network interface lun throughput",
         "ethernet speed affect iscsi performance",
+        "increasing my port speed improve block storage",
+        "increase ethernet speed increase block storage performance",
         "upgrading my NIC improve block storage",
         "more throughput by using a faster Ethernet connection"
     ],
     "isolatedstoragetraffic": [
         "to route block storage traffic",
         "block storage traffic routing",
+        "security groups impact storage performance",
         "dedicated block storage traffic",
+        "How to optimize Block Storage performance",
+        "optimizing performance in block storage",
         "block storage traffic isolation in network interface",
         "firewalls reduce storage throughput",
+        "firewalls impact block storage performance",
         "firewalls and security groups impact performance"
     ],
     "latency": [
@@ -144,6 +156,7 @@
     "volumeencrypt": [
         "padlock volume name on block storage",
         "which Block Storage volumes are encrypted",
+        "block storage encrypted",
         "iSCSI lun lock symbol",
         "encrypted lun volume in ISCSI",
         "encryption volume lock for block storage",
@@ -157,7 +170,8 @@
         "which datacenter should I order in for Block Storage",
         "new data center encryption in block storage",
         "to order an upgraded iSCSI disk",
-        "provision lun new datacenter ",
+        "order block storage in an upgraded datacenter",
+        "provision lun new datacenter",
         "asterisk on data center for iSCSI",
         "encrypted add new lun datacenter",
         "know if provisioning Block Storage in an upgraded data center"
@@ -167,7 +181,10 @@
         "datacenter encrypt non encrypted iSCSI LUN",
         "automatic encryption of lun",
         "non encrypted volume for iSCSI disk",
+        "upgrade existing Block Storage to enhanced Block Storage",
+        "upgrading block storage to be encrypted",
         "Upgrading non-encrypted iSCSI disk",
+        "Can I update Block Storage be encrypted",
         "upgrade an existing iSCSI disk to be encypted",
         "encrytion within block storage",
         "which Block Storage volumes are encrypted"
@@ -187,6 +204,7 @@
     "deleted": [
         "NIST 800-88 compliance for block storage data",
         "data wipe procedure when LUNs deleted",
+        "Block Storage NIST 800-88 compliant",
         "policy when cancelling data on Block storage",
         "block storage volume data wipe before reuse",
         " Block Storage sanitized before reuse",
@@ -196,9 +214,11 @@
     "decommission": [
         "are decommissioned drives dealt with",
         "hard disk data wipe after decomissioning",
-        " drive desctruction process for IBM Cloud storage",
-        "What happens to decommissioned drives?",
+        "drive desctruction process for IBM Cloud storage",
+        "What happens to decommissioned drives",
+        "drives that are decommissioned from the cloud data center",
         "decomissioned storage disk in Cloud",
+        "decommissioned block storage drives",
         "happens to the drives that are decommissioned from the cloud data center"
     ],
     "diskmanager": [
@@ -217,6 +237,9 @@
         "iscsi read-only volume",
         "block storage appears offline",
         "block storage is read only",
+        "storage appears offline or read-only",
+        "block storage is offline",
+        "iSCSI storage went read-only",
         "data corruption now read-only in block storage",
         "reboot read-only LUN",
         "iscsi volume read-only",
@@ -232,6 +255,7 @@
         "multipath configuration linux",
         "windows iscsi multipath",
         "iscsi sessions mpio",
+        "block storage connection redundant",
         "proper mpio configuration for iscsi",
         "set up multipath connection for block storage",
         "Confirm multipath setup in block storage",
@@ -273,10 +297,12 @@
     ],
     "expandsize": [
         "extend block storage size",
+        "expanding Block Storage space",
         "block storage sizing extend",
         "iscsi extend size not shown",
         "cant see the new block storage entended size",
         "why new block storage size not shown",
+        "Disk space size did not change after upgrade of LUN",
         "new lun size not showing",
         "expanded the volume size of my block storage"
      ],
