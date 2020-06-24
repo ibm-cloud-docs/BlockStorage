@@ -27,7 +27,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in {{site.data.keyword.blockstorageshort}}
 {: #data-storage}
 
-{{site.data.keyword.blockstoragefull}} that is provisioned with either Endurance or Performance option is encrypted with provider-managed encryption, at no extra cost and no impact to performance.
+{{site.data.keyword.blockstoragefull}} that is provisioned with either Endurance or Performance option is secured with provider-managed encryption, at no extra cost and no impact to performance.
 {:shortdesc}
 
 The provider-managed encryption-at-rest feature uses the following industry standard protocols:
@@ -48,7 +48,6 @@ When you order {{site.data.keyword.blockstorageshort}}, select a data center not
 
 ![The lock icon indicates that the LUN is encrypted.](/images/encryptedstorage.png)
 <caption>Figure 1. Example of the lock icon that shows that the LUN is encrypted.</caption>
-
 
 Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}
