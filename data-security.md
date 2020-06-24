@@ -36,7 +36,7 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 * Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP)
 * Storage is validated for Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
 
-## Providing Encryption-at-Rest for Snapshots or Replicated storage  
+## Encryption-at-Rest for Snapshots or Replicated storage  
 
 All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis.
 
@@ -51,7 +51,6 @@ When you order {{site.data.keyword.blockstorageshort}}, select a data center not
 
 Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {:important}
-
 
 ## Deleting {{site.data.keyword.blockstorageshort}} instances
 {: #service-delete}
@@ -69,18 +68,6 @@ To delete a storage LUN, it's necessary to revoke access from any hosts first.
    {:tip}
 4. Click **Continue** or **Close**.
 5. Click the **Acknowledgment** check box and click **Confirm**.
-
-Alternatively, you can use the following command in SLCLI.
-```
-# slcli block volume-cancel --help
-Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
-
-Options:
-  --reason TEXT  An optional reason for cancellation
-  --immediate    Cancels the block storage volume immediately instead of on
-                 the billing anniversary
-  -h, --help     Show this message and exit.
-```
 
 You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
 
