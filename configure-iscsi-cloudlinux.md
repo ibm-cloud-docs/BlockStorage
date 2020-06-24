@@ -93,7 +93,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
    {: pre}
 
 2. Create or edit your configuration files.
-   - Update your '/etc/multipath.conf'. <br/>**Note** - All data under blacklist must be specific to your system.
+   - Update your '/etc/multipath.conf'.
      ```
      defaults {
         user_friendly_names no
