@@ -48,7 +48,7 @@ IBM Cloud Block Storage - Classic
 
     {: .topicgroup}
     Enhancing security
-        encryption-rest.md
+        data-security.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
 
     {: .topicgroup}
