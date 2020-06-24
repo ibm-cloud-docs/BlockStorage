@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-06-24"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
 
@@ -109,7 +109,7 @@ The Host IQN, user name, password, and target address that are referenced in the
       dev_loss_tmo infinity
       fast_io_fail_tmo 5
       }
-      # All data under blacklist must be specific to your system.
+      # All data in the following section must be specific to your system.
       blacklist {
       wwid "SAdaptec*"
       devnode "^hd[a-z]"
@@ -154,7 +154,7 @@ The Host IQN, user name, password, and target address that are referenced in the
       dev_loss_tmo infinity
       fast_io_fail_tmo 5
       }
-      # All data under blacklist must be specific to your system.
+      # All data in the following section must be specific to your system.
       blacklist {
       wwid "SAdaptec*"
       devnode "^hd[a-z]"
@@ -606,7 +606,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blacklist.
+* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the block list.
    ```
    multipath -l -v 3 | grep sd <date and time>
    ```
