@@ -57,7 +57,7 @@ Non-encrypted storage that was provisioned before the data center was upgraded *
 
 If you no longer need a specific LUN, you can cancel it at any time. {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
 
-To delete a storage LUN, it's necessary to revoke access from any hosts first.
+To delete a storage LUN, it's necessary to revoke access from any hosts first. Active replicas and dependent duplicates can also block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 {:important}
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
@@ -71,8 +71,5 @@ To delete a storage LUN, it's necessary to revoke access from any hosts first.
 
 You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
 
-Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
-
 After the Storage LUN is reclaimed, the disk is wiped and data can't be restored.
-
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
