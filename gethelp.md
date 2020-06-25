@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-24"
+lastupdated: "2020-06-25"
 
 subcollection: BlockStorage
 
@@ -25,6 +25,6 @@ subcollection: BlockStorage
 Get help with solving issues that you encounter while using the product.
 {: shortdesc}
 
-Review the topics in the **How to** section to see if you can find a quick solution. For more information, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+Review the topics in the **How to** section to see if you can find a quick solution. For more information about frequently asked questions, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 If your service plan covers it, you can get help by creating a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
