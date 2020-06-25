@@ -25,6 +25,6 @@ subcollection: BlockStorage
 Get help with solving issues that you encounter while using the product.
 {: shortdesc}
 
-Scan the list of known error messages to see if you can find a quick solution. See [FAQ](/docs/assistant?topic=assistant-faqs).
+Review the topics in the **How to** section to see if you can find a quick solution. For more information, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 If your service plan covers it, you can get help by creating a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.

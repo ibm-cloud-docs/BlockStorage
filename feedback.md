@@ -37,7 +37,7 @@ To share ideas or suggest new features for the {{site.data.keyword.blockstorages
 
 To provide feedback about the documentation, click the **FEEDBACK** button that is displayed along the edge of the page that you read and want to comment about.
 
-**Note**: The **FEEDBACK** button is not available when you access the documentation site from mobile devices.
+The **FEEDBACK** button is not available when you access the documentation site from mobile devices.
 {:note}
 
 Rate and comment about whether the topic is helpful by clicking **Yes** or **No** at the end of the topic.
