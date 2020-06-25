@@ -47,20 +47,25 @@ IBM Cloud Block Storage - Classic
         disaster-recovery.md
 
     {: .topicgroup}
-    Securing data
-        encryption-rest.md
+    Enhancing security
+        data-security.md
         use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
+
+    {: .topicgroup}
+    Troubleshooting
+        win12-missing-devices.md
     {: .navgroup-end}
 
-    {: .navgroup id="help"}
-    faqs.md
+    {: .navgroup id="reference"}
     [Python API Client Information](https://softlayer-python.readthedocs.io/en/latest/index.html)
     slcli-usage.md
     [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage)
     [Identity and Access Management](https://cloud.ibm.com/docs/iam?topic=iam-infrapermission)
     [Service Level Agreements (SLAs)](https://cloud.ibm.com/docs/overview?topic=overview-slas)
+    {: .navgroup-end}
 
-    {: .topicgroup}
-    Troubleshooting
-        win12-missing-devices.md
+    {: .navgroup id="help"}
+    faqs.md
+    gethelp.md
+    feedback.md
     {: .navgroup-end}
