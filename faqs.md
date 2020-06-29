@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-25"
+lastupdated: "2020-06-29"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -222,7 +222,7 @@ Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 per
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
-## I cannot cancel a {{site.data.keyword.blockstorageshort}} volume because the Cancel action in the Cloud console is unavailable or grayed out. What’s happening?
+## I cannot cancel a {{site.data.keyword.blockstorageshort}} volume because the Cancel action in the Cloud console is unavailable. What’s happening?
 {: faq}
 {: #cancelstorage}
 
@@ -278,13 +278,13 @@ In the rare case of a LUN being provisioned and attached while the second path i
 To see the new expanded LUN size, you need to configure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps.
 
 
-## Why do I see two disks in Disk Management when adding a single storage device?
+## Why do I see two disks in Disk Management when I add a single storage device?
 {: #add-mpio}
 {: faq}
 
 Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
 
-## How do I re-connect storage after a chassis swap?
+## How do I reconnect storage after a chassis swap?
 {: #chassis-swap}
 {: faq}
 
@@ -318,7 +318,7 @@ The following situations can affect the ability to upgrade or expand storage:
 - Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
 - The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles).
 
-## Are storage volumes thin or thick provisioned?
+## Are ISCSI LUNs thin or thick provisioned?
 {: #thin}
 {: faq}
 
