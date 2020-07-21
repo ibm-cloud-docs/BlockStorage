@@ -316,7 +316,7 @@ Endurance and Performance are provisioning options that you can select for stora
 The following situations can affect the ability to upgrade or expand storage:
 - If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
 - Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
-- The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles).
+- The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
 ## Are ISCSI LUNs thin or thick provisioned?
 {: #thin}
