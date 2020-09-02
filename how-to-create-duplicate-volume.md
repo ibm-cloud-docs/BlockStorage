@@ -156,5 +156,5 @@ As time passes and the primary volume changes, the independent duplicate volume 
 
 Refreshes can be performed by using the SLCLI.
 ```
-slcli block  volume-refresh <duplicate-vol-id> <primary-snapshot-id>
+slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
