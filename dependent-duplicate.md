@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-04-17"
+lastupdated: "2020-09-10"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -34,7 +34,7 @@ The commands described in the article are part of the SLCLI. For more informatio
 
 Dependent duplicate volumes can be ordered through the SLCLI.
 ```
-slcli block  volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
+slcli block  volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ```
 
 ## Updating data on the dependent volume
@@ -44,7 +44,7 @@ As time passes and the primary volume changes, the dependent volume can be updat
 
 Refreshes can be performed by using the SLCLI.
 ```
-slcli block  volume-refresh <dependent-vol-id> <independent-snapshot-id>
+slcli block  volume-refresh <dependent-vol-id> <primary-snapshot-id>
 ```
 ## Converting a dependent volume to a normal, independent volume
 {: #convertdependentvol}
