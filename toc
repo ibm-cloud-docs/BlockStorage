@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="BlockStorage" category="storage_classic" audience="service" href="/docs/BlockStorage?topic=BlockStorage-getting-started" product-page="https://www.ibm.com/cloud/block-storage" console-page="/classic/storage/block" path="BlockStorage"}
-IBM Cloud Block Storage - Classic
+Block Storage - Classic
 
     {: .navgroup id="learn"}
     getting-started.md
