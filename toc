@@ -7,7 +7,6 @@ IBM Cloud Block Storage - Classic
     {: .navgroup id="learn"}
     getting-started.md
     [What is Block Storage?](https://www.ibm.com/cloud/learn/block-storage)
-    [Why Block Storage?](https://www.ibm.com/cloud/block-storage)
     index.md
     selectdatacenters.md
     snapshots.md
@@ -30,14 +29,13 @@ IBM Cloud Block Storage - Classic
         set-host-queue-depth-settings-performance-and-endurance-storage.md
         configure-backup-cpanel.md
         configure-backup-plesk.md
+        [Mounting ISCSI on VMware ESXi](https://cloud.ibm.com/docs/vmware?topic=vmware-mount-iscsi-esxi)
 
     {: .topicgroup}
     Managing
         managing-block-storage.md
         expandable_block_storage.md
         adjustable-iops.md
-        how-to-create-duplicate-volume.md
-        dependent-duplicate.md
         working-with-snapshots.md
 
     {: .topicgroup}
@@ -45,6 +43,8 @@ IBM Cloud Block Storage - Classic
         replication.md
         dr-accessible-primary.md
         disaster-recovery.md
+        how-to-create-duplicate-volume.md
+        dependent-duplicate.md
 
     {: .topicgroup}
     Enhancing security
