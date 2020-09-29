@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-06-29"
+lastupdated: "2020-09-29"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -10,6 +10,9 @@ subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
@@ -144,7 +147,8 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 To enact this best practice, complete the following steps.
 1. Provision a VLAN in the same data center as the host and the {{site.data.keyword.blockstorageshort}} device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
 1. Provision a secondary private subnet to the new VLAN.
-2. Trunk the new VLAN to the private interface of the host.  
+2. Trunk the new VLAN to the private interface of the host. For more information, see [How do I trunk my VLANs to my servers](/docs/vlans?topic=vlans-vlans-faqs#how-do-i-trunk-my-vlans-to-my-servers-){: external}.
+
    This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
    {:note}
 3. Create a network interface on the host.
