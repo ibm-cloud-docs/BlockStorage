@@ -145,6 +145,7 @@ To enact this best practice, complete the following steps.
 1. Provision a VLAN in the same data center as the host and the {{site.data.keyword.blockstorageshort}} device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
 1. Provision a secondary private subnet to the new VLAN.
 2. Trunk the new VLAN to the private interface of the host. For more information, see [How do I trunk my VLANs to my servers](/docs/vlans?topic=vlans-vlans-faqs#how-do-i-trunk-my-vlans-to-my-servers-){: external}.
+
    This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
    {:note}
 3. Create a network interface on the host.
