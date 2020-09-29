@@ -10,6 +10,9 @@ subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
