@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-11-14"
+  years: 2014, 2020
+lastupdated: "2020-10-02"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -45,7 +45,7 @@ Take advantage of the following features of {{site.data.keyword.blockstorageshor
    - Uses redundant networking connections to maximize availability.
    - iSCSI-based {{site.data.keyword.blockstorageshort}} uses Multipath I/O (MPIO).
 - **Concurrent access**
-   - Allows multiple hosts to simultaneously access block volumes (up to eight) for clustered configurations.
+   - Allows multiple hosts to simultaneously access block volumes for clustered configurations.
 - **Clustered databases**
    - Supports advanced use cases, such as clustered databases.
 
