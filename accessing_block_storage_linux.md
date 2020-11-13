@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2020
 lastupdated: "2020-06-25"
 
-keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, linux,
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
 subcollection: BlockStorage
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNs on Linux
 {: #mountingLinux}
 
-These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were added, but this documentation does **not** cover all Linux distributions. If you're using another Linux operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were added, but this documentation does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
 {:note}
 
 For example, for more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
@@ -74,7 +74,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
 
-Complete the following steps to connect a Linux-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {:shortdesc}
 
 The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
@@ -143,7 +143,7 @@ The Host IQN, user name, password, and target address that are referenced in the
       {: pre}
 
   - **RHEL7** and **CentOS7**, `multipath.conf` can be blank as the OS has built-in configurations.
-  - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
+  - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load-balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
 
       ```
       defaults {
@@ -347,12 +347,12 @@ The Host IQN, user name, password, and target address that are referenced in the
     ```
     {: pre}
 
-    By default the device attaches to `/dev/mapper/<wwid>`. WWID is the generated World Wide ID of the connected storage device, that is persistent as long as the volume exists. So that command reports something similar to the following example.
+    By default the device attaches to `/dev/mapper/<wwid>`. WWID is the generated World-Wide ID of the connected storage device that is persistent while the volume exists. So that command reports something similar to the following example.
     ```
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
-    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more user-friendly names by using "user_friendly_names" and/or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
+    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
     {:tip}
 
   The volume is now mounted and accessible on the host. You can create a file system next.
@@ -390,7 +390,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    ```
    {: pre}
 
-   - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux.
+   - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux&reg;.
    - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
    - Create the file system:
 
@@ -438,7 +438,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 | `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Press Enter to go to the last cylinder. |
 | `Command: t` | Sets up the type of partition. * |
 | `Select partition 1.` | Selects partition 1 to be set up as a specific type. |
-| `Hex code: 83` | Selects Linux as the Type (83 is the hex code for Linux). ** |
+| `Hex code: 83` | Selects Linux&reg; as the Type (83 is the hex code for Linux&reg;). ** |
 | `Command: w` | Writes the new partition information to the disk. ** |
 {: caption="Table 1 - The <code>fdisk</code> command table contains commands on the left and expected results on the right." caption-side="top"}
 
@@ -449,7 +449,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 ### Creating a file system with `parted`
 {: #parted}
 
-On many Linux distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
+On many Linux&reg; distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian and Ubuntu
   ```
   sudo apt-get install parted  
@@ -595,7 +595,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-    Note that the WWID is included in the device name that the multipath creates. The WWID should be used by your application.
+    The WWID is included in the device name that the multipath creates. The WWID should be used by your application.
 
   - Example output of an incorrect configuration. There's no `/dev/mapper` disk.
 

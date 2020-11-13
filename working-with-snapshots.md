@@ -166,7 +166,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 {:important}
 
 1. Unmount and detach your storage volume from the host.
-   - [Connecting iSCSI Volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
+   - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
    - [Connecting iSCSI Volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
@@ -179,7 +179,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
    Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {:note}
 6. Mount and reattach your storage volume to the host.
-   - [Connecting iSCSI Volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Connecting iSCSI Volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Connecting iSCSI Volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 

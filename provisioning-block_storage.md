@@ -50,7 +50,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choose your **OS Type** from the list.<br/>
 
-   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
+   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
 
@@ -80,7 +80,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 7. Click **Specify Snapshot Space Size** and select the snapshot size from the list. This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 8. Choose your **OS Type** from the list.<br/>
 
-   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
+   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 9. On the right, review your order summary, and apply your Promo Code if you have one.
 
@@ -96,7 +96,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 {: #mountingnewLUN}
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [Connecting to LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Connecting to LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Mounting a LUN in XenServer Shared Storage](/docs/virtualization?topic=virtualization-setting-up-and-mounting-an-iscsi-node-in-xenserver-shared-storage)
