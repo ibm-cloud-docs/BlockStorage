@@ -43,7 +43,7 @@ If you use more than two iSCSI devices with the same host, you might find this p
 3. Confirm the number of devices that are shown. If you see two devices, instead of the four that were authorized, continue to the next step.
 4. Click **Targets**, then **Connect**.
 5. Select **Multipath**, then **Advanced**.
-6. Select Microsoft iSCSI Initiator as the Local adapter. The Initiator IP belongs to your server.
+6. Select Microsoft&reg; iSCSI Initiator as the Local adapter. The Initiator IP belongs to your server.
 7. Select the first of the IP addresses that are shown in the Target Portal IP list.
 
    ![Advanced Settings, IP addresses](/images/win12-ts3.png)
