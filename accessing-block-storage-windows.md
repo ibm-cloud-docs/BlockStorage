@@ -62,7 +62,7 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 3. Check mark **Add support for iSCSI devices**, and click **Add**.
 4. When you're prompted to restart the computer, click **Yes**.
 
-In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
+In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
 {:note}
 
 ### Configuring the iSCSI Initiator to discover the Target
@@ -79,7 +79,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
   - Click **Discovery**, and click **Discover Portal**.
   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
   - Click **Advanced** to open the Advanced Settings window.
-  - On the Local adapter list, select Microsoft iSCSI Initiator.
+  - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
   - On the Initiator IP list, select the IP address of the host.
   - On the Target Portal IP list, select the IP of one of the storage interfaces.
   - Select **Enable CHAP log-on** to turn on CHAP authentication.
@@ -117,7 +117,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 
 4. In the Advanced Settings window, update the following fields.
    ![Settings](/images/Settings.png)
-    - On the Local adapter list, select Microsoft iSCSI Initiator.
+    - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
     - On the Initiator IP list, select the IP address of the host.
     - On the Target Portal IP list, select the IP of one of the storage interfaces.
     - Click **Enable CHAP log-on** check box.
@@ -127,7 +127,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device Spe
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
 6. In the Connect to Target window, select the **Enable multi-path** check box. Click **Advanced**.
 7. In the Advanced Settings window,
-    - On the Local adapter list, select Microsoft iSCSI Initiator.
+    - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
     - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
     - On the Target Portal IP list, select the IP address for the second interface that is enabled on the storage array.
 

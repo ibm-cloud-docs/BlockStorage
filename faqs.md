@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2020
-lastupdated: "2020-09-29"
+lastupdated: "2020-12-01"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -147,19 +147,19 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 To enact this best practice, complete the following steps.
 1. Provision a VLAN in the same data center as the host and the {{site.data.keyword.blockstorageshort}} device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
 1. Provision a secondary private subnet to the new VLAN.
-2. Trunk the new VLAN to the private interface of the host. For more information, see [How do I trunk my VLANs to my servers](/docs/vlans?topic=vlans-vlans-faqs#how-do-i-trunk-my-vlans-to-my-servers-){: external}.
+2. Trunk the new VLAN to the private interface of the host. For more information, see [How do I trunk my VLANs to my servers](/docs/vlans?topic=vlans-vlans-faqs#trunk-vlans-to-servers){: external}.
 
    This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
    {:note}
 3. Create a network interface on the host.
-   * In Linux or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
+   * In Linux&reg; or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
   * In VMware, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 4. Add a new persistent static route on the host to the target iSCSI subnet.
 5. Ensure that the IP for the newly added interface is added to the host authorization list.
 6. Perform discovery/target portal login as described in the following topics.
-   - [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: #latency}  
@@ -257,8 +257,8 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 {: support}
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
-- [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
@@ -267,9 +267,9 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 {: support}
 
 If MPIO is configured right, then when an unplanned disruption or a planned maintenance occurs, and one of the routes is taken down, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
-- [Mounting LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Verifying MPIO on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
-- [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
+- [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
 In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If there's an event, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
@@ -286,7 +286,7 @@ To see the new expanded LUN size, you need to configure your existing {{site.dat
 {: #add-mpio}
 {: faq}
 
-Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
 
 ## How do I reconnect storage after a chassis swap?
 {: #chassis-swap}

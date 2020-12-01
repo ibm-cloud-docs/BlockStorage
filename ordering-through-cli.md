@@ -147,7 +147,7 @@ For the limit on simultaneous authorizations, see the [FAQs](/docs/BlockStorage?
 {: #mountingCLI}
 
 Depending on your host's operating system, follow the appropriate link.
-- [Connecting to LUNs on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Connecting to LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)

@@ -25,9 +25,9 @@ The preferred migration path is to connect to both LUNs simultaneously and trans
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
-- [Connecting storage volumes on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+- [Connecting storage volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Connecting storage volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connecting storage volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Connecting storage volumes on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## Creating a {{site.data.keyword.blockstorageshort}}
 
@@ -77,8 +77,8 @@ If your replication target data center is not upgraded yet, you can't establish 
   - If you need assistance with these considerations, open a support case.
 
 3. Copy your data across.
-   - For **Microsoft Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
-   - For **Linux**, you can use `rsync` to copy over the data.
+   - For **Microsoft&reg; Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
+   - For **Linux&reg;**, you can use `rsync` to copy over the data.
    ```
    [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
    ```
