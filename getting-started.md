@@ -8,6 +8,11 @@ keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mou
 
 subcollection: BlockStorage
 
+content-type: tutorial
+services:
+account-plan: paid
+completion-time: 2h
+
 ---
 {:external: target="_blank" .external}
 {:tip: .tip}
@@ -20,6 +25,9 @@ subcollection: BlockStorage
 
 # Getting started with {{site.data.keyword.blockstorageshort}}
 {: #getting-started}
+{: toc-content-type="tutorial"}
+{: toc-services=""}
+{: toc-completion-time="2h"}
 
 {{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi-path I/O (MPIO) connections.
 
@@ -28,6 +36,7 @@ subcollection: BlockStorage
 
 ## Before you begin
 {: #prereqs}
+{: step}
 
 {{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options: <br/>
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
@@ -36,6 +45,9 @@ subcollection: BlockStorage
 For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/cloud/block-storage){:external}.
 
 ## Provisioning considerations
+{: #provconsiderBlock}
+{: step}
+
 
 ### Block size
 
@@ -73,6 +85,7 @@ Storage traffic is included in the total network usage of Public Virtual Servers
 
 ## Submitting your Order
 {: #submitorder}
+{: step}
 
 When you're ready to submit your order, you can place it through the [Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole), the [SLCLI](/docs/BlockStorage?topic=BlockStorage-orderingthroughCLI), or the [IBMCLOUD CLI](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order).
 
@@ -82,6 +95,7 @@ To be able to access all the new features, order `Storage-as-a-Service Package 7
 
 ## Connecting and configuring your new storage
 {: #mountingstorage}
+{: step}
 
 When your provisioning request is complete, authorize your hosts to access the new storage, and configure your connection. Depending on your host's operating system, follow the appropriate link.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
@@ -91,5 +105,6 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
 
 ## Managing your new Storage
+{: step}
 
 Through the portal or the SLCLI, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
