@@ -636,5 +636,5 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm).
+   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){:external}.
    {:tip}
