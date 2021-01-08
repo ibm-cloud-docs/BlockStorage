@@ -251,7 +251,7 @@ The Host IQN, user name, password, and target address that are referenced in the
    ```
    {: pre}
 
-6. Edit the CHAP settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
+6. Update the credential settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
    ```
    node.session.auth.authmethod = CHAP
    node.session.auth.username = <Username-value-from-Portal>
@@ -550,8 +550,6 @@ To create a file system with `parted`, follow these steps.
      /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
-
-
 
 
 ## Verifying MPIO configuration
