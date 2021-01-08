@@ -204,8 +204,8 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    {: pre}
 
 ## Verifying configuration
-   {: #verifyconnection}
-   {: step}
+{: #verifyconfigrhel8}
+{: step}
 
 1. Validate that the iSCSI session is established.
    ```
