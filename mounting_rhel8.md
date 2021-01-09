@@ -87,7 +87,7 @@ sudo dnf -y install iscsi-initiator-utils device-mapper-multipath
 ```
 {: pre}
 
-## Set up the multipath.
+## Set up the multipath
 {: #setupmultipathd}
 {: step}
 
@@ -153,7 +153,7 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
 
    For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){:external}.
 
-## Update `/etc/iscsi/initiatorname.iscsi` file.
+## Update /etc/iscsi/initiatorname.iscsi file
 {: updateinitiator#}
 {: step}
 
@@ -183,7 +183,7 @@ discovery.sendtargets.auth.password = <Password-value-from-Portal>
 Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
 {:important}
 
-## Discover the storage device and login.
+## Discover the storage device and login
 {: #discoverandlogin}
 {: step}
 
