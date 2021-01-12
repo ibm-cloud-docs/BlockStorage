@@ -14,7 +14,6 @@ Block Storage - Classic
 
     {: .navgroup id="tutorial"}
     mounting_rhel8.md
-
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
