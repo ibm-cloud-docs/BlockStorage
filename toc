@@ -12,9 +12,8 @@ Block Storage - Classic
     snapshots.md
     {: .navgroup-end}
 
-    {: .navgroup id=tutorial}
+    {: .navgroup id="tutorial"}
     mounting_rhel8.md
-
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
