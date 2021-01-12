@@ -4,7 +4,7 @@ copyright:
   years: 2021
 lastupdated: "2021-01-12"
 
-keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
+keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
 subcollection: BlockStorage
 
@@ -23,20 +23,20 @@ completion-time: 1h
 {:shortdesc: .shortdesc}
 {:step: data-tutorial-type='step'}
 
-# Mount iSCSI LUN on Red Hat Enterprise Linux 8
-{: #mountingRHEL8}
+# Mount iSCSI LUN on Ubuntu 20
+{: #mountingUbu20}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="1h"}
 
-This tutorial guides you through how to mount a {{site.data.keyword.blockstoragefull}} volume on a server with the Red Hat Enterprise Linux&reg; 8 operating system. Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+This tutorial guides you through how to mount a {{site.data.keyword.blockstoragefull}} volume on a server with the  Ubuntu 20.04 Server Edition operating system. Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {:shortdesc}
 
 Before you begin, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume is authorized correctly.
 {:important}
 
 ## Authorizing the host
-{: #authhostrhel}
+{: #authhostubu20}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -77,18 +77,35 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {:important}
 
 ## Install the iSCSI and multipath utilities
-{: #installutils}
+{: #installutilsubu20}
 {: step}
 
-Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages. Use the following command to install the packages.
+Ensure that your system is updated and includes the `iscsi-initiator-utils` and `multipath-tools` packages. Use the following commands to install the packages.
+
+1. Install `open-iscsi`
 
 ```
-sudo dnf -y install iscsi-initiator-utils device-mapper-multipath
+sudo apt install open-iscsi
+```
+When the package is installed, it creates the following two files.
+* `/etc/iscsi/iscsid.conf`
+* `/etc/iscsi/initiatorname.iscsi`
+
+2. Install `multipath-tools`.
+
+```
+sudo apt install multipath-tools
 ```
 {: pre}
 
+If you want to  boot from the LUN, then the multipath-tools-boot package needs to be installed as well.
+{: tip}
+
+
+
+
 ## Set up the multipath
-{: #setupmultipathd}
+{: #setupmultipathdubu20}
 {: step}
 
 You set up DM Multipath with the `mpathconf` utility, which creates the multipath configuration file ``/etc/multipath.conf`.
@@ -97,6 +114,22 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 * If the /etc/multipath.conf file does not exist, the mpathconf utility creates the /etc/multipath.conf file from scratch.
 
 For more information on the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){:external}.
+
+The basic procedure for configuring your system with multipath is as follows:
+
+1. Install the multipath-tools and multipath-tools-boot packages.
+
+```
+sudo apt install multipath-tools
+```
+{: pre}
+
+2. Create the config file that is called /etc/multipath.conf and modify its default values.
+3. Start the multipath daemon.
+
+4. Update initial ramdisk.
+
+
 
 1. Enter the mpathconf command with the --enable option specified:
    ```
@@ -151,10 +184,10 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    If you need to edit the multipath configuration file after you have started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
    {:note}
 
-   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){:external}.
+   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Device Mapper Multipathing - Introduction](https://ubuntu.com/server/docs/device-mapper-multipathing-introduction){:external}.
 
 ## Update /etc/iscsi/initiatorname.iscsi file
-{: #updateinitiator}
+{: #updateinitiatorubu20}
 {: step}
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
@@ -165,7 +198,7 @@ InitiatorName=<value-from-the-Portal>
 {: pre}
 
 ## Configure credentials
-{: #configcred}
+{: #configcredubu20}
 {: step}
 
 Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
@@ -184,7 +217,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 {:important}
 
 ## Discover the storage device and login
-{: #discoverandlogin}
+{: #discoverandloginubu20}
 {: step}
 
 The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){:external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
@@ -204,7 +237,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    {: pre}
 
 ## Verifying configuration
-{: #verifyconfigrhel8}
+{: #verifyconfigubu20}
 {: step}
 
 1. Validate that the iSCSI session is established.
@@ -241,7 +274,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
 
 ## Creating a file system (optional)
-{: #createfilesys}
+{: #createfilesysubu20}
 {: step}
 
 Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdisk) and [`parted` for a disk bigger than 2 TB](#parted).
