@@ -76,68 +76,40 @@ Options:
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {:important}
 
+Before start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order to have open-iscsi package to behave appropriately, specially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){:external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){:external}.
+
 ## Install the iSCSI and multipath utilities
 {: #installutilsubu20}
 {: step}
 
-Ensure that your system is updated and includes the `iscsi-initiator-utils` and `multipath-tools` packages. Use the following commands to install the packages.
+Ensure that your system is updated and includes the `open-iscsi` and `multipath-tools` packages. Use the following commands to install the packages.
 
-1. Install `open-iscsi`
+- Install `open-iscsi`
 
-```
-sudo apt install open-iscsi
-```
-When the package is installed, it creates the following two files.
-* `/etc/iscsi/iscsid.conf`
-* `/etc/iscsi/initiatorname.iscsi`
+  ```
+  sudo apt install open-iscsi
+  ```
+  When the package is installed, it creates the following two files.
+  * `/etc/iscsi/iscsid.conf`
+  * `/etc/iscsi/initiatorname.iscsi`
 
-2. Install `multipath-tools`.
+- Install `multipath-tools`.
 
-```
-sudo apt install multipath-tools
-```
-{: pre}
+  ```
+  sudo apt install multipath-tools
+  ```
+  {: pre}
 
-If you want to  boot from the LUN, then the multipath-tools-boot package needs to be installed as well.
-{: tip}
-
-
+  If you want to  boot from the LUN, then the multipath-tools-boot package needs to be installed as well.
+  {: tip}
 
 
 ## Set up the multipath
 {: #setupmultipathdubu20}
 {: step}
 
-You set up DM Multipath with the `mpathconf` utility, which creates the multipath configuration file ``/etc/multipath.conf`.
-
-* If the /etc/multipath.conf file already exists, the mpathconf utility can edit it.
-* If the /etc/multipath.conf file does not exist, the mpathconf utility creates the /etc/multipath.conf file from scratch.
-
-For more information on the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){:external}.
-
-The basic procedure for configuring your system with multipath is as follows:
-
-1. Install the multipath-tools and multipath-tools-boot packages.
-
-```
-sudo apt install multipath-tools
-```
-{: pre}
-
-2. Create the config file that is called /etc/multipath.conf and modify its default values.
-3. Start the multipath daemon.
-
-4. Update initial ramdisk.
-
-
-
-1. Enter the mpathconf command with the --enable option specified:
-   ```
-   # mpathconf --enable --user_friendly_names n
-   ```
-   {:pre}
-
-2. Edit the /etc/multipath.conf file with the following minimum configuration.
+1. After you installed the multipath utility, create an empty config file that is called /etc/multipath.conf.
+2. Modify the default values of/etc/multipath.conf.
 
    ```
    defaults {
@@ -176,12 +148,13 @@ sudo apt install multipath-tools
    The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpath n; where mpath n is the WWID of the device.
 
 3. Save the configuration file and exit the editor, if necessary.
-4. Execute the following command:
+4. Start the multipath service so that the changes take effect.
    ```
-   # systemctl start multipathd.service
+   service multipath-tools start
    ```
+   {: pre}
 
-   If you need to edit the multipath configuration file after you have started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
+   If you need to edit the multipath configuration file after you have started the multipath daemon, you must restart the multipathd service for the changes to take effect.
    {:note}
 
    For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Device Mapper Multipathing - Introduction](https://ubuntu.com/server/docs/device-mapper-multipathing-introduction){:external}.
@@ -196,6 +169,7 @@ Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.k
 InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
+
 
 ## Configure credentials
 {: #configcredubu20}
@@ -216,6 +190,12 @@ discovery.sendtargets.auth.password = <Password-value-from-Portal>
 Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
 {:important}
 
+Restart the iscsi service for the changes to take effect.
+
+```
+systemctl restart iscsid.service
+```
+
 ## Discover the storage device and login
 {: #discoverandloginubu20}
 {: step}
@@ -225,16 +205,35 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 1. Run the discovery against the iSCSI array.
    ```
    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
+   sudo iscsiadm -m discovery -I iscsi01 --op=new --op=del --type sendtargets --portal <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
 
    If the IP info and access details are displayed, then the discovery is successful.
 
-2. Log in to the iSCSI array.
+2. Configure automatic login.
    ```
-   iscsiadm -m node --login
+   sudo iscsiadm -m node --op=update -n node.conn[0].startup -v automatic
+   sudo iscsiadm -m node --op=update -n node.startup -v automatic
+   ```
+3. Enable necessary services.
+   ```
+   systemctl enable open-iscsi
+   systemctl enable iscsid
+   ```
+
+4. Restart the iscsid service.
+   ```
+   systemctl restart iscsid.service
+   ```  
+
+5. Log in to the iSCSI array.
+   ```
+   sudo iscsiadm -m node --loginall=automatic
    ```
    {: pre}
+
+   For more information about
 
 ## Verifying configuration
 {: #verifyconfigubu20}
@@ -248,195 +247,100 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
 2. Validate that multiple paths exist.
    ```
-   multipath -l
+   multipath -ll
    ```
    {: pre}
 
    This command reports the paths. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
 
+   ```
+   $ sudo multipath -ll
+   mpathb (360014051f65c6cb11b74541b703ce1d4) dm-1 LIO-ORG,TCMU device
+   size=1.0G features='0' hwhandler='0' wp=rw
+   |-+- policy='service-time 0' prio=1 status=active
+   | `- 7:0:0:2 sdh 8:112 active ready running
+   `-+- policy='service-time 0' prio=1 status=enabled
+     `- 8:0:0:2 sdg 8:96  active ready running
+   mpatha (36001405b816e24fcab64fb88332a3fc9) dm-0 LIO-ORG,TCMU device
+   size=1.0G features='0' hwhandler='0' wp=rw
+   |-+- policy='service-time 0' prio=1 status=active
+   | `- 7:0:0:1 sdj 8:144 active ready running
+   `-+- policy='service-time 0' prio=1 status=enabled
+     `- 8:0:0:1 sdi 8:128 active ready running
+   ```
+
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-3. List the partition tables for the connected device.
+    In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){:external}.
+    {:tip}
+
+3. Check `dmesg` to make sure that the new disks have been detected.
    ```
-   fdisk -l | grep /dev/mapper
+   dmesg
    ```
    {: pre}
 
-   By default the storage device attaches to `/dev/mapper/<wwid>`. WWID is persistent while the volume exists. The command reports something similar to the following example.
-   ```
-   Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
-   ```
-
-   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){:external}.
-   {:tip}
-
-   The volume is now mounted and accessible on the host. You can create a file system next.
-
-
-## Creating a file system (optional)
+## Creating a partition and a file system (optional)
 {: #createfilesysubu20}
 {: step}
 
-Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdisk) and [`parted` for a disk bigger than 2 TB](#parted).
+After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume. 
 
-### Creating a file system with `fdisk`
-{: #fdisk}
-
-1. Get the disk name.
+1. Create a partition.
    ```
-   fdisk -l | grep /dev/mapper
+   $ sudo fdisk /dev/mapper/mpatha
+
+   Welcome to fdisk (util-linux 2.34).
+   Changes will remain in memory only, until you decide to write them.
+   Be careful before using the write command.
+
+   Device does not contain a recognized partition table.
+   Created a new DOS disklabel with disk identifier 0x92c0322a.
+
+   Command (m for help): p
+   Disk /dev/mapper/mpatha: 1 GiB, 1073741824 bytes, 2097152 sectors
+   Units: sectors of 1 * 512 = 512 bytes
+   Sector size (logical/physical): 512 bytes / 512 bytes
+   I/O size (minimum/optimal): 512 bytes / 65536 bytes
+   Disklabel type: dos
+   Disk identifier: 0x92c0322a
+
+   Command (m for help): n
+   Partition type
+      p   primary (0 primary, 0 extended, 4 free)
+      e   extended (container for logical partitions)
+   Select (default p): p
+   Partition number (1-4, default 1):
+   First sector (2048-2097151, default 2048):
+   Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-2097151, default 2097151):
+
+   Created a new partition 1 of type 'Linux' and of size 1023 MiB.
+
+   Command (m for help): w
+   The partition table has been altered.
    ```
-   {: pre}
-   The disk name that is returned looks similar to `/dev/mapper/XXX`.
 
-2. Create a partition on the disk.
-
+2. Create the filesystem.
    ```
-   fdisk /dev/mapper/XXX
+   $ sudo mkfs.ext4 /dev/mapper/mpatha-part1
+   mke2fs 1.45.5 (07-Jan-2020)
+   Creating filesystem with 261888 4k blocks and 65536 inodes
+   Filesystem UUID: cdb70b1e-c47c-47fd-9c4a-03db6f038988
+   Superblock backups stored on blocks:
+           32768, 98304, 163840, 229376
+
+   Allocating group tables: done
+   Writing inode tables: done
+   Creating journal (4096 blocks): done
+   Writing superblocks and filesystem accounting information: done
    ```
-   {: pre}
 
-   The XXX represents the disk name that is returned in Step 1. <br />
-
-   Scroll further down for the commands codes that are listed in the `fdisk` command table.
-   {: tip}
-
-3. Create a file system on the new partition.
-
+3. Mounting the block device.
    ```
-   fdisk –l /dev/mapper/XXX
+   sudo mount /dev/mapper/mpatha-part1 /mnt
    ```
-   {: pre}
 
-   - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux&reg;.
-   - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
-   - Create the file system:
-
-     ```
-     mkfs.ext3 /dev/mapper/XXXp1
-     ```
-     {: pre}
-
-4. Create a mount point for the file system, and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system.
-
-     ```
-     mkdir /PerfDisk
-     ```
-     {: pre}
-
-   - Mount the storage with the partition name.
-     ```
-     mount /dev/mapper/XXXp1 /PerfDisk
-     ```
-     {: pre}
-
-   - Check that you see your new file system listed.
-     ```
-     df -h
-     ```
-     {: pre}
-
-5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3). <br />
-
-     ```
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-     ```
-     {: pre}
-
-### Creating a file system with `parted`
-{: #parted}
-
-On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the foilowing command.
-```
-# dnf install parted
-{:pre}```
-
-To create a file system with `parted`, follow these steps.
-
-1. Start the interactive parted shell.
-
+4. Accessing the data:
    ```
-   parted
+   ls /mnt
    ```
-   {: pre}
-
-2. Create a partition on the disk.
-   1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
-
-      ```
-      select /dev/mapper/XXX
-      ```
-      {: pre}
-
-   2. Run `print` to confirm that you are on the right disk.
-
-      ```
-      print
-      ```
-      {: pre}
-
-   3. Create a GPT partition table.
-
-      ```
-      mklabel gpt
-      ```
-      {: pre}
-
-   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.<br />
-
-   The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
-   {: tip}
-
-      ```
-      mkpart
-      ```
-      {: pre}
-
-   5. Exit `parted` with `quit`.
-
-      ```
-      quit
-      ```
-      {: pre}
-
-3. Create a file system on the new partition.
-
-   ```
-   mkfs.ext3 /dev/mapper/XXXp1
-   ```
-   {: pre}
-
-   It's important to select the right disk and partition when you run this command.<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
-   {:important}
-
-4. Create a mount point for the file system and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system.
-
-     ```
-     mkdir /PerfDisk
-     ```
-     {: pre}
-
-   - Mount the storage with the partition name.
-
-     ```
-     mount /dev/mapper/XXXp1 /PerfDisk
-     ```
-     {: pre}
-
-   - Check that you see your new file system listed.
-
-     ```
-     df -h
-     ```
-     {: pre}
-
-5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3). <br />
-
-     ```
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-     ```
-     {: pre}
