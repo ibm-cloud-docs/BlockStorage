@@ -76,7 +76,7 @@ Options:
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {:important}
 
-Before start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order to have open-iscsi package to behave appropriately, specially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){:external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){:external}.
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to behave appropriately, especially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){:external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){:external} documentation.
 
 ## Install the iSCSI and multipath utilities
 {: #installutilsubu20}
@@ -89,6 +89,8 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
   ```
   sudo apt install open-iscsi
   ```
+  {:pre}
+
   When the package is installed, it creates the following two files.
   * `/etc/iscsi/iscsid.conf`
   * `/etc/iscsi/initiatorname.iscsi`
@@ -108,8 +110,8 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 {: #setupmultipathdubu20}
 {: step}
 
-1. After you installed the multipath utility, create an empty config file that is called /etc/multipath.conf.
-2. Modify the default values of/etc/multipath.conf.
+1. After you installed the multipath utility, create an empty config file that is called ``/etc/multipath.conf`.
+2. Modify the default values of ``/etc/multipath.conf`.
 
    ```
    defaults {
@@ -145,10 +147,10 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    ```
    {: pre}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpath n; where mpath n is the WWID of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpathn; where mpathn is the WWID number of the device.
 
 3. Save the configuration file and exit the editor, if necessary.
-4. Start the multipath service so that the changes take effect.
+4. Start the multipath service.
    ```
    service multipath-tools start
    ```
@@ -195,6 +197,7 @@ Restart the iscsi service for the changes to take effect.
 ```
 systemctl restart iscsid.service
 ```
+{:pre}
 
 ## Discover the storage device and login
 {: #discoverandloginubu20}
@@ -233,7 +236,6 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    ```
    {: pre}
 
-   For more information about
 
 ## Verifying configuration
 {: #verifyconfigubu20}
@@ -271,8 +273,8 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-    In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){:external}.
-    {:tip}
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){:external}.
+  {:tip}
 
 3. Check `dmesg` to make sure that the new disks have been detected.
    ```
@@ -284,7 +286,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 {: #createfilesysubu20}
 {: step}
 
-After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume. 
+After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume.
 
 1. Create a partition.
    ```
