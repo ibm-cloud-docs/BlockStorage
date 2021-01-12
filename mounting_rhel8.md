@@ -244,10 +244,10 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 {: #createfilesys}
 {: step}
 
-Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdisk) and [`parted` for a disk bigger than 2 TB](#parted).
+Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdiskrhel) and [`parted` for a disk bigger than 2 TB](#partedrhel).
 
 ### Creating a file system with `fdisk`
-{: #fdisk}
+{: #fdiskrhel}
 
 1. Get the disk name.
    ```
@@ -313,7 +313,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      {: pre}
 
 ### Creating a file system with `parted`
-{: #parted}
+{: #partedrhel}
 
 On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the foilowing command.
 ```
