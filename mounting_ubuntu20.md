@@ -102,7 +102,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
   ```
   {: pre}
 
-  If you want to  boot from the LUN, then the multipath-tools-boot package needs to be installed as well.
+  If you want to  boot from the LUN, then the `multipath-tools-boot` package needs to be installed as well.
   {: tip}
 
 
@@ -110,8 +110,8 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 {: #setupmultipathdubu20}
 {: step}
 
-1. After you installed the multipath utility, create an empty config file that is called ``/etc/multipath.conf`.
-2. Modify the default values of ``/etc/multipath.conf`.
+1. After you installed the multipath utility, create an empty config file that is called `/etc/multipath.conf`.
+2. Modify the default values of `/etc/multipath.conf`.
 
    ```
    defaults {
