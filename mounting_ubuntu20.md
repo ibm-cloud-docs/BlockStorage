@@ -207,7 +207,6 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
 1. Run the discovery against the iSCSI array.
    ```
-   iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    sudo iscsiadm -m discovery -I iscsi01 --op=new --op=del --type sendtargets --portal <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
