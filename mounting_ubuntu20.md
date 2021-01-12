@@ -84,7 +84,7 @@ Before you start configuring iSCSI, make sure to have the network interfaces cor
 
 Ensure that your system is updated and includes the `open-iscsi` and `multipath-tools` packages. Use the following commands to install the packages.
 
-- Install `open-iscsi`
+- Install `open-iscsi`.
 
   ```
   sudo apt install open-iscsi
@@ -336,12 +336,12 @@ After the volume is mounted and accessible on the host, you can create a file sy
    Writing superblocks and filesystem accounting information: done
    ```
 
-3. Mounting the block device.
+3. Mount the block device.
    ```
    sudo mount /dev/mapper/mpatha-part1 /mnt
    ```
 
-4. Accessing the data:
+4. Access the data to confirm new partition and file system are ready for use.
    ```
    ls /mnt
    ```
