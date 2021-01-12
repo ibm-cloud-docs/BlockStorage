@@ -178,7 +178,7 @@ InitiatorName=<value-from-the-Portal>
 {: pre}
 
 ## Configure credentials
-{: configcred#}
+{: #configcredclin8}
 {: step}
 
 Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
@@ -217,7 +217,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    {: pre}
 
 ## Verifying configuration
-{: #verifyconfigrhel8}
+{: #verifyconfigclin8}
 {: step}
 
 1. Validate that the iSCSI session is established.
@@ -257,10 +257,10 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 {: #createfilesysclin8}
 {: step}
 
-Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdisk) and [`parted` for a disk bigger than 2 TB](#parted).
+Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdiskclin8) and [`parted` for a disk bigger than 2 TB](#partedclin8).
 
 ### Creating a file system with `fdisk`
-{: #fdisk}
+{: #fdiskclin8}
 
 1. Get the disk name.
    ```
