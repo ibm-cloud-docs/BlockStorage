@@ -80,7 +80,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {: #installutils}
 {: step}
 
-Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages. Use the following command the install the packages.
+Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages. Use the following command to install the packages.
 
 ```
 sudo dnf -y install iscsi-initiator-utils device-mapper-multipath
@@ -154,7 +154,7 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){:external}.
 
 ## Update /etc/iscsi/initiatorname.iscsi file
-{: updateinitiator#}
+{: #updateinitiator}
 {: step}
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
@@ -165,7 +165,7 @@ InitiatorName=<value-from-the-Portal>
 {: pre}
 
 ## Configure credentials
-{: configcred#}
+{: #configcred}
 {: step}
 
 Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
