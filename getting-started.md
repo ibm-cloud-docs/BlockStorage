@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-08-24"
+  years: 2014, 2021
+lastupdated: "2021-01-20"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -34,6 +34,8 @@ completion-time: 2h
 {{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It is built by using industry standards and best practices. {{site.data.keyword.blockstorageshort}} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures, and provide a consistent performance baseline.
 {:shortdesc}
 
+If you're looking for information about using {{site.data.keyword.blockstorageshort}} with the {{site.data.keyword.containerlong}}, see [Storing data on classic IBM Cloud Block Storage](/docs/containers?topic=containers-block_storage).
+
 ## Before you begin
 {: #prereqs}
 {: step}
@@ -47,7 +49,6 @@ For more information about the {{site.data.keyword.blockstorageshort}} offering,
 ## Provisioning considerations
 {: #provconsiderBlock}
 {: step}
-
 
 ### Block size
 
@@ -107,4 +108,4 @@ When your provisioning request is complete, authorize your hosts to access the n
 ## Managing your new Storage
 {: step}
 
-Through the portal or the SLCLI, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
+Through the console or the CLI, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
