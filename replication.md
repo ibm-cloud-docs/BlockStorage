@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-11-11"
+  years: 2014, 2021
+lastupdated: "2021-01-26"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -53,22 +53,22 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
    Discounts are applied when the order is processed.
    {:note}
-6. Review your order, and click the **I have read the Master Service Agreement…** check box.
+6. Review your order, and click the **I have read the…** check box.
 7. Click **Place Order**.
 
 
 ## Editing an existing replication
 
-You can edit your replication schedule, and change your replication space from either the **Primary** or **Replica** tab under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
+You can change your replication space or edit your replication schedule from either the **Primary** or **Replica** volume under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 
 ## Editing the replication schedule
 
 The replication schedule is based on an existing snapshot schedule. To change the replica schedule from Hourly to Daily or Weekly or vice versa, you must cancel the replica volume and set up a new one.
 
-However, if you want to change the time of day when your **Daily** replication occurs, you can adjust the existing schedule on the Primary or Replica tab.
+However, if you want to change the time of day when your **Daily** replication occurs, you can adjust the existing schedule by taking the following steps.
 
-1. Click **Actions** on either the **Primary** or **Replica** tab.
+1. Click **Actions**.
 2. Select **Edit Snapshot Schedule**.
 3. Look in the **Snapshot** frame under **Schedule** to determine which schedule you're using for replication. Change the schedule that you want.
 4. Click **Save**.
@@ -76,24 +76,23 @@ However, if you want to change the time of day when your **Daily** replication o
 
 ## Changing the Replication space
 
-Your primary snapshot space and your replica space must be the same. If you change the space on the **Primary** or **Replica** tab, it automatically adds space to both your source and destination data centers. Increasing snapshot space triggers an immediate replication update also.
+Your primary snapshot space and your replica space must be the same. If you change the space on the **Primary** or **Replica** volume, it automatically adds space to both your source and destination data centers. Increasing snapshot space triggers an immediate replication update.
 
-1. Click **Actions** on either the **Primary** or **Replica** tab.
+1. Click **Actions**.
 2. Select **Change Snapshot Space**.
 3. Select the storage size from the list and click **Continue**.
 4. Enter in a **Promo Code** if you have one and click **Recalculate**. The other fields in the dialog box are completed by default.
-5. Click the **I have read the Master Service Agreement…** check box and click **Place Order**.
+5. Click the **I have read the…** check box and click **Place Order**.
 
 
 ## Viewing the replica volumes in the {{site.data.keyword.blockstorageshort}} List
 
-You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. Original and Replica volumes are grouped. The **LUN Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
+You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. Original and Replica volumes are grouped. The **Volume Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
 
 
 ## Viewing a replicated volume's details at the replica data center
 
-You can view the replica volume details by clicking the **Replica** tab when you're looking at details of the original volume. Another option is to select the replica volume from the **{{site.data.keyword.blockstorageshort}}** list, and click the **Replica** tab.
-
+You can view the replica volume details by clicking the **Replica** in the Associated Volumes table.
 
 ## Increasing the Snapshot space in the replica data center when Snapshot space is increased in the primary data center
 
@@ -105,7 +104,7 @@ For more information about increasing Snapshot space, see [Ordering Snapshots](/
 
 ## Viewing replication history
 
-Replication history can be viewed in the **Audit Log** on the **Account** tab under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes the following items.
+Replication history can be viewed in the **Audit Log** on the **Account** section under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes the following items.
 
 - The type for replication (failover or failback).
 - The time the replication started.
@@ -134,10 +133,10 @@ When you fail over, you’re "flipping the switch" from your storage volume in y
 
 ## Canceling an existing replication
 
-You can cancel replication either immediately or on the anniversary date, which causes billing to end. Replication can be canceled from either the **Primary** or the **Replica** tabs.
+You can cancel replication either immediately or on the anniversary date, which causes billing to end.
 
 1. Click the volume on the **{{site.data.keyword.blockstorageshort}}** page.
-2. Click **Actions** on either the **Primary** or **Replica** tab.
+2. Click **Actions**.
 3. Select **Cancel Replica**.
 4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
 5. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel Replica**.
@@ -148,12 +147,12 @@ You can cancel replication either immediately or on the anniversary date, which 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
  1. Click the volume name on the **{{site.data.keyword.blockstorageshort}}** page.
- 2. On the **{{site.data.keyword.blockstorageshort}}** Detail page, click **Actions**, and select **Cancel Replica**.
+ 2. On the Volume Detail page, click **Actions**, and select **Cancel Replica**.
  3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
  4. Confirm that you understand that data loss might occur when you cancel the volume by checking the box.
  5. Click **Cancel Replica**.
 
- You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
+ You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
 
  Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
  {:important}
