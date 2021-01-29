@@ -330,8 +330,9 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the foilowing command.
 ```
-# yum install parted
-{:pre}```
+# yum install parted 
+```
+{:pre}
 
 To create a file system with `parted`, follow these steps.
 
