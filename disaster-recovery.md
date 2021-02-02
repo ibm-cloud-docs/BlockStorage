@@ -28,7 +28,7 @@ This action breaks the replication relationship and cannot be undone without man
 
 ## Fail over to the replica volume by using the SL CLI
 
-Use the following commaand to fail a block volume over to a specific replicant volume.
+Use the following command to fail a block volume over to a specific replicant volume.
   ```
   # slcli block disaster-recovery-failover --help
   Usage: slcli block disaster-recovery-failover [OPTIONS] VOLUME_ID
