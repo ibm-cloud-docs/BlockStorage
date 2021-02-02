@@ -17,10 +17,10 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
 
-# Disaster Recovery - Fail over with an accessible Primary volume
+# Disaster Recovery - Fail over from an accessible Primary volume
 {: #dr-accessible}
 
-If a catastrophic failure or disaster occurs on the primary site, and the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
+If a catastrophic failure or disaster occurs on the primary site and performance is degraded while the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
 {:shortdesc}
 
 Before you start the failover, make sure that all host-authorization is in place.
