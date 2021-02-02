@@ -23,7 +23,7 @@ subcollection: BlockStorage
 If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site. When the primary volume is inaccessible, you can force a failover to the remote replica.
 {:shortdesc}
 
-This action breaks the replication relationship and cannot be undone without manual intervention from the support team. 
+This action breaks the replication relationship and cannot be undone without manual intervention from the support team.
 {:important}
 
 ## Fail over to the replica volume by using the SL CLI
@@ -37,39 +37,40 @@ Use the following commaand to fail a block volume over to a specific replicant v
   --replicant-id TEXT  ID of the replicant volume
   -h, --help           Show this message and exit.
   ```
-  
+
 ## Fail over to the replica volume by using the API
 
 ### REST API
 * URL: https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant
 * Request body
-```
-{
-  "parameters": [replicavolumeid]
-}
-```
+  ```
+  {
+    "parameters": [replicavolumeid]
+  }
+  ```
+
 ### SOAP API
 * URL: https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage
 * Request body
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
- <SOAP-ENV:Header>
-  <ns1:authenticate>
-   <username>USERNAME</username>
-   <apiKey>APIKEY</apiKey>
-  </ns1:authenticate>
-  <ns2:SoftLayer_Network_StorageInitParameters>
-   <id>primary Volume Id</id>
-  </ns2:SoftLayer_Network_StorageInitParameters>
- </SOAP-ENV:Header>
- <SOAP-ENV:Body>
-  <ns1:disasterRecoveryFailoverToReplicant>
-    <replicantId xsi:type="int">replica Volume ID</replicantId>
-  </ns1:disasterRecoveryFailoverToReplicant>
- </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
+   <SOAP-ENV:Header>
+    <ns1:authenticate>
+     <username>USERNAME</username>
+     <apiKey>APIKEY</apiKey>
+    </ns1:authenticate>
+    <ns2:SoftLayer_Network_StorageInitParameters>
+     <id>primary Volume Id</id>
+    </ns2:SoftLayer_Network_StorageInitParameters>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+    <ns1:disasterRecoveryFailoverToReplicant>
+      <replicantId xsi:type="int">replica Volume ID</replicantId>
+    </ns1:disasterRecoveryFailoverToReplicant>
+   </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>
+  ```
 
 ## Fail back to the original primary site
 
