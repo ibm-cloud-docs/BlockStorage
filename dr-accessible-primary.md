@@ -101,7 +101,7 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
-### Failback by using the Click
+### Failback by using the CLI 
 
 To fail back a block volume from a specific replicant volume, use the following command.
   ```
