@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-14"
+  years: 2018, 2021
+lastupdated: "2021-02-12"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -17,48 +17,61 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
 
-# Disaster Recovery - Fail over with an inaccessible Primary volume
+# Disaster Recovery - Fail over from an inaccessible Primary volume
 {: #dr-inaccessible}
 
-If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site. When the primary volume is inaccessible, you can't fail over to the replica volume. However, you can create a duplicate of the replica volume in the secondary site and fail over operations to that clone volume.
+If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site. When the primary volume is inaccessible, you can force a failover to the remote replica.
 {:shortdesc}
 
-## Fail over with a duplicate of a replica volume on the secondary site
+This action breaks the replication relationship and cannot be undone without manual intervention from the support team.
+{:important}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
-2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Click the replica of the LUN in the list to view its **{{site.data.keyword.blockstorageshort}} Detail** page.
-4. On the **{{site.data.keyword.blockstorageshort}} Detail** page, scroll down and select an existing snapshot, then click **Actions** > **Duplicate**.
-5. Make any necessary updates to the capacity (to increase size) or IOPs for the new volume.
-6. Update the snapshot space for the new volume if needed.
-7. Click **Continue** to place the order for the duplicate.
+## Fail over to the replica volume by using the SL CLI
 
-As soon as the volume is created, it can be attached to a host and perform read/write operations. While data is being copied from the original volume to the duplicate, the detail page that shows that the duplication is in progress. When the duplication process is complete, the new volume becomes independent from the original and can be managed with snapshots and replication as normal.
+Use the following command to fail a block volume over to a specific replicant volume.
+  ```
+  # slcli block disaster-recovery-failover --help
+  Usage: slcli block disaster-recovery-failover [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  -h, --help           Show this message and exit.
+  ```
+
+## Fail over to the replica volume by using the API
+
+### REST API
+* URL: https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant
+* Request body
+  ```
+  {
+    "parameters": [replicavolumeid]
+  }
+  ```
+
+### SOAP API
+* URL: https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage
+* Request body
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
+   <SOAP-ENV:Header>
+    <ns1:authenticate>
+     <username>USERNAME</username>
+     <apiKey>APIKEY</apiKey>
+    </ns1:authenticate>
+    <ns2:SoftLayer_Network_StorageInitParameters>
+     <id>primary Volume Id</id>
+    </ns2:SoftLayer_Network_StorageInitParameters>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+    <ns1:disasterRecoveryFailoverToReplicant>
+      <replicantId xsi:type="int">replica Volume ID</replicantId>
+    </ns1:disasterRecoveryFailoverToReplicant>
+   </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>
+  ```
 
 ## Fail back to the original primary site
 
-If you want to return production to the original primary site, you must perform the following steps.
-
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}, and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
-2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Click the LUN name, and create a snapshot schedule (if one does not exist already).
-
-   For more information about snapshot schedules, see [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots#addingschedule).
-   {:tip}
-4. Click **Replica** and click **Purchase a replication**.
-5. Select the existing snapshot schedule that you want the replication to follow. The list contains all of the active snapshot schedules.
-6. Click **Location**, and select the data center that was the original production site.
-7. Click **Continue**.
-8. Click the **I have read the Master Service Agreement…** check box, and click **Place Order**.
-
-After replication is complete, you need to create a duplicate volume of the new replica.
-{:important}
-
-1. Go back to **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Click the replica of the LUN in the list to view its **{{site.data.keyword.blockstorageshort}} Detail** page.
-3. On the **{{site.data.keyword.blockstorageshort}} Detail** page, scroll down, and select an existing snapshot, then click **Actions** > **Duplicate**.
-4. Make any necessary updates to the capacity (to increase size) or IOPs for the new volume.
-5. Update the snapshot space for the new volume if needed.
-6. Click **Continue** to place your order for the duplicate.
-
-When the duplication process is complete, you can cancel the replication and the volumes that were used to get the data back to the original primary site. The duplicate becomes the primary storage, and replication to the original secondary site can be established again.
+If you want to return production to the original primary site, create a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}. For more information about opening a support case or case severities and response times, see [Viewing support cases](/docs/get-support?topic=get-support-managing-support-cases) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).

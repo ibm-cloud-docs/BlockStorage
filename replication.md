@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-12"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -45,8 +45,9 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 1. Click the name of your storage volume to display its details.
 2. Click **Actions** and click **Order Replica**.
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
-   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots).
+   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
    {:tip}
+
 3. Select a **Location** for the replica volume.
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
@@ -104,14 +105,7 @@ For more information about increasing Snapshot space, see [Ordering Snapshots](/
 
 ## Viewing replication history
 
-Replication history can be viewed in the **Audit Log** on the **Account** section under **Manage**. Both the primary and replica volumes display identical replication histories. The history includes the following items.
-
-- The type for replication (failover or failback).
-- The time the replication started.
-- The snapshot that was used for the replication.
-- The size of the replication.
-- The time when the replication is completed.
-
+To view the Replication history, click Manage on the main menu bar. Select **Account**, then scroll to the Audit Log. The Storage Replication Events list contains the names of the volume, a description of the replication event and the time stamp of the event.
 
 ## Creating a duplicate of a replica
 

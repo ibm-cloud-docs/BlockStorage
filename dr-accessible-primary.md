@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-14"
+  years: 2018, 2021
+lastupdated: "2021-02-12"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -17,10 +17,10 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
 
-# Disaster Recovery - Fail over with an accessible Primary volume
+# Disaster Recovery - Fail over from an accessible Primary volume
 {: #dr-accessible}
 
-If a catastrophic failure or disaster occurs on the primary site, and the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
+If a catastrophic failure or disaster occurs on the primary site and performance is degraded while the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
 {:shortdesc}
 
 Before you start the failover, make sure that all host-authorization is in place.
@@ -48,6 +48,8 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.
 {:important}
 
+### Fail over to replica through the Console
+
 1. Click your active LUN (“source”).
 2. Click **Replica**, and click **Actions**.
 3. Select **Failover**.
@@ -57,6 +59,20 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 4. Click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN (it was your previous target volume).
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
+
+### Fail over to replica by using the CLI
+
+To fail a block volume over to a specific replicant volume, use the following command.
+
+  ```
+  # slcli block replica-failover --help
+  Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  --immediate          Failover to replicant immediately.
+  -h, --help           Show this message and exit.
+  ```
 
 
 ## Starting a failback from a volume to its replica
@@ -71,6 +87,8 @@ When your original source volume is repaired, you can start a controlled Failbac
 
 When a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
 
+### Failback through the Console
+
 Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 1. Click your active LUN ("target").
@@ -82,3 +100,15 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
+
+### Failback by using the CLI 
+
+To fail back a block volume from a specific replicant volume, use the following command.
+  ```
+  # slcli block replica-failback --help
+  Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+  Options:
+  --replicant-id TEXT  ID of the replicant volume
+  -h, --help           Show this message and exit.
+  ```
