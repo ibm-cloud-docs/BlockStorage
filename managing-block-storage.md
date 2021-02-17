@@ -148,7 +148,7 @@ There you can see the list of hosts, which are currently authorized to access th
 {: #viewauthhostUI}
 {: help}
 {: support}
-{ cli}
+{: cli}
 
 To see the list of hosts, which are currently authorized to access the LUN, you can use the following command in SLCLI.
 
