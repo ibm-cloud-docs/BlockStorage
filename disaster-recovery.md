@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-12"
+lastupdated: "2021-02-17"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -16,6 +16,9 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Disaster Recovery - Fail over from an inaccessible Primary volume
 {: #dr-inaccessible}
@@ -27,6 +30,8 @@ This action breaks the replication relationship and cannot be undone without man
 {:important}
 
 ## Fail over to the replica volume by using the SL CLI
+{: #drfailoverCLI}
+{: cli}
 
 Use the following command to fail a block volume over to a specific replicant volume.
   ```
@@ -39,6 +44,8 @@ Use the following command to fail a block volume over to a specific replicant vo
   ```
 
 ## Fail over to the replica volume by using the API
+{: #drfailoverAPI}
+{: api}
 
 ### REST API
 * URL: https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant
