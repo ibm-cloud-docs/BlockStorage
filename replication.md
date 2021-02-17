@@ -14,6 +14,9 @@ subcollection: BlockStorage
 {:note: .note}
 {:important: .important}
 {:shortdesc: .shortdesc}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Replicating Data
 {: #replication}
