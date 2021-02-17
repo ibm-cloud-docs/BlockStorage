@@ -69,7 +69,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 
 ## Resizing storage from the CLI
 {: #resizingstepsCLI}
-{:ui}
+{: cli}
 
 By using the following command, you can resize your volume from the SLCLI.
 
