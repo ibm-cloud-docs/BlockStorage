@@ -311,7 +311,7 @@ Perform the following steps to disconnect from a host:
 {: #tier-options}
 {: faq}
 
-Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [Provisioning](/docs/BlockStorage?topic=BlockStorage-About#provisioning).
+Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/cloud/block-storage/details){external}.
 
 ## I am unable to upgrade storage. What can affect the ability to upgrade or expand storage?
 {: #expand-fail}
