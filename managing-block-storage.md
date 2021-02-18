@@ -137,7 +137,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: #viewauthhostUI}
 {: help}
 {: support}
-{:ui}
+{: ui}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
 2. Scroll down to the **Authorized Hosts** section.
@@ -145,7 +145,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – user name, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN from the SLCLI
-{: #viewauthhostUI}
+{: #viewauthhostCLI}
 {: help}
 {: support}
 {: cli}
@@ -207,11 +207,10 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 
 
 ### Revoking access from the Storage View
-{: #revokeDStorageUI}
+{: #revokeStorageUI}
 {: help}
 {: support}
 {:ui}
-
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
 2. Scroll to **Authorized Hosts**.
@@ -227,7 +226,13 @@ If you want to disconnect multiple hosts from a specific LUN, you need to repeat
 {: support}
 {: cli}
 
-Alternatively, you can use the following command in SLCLI.
+If you want to stop the access from a host to a particular storage LUN, you can revoke the access. Upon revoking access, the host connection is dropped from the LUN. The operating system and applications on that host can't communicate with the LUN anymore.
+
+To avoid host side issues, unmount the storage LUN from your operating system before you revoke the access to avoid missing drives or data corruption.
+{:important}
+
+Then, you can use the following command in SLCLI.
+
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -241,10 +246,10 @@ Options:
 ```
 
 ## Canceling a storage LUN in the UI
-{: #rcancelLUNUI}
+{: #cancelLUNUI}
 {: help}
 {: support}
-{:ui}
+{: ui}
 
 If you no longer need a specific LUN, you can cancel it at any time.
 
@@ -266,7 +271,7 @@ Active replicas and dependent duplicates can block reclamation of the Storage vo
 
 
 ## Canceling a storage LUN from the SLCLI
-{: #rcancelLUNCLI}
+{: #cancelLUNCLI}
 {: help}
 {: support}
 {: cli}
