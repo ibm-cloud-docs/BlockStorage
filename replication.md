@@ -60,6 +60,7 @@ To list suitable replication datacenters for a specific volume, use the followin
 
 ## Creating the initial replica in the UI
 {: #enablerepUI}
+{: ui}
 
 Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. If you try to set up replication and one or the other isn't in place, you are going to be prompted to purchase more space or set up a schedule. Replications are managed under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
@@ -80,6 +81,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
 ## Creating the initial replica from the SLCLI
 {: #enablerepCLI}
+{:cli}
 
 Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. Then, you can use the following command to order a replica volume.
 
