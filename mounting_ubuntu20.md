@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-15"
+lastupdated: "2021-02-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -35,8 +35,9 @@ This tutorial guides you through how to mount a {{site.data.keyword.blockstorage
 Before you begin, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume is authorized correctly.
 {:important}
 
-## Authorizing the host
+## Authorizing the host in the UI
 {: #authhostubu20}
+{: ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -47,7 +48,18 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
-Alternatively, you can authorize the host through the SLCLI.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{:important}
+
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to behave appropriately, especially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){:external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){:external} documentation.
+
+
+## Authorizing the host from the SLCLI
+{: #authhostubu20CLI}
+{: cli}
+
+Use the following command to authorize the host from the SLCLI.
+
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
