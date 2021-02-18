@@ -48,7 +48,7 @@ Use the following command to fail a block volume over to a specific replicant vo
 {: api}
 
 ### REST API
-* URL: https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant
+* URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant`
 * Request body
   ```
   {
@@ -57,7 +57,7 @@ Use the following command to fail a block volume over to a specific replicant vo
   ```
 
 ### SOAP API
-* URL: https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage
+* URL: `https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage`
 * Request body
   ```
   <?xml version="1.0" encoding="UTF-8"?>
