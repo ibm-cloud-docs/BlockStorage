@@ -71,14 +71,14 @@ If a failure event is imminent, you can start a **failover** to your destination
 
 When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
-
 Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.
 {:important}
 
 ## Fail over to replica in the UI
 {: #failovertoreplicaUI}
 {: ui}
+
+Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 1. Click your active LUN (“source”).
 2. Click **Replica**, and click **Actions**.
