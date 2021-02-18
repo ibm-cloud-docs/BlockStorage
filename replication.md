@@ -156,7 +156,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 5. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel Replica**.
 
 
-# Canceling replication when the primary volume is canceled in the UI
+## Canceling replication when the primary volume is canceled in the UI
 {: #cancelprimaryUI}
 {: ui}
 
