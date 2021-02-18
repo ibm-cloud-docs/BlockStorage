@@ -22,6 +22,9 @@ completion-time: 1h
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
 {:step: data-tutorial-type='step'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Mount iSCSI LUN on Ubuntu 20
 {: #mountingUbu20}
