@@ -89,7 +89,7 @@ Options:
 ```
 {:codeblock}
 
-## Taking a manual Snapshot
+## Taking a manual Snapshot in the UI
 {: #takemanualsnapshotUI}
 {: ui}
 
