@@ -202,7 +202,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 {:important}
 
 ## Deleting a snapshot in the UI
-{: #cancelnapshotscheduleUI}
+{: #deletesnapshotUI}
 {: ui}
 
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. Deletion is done through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
