@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # SLCLI commands for {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. For example, with SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, or cancel volumes.
+You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. For example, from the SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, or cancel volumes.
 {:shortdesc}
 
 For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
@@ -40,7 +40,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Replication-related SLCLI commands
 
-* [Replication-related SLCLI commands](/docs/BlockStorage?topic=BlockStorage-replication#clicommands)
+* [Replication-related SLCLI commands](/docs/BlockStorage?topic=BlockStorage-replication)
   ```
   slcli block access-revoke
   slcli block replica-failback
@@ -85,11 +85,11 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
   slcli block volume-convert <dependent-vol-id>
   ```
-* [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS#adjustingsteps)
+* [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS)
   ```
   slcli block volume-modify
   ```
-* [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#resizingsteps)
+* [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity)
   ```
   slcli block volume-modify
   ```

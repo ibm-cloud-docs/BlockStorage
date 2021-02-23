@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-06-11"
+  years: 2014, 2021
+lastupdated: "2021-02-17"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -16,6 +16,9 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
@@ -23,17 +26,24 @@ subcollection: BlockStorage
 You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}. From the **menu**, select **Classic Infrastructure** to interact with classic services.
 {:shortdesc}
 
-## Viewing {{site.data.keyword.blockstorageshort}} LUN details
+## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the UI
 {: #viewLUNdeetsUI}
 {: help}
 {: support}
+{: ui}
 
 You can view a summary of the key information for the selected storage LUN including extra snapshot and replication capabilities that were added to the storage.
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate Volume name from the list.
 
-Alternatively, you can use the following command in SLCLI.
+## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the SLCLI
+{: #viewLUNdeetsCLI}
+{: help}
+{: support}
+{:cli}
+
+To view information about a Storage LUN, you can use the following command from the SLCLI.
 ```
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
@@ -42,10 +52,11 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-## Authorizing hosts to access {{site.data.keyword.blockstorageshort}}
+## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} in the UI
 {: #authhostUI}
 {: help}
 {: support}
+{: ui}
 
 "Authorized" hosts are hosts that were given access to a particular LUN. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your LUN generates the user name, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
 
@@ -63,7 +74,18 @@ You can authorize and connect hosts that are located in the same data center as 
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
 {:note}
 
-Alternatively, you can use the following commands in SLCLI.
+## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} from the SLCLI
+{: #authhostCLI}
+{: help}
+{: support}
+{: cli}
+
+"Authorized" hosts are hosts that were given access to a particular LUN. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your LUN generates the user name, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+
+You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
+{:important}
+
+To authorize a host, you can use the following commands in SLCLI.
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -108,17 +130,28 @@ Options:
   -h, --help           Show this message and exit.
 ```
 
-## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN
+The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+{:note}
+
+## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN in the UI
 {: #viewauthhostUI}
 {: help}
 {: support}
+{: ui}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
 2. Scroll down to the **Authorized Hosts** section.
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – user name, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
-Alternatively, you can use the following command in SLCLI.
+## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN from the SLCLI
+{: #viewauthhostCLI}
+{: help}
+{: support}
+{: cli}
+
+To see the list of hosts, which are currently authorized to access the LUN, you can use the following command in SLCLI.
+
 ```
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
@@ -131,10 +164,11 @@ Options:
   -h, --help      Show this message and exit.
 ```
 
-## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized
+## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized in the UI
 {: #viewLUNauthUI}
 {: help}
 {: support}
+{: ui}
 
 You can view the LUNs to which a host has an access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
@@ -146,21 +180,9 @@ You're presented with a list of storage LUNs that this particular host has an ac
 A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 {:note}
 
-## Mounting and unmounting {{site.data.keyword.blockstorageshort}}
-{: #mountLUNUI}
-{: help}
-{: support}
-
-Based on the Operating System of your host, follow the appropriate instructions.
-
-- [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connecting to LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
-
-
-## Revoking a host's access to {{site.data.keyword.blockstorageshort}}
+## Revoking a host's access to {{site.data.keyword.blockstorageshort}} in the UI
+{: #revokeauthinUI}
+{:ui}
 
 If you want to stop the access from a host to a particular storage LUN, you can revoke the access. Upon revoking access, the host connection is dropped from the LUN. The operating system and applications on that host can't communicate with the LUN anymore.
 
@@ -173,6 +195,7 @@ You can revoke access from the **Device List** or the **Storage view**.
 {: #revokeDeviceUI}
 {: help}
 {: support}
+{:ui}
 
 1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices**, **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
@@ -184,10 +207,10 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 
 
 ### Revoking access from the Storage View
-{: #revokeDStorageUI}
+{: #revokeStorageUI}
 {: help}
 {: support}
-
+{:ui}
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
 2. Scroll to **Authorized Hosts**.
@@ -197,13 +220,19 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 If you want to disconnect multiple hosts from a specific LUN, you need to repeat the Revoke Access action for each host.
 {:tip}
 
-### Revoking access through the SLCLI.
+## Revoking access from the SLCLI.
 {: #revokeSLCLI}
 {: help}
 {: support}
+{: cli}
 
+If you want to stop the access from a host to a particular storage LUN, you can revoke the access. Upon revoking access, the host connection is dropped from the LUN. The operating system and applications on that host can't communicate with the LUN anymore.
 
-Alternatively, you can use the following command in SLCLI.
+To avoid host side issues, unmount the storage LUN from your operating system before you revoke the access to avoid missing drives or data corruption.
+{:important}
+
+Then, you can use the following command in SLCLI.
+
 ```
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
@@ -216,11 +245,11 @@ Options:
   --help                    Show this message and exit.
 ```
 
-## Canceling a storage LUN
-{: #rcancelLUNUI}
+## Canceling a storage LUN in the UI
+{: #cancelLUNUI}
 {: help}
 {: support}
-
+{: ui}
 
 If you no longer need a specific LUN, you can cancel it at any time.
 
@@ -236,7 +265,23 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 4. Click **Continue** or **Close**.
 5. Click the **Acknowledgment** check box and click **Confirm**.
 
-Alternatively, you can use the following command in SLCLI.
+You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
+
+Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
+
+
+## Canceling a storage LUN from the SLCLI
+{: #cancelLUNCLI}
+{: help}
+{: support}
+{: cli}
+
+If you no longer need a specific LUN, you can cancel it at any time.
+
+To cancel a storage LUN, it's necessary to revoke access from any hosts first.
+{:important}
+
+Then, you can use the following command in SLCLI to cancel the storage.
 ```
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID

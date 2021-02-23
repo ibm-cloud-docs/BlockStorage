@@ -17,6 +17,9 @@ subcollection: BlockStorage
 {:shortdesc: .shortdesc}
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Managing storage limits
 {: #managingstoragelimits}
@@ -27,8 +30,9 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 
 For more information about increasing your storage volume capacity beyond 12 TB, see [Expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacityover12TB).
 
-## Confirming your current limit and provisioning count.
-{: #confirmblocklimits}
+## Confirming your current limit and provisioning count from the CLI
+{: #confirmblocklimitscli}
+{:cli}
 
 If you're unsure how many volumes you have, you can confirm the numbers by using multiple methods.
 
@@ -60,8 +64,11 @@ Datacenter   MaximumAvailableCount   ProvisionedCount
 global       300                     99
 ```
 
-### REST API call
+## Confirming your current limit and provisioning count with the API
+{: #confirmblocklimitsAPI}
+{:api}
 
+### REST API
 To directly get this information from the API, use the following method: [`SoftLayer_Network_Storage/getVolumeCountLimits`](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/getVolumeCountLimits/){: external}.
 
 ```

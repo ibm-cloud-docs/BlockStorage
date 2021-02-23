@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-10-05"
+  years: 2018, 2021
+lastupdated: "2021-02-17"
 
 keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,6 +19,10 @@ subcollection: BlockStorage
 {:external: target="_blank" .external}
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
+
 
 # Expanding {{site.data.keyword.blockstorageshort}} Capacity
 {: #expandingcapacity}
@@ -33,6 +37,7 @@ This feature is available in [most data centers](/docs/BlockStorage?topic=BlockS
 The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait.
 
 ## Advantages of Expandable Storage
+{: #advantageofresizing}
 
 - **Cost management** – You might know that there's potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on cost of storage, and later grow to accommodate their needs.  
 
@@ -51,8 +56,9 @@ Storage that was provisioned in these data centers before the release of this fe
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
 
-## Resizing storage
-{: #resizingsteps}
+## Resizing storage in the UI
+{: #resizingstepsUI}
+{:ui}
 
 1. From the {{site.data.keyword.cloud}} console, click the **menu** icon. Then, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify LUN**.
@@ -61,7 +67,11 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 5. Click the **I have read the Master Service Agreement...** check box and click **Place Order**.
 6. Your new storage allocation is available in a few minutes.
 
-Alternatively, you can resize your volume through the SLCLI.
+## Resizing storage from the CLI
+{: #resizingstepsCLI}
+{: cli}
+
+By using the following command, you can resize your volume from the SLCLI.
 
 ```
 # slcli block volume-modify --help

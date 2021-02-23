@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-12"
+lastupdated: "2021-02-17"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -16,6 +16,9 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Disaster Recovery - Fail over from an accessible Primary volume
 {: #dr-accessible}
@@ -29,6 +32,12 @@ Before you start the failover, make sure that all host-authorization is in place
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
 {:note}
 
+## Authorizing the host in the UI
+{: #authreplicahostUI}
+{: ui}
+
+You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/file){: external}.
+
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
 2. Click your source or destination volume from the **{{site.data.keyword.blockstorageshort}}** page.
 3. Click **Replica**.
@@ -36,19 +45,40 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 5. Highlight the host that is to be authorized for replications. To select multiple hosts, use the CTRL-key and click the applicable hosts.
 6. Click **Submit**. If you have no hosts that are available, you are prompted to purchase compute resources in the same data center.
 
+## Authorizing the host from the SLCLI
+{: #authreplicahostCLI}
+{: cli}
+
+To authorize the hosts in the replica datacenter, use the following command.
+```
+# slcli block access-authorize --help
+Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
+
+Options:
+  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
+  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
+  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
+  -p, --ip-address TEXT     An IP address to authorize.
+  -s, --subnet-id TEXT      An ID of one subnet to authorize.
+  --help                    Show this message and exit.
+```
+
 
 ## Starting a failover from a volume to its replica
+{: #failovertoreplica}
 
 If a failure event is imminent, you can start a **failover** to your destination, or target, volume. The target volume becomes active. The last successfully replicated snapshot is activated, and the volume is made available for mounting. Any data that was written to the source volume since the previous replication cycle is lost.
 
 When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **LUN Name** followed by **REP**.
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
-
 Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.
 {:important}
 
-### Fail over to replica through the Console
+## Fail over to replica in the UI
+{: #failovertoreplicaUI}
+{: ui}
+
+Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 1. Click your active LUN (“source”).
 2. Click **Replica**, and click **Actions**.
@@ -60,7 +90,9 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 5. Click your active LUN (it was your previous target volume).
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
-### Fail over to replica by using the CLI
+## Fail over to replica from the SLCLI
+{: #failovertoreplicaCLI}
+{: cli}
 
 To fail a block volume over to a specific replicant volume, use the following command.
 
@@ -76,6 +108,7 @@ To fail a block volume over to a specific replicant volume, use the following co
 
 
 ## Starting a failback from a volume to its replica
+{: #failbackfromreplica}
 
 When your original source volume is repaired, you can start a controlled Failback to your original source volume. In a controlled Failback,
 
@@ -87,7 +120,9 @@ When your original source volume is repaired, you can start a controlled Failbac
 
 When a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
 
-### Failback through the Console
+## Failback in the UI
+{: #failbackfromreplicaUI}
+{: ui}
 
 Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
@@ -101,7 +136,9 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
-### Failback by using the CLI 
+## Failback from the SLCLI
+{: #failbackfromreplicaCLI}
+{: cli}
 
 To fail back a block volume from a specific replicant volume, use the following command.
   ```

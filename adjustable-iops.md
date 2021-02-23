@@ -1,18 +1,21 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2021
 lastupdated: "2019-11-14"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
-subcollection: BlockStorage
+subcollection: BlockStorage 
 
 ---
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:shortdesc: .shortdesc}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Adjusting IOPS
 {: #adjustingIOPS}
@@ -24,6 +27,7 @@ Billing for the storage is updated to add the pro-rated difference of the new pr
 
 
 ## Advantages of Adjustable IOPS
+{: #advantagesofresizingiops}
 
 - Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need higher IOPS rate on their storage then. However, they don't need higher IOPS in the middle of the summer. This feature allows them to manage their costs and pay for higher IOPS when they need it.
 
@@ -39,11 +43,13 @@ Clients can't switch between Endurance and Performance when they adjust their IO
 - If original volume is Performance with more than 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in more than 0.30 IOPS/GB.
 
 ## Effect of IOPS adjustment on replication
+{: #iopschangeeffectonreplicas}
 
 If the volume has replication in place, the replica is automatically updated to match the IOPS selection of the primary.
 
-## Adjusting the IOPS on your Storage
-{: #adjustingsteps}
+## Adjusting the IOPS on your Storage in the UI
+{: #adjustingstepsUI}
+{: ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click the **menu** icon, then click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify LUN**.
@@ -58,7 +64,11 @@ If the volume has replication in place, the replica is automatically updated to 
 6. Your new storage allocation is available in a few minutes.
 
 
-Alternatively, you can adjust the IOPS through the SLCLI.
+## Adjusting the IOPS on your Storage from the SLCLI
+{: #adjustingstepsCLI}
+{: cli}
+
+By using the following command, you can adjust the IOPS through the SLCLI.
 ```
 # slcli block volume-modify --help
 Usage: slcli block volume-modify [OPTIONS] VOLUME_ID

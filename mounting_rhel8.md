@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-02-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -22,6 +22,9 @@ completion-time: 1h
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
 {:step: data-tutorial-type='step'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Mount iSCSI LUN on Red Hat Enterprise Linux 8
 {: #mountingRHEL8}
@@ -35,8 +38,9 @@ This tutorial guides you through how to mount a {{site.data.keyword.blockstorage
 Before you begin, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume is authorized correctly.
 {:important}
 
-## Authorizing the host
-{: #authhostrhel}
+## Authorizing the host in the UI
+{: #authhostrhelUI}
+{:ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -47,7 +51,15 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
-Alternatively, you can authorize the host through the SLCLI.
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{:important}
+
+## Authorizing the host from the SLCLI
+{: #authhostrhelCLI}
+{: cli}
+
+Use the following command to authorize the host from the SLCLI.
+
 ```
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID

@@ -16,6 +16,9 @@ subcollection: BlockStorage
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:shortdesc: .shortdesc}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating and managing independent duplicate volumes
 {: #duplicatevolume}
@@ -44,10 +47,15 @@ Some common uses for a duplicate volume:
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 - **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.  
 
+## Creating a duplicate LUN in the UI
+{: #cloneLUNinUI}
+{:ui}
+
 You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} in a couple of ways.
 
-
-## Creating a duplicate from a specific volume in the Storage List
+### Creating a duplicate from a specific volume in the Storage List in the UI
+{: #cloneLUN1UI}
+{:ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click the ellipsis (**...**) > **Duplicate LUN**.
@@ -70,7 +78,9 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 10. Check the box if you read and agreed to the Master Service Agreement.
 11. Click **Place Order** to continue.
 
-## Creating a duplicate from a specific Snapshot
+### Creating a duplicate from a specific Snapshot in the UI
+{: #cloneLUN2UI}
+{:ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
@@ -89,7 +99,10 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 8. Click **Continue** to place your order for the duplicate.
 
 
-## Creating a duplicate through the SLCLI
+## Creating a duplicate LUN through the SLCLI
+{: #cloneinCLI}
+{:cli}
+
 You can use the following command in the SLCLI to create a duplicate {{site.data.keyword.blockstorageshort}} volume.
 
 ```
@@ -149,8 +162,9 @@ Options:
 
 While data is being copied from the original volume to the duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the duplication process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal.
 
-## Updating data on the independent duplicate
+## Updating data on the independent duplicate from the CLI
 {: #refreshindependentvol}
+{:cli}
 
 As time passes and the primary volume changes, the independent duplicate volume can be updated with these changes to reflect the current state through the refresh action. The data on the independent volume can be refreshed at any time. The refresh involves taking a snapshot of the primary volume and then, updating the independent volume by using that snapshot. A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
 
