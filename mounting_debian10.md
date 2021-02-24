@@ -27,7 +27,7 @@ completion-time: 1h
 {:api: .ph data-hd-interface='api'}
 
 # Mount iSCSI LUN on Debian 10
-{: #mountingdebi10}
+{: #mountingdebian10}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="1h"}
