@@ -155,8 +155,8 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    product "LUN"
    path_grouping_policy group_by_prio
    features "2 pg_init_retries 50"
+   no_path_retry queue
    prio "alua"
-   no_path_retry "queue"
    path_checker tur
    failback immediate
    path_selector "round-robin 0"
