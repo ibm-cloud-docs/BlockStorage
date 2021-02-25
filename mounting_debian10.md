@@ -154,8 +154,9 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    vendor "NETAPP"
    product "LUN"
    path_grouping_policy group_by_prio
-   features "3 queue_if_no_path pg_init_retries 50"
+   features "2 pg_init_retries 50"
    prio "alua"
+   no_path_retry "queue"
    path_checker tur
    failback immediate
    path_selector "round-robin 0"
