@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-02-26"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -153,7 +153,8 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    vendor "NETAPP"
    product "LUN"
    path_grouping_policy group_by_prio
-   features "3 queue_if_no_path pg_init_retries 50"
+   features "2 pg_init_retries 50"
+   no_path_retry queue
    prio "alua"
    path_checker tur
    failback immediate

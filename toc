@@ -14,6 +14,8 @@ Block Storage - Classic
     {: .navgroup id="tutorial"}
     mounting_rhel8.md
     mounting_ubuntu20.md
+    mounting_cloudlin8.md
+    mounting_debian10.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
