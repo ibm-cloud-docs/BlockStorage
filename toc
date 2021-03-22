@@ -63,11 +63,12 @@ Block Storage - Classic
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Python API Client Information](https://softlayer-python.readthedocs.io/en/latest/index.html)
-    slcli-usage.md
     [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-sl-block-storage)
     [Identity and Access Management](https://cloud.ibm.com/docs/iam?topic=iam-infrapermission)
     [Service Level Agreements (SLAs)](https://cloud.ibm.com/docs/overview?topic=overview-slas)
+    slcli-usage.md
+    [Introduction to the SL API](https://sldn.softlayer.com/article/getting-started/)
+    [Python API Client Information](https://softlayer-python.readthedocs.io/en/latest/index.html)
     {: .navgroup-end}
 
     {: .navgroup id="help"}
