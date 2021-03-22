@@ -16,6 +16,7 @@ subcollection: BlockStorage
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:external: target="_blank" .external}
 
 # Adjusting IOPS
 {: #adjustingIOPS}
@@ -111,7 +112,7 @@ Options:
 
 You can adjust the IOPS by using an API call to the SOAP web service. The following sample API calls can be called from the scripting language of your choice.
 
-For more information about the SLAPI, see http://sldn.softlayer.com/reference/softlayerapi.
+For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){:external}.
 {:tip}
 
 * Adjust IOPS on Performance storage volume.
