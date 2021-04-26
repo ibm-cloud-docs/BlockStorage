@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-04-26"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -36,14 +36,14 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 {: #authreplicahostUI}
 {: ui}
 
-You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/file){: external}.
+You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](https://{DomainName}/cloud-storage/block){: external}.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** icon on the upper left. Select **Classic Infrastructure**.
-2. Click your source or destination volume from the **{{site.data.keyword.blockstorageshort}}** page.
-3. Click **Replica**.
-4. Scroll down to the **Authorize Hosts** frame and click **Authorize Hosts** on the right.
+2. Click your source volume from the **{{site.data.keyword.blockstorageshort}}** page. Its replica volume is listed under the source volume in the inactive status.
+3. Click the replica name and on the next screen, click **Actions**. From the menu, select **Authorize Hosts**.
+4. Select a host type and then choose a host from the dropdown that is available for the volume. Filter the available host list by the device type, or IP address.
 5. Highlight the host that is to be authorized for replications. To select multiple hosts, use the CTRL-key and click the applicable hosts.
-6. Click **Submit**. If you have no hosts that are available, you are prompted to purchase compute resources in the same data center.
+6. Click **Save**. If you have no hosts that are available, you are prompted to purchase compute resources in the same data center.
 
 ## Authorizing the host from the SLCLI
 {: #authreplicahostCLI}
