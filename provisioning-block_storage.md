@@ -142,6 +142,19 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 {: #orderingthroughAPI}
 {:api}
 
+The method `order_block_volume(storage_type, location, size, os_type, iops=None, tier_level=None, snapshot_size=None, service_offering='storage_as_a_service', hourly_billing_flag=False)` places an order for a block volume.
+
+Parameters:
+- storage_type – ‘performance’ or ‘endurance’
+- location – Datacenter in which to order iSCSI volume
+- size – Size of the desired volume, in GB
+- os_type – OS Type to use for volume alignment, see help for list
+- iops – Number of IOPs for a “Performance” order
+- tier_level – Tier level to use for an “Endurance” order
+- snapshot_size – The size of optional snapshot space, if snapshot space should also be ordered (None if not ordered)
+- service_offering – Requested offering package to use in the order (‘storage_as_a_service’, ‘enterprise’, or ‘performance’)
+- hourly_billing_flag – Billing type, monthly (False) or hourly (True), default to monthly.
+
 For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
