@@ -56,18 +56,18 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
    This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {:tip}
 
-5. Select your IOPS profile. You can choose between the predefined values of **Endurance (Tiers)** or enter your customer IOPS value.
+7. Select your IOPS profile. You can choose between the predefined values of **Endurance (Tiers)** or enter your customer IOPS value.
   - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
   - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
   - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
   - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) for storage that is provisioned up to 4 TB.
 
-9. On the right, review your order summary, and apply your Promo Code if you have one.
+8. On the right, review your order summary, and apply your Promo Code if you have one.
 
    Discounts are applied when the order is processed.
    {:note}
-10. After you reviewed the terms and conditions, check the **I have read and agree to the...** box.
-11. Click **Create**. Your new storage allocation is available in a few minutes.
+9. After you reviewed the terms and conditions, check the **I have read and agree to the...** box.
+10. Click **Create**. Your new storage allocation is available in a few minutes.
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 {:important}
