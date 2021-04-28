@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-04-17"
+  years: 2014, 2021
+lastupdated: "2021-04-28"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -70,7 +70,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Volume-related SLCLI commands
 
-* [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingthroughCLI)
+* [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI)
   ```
   slcli block volume-order
   ```
