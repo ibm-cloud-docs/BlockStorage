@@ -76,7 +76,9 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 {: #orderingthroughCLI}
 {:cli}
 
-You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your compute instances.
+You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your compute instances.
 {:important}
 
 For more information about how to install and use the SLCLI, see [Python CLI Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
