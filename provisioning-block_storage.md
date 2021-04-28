@@ -73,17 +73,14 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 {:important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
-: #orderingthroughCLI}
+{: #orderingthroughCLI}
 {:cli}
 
-You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. In the SL API, an order can consist of multiple order containers. The order CLI works with one order container only.
-{:shortdesc}
+You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your compute instances.
+{:important}
 
 For more information about how to install and use the SLCLI, see [Python CLI Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {:tip}
-
-Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your compute instances.
-{:important}
 
 Use the `slcli block volume-order` command to provision the LUN.
 
@@ -142,7 +139,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 {:important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} by using the API
-: #orderingthroughAPI}
+{: #orderingthroughAPI}
 {:api}
 
 For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
