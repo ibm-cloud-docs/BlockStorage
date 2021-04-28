@@ -160,6 +160,9 @@ For more information about ordering {{site.data.keyword.blockstorageshort}} thro
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
 {:tip}
 
+For more information about ordering through the IBM Cloud CLI, see [Working with the Block Storage service (ibmcloud sl block)](/docs/cli?topic=cli-sl-block-storage-service#sl_block_volume_order){: external}.
+{:tip}
+
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {:important}
 
