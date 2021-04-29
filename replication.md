@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-04-29"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -140,7 +140,7 @@ However, if you want to change the time of day when your **Daily** replication o
 
 1. Click **Actions**.
 2. Select **Edit Snapshot Schedule**.
-3. Look in the **Snapshot** frame under **Schedule** to determine which schedule you're using for replication. Change the schedule that you want.
+3. In the Snapshot schedule window, make the changes to that daily schedule's time.
 4. Click **Save**.
 
 ## Canceling an existing replication in the UI
@@ -151,7 +151,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 
 1. Click the volume on the **{{site.data.keyword.blockstorageshort}}** page.
 2. Click **Actions**.
-3. Select **Cancel Replica**.
+3. Select **Delete Replica**.
 4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
 5. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel Replica**.
 
@@ -163,7 +163,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
  1. Click the volume name on the **{{site.data.keyword.blockstorageshort}}** page.
- 2. On the Volume Detail page, click **Actions**, and select **Cancel Replica**.
+ 2. On the Volume Detail page, click **Actions**, and select **Delete Replica**.
  3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
  4. Confirm that you understand that data loss might occur when you cancel the volume by checking the box.
  5. Click **Cancel Replica**.
