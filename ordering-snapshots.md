@@ -58,7 +58,7 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 {: ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external}, and click the menu icon on the upper left. Then, select **Classic Infrastructure**.
-2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.
+2. Access your Storage LUN through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Click **Actions**, then click **Change Snapshot Space** .
 3. Select the storage size that you need.
 4. Click **Continue**.
