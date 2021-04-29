@@ -34,7 +34,7 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [
 
 You can view a summary of the key information for the selected storage LUN including extra snapshot and replication capabilities that were added to the storage.
 
-1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate Volume name from the list.
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the SLCLI
@@ -172,7 +172,7 @@ Options:
 
 You can view the LUNs to which a host has an access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
-1. Click **Devices** -> **Device List** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external} and click the appropriate device.
+1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external} and click the appropriate device.
 2. Select the **Storage** tab.
 
 You're presented with a list of storage LUNs that this particular host has an access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
@@ -197,7 +197,7 @@ You can revoke access from the **Device List** or the **Storage view**.
 {: support}
 {:ui}
 
-1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices**, **Device List** and double-click the appropriate device.
+1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices** > **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
 3. You are presented with a list of storage LUNs that this particular host has an access to. The list is grouped by storage type (block, file, other). Next to the Volume name, click **Actions**, and click **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
@@ -256,7 +256,7 @@ If you no longer need a specific LUN, you can delete it at any time.
 To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
 
-1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the volume to be canceled, click **Actions**, and select **Delete {{site.data.keyword.blockstorageshort}}**.
 3. Confirm if want to delete the volume immediately or on the anniversary date of when the LUN was provisioned.
 
