@@ -212,7 +212,7 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 {: support}
 {:ui}
 
-1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
 2. Click **Authorized Hosts**.
 3. Click **Actions** next to the host whose access is to be revoked, and select **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
