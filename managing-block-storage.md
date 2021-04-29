@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-04-29"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -245,32 +245,31 @@ Options:
   --help                    Show this message and exit.
 ```
 
-## Canceling a storage LUN in the UI
+## Deleting a storage LUN in the UI
 {: #cancelLUNUI}
 {: help}
 {: support}
 {: ui}
 
-If you no longer need a specific LUN, you can cancel it at any time.
+If you no longer need a specific LUN, you can delete it at any time.
 
 To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {:important}
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
-2. Select the volume to be canceled, click **Actions**, and select **Cancel {{site.data.keyword.blockstorageshort}}**.
-3. Confirm if want to cancel the LUN immediately or on the anniversary date of when the LUN was provisioned.
+2. Select the volume to be canceled, click **Actions**, and select **Delete {{site.data.keyword.blockstorageshort}}**.
+3. Confirm if want to delete the volume immediately or on the anniversary date of when the LUN was provisioned.
 
-   If you select the option to cancel the LUN on its anniversary date, you can void the cancellation request before its anniversary date.
+   If you select the option to delete the LUN on its anniversary date, you can void the cancellation request before its anniversary date.
    {:tip}
-4. Click **Continue** or **Close**.
-5. Click the **Acknowledgment** check box and click **Confirm**.
+4. Click the **Acknowledgment** check box and click **Delete**
 
-You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
+You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete.
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
 
-## Canceling a storage LUN from the SLCLI
+## Deleting a storage LUN from the SLCLI
 {: #cancelLUNCLI}
 {: help}
 {: support}
