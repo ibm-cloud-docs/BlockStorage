@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-04-29"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -167,7 +167,7 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 2. Select from a range of sizes from the prompt. Sizes typically range from 0 to the size of your volume.
 3. Click **Continue**.
 4. Enter any Promo Code that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
-5. Click the **I have read the Master Service Agreement…** check box and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
+5. Click the **I have read the…** check box and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
 
 ## Deleting a snapshot schedule in the UI
 {: #cancelnapshotscheduleUI}
@@ -175,8 +175,8 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 
 Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Click the schedule to be deleted in the **Snapshot Schedules** frame on the **{{site.data.keyword.blockstorageshort}} Detail** page.
-2. Click the check box next to the schedule to be deleted and click **Save**.<br />
+1. Click the schedule to be deleted in the **Snapshot Schedules** section on the **{{site.data.keyword.blockstorageshort}} Detail** page.
+2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**.<br />
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {:important}
@@ -207,8 +207,8 @@ If you're using the replication feature, be sure that the schedule you're deleti
 
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. Deletion is done through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Click your storage volume and scroll to the **Snapshot** section to see the list of existing snapshots.
-2. Click **Actions** next to a particular snapshot and click **Delete** to delete the snapshot. This deletion doesn't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
+1. Click your storage volume and click **Snapshot** to see the list of existing snapshots.
+2. Click **Actions** next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 

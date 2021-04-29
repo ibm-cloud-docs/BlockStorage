@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2019-11-14"
+lastupdated: "2021-04-29"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -58,9 +58,9 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 {: ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external}, and click the menu icon on the upper left. Then, select **Classic Infrastructure**.
-2. Access your Storage LUN through **Storage** >**{{site.data.keyword.blockstorageshort}}**.
-2. Click **Change Snapshot Space** in the Snapshots frame.
-3. Select the amount of space that you need and the payment method.
+2. Access your Storage LUN through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+2. Click **Actions**, then click **Change Snapshot Space** .
+3. Select the storage size that you need.
 4. Click **Continue**.
 5. Enter any **Promo Code** that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
 

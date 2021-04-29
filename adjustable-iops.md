@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-04-29"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -53,15 +53,16 @@ If the volume has replication in place, the replica is automatically updated to 
 {: ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click the **menu** icon, then click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify LUN**.
+2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify Volume**.
 3. Under **Adjust Storage IOPS**, make a new selection:
     - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
     - For Performance (Allocated IOPS), specify new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
 
     Be sure to look at any specific boundaries that are required by size in the order form.
     {:tip}
-4. Review your selection and the pricing details.
-5. Click the **I have read the Master Service Agreement...** check box and click **Place Order**.
+    
+4. Review your selection and the new pricing.
+5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
 
 
