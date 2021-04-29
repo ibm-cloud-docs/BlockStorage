@@ -140,7 +140,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: ui}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
-2. Scroll down to the **Authorized Hosts** section.
+2. Click **Authorized Hosts** to display the list of compute instances that have access to the volume.
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – user name, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
@@ -213,7 +213,7 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 {:ui}
 
 1. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
-2. Scroll to **Authorized Hosts**.
+2. Click **Authorized Hosts**.
 3. Click **Actions** next to the host whose access is to be revoked, and select **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
 
