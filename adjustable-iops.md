@@ -60,6 +60,7 @@ If the volume has replication in place, the replica is automatically updated to 
 
     Be sure to look at any specific boundaries that are required by size in the order form.
     {:tip}
+    
 4. Review your selection and the new pricing.
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
