@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-06-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -59,8 +59,8 @@ The block size that is used by your application directly impacts the storage per
 
 | Block Size (KB) | IOPS | Throughput (MB/s) |
 |-----|-----|-----|
-| 4 | 1,000 | 4 |
-| 8 | 1,000 | 8 |
+| 4 | 4,000 | 16 |
+| 8 | 2,000 | 16 |
 | 16 | 1,000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |
