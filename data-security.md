@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-06-22"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -32,9 +32,9 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 The provider-managed encryption-at-rest feature uses the following industry standard protocols:
 
-* Industry-Standard AES-256 encryption
-* Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP)
-* Storage is validated for Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
+* Industry-Standard AES-256 encryption.
+* Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP).
+* Storage is validated for US Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU General Data Protection Regulation (GDPR) compliance.
 
 ## Encryption-at-Rest for Snapshots or Replicated storage  
 
