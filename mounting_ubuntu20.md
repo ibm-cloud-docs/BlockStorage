@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-07-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -222,7 +222,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
 1. Run the discovery against the iSCSI array.
    ```
-   sudo iscsiadm -m discovery -I iscsi01 --op=new --op=del --type sendtargets --portal <ip-value-from-IBM-Cloud-console>
+   iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
 
