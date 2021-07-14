@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-06-25"
+  years: 2014, 2021
+lastupdated: "2020-07-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
@@ -142,7 +142,41 @@ The Host IQN, user name, password, and target address that are referenced in the
       ```
       {: pre}
 
-  - **RHEL7** and **CentOS7**, `multipath.conf` can be blank as the OS has built-in configurations.
+  - **RHEL7** and **CentOS7**, edit `multipath.conf` with the following minimum configuration.
+      ```
+      defaults {
+      user_friendly_names no
+      max_fds max
+      flush_on_last_del yes
+      queue_without_daemon no
+      dev_loss_tmo infinity
+      fast_io_fail_tmo 5
+      }
+      # All data in the following section must be specific to your system.
+      blacklist {
+      wwid "SAdaptec*"
+      devnode "^hd[a-z]"
+      devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]"
+      devnode "^cciss."
+      }
+      devices {
+      device {
+      vendor "NETAPP"
+      product "LUN"
+      path_grouping_policy group_by_prio
+      features "3 queue_if_no_path pg_init_retries 50"
+      prio "alua"
+      path_checker tur
+      failback immediate
+      path_selector "round-robin 0"
+      hardware_handler "1 alua"
+      rr_weight uniform
+      rr_min_io 128
+      }
+      }
+      ```
+      {: pre}
+
   - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load-balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
 
       ```
