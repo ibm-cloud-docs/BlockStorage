@@ -56,7 +56,9 @@ Non-encrypted storage that was provisioned before the data center was upgraded *
 ## Deleting {{site.data.keyword.blockstorageshort}} instances
 {: #service-delete}
 
-If you no longer need a specific LUN, you can cancel it at any time. {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
+If you no longer need a specific LUN, you can cancel it at any time. {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. For more information, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#deleted).
+
+Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization can perform the data sanitization procedure before they delete their storage.
 
 To delete a storage LUN, it's necessary to revoke access from any hosts first. Active replicas and dependent duplicates can also block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 {:important}
