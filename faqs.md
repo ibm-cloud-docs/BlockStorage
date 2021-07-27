@@ -225,6 +225,8 @@ IBM guarantees that data deleted cannot be accessed and that deleted data is eve
 
 Further, when IBM decommissions a physical drive, the drive is destroyed before disposal. The decommissioned drives are unusable and any data on them is inaccessible.
 
+Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization can perform the data sanitization procedure before they delete their storage.
+
 ## What happens to the drives that are decommissioned from the cloud data center?
 {: faq}
 {: #decommission}
