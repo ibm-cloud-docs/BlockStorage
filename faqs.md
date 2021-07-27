@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-12-01"
+  years: 2014, 2021
+lastupdated: "2021-07-27"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -217,7 +217,15 @@ Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 per
 {: faq}
 {: support}
 
-{{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization must perform the data sanitization procedure before they delete their storage.
+{{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse.
+
+When you delete a {{site.data.keyword.blockstorageshort}} volume, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a new volume in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted volume is overwritten.
+
+IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. Further, when you delete a {{site.data.keyword.blockstorageshort}} volume, those blocks must be overwritten before that block storage is made available again, either to you or to another customer.
+
+Further, when IBM decommissions a physical drive, the drive is destroyed before disposal. The decommissioned drives are unusable and any data on them is inaccessible.
+
+Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization can perform the data sanitization procedure before they delete their storage.
 
 ## What happens to the drives that are decommissioned from the cloud data center?
 {: faq}
