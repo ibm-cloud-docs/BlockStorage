@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-07-29"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -24,7 +24,7 @@ subcollection: BlockStorage
 # Ordering Snapshots
 {: #orderingsnapshots}
 
-To create snapshots of your storage volume, either automated or manually, you need to purchase space to hold them. You can purchase capacity up to your storage volume amount (during the initial volume purchase or later by using the steps that are described here).
+To create snapshots of your storage volume, either automated or manually, you need to purchase space to hold them. You can purchase snapshot capacity during the initial volume purchase or later by using these steps.
 {:shortdesc}
 
 ## Determining how much snapshot space to order
