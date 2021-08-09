@@ -79,20 +79,24 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   ```
   slcli block volume-duplicate
   ```
+
 * [Creating and managing a dependent duplicate volume](/docs/BlockStorage?topic=BlockStorage-dependentduplicate)
   ```
-  slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>|
+  slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
   slcli block volume-convert <dependent-vol-id>
   ```
+
 * [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS)
   ```
+
   slcli block volume-modify
   ```
 * [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity)
   ```
   slcli block volume-modify
   ```
+  
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block volume-cancel
