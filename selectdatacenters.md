@@ -25,7 +25,7 @@ subcollection: BlockStorage
 
 
 | Capabilities | DAL05 | DAL09 | DAL10 | DAL12 | DAL13 | SJC01 | SJC03 | SJC04 | WDC01 | WDC04 | WDC06 | WDC07 |
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|--------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | 10 IOPS per GB option |  | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | [Adjustable IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS) |  | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | All Flash Backed Storage |  | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |
@@ -43,7 +43,7 @@ subcollection: BlockStorage
 {: row-headers}
 
 | Capabilities | MEX01 | SAO01 | SAO04 | SAO05 |
-|-----|-----|-----|
+|--------------|-------|-------|-------|-------|
 | 10 IOPS per GB option |  ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | [Adjustable IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS) |  ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | All Flash Backed Storage | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |![Checkmark icon.](../../icons/checkmark-icon.svg) |
@@ -61,7 +61,7 @@ subcollection: BlockStorage
 {: row-headers}
 
 | Capabilities | TOR01 | TOR04 | TOR05 | MON01 |
-|-----|-----|-----|
+|--------------|-------|-------|-------|-------|
 | 10 IOPS per GB option |  ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |  ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | [Adjustable IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS) |  ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | All Flash Backed Storage | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
@@ -96,8 +96,8 @@ subcollection: BlockStorage
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Capabilities | HKG02 | TOK02 | TOK04 | TOK05 | OSA21 | OSA22 | OSA23  | SNG01 | SEO01 | CHE01 |
-|--------------|-------|-------|-------|-------|-------|-------|-------|
+| Capabilities | HKG02 | TOK02 | TOK04 | TOK05 | OSA21 | OSA22 | OSA23 | SNG01 | SEO01 | CHE01 |
+|--------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | 10 IOPS per GB option | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | [Adjustable IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | All Flash Backed Storage | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
