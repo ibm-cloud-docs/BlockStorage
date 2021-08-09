@@ -49,7 +49,7 @@ If you use more than two iSCSI devices with the same host, you might find this p
    ![Advanced Settings, IP addresses](/images/win12-ts3.png)
 
    You have to repeat this step for all the IP addresses that are listed.
-   {:tip}
+   {: tip}
 
 8. Select the **Enable CHAP** box, and enter the server's CHAP ID and Password.
 

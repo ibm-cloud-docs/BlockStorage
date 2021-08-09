@@ -15,7 +15,7 @@ subcollection: BlockStorage
 {: #hostqueuesettings}
 
 {{site.data.keyword.cloud}} suggests a maximum host and application input/output (I/O) queue depth for each performance tier.
-{:shortdesc}
+{: shortdesc}
 
 | Performance tier | Maximum host queue depth |
 |:------:|:------:|

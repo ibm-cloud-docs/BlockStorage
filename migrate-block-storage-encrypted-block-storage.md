@@ -21,7 +21,7 @@ subcollection: BlockStorage
 Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 The preferred migration path is to connect to both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
-{:shortdesc}
+{: shortdesc}
 
 The assumption is that you already have your non-encrypted LUN attached to your host. If not, follow the directions that fit your operating system the best to accomplish this task:
 
@@ -32,7 +32,7 @@ The assumption is that you already have your non-encrypted LUN attached to your 
 ## Creating a {{site.data.keyword.blockstorageshort}}
 
 When you place an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
-{:important}
+{: important}
 
 You can order an enhanced LUN through the IBM Cloud Console. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
@@ -60,7 +60,7 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 Do you have snapshots and replication established for your original LUN? If yes, you need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume.
 
 If your replication target data center is not upgraded yet, you can't establish replication for the new volume until that data center is upgraded.
-{:note}
+{: note}
 
 
 ## Migrating your data
@@ -68,7 +68,7 @@ If your replication target data center is not upgraded yet, you can't establish 
 1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs.
 
    If you need assistance with connecting the two LUNs to your host, open a support case.
-   {:tip}
+   {: tip}
 
 2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
   - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
@@ -84,11 +84,11 @@ If your replication target data center is not upgraded yet, you can't establish 
    ```
 
    It is advisable to use the previous command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.
-   {:tip}
+   {: tip}
 
    When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} LUN. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.
 
    For more information about `rsync`, see the [`rsync` man page](https://download.samba.org/pub/rsync/rsync.html){: external}.
-   {:note}
+   {: note}
 
    When your migration is complete, you can move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original LUN.

@@ -24,10 +24,10 @@ subcollection: BlockStorage
 {: #dr-inaccessible}
 
 If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site. When the primary volume is inaccessible, you can force a failover to the remote replica.
-{:shortdesc}
+{: shortdesc}
 
 This action breaks the replication relationship and cannot be undone without manual intervention from the support team.
-{:important}
+{: important}
 
 ## Fail over to the replica volume in the UI
 {: #DRFailoverUI}

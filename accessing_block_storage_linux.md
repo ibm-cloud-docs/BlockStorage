@@ -22,13 +22,13 @@ subcollection: BlockStorage
 {: #mountingLinux}
 
 These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were added, but this documentation does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
-{:note}
+{: note}
 
 For example, for more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
-{:important}
+{: important}
 
 ## Authorizing the host
 {: #authhostlin}
@@ -54,7 +54,7 @@ Options:
   -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ```
 # slcli block subnets-assign -h
@@ -66,16 +66,16 @@ Options:
   --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{:important}
+{: important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
 
 Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
-{:shortdesc}
+{: shortdesc}
 
 The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
 {: tip}
@@ -297,10 +297,10 @@ The Host IQN, user name, password, and target address that are referenced in the
    {: codeblock}
 
    Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
-   {:important}
+   {: important}
 
    Ubuntu users, while you are looking at the `iscsid.conf` file, check whether the `node.startup` setting is manual or automatic. If it's manual, change it to automatic.
-   {:tip}
+   {: tip}
 
 7. Set iSCSI to start at boot and start it now.
   - RHEL 6
@@ -386,8 +386,8 @@ The Host IQN, user name, password, and target address that are referenced in the
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
-    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){:external}.
-    {:tip}
+    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){: external}.
+    {: tip}
 
   The volume is now mounted and accessible on the host. You can create a file system next.
 
@@ -553,7 +553,7 @@ To create a file system with `parted`, follow these steps.
    {: pre}
 
    It's important to select the right disk and partition when you run this command.<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
-   {:important}
+   {: important}
 
 4. Create a mount point for the file system and mount it.
    - Create a partition name `PerfDisk` or where you want to mount the file system.
@@ -668,5 +668,5 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){:external}.
-   {:tip}
+   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
+   {: tip}
