@@ -295,52 +295,55 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 3. Create a file system on the new partition.
 
-   ```
-   fdisk –l /dev/mapper/XXX
-   ```
-   {: pre}
+    ```
+    fdisk –l /dev/mapper/XXX
+    ```
+    {: pre}
 
-   - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux&reg;.
-   - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
-   - Create the file system:
+    - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux&reg;.
+    - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
+    - Create the file system:
 
-     ```
-     mkfs.ext3 /dev/mapper/XXXp1
-     ```
-     {: pre}
+    ```
+    mkfs.ext3 /dev/mapper/XXXp1
+    ```
+    {: pre}
 
 4. Create a mount point for the file system, and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system.
+    - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-     ```
-     mkdir /PerfDisk
-     ```
-     {: pre}
+    ```
+    mkdir /PerfDisk
+    ```
+    {: pre}
 
-   - Mount the storage with the partition name.
-     ```
-     mount /dev/mapper/XXXp1 /PerfDisk
-     ```
-     {: pre}
+    - Mount the storage with the partition name.
+
+    ```
+    mount /dev/mapper/XXXp1 /PerfDisk
+    ```
+    {: pre}
 
    - Check that you see your new file system listed.
-     ```
-     df -h
-     ```
-     {: pre}
+
+    ```
+    df -h
+    ```
+    {: pre}
 
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3). <br />
+    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3). <br />
 
-     ```
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-     ```
-     {: pre}
+    ```
+    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+    ```
+    {: pre}
 
 ### Creating a file system with `parted`
 {: #partedclin8}
 
-On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the foilowing command.
+On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the following command.
+
 ```
 # yum install parted
 ```
@@ -350,86 +353,86 @@ To create a file system with `parted`, follow these steps.
 
 1. Start the interactive parted shell.
 
-   ```
-   parted
-   ```
-   {: pre}
+    ```
+    parted
+    ```
+    {: pre}
 
 2. Create a partition on the disk.
-   1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
+    1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
 
-      ```
-      select /dev/mapper/XXX
-      ```
-      {: pre}
+    ```
+    select /dev/mapper/XXX
+    ```
+    {: pre}
 
-   2. Run `print` to confirm that you are on the right disk.
+    2. Run `print` to confirm that you are on the right disk.
 
-      ```
-      print
-      ```
-      {: pre}
+    ```
+    print
+    ```
+    {: pre}
 
-   3. Create a GPT partition table.
+    3. Create a GPT partition table.
 
-      ```
-      mklabel gpt
-      ```
-      {: pre}
+    ```
+    mklabel gpt
+    ```
+    {: pre}
 
-   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.<br />
+    4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.<br />
 
-   The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
-   {: tip}
+    The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
+    {: tip}
 
-      ```
-      mkpart
-      ```
-      {: pre}
+    ```
+    mkpart
+    ```
+    {: pre}
 
-   5. Exit `parted` with `quit`.
+    5. Exit `parted` with `quit`.
 
-      ```
-      quit
-      ```
-      {: pre}
+    ```
+    quit
+    ```
+    {: pre}
 
 3. Create a file system on the new partition.
 
-   ```
-   mkfs.ext3 /dev/mapper/XXXp1
-   ```
-   {: pre}
+    ```
+    mkfs.ext3 /dev/mapper/XXXp1
+    ```
+    {: pre}
 
-   It's important to select the right disk and partition when you run this command.<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
-   {: important}
+    It's important to select the right disk and partition when you run this command.<br />Verify the result by printing the partition table. Under file system column, you can see ext3.
+    {: important}
 
 4. Create a mount point for the file system and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system.
+    - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-     ```
-     mkdir /PerfDisk
-     ```
-     {: pre}
+    ```
+    mkdir /PerfDisk
+    ```
+    {: pre}
 
-   - Mount the storage with the partition name.
+    - Mount the storage with the partition name.
 
-     ```
-     mount /dev/mapper/XXXp1 /PerfDisk
-     ```
-     {: pre}
+    ```
+    mount /dev/mapper/XXXp1 /PerfDisk
+    ```
+    {: pre}
 
-   - Check that you see your new file system listed.
+    - Check that you see your new file system listed.
 
-     ```
-     df -h
-     ```
-     {: pre}
+    ```
+    df -h
+    ```
+    {: pre}
 
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3). <br />
+    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3). <br />
 
-     ```
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-     ```
-     {: pre}
+    ```
+    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+    ```
+    {: pre}
