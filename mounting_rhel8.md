@@ -267,6 +267,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
+   
    The disk name that is returned looks similar to `/dev/mapper/XXX`.
 
 2. Create a partition on the disk.
