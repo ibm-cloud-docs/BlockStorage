@@ -96,22 +96,22 @@ Ensure that your system is updated and includes the `iscsi-initiator-utils` and 
 
 1. Use the following command the install the packages.
 
-```
-yum install iscsi-initiator-utils device-mapper-multipath
-```
-{: pre}
+    ```
+    yum install iscsi-initiator-utils device-mapper-multipath
+    ```
+    {: pre}
 
 2. Start the services.
 
-```
-chkconfig multipathd on
-```
-{: pre}
+    ```
+    chkconfig multipathd on
+    ```
+    {: pre}
 
-```
-chkconfig iscsid on
-```
-{: pre}
+    ```
+    chkconfig iscsid on
+    ```
+    {: pre}
 
 ## Set up the multipath
 {: #setupmultipathdclin8}
@@ -125,10 +125,10 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 For more information on the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
 
 1. Enter the mpathconf command with the --enable option specified:
-   ```
-   # mpathconf --enable --user_friendly_names n
-   ```
-   {: pre}
+    ```
+    # mpathconf --enable --user_friendly_names n
+    ```
+    {: pre}
 
 2. Edit the /etc/multipath.conf file with the following minimum configuration.
 
@@ -175,9 +175,8 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    # systemctl start multipathd.service
    ```
 
-   If you need to edit the multipath configuration file after you have started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
-   {: note}
-
+    If you need to edit the multipath configuration file after you have started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
+    {: note}
 
 ## Update /etc/iscsi/initiatorname.iscsi file
 {: #updateinitiatorclin8}
@@ -250,20 +249,20 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
 3. List the partition tables for the connected device.
-   ```
-   fdisk -l | grep /dev/mapper
-   ```
-   {: pre}
+    ```
+    fdisk -l | grep /dev/mapper
+    ```
+    {: pre}
 
-   By default the storage device attaches to `/dev/mapper/<wwid>`. WWID is persistent while the volume exists. The command reports something similar to the following example.
-   ```
-   Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
-   ```
+    By default the storage device attaches to `/dev/mapper/<wwid>`. WWID is persistent while the volume exists. The command reports something similar to the following example.
+    ```
+    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
+    ```
 
-   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
-   {: tip}
+    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+    {: tip}
 
-   The volume is now mounted and accessible on the host. You can create a file system next.
+     The volume is now mounted and accessible on the host. You can create a file system next.
 
 
 ## Creating a file system (optional)
