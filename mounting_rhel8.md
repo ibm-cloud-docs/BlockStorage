@@ -267,7 +267,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   
+
    The disk name that is returned looks similar to `/dev/mapper/XXX`.
 
 2. Create a partition on the disk.
@@ -368,13 +368,13 @@ To create a file system with `parted`, follow these steps.
 
    4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.<br />
 
-   The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
-   {: tip}
+    ```
+    mkpart
+    ```
+    {: pre}
 
-      ```
-      mkpart
-      ```
-      {: pre}
+      The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
+      {: tip}
 
    5. Exit `parted` with `quit`.
 
