@@ -34,8 +34,6 @@ If you use more than two iSCSI devices with the same host, you might find this p
 {: #manualconnect}
 {: tsResolve}
 
-
-
 1. Open the Windows iSCSI Initiator.
 2. On the **Targets** tab, click **Devices**.
 
