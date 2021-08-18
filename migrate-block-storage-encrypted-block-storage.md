@@ -87,3 +87,10 @@ When the host is authorized to access the new storage, you can mount or map the 
    {: note}
 
    When your migration is complete, you can move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original LUN.
+
+## Snapshots and Replication
+
+Do you have snapshots and replication established for your original LUN? If yes, you need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume.
+
+If your replication target data center is not upgraded yet, you can't establish replication for the new volume until that data center is upgraded.
+{:important}
