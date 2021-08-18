@@ -22,7 +22,7 @@ subcollection: BlockStorage
 {: #adjustingIOPS}
 
 With this feature, {{site.data.keyword.blockstoragefull}} storage users can adjust the IOPS of their existing {{site.data.keyword.blockstorageshort}} immediately. They don't need to create a duplicate or manually copy data to new storage. Users don't experience any kind of outage or lack of access to the storage while the adjustment is taking place.
-{:shortdesc}
+{: shortdesc}
 
 Billing for the storage is updated to add the pro-rated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
 
@@ -59,7 +59,7 @@ If the volume has replication in place, the replica is automatically updated to 
     - For Performance (Allocated IOPS), specify new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
 
     Be sure to look at any specific boundaries that are required by size in the order form.
-    {:tip}
+    {: tip}
     
 4. Review your selection and the new pricing.
 5. Click **Modify**.
@@ -105,7 +105,7 @@ Options:
                                 than 0.25.]
   -h, --help                    Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ## Adjusting the IOPS on your Storage with the API
 {: #adjustingstepsAPI}
@@ -113,8 +113,8 @@ Options:
 
 You can adjust the IOPS by using an API call to the SOAP web service. The following sample API calls can be called from the scripting language of your choice.
 
-For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){:external}.
-{:tip}
+For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){: external}.
+{: tip}
 
 * Adjust IOPS on Performance storage volume.
 
@@ -149,7 +149,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   ```
-  {:codeblock}
+  {: codeblock}
 
 * Adjust IOPS on Endurance storage volume.
 
@@ -184,4 +184,4 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   ```
-  {:codeblock}
+  {: codeblock}

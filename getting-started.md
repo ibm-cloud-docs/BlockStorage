@@ -21,7 +21,7 @@ completion-time: 2h
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
-{:ui-linked}
+{: ui-linked}
 
 # Getting started with {{site.data.keyword.blockstorageshort}}
 {: #getting-started}
@@ -32,7 +32,7 @@ completion-time: 2h
 {{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi-path I/O (MPIO) connections.
 
 {{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It is built by using industry standards and best practices. {{site.data.keyword.blockstorageshort}} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures, and provide a consistent performance baseline.
-{:shortdesc}
+{: shortdesc}
 
 If you're looking for information about using {{site.data.keyword.blockstorageshort}} with the {{site.data.keyword.containerlong}}, see [Storing data on classic IBM Cloud Block Storage](/docs/containers?topic=containers-block_storage).
 
@@ -44,7 +44,7 @@ If you're looking for information about using {{site.data.keyword.blockstoragesh
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
-For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/cloud/block-storage){:external}.
+For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/cloud/block-storage){: external}.
 
 ## Provisioning considerations
 {: #provconsiderBlock}
@@ -53,7 +53,7 @@ For more information about the {{site.data.keyword.blockstorageshort}} offering,
 ### Block size
 
 IOPS for both Endurance and Performance is based on a 16-KB block size with a 50/50 read/write 50/50 random/sequential workload. A 16-KB block is the equivalent of one write to the volume.
-{:important}
+{: important}
 
 The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before the IOPS limit.
 
@@ -82,7 +82,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. Other c
 Storage traffic should be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#isolatedstoragetraffic).
 
 Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server documentation](/docs/virtual-servers?topic=virtual-servers-about-virtual-servers).
-{:tip}
+{: tip}
 
 ## Submitting your Order
 {: #submitorder}

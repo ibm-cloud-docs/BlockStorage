@@ -21,7 +21,7 @@ subcollection: BlockStorage
 {: #mountingWindows}
 
 This article describes how you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume, how you can install and configure the iSCSI feature on a Windows server, and then mount, initialize, and format {{site.data.keyword.blockstorageshort}} volumes.
-{:shortdesc}
+{: shortdesc}
 
 ## Prerequisites
 {: #authhostwin}
@@ -38,13 +38,13 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{:important}
+{: important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
 Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
-{:shortdesc}
+{: shortdesc}
 
 ### Installing the MPIO feature
 
@@ -63,7 +63,7 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 4. When you're prompted to restart the computer, click **Yes**.
 
 In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
-{:note}
+{: note}
 
 ### Configuring the iSCSI Initiator to discover the Target
 
@@ -86,7 +86,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Devic
     ![Enable CHAP login.](/images/Advanced_0.png)
 
     The Name and Target secret fields are case-sensitive.
-    {:important}
+    {: important}
 
     - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
     - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
@@ -94,7 +94,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Devic
   ![Inactive Target.](/images/Inactive_0.png)
 
   The name of your target appears in the Discovered targets section with an `Inactive` status.
-  {:note}
+  {: note}
 
 3. Click **Connect** to connect to the target.
 4. Select **Enable multi-path** check box to enable multi-path IO to the target.<br/>
@@ -104,7 +104,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Devic
 6. Enter the user name in the Name field, and enter the password in the Target secret field.
 
    The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
-   {:tip}
+   {: tip}
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
    ![Connected status.](/images/Connected.png)
 
@@ -139,7 +139,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Devic
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
    If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} before you attempt to make the connection.
-   {:note}
+   {: note}
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`. <br/>
    ![Devices](/images/Devices.png)
 

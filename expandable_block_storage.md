@@ -28,7 +28,7 @@ subcollection: BlockStorage
 {: #expandingcapacity}
 
 With this feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume.
-{:shortdesc}
+{: shortdesc}
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
@@ -58,7 +58,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 
 ## Resizing storage in the UI
 {: #resizingstepsUI}
-{:ui}
+{: ui}
 
 1. From the {{site.data.keyword.cloud}} console, click the **menu** icon. Then, click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify volume**.
@@ -68,7 +68,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 6. Your new storage allocation is available in a few minutes.
 
 For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
-{:tip}
+{: tip}
 
 ## Resizing storage from the CLI
 {: #resizingstepsCLI}
@@ -110,10 +110,10 @@ Options:
                                 than 0.25.]
   -h, --help                    Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
-{:tip}
+{: tip}
 
 ## Resizing storage with the API
 {: #resizingstepsAPI}
@@ -121,8 +121,8 @@ For more information about expanding the file system (and partitions, if any) on
 
 You can increase your storage capacity by using an API call to the SOAP web service. The following sample API calls can be called from the scripting language of your choice.
 
-For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){:external}.
-{:tip}
+For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){: external}.
+{: tip}
 
 * Increase capacity on a Performance storage volume.
   ```
@@ -156,7 +156,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   ```
-  {:codeblock}
+  {: codeblock}
 
 
 * Increase capacity on an Endurance storage volume.
@@ -191,10 +191,10 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
   ```
-  {:codeblock}
+  {: codeblock}
 
 For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
-{:tip}
+{: tip}
 
 
 ## Expanding Storage over 12 TB
@@ -203,4 +203,4 @@ For more information about expanding the file system (and partitions, if any) on
 {: support}
 
 If you need to increase your Storage volume capacity beyond 12 TB, you can request to be added to the allowlist by submitting a [support case](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved by the Offering Manager, you're going to be notified through the case process. You're also going to see the option to increase your storage up to 16 TB in the console.
-{:preview}
+{: preview}

@@ -23,7 +23,7 @@ subcollection: BlockStorage
 {: #managingSnapshots}
 
 Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space. Learn more about how to manage snapshots by reading the following instructions.
-{:shortdesc}
+{: shortdesc}
 
 ## Adding a Snapshot schedule in the UI
 {: #addscheduleUI}
@@ -32,7 +32,7 @@ Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot re
 You decide how often and when you want to create a point-in-time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
-{:important}
+{: important}
 
 Snapshots schedules can be set up for hourly, daily, and weekly intervals, each with a distinct retention cycle. The maximum limit of snapshots is 50 per storage volume, which can be a mix of hourly, daily, and weekly schedules, and manual snapshots.
 
@@ -58,7 +58,7 @@ The list of the snapshots is displayed as they're taken in the **Snapshots** sec
 You decide how often and when you want to create a point-in-time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
-{:important}
+{: important}
 
 To set up a snapshot schedule, use the following command
 
@@ -87,7 +87,7 @@ Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
 Options:
   -h, --help  Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ## Taking a manual Snapshot in the UI
 {: #takemanualsnapshotUI}
@@ -116,7 +116,7 @@ Options:
   -n, --notes TEXT  Notes to set on the new snapshot
   -h, --help        Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ## Listing all Snapshots with Space Used Information and Management functions in the UI
 {: #listsnapshotUI}
@@ -159,7 +159,7 @@ Notifications are sent through the support cases to the Master User on your acco
 You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space. You can add 5 - 4,000 GB depending on your needs.
 
 Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Remember, automated, and manual snapshots share the space.
-{:note}
+{: note}
 
 Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
@@ -179,7 +179,7 @@ Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.b
 2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**.<br />
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
-{:important}
+{: important}
 
 ## Deleting a snapshot schedule from the SLCLI
 {: #cancelnapshotscheduleCLI}
@@ -199,7 +199,7 @@ Options:
 ```
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
-{:important}
+{: important}
 
 ## Deleting a snapshot in the UI
 {: #deletesnapshotUI}
@@ -224,10 +224,10 @@ Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
 Options:
   -h, --help  Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations. The oldest snapshot is deleted first.
-{:note}
+{: note}
 
 ## Restoring storage volume to a specific point-in-time by using a snapshot in the UI
 {: #restorefromsnapshotUI}
@@ -236,7 +236,7 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 You might need to take your storage volume back to a specific point-in-time because of user-error or data corruption.
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
-{:important}
+{: important}
 
 1. Unmount and detach your storage volume from the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
@@ -246,18 +246,18 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot.
-   {:note}
+   {: note}
 5. Click **Yes** to start the restore.
 
    Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
-   {:note}
+   {: note}
 6. Mount and reattach your storage volume to the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Connecting iSCSI Volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Connecting iSCSI Volumes on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
-{:important}
+{: important}
 
 ## Restoring storage volume to a specific point-in-time by using a snapshot from the SLCLI
 {: #restorefromsnapshotCLI}
@@ -275,9 +275,9 @@ Options:
                           the block volume
   -h, --help              Show this message and exit.
 ```
-{:codeblock}  
+{: codeblock}  
 
 After the restore is complete, mount and reattach your storage volume to the host.
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
-{:important}
+{: important}

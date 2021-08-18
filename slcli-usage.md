@@ -21,10 +21,10 @@ subcollection: BlockStorage
 {: #SLCLIcommands}
 
 You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. For example, from the SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, or cancel volumes.
-{:shortdesc}
+{: shortdesc}
 
 For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
-{:tip}
+{: tip}
 
 ## Access-related SLCLI commands
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
@@ -79,20 +79,24 @@ For more information about how to install and use the SLCLI, see [Python API Cli
   ```
   slcli block volume-duplicate
   ```
+
 * [Creating and managing a dependent duplicate volume](/docs/BlockStorage?topic=BlockStorage-dependentduplicate)
   ```
-  slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>|
+  slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
   slcli block volume-convert <dependent-vol-id>
   ```
+
 * [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS)
   ```
+
   slcli block volume-modify
   ```
 * [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity)
   ```
   slcli block volume-modify
   ```
+  
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
   ```
   slcli block volume-cancel

@@ -32,7 +32,7 @@ For more information about increasing your storage volume capacity beyond 12 TB,
 
 ## Confirming your current limit and provisioning count from the CLI
 {: #confirmblocklimitscli}
-{:cli}
+{: cli}
 
 If you're unsure how many volumes you have, you can confirm the numbers by using multiple methods.
 
@@ -66,7 +66,7 @@ global       300                     99
 
 ## Confirming your current limit and provisioning count with the API
 {: #confirmblocklimitsAPI}
-{:api}
+{: api}
 
 ### REST API
 To directly get this information from the API, use the following method: [`SoftLayer_Network_Storage/getVolumeCountLimits`](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/getVolumeCountLimits/){: external}.
@@ -77,13 +77,13 @@ curl -u $SL_USER:$SL_APIKEY 'https://api.softlayer.com/rest/v3.1/SoftLayer_Netwo
 ```
 
 The API call shows the combined number of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.
-{:tip}
+{: tip}
 
 ## Requesting volume limit increase
 {: #increaseblocklimits}
 
 You can request a provisioning limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
-{:shortdesc}
+{: shortdesc}
 
 In the case, provide the following information:
 
@@ -105,6 +105,6 @@ In the case, provide the following information:
 *For example, your answer might be something similar to "expect 25 percent to be used in 30 days, 50 percent to be used in 60 days and 75 percent to be used in 90 days".*
 
 Respond to all questions and statements in your request. They are required for processing and approval.
-{:important}
+{: important}
 
 You're going to be notified of the update to your limits through the case process.

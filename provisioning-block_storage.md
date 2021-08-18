@@ -16,7 +16,7 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
-{:ui-linked}
+{: ui-linked}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
@@ -26,14 +26,14 @@ subcollection: BlockStorage
 {: #orderingBlockStorage}
 
 You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and operations-speed needs. Get the most out of your storage with two options for specifying performance.
-{:shortdesc}
+{: shortdesc}
 
 - You can provision with **Endurance** tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.
 - You can fine-tune your storage to meet specific performance requirements and build a high-powered **Performance** environment by specifying the total number of input/output operations per second (IOPS)
 
 ## Ordering {{site.data.keyword.blockstorageshort}} in the UI
 {: #orderingthroughConsole}
-{:ui}
+{: ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 2. Select your deployment location (region, location, zone).
@@ -43,18 +43,18 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
    - With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. There's no refund if a block LUN is deleted before the end of the billing cycle. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
 
    Monthly billing type is used by default for storage that is provisioned in data centers that are **not** updated with improved capabilities.
-   {:important}
+   {: important}
 
 4. Enter your storage size in the **Size** field.
 5. Select the size of the Snapshot space from the list.
 
    This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
-   {:tip}
+   {: tip}
 
 6. Choose your **OS Type** from the list.<br/>
 
    This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
-   {:tip}
+   {: tip}
 
 7. Select your IOPS profile. You can choose between the predefined values of **Endurance (Tiers)** or enter your custom IOPS value for **Performance**.
   - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
@@ -65,24 +65,24 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 8. On the right, review your order summary, and apply your Promo Code if you have one.
 
    Discounts are applied when the order is processed.
-   {:note}
+   {: note}
 9. After you reviewed the terms and conditions, check the **I have read and agree to the...** box.
 10. Click **Create**. Your new storage allocation is available in a few minutes.
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
-{:important}
+{: important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
 {: #orderingthroughCLI}
-{:cli}
+{: cli}
 
 You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
 Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your compute instances.
-{:important}
+{: important}
 
 For more information about how to install and use the SLCLI, see [Python CLI Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
-{:tip}
+{: tip}
 
 Use the `slcli block volume-order` command to provision the LUN.
 
@@ -138,14 +138,14 @@ Order #15547457 placed successfully!
 ```
 
 For more information about ordering through the IBM Cloud CLI, see [Working with the Block Storage service (ibmcloud sl block)](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order){: external}.
-{:tip}
+{: tip}
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
-{:important}
+{: important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} by using the API
 {: #orderingthroughAPI}
-{:api}
+{: api}
 
 The method `order_block_volume` (storage_type, location, size, os_type, iops=None, tier_level=None, snapshot_size=None, service_offering='storage_as_a_service', hourly_billing_flag=False) places an order for a block volume.
 
@@ -165,10 +165,10 @@ Parameters:
 For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
 
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
-{:tip}
+{: tip}
 
 By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
-{:important}
+{: important}
 
 
 ## Connecting your new storage

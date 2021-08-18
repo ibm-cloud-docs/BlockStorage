@@ -33,10 +33,10 @@ completion-time: 1h
 {: toc-completion-time="1h"}
 
 This tutorial guides you through how to mount a {{site.data.keyword.blockstoragefull}} volume on a server with the Debian 10 Buster operating system. Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
-{:shortdesc}
+{: shortdesc}
 
 Before you begin, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume is authorized correctly.
-{:important}
+{: important}
 
 ## Authorizing the host in the UI
 {: #authhostdebi10}
@@ -52,9 +52,9 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{:important}
+{: important}
 
-Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to behave appropriately, especially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){:external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){:external} documentation.
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to behave appropriately, especially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){:external} documentation.
 
 
 ## Authorizing the host from the SLCLI
@@ -74,7 +74,7 @@ Options:
   -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ```
 # slcli block subnets-assign -h
@@ -86,10 +86,10 @@ Options:
   --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{:important}
+{: important}
 
 ## Install the iSCSI and multipath utilities
 {: #installutilsdebi10}
@@ -102,14 +102,14 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
   ```
   apt-get install open-iscsi
   ```
-  {:pre}
+  {: pre}
 
   When the package is installed, it creates the following two files.
   * `/etc/iscsi/iscsid.conf`
   * `/etc/iscsi/initiatorname.iscsi`
 
-  For more information about how the 'open-iscsi' works on Debian OS, see [Debian as an iSCSI Initiator](https://wiki.debian.org/SAN/iSCSI/open-iscsi){:external}.
-  {:tip}
+  For more information about how the 'open-iscsi' works on Debian OS, see [Debian as an iSCSI Initiator](https://wiki.debian.org/SAN/iSCSI/open-iscsi){: external}.
+  {: tip}
 
 - Install `multipath-tools`.
 
@@ -128,7 +128,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    ```
    multipath -t
    ```
-   {:pre}
+   {: pre}
 
 2. Modify the default values of `multipath.conf`.
 
@@ -170,7 +170,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
    The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpathn; where mpathn is the WWID number of the device.
 
-   For more information, see the [multipath.conf manual for Debian Buster](https://manpages.debian.org/buster/multipath-tools/multipath.conf.5.en.html){:external}.
+   For more information, see the [multipath.conf manual for Debian Buster](https://manpages.debian.org/buster/multipath-tools/multipath.conf.5.en.html){: external}.
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Start the multipath service.
@@ -180,7 +180,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    {: pre}
 
    If you need to edit the multipath configuration file after you have started the multipath daemon, you must restart the multipathd service for the changes to take effect.
-   {:note}
+   {: note}
 
 ## Update /etc/iscsi/initiatorname.iscsi file
 {: #updateinitiatordebi10}
@@ -211,20 +211,20 @@ discovery.sendtargets.auth.password = <Password-value-from-Portal>
 {: codeblock}
 
 Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
-{:important}
+{: important}
 
 Restart the iscsi service for the changes to take effect.
 
 ```
 systemctl restart iscsid.service
 ```
-{:pre}
+{: pre}
 
 ## Discover the storage device and login
 {: #discoverandlogindebi10}
 {: step}
 
-The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){:external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```
@@ -293,8 +293,8 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){:external}.
-  {:tip}
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+  {: tip}
 
 3. Check `dmesg` to make sure that the new disks have been detected.
    ```

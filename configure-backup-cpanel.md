@@ -20,16 +20,16 @@ subcollection: BlockStorage
 {: #cPanelBackups}
 
 You can use the following instructions to configure your backups in cPanel to be stored in {{site.data.keyword.blockstoragefull}}. The assumption is that root or sudo SSH and full WebHost Manager (WHM) access are available. These instructions are based on a **CentOS 7** host.
-{:shortdesc}
+{: shortdesc}
 
 For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/){: external}.
-{:tip}
+{: tip}
 
 1. Connect to the host through SSH.
 
 2. Ensure that a mount point target exists. <br />
    By default, the cPanel system saves backup files locally, to the `/backup` directory. For the purpose of this document, it is assumed that `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
-   {:note}
+   {: note}
 
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to iSCSI LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
 
@@ -40,7 +40,7 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
    {: pre}
 
     This command compresses and transmits your data, while it preserves as much as possible, except for hard links. It provides information about what files are being transferred plus a brief summary at the end.
-    {:tip}
+    {: tip}
 
 5. Log in to WHM and go to the backup configuration by clicking **Home** > **Backup** > **Backup Configuration**.
 
@@ -49,7 +49,7 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
     - Select **Enable to mount a backup drive**. This setting causes the backup configuration process to check the `/etc/fstab` file for a backup mount (`/backup2`). <br />
 
     If a mount exists with the same name as the staging directory, the backup configuration process mounts the drive and backs up the information to the drive. After the backup process finishes, it dismounts the drive.
-    {:note}
+    {: note}
 
 7. Apply the changes by clicking **Save Configuration**.
 

@@ -24,7 +24,7 @@ subcollection: BlockStorage
 {: #duplicatevolume}
 
 You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume is independent from the original volume.
-{:shortdesc}
+{: shortdesc}
 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).  
 
@@ -37,7 +37,7 @@ When the data copy is complete, the duplicate can be managed and used as an inde
 This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
-{:tip}
+{: tip}
 
 Some common uses for a duplicate volume:
 - **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
@@ -49,13 +49,13 @@ Some common uses for a duplicate volume:
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
-{:ui}
+{: ui}
 
 You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} in a couple of ways.
 
 ### Creating a duplicate from the Storage List in the UI
 {: #cloneLUN1UI}
-{:ui}
+{: ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click the ellipsis (**...**) > **Duplicate Volume**.
@@ -65,7 +65,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
 
    {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
-   {:tip}
+   {: tip}
 
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 8. You can select the OS Type to be different than the original volume or to stay the same.
@@ -78,7 +78,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 
 ### Creating a duplicate from the Volume detail page the UI
 {: #cloneLUN2UI}
-{:ui}
+{: ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
@@ -89,7 +89,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 7. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
 
    {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
-   {:tip}
+   {: tip}
 
 8. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 9. You can select the OS Type to be different than the original volume or to stay the same.
@@ -103,7 +103,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 
 ## Creating a duplicate LUN through the SLCLI
 {: #cloneinCLI}
-{:cli}
+{: cli}
 
 You can use the following command in the SLCLI to create a duplicate {{site.data.keyword.blockstorageshort}} volume.
 
@@ -157,7 +157,7 @@ Options:
                                   to monthly)
   -h, --help                      Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
@@ -166,7 +166,7 @@ While data is being copied from the original volume to the duplicate, you can se
 
 ## Updating data on the independent duplicate from the CLI
 {: #refreshindependentvol}
-{:cli}
+{: cli}
 
 As time passes and the primary volume changes, the independent duplicate volume can be updated with these changes to reflect the current state through the refresh action. The data on the independent volume can be refreshed at any time. The refresh involves taking a snapshot of the primary volume and then, updating the independent volume by using that snapshot. A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
 

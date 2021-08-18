@@ -21,10 +21,10 @@ subcollection: BlockStorage
 {: #mountingCloudLinux}
 
 Follow these instructions to mount your iSCSI LUN with multipath on a CloudLinux Server release 6.10.
-{:shortdesc}
+{: shortdesc}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
-{:important}
+{: important}
 
 ## Authorizing the host
 {: #authhostclin}
@@ -53,7 +53,7 @@ Options:
   -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 ```
 # slcli block subnets-assign -h
@@ -65,10 +65,10 @@ Options:
   --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
 ```
-{:codeblock}
+{: codeblock}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{:important}
+{: important}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountingCloudLin}
@@ -145,7 +145,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
      {: codeblock}
 
      Use uppercase for CHAP names. Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
-     {:important}
+     {: important}
 
 
 3. Restart `iscsi` and `multipathd` services.

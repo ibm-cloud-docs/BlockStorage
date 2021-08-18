@@ -22,18 +22,18 @@ subcollection: BlockStorage
 {: #replication}
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
-{:shortdesc}
+{: shortdesc}
 
 Replication keeps your data in sync in two different locations. If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
-{:tip}
+{: tip}
 
 Before you can replicate, you must create a snapshot schedule. The option to **Order Replica** does not appear unless this condition is met.
-{:important}
+{: important}
 
 
 ## Determining the remote data center for my replicated storage volume in the UI
-{:#determinereplocationUI}
-{:ui}
+{: #determinereplocationUI}
+{: ui}
 
 {{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations worldwide.
 See Table 1 for the complete list of data center availability and replication targets.
@@ -44,8 +44,8 @@ See Table 1 for the complete list of data center availability and replication ta
 {: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers. Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities can't start replication with replica targets in US 1 data centers." caption-side="top"}
 
 ## Determining the remote data center for my replicated storage volume from the SLCLI
-{:#determinereplocationCLI}
-{:cli}
+{: #determinereplocationCLI}
+{: cli}
 
 To list suitable replication datacenters for a specific volume, use the following command.
   ```
@@ -68,20 +68,20 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 2. Click **Actions** and click **Order Replica**.
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
    You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
-   {:tip}
+   {: tip}
 
 3. Select a **Location** for the replica volume.
 4. Click **Continue**.
 5. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
 
    Discounts are applied when the order is processed.
-   {:note}
+   {: note}
 6. Review your order, and click the **I have read the…** check box.
 7. Click **Place Order**.
 
 ## Creating the initial replica from the SLCLI
 {: #enablerepCLI}
-{:cli}
+{: cli}
 
 Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. Then, you can use the following command to order a replica volume.
 
@@ -126,7 +126,7 @@ List existing replicant volumes for a file volume with the following command.
 
 ## Viewing the replication history in the UI
 {: #replicationhistoryUI}
-{:ui}
+{: ui}
 
 To view the Replication history, click Manage on the main menu bar. Select **Account**, then scroll to the Audit Log. The Storage Replication Events list contains the names of the volume, a description of the replication event and the time stamp of the event.
 
@@ -171,7 +171,7 @@ When a primary volume is canceled, the replication schedule and the volume in th
  You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
 
  Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
- {:important}
+ {: important}
 
 
  ## Creating a duplicate of a replica

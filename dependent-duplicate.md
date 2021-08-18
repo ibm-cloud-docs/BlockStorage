@@ -21,13 +21,13 @@ subcollection: BlockStorage
 {: #dependentduplicate}
 
 With the new dependent volume feature, {{site.data.keyword.cloud}} customers are able to create volume duplicates and refresh the data on the dependent volume by using a snapshot from the primary volume whenever they want to. Replica volumes cannot be used to create or update dependent duplicate volumes.
-{:shortdesc}
+{: shortdesc}
 
 If you would like to know about creating a duplicate volume that is independent from the original volume, see [Creating and managing independent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
-{:note}
+{: note}
 
 The commands described in the article are part of the SLCLI. For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
-{:tip}
+{: tip}
 
 ## Ordering a dependent volume
 {: #orderdependentvol}

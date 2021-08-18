@@ -28,7 +28,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 {: #data-storage}
 
 {{site.data.keyword.blockstoragefull}} that is provisioned with either Endurance or Performance option is secured with provider-managed encryption, at no extra cost and no impact to performance.
-{:shortdesc}
+{: shortdesc}
 
 The provider-managed encryption-at-rest feature uses the following industry standard protocols:
 
@@ -51,7 +51,7 @@ When you order {{site.data.keyword.blockstorageshort}}, select a data center not
 <caption>Figure 1. Example of the lock icon that shows that the LUN is encrypted.</caption>
 
 Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
-{:important}
+{: important}
 
 ## Deleting {{site.data.keyword.blockstorageshort}} instances
 {: #service-delete}
@@ -61,14 +61,14 @@ If you no longer need a specific LUN, you can cancel it at any time. {{site.data
 Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization can perform the data sanitization procedure before they delete their storage.
 
 To delete a storage LUN, it's necessary to revoke access from any hosts first. Active replicas and dependent duplicates can also block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
-{:important}
+{: important}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the volume to be canceled, click **Actions**, and select **Delete {{site.data.keyword.blockstorageshort}}**.
 3. Confirm if want to cancel the volume immediately or on the anniversary date of when the LUN was provisioned.
 
    If you select the option to delete the volume on its anniversary date, you can void the cancellation request before its anniversary date.
-   {:tip}
+   {: tip}
 
 4. Click **Continue**.
 5. Click the **Acknowledgment** check box and click **Confirm**.
