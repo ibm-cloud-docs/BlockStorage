@@ -40,7 +40,7 @@ When you place an order with API, specify the "Storage as a Service" package to 
 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 
-## Connecting new {{site.data.keyword.blockstorageshort}} to host
+## Authorizing the host to access the new {{site.data.keyword.blockstorageshort}}
 
 "Authorized" hosts are hosts that were given access to a volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the user name, password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 
@@ -53,18 +53,14 @@ Your new storage is available to mount in a few minutes. You can view it in the 
    - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
-
-## Snapshots and Replication
-
-Do you have snapshots and replication established for your original LUN? If yes, you need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume.
-
-If your replication target data center is not upgraded yet, you can't establish replication for the new volume until that data center is upgraded.
-{: note}
-
+When the host is authorized to access the new storage, you can mount or map the storage volume.
 
 ## Migrating your data
 
 1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs.
+   - [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
+   - [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
+   - [Connecting to LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
    If you need assistance with connecting the two LUNs to your host, open a support case.
    {: tip}
@@ -72,7 +68,7 @@ If your replication target data center is not upgraded yet, you can't establish 
 2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
   - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
   - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption.
-  - If you have any bandwidth concerns, do the migration during off peak times.
+  - If you have any bandwidth concerns, do the migration during off-peak times.
   - If you need assistance with these considerations, open a support case.
 
 3. Copy your data across.
