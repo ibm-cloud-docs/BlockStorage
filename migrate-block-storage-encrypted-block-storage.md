@@ -33,7 +33,7 @@ The assumption is that you already have your non-encrypted LUN attached to your 
 
 You can order an enhanced LUN in the IBM Cloud Console UI, through the CLI or the API. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
-- [Ordering {{site.data.keyword.blockstorageshort}})](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole)
+- [Ordering {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole)
 
 When you place an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
 {: important}
