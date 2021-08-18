@@ -66,19 +66,19 @@ When the host is authorized to access the new storage, you can mount or map the 
 3. Copy your data across.
    - For **Microsoft&reg; Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
    - For **Linux&reg;**, you can use `rsync` to copy over the data.
-   ```
-   [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
-   ```
+      ```
+      [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
+      ```
 
-   It is advisable to use the previous command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.
-   {: tip}
+      It is advisable to use the previous command with the `--dry-run` flag once to make sure that the paths line up correctly. If this process is interrupted, you can delete the last destination file that was being copied to make sure that it is copied to the new location from the beginning.
+      {: tip}
 
-   When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} LUN. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.
+      When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} LUN. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.
 
-   For more information about `rsync`, see the [`rsync` man page](https://download.samba.org/pub/rsync/rsync.html){: external}.
-   {: note}
+      For more information about `rsync`, see the [`rsync` man page](https://download.samba.org/pub/rsync/rsync.html){: external}.
+      {: note}
 
-   When your migration is complete, you can move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original LUN.
+      When your migration is complete, you can move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original LUN.
 
 ## Snapshots and Replication
 
