@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-11-14"
+  years: 2014, 2021
+lastupdated: "2021-08-18"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -29,15 +29,14 @@ The assumption is that you already have your non-encrypted LUN attached to your 
 - [Connecting storage volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
 - [Connecting storage volumes on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
-## Creating a {{site.data.keyword.blockstorageshort}}
+## Provisioning a {{site.data.keyword.blockstorageshort}}
+
+You can order an enhanced LUN in the IBM Cloud Console UI, through the CLI or the API. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
+
+- [Ordering {{site.data.keyword.blockstorageshort}})](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole)
 
 When you place an order with API, specify the "Storage as a Service" package to ensure you're getting the updated features with your new storage.
 {: important}
-
-You can order an enhanced LUN through the IBM Cloud Console. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
-
-- [Ordering {{site.data.keyword.blockstorageshort}} with pre-defined IOPS Tiers (Endurance)](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsoleEndurance)
-- [Ordering {{site.data.keyword.blockstorageshort}} with custom IOPS (Performance)](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#orderingthroughConsolePerformance)
 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 
