@@ -18,9 +18,7 @@ subcollection: BlockStorage
 # Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 
-Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
-
-The preferred migration path is to provision an enhanced {{site.data.keyword.blockstorageshort}}, connect both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
+Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). The preferred migration path is to provision an enhanced {{site.data.keyword.blockstorageshort}}, connect both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 {: shortdesc}
 
 ## Provisioning a {{site.data.keyword.blockstorageshort}}
