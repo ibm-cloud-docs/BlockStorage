@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-11-14"
+  years: 2014, 2021
+lastupdated: "2021-08-18"
 
 keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -40,7 +40,7 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 ## What LUKS doesn't do
 
 - Allow applications that require many (more than eight) users to have distinct access keys to same devices.
-- Work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Encryption.html){: external}.
+- Work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/index){: external}.
 
 ## Setting up a LUKS-encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 
