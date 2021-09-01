@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-27"
+lastupdated: "2021-09-01"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -26,6 +26,9 @@ subcollection: BlockStorage
 If a catastrophic failure or disaster causes an outage on the primary site, customers can perform the following actions to quickly access their data on the secondary site. When the primary volume is inaccessible, you can force a failover to the remote replica.
 {: shortdesc}
 
+Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
+{: note}
+
 This action breaks the replication relationship and cannot be undone without manual intervention from the support team.
 {: important}
 
@@ -35,8 +38,8 @@ This action breaks the replication relationship and cannot be undone without man
 
 1. Go to your list of {{site.data.keyword.blockstoragefull}}. From the **Classic Infrastructure** menu, click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Locate and click the volume name.
-3. Click **Actions** > **Disaster Recovery Failover**.
-4. Check the box to confirm you understand the failover cannot be undone without a support case.
+3. Click **Actions** > **Failover**.
+4. When the primary location is unavailable, the option of Disaster Recovery Failover becomes active. Check the box to confirm you understand the failover cannot be undone without a support case.
 5. Click **Yes** to proceed.
 
 ## Fail over to the replica volume by using the SL CLI
