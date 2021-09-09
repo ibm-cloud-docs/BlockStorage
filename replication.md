@@ -36,6 +36,7 @@ Before you can replicate, you must create a snapshot schedule. The option to **O
 {: ui}
 
 {{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+
 See Table 1 for the complete list of data center availability and replication targets within each region.
 
 | US 1 | US 2 | Latin America | Canada  | Europe  | Asia-Pacific  | Australia  |
