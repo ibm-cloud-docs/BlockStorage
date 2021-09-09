@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-09-09"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -35,17 +35,23 @@ Before you can replicate, you must create a snapshot schedule. The option to **O
 {: #determinereplocationUI}
 {: ui}
 
-{{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations worldwide.
-See Table 1 for the complete list of data center availability and replication targets.
+{{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+
+See Table 1 for the complete list of data center availability and replication targets within each region.
 
 | US 1 | US 2 | Latin America | Canada  | Europe  | Asia-Pacific  | Australia  |
 |-----|-----|-----|-----|-----|-----|-----|
-| DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01 | TOR01<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />OSA21<br />OSA22<br />OSA23<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
-{: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers. Data centers in US 1 region do NOT have enhanced storage. Hosts in data centers with enhanced storage capabilities can't start replication with replica targets in US 1 data centers." caption-side="top"}
+| DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01<br />SAO04<br />SAO05 | TOR01<br />TOR04<br />TOR05<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />OSA21<br />OSA22<br />OSA23<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
+{: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
+
+ Data centers in US 1 region do NOT have enhanced storage. For that reason, hosts in data centers within the US 2 region can't start replication with replica targets in US 1 data centers.
+ {: note}
 
 ## Determining the remote data center for my replicated storage volume from the SLCLI
 {: #determinereplocationCLI}
 {: cli}
+
+{{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
 To list suitable replication datacenters for a specific volume, use the following command.
   ```
