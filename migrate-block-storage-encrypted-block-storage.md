@@ -52,7 +52,7 @@ When the host is authorized to access the new storage, you can mount or map the 
 1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs.
    - [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Connecting to LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Connecting to LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
    If you need assistance with connecting the two LUNs to your host, open a support case.
    {: tip}
@@ -64,7 +64,7 @@ When the host is authorized to access the new storage, you can mount or map the 
   - If you need assistance with these considerations, open a support case.
 
 3. Copy your data across.
-   - For **Microsoft&reg; Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
+   - For **Microsoft&reg; Windows&reg;**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
    - For **Linux&reg;**, you can use `rsync` to copy over the data.
       ```
       [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
