@@ -120,7 +120,6 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
   If you want to  boot from the LUN, then the `multipath-tools-boot` package needs to be installed as well.
   {: tip}
 
-
 ## Set up the multipath
 {: #setupmultipathdubu20}
 {: step}

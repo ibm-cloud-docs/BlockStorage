@@ -85,4 +85,4 @@ When your migration is complete, you can move production to the new LUN. Then, y
 Do you have snapshots and replication established for your original LUN? If yes, you need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume.
 
 If your replication target data center is not upgraded yet, you can't establish replication for the new volume until that data center is upgraded.
-{:important}
+{: important}

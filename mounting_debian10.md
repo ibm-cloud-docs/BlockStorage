@@ -294,7 +294,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
    In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
-  {: tip}
+   {: tip}
 
 3. Check `dmesg` to make sure that the new disks have been detected.
    ```

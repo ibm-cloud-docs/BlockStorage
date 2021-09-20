@@ -262,6 +262,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 
    If you select the option to delete the LUN on its anniversary date, you can void the cancellation request before its anniversary date.
    {: tip}
+   
 4. Click the **Acknowledgment** check box and click **Delete**
 
 You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete.
