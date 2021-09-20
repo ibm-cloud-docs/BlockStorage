@@ -51,7 +51,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
    This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
    {: tip}
 
-6. Choose your **OS Type** from the list.<br/>
+6. Choose your **OS Type** from the list.
 
    This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {: tip}
