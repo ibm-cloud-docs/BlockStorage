@@ -247,10 +247,12 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot.
    {: note}
+   
 5. Click **Yes** to start the restore.
 
    Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {: note}
+
 6. Mount and reattach your storage volume to the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Connecting iSCSI Volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
