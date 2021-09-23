@@ -52,11 +52,13 @@ The process of data encryption creates a load on the host that might potentially
    # yum install cryptsetup-luks
    ```
    {: pre}
+
 2. Get the disk ID:<br/>
    ```
    # fdisk –l | grep /dev/mapper
    ```
    {: pre}
+
 3. Locate your volume in the listing.
 4. Encrypt the block device;
 
@@ -81,8 +83,10 @@ The process of data encryption creates a load on the host that might potentially
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
+
 6. Enter the passphrase.
-7. Verify the mapping, and view status of the encrypted volume.   <br/>
+7. Verify the mapping, and view status of the encrypted volume.
+
    ```
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
@@ -95,25 +99,30 @@ The process of data encryption creates a load on the host that might potentially
      mode:    read/write
      Command successful
    ```
+
 8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action ensures that outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.<br/>
     ```
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
+
 9. Format the volume.<br/>
    ```
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
+
 10. Mount the volume.<br/>
    ```
    # mkdir /cryptData
    ```
    {: pre}
+
    ```
    # mount /dev/mapper/cryptData /cryptData
    ```
    {: pre}
+
    ```
    # df -H /cryptData
    ```

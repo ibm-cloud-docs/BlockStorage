@@ -105,6 +105,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 
    The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    {: tip}
+
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
    ![Connected status.](/images/Connected.png)
 
@@ -132,7 +133,8 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     - On the Target Portal IP list, select the IP address for the second interface that is enabled on the storage array.
 
       You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
-       {: tip}
+      {: tip}
+
     - Click **Enable CHAP log-on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
@@ -140,7 +142,8 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 
    If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} before you attempt to make the connection.
    {: note}
-9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`. <br/>
+   
+9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
    ![Devices](/images/Devices.png)
 
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balance policy.

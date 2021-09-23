@@ -82,6 +82,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
    Discounts are applied when the order is processed.
    {: note}
+
 6. Review your order, and click the **I have read the…** check box.
 7. Click **Place Order**.
 
@@ -176,25 +177,24 @@ When a primary volume is canceled, the replication schedule and the volume in th
 
  You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
 
- Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
- {: important}
+Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
+{: important}
 
+## Creating a duplicate of a replica
+{: #cloneareplica}
 
- ## Creating a duplicate of a replica
-  {: #cloneareplica}
+You can create a duplicate of an existing {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.
 
- You can create a duplicate of an existing {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.
+Duplicates can be created from both primary and replica volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
 
- Duplicates can be created from both primary and replica volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
+Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete.
 
- Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete.
+For more information, see [Creating a duplicate {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
 
- For more information, see [Creating a duplicate {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
+## Using replicas to failover when disaster strikes
+{: #replicatotherescureDR}
 
- ## Using replicas to failover when disaster strikes
- {: #replicatotherescureDR}
+When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
 
- When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
-
- * If the primary location is in imminent danger or severely impacted, see [Failover with an accessible Primary volume](/docs/BlockStorage?topic=BlockStorage-dr-accessible).
- * If the primary location is down, see [Failover with an inaccessible Primary volume](/docs/BlockStorage?topic=BlockStorage-dr-inaccessible).
+* If the primary location is in imminent danger or severely impacted, see [Failover with an accessible Primary volume](/docs/BlockStorage?topic=BlockStorage-dr-accessible).
+* If the primary location is down, see [Failover with an inaccessible Primary volume](/docs/BlockStorage?topic=BlockStorage-dr-inaccessible).

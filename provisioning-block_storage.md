@@ -16,10 +16,10 @@ subcollection: BlockStorage
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:shortdesc: .shortdesc}
-{: ui-linked}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{: ui-linked}
 
 
 # Ordering {{site.data.keyword.blockstorageshort}}
@@ -51,7 +51,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
    This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
    {: tip}
 
-6. Choose your **OS Type** from the list.<br/>
+6. Choose your **OS Type** from the list.
 
    This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows&reg; 2012 or Windows&reg; 2016 server, select the Windows&reg; 2008+ option from the list. For more information about various Windows&reg; options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {: tip}
@@ -66,6 +66,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 
    Discounts are applied when the order is processed.
    {: note}
+
 9. After you reviewed the terms and conditions, check the **I have read and agree to the...** box.
 10. Click **Create**. Your new storage allocation is available in a few minutes.
 
