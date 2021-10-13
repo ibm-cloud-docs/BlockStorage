@@ -87,19 +87,19 @@ toc:
             href: https://cloud.ibm.com/docs/overview?topic=overview-slas
         - topicgroup:
             label: API reference
-          topics:
-          - link:
-              label: Introduction to the SL API
-              href: https://sldn.softlayer.com/article/getting-started/
-          - link:
-              label: Python API Client Information
-              href: https://softlayer-python.readthedocs.io/en/latest/index.html
+            topics:
+            - link:
+                label: Introduction to the SL API
+                href: https://sldn.softlayer.com/article/getting-started/
+            - link:
+                label: Python API Client Information
+                href: https://softlayer-python.readthedocs.io/en/latest/index.html
         - topicgroup:
             label: Command reference
             topics:
             - link:
                 label: IBM Cloud CLI and Developer Tools
-                href: https://cloud.ibm.com/docs/cli?topic=cli-sl-block-storage
+                href: https://cloud.ibm.com/docs/cli?topic=cli-sl-file-storage
             - slcli-usage.md
 
     - navgroup:
