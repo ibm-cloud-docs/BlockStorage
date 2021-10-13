@@ -83,7 +83,7 @@ toc:
         links:
         - link:
             label: Identity and Access Management
-            href: https://cloud.ibm.com/docs/iam?topic=iam-infrapermission
+            href: https://cloud.ibm.com/docs/account?topic=account-mngclassicinfra
         - link:
             label: Service Level Agreements (SLAs)
             href: https://cloud.ibm.com/docs/overview?topic=overview-slas
