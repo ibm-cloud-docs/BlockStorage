@@ -77,8 +77,6 @@ toc:
     - navgroup:
         id: reference
         topics:
-        - /account/account-mngclassicinfra
-        - /overview/overview-slas
         - topicgroup:
             label: API reference
             topics:
@@ -93,6 +91,8 @@ toc:
             topics:
             - /cli/cli-sl-block-storage
             - slcli-usage.md
+        - /account/account-mngclassicinfra
+        - /overview/overview-slas
 
     - navgroup:
         id: help
