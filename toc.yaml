@@ -86,7 +86,7 @@ toc:
             href: https://cloud.ibm.com/docs/iam?topic=iam-infrapermission
         - link:
             label: Service Level Agreements (SLAs)
-            href: https://{Domainlabel}/docs/overview?topic=overview-slas
+            href: https://cloud.ibm.com/docs/overview?topic=overview-slas
         - topicgroup:
           label: API reference
           links:
