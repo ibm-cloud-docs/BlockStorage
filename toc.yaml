@@ -23,8 +23,8 @@ toc:
         - snapshots.md
         links:
           - link:
-             label: What is Block Storage?
-             href: https://www.ibm.com/cloud/learn/block-storage
+              label: What is Block Storage?
+              href: https://www.ibm.com/cloud/learn/block-storage
 
     - navgroup:
         id: tutorial
