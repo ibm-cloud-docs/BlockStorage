@@ -19,11 +19,12 @@ toc:
         id: learn
         topics:
         - getting-started.md
-        - link:
-            label: What is Block Storage?
-            href: https://www.ibm.com/cloud/learn/block-storage
         - selectdatacenters.md
         - snapshots.md
+        links:
+          - link:
+             label: What is Block Storage?
+             href: https://www.ibm.com/cloud/learn/block-storage
 
     - navgroup:
         id: tutorial
@@ -52,9 +53,10 @@ toc:
             - set-host-queue-depth-settings-performance-and-endurance-storage.md
             - configure-backup-cpanel.md
             - configure-backup-plesk.md
-            - link:
-                label: Mounting ISCSI on VMware ESXi
-                href: https://cloud.ibm.com/docs/vmware?topic=vmware-mount-iscsi-esxi
+            links:
+              - link:
+                  label: Mounting ISCSI on VMware ESXi
+                  href: https://cloud.ibm.com/docs/vmware?topic=vmware-mount-iscsi-esxi
         - topicgroup:
             label: Managing
             topics:
@@ -78,7 +80,7 @@ toc:
 
     - navgroup:
         id: reference
-        topics:
+        links:
         - link:
             label: Identity and Access Management
             href: https://cloud.ibm.com/docs/iam?topic=iam-infrapermission
@@ -87,7 +89,7 @@ toc:
             href: https://{Domainlabel}/docs/overview?topic=overview-slas
         - topicgroup:
           label: API reference
-          topics:
+          links:
           - link:
               label: Introduction to the SL API
               href: https://sldn.softlayer.com/article/getting-started/
@@ -96,11 +98,12 @@ toc:
               href: https://softlayer-python.readthedocs.io/en/latest/index.html
         - topicgroup:
           label: Command reference
+          links:
+            - link:
+                label: IBM Cloud CLI and Developer Tools
+                href: https://cloud.ibm.com/docs/cli?topic=cli-sl-block-storage
           topics:
-          - link:
-              label: IBM Cloud CLI and Developer Tools
-              href: https://cloud.ibm.com/docs/cli?topic=cli-sl-block-storage
-          -  slcli-usage.md
+            -  slcli-usage.md
 
     - navgroup:
         id: help
