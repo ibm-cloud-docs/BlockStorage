@@ -87,7 +87,7 @@ toc:
         - link:
             label: Service Level Agreements (SLAs)
             href: https://cloud.ibm.com/docs/overview?topic=overview-slas
-        - topicgroup:
+        - linkgroup:
           label: API reference
           links:
           - link:
@@ -96,7 +96,7 @@ toc:
           - link:
               label: Python API Client Information
               href: https://softlayer-python.readthedocs.io/en/latest/index.html
-        - topicgroup:
+        - linkgroup:
           label: Command reference
           links:
             - link:
