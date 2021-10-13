@@ -52,9 +52,7 @@ toc:
             - set-host-queue-depth-settings-performance-and-endurance-storage.md
             - configure-backup-cpanel.md
             - configure-backup-plesk.md
-            - link:
-                label: Mounting ISCSI on VMware ESXi
-                href: https://cloud.ibm.com/docs/vmware?topic=vmware-mount-iscsi-esxi
+            - /vmware/vmware-mount-iscsi-esxi
         - topicgroup:
             label: Managing
             topics:
@@ -79,12 +77,8 @@ toc:
     - navgroup:
         id: reference
         topics:
-        - link:
-            label: Identity and Access Management
-            href: https://cloud.ibm.com/docs/account?topic=account-mngclassicinfra
-        - link:
-            label: Service Level Agreements (SLAs)
-            href: https://cloud.ibm.com/docs/overview?topic=overview-slas
+        - /account/account-mngclassicinfra
+        - /overview/overview-slas
         - topicgroup:
             label: API reference
             topics:
@@ -97,9 +91,7 @@ toc:
         - topicgroup:
             label: Command reference
             topics:
-            - link:
-                label: IBM Cloud CLI and Developer Tools
-                href: https://cloud.ibm.com/docs/cli?topic=cli-sl-block-storage
+            - /cli/cli-sl-block-storage
             - slcli-usage.md
 
     - navgroup:
