@@ -63,7 +63,7 @@ Block Storage - Classic
 
     {: .navgroup id="reference"}
     [IBM Cloud CLI and Developer Tools](https://cloud.ibm.com/docs/cli?topic=cli-sl-block-storage)
-    [Identity and Access Management](https://cloud.ibm.com/docs/iam?topic=iam-infrapermission)
+    [Identity and Access Management](https://cloud.ibm.com/docs/account?topic=account-mngclassicinfra)
     [Service Level Agreements (SLAs)](https://cloud.ibm.com/docs/overview?topic=overview-slas)
     slcli-usage.md
     [Introduction to the SL API](https://sldn.softlayer.com/article/getting-started/)
