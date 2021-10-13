@@ -126,74 +126,74 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Increase capacity on a Performance storage volume.
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-  <SOAP-ENV:Header>
-    <ns1:authenticate>
-    </ns1:authenticate>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:placeOrder>
-      <orderData xsi:type="ns1:SoftLayer_Container_Product_Order_Network_Storage_AsAService_Upgrade">
-        <volume xsi:type="ns1:SoftLayer_Network_Storage">
-            <id xsi:type="xsd:int">XXXXXXXX</id> <!--where XXXXXXXXis the VolumeID-->
-        </volume>
-        <volumeSize xsi:type="xsd:int">2007</volumeSize> <!-- This is the new size we want to upgrade to -->
-        <packageId xsi:type="xsd:int">759</packageId>
-        <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
-            <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">189433</id> <!-- Top level price -->
-            </item>
-            <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">190233</id> <!-- 2000 - 2999 GBs storage price-->
-            </item>
-            <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">190293</id> <!-- 200 - 40000 IOPS price-->
-            </item>
-        </prices>
-      </orderData>
-    </ns1:placeOrder>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-{: codeblock}
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Header>
+      <ns1:authenticate>
+      </ns1:authenticate>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+      <ns1:placeOrder>
+        <orderData xsi:type="ns1:SoftLayer_Container_Product_Order_Network_Storage_AsAService_Upgrade">
+          <volume xsi:type="ns1:SoftLayer_Network_Storage">
+              <id xsi:type="xsd:int">XXXXXXXX</id> <!--where XXXXXXXXis the VolumeID-->
+          </volume>
+          <volumeSize xsi:type="xsd:int">2007</volumeSize> <!-- This is the new size we want to upgrade to -->
+          <packageId xsi:type="xsd:int">759</packageId>
+          <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
+              <item xsi:type="ns1:SoftLayer_Product_Item_Price">
+                  <id xsi:type="xsd:int">189433</id> <!-- Top level price -->
+              </item>
+              <item xsi:type="ns1:SoftLayer_Product_Item_Price">
+                  <id xsi:type="xsd:int">190233</id> <!-- 2000 - 2999 GBs storage price-->
+              </item>
+              <item xsi:type="ns1:SoftLayer_Product_Item_Price">
+                  <id xsi:type="xsd:int">190293</id> <!-- 200 - 40000 IOPS price-->
+              </item>
+          </prices>
+        </orderData>
+      </ns1:placeOrder>
+    </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>
+  ```
+  {: codeblock}
 
 
 * Increase capacity on an Endurance storage volume.
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-  <SOAP-ENV:Header>
-    <ns1:authenticate>
-    </ns1:authenticate>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:placeOrder>
-      <orderData xsi:type="ns1:SoftLayer_Container_Product_Order_Network_Storage_AsAService_Upgrade">
-        <volume xsi:type="ns1:SoftLayer_Network_Storage">
-            <id xsi:type="xsd:int">XXXXXXXX</id> <!--Where XXXXXXXX is the VolumeID -->
-        </volume>
-        <packageId xsi:type="xsd:int">759</packageId>
-        <volumeSize xsi:type="xsd:int">25</volumeSize> <!-- the new size -->
-        <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
-            <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">189433</id> <!-- Top level price -->
-            </item>
-            <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">196033</id> <!-- Performance tier price -->
-            </item>
-            <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">196093</id> <!-- Storage space price -->
-            </item>
-        </prices>
-      </orderData>
-    </ns1:placeOrder>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-{: codeblock}
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Header>
+      <ns1:authenticate>
+      </ns1:authenticate>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+      <ns1:placeOrder>
+        <orderData xsi:type="ns1:SoftLayer_Container_Product_Order_Network_Storage_AsAService_Upgrade">
+          <volume xsi:type="ns1:SoftLayer_Network_Storage">
+              <id xsi:type="xsd:int">XXXXXXXX</id> <!--Where XXXXXXXX is the VolumeID -->
+          </volume>
+          <packageId xsi:type="xsd:int">759</packageId>
+            <volumeSize xsi:type="xsd:int">25</volumeSize> <!-- the new size -->
+          <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
+              <item xsi:type="ns1:SoftLayer_Product_Item_Price">
+                  <id xsi:type="xsd:int">189433</id> <!-- Top level price -->
+              </item>
+              <item xsi:type="ns1:SoftLayer_Product_Item_Price">
+                  <id xsi:type="xsd:int">196033</id> <!-- Performance tier price -->
+              </item>
+              <item xsi:type="ns1:SoftLayer_Product_Item_Price">
+                  <id xsi:type="xsd:int">196093</id> <!-- Storage space price -->
+              </item>
+          </prices>
+        </orderData>
+      </ns1:placeOrder>
+    </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>
+  ```
+  {: codeblock}
 
 For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
 {: tip}
