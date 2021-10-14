@@ -78,6 +78,16 @@ toc:
         id: reference
         topics:
         - topicgroup:
+            label: Identity and Access Management
+            topics:
+             - /account/account-mngclassicinfra
+        - topicgroup:
+            label: Service Level Agreement
+            topics:
+              - link:
+                  label: Service Level Agreements for IBM Cloud (Public Cloud)
+                  href: https://www.ibm.com/support/customer/csol/terms
+        - topicgroup:
             label: API reference
             topics:
             - link:
@@ -91,8 +101,6 @@ toc:
             topics:
             - /cli/cli-sl-block-storage
             - slcli-usage.md
-        - /account/account-mngclassicinfra
-        - /overview/overview-slas
 
     - navgroup:
         id: help
