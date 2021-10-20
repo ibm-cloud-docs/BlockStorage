@@ -76,7 +76,7 @@ For more information about expanding the file system (and partitions, if any) on
 
 By using the following command, you can increase your volume from the SLCLI.
 
-```
+```python
 # slcli block volume-modify --help
 Usage: slcli block volume-modify [OPTIONS] VOLUME_ID
 
@@ -126,9 +126,9 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Increase capacity on a Performance storage volume.
 
-  ```
-  <?xml version="1.0" encoding="UTF-8"?>
-  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   ```python
+   <?xml version="1.0" encoding="UTF-8"?>
+   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>
       <ns1:authenticate>
       </ns1:authenticate>
@@ -155,16 +155,16 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
         </orderData>
       </ns1:placeOrder>
     </SOAP-ENV:Body>
-  </SOAP-ENV:Envelope>
-  ```
-  {: codeblock}
+   </SOAP-ENV:Envelope>
+   ```
+   {: codeblock}
 
 
 * Increase capacity on an Endurance storage volume.
 
-  ```
-  <?xml version="1.0" encoding="UTF-8"?>
-  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   ```python
+   <?xml version="1.0" encoding="UTF-8"?>
+   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>
       <ns1:authenticate>
       </ns1:authenticate>
@@ -191,9 +191,9 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
         </orderData>
       </ns1:placeOrder>
     </SOAP-ENV:Body>
-  </SOAP-ENV:Envelope>
-  ```
-  {: codeblock}
+   </SOAP-ENV:Envelope>
+   ```
+   {: codeblock}
 
 For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
 {: tip}

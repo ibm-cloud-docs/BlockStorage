@@ -35,16 +35,16 @@ The default limit for the number of authorizations per block volume is eight. Th
 
 It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IP addresses on a subnet, complete the following steps.
 
-**Console UI**
+### Console UI
 1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Locate the volume and click the ellipsis (**...**).
-3. Click **Authorize Host**.
-4. To see the list of available IP addresses, select **IP address** as the host type. Then, select the subnet where your host resides.
-5. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
+3. Locate the volume and click the ellipsis (**...**).
+4. Click **Authorize Host**.
+5. To see the list of available IP addresses, select **IP address** as the host type. Then, select the subnet where your host resides.
+6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
-**SLCLI**
-```
+### SLCLI
+```python
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
@@ -83,14 +83,14 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 
 When you create a LUN, you must specify the OS type. The OS type must be based on the operating system, which is used by the hosts that access the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
 
-**Windows GPT**
--  The LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows support it.
+### Windows&reg; GPT
+-  The LUN stores Windows&reg; data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows&reg; Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows&reg; support it.
 
-**Windows 2003**
-- The LUN stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
+### Windows&reg; 2003
+- The LUN stores a raw disk type in a single-partition Windows&reg; disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows&reg; 2000 Server, Windows&reg; XP, or Windows&reg; Server 2003 that uses the MBR partitioning method.
 
-**Windows 2008+**
-- The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
+### Windows&reg; 2008+
+- The LUN stores Windows&reg; data for Windows&reg; 2008 and later versions. Use this OS option if your host operating system is Windows&reg; Server 2008, Windows&reg; Server 2012, Windows&reg; Server 2016. Both MBR and GPT partitioning methods are supported.
 
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
@@ -146,18 +146,18 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 To enact this best practice, complete the following steps.
 1. Provision a VLAN in the same data center as the host and the {{site.data.keyword.blockstorageshort}} device. For more information, see [Getting started with VLANs](/docs/vlans?topic=vlans-getting-started){: external}.
-1. Provision a secondary private subnet to the new VLAN.
-2. Trunk the new VLAN to the private interface of the host. For more information, see [How do I trunk my VLANs to my servers](/docs/vlans?topic=vlans-vlans-faqs#trunk-vlans-to-servers){: external}.
+2. Provision a secondary private subnet to the new VLAN.3
+3. Trunk the new VLAN to the private interface of the host. For more information, see [How do I trunk my VLANs to my servers](/docs/vlans?topic=vlans-vlans-faqs#trunk-vlans-to-servers){: external}.
 
    This action momentarily disrupts the network traffic on the host while the VLAN is being trunked to the host.
    {: note}
 
-3. Create a network interface on the host.
-   * In Linux&reg; or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
-  * In VMware, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
-4. Add a new persistent static route on the host to the target iSCSI subnet.
-5. Ensure that the IP for the newly added interface is added to the host authorization list.
-6. Perform discovery/target portal login as described in the following topics.
+4. Create a network interface on the host.
+   * In Linux&reg; or Windows&reg;, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
+   * In VMware&reg;, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
+5. Add a new persistent static route on the host to the target iSCSI subnet.
+6. Ensure that the IP for the newly added interface is added to the host authorization list.
+7. Perform discovery/target portal login as described in the following topics.
    - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)

@@ -47,14 +47,14 @@ This action breaks the replication relationship and cannot be undone without man
 {: cli}
 
 Use the following command to fail a block volume over to a specific replicant volume.
-  ```
-  # slcli block disaster-recovery-failover --help
-  Usage: slcli block disaster-recovery-failover [OPTIONS] VOLUME_ID
-
-  Options:
-  --replicant-id TEXT  ID of the replicant volume
-  -h, --help           Show this message and exit.
-  ```
+   ```python
+   # slcli block disaster-recovery-failover --help
+   Usage: slcli block disaster-recovery-failover [OPTIONS] VOLUME_ID
+ 
+   Options:
+   --replicant-id TEXT  ID of the replicant volume
+    -h, --help           Show this message and exit.
+   ```
 
 ## Fail over to the replica volume by using the API
 {: #drfailoverAPI}
@@ -65,20 +65,20 @@ Use the following command to fail a block volume over to a specific replicant vo
 
 * URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant`
 * Request body
-  ```
-  {
+   ```zsh
+   {
     "parameters": [replicavolumeid]
-  }
-  ```
+   }
+   ```
 
 ### SOAP API
 {: #drsoapapi}
 
 * URL - `https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage`
 * Request body
-  ```
-  <?xml version="1.0" encoding="UTF-8"?>
-  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
+   ```zsh
+   <?xml version="1.0" encoding="UTF-8"?>
+   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
    <SOAP-ENV:Header>
     <ns1:authenticate>
      <username>USERNAME</username>
@@ -93,8 +93,8 @@ Use the following command to fail a block volume over to a specific replicant vo
       <replicantId xsi:type="int">replica Volume ID</replicantId>
     </ns1:disasterRecoveryFailoverToReplicant>
    </SOAP-ENV:Body>
-  </SOAP-ENV:Envelope>
-  ```
+   </SOAP-ENV:Envelope>
+   ```
 
 ## Fail back to the original primary site
 

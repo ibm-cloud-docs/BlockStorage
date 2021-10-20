@@ -40,7 +40,7 @@ If you're looking for information about using {{site.data.keyword.blockstoragesh
 {: #prereqs}
 {: step}
 
-{{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options: <br/>
+{{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options:
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 

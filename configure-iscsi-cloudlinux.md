@@ -34,12 +34,12 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis (**...**).
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
-   - If you choose IP address, select the subnet where your host resides.
+    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
-```
+```zsh
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -52,7 +52,7 @@ Options:
 ```
 {: codeblock}
 
-```
+```zsh
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
@@ -71,30 +71,30 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {: #mountingCloudLin}
 
 1. Install the iSCSI and multipath utilities on your host, and activate them.
-   ```
+   ```zsh
    yum install iscsi-initiator-utils
    ```
    {: pre}
 
-   ```
+   ```zsh
    yum install multipath-tools
 
    ```
    {: pre}
 
-   ```
+   ```zsh
    chkconfig multipathd on
    ```
    {: pre}
 
-   ```
+   ```zsh
    chkconfig iscsid on
    ```
    {: pre}
 
 2. Create or edit your configuration files.
    - Update your `/etc/multipath.conf`.
-     ```
+     ```zsh
      defaults {
         user_friendly_names no
         flush_on_last_del       yes
@@ -128,7 +128,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the user name, and password.
 
-     ```
+     ```zsh
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
@@ -146,12 +146,12 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 
 3. Restart `iscsi` and `multipathd` services.
-   ```
+   ```zsh
    /etc/init.d/iscsi restart   
    ```
    {: pre}
 
-   ```
+   ```zsh
    /etc/init.d/multipathd restart   
    ```
    {: pre}
@@ -159,45 +159,45 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud_notm}} console.
 
      A. Run the discovery against the iSCSI array.
-       ```
-       iscsiadm -m discovery -t sendtargets -p <ip-value-from-SL-Portal>
+       ```zsh
+       # iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"
        ```
        {: pre}
 
-        Example output
-       ```
+       Example output
+       ```zsh
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
        161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002
        161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002
        ```
 
      B. Set the host to automatically log in to the iSCSI array.
-       ```
-       iscsiadm -m node -L automatic
+       ```zsh
+       # iscsiadm -m node -L automatic
        ```
        {: pre}
 
 5. Verify that the host is logged in to the iSCSI array and maintained its sessions.
-   ```
+   ```zsh
    iscsiadm -m session
    ```
    {: pre}
 
    Example output
-   ```
+   ```zsh
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
    tcp: [2] 161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
    ```
 
 
 6. Verify that the device is connected.
-   ```
+   ```zsh
    fdisk -l
    ```
    {: pre}
 
    Example output
-   ```
+   ```zsh
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
    255 heads, 63 sectors/track, 121534 cylinders
    Units = cylinders of 16065 * 512 = 8225280 bytes
@@ -231,19 +231,20 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 7. Verify whether MPIO is configured correctly by listing the devices. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. If the configuration is correct, two NETAPP disks show in the output.
 
-   ```
-   # multipath -l
-   ```
-   {: pre}
+    ```zsh
+    # multipath -l
+    ```
+    {: pre}
 
    Example output
-   ```
-   root@server:~# multipath -l
-   3600a098038304454515d4b6a5a444e35 dm-0 NETAPP,LUN C-Mode
-   size=20G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
-   |-+- policy='round-robin 0' prio=50 status=active
-   | `- 1:0:0:1 sdb 8:16 active ready running
-  `-+- policy='round-robin 0' prio=10 status=enabled
-    `- 2:0:0:1 sdc 8:32 active ready running
-   ```
+    ```zsh
+    root@server:~# multipath -l
+    3600a098038304454515d4b6a5a444e35 dm-0 NETAPP,LUN C-Mode
+    size=20G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+    |-+- policy='round-robin 0' prio=50 status=active
+    | `- 1:0:0:1 sdb 8:16 active ready running
+    `-+- policy='round-robin 0' prio=10 status=enabled
+     `- 2:0:0:1 sdc 8:32 active ready running
+    ```
+
 In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If there's an event, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.

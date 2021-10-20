@@ -47,8 +47,7 @@ The provider-managed encryption-at-rest feature is available for {{site.data.key
 
 When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon to the right of the LUN/Volume Name field that indicates that the volume is encrypted.
 
-![The lock icon indicates that the LUN is encrypted.](/images/encryptedstorage.png)
-<caption>Figure 1. Example of the lock icon that shows that the LUN is encrypted.</caption>
+![Figure 1. Exampe of the lock icon that indicates that the LUN is encrypted.](/images/encryptedstorage.png)
 
 Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {: important}
