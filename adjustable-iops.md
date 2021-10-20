@@ -71,7 +71,7 @@ If the volume has replication in place, the replica is automatically updated to 
 {: cli}
 
 By using the following command, you can adjust the IOPS through the SLCLI.
-```
+```zsh
 # slcli block volume-modify --help
 Usage: slcli block volume-modify [OPTIONS] VOLUME_ID
 
@@ -118,9 +118,9 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Adjust IOPS on Performance storage volume.
 
-  ```
-  <?xml version="1.0" encoding="UTF-8"?>
-  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   ```zsh
+   <?xml version="1.0" encoding="UTF-8"?>
+   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>
       <ns1:authenticate>
       </ns1:authenticate>
@@ -147,15 +147,15 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
         </orderData>
       </ns1:placeOrder>
     </SOAP-ENV:Body>
-  </SOAP-ENV:Envelope>
-  ```
-  {: codeblock}
+   </SOAP-ENV:Envelope>
+   ```
+   {: codeblock}
 
 * Adjust IOPS on Endurance storage volume.
 
-  ```
-  <?xml version="1.0" encoding="UTF-8"?>
-  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   ```zsh
+   <?xml version="1.0" encoding="UTF-8"?>
+   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>
       <ns1:authenticate>
       </ns1:authenticate>
@@ -182,6 +182,6 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
         </orderData>
       </ns1:placeOrder>
     </SOAP-ENV:Body>
-  </SOAP-ENV:Envelope>
-  ```
-  {: codeblock}
+   </SOAP-ENV:Envelope>
+   ```
+   {: codeblock}

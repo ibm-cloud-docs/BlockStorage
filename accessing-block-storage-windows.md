@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2020
+  years: 2014, 2021
 lastupdated: "2021-08-25"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
@@ -69,55 +69,55 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 
 1. From the Server Manager, start iSCSI Initiator, and select **Tools**, **iSCSI Initiator**.
 2. Click the **Configuration** tab.
-  - The Initiator Name field might already be populated with an entry similar to `iqn.1991-05.com.microsoft:`.
-  - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN).
+   - The Initiator Name field might already be populated with an entry similar to `iqn.1991-05.com.microsoft:`.
+   - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN).
     ![iSCSI Initiator Properties](/images/iSCSI.png)
 
     The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
     {: tip}
 
-  - Click **Discovery**, and click **Discover Portal**.
-  - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
-  - Click **Advanced** to open the Advanced Settings window.
-  - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
-  - On the Initiator IP list, select the IP address of the host.
-  - On the Target Portal IP list, select the IP of one of the storage interfaces.
-  - Select **Enable CHAP log-on** to turn on CHAP authentication.
-    ![Enable CHAP login.](/images/Advanced_0.png)
+   - Click **Discovery**, and click **Discover Portal**.
+   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
+   - Click **Advanced** to open the Advanced Settings window.
+   - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+   - On the Initiator IP list, select the IP address of the host.
+   - On the Target Portal IP list, select the IP of one of the storage interfaces.
+   - Select **Enable CHAP log-on** to turn on CHAP authentication.
+      ![Enable CHAP login.](/images/Advanced_0.png)
 
-    The Name and Target secret fields are case-sensitive.
-    {: important}
+      The Name and Target secret fields are case-sensitive.
+      {: important}
 
-    - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
-    - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
-  - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
-  ![Inactive Target.](/images/Inactive_0.png)
+   - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
+   - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
+   - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
+    ![Inactive Target.](/images/Inactive_0.png)
 
-  The name of your target appears in the Discovered targets section with an `Inactive` status.
-  {: note}
-
+    The name of your target appears in the Discovered targets section with an `Inactive` status.
+    {: note}
+     
 3. Click **Connect** to connect to the target.
-4. Select **Enable multi-path** check box to enable multi-path IO to the target.<br/>
-   ![Enable Multi-path.](/images/Connect_0.png)
-5. Click **Advanced**, and select **Enable CHAP log-on**.</br>
-   ![Enable CHAP.](/images/chap_0.png)
+4. Select **Enable multi-path** check box to enable multi-path IO to the target.
+    ![Enable Multi-path.](/images/Connect_0.png)
+5. Click **Advanced**, and select **Enable CHAP log-on**.
+    ![Enable CHAP.](/images/chap_0.png)
 6. Enter the user name in the Name field, and enter the password in the Target secret field.
-
-   The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
-   {: tip}
+    
+    The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
+    {: tip}
 
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
-   ![Connected status.](/images/Connected.png)
+    ![Connected status.](/images/Connected.png)
 
 ### Adding and configuring multiple MPIO sessions in the iSCSI Initiator
 
 1. Start the iSCSI Initiator, and on the Targets tab, click **Properties**.
 2. Click **Add Session** on the Properties window.
 3. In the Connect to Target dialog box, select **Enable multi-path** check box, and click **Advanced**.
-   ![Target](/images/Target.png)
+    ![Target](/images/Target.png)
 
 4. In the Advanced Settings window, update the following fields.
-   ![Settings](/images/Settings.png)
+    ![Settings](/images/Settings.png)
     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
     - On the Initiator IP list, select the IP address of the host.
     - On the Target Portal IP list, select the IP of one of the storage interfaces.
@@ -140,11 +140,11 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} before you attempt to make the connection.
-   {: note}
+    If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} before you attempt to make the connection.
+    {: note}
    
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
-   ![Devices](/images/Devices.png)
+    ![Devices](/images/Devices.png)
 
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balance policy.
     ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.png)
@@ -161,9 +161,9 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 6. The New Simple Volume wizard starts. Select a disk size, and then click **Next**.
 7. Assign a drive letter to the LUN, and then click **Next**.
 8. Enter the parameters to format the LUN.
-  * On a Windows&reg; Server, only NTFS is supported.
-  * Set the allocation unit size to 64 K.
-  * Provide a label for your Storage volume.
+    * On a Windows&reg; Server, only NTFS is supported.
+    * Set the allocation unit size to 64 K.
+    * Provide a label for your Storage volume.
 9. Click **Next**.
 10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
 

@@ -50,7 +50,7 @@ You can authorize a host to access the {{site.data.keyword.blockstoragefull}} vo
 {: cli}
 
 To authorize the hosts in the replica datacenter, use the following command.
-```
+```Python
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -88,7 +88,7 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 2. Click **Replica**, and click **Actions**.
 3. Select **Controlled Failover** or **Immediate Failover**.
 
-   Expect a message across the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** page that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.<br/> When your target volume is live, you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
+   Expect a message across the page that states that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** page that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history. When your target volume is live, you get another message. Your original source volume's LUN Name updates to end in "REP" and its Status becomes Inactive.
    {: note}
 
 4. Click **View All {{site.data.keyword.blockstorageshort}}**.
@@ -101,15 +101,15 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 To fail a block volume over to a specific replicant volume, use the following command.
 
-  ```
-  # slcli block replica-failover --help
-  Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
-
-  Options:
-  --replicant-id TEXT  ID of the replicant volume
-  --immediate          Failover to replicant immediately.
-  -h, --help           Show this message and exit.
-  ```
+   ```python
+   # slcli block replica-failover --help
+   Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
+ 
+   Options:
+   --replicant-id TEXT  ID of the replicant volume
+   --immediate          Failover to replicant immediately.
+   -h, --help           Show this message and exit.
+   ```
 
 
 ## Starting a failback from a volume to its replica
@@ -147,11 +147,11 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 {: cli}
 
 To fail back a block volume from a specific replicant volume, use the following command.
-  ```
-  # slcli block replica-failback --help
-  Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+ ```python
+ # slcli block replica-failback --help
+ Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
 
-  Options:
-  --replicant-id TEXT  ID of the replicant volume
-  -h, --help           Show this message and exit.
-  ```
+ Options:
+ --replicant-id TEXT  ID of the replicant volume
+ -h, --help           Show this message and exit.
+ ```

@@ -70,8 +70,8 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 7. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 8. You can select the OS Type to be different than the original volume or to stay the same.
 9. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
-  - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-  - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
+   - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
+   - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
 
 10. Check the box if you read and agreed to the terms and conditions.
 11. Click **Create** to continue.
@@ -94,11 +94,11 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 8. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 9. You can select the OS Type to be different than the original volume or to stay the same.
 10. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
-  - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-  - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
+    - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
+    - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
 
-10. Check the box if you read and agreed to the terms and conditions.
-11. Click **Create** to continue.
+11. Check the box if you read and agreed to the terms and conditions.
+12. Click **Create** to continue.
 
 
 ## Creating a duplicate LUN through the SLCLI
@@ -107,7 +107,7 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 
 You can use the following command in the SLCLI to create a duplicate {{site.data.keyword.blockstorageshort}} volume.
 
-```
+```python
 # slcli block volume-duplicate --help
 Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
 
@@ -171,6 +171,6 @@ While data is being copied from the original volume to the duplicate, you can se
 As time passes and the primary volume changes, the independent duplicate volume can be updated with these changes to reflect the current state through the refresh action. The data on the independent volume can be refreshed at any time. The refresh involves taking a snapshot of the primary volume and then, updating the independent volume by using that snapshot. A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
 
 Refreshes can be performed by using the SLCLI.
-```
+```python
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```

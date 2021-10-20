@@ -33,7 +33,7 @@ For more information, see [Plesk's documentation for backing up and restoration]
 
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to iSCSI LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Mount {{site.data.keyword.blockstorageshort}} to `/backup` and configure `/etc/fstab` to enable mounting on start.
 4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
-   ```
+   ```zsh
    rsync -avz /var/lib/psa/dumps /backup/psa/dumps
    ```
    {: pre}
