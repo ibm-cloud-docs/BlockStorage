@@ -158,7 +158,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud_notm}} console.
 
-     A. Run the discovery against the iSCSI array.
+    1. Run the discovery against the iSCSI array.
        ```zsh
        # iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"
        ```
@@ -171,7 +171,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
        161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002
        ```
 
-     B. Set the host to automatically log in to the iSCSI array.
+    2. Set the host to automatically log in to the iSCSI array.
        ```zsh
        # iscsiadm -m node -L automatic
        ```
