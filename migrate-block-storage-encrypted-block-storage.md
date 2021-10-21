@@ -41,8 +41,8 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 3. Locate the new volume and click the ellipsis (**...**).
 4. Select **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Servers or Virtual servers.
-   - If you choose IP address, first, select the subnet where your host resides.
+    - If you choose Devices, you can select from Bare Metal Servers or Virtual servers.
+    - If you choose IP address, first, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 When the host is authorized to access the new storage, you can mount or map the storage volume.
@@ -58,15 +58,15 @@ When the host is authorized to access the new storage, you can mount or map the 
    {: tip}
 
 2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
-  - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
-  - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption.
-  - If you have any bandwidth concerns, do the migration during off-peak times.
-  - If you need assistance with these considerations, open a support case.
+   - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
+   - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption.
+   - If you have any bandwidth concerns, do the migration during off-peak times.
+   - If you need assistance with these considerations, open a support case.
 
 3. Copy your data across.
    - For **Microsoft&reg; Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
    - For **Linux&reg;**, you can use `rsync` to copy over the data.
-      ```
+      ```zsh
       [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
       ```
 

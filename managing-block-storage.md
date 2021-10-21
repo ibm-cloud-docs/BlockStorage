@@ -44,7 +44,7 @@ You can view a summary of the key information for the selected storage LUN inclu
 {: cli}
 
 To view information about a Storage LUN, you can use the following command from the SLCLI.
-```
+```python
 # slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
 
@@ -67,8 +67,8 @@ You can authorize and connect hosts that are located in the same data center as 
 2. Locate the volume and click the ellipsis (**...**).
 3. Click **Authorize Host**.
 4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
-  - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
-  - If you choose IP address, select the subnet where your host resides.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose IP address, select the subnet where your host resides.
 5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
@@ -86,7 +86,7 @@ You can authorize and connect hosts that are located in the same data center as 
 {: important}
 
 To authorize a host, you can use the following commands in SLCLI.
-```
+```python
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -98,7 +98,7 @@ Options:
   --help                    Show this message and exit.
 ```
 
-```
+```python
 # slcli block subnets-list -h
 Usage: slcli block subnets-list [OPTIONS] ACCESS_ID
   List block storage assigned subnets for the given host id.
@@ -108,7 +108,7 @@ Options:
     -h, --help  Show this message and exit.
 ```
 
-```
+```python
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
@@ -119,7 +119,7 @@ Options:
   -h, --help           Show this message and exit.
 ```
 
-```
+```python
 # slcli block subnets-remove -h
 Usage: slcli block subnets-remove [OPTIONS] ACCESS_ID
   Remove block storage subnets for the given host id.
@@ -152,7 +152,7 @@ There you can see the list of hosts, which are currently authorized to access th
 
 To see the list of hosts, which are currently authorized to access the LUN, you can use the following command in SLCLI.
 
-```
+```python
 # slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
@@ -233,7 +233,7 @@ To avoid host side issues, unmount the storage LUN from your operating system be
 
 Then, you can use the following command in SLCLI.
 
-```
+```python
 # slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
 
@@ -282,7 +282,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {: important}
 
 Then, you can use the following command in SLCLI to cancel the storage.
-```
+```python
 # slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
 

@@ -63,7 +63,7 @@ Before you start configuring iSCSI, make sure to have the network interfaces cor
 
 Use the following command to authorize the host from the SLCLI.
 
-```
+```python
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -76,7 +76,7 @@ Options:
 ```
 {: codeblock}
 
-```
+```python
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
@@ -101,24 +101,24 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 - Install `open-iscsi`.
 
-  ```
-  sudo apt install open-iscsi
-  ```
-  {: pre}
+    ```zsh
+    sudo apt install open-iscsi
+    ```
+    {: pre}
 
-  When the package is installed, it creates the following two files.
-  * `/etc/iscsi/iscsid.conf`
-  * `/etc/iscsi/initiatorname.iscsi`
+    When the package is installed, it creates the following two files.
+    * `/etc/iscsi/iscsid.conf`
+    * `/etc/iscsi/initiatorname.iscsi`
 
 - Install `multipath-tools`.
 
-  ```
-  sudo apt install multipath-tools
-  ```
-  {: pre}
+    ```zsh
+    sudo apt install multipath-tools
+     ```
+    {: pre}
 
-  If you want to  boot from the LUN, then the `multipath-tools-boot` package needs to be installed as well.
-  {: tip}
+    If you want to  boot from the LUN, then the `multipath-tools-boot` package needs to be installed as well.
+    {: tip}
 
 ## Set up the multipath
 {: #setupmultipathdubu20}
@@ -127,7 +127,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 1. After you installed the multipath utility, create an empty config file that is called `/etc/multipath.conf`.
 2. Modify the default values of `/etc/multipath.conf`.
 
-   ```
+   ```text
    defaults {
    user_friendly_names no
    max_fds max
@@ -165,7 +165,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Start the multipath service.
-   ```
+   ```zsh
    service multipath-tools start
    ```
    {: pre}
@@ -181,7 +181,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
-```
+```zsh
 InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
@@ -193,7 +193,7 @@ InitiatorName=<value-from-the-Portal>
 
 Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
 
-```
+```text
 node.session.auth.authmethod = CHAP
 node.session.auth.username = <Username-value-from-Portal>
 node.session.auth.password = <Password-value-from-Portal>
@@ -208,7 +208,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 
 Restart the iscsi service for the changes to take effect.
 
-```
+```zsh
 systemctl restart iscsid.service
 ```
 {: pre}
@@ -220,7 +220,7 @@ systemctl restart iscsid.service
 The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
-   ```
+   ```zsh
    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
@@ -228,23 +228,23 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    If the IP info and access details are displayed, then the discovery is successful.
 
 2. Configure automatic login.
-   ```
+   ```zsh
    sudo iscsiadm -m node --op=update -n node.conn[0].startup -v automatic
    sudo iscsiadm -m node --op=update -n node.startup -v automatic
    ```
 3. Enable necessary services.
-   ```
+   ```zsh
    systemctl enable open-iscsi
    systemctl enable iscsid
    ```
 
 4. Restart the iscsid service.
-   ```
+   ```zsh
    systemctl restart iscsid.service
    ```  
 
 5. Log in to the iSCSI array.
-   ```
+   ```zsh
    sudo iscsiadm -m node --loginall=automatic
    ```
    {: pre}
@@ -255,20 +255,20 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 {: step}
 
 1. Validate that the iSCSI session is established.
-   ```
+   ```zsh
    iscsiadm -m session -o show
    ```
    {: pre}
 
 2. Validate that multiple paths exist.
-   ```
+   ```zsh
    multipath -ll
    ```
    {: pre}
 
    This command reports the paths. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
 
-   ```
+   ```text
    $ sudo multipath -ll
    mpathb (360014051f65c6cb11b74541b703ce1d4) dm-1 LIO-ORG,TCMU device
    size=1.0G features='0' hwhandler='0' wp=rw
@@ -287,10 +287,10 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
    In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
-  {: tip}
+   {: tip}
 
 3. Check `dmesg` to make sure that the new disks have been detected.
-   ```
+   ```zsh
    dmesg
    ```
    {: pre}
@@ -302,7 +302,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume.
 
 1. Create a partition.
-   ```
+   ```text
    $ sudo fdisk /dev/mapper/mpatha
 
    Welcome to fdisk (util-linux 2.34).
@@ -336,7 +336,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
    ```
 
 2. Create the filesystem.
-   ```
+   ```text
    $ sudo mkfs.ext4 /dev/mapper/mpatha-part1
    mke2fs 1.45.5 (07-Jan-2020)
    Creating filesystem with 261888 4k blocks and 65536 inodes
@@ -351,11 +351,11 @@ After the volume is mounted and accessible on the host, you can create a file sy
    ```
 
 3. Mount the block device.
-   ```
+   ```zsh
    sudo mount /dev/mapper/mpatha-part1 /mnt
    ```
 
 4. Access the data to confirm new partition and file system are ready for use.
-   ```
+   ```zsh
    ls /mnt
    ```

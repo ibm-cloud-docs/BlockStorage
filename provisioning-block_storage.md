@@ -57,10 +57,10 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
    {: tip}
 
 7. Select your IOPS profile. You can choose between the predefined values of **Endurance (Tiers)** or enter your custom IOPS value for **Performance**.
-  - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
-  - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
-  - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
-  - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) for storage that is provisioned up to 4 TB.
+    - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
+    - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
+    - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
+    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) for storage that is provisioned up to 4 TB.
 
 8. On the right, review your order summary, and apply your Promo Code if you have one.
 
@@ -70,7 +70,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 9. After you reviewed the terms and conditions, check the **I have read and agree to the...** box.
 10. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).<br/><br/>For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+By default, you can provision a combined total of 250 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 {: important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
@@ -87,7 +87,7 @@ For more information about how to install and use the SLCLI, see [Python CLI Cli
 
 Use the `slcli block volume-order` command to provision the LUN.
 
-```
+```python
 # slcli block volume-order --help
 Usage: slcli block volume-order [OPTIONS]
 
@@ -128,7 +128,7 @@ For more information about Window OS types, see the [FAQ](/docs/BlockStorage?top
 
 The following example shows how to order an 80-GB {{site.data.keyword.blockstorageshort}} volume with 20-GB Snapshot space and 0.25 IOPS per GB.
 
-```
+```python
 slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
 Order #15547457 placed successfully!
  > Endurance Storage
@@ -150,7 +150,7 @@ By default, you can provision a combined total of 250 {{site.data.keyword.blocks
 
 The method `order_block_volume` (storage_type, location, size, os_type, iops=None, tier_level=None, snapshot_size=None, service_offering='storage_as_a_service', hourly_billing_flag=False) places an order for a block volume.
 
-```
+```text
 Parameters:
 - storage_type – ‘performance’ or ‘endurance’
 - location – Datacenter in which to order iSCSI volume

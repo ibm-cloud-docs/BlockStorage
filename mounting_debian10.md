@@ -63,7 +63,7 @@ Before you start configuring iSCSI, make sure to have the network interfaces cor
 
 Use the following command to authorize the host from the SLCLI.
 
-```
+```python
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -76,7 +76,7 @@ Options:
 ```
 {: codeblock}
 
-```
+```python
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
@@ -99,25 +99,25 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 - Install `open-iscsi`.
 
-  ```
-  apt-get install open-iscsi
-  ```
-  {: pre}
+    ```zsh
+    apt-get install open-iscsi
+    ```
+    {: pre}
 
-  When the package is installed, it creates the following two files.
-  * `/etc/iscsi/iscsid.conf`
-  * `/etc/iscsi/initiatorname.iscsi`
+    When the package is installed, it creates the following two files.
+    * `/etc/iscsi/iscsid.conf`
+    * `/etc/iscsi/initiatorname.iscsi`
 
-  For more information about how the 'open-iscsi' works on Debian OS, see [Debian as an iSCSI Initiator](https://wiki.debian.org/SAN/iSCSI/open-iscsi){: external}.
-  {: tip}
+    For more information about how the 'open-iscsi' works on Debian OS, see [Debian as an iSCSI Initiator](https://wiki.debian.org/SAN/iSCSI/open-iscsi){: external}.
+    {: tip}
 
 - Install `multipath-tools`.
 
-  ```
-  apt install multipath-tools
-  systemctl restart multipathd
-  ```
-  {: pre}
+    ```zsh
+    apt install multipath-tools
+    systemctl restart multipathd
+    ```
+    {: pre}
 
 
 ## Set up the multipath
@@ -125,48 +125,48 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 {: step}
 
 1. After you installed the multipath utility, find the location of the default multipath configuration file by issuing the following command.
-   ```
-   multipath -t
-   ```
-   {: pre}
+    ```zsh
+    multipath -t
+    ```
+    {: pre}
 
 2. Modify the default values of `multipath.conf`.
 
-   ```
-   defaults {
-   user_friendly_names no
-   max_fds max
-   flush_on_last_del yes
-   queue_without_daemon no
-   dev_loss_tmo infinity
-   fast_io_fail_tmo 5
-   find_multipaths no
-   }
-   # All data in the following section must be specific to your system.
-   blacklist {
-   wwid "SAdaptec*"
-   devnode "^hd[a-z]"
-   devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-   devnode "^cciss.*"  
-   }
-   devices {
-   device {
-   vendor "NETAPP"
-   product "LUN"
-   path_grouping_policy group_by_prio
-   features "2 pg_init_retries 50"
-   no_path_retry queue
-   prio "alua"
-   path_checker tur
-   failback immediate
-   path_selector "round-robin 0"
-   hardware_handler "1 alua"
-   rr_weight uniform
-   rr_min_io 128
-   }
-   }
-   ```
-   {: pre}
+    ```zsh
+    defaults {
+    user_friendly_names no
+    max_fds max
+    flush_on_last_del yes
+    queue_without_daemon no
+    dev_loss_tmo infinity
+    fast_io_fail_tmo 5
+    find_multipaths no
+    }
+    # All data in the following section must be specific to your system.
+    blacklist {
+    wwid "SAdaptec*"
+    devnode "^hd[a-z]"
+    devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+    devnode "^cciss.*"  
+    }
+    devices {
+    device {
+    vendor "NETAPP"
+    product "LUN"
+    path_grouping_policy group_by_prio
+    features "2 pg_init_retries 50"
+    no_path_retry queue
+    prio "alua"
+    path_checker tur
+    failback immediate
+    path_selector "round-robin 0"
+    hardware_handler "1 alua"
+    rr_weight uniform
+    rr_min_io 128
+    }
+    }
+    ```
+    {: pre}
 
    The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpathn; where mpathn is the WWID number of the device.
 
@@ -174,7 +174,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Start the multipath service.
-   ```
+   ```zsh
    systemctl restart multipathd
    ```
    {: pre}
@@ -188,7 +188,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
-```
+```zsh
 InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
@@ -200,7 +200,7 @@ InitiatorName=<value-from-the-Portal>
 
 Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
 
-```
+```text
 node.session.auth.authmethod = CHAP
 node.session.auth.username = <Username-value-from-Portal>
 node.session.auth.password = <Password-value-from-Portal>
@@ -215,7 +215,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 
 Restart the iscsi service for the changes to take effect.
 
-```
+```zsh
 systemctl restart iscsid.service
 ```
 {: pre}
@@ -227,7 +227,7 @@ systemctl restart iscsid.service
 The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
-   ```
+   ```zsh
    sudo iscsiadm -m discovery -I iscsi01 --op=new --op=del --type sendtargets --portal <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
@@ -235,23 +235,23 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    If the IP info and access details are displayed, then the discovery is successful.
 
 2. Configure automatic login.
-   ```
+   ```zsh
    sudo iscsiadm -m node --op=update -n node.conn[0].startup -v automatic
    sudo iscsiadm -m node --op=update -n node.startup -v automatic
    ```
 3. Enable necessary services.
-   ```
+   ```zsh
    systemctl enable open-iscsi
    systemctl enable iscsid
    ```
 
 4. Restart the iscsid service.
-   ```
+   ```zsh
    systemctl restart iscsid.service
    ```  
 
 5. Log in to the iSCSI array.
-   ```
+   ```zsh
    sudo iscsiadm -m node --loginall=automatic
    ```
    {: pre}
@@ -262,20 +262,20 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 {: step}
 
 1. Validate that the iSCSI session is established.
-   ```
+   ```zsh
    iscsiadm -m session -o show
    ```
    {: pre}
 
 2. Validate that multiple paths exist.
-   ```
+   ```zsh
    multipath -ll
    ```
    {: pre}
 
    This command reports the paths. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
 
-   ```
+   ```text
    $ sudo multipath -ll
    mpathb (360014051f65c6cb11b74541b703ce1d4) dm-1 LIO-ORG,TCMU device
    size=1.0G features='0' hwhandler='0' wp=rw
@@ -297,7 +297,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks have been detected.
-   ```
+   ```zsh
    dmesg
    ```
    {: pre}
@@ -309,7 +309,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume.
 
 1. Create a partition.
-   ```
+   ```text
    $ sudo fdisk /dev/mapper/mpatha
 
    Welcome to fdisk (util-linux 2.34).
@@ -343,7 +343,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
    ```
 
 2. Create the filesystem.
-   ```
+   ```text
    $ sudo mkfs.ext4 /dev/mapper/mpatha-part1
    mke2fs 1.45.5 (07-Jan-2020)
    Creating filesystem with 261888 4k blocks and 65536 inodes
@@ -358,11 +358,11 @@ After the volume is mounted and accessible on the host, you can create a file sy
    ```
 
 3. Mount the block device.
-   ```
+   ```zsh
    sudo mount /dev/mapper/mpatha-part1 /mnt
    ```
 
 4. Access the data to confirm new partition and file system are ready for use.
-   ```
+   ```zsh
    ls /mnt
    ```
