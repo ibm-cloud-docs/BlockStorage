@@ -72,8 +72,10 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
 1. Click the name of your storage volume to display its details.
 2. Click **Actions** and click **Order Replica**.
-3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules.  \n -  
-   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them. \n -  For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
+3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules.
+
+   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.
+   For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
    {: tip}
 
 4. Select a **Location** for the replica volume.
