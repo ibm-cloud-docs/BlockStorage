@@ -62,7 +62,7 @@ Before you can set up your initial schedule, you must first purchase snapshot sp
 
 To set up a snapshot schedule, use the following command
 
-```
+```python
 # slcli block snapshot-enable --help
 Usage: slcli block snapshot-enable [OPTIONS] VOLUME_ID
 
@@ -80,7 +80,7 @@ Options:
 ```
 
 You can also see the list of your snapshot schedules through the SLCLI with the following command.
-```
+```python
 # slcli block snapshot-schedule-list --help
 Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
 
@@ -108,7 +108,7 @@ The snapshot is taken and displayed in the **Snapshots** section of the **{{site
 
 You can use the following command to create a snapshot from the SLCLI.
 
-```
+```python
 # slcli block snapshot-create --help
 Usage: slcli block snapshot-create [OPTIONS] VOLUME_ID
 
@@ -135,7 +135,7 @@ Notifications are sent through the support cases to the Master User on your acco
 {: cli}
 
 You can accomplish this task from the SLCLI by using the following command.
-```
+```python
 # slcli block snapshot-list --help
 Usage: slcli block snapshot-list [OPTIONS] VOLUME_ID
 
@@ -176,7 +176,7 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click the schedule to be deleted in the **Snapshot Schedules** section on the **{{site.data.keyword.blockstorageshort}} Detail** page.
-2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**.<br />
+2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**. 
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
@@ -186,7 +186,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 {: cli}
 
 You can accomplish this task by using the following command.
-```
+```python
 # slcli block snapshot-disable --help
 Usage: slcli block snapshot-disable [OPTIONS] VOLUME_ID
 
@@ -217,7 +217,7 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 {: cli}
 
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. You can delete a snapshot from the SLCLI by using the following command.
-```
+```python
 # slcli block snapshot-delete
 Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
 
@@ -243,7 +243,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
    - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
-4. Click **Actions** next to the snapshot to be used and click **Restore**. <br/>
+4. Click **Actions** next to the snapshot to be used and click **Restore**.
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot.
    {: note}
@@ -268,7 +268,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 You might need to take your storage volume back to a specific point-in-time because of user-error or data corruption. First, unmount your volume.
 
 Then, you can restore the volume with a snapshot from the SLCLI by using the following command.
-```
+```python
 # slcli block snapshot-restore --help
 Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
 

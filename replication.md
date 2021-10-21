@@ -41,7 +41,7 @@ See Table 1 for the complete list of data center availability and replication ta
 
 | US 1 | US 2 | Latin America | Canada  | Europe  | Asia-Pacific  | Australia  |
 |-----|-----|-----|-----|-----|-----|-----|
-| DAL05<br />DAL06<br />HOU02<br />SJC01<br />WDC01 | SJC03<br />SJC04<br />WDC04<br />WDC06<br />WDC07<br />DAL09<br />DAL10<br />DAL12<br />DAL13 | MEX01<br />SAO01<br />SAO04<br />SAO05 | TOR01<br />TOR04<br />TOR05<br />MON01 | AMS01<br />AMS03<br />FRA02<br />FRA04<br />FRA05<br />LON02<br />LON04<br />LON05<br />LON06<br />OSL01<br />PAR01<br />MIL01 | HKG02<br />TOK02<br />TOK04<br />TOK05<br />OSA21<br />OSA22<br />OSA23<br />SNG01<br />SEO01<br />CHE01 | SYD01<br />SYD04<br />SYD05<br />MEL01 |
+| - DAL05 \n -   DAL06 \n -   HOU02 \n -  SJC01 \n -  WDC01 | - SJC03 \n -  SJC04 \n -  WDC04 \n -  WDC06 \n -  WDC07 \n -  DAL09 \n -  DAL10 \n -  DAL12 \n -  DAL13 | - MEX01 \n -  SAO01 \n -  SAO04 \n -   SAO05 | - TOR01 \n -  TOR04 \n -  TOR05 \n -  MON01 | - AMS01 \n -  AMS03 \n -  FRA02 \n -  FRA04 \n -  FRA05 \n -  LON02 \n -  LON04 \n -  LON05 \n -  LON06 \n -  OSL01 \n -  PAR01 \n -  MIL01 | - HKG02 \n -  TOK02 \n -  TOK04 \n -  TOK05 \n -  OSA21 \n -  OSA22 \n -  OSA23 \n -  SNG01 \n -  SEO01 \n -  CHE01 | - SYD01 \n -  SYD04 \n -  SYD05 \n -  MEL01 |
 {: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
 
  Data centers in US 1 region do NOT have enhanced storage. For that reason, hosts in data centers within the US 2 region can't start replication with replica targets in US 1 data centers.
@@ -54,15 +54,15 @@ See Table 1 for the complete list of data center availability and replication ta
 {{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
 To list suitable replication datacenters for a specific volume, use the following command.
-  ```
-  # slcli block replica-locations --help
-  Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
+```python
+# slcli block replica-locations --help
+Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
 
-  Options:
-  --sortby TEXT   Column to sort by
-  --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
-  -h, --help      Show this message and exit.
-  ```
+Options:
+--sortby TEXT   Column to sort by
+--columns TEXT  Columns to display. Options: ID, Long Name, Short Name
+-h, --help      Show this message and exit.
+```
 
 ## Creating the initial replica in the UI
 {: #enablerepUI}
@@ -72,19 +72,19 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
 1. Click the name of your storage volume to display its details.
 2. Click **Actions** and click **Order Replica**.
-3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules. <br />
-   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.<br />For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
+3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules.  \n -  
+   You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them. \n -  For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
    {: tip}
 
-3. Select a **Location** for the replica volume.
-4. Click **Continue**.
-5. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
+4. Select a **Location** for the replica volume.
+5. Click **Continue**.
+6. Enter in a **Promo Code** if you have one, and click **Recalculate**. The other fields in the window are completed by default.
 
    Discounts are applied when the order is processed.
    {: note}
 
-6. Review your order, and click the **I have read the…** check box.
-7. Click **Place Order**.
+7. Review your order, and click the **I have read the…** check box.
+8. Click **Place Order**.
 
 ## Creating the initial replica from the SLCLI
 {: #enablerepCLI}
@@ -92,7 +92,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
 Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. Then, you can use the following command to order a replica volume.
 
-```
+```python
 # slcli block replica-order --help
 Usage: slcli block replica-order [OPTIONS] VOLUME_ID
 
@@ -120,7 +120,7 @@ You can view your replication volumes on the {{site.data.keyword.blockstoragesho
 {: cli}
 
 List existing replicant volumes for a file volume with the following command.
-```
+```python
   # slcli block replica-partners --help
   Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
 

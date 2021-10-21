@@ -28,85 +28,86 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 
 ## Access-related SLCLI commands
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
-  ```
-  slcli block access-authorize
-  slcli block access-list
-  slcli block access-password
-  slcli block access-revoke
-  slcli subnets-assign
-  slcli subnets-list
-  slcli subnets-remove
-  ```
+   ```python
+   slcli block access-authorize
+   slcli block access-list
+   slcli block access-password
+   slcli block access-revoke
+   slcli subnets-assign
+   slcli subnets-list
+   slcli subnets-remove
+   ```
 
 ## Replication-related SLCLI commands
 
 * [Replication-related SLCLI commands](/docs/BlockStorage?topic=BlockStorage-replication)
-  ```
-  slcli block access-revoke
-  slcli block replica-failback
-  slcli block replica-failover
-  slcli block replica-locations
-  slcli block replica-order
-  slcli block replica-partners
-  ```
+   ```python
+   slcli block access-revoke
+   slcli block replica-failback
+   slcli block replica-failover
+   slcli block replica-locations
+   slcli block replica-order
+   slcli block replica-partners
+   ```
 
 ## Snapshots-related SLCLI commands
 
 * [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots#ordersnapshotSLCLI)
-  ```
-  slcli block snapshot-order
-  ```
+    ```python
+   slcli block snapshot-order
+    ```
 
 * [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots)
-  ```
-  slcli block snapshot-create
-  slcli block snapshot-list
-  slcli block snapshot-restore
-  slcli block snapshot-cancel
-  slcli block snapshot-delete
-  slcli block snapshot-disable
-  slcli block snapshot-enable
-  ```
+   ```python
+   slcli block snapshot-create
+   slcli block snapshot-list
+   slcli block snapshot-restore
+   slcli block snapshot-cancel
+   slcli block snapshot-delete
+   slcli block snapshot-disable
+   slcli block snapshot-enable
+   ```
 
 ## Volume-related SLCLI commands
 
 * [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI)
-  ```
-  slcli block volume-order
-  ```
+   ```python
+   slcli block volume-order
+   ```
 
 * [Creating an independent duplicate volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
-  ```
-  slcli block volume-duplicate
-  ```
+    ```python
+   slcli block volume-duplicate
+   ```
 
 * [Creating and managing a dependent duplicate volume](/docs/BlockStorage?topic=BlockStorage-dependentduplicate)
-  ```
-  slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
-  slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
-  slcli block volume-convert <dependent-vol-id>
-  ```
+   ```python
+   slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
+   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
+   slcli block volume-convert <dependent-vol-id>
+   ```
 
 * [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS)
-  ```
+   ```python
+   slcli block volume-modify
+   ```
 
-  slcli block volume-modify
-  ```
 * [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity)
-  ```
-  slcli block volume-modify
-  ```
+   ```python
+   slcli block volume-modify
+   ```
   
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
-  ```
-  slcli block volume-cancel
-  slcli block volume-count
-  slcli block volume-detail
-  slcli block volume-list
-  slcli block volume-set-lun-id
-  ```
+   ```python
+   slcli block volume-cancel
+   slcli block volume-count
+   slcli block volume-detail
+   slcli block volume-list
+   slcli block volume-set-lun-id
+   ```
+
 * [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits)  
-  ```
-  slcli block volume-limit
-  slcli block volume-count
-  ```
+   ```python
+   slcli block volume-limit
+   slcli block volume-count
+   ```
