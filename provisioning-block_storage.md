@@ -184,6 +184,7 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Configuring Block Storage for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
 
 ## Disaster recovery considerations
+{: #DRconsiderations}
 
 To avoid data-loss and to ensure business continuity, consider replicating your servers and storage in another data center. Replication keeps your data in sync in two different locations based on your snapshot schedule. For more information, see [Replicating data](/docs/BlockStorage?topic=BlockStorage-replication).
 
@@ -192,5 +193,6 @@ If you want to clone your volume and use it independently from the original volu
 If you want to clone your volume and be able to refresh the duplicate on demand, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
+{: #LUNonInvoice}
 
 All LUNs appear on your invoice as a line item. Endurance appears as “Endurance Storage Service” and Performance appears as "Performance Storage Service" The rate varies based on your storage level. You can expand on Endurance or Performance to see that it's {{site.data.keyword.blockstorageshort}}.
