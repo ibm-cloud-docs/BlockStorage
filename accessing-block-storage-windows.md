@@ -53,7 +53,7 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 2. Click **Next** to open the Features menu.
 3. Scroll down and check **Multipath I/O**.
 4. Click **Install** to install MPIO on the host server.
-![Adding Roles and Features in Server Manager](/images/Roles_Features.png){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
+    ![Adding Roles and Features in Server Manager](/images/Roles_Features.png){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
 5. Restart the server.
 
 ### Adding iSCSI support for MPIO devices
