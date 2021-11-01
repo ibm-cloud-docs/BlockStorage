@@ -47,6 +47,7 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 {: shortdesc}
 
 ### Installing the MPIO feature
+{: #installMPIOWin}
 
 1. Start the Server Manager and browse to **Manage**, **Add Roles and Features**.
 2. Click **Next** to open the Features menu.
@@ -56,6 +57,7 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 5. Restart the server.
 
 ### Adding iSCSI support for MPIO devices
+{: #addISCSIWim}
 
 1. Open the MPIO Properties window by clicking **Start**, pointing to **Administrative Tools**, and clicking **MPIO**.
 2. Click **Discover Multi-Paths**.
@@ -66,6 +68,7 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Devic
 {: note}
 
 ### Configuring the iSCSI Initiator to discover the Target
+{: #configISCSIWin}
 
 1. From the Server Manager, start iSCSI Initiator, and select **Tools**, **iSCSI Initiator**.
 2. Click the **Configuration** tab.
