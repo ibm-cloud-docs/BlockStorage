@@ -22,6 +22,7 @@ Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data c
 {: shortdesc}
 
 ## Provisioning a {{site.data.keyword.blockstorageshort}}
+{: #createencryptedLUN}
 
 You can order an enhanced LUN in the {{site.data.keyword.cloud}} Console UI, through the CLI or the API. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
@@ -33,6 +34,7 @@ When you place an order with API, specify the "Storage as a Service" package to 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.
 
 ## Authorizing the host to access the new {{site.data.keyword.blockstorageshort}}
+{: authhosts2LUN}
 
 "Authorized" hosts are hosts that were given access to a volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the user name, password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 
@@ -48,6 +50,7 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 When the host is authorized to access the new storage, you can mount or map the storage volume.
 
 ## Migrating your data
+{: #copydataacross}
 
 1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} LUNs.
    - [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
@@ -81,6 +84,7 @@ When the host is authorized to access the new storage, you can mount or map the 
 When your migration is complete, you can move production to the new LUN. Then, you can detach and delete your original LUN from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original LUN.
 
 ## Snapshots and Replication
+{: setupreplicaonnewLUN}
 
 Do you have snapshots and replication established for your original LUN? If yes, you need to set up replication, snapshot space and create snapshot schedules for the new LUN with the same settings as the original volume.
 
