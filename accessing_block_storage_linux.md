@@ -392,6 +392,7 @@ The Host IQN, user name, password, and target address that are referenced in the
 The volume is now mounted and accessible on the host. You can create a file system next.
 
 ## Creating a file system (optional)
+{: #optionalcreatefilesystem}
 
 Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdisk) and [`parted` for a disk bigger than 2 TB](#parted).
 
@@ -463,6 +464,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      {: pre}
 
 #### The  `fdisk` command table
+{: #fdiskcommands}
 
 | Command | Result |
 |-----|-----|
