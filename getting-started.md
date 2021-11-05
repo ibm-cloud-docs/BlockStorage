@@ -109,6 +109,7 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
 
 ## Managing your new Storage
+{: #managingnewstorage}
 {: step}
 
 Through the console or the CLI, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
