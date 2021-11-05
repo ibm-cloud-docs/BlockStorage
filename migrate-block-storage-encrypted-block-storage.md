@@ -22,7 +22,7 @@ Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data c
 {: shortdesc}
 
 ## Provisioning a {{site.data.keyword.blockstorageshort}}
-{: #createencryptedLUN}
+{: #createencryptedLUN2}
 
 You can order an enhanced LUN in the {{site.data.keyword.cloud}} Console UI, through the CLI or the API. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 

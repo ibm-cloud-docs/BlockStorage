@@ -43,7 +43,7 @@ All snapshots and replicas of encrypted file storage are also encrypted by defau
 All cluster-to-cluster traffic is encrypted with TLS.
 
 ## Provisioning Storage with Encryption
-{: #createencryptedLUN}
+{: #createencryptedLUN1}
 
 The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). All storage that is ordered in these data centers is automatically provisioned with encryption.
 
