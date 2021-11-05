@@ -205,7 +205,6 @@ In the rare case of a LUN being provisioned and attached while the second path i
 Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the OS vendor documentation.
 
 ### Starting the iSCSI Initiator
-
 [; #startISCSIwin]
 
 1. Click **Targets**.
