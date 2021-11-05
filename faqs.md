@@ -36,6 +36,8 @@ The default limit for the number of authorizations per block volume is eight. Th
 It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IP addresses on a subnet, complete the following steps.
 
 ### Console UI
+{: #authinUI}
+
 1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the volume and click the ellipsis (**...**).
@@ -44,6 +46,8 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
 ### SLCLI
+{: #authinSLCLI}
+
 ```python
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
@@ -84,12 +88,18 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 When you create a LUN, you must specify the OS type. The OS type must be based on the operating system, which is used by the hosts that access the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
 
 ### Windows&reg; GPT
+{: #winGPT}
+
 -  The LUN stores Windows&reg; data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows&reg; Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows&reg; support it.
 
 ### Windows&reg; 2003
+{: #win2003}
+
 - The LUN stores a raw disk type in a single-partition Windows&reg; disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows&reg; 2000 Server, Windows&reg; XP, or Windows&reg; Server 2003 that uses the MBR partitioning method.
 
 ### Windows&reg; 2008+
+{: #win2008}
+
 - The LUN stores Windows&reg; data for Windows&reg; 2008 and later versions. Use this OS option if your host operating system is Windows&reg; Server 2008, Windows&reg; Server 2012, Windows&reg; Server 2016. Both MBR and GPT partitioning methods are supported.
 
 

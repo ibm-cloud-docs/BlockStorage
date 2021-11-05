@@ -29,6 +29,7 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 {: note}
 
 ## What LUKS does
+{: #LUKSinscope}
 
 - Encrypts entire block devices and is therefore well suited for protecting the contents of mobile devices such as removable storage media or Notebook disk drives.
 - The underlying contents of the encrypted block device are arbitrary, making it useful for encrypting swap devices. The encrypting can also be useful with certain databases that use specially formatted block devices for data storage.
@@ -38,11 +39,13 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 
 
 ## What LUKS doesn't do
+{: #LUKSoutofscope}
 
 - Allow applications that require many (more than eight) users to have distinct access keys to same devices.
 - Work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/index){: external}.
 
 ## Setting up a LUKS-encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
+{: #enryptwithLUKS}
 
 The process of data encryption creates a load on the host that might potentially impact performance.
 {: note}
@@ -129,6 +132,8 @@ The process of data encryption creates a load on the host that might potentially
    {: pre}
 
 ### Unmounting and closing the encrypted volume securely
+{: #unmountLUKS}
+
    ```zsh
    # umount /cryptData
    # cryptsetup luksClose cryptData
@@ -136,6 +141,8 @@ The process of data encryption creates a load on the host that might potentially
    {: codeblock}
 
 ### Remounting and mounting an existing LUKS encrypted partition
+{: #remountLUKS}
+
    ```zsh
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.

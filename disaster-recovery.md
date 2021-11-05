@@ -97,5 +97,6 @@ Use the following command to fail a block volume over to a specific replicant vo
    ```
 
 ## Fail back to the original primary site
+{: #DRfailback2original}
 
 If you want to return production to the original primary site, create a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}. For more information about opening a support case or case severities and response times, see [Viewing support cases](/docs/get-support?topic=get-support-managing-support-cases) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).

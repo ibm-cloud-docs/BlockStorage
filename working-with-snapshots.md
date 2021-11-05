@@ -100,6 +100,7 @@ The maximum limit of snapshots per storage volume is 50.
 1. Click your storage volume.
 2. Click **Actions**.
 3. Click **Take Manual Snapshot**.
+
 The snapshot is taken and displayed in the **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page. Its schedule appears Manual.
 
 ## Taking a manual Snapshot from the SLCLI

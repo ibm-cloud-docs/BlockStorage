@@ -36,18 +36,20 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 * Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP).
 * Storage is validated for US Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU General Data Protection Regulation (GDPR) compliance.
 
-## Securing your snapshots or replicated storage  
+## Securing your snapshots or replicated storage
+{: #SecureSnapshotBlock}
 
 All snapshots and replicas of encrypted file storage are also encrypted by default. This feature can’t be turned off on a volume basis.
 All cluster-to-cluster traffic is encrypted with TLS.
 
 ## Provisioning Storage with Encryption
+{: #createencryptedLUN1}
 
 The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). All storage that is ordered in these data centers is automatically provisioned with encryption.
 
 When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon to the right of the LUN/Volume Name field that indicates that the volume is encrypted.
 
-![Figure 1. Exampe of the lock icon that indicates that the LUN is encrypted.](/images/encryptedstorage.png)
+![Figure 1. Exampe of the lock icon that indicates that the LUN is encrypted.](/images/encryptedstorage.png){: caption="FFigure 1. Exampe of the lock icon that indicates that the LUN is encrypted." caption-side="bottom"}
 
 Non-encrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own non-encrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {: important}

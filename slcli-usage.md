@@ -27,6 +27,8 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 {: tip}
 
 ## Access-related SLCLI commands
+{: #slcliaccess}
+
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
    ```python
    slcli block access-authorize
@@ -39,6 +41,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    ```
 
 ## Replication-related SLCLI commands
+{: #slclireplica}
 
 * [Replication-related SLCLI commands](/docs/BlockStorage?topic=BlockStorage-replication)
    ```python
@@ -51,6 +54,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    ```
 
 ## Snapshots-related SLCLI commands
+{: #slclisnaps}
 
 * [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots#ordersnapshotSLCLI)
     ```python
@@ -69,6 +73,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    ```
 
 ## Volume-related SLCLI commands
+{: #sliclivolume}
 
 * [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI)
    ```python
