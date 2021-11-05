@@ -206,10 +206,14 @@ Following are the steps that are required to disconnect a Windows-based {{site.d
 
 ### Starting the iSCSI Initiator
 
+[; #startISCSIwin]
+
 1. Click **Targets**.
 2. Select the targets that you want to remove and click **Disconnect**.
 
 ### Removing targets
+{: #removetargetoptional}
+
 This step is optional, for when you no longer need to access the iSCSI targets.
 
 1. Click **Discovery** in the iSCSI Initiator.
