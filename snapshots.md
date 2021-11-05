@@ -51,10 +51,12 @@ Snapshots are not replacements for actual off-site Disaster Recovery replication
 {: important}
 
 ## Security
+{: #snapshotsecurity}
 
 All snapshots and replicas of encrypted {{site.data.keyword.blockstorageshort}} are also encrypted by default. This feature can't be turned off on a volume basis. For more information about provider-managed encryption-at-rest, see [Securing your data](/docs/BlockStorage?topic=BlockStorage-mng-data).
 
 ## How Snapshots affect the disk space
+{: #snapshotspaceuse}
 
 Snapshot copies minimize disk consumption by preserving individual blocks rather than whole files. Snapshot copies use extra space only when files in the active file system are changed or deleted.
 
