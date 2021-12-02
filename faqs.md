@@ -30,7 +30,6 @@ The default limit for the number of authorizations per block volume is eight. Th
 ## Our compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
 {: #authsubnets}
 {: faq}
-{: help}
 {: support}
 
 It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IP addresses on a subnet, complete the following steps.
