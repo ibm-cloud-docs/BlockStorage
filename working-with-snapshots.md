@@ -157,8 +157,8 @@ To check if the notifications are enabled for the storage volume, use the follow
 By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable it. When this feature  is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
 
 ```python
-# slcli file snapshot-get-notification-status
-Usage: slcli file snapshot-get-notification-status [OPTIONS] VOLUME_ID
+# slcli block snapshot-get-notification-status
+Usage: slcli block snapshot-get-notification-status [OPTIONS] VOLUME_ID
   Get snapshots space usage threshold warning flag setting for a given volume
 
 Options:
@@ -167,8 +167,8 @@ Options:
 
 To change the status of the notification setting, you the following command.
 ```python
-# slcli file snapshot-set-notification VOLUME_ID 
-Usage: slcli file snapshot-set-notification VOLUME_ID [OPTIONS]
+# slcli block snapshot-set-notification VOLUME_ID 
+Usage: slcli block snapshot-set-notification VOLUME_ID [OPTIONS]
 
 Options:
  --disable  Disable snapshot threshold warning notification for the storage volume
