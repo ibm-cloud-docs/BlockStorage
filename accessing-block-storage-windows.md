@@ -20,7 +20,7 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
 
-This article describes how you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume, how you can install and configure the iSCSI feature on a Windows server, and then mount, initialize, and format {{site.data.keyword.blockstorageshort}} volumes.
+This article describes how you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume, how you can install and configure the iSCSI feature on a Windows&reg; server, and then mount, initialize, and format {{site.data.keyword.blockstorageshort}} volumes.
 {: shortdesc}
 
 ## Prerequisites
@@ -43,7 +43,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the operating system's vendor documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor documentation.
 {: shortdesc}
 
 ### Installing the MPIO feature
@@ -64,7 +64,7 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 3. Checkmark **Add support for iSCSI devices**, and click **Add**.
 4. If you're prompted to restart the computer, click **Yes**. Otherwise continue to next step.
 
-In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
+In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
 {: note}
 
 ### Configuring the iSCSI Initiator to discover the Target
@@ -176,21 +176,21 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft&reg; Devic
 ## Verifying whether MPIO is configured correctly in Windows Operating systems
 {: #verifyMPIOWindows}
 
-It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and then, restart the server.
+It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows&reg; MPIO is configured, you must first ensure that the MPIO Add-on is enabled and then, restart the server.
 
 ![Roles_Features_0](/images/Roles_Features_0.png){: caption="Figure 12. Multipath I/O is shown as checked." caption-side="bottom"}
 
 After the restart is complete, take the following steps to view all of the active paths.
-1. On the Windows desktop, click **Start**.
+1. On the desktop, click **Start**.
 2. In the Start Search field, type `diskmgmt.msc`.
 3. In the Programs list, click `diskmgmt`.
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
-   ![Windows MPIO properties.](/images/DeviceDetails_0.png){: caption="Figure 13. Several paths that are leading to the target are shown." caption-side="bottom"}
+   ![Windows&reg; MPIO properties.](/images/DeviceDetails_0.png){: caption="Figure 13. Several paths that are leading to the target are shown." caption-side="bottom"}
 
 To verify multipathing by using the command line, complete the following steps.
 
-1. Open Windows command prompt.
+1. Open the command prompt.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.
 3. Review the contents of `multipathconfig.txt`. Confirm that each of the two paths that are listed for the LUN contain distinct TPG_Id values.
 
@@ -202,7 +202,7 @@ In the rare case of a LUN being provisioned and attached while the second path i
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the OS vendor documentation.
+Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor documentation.
 
 ### Starting the iSCSI Initiator
 {: #startISCSIwin} 
