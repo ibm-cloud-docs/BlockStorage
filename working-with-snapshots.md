@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-12-10"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -152,6 +152,29 @@ Notifications are sent through the support cases to the Master User on your acco
 - At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the space that is used, the action is noted and the case is closed. If you do nothing, you must manually acknowledge the case and then it is closed.
 - At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, a notification is generated and automatic deletion occurs so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
+By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable it. When this feature  is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
+
+To check if the notifications are enabled for the storage volume, use the following command.
+
+```python
+# slcli block snapshot-get-notification-status
+Usage: slcli block snapshot-get-notification-status [OPTIONS] VOLUME_ID
+  Get snapshots space usage threshold warning flag setting for a given volume
+
+Options:
+  -h, --help  Show this message and exit.
+```
+
+To change the status of the notification setting, you the following command.
+```python
+# slcli block snapshot-set-notification VOLUME_ID 
+Usage: slcli block snapshot-set-notification VOLUME_ID [OPTIONS]
+
+Options:
+ --disable  Disable snapshot threshold warning notification for the storage volume
+ --enable   Enable snapshot threshold warning notification for the storage volume
+ -h, --help  Show this message and exit. 
+```
 
 ## Increasing the amount of Snapshot space for a volume in the UI
 {: #changesnapshotspaceUI}

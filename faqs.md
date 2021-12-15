@@ -15,7 +15,6 @@ subcollection: BlockStorage
 {:important: .important}
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
-{:help: data-hd-content-type='help'}
 
 # FAQs
 {: #block-storage-faqs}
@@ -30,7 +29,6 @@ The default limit for the number of authorizations per block volume is eight. Th
 ## Our compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
 {: #authsubnets}
 {: faq}
-{: help}
 {: support}
 
 It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IP addresses on a subnet, complete the following steps.
@@ -254,7 +252,6 @@ The cancellation process for this storage device is in progress so the Cancel ac
 ## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 {: #diskmanager}
-{: help}
 {: support}
 
 If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
@@ -262,7 +259,6 @@ If you use more than two iSCSI LUNs with the same host, and if all the iSCSI con
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
 {: faq}
-{: help}
 {: support}
 
 There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A reboot of the host solves the read-only state issue.
@@ -272,7 +268,6 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 ## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do I have to use multipath?
 {: #singlepath}
 {: faq}
-{: help}
 {: support}
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
@@ -282,7 +277,6 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
 {: faq}
-{: help}
 {: support}
 
 If MPIO is configured right, then when an unplanned disruption or a planned maintenance occurs, and one of the routes is taken down, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.

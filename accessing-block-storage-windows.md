@@ -186,7 +186,7 @@ After the restart is complete, take the following steps to view all of the activ
 3. In the Programs list, click `diskmgmt`.
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
-   ![Windows MPIO properties.](/images/DeviceDetails_0.png){: caption="Figure 13. Several paths that are leading to the target are shown." caption-side="bottom"}
+   ![Windows&reg; MPIO properties.](/images/DeviceDetails_0.png){: caption="Figure 13. Several paths that are leading to the target are shown." caption-side="bottom"}
 
 To verify multipathing by using the command line, complete the following steps.
 
