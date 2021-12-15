@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-11-29"
+lastupdated: "2021-09-01"
 
 keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -29,7 +29,7 @@ If a catastrophic failure or disaster causes an outage on the primary site, cust
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
 {: note}
 
-This action breaks the replication relationship and restoring the connection between the primary and the replica location can be time-consuming.
+This action breaks the replication relationship and cannot be undone without manual intervention from the support team.
 {: important}
 
 ## Fail over to the replica volume in the UI
@@ -96,42 +96,7 @@ Use the following command to fail a block volume over to a specific replicant vo
    </SOAP-ENV:Envelope>
    ```
 
-## Fail back to the original Primary site in the UI
-{: #DRFailback2originalUI}
-{: ui}
+## Fail back to the original primary site
+{: #DRfailback2original}
 
-After a disaster event, {{site.data.keyword.cloud}} begins remediation work to return the impacted locations to normal operations. When the site is restored, you can initiate a Failback to the original site by clicking **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/file){: external}.
-
-1. Click your active volume ("target").
-2. In the upper right, click **Replica** and click **Actions**.
-3. Select **Failback**. When the primary location is marked unavailable, the option of Disaster Recovery Failback becomes active. 
-
-   During the Disaster Recovery Failover, the system is forced to failover to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system has to reestablish the replication bond. This may take considerable amount of time. Expect a message that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
-   {: note}
-
-4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
-5. Click your replica volume ("source"). This volume now has an **Inactive** status.
-6. Mount and attach your storage volume to the host. For more information, [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
-
-If you need further assistance, create a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
-
-## Fail back from the SLCLI
-{: #DRFailback2originalCLI}
-{: cli}
-
-To fail back a file volume from a specific replicant volume, use the following command.
-```python
-# slcli block replica-failback --help
-Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
-
-Options:
- --replicant-id TEXT  ID of the replicant volume
- -h, --help           Show this message and exit.
-```
-
-During the Disaster Recovery Failover, the system is forced to failover to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system has to reestablish the replication bond. This may take considerable amount of time. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in the replication history.
-{: note}
-
-When the original volume is active, you can mount and attach it to the host. For more information, [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
-
-If you need further assistance, create a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
+If you want to return production to the original primary site, create a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}. For more information about opening a support case or case severities and response times, see [Viewing support cases](/docs/get-support?topic=get-support-managing-support-cases) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).
