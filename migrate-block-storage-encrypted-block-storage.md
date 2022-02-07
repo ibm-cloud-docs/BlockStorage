@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-08-18"
+  years: 2014, 2022
+lastupdated: "2022-02-07"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -20,6 +20,9 @@ subcollection: BlockStorage
 
 Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). The preferred migration path is to provision an enhanced {{site.data.keyword.blockstorageshort}}, connect both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 {: shortdesc}
+
+You don't need to follow this process if your Storage has recently received an upgrade to the Storage-as-a-Service Package as part of our on-going hardware refresh process.
+{: note}
 
 ## Provisioning a {{site.data.keyword.blockstorageshort}}
 {: #createencryptedLUN2}
