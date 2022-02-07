@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-07-27"
+  years: 2014, 2022
+lastupdated: "2022-02-07"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -340,3 +340,9 @@ The following situations can affect the ability to upgrade or expand storage:
 {: faq}
 
 All File and {{site.data.keyword.blockstorageshort}} services are thin-provisioned. This method is not modifiable.
+
+## My billing ID has changed, what does this mean?
+{: #staasV2migration}
+{: faq}
+
+You may notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price you pay for your Storage volume does not change with this upgrade.
