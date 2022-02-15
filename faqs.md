@@ -130,9 +130,9 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 {: #blockstoruse}
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} is yours to format and manage the way you want to. {{site.data.keyword.cloud}} cannot see the contents of the LUN, and therefor the UI cannot provide information about the diskspace usage of the volume. You can obtain information such as how much disk space is taken and how much is available, from your Compute host's operating system. 
+{{site.data.keyword.blockstorageshort}} is yours to format and manage the way you want to. {{site.data.keyword.cloud}} cannot see the contents of the LUN, and therefor the UI cannot provide information about the diskspace usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system. 
 
-For example, you can use the following commands.
+You can use the following commands.
 - Linux&reg: 
    ```txt
    df -h
