@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-15"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -125,6 +125,42 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 - 16 KB * 6000 IOPS == ~93.75 MB/sec
 - 8 KB * 6000 IOPS == ~46.88 MB/sec
 - 4 KB * 6000 IOPS == ~23.44 MB/sec
+
+## How can I tell how much of the Storage is being used? Why are the usage details of {{site.data.keyword.blockstorageshort}} not displayed in the UI?
+{: #blockstoruse}
+{: faq}
+
+{{site.data.keyword.blockstorageshort}} is yours to format and manage the way you want to. {{site.data.keyword.cloud}} cannot see the contents of the LUN, and therefor the UI cannot provide information about the diskspace usage of the volume. You can obtain information such as how much disk space is taken and how much is available, from your Compute host's operating system. 
+
+For example, you can use the following commands.
+- Linux&reg: 
+   ```txt
+   df -h
+   ```
+   {: pre}
+
+   The command provides an output that shows how much space is available space and the percentage used.
+   ```zsh
+   $ df -hT /dev/sda1
+   Filesystem     Type      Size  Used Avail Use% Mounted on
+   /dev/sda1      disk      6.0G  1.2G  4.9G  20% /
+   ```
+
+- Windows&reg:
+   ```txt
+   fsutil volume diskfree C:
+   ```
+   {: pre}
+
+   or
+
+   ```text
+   dir C:
+   ```
+   {: pre}
+   The last line of the output shows how much space is free.
+   
+   You can also view the free disk space in the File Explorer by clicking This PC.
 
 ## Does the volume need to be pre-warmed to achieve expected throughput?
 {: #prewarm}
@@ -346,3 +382,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: faq}
 
 You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price you pay for your Storage volume does not change with this upgrade.
+
+
+   
+
