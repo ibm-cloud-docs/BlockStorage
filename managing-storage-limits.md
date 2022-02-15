@@ -47,11 +47,11 @@ You can list the number of your volumes by using the [volume-limits](https://sof
 
 Example output:
 ```zsh
-[{'datacenterName': 'global', 'maximumAvailableCount': 250, 'provisioned Count':117}]
+[{'datacenterName': 'global', 'maximumAvailableCount': 750, 'provisioned Count':117}]
 :............:.......................:..................:
 : Datacenter : maximumAvailableCount : ProvisionedCount :
 :............:.......................:..................:
-:   global   :           250         :         117      :
+:   global   :           750         :         117      :
 :............:.......................:..................:
 ```
 

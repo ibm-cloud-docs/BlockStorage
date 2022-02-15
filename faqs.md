@@ -62,7 +62,7 @@ Options:
 {: faq}
 {: support}
 
-By default, you can provision a combined total of 250 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
+By default, you can provision a combined total of 750 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: #volumelimit}
