@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-04-28"
+  years: 2014, 2022
+lastupdated: "2022-02-15"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
