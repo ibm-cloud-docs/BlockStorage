@@ -158,6 +158,7 @@ For example, you can use the following commands.
    dir C:
    ```
    {: pre}
+   
    The last line of the output shows how much space is free.
    
    You can also view the free disk space in the File Explorer by clicking This PC.
