@@ -37,13 +37,9 @@
     ],
     "volumelimit": [
         "maximum block storage mount per host",
-        "o/s iscsi maximum limit",
         "lun limitation per host",
-        "volume iscsi mount limit",
-        "host mount total limit",
         "maximum mount limit for block storage",
         "block storage volume attachment limit",
-        "max connections limit to Block Storage",
         "iSCSI volumes can be connected to on one server",
         "maximum amount of iSCSI LUNs to be mounted"
     ],
@@ -74,16 +70,6 @@
         "lun iops limit on block storage",
         "iops allocation limit",
         " IOPS allocated to block storage servers"
-    ],
-    "iopsmeasure": [
-        "measure iops speed",
-        "what is IOPS",
-        "explain standard workload profile",
-        "iops workload benchmark",
-        "fio iops testing on block storage",
-        "workload iops test",
-        "block storage iops benchmark",
-        "block storage performance testing"
     ],
     "smallblock": [
         "smaller block size used to measure performance",
@@ -131,16 +117,6 @@
         "firewalls reduce storage throughput",
         "firewalls impact block storage performance",
         "firewalls and security groups impact performance"
-    ],
-    "latency": [
-        "lun latency iscsi storage",
-        "latency expectation in Block Storage",
-        "block storage latency",
-        "iscsi latency in block storage lun",
-        " normal latency from iscsi storage",
-        "high latency iscsi",
-        "block storage expected latency",
-        "target storage latency for iscsi LUNs"
     ],
     "orderendurance": [
         "10 IOPS/GB availability limited in block storage",
@@ -238,7 +214,6 @@
         "block storage appears offline",
         "block storage is read only",
         "storage appears offline or read-only",
-        "block storage is offline",
         "iSCSI storage went read-only",
         "data corruption now read-only in block storage",
         "reboot read-only LUN",
