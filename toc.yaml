@@ -71,6 +71,7 @@ toc:
         - topicgroup:
             label: Enhancing Security
             topics:
+            - availability.md
             - data-security.md
             - use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
 

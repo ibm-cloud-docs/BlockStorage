@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-03-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -219,7 +219,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 {: faq}
 {: support}
 
-You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location.
+You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: #orderendurance}
@@ -383,6 +383,19 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: faq}
 
 You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price you pay for your Storage volume does not change with this upgrade.
+
+## How durable is {{site.data.keyword.blockstorageshort}}?
+{: #stordurability}
+{: faq}
+
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available and encrypted. The durability target for a single Availability zone is 99.999999999% (11 9's). For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=FBlockStorage-storageavailability).
+
+## What's the average uptime for {{site.data.keyword.blockstorageshort}}?
+{: #storavailability}
+{: faq}
+
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available and encrypted. File Storage is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The ensure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid State Drives and its partner node's SSDs as well. This protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
+
 
 
    

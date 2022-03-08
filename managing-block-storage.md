@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-04-29"
+  years: 2014, 2022
+lastupdated: "2022-03-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -265,7 +265,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
    
 4. Click the **Acknowledgment** check box and click **Delete**
 
-You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete.
+When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
@@ -293,6 +293,6 @@ Options:
   -h, --help     Show this message and exit.
 ```
 
-You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
+When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
