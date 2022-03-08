@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-04-29"
+  years: 2014, 202
+lastupdated: "2022-03-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -293,6 +293,6 @@ Options:
   -h, --help     Show this message and exit.
 ```
 
-You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
+You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer and billing is stopped immediately after you click Delete/Cancel.
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
