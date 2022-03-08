@@ -219,7 +219,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 {: faq}
 {: support}
 
-You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location.
+You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: #orderendurance}
