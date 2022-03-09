@@ -6,7 +6,7 @@ lastupdated: "2022-03-08"
 
 keywords: Block Storage, block storage, ISCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
-subcollection: FileStorage
+subcollection: BlockStorage
 
 ---
 {:external: target="_blank" .external}
