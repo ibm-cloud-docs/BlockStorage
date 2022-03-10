@@ -230,10 +230,10 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa)identifier. That number is guaranteed to be unique to that LUN.
 
    ```text
-   Volume Name        VMFS UUID                            Extent Number  Device Name                           Partition
-   -----------------  -----------------------------------  -------------  ------------------------------------  ---------
-   datastore1         5f69774e-f1031e44-7bdb-ac1f6bc4b812              0  naa.600062b2049d040026fc1e4b2f305682          3
-   iscsi-datastore    621f425f-0dc2da8a-927b-ac1f6bc4b812              0  naa.600a098038305674695d51694b427849          1
+   Volume Name     VMFS UUID                            Extent Number  Device Name                           Partition
+   --------------- -----------------------------------  -------------  ------------------------------------  ---------
+   datastore1      5f69774e-f1031e44-7bdb-ac1f6bc4b812              0  naa.600062b2049d040026fc1e4b2f305682          3
+   iscsi-datastore 621f425f-0dc2da8a-927b-ac1f6bc4b812              0  naa.600a098038305674695d51694b427849          1
    ```
 
 2. Next, enter the `esxcfg-mpath -b` command. The output contains the same `naa` number, the LUN ID and the PortalTag.
@@ -261,15 +261,15 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    ```text 
    $ ibmcloud sl block volume-list
-   id                      username                   datacenter   storage_type                        capacity_gb   bytes_used   lunId   
-   221426384               SL02SEL1160157-195         che01        endurance_block_storage             1500          -            2    
-   332299016               SL02SEL1160157-220         dal13        endurance_block_storage             20            -            2   
-   333280508               SL02SEL1160157-221         dal10        endurance_block_storage             200           -            0  
+   id        username           datacenter storage_type            capacity_gb  bytes_used lunId   
+   221426384 SL02SEL1160157-195 che01      endurance_block_storage 1500         -          2    
+   332299016 SL02SEL1160157-220 dal13      endurance_block_storage 20           -          2   
+   333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200          -          0  
    ```
 
-   In the example, "0" is the LUN id and "333280508" is the volume id of your {{site.data.keyword.blockstorageshort}} LUN.
+   In the example, "333280508" is the volume id and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
 
-   You can execute `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
+   Execute the command `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
 
    ```zsh
    $ ibmcloud sl block volume-detail 333280508
