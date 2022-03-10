@@ -203,9 +203,9 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    ```zsh
    $ ibmcloud sl block volume-list
-   id          username                datacenter   storage_type                    capacity_gb   bytes_used   lunId   
-   333280508   SL02SEL1160157-221      dal10        endurance_block_storage         200           -            0
-   333506786   SL02SEL1160157-222      tok02        endurance_block_storage         200           -            0
+   id        username           datacenter storage_type            capacity_gb bytes_used lunId   
+   333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200         -          0
+   333506786 SL02SEL1160157-222 tok02      endurance_block_storage 200         -          0
    ```
 
    ```zsh
@@ -293,7 +293,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    So you can map the iscsi LUN ID to the block device's hostname:
 
    ```text
-   SL02SEL1160157-221  lun id: 0     Target IP: 161.26.99.155
+   SL02SEL1160157-221  lun id: 0  Target IP: 161.26.99.155
    ```
 
 ## Viewing the LUN ID in the UI
