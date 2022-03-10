@@ -21,7 +21,7 @@ subcollection: BlockStorage
 {:api: .ph data-hd-interface='api'}
 
 
-# Identifying LUN IDs
+# Identifying LUNs
 { #identifyLUNfomHostOS}
 
 Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you migth have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes attached to an esxi server and you want to expand the volume size of one of the LUN, and you need to know the correct LUN ID of the storage that you want to expand to do that.
@@ -224,11 +224,6 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    Replicant Count            0
    ```
 
-
-
-
-
-
 ## Viewing the LUN ID in VMWare&reg;
 { #identifyLUNfVMware}
 
@@ -297,13 +292,13 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    ```text
    SL02SEL1160157-221  lun id: 0     Target IP: 161.26.99.155
    ```
-   
-   ## Viewing the LUN ID in the UI
-   {: #}
-   
-   You can also gather the LUN ID, Target IP Address and Host name of the {{site.data.keyword.blockstorageshort}} devicee on the Volume Details page in the UI. 
 
-   ![The Volume Details page in the Console provides detailed information about the LUN.](images/vmwareLUNID.png "Block Storage Volume Details in the Console.")
+## Viewing the LUN ID in the UI
+{: ##identifyLUNUI}
+   
+You can also gather the LUN ID, Target IP Address and Host name of the {{site.data.keyword.blockstorageshort}} devicee on the Volume Details page in the UI. 
+
+![The Volume Details page in the Console provides detailed information about the LUN.](images/vmwareLUNID.png "Block Storage Volume Details in the Console.")
 
 
 
