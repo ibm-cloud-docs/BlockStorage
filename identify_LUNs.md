@@ -230,17 +230,17 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa)identifier. That number is guaranteed to be unique to that LUN.
 
-   ```text
-   Volume Name     VMFS UUID                           Extent Device                               Partition
-                                                       Number NameName
-   --------------- ----------------------------------- ------ ------------------------------------ ---------
-   datastore1      5f69774e-f1031e44-7bdb-ac1f6bc4b812      0 naa.600062b2049d040026fc1e4b2f305682         3
-   iscsi-datastore 621f425f-0dc2da8a-927b-ac1f6bc4b812      0 naa.600a098038305674695d51694b427849         1
+   ```sh
+   Volume Name     VMFS UUID                           Extent Device Name                     Partition
+                                                       Number 
+   --------------- ----------------------------------- ------ ------------------------------------ ----
+   datastore1      5f69774e-f1031e44-7bdb-ac1f6bc4b812      0 naa.600062b2049d040026fc1e4b2f305682    3
+   iscsi-datastore 621f425f-0dc2da8a-927b-ac1f6bc4b812      0 naa.600a098038305674695d51694b427849    1
    ```
 
 2. Next, enter the `esxcfg-mpath -b` command. The output contains the same `naa` number, the LUN ID and the PortalTag.
 
-   ```text
+   ```sh
    naa.600a098038305674695d51694b427849 : NETAPP iSCSI Disk (naa.600a098038305674695d51694b427849)
       vmhba64:C0:T1:L0 LUN:0 state:active iscsi Adapter: iqn.2020-10.com.ibm:sl02su1160157-h1907004  
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000001 PortalTag=1034
