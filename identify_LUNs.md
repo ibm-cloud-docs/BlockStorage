@@ -32,14 +32,15 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 1. In the command line, run `multipath -ll` and take a look at the output.
 
    ```zsh
+   root@server:~# multipath -l
    3600a098038303845372b4a5232346e35 dm-0 NETAPP ,LUN C-Mode 
    size=12T features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='1 alua' wp=rw
-   `-+- policy='round-robin 0' prio=50 status=active
-   `- 1:0:0:0 sdc 8:32 active ready running
+   -+- policy='round-robin 0' prio=50 status=active
+   - `1:0:0:0 sdc 8:32 active ready running`
    3600a098038304471562b4c4743384332 dm-1 NETAPP ,LUN C-Mode 
    size=12T features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='1 alua' wp=rw
-   `-+- policy='round-robin 0' prio=10 status=active 
-   `- 3:0:0:1 sdd 8:48 active ready running
+   -+- policy='round-robin 0' prio=10 status=active 
+   `- 3:0:0:1 sdd 8:48 active ready running`
    ```
 
    Note "1:0:0:0" and "3:0:0:1". The last digist in each of these fields "1:0:0:0" and "3:0:0:1", the "0" and "1" are the iscsi LUN ID numbers of your block storage devices.
