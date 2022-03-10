@@ -225,7 +225,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    ```
 
 ## Viewing the LUN ID in VMWare&reg;
-{: #identifyLUNfVMware}
+{: #identifyLUNVMware}
 
 1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa)identifier. That number is guaranteed to be unique to that LUN.
 
