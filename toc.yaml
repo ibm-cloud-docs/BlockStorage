@@ -60,7 +60,7 @@ toc:
             - expandable_block_storage.md
             - adjustable-iops.md
             - working-with-snapshots.md
-            - identify_LUN_ID.md
+            - identify_LUNs.md
         - topicgroup:
             label: Replication and Disaster Recovery
             topics:
