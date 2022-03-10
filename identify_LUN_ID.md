@@ -303,4 +303,3 @@ You can also gather the LUN ID, Target IP Address and Host name of the {{site.da
 
 ![The Volume Details page in the Console provides detailed information about the LUN.](images/vmwareLUNID.png "Block Storage Volume Details in the Console.")
 {: caption="Image 1 shows the Volume Details page in the Console that provides detailed information about the LUN." caption-side="top"}
-
