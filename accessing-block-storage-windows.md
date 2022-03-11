@@ -62,7 +62,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 1. Open the MPIO Properties window by clicking **Start**, pointing to **Administrative Tools**, and clicking **MPIO**.
 2. Click **Discover Multi-Paths**.
 3. Checkmark **Add support for iSCSI devices**, and click **Add**.
-4. If you're prompted to restart the computer, click **Yes**. Otherwise continue to next step.
+4. If you're prompted to restart the computer, click **Yes**. Otherwise, continue to next step.
 
 In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
 {: note}
@@ -173,7 +173,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
 
 
-## Verifying whether MPIO is configured correctly in Windows Operating systems
+## Verifying whether MPIO is configured correctly in Windows&reg; Operating systems
 {: #verifyMPIOWindows}
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows&reg; MPIO is configured, you must first ensure that the MPIO Add-on is enabled and then, restart the server.
