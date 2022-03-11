@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2022
 lastupdated: "2022-01-06"
 
-keywords: Block Storage, inaccessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
+keywords: Block Storage, inaccessible primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
 subcollection: BlockStorage
 
@@ -96,7 +96,7 @@ Use the following command to fail a block volume over to a specific replicant vo
    </SOAP-ENV:Envelope>
    ```
 
-## Fail back to the original Primary site in the UI
+## Fail back to the original primary site in the UI
 {: #DRFailback2originalUI}
 {: ui}
 
@@ -106,7 +106,7 @@ After a disaster event, {{site.data.keyword.cloud}} begins remediation work to r
 2. In the upper right, click **Replica** and click **Actions**.
 3. Select **Failback**. When the primary location is marked unavailable, the option of Disaster Recovery Failback becomes active.
 
-   During the Disaster Recovery Failover, the system is forced to failover to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system has to reestablish the replication bond. This may take considerable amount of time. Expect a message that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
+   During the Disaster Recovery Failover, the system is forced to fail over to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system has to reestablish the replication bond. This can take considerable amount of time. Expect a message that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
    {: note}
 
 4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
@@ -129,7 +129,7 @@ Options:
  -h, --help           Show this message and exit.
 ```
 
-During the Disaster Recovery Failover, the system is forced to failover to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system has to reestablish the replication bond. This may take considerable amount of time. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in the replication history.
+During the Disaster Recovery Failover, the system is forced to failover to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system has to reestablish the replication bond. This can take considerable amount of time. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in the replication history.
 {: note}
 
 When the original volume is active, you can mount and attach it to the host. For more information, [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
