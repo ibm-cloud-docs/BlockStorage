@@ -43,7 +43,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg; versions according to the operating system's vendor documentation.
+Complete the following steps to connect a Windows&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor documentation.
 {: shortdesc}
 
 ### Installing the MPIO feature
@@ -62,7 +62,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 1. Open the MPIO Properties window by clicking **Start**, pointing to **Administrative Tools**, and clicking **MPIO**.
 2. Click **Discover Multi-Paths**.
 3. Checkmark **Add support for iSCSI devices**, and click **Add**.
-4. If you're prompted to restart the computer, click **Yes**. Otherwise continue to next step.
+4. If you're prompted to restart the computer, click **Yes**. Otherwise, continue to next step.
 
 In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; Device Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
 {: note}
@@ -158,7 +158,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 ### Initializing and formatting the {{site.data.keyword.blockstorageshort}} volume
 {: #formatLUNonWIn}
 
-1. Press the Windows Logo key + X, and then click **Run**.
+1. Press the Windows&reg; Logo key + X, and then click **Run**.
 2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The right pane shows the drives that are attached to your host.
 3. In the Disk Management window, right-click the discovered LUN's name, and then click **Online**.
 4. Right-click and select **Initialize Disk**.
@@ -173,7 +173,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
 
 
-## Verifying whether MPIO is configured correctly in Windows Operating systems
+## Verifying whether MPIO is configured correctly in Windows&reg; Operating systems
 {: #verifyMPIOWindows}
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows&reg; MPIO is configured, you must first ensure that the MPIO Add-on is enabled and then, restart the server.
@@ -202,7 +202,7 @@ In the rare case of a LUN being provisioned and attached while the second path i
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg; versions according to the OS vendor documentation.
+Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor documentation.
 
 ### Starting the iSCSI Initiator
 {: #startISCSIwin} 
