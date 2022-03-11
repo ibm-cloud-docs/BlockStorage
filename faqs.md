@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-03-10"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -395,3 +395,14 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: faq}
 
 When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The ensure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
+
+## How can I identify a {{site.data.keyword.blockstorageshort}} from my OS?
+{: #identifyLUNfaq}
+{: faq}
+
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you migth have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS specific instructions, click one of the following links.
+
+- [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
+- [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
+- [Viewing LUN information in VMWare&reg;](/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNVMware)
+
