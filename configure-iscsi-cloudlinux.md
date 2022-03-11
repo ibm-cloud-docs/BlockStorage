@@ -29,8 +29,6 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 ## Authorizing the host
 {: #authhostclin}
 
-## Authorizing the host
-{: #authhostcloudlin}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu**, select **Classic Infrastructure**.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
