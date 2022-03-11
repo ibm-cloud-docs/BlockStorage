@@ -19,6 +19,7 @@ subcollection: BlockStorage
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:support: data-reuse='support'}
 
 
 # Identifying LUNs
@@ -28,6 +29,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
+{: support}
 
 1. In the command line, run `multipath -ll` and take a look at the output.
 
@@ -187,6 +189,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    
 ## Viewing the LUN ID in Windows&reg;
 {: #identifyLUNWin}
+{: support}
 
 1. In PowerShell, execute the command `iscsicli SessionList| findstr /c:"Device Number" /c:"Location"  /c:"Target Portal"`. The output shows the IP address and the LUN ID. In the example, the IP address is 10.201.174.123 and the LUN ID is LUN 0.
 
@@ -227,6 +230,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 ## Viewing the LUN ID in VMWare&reg;
 {: #identifyLUNVMware}
+{: support}
 
 1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa)identifier. That number is guaranteed to be unique to that LUN.
 
@@ -299,6 +303,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 ## Viewing the LUN ID in the UI
 {: #identifyLUNUI}
+{: support}
    
 You can also gather the LUN ID, Target IP Address and Host name of the {{site.data.keyword.blockstorageshort}} devicee on the Volume Details page in the UI. 
 
