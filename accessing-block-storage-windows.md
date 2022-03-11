@@ -43,7 +43,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor documentation.
+Complete the following steps to connect a Windows&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor documentation.
 {: shortdesc}
 
 ### Installing the MPIO feature
@@ -158,7 +158,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 ### Initializing and formatting the {{site.data.keyword.blockstorageshort}} volume
 {: #formatLUNonWIn}
 
-1. Press the Windows Logo key + X, and then click **Run**.
+1. Press the Windows&reg; Logo key + X, and then click **Run**.
 2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The right pane shows the drives that are attached to your host.
 3. In the Disk Management window, right-click the discovered LUN's name, and then click **Online**.
 4. Right-click and select **Initialize Disk**.
@@ -202,7 +202,7 @@ In the rare case of a LUN being provisioned and attached while the second path i
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor documentation.
+Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor documentation.
 
 ### Starting the iSCSI Initiator
 {: #startISCSIwin} 
