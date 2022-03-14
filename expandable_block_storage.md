@@ -33,7 +33,7 @@ Billing for the volume is automatically updated to add the pro-rated difference 
 
 This feature is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
-The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait. When the expansion is complete, the host Operating system must rescan the volume and reload the multipath device map to reflect the change in size. You must resize the partition, LVM and file system as well to allocate the new unused capacity.
+The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait. When the expansion is complete, the host Operating system must rescan the volume and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
 {: important}
 
 ## Advantages of Expandable Storage
