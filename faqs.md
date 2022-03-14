@@ -130,7 +130,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 {: #blockstoruse}
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} is yours to format and manage the way you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and therefor the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system. 
+{{site.data.keyword.blockstorageshort}} is yours to format and manage the way you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and therefore the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system. 
 
 You can use the following commands.
 - Linux&reg;: 
@@ -219,7 +219,7 @@ Target latency within the storage is <1 ms. The storage is connected to compute 
 {: faq}
 {: support}
 
-You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too.
+You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. Billing for the volume stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console, too.
 
 ## Why can {{site.data.keyword.blockstorageshort}} with Endurance 10 IOPS/GB tier be ordered in some data centers and not in others?
 {: #orderendurance}
@@ -242,14 +242,14 @@ When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{
 
 When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
-## If we own non-encrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
+## If we own nonencrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}
 {: #encryptupgrade}
 {: support}
 
 {{site.data.keyword.blockstorageshort}} that is provisioned before the data center upgrade can't be encrypted.
 New {{site.data.keyword.blockstorageshort}} that is provisioned in upgraded data centers is automatically encrypted. There's no encrypt setting to choose from, it’s automatic.
-Data on non-encrypted storage in an upgraded data center can be encrypted by creating a LUN, then copying the data to the new encrypted LUN with host-based migration. For more information, see [Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
+Data on nonencrypted storage in an upgraded data center can be encrypted by creating a LUN, then copying the data to the new encrypted LUN with host-based migration. For more information, see [Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-migratestorage#migratestorage).
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
 {: faq}
@@ -378,11 +378,11 @@ The following situations can affect the ability to upgrade or expand storage:
 
 All File and {{site.data.keyword.blockstorageshort}} services are thin-provisioned. This method is not modifiable.
 
-## My billing ID has changed, what does this mean?
+## My billing ID changed, what does this mean?
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
@@ -394,13 +394,13 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #storavailabilityfaq}
 {: faq}
 
-When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The ensure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. To ensure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
 
 ## How can I identify a {{site.data.keyword.blockstorageshort}} volume from my OS?
 {: #identifyLUNfaq}
 {: faq}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS specific instructions, click one of the following links.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
