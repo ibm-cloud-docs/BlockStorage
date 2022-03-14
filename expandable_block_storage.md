@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-04-29"
+  years: 2018, 2022
+lastupdated: "2022-03-14"
 
-keywords: Block Storage, new feature, adjusting capacity, modify capacity, increase capacity, Storage Capacity
+keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
 subcollection: BlockStorage
 
@@ -18,7 +18,6 @@ subcollection: BlockStorage
 {:preview: .preview}
 {:external: target="_blank" .external}
 {:support: data-reuse='support'}
-{:help: data-hd-content-type='help'}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
@@ -34,7 +33,8 @@ Billing for the volume is automatically updated to add the pro-rated difference 
 
 This feature is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
-The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait.
+The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait. When the expansion is complete, the host Operating system must rescan the volume and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
+{: important}
 
 ## Advantages of Expandable Storage
 {: #advantageofresizing}
@@ -68,7 +68,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
 
-For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 ## Resizing storage from the CLI
@@ -113,7 +113,7 @@ Options:
 ```
 {: codeblock}
 
-For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 ## Resizing storage with the API
@@ -196,13 +196,12 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    ```
    {: codeblock}
 
-For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 
 ## Expanding Storage over 12 TB
 {: #increasecapacityover12TB}
-{: help}
 {: support}
 
 If you need to increase your Storage volume capacity beyond 12 TB, you can request to be added to the allowlist by submitting a [support case](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved by the Offering Manager, you're going to be notified through the case process. You're also going to see the option to increase your storage up to 16 TB in the console.
