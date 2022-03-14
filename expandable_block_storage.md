@@ -33,7 +33,7 @@ Billing for the volume is automatically updated to add the pro-rated difference 
 
 This feature is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
-The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait. Note that the Operating system must rescan and reload the multipath device map to reflect the expanded block storage volume size, and resizing of the partition, LVM and file system is also required.
+The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. There's no outage or lack of access to the storage while the resize is taking place, so you can continue your operations as normal while you wait. When the expansion is complete, the host Operating system must rescan the volume and reload the multipath device map to reflect the change in size. You must resize the partition, LVM and file system as well to allocate the new unused capacity.
 {: important}
 
 ## Advantages of Expandable Storage
@@ -68,7 +68,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition, LVM, and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 ## Resizing storage from the CLI
@@ -113,7 +113,7 @@ Options:
 ```
 {: codeblock}
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition, LVM, and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 ## Resizing storage with the API
@@ -196,7 +196,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    ```
    {: codeblock}
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition, LVM, and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system (and partitions, if any) on the volume to use the new space, check your OS documentation. For example, [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 
