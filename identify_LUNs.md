@@ -45,7 +45,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    `- 3:0:0:1 sdd 8:48 active ready running`
    ```
 
-   Note "1:0:0:0" and "3:0:0:1". The last digist in each of these fields "1:0:0:0" and "3:0:0:1", the "0" and "1" are the iscsi LUN ID numbers of your block storage devices.
+   Note "1:0:0:0" and "3:0:0:1". The last digits in each of these fields "1:0:0:0" and "3:0:0:1", the "0" and "1" are the iscsi LUN ID numbers of your block storage devices.
 
 2. Enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.  
    
@@ -83,7 +83,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    IBM02SEL1575811-4 lun id: 1 Target IP: 161.26.110.43
    ```
 
-3. You can further confirm this by using the following command `iscsiadm -m session -P 3`
+3. You can further confirm this by using the following command `iscsiadm -m session -P 3`.
 
    ```zsh
    # iscsiadm -m session -P 3
@@ -232,7 +232,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 {: #identifyLUNVMware}
 {: support}
 
-1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa)identifier. That number is guaranteed to be unique to that LUN.
+1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa) identifier. That number is guaranteed to be unique to that LUN.
 
    ```sh
    Volume Name     VMFS UUID                           Extent Device Name                     Partition
@@ -252,9 +252,9 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000002 PortalTag=1030
    ```   
    
-   In the example, "LUN:0" means the LUN id is 0. 
+   In the example, `LUN:0` means the LUN ID is 0. 
 
-3. Execute the `esxcli iscsi adapter target portal list` command. From the ouput, note the IP address and Tpgt value that mathes the Portal Tag.
+3. Execute the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
 
    ```text
    Adapter  Target                             IP             Port  Tpgt
@@ -275,7 +275,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200          -          0
    ```
 
-   In the example, "333280508" is the volume id and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
+   In the example, "333280508" is the volume ID and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
 
    Execute the command `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
 
@@ -305,6 +305,6 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 {: #identifyLUNUI}
 {: support}
    
-You can also gather the LUN ID, Target IP Address and Host name of the {{site.data.keyword.blockstorageshort}} devicee on the Volume Details page in the UI. 
+You can also gather the LUN ID, Target IP address and Hostname of the {{site.data.keyword.blockstorageshort}} device on the Volume Details page in the UI. 
 
 ![The Volume Details page in the Console provides detailed information about the LUN.](images/vmwareLUNID.png "Block Storage Volume Details in the Console."){: caption="Image 1 shows the Volume Details page in the Console that provides detailed information about the LUN." caption-side="bottom"}
