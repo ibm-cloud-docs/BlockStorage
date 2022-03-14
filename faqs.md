@@ -291,7 +291,7 @@ The cancellation process for this storage device is in progress so the Cancel ac
 {: #diskmanager}
 {: support}
 
-If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
@@ -336,7 +336,7 @@ To see the new expanded LUN size, you need to configure your existing {{site.dat
 {: #add-mpio}
 {: faq}
 
-Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows&reg; Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
 
 ## How do I reconnect storage after a chassis swap?
 {: #chassis-swap}
@@ -378,11 +378,11 @@ The following situations can affect the ability to upgrade or expand storage:
 
 All File and {{site.data.keyword.blockstorageshort}} services are thin-provisioned. This method is not modifiable.
 
-## My billing ID has changed, what does this mean?
+## My billing ID changed, what does this mean?
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
@@ -400,7 +400,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #identifyLUNfaq}
 {: faq}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
