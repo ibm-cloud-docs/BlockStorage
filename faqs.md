@@ -329,8 +329,212 @@ In the rare case of a LUN being provisioned and attached while the second path i
 {: faq}
 {: support}
 
-To see the new expanded LUN size, you need to configure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps.
+To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps. Here are a couple of examples.
 
+### Windows 2016
+{: #expandsizeWin}
+
+1. Go to Server Manager > Tools > Computer Management > Disk Management.
+2. Click Action > Refresh.
+3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an Unallocated partition on the existing Disk. 
+4. Partition the unallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}
+
+### Linux
+{: #expandsizeLin}
+
+1. Log out of each multipath session of the block storage device that you expanded.
+   ```zsh
+   # iscsiadm --mode node --portal <Target IP> --logout
+   ```
+   {: pre}
+
+2. Log in again.
+   ```zsh
+   # iscsiadm --mode node --portal <Target IP> --login
+   ```
+   {: pre}
+
+3. Re-scan the iscsi sessions.
+   ```zsh
+   # iscsiadm -m session --rescan
+   ```
+   {: pre}
+
+4. List the new size by using `fdisk -l` to confirm that the storage was expanded.
+
+5. Reload multipath device map. 
+   ```zsh
+   # multipath -r <WWID>
+   ```
+   {: pre}
+
+   ```zsh
+   # multipath -r 3600a09803830477039244e6b4a396b30
+   reload: 3600a09803830477039244e6b4a396b30 undef NETAPP  ,LUN C-Mode
+   size=30G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=undef
+   |-+- policy='round-robin 0' prio=50 status=undef
+   | `- 2:0:0:3 sda  8:0     active ready running
+   `-+- policy='round-robin 0' prio=10 status=undef
+   `- 4:0:0:3 sdd  8:48    active ready running
+   ```
+
+6. Expand the file system.
+   - LVM 
+     1. Resize Physical Volume.
+        ```zsh
+        # pvresize /dev/mapper/3600a09803830477039244e6b4a396b30
+          Physical volume "/dev/mapper/3600a09803830477039244e6b4a396b30" changed
+          1 physical volume(s) resized or updated / 0 physical volume(s) not resized
+           
+        # pvdisplay -m /dev/mapper/3600a09803830477039244e6b4a396b30
+          --- Physical volume ---
+          PV Name               /dev/mapper/3600a09803830477039244e6b4a396b30
+          VG Name               vg00
+          PV Size               <30.00 GiB / not usable 3.00 MiB
+          Allocatable           yes
+          PE Size               4.00 MiB
+          Total PE              7679  Changed  <---- new number of physical extents 
+          Free PE               2560
+          Allocated PE          5119
+          PV UUID               dehWT5-VxgV-SJsb-ydyd-1Uck-JUA9-B9w0cO
+ 
+          --- Physical Segments ---
+          Physical extent 0 to 5118:
+          Logical volume  /dev/vg00/vol_projects
+          Logical extents 6399 to 11517
+          Physical extent 5119 to 7678:
+            FREE
+        ```
+
+     2. Resize Logical Volume.
+        ```zsh
+        # lvextend -l +100%FREE -r /dev/vg00/vol_projects
+          Size of logical volume vg00/vol_projects changed from 49.99 GiB (12798 extents) to 59.99 GiB (15358 extents).
+                  Logical volume vg00/vol_projects successfully resized.
+                resize2fs 1.42.9 (28-Dec-2013) <--- this step is done by '-r' option
+        Filesystem at /dev/mapper/vg00-vol_projects is mounted on /projects; on-line resizing required
+        old_desc_blocks = 7, new_desc_blocks = 8
+        The filesystem on /dev/mapper/vg00-vol_projects is now 15726592 blocks long.
+         
+        # lvdisplay
+          --- Logical volume ---
+          LV Path                /dev/vg00/vol_projects
+          LV Name                vol_projects
+          VG Name                vg00
+          LV UUID                z1lukZ-AuvR-zjLr-u1kK-eWcp-AHjX-IcnerW
+          LV Write Access        read/write
+          LV Creation host, time acs-kyungmo-lamp.tsstesting.com, 2021-12-07 19:34:39 -0600
+          LV Status              available
+          # open                 1
+          LV Size                59.99 GiB <--- new logical volume size
+          Current LE             15358
+          Segments               4
+          Allocation             inherit
+          Read ahead sectors     auto
+          - currently set to     8192
+          Block device           253:2
+        ```
+
+     3. Verify file system size.
+        ```zsh
+        # df -Th /projects
+        Filesystem                    Type  Size  Used Avail Use% Mounted on
+        /dev/mapper/vg00-vol_projects ext4   59G  2.1G   55G   4% /projects
+        ```
+
+        For more information, see [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
+
+       
+   - Non-LVM - ext2, ext3, ext4:
+      1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you don't have them installed already, run the following command.
+         ```zsh
+         # yum install cloud-utils-growpart xfsprogs -y
+         ```
+         {: pre}
+
+         1. Unmount the volume  that you want to expand the partition on.
+            ```zsh
+            # umount /dev/mapper/3600a098038304338415d4b4159487669p1
+            ```
+
+         2. Run the `growpart` utility. This grows the partition specified regardless whether it's an ext2, ext3, ext, or xfsf filesystem.
+            ```zsh
+            # growpart /dev/mapper/3600a098038304338415d4b4159487669 1
+            CHANGED: partition=1 start=2048 old: size=146800640 end=146802688 new: size=209713119,end=209715167
+            ```
+
+         3. Run `partprobe` to reread the disks and its partitions, then run `lsblk` to verify the new extended partition size.
+            ```zsh
+            # partprobe
+
+            # lsblk 
+            NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+            sda 8:0 0 100G 0 disk
+            ├─sda1 8:1 0 100G 0 part
+            └─3600a098038304338415d4b4159487669 253:0 0 100G 0 mpath
+            └─3600a098038304338415d4b4159487669p1 253:1 0 100G 0 part
+            sdb 8:16 0 100G 0 disk
+            └─3600a098038304338415d4b4159487669 253:0 0 100G 0 mpath
+            └─3600a098038304338415d4b4159487669p1 253:1 0 100G 0 part
+            xvda 202:0 0 100G 0 disk
+            ├─xvda1 202:1 0 256M 0 part /boot
+            └─xvda2 202:2 0 99.8G 0 part /
+            xvdb 202:16 0 2G 0 disk
+            └─xvdb1 202:17 0 2G 0 part [SWAP]
+            ```
+
+      2. Extend the existing filesystem on the partition.
+         1. Unmount the partition. 
+            ```zsh
+            # umount /dev/mapper/3600a098038304338415d4b4159487669p1
+            ```
+
+         2. Run `e2fsck -f` to ensure the filesystem is clean and has no issues before you proceed with resizing.
+            ```zsh
+            # e2fsck -f /dev/mapper/3600a098038304338415d4b4159487669p1
+            e2fsck 1.42.9 (28-Dec-2013)
+            Pass 1: Checking inodes, blocks, and sizes
+            Pass 2: Checking directory structure
+            Pass 3: Checking directory connectivity
+            Pass 4: Checking reference counts
+            Pass 5: Checking group summary information
+            /dev/mapper/3600a098038304338415d4b4159487669p1: 12/4587520 files (0.0% non-contiguous), 596201/18350080 blocks
+            ```
+
+         3. Issue the `resize2fs` command to resize the filesystem.
+            ```zsh
+            # resize2fs /dev/mapper/3600a098038304338415d4b4159487669p1
+            resize2fs 1.42.9 (28-Dec-2013)
+            Resizing the filesystem on /dev/mapper/3600a098038304338415d4b4159487669p1 to 26214139 (4k) blocks.
+            The filesystem on /dev/mapper/3600a098038304338415d4b4159487669p1 is now 26214139 blocks long.
+            ```
+
+         4. Mount the partition and run `df -vh` to verify that the new size.
+            ```zsh
+            # mount /dev/mapper/3600a098038304338415d4b4159487669p1 /SL02SEL1160157-73
+
+            # df -vh
+            Filesystem Size Used Avail Use% Mounted on
+            /dev/xvda2 99G 3.7G 90G 4% /
+            devtmpfs 3.9G 0 3.9G 0% /dev
+            tmpfs 3.9G 1.7M 3.9G 1% /dev/shm
+            tmpfs 3.9G 25M 3.8G 1% /run
+            tmpfs 3.9G 0 3.9G 0% /sys/fs/cgroup
+            /dev/xvda1 240M 148M 80M 65% /boot
+            fsf-sjc0401b-fz.adn.networklayer.com:/SL02SV1160157_8/data01 40G 1.1G 39G 3% /SL02SV1160157_8
+            tmpfs 782M 0 782M 0% /run/user/0 /dev/mapper/3600a098038304338415d4b4159487669p1 99G 1.1G 93G 2% /SL02SEL1160157-73
+            ```
+
+   - Non-LVM - xfs
+      1.  Mount the xfs filesystem back to its mountpoint. See /etc/fstab if you're not sure what the old mountpoint is for the xfs partition.
+          ```zsh
+          # mount /dev/sdb1 /mnt
+          ```
+        
+      2. Extend the filesystem. Substitute the mount point of the file system.
+         ```zsh
+         # xfs_growfs -d </mnt>
+         ```
 
 ## Why do I see two disks in Disk Management when I add a single storage device?
 {: #add-mpio}

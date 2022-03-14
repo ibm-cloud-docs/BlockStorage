@@ -279,7 +279,11 @@
         "why new block storage size not shown",
         "Disk space size did not change after upgrade of LUN",
         "new lun size not showing",
-        "expanded the volume size of my block storage"
+        "expanded the volume size of my block storage",
+        "Why device size is not increased after block storage volume is expanded?",
+        "How can I increase or grow partition size after block storage volume is expanded?",
+        "How I can increase the file system after block storage volume is expanded?",
+        "How I can resize LVM after block storage volume is expanded?"
      ],
     "add-mpio": [
         "two disks in windows iscsi disk management",
