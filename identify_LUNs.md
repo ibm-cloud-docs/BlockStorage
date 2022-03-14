@@ -25,13 +25,13 @@ subcollection: BlockStorage
 # Identifying LUNs
 {: #identifyLUN}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you migth have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. {: shortdesc}
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
 {: support}
 
-1. In the command line, run `multipath -ll` and take a look at the output.
+1. In the command line, run `multipath -ll` and look at the output.
 
    ```zsh
    root@server:~# multipath -l
@@ -242,7 +242,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    iscsi-datastore 621f425f-0dc2da8a-927b-ac1f6bc4b812      0 naa.600a098038305674695d51694b427849    1
    ```
 
-2. Next, enter the `esxcfg-mpath -b` command. The output contains the same `naa` number, the LUN ID and the PortalTag.
+2. Next, enter the `esxcfg-mpath -b` command. The output contains the same `naa` number, the LUN ID, and the PortalTag.
 
    ```sh
    naa.600a098038305674695d51694b427849 : NETAPP iSCSI Disk (naa.600a098038305674695d51694b427849)
