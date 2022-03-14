@@ -337,7 +337,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
 3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an Unallocated partition on the existing Disk. 
-4. Partition the unallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}
+4. Partition the unallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
 {: #expandsizeLin}
@@ -565,7 +565,7 @@ Perform the following steps to disconnect from a host:
 {: #tier-options}
 {: faq}
 
-Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/cloud/block-storage/details){external}.
+Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/cloud/block-storage/details){: external}.
 
 ## I am unable to upgrade storage. What can affect the ability to upgrade or expand storage?
 {: #expand-fail}
