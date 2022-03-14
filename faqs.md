@@ -393,7 +393,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
           PV Size               <30.00 GiB / not usable 3.00 MiB
           Allocatable           yes
           PE Size               4.00 MiB
-          Total PE              7679  Changed  <---- new number of physical extents 
+          Total PE              7679 - Changed  <- new number of physical extents 
           Free PE               2560
           Allocated PE          5119
           PV UUID               dehWT5-VxgV-SJsb-ydyd-1Uck-JUA9-B9w0cO
@@ -410,11 +410,11 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
         ```zsh
         # lvextend -l +100%FREE -r /dev/vg00/vol_projects
           Size of logical volume vg00/vol_projects changed from 49.99 GiB (12798 extents) to 59.99 GiB (15358 extents).
-                  Logical volume vg00/vol_projects successfully resized.
-                resize2fs 1.42.9 (28-Dec-2013) <--- this step is done by '-r' option
-        Filesystem at /dev/mapper/vg00-vol_projects is mounted on /projects; on-line resizing required
-        old_desc_blocks = 7, new_desc_blocks = 8
-        The filesystem on /dev/mapper/vg00-vol_projects is now 15726592 blocks long.
+          Logical volume vg00/vol_projects successfully resized.
+          resize2fs 1.42.9 (28-Dec-2013)
+          Filesystem at /dev/mapper/vg00-vol_projects is mounted on /projects; on-line resizing required
+          old_desc_blocks = 7, new_desc_blocks = 8
+          The filesystem on /dev/mapper/vg00-vol_projects is now 15726592 blocks long.
          
         # lvdisplay
           --- Logical volume ---
