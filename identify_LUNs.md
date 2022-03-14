@@ -25,7 +25,7 @@ subcollection: BlockStorage
 # Identifying LUNs
 {: #identifyLUN}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes, and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
@@ -135,10 +135,10 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    Attached SCSI devices:
    ************************
    Host Number: 1 State: running
-   scsi1 Channel 00 Id 0 Lun: 0 # match the "Lun: 0" here to the LUN ID
+   scsi1 Channel 00 Id 0 Lun: 0 # match the "Lun: 0" here to the LUN ID.
    Attached scsi disk sdc State: running
    
-   Current Portal: 161.26.110.43:3260,1041 # match this target iscsi IP to the block storage device
+   Current Portal: 161.26.110.43:3260,1041 # match this target iscsi IP to the block storage device.
    Persistent Portal: 161.26.110.43:3260,1041
    **********
    Interface:
@@ -183,7 +183,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    Attached SCSI devices:
    ************************
    Host Number: 3 State: running
-   scsi3 Channel 00 Id 0 Lun: 1 # match the "Lun: 1" here to the LUN ID
+   scsi3 Channel 00 Id 0 Lun: 1 # match the "Lun: 1" here to the LUN ID.
    Attached scsi disk sdd State: running
    ```
    
@@ -252,7 +252,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000002 PortalTag=1030
    ```   
    
-   In the example, `LUN:0` means the LUN ID is 0. 
+   In the example, `LUN:0` means that the LUN ID is 0. 
 
 3. Execute the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
 
