@@ -50,7 +50,7 @@ toc:
             - configure-iscsi-cloudlinux.md
             - accessing-block-storage-windows.md
             - set-host-queue-depth-settings-performance-and-endurance-storage.md
-            - /FileStorage/jumboframes
+            - /FileStorage/FileStorage-jumboframes
             - configure-backup-cpanel.md
             - configure-backup-plesk.md
             - /vmware/vmware-mount-iscsi-esxi
