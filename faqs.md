@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-03-14"
+lastupdated: "2022-04-07"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -113,7 +113,7 @@ IOPS is enforced at the volume level. Said differently, two hosts connected to a
 {: faq}
 {: support}
 
-IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance.
+IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance. To improve performance, you can try [adjusting the host queue depth settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings) or [enabling Jumbo frames](docs/BlockStorage?topic=FileStorage-jumboframes).
 
 ## What happens when a smaller block size is used to measure performance?
 {: #smallblock}
