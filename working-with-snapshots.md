@@ -131,7 +131,7 @@ You receive notifications when you reach space thresholds – 75 percent, 90 per
 - At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no auto-deletion occurs.
 - At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
-By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable it. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time from the CLI.
+By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time from the CLI.
 
 If snapshot space utilization occurs too rapidly, then you might receive one notification before auto-deletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%.
 {: note}
@@ -160,7 +160,7 @@ Notifications are sent when you reach three different space thresholds – 75 pe
 If snapshot space utilization occurs too rapidly, then you might receive one notification before auto-deletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%. The systems skips the 90%-exceeded warning.
 {: note}
 
-By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable it. When this feature  is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
+By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
 
 To check if the notifications are enabled for the storage volume, use the following command.
 
