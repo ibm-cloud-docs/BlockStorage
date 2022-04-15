@@ -162,7 +162,7 @@ If snapshot space utilization increases too rapidly, then you might receive one 
 
 By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
 
-To check if the notifications are enabled for the storage volume, use the following command.
+To check whether the notifications are enabled for the storage volume, use the following command.
 
 ```python
 # slcli block snapshot-get-notification-status
@@ -272,12 +272,12 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 
 1. Unmount and detach your storage volume from the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Connecting iSCSI Volumes on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
+   - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions** next to the snapshot to be used and click **Restore**.
 
-   Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state it was in of the time of the snapshot.
+   Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
    
 5. Click **Yes** to start the restore.
@@ -288,7 +288,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 6. Mount and reattach your storage volume to the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Connecting iSCSI Volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Connecting iSCSI Volumes on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}
