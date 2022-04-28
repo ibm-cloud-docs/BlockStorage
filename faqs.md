@@ -78,7 +78,7 @@ That depends on what the host operating system can handle, it’s not something 
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 
-## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
+## Which Windows&reg; version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
 {: #windowsOStypes}
 {: faq}
 {: support}
@@ -304,7 +304,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 
 The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it’s reclaimed. An hourglass or clock icon appears next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
-## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
+## My Windows&reg; 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 {: #diskmanager}
 {: support}
@@ -327,7 +327,7 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
@@ -337,8 +337,8 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 If MPIO is configured right, then when an unplanned disruption or a planned maintenance occurs, and one of the routes is taken down, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
-- [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
+- [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Verifying MPIO on MS Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
 In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If there's an event, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
@@ -349,7 +349,7 @@ In the rare case of a LUN being provisioned and attached while the second path i
 
 To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps. Here are a couple of examples.
 
-### Windows 2016
+### Windows&reg; 2016
 {: #expandsizeWin}
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
@@ -464,7 +464,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
        
    - Non-LVM - ext2, ext3, ext4:
-      1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you don't have them installed already, run the following command.
+      1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you need to install them, run the following command.
          ```zsh
          # yum install cloud-utils-growpart xfsprogs -y
          ```
