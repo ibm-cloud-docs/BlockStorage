@@ -475,7 +475,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
-         2. Run the `growpart` utility. This grows the partition specified regardless whether it's an ext2, ext3, ext, or xfsf file system.
+         2. Run the `growpart` utility. This action grows the specified partition regardless whether it's an ext2, ext3, ext, or xfsf file system.
             ```zsh
             # growpart /dev/mapper/3600a098038304338415d4b4159487669 1
             CHANGED: partition=1 start=2048 old: size=146800640 end=146802688 new: size=209713119,end=209715167
@@ -507,7 +507,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
-         2. Run `e2fsck -f` to ensure the file system is clean and has no issues before you proceed with resizing.
+         2. Run `e2fsck -f` to ensure that the file system is clean and has no issues before you proceed with resizing.
             ```zsh
             # e2fsck -f /dev/mapper/3600a098038304338415d4b4159487669p1
             e2fsck 1.42.9 (28-Dec-2013)
