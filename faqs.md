@@ -544,7 +544,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```
 
    - Non-LVM - xfs
-      1.  Mount the xfs file system back to its mount point. See /etc/fstab if you're not sure what the old mount point is for the xfs partition.
+      1.  Mount the xfs file system back to its mount point. See `/etc/fstab` if you're not sure what the old mount point is for the xfs partition.
           ```zsh
           # mount /dev/sdb1 /mnt
           ```
