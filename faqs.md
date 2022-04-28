@@ -130,7 +130,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 {: #blockstoruse}
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} is yours to format and manage the way you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and therefore the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system. 
+{{site.data.keyword.blockstorageshort}} is yours to format and manage the way that you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and so the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system. 
 
 You can use the following commands.
 - Linux&reg;: 
@@ -354,7 +354,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
-3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an Unallocated partition on the existing Disk. 
+3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an unallocated partition on the existing Disk. 
 4. Partition the unallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
@@ -475,7 +475,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
-         2. Run the `growpart` utility. This grows the partition specified regardless whether it's an ext2, ext3, ext, or xfsf filesystem.
+         2. Run the `growpart` utility. This grows the partition specified regardless whether it's an ext2, ext3, ext, or xfsf file system.
             ```zsh
             # growpart /dev/mapper/3600a098038304338415d4b4159487669 1
             CHANGED: partition=1 start=2048 old: size=146800640 end=146802688 new: size=209713119,end=209715167
@@ -501,13 +501,13 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             └─xvdb1 202:17 0 2G 0 part [SWAP]
             ```
 
-      2. Extend the existing filesystem on the partition.
+      2. Extend the existing file system on the partition.
          1. Unmount the partition. 
             ```zsh
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
-         2. Run `e2fsck -f` to ensure the filesystem is clean and has no issues before you proceed with resizing.
+         2. Run `e2fsck -f` to ensure the file system is clean and has no issues before you proceed with resizing.
             ```zsh
             # e2fsck -f /dev/mapper/3600a098038304338415d4b4159487669p1
             e2fsck 1.42.9 (28-Dec-2013)
@@ -519,7 +519,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             /dev/mapper/3600a098038304338415d4b4159487669p1: 12/4587520 files (0.0% non-contiguous), 596201/18350080 blocks
             ```
 
-         3. Issue the `resize2fs` command to resize the filesystem.
+         3. Issue the `resize2fs` command to resize the file system.
             ```zsh
             # resize2fs /dev/mapper/3600a098038304338415d4b4159487669p1
             resize2fs 1.42.9 (28-Dec-2013)
@@ -544,12 +544,12 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```
 
    - Non-LVM - xfs
-      1.  Mount the xfs filesystem back to its mountpoint. See /etc/fstab if you're not sure what the old mountpoint is for the xfs partition.
+      1.  Mount the xfs file system back to its mount point. See /etc/fstab if you're not sure what the old mount point is for the xfs partition.
           ```zsh
           # mount /dev/sdb1 /mnt
           ```
         
-      2. Extend the filesystem. Substitute the mount point of the file system.
+      2. Extend the file system. Substitute the mount point of the file system.
          ```zsh
          # xfs_growfs -d </mnt>
          ```
@@ -591,7 +591,7 @@ Endurance and Performance are provisioning options that you can select for stora
 
 The following situations can affect the ability to upgrade or expand storage:
 - If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
-- Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [Expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
+- Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
 - The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
 ## Are ISCSI LUNs thin or thick provisioned?
@@ -604,7 +604,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to utilize all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to leverage all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
