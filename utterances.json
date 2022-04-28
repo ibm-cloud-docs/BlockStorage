@@ -326,5 +326,11 @@
         "can not upgrade block storage",
         "can't upgrade block storage",
         "how to upgrade 0.25 tier in block storage"
+    ],
+    "MPIOvsLACP": [
+        "can I use LACP to increase throughput",
+        "is NIC teaming ok for Storage",
+        "does Link Aggregation improve Storage traffic",
+        "is LACP recommended for iscsi"
     ]
 }
