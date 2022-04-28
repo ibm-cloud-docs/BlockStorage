@@ -78,7 +78,7 @@ That depends on what the host operating system can handle, it’s not something 
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 
-## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
+## Which Windows&reg; version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
 {: #windowsOStypes}
 {: faq}
 {: support}
@@ -304,7 +304,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 
 The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it’s reclaimed. An hourglass or clock icon appears next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
-## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
+## My Windows&reg; 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 {: #diskmanager}
 {: support}
@@ -349,7 +349,7 @@ In the rare case of a LUN being provisioned and attached while the second path i
 
 To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps. Here are a couple of examples.
 
-### Windows 2016
+### Windows&reg; 2016
 {: #expandsizeWin}
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
@@ -464,7 +464,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
        
    - Non-LVM - ext2, ext3, ext4:
-      1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you don't have them installed already, run the following command.
+      1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you need to install them, run the following command.
          ```zsh
          # yum install cloud-utils-growpart xfsprogs -y
          ```
