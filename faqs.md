@@ -207,8 +207,8 @@ To enact this best practice, complete the following steps.
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
-## Should I run iSCS traffic over 802.3ad LACP port channel?
-{: #hMPIOvsLACP}
+## Should I run iSCSI traffic over 802.3ad LACP port channel?
+{: #MPIOvsLACP}
 {: faq}
 {: support}
 
