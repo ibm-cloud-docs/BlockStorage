@@ -205,7 +205,25 @@ To enact this best practice, complete the following steps.
 7. Perform discovery/target portal login as described in the following topics.
    - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Mapping LUNS on Microsoft&reg; Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+
+## Should I run iSCS traffic over 802.3ad LACP port channel?
+{: #hMPIOvsLACP}
+{: faq}
+{: support}
+
+No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use Multi-Path Input/Output (MPIO) framework for I/O balancing and redundancy.
+
+With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1Gb NICs, the theoretical maximum throughput is about 200 MB/s. 
+
+Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the same way as MPIO. Link aggregation does not improve the throughput of a single I/O flow, nor does it provide multiple paths. A single flow always traverses one single path. The benefit of link aggregation can be observed when several “unique” flows exist, and each comes from a different source. Each individual flow is sent down its own available NIC interface which is determined by a hash algorithm. Thus with more unique flows, more NICs can provide greater aggregate throughput.
+
+Bonding works between a server and switch. However, MPIO works between a storage server and the client server, whether or not there is a switch in the path.
+
+For more information, see one of the following articles.
+- Redhat Linux&reg;: [Is using bonded nic interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
+- Microsoft&reg; Windows&reg;: [Never run MPIO on top of NIC teaming](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi?forum=winserverhyperv){: external}
+- VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: #latency}  
