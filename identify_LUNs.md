@@ -83,7 +83,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    IBM02SEL1575811-4 lun id: 1 Target IP: 161.26.110.43
    ```
 
-3. You can further confirm this by using the following command `iscsiadm -m session -P 3`.
+3. You can further confirm this information by using the following command `iscsiadm -m session -P 3`.
 
    ```zsh
    # iscsiadm -m session -P 3
@@ -305,6 +305,6 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 {: #identifyLUNUI}
 {: support}
    
-You can also gather the LUN ID, Target IP address and Hostname of the {{site.data.keyword.blockstorageshort}} device on the Volume Details page in the UI. 
+You can also gather the LUN ID, Target IP address and hostname of the {{site.data.keyword.blockstorageshort}} device on the Volume Details page in the UI. 
 
 ![The Volume Details page in the Console provides detailed information about the LUN.](images/vmwareLUNID.png "Block Storage Volume Details in the Console."){: caption="Image 1 shows the Volume Details page in the Console that provides detailed information about the LUN." caption-side="bottom"}

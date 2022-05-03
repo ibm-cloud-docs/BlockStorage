@@ -221,7 +221,7 @@ Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the
 Bonding works between a server and switch. However, MPIO works between a storage server and the client server, whether or not there is a switch in the path.
 
 For more information, see one of the following articles.
-- Redhat Linux&reg;: [Is using bonded nic interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
+- Red Hat Linux&reg;: [Is using bonded nic interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
 - Microsoft&reg; Windows&reg;: [Never run MPIO on top of NIC teaming](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi?forum=winserverhyperv){: external}
 - VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}
 
