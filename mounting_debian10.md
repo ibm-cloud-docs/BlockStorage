@@ -296,7 +296,7 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
    In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. We recommend that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
-3. Check `dmesg` to make sure that the new disks have been detected.
+3. Check `dmesg` to make sure that the new disks are detected.
    ```zsh
    dmesg
    ```
