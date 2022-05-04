@@ -168,7 +168,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
     ```
     {: pre}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpathn; where mpathn is the WWID number of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`. The mpathn is the WWID number of the device.
 
    For more information, see the [multipath.conf manual for Debian Buster](https://manpages.debian.org/buster/multipath-tools/multipath.conf.5.en.html){: external}.
 
@@ -293,7 +293,7 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. We recommend that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks have been detected.
