@@ -35,7 +35,7 @@ Before you can replicate, you must create a snapshot schedule. The option to **O
 {: #determinereplocationUI}
 {: ui}
 
-{{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+{{site.data.keyword.cloud}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
 See Table 1 for the complete list of data center availability and replication targets within each region.
 
@@ -75,7 +75,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 3. Select the existing snapshot schedule that you want your replication to follow. The list contains all of your active snapshot schedules.
 
    You can select only one schedule even if you have a mix of hourly, daily, and weekly. All snapshots that were captured since the previous replication cycle, are replicated regardless of the schedule that originated them.
-   For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure the most up-to-date data is copied to the replica volume.
+   For more information, see [Working with Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots). Replication starts 5 minutes after the snapshot is taken to ensure that the most up-to-date data is copied to the replica volume.
    {: tip}
 
 4. Select a **Location** for the replica volume.
@@ -149,7 +149,7 @@ However, if you want to change the time of day when your **Daily** replication o
 
 1. Click **Actions**.
 2. Select **Edit Snapshot Schedule**.
-3. In the Snapshot schedule window, make the changes to that daily schedule's time.
+3. In the Snapshot schedule window, change the daily schedule's time.
 4. Click **Save**.
 
 ## Canceling an existing replication in the UI
@@ -177,7 +177,7 @@ When a primary volume is canceled, the replication schedule and the volume in th
  4. Confirm that you understand that data loss might occur when you cancel the volume by checking the box.
  5. Click **Cancel Replica**.
 
- You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
+ You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it is reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
 
 Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
 {: important}
