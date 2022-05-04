@@ -26,9 +26,9 @@ subcollection: BlockStorage
 {: help}
 {: support}
 
-By default, you can provision a combined total of 750 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process you can increase the number of volumes you can provision.
+By default, you can provision a combined total of 750 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process, you can increase the number of volumes that you can provision.
 
-For more information about increasing your storage volume capacity beyond 12 TB, see [Expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacityover12TB).
+For more information about increasing your storage volume capacity beyond 12 TB, see [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacityover12TB).
 
 ## Confirming your current limit and provisioning count from the CLI
 {: #confirmblocklimitscli}
@@ -94,7 +94,7 @@ In the case, provide the following information:
 - **Ticket Subject**: Request to Increase Data Center Volume Count Storage Limit
 
 - **What is the use case for the additional volumes request?** 
-   *For example, your answer might be something similar to a new VMware datastore, a new development and testing (dev/test) environment, an SQL database, or logging.*
+   *For example, your answer might be something similar to a new VMware&reg; datastore, a new development and testing (dev/test) environment, an SQL database, or logging.*
 
 - **How many extra Block volumes are needed by type, size, IOPS, and location?**  
    *For example, your answer might be something similar to "25x Endurance 2 TB @ 4 IOPS in DAL09" or "25x Performance 4 TB @ 2 IOPS in WDC04".*

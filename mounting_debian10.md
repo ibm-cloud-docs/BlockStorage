@@ -168,7 +168,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
     ```
     {: pre}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpathn; where mpathn is the WWID number of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`. The mpathn is the WWID number of the device.
 
    For more information, see the [multipath.conf manual for Debian Buster](https://manpages.debian.org/buster/multipath-tools/multipath.conf.5.en.html){: external}.
 
@@ -179,7 +179,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    ```
    {: pre}
 
-   If you need to edit the multipath configuration file after you have started the multipath daemon, you must restart the multipathd service for the changes to take effect.
+   If you need to edit the multipath configuration file after you have started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
    {: note}
 
 ## Update /etc/iscsi/initiatorname.iscsi file
@@ -224,7 +224,7 @@ systemctl restart iscsid.service
 {: #discoverandlogindebi10}
 {: step}
 
-The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that handles the discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```zsh
@@ -232,14 +232,14 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    ```
    {: pre}
 
-   If the IP info and access details are displayed, then the discovery is successful.
+   If the IP information and access details are displayed, then the discovery is successful.
 
 2. Configure automatic login.
    ```zsh
    sudo iscsiadm -m node --op=update -n node.conn[0].startup -v automatic
    sudo iscsiadm -m node --op=update -n node.startup -v automatic
    ```
-3. Enable necessary services.
+3. Enable the necessary services.
    ```zsh
    systemctl enable open-iscsi
    systemctl enable iscsid
@@ -293,10 +293,10 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. Your applications should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. We recommend that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
-3. Check `dmesg` to make sure that the new disks have been detected.
+3. Check `dmesg` to make sure that the new disks are detected.
    ```zsh
    dmesg
    ```
@@ -362,7 +362,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
    sudo mount /dev/mapper/mpatha-part1 /mnt
    ```
 
-4. Access the data to confirm new partition and file system are ready for use.
+4. Access the data to confirm that the new partition and file system are ready for use.
    ```zsh
    ls /mnt
    ```
