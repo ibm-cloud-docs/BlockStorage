@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-07-12"
+  years: 2014, 2022
+lastupdated: "2022-05-16"
 
 keywords: Block Storage, locations, data centers, iscsi
 
@@ -135,5 +135,5 @@ subcollection: BlockStorage
 To be able to access all the new features, select `Storage-as-a-Service Package 759` when you place your order through the API.
 {: important}
 
-Check back here to see when more data centers are upgraded and for new features and capabilities that are being added for {{site.data.keyword.blockstorageshort}}.
-{: tip}
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}
+{: note}
