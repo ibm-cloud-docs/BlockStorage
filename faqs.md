@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-05-05"
+lastupdated: "2022-06-01"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -564,9 +564,10 @@ Seeing two disks in Disk Management can occur if MPIO is not installed or is dis
 {: #chassis-swap}
 {: faq}
 
-Complete these tasks to connect storage after a swap:
-1. Remove the authorization (revoke access) from the storage devices, and then authorize the host again.
-1. Discover the storage devices again, with the new credentials that were gained from the new authorization.
+Complete the following steps to successfully reconnect the storage after a chassis swap.
+1. Before the swap, remove the authorization (revoke access) from the storage devices. 
+2. After the swap, authorize the host again.
+3. Discover the storage devices again, with the new credentials that were gained from the new authorization.
 
 For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
 
