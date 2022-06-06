@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-06-06"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -634,3 +634,10 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 {: faq}
 
 {{site.data.keyword.cloud}} does not provide storage performance IOPS and latency metrics. Customers are expected to monitor their own {{site.data.keyword.blockstorageshort}} devices by using their choice of third-party monitoring tools.
+
+The following examples are utilities that you could consider to use to check performance statistics.
+- [`sysstat`](https://github.com/sysstat/sysstat/blob/master/README.md){: external} - System performance tools for the Linux&reg; operating system.
+- [`typeperf`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows&reg; command that writes performance data to the command window or to a log file.
+- [`esxtop`](https://communities.vmware.com/t5/Storage-Performance/Interpreting-esxtop-Statistics/ta-p/2776936){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
+
+
