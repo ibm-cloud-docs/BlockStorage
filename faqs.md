@@ -627,7 +627,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
-- [Viewing LUN information in VMWare&reg;](/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNVMware)
+- [Viewing LUN information in VMWare&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNVMware)
 
 ## Can I get storage performance metrics (IOPS or latency) from the Support teams?
 {: #storagemetrics}
