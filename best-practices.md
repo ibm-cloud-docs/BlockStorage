@@ -34,7 +34,9 @@ To achieve mximum IOPS, adequate network resources need to be in place. 
 * **Use a faster NIC.** There are limits set at the LUN level and a faster interface doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential hinderance to achieving best performance levels.
 
 * **Choose a higher bandwidth.** The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth.
+
      For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. However, when you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
+     {: tip}
 
 * **[Enable Jumbo Frames](/docs/BlockStorage?topic=FileStorage-jumboframes&interface=ui) and configure them to be the same on the entire network path** from source device <-> switch <-> router <-> switch <-> target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value. Setting MTU to 9000 on your hosts has the following benefits:
      * Data can be transmitted in fewer frames.  
