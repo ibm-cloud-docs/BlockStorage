@@ -49,15 +49,15 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. Redundant network ports and paths protect against network failures across the cloud connections.
 
-**Do not run iSCSI traffic over 802.3ad LACP port channel.** Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. 
+* **Do not run iSCSI traffic over 802.3ad LACP port channel.** Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. 
 
-**Use Multi-Path Input/Output (MPIO) framework for I/O balancing and redundancy.** With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
+* **Use Multi-Path Input/Output (MPIO) framework for I/O balancing and redundancy.** With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
-While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to ensure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
+   While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to ensure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
 
-**Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance tuning strategy documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. This feature also ensures better performance by using multiple send and receive threads.  
+* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance tuning strategy documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
  
-* Add persistent iscsi multi-sessions through the iscsiadm CLI.
+   Add persistent iscsi multi-sessions through the iscsiadm CLI.
      1. List existing sessions. 
         ```zsh
         iscsiadm -m session
