@@ -39,7 +39,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
      {: note}
 
 
-## Best Practice 2: Create multiple paths for redundancy
+## Best Practice 2: Set up multiple paths for redundancy
 {: #bestpractice2}
 
 {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. Redundant network ports and paths protect against network failures across the cloud connections.
