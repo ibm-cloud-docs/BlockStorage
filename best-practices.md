@@ -19,6 +19,8 @@ subcollection: BlockStorage
 # Best Practices for {{site.data.keyword.blockstorageshort}}
 {: #best-practices-classic}
 
-Follow our best practices to 
+Follow our best practices to maximize the performance of your storage, and avoid application downtime.
 {: shortdesc}
+
+
 

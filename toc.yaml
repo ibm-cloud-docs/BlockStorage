@@ -19,9 +19,7 @@ toc:
         id: learn
         topics:
         - getting-started.md
-        - link:
-            label: What is Block Storage?
-            href: https://www.ibm.com/cloud/learn/block-storage
+        - best-practices.md
         - selectdatacenters.md
         - snapshots.md
 
@@ -108,10 +106,6 @@ toc:
     - navgroup:
         id: help
         topics:
-        - topicgroup:
-            label: Best Practices
-            topics:
-            - best-practices.md
         - topicgroup:
             label: FAQs
             topics:
