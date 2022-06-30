@@ -111,6 +111,7 @@ toc:
         - topicgroup:
             label: Best Practices
             topics:
+            - best-practices.md
         - topicgroup:
             label: FAQs
             topics:
