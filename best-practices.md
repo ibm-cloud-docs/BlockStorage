@@ -29,7 +29,7 @@ To achieve mximum IOPS, adequate network resources need to be in place. 
 
 * **Avoid routing your storage traffic to a gateway device** whenever possible. When storage traffic is routed to a gateway device, this can add latency to storage traffic or it can cause storage traffic disruption if the firewall in the gateway device is misconfigured. The storage disruption is especially true when a maintenance such as a reboot is required on a single (non-clustered) gateway device. If a storage traffic must be routed through a gateway device, ensure that  the gateway device has an at least 10-Gbps interface or the gateway device might becomes a network bottleneck.
 
-* **Route storage traffic on aa dedicate VLAN.** Running storage traffic through software firewalls also increases latency and adversely affects storage performance. It's best to run storage traffic on a VLAN, which bypasses the firewall. For more information, see [routing storage traffic to its own VLAN interface](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs&interface=ui#howtoisolatedstorage).
+* **Run storage traffic on a dedicate VLAN.** Running storage traffic through software firewalls also increases latency and adversely affects storage performance. It's best to run storage traffic on a VLAN, which bypasses the firewall. For more information, see [routing storage traffic to its own VLAN interface](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs&interface=ui#howtoisolatedstorage).
 
 * **Use a faster NIC.** There are limits set at the LUN level and a faster interface doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential hinderance to achieving best performance levels.
 
