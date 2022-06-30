@@ -109,6 +109,9 @@ toc:
         id: help
         topics:
         - topicgroup:
+            label: Best Practices
+            topics:
+        - topicgroup:
             label: FAQs
             topics:
             - faqs.md
