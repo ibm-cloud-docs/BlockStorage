@@ -25,7 +25,7 @@ Follow our best practices to maximize the performance of your storage, and avoid
 ## Best Practice 1: Clear the path
 {: #bestpractice1}
 
-To achieve mximum IOPS, adequate network resources need to be in place. 
+To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Avoid routing your storage traffic to a gateway device** whenever possible. When storage traffic is routed to a gateway device, this can add latency to storage traffic or it can cause storage traffic disruption if the firewall in the gateway device is misconfigured. The storage disruption is especially true when a maintenance such as a reboot is required on a single (non-clustered) gateway device. If a storage traffic must be routed through a gateway device, ensure that  the gateway device has an at least 10-Gbps interface or the gateway device might becomes a network bottleneck.
 
