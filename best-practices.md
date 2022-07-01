@@ -95,27 +95,17 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
     - **Completely Fair Queuing (CFQ)** uses both request merging and elevators and is a bit more complex that the NOOP or deadline schedulers. It's the standard scheduler for many Linux distros. It groups simultaneous requests that are made by operations into a series of per-process pools before allocating timeslices to use the disc for every queue.
 
-If your work load is dominated by interactive applications, the users might complain of sluggish performance of databases with many I/O operations. In such environments, read operations happen significantly more often than write operations, and applications are more likely to be waiting to read data. You can check the default IO scheduler settings and try different schedulers to ensure optimization for your specific workload. 
+ If your work load is dominated by interactive applications, the users might complain of sluggish performance of databases with many I/O operations. In such environments, read operations happen significantly more often than write operations, and applications are more likely to be waiting to read data. You can check the default IO scheduler settings and try different schedulers to ensure optimization for your specific workload. 
 
 * **Tune the I/O queue depth**. Change `/etc/iscsi/iscsid.conf node.session.queue_depth` from the default 32 to 64. Most host bus adapters (HBA) have a default queue depth of around 32, which is usually enough to generate up to the target maximum IOPS. If you have only one path to the LUN then that's the maximum possible number of IOPS, however the same LUN with 2 or more sessions would be able to push more I/O's per second of storage throughput to the target LUN. The flip-side of increasing i/o depth is it adds more latency. To counteract the latency, enable Jumbo Frames. For more information about host queue depth recommendations, see [Adjusting Host Queue settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings).
 
-* **[Enable Jumbo Frames](/docs/BlockStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device <-> switch <-> router <-> switch <-> target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value. Setting MTU to 9000 on your hosts has the following benefits:
+* **[Enable Jumbo Frames](/docs/BlockStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device <-> switch <-> router <-> switch <-> target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value. 
+
+ Setting MTU to 9000 on your hosts has the following benefits:
      * Data can be transmitted in fewer frames.  
      * Per-packet overhead is reduced.
      * Throughput is increased by reducing the number of CPU cycles and instructions for packet processing.
      * Jumbo frames provide less opportunity for packets to arrive out of order or to be lost, resulting in fewer retransmissions. Fewer retransmissions mean less time spent in TCP recovery. The end result is greater throughput.
 
 * **VMware specific best practice for teaming**:  If you plan to use teaming to increase the availability of your network access to the storage array, you must turn off port security on the switch for the two ports on which the virtual IP address is shared. The purpose of this port security setting is to prevent spoofing of IP addresses. Thus, many network administrators enable this setting. However, if you do not change it, the port security setting prevents failover of the virtual IP from one switch port to another and teaming cannot fail over from one path to another. For most LAN switches, the port security is enabled on a port level and thus can be set on or off for each port.
-
-
-
-
-
-
-
-
-
-
-
-
 
