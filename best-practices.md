@@ -69,17 +69,17 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 --op update -n node.session.nr_sessions -v 4
         ```
 
-     1. Log into the portal to establish the additional sessions.
+     1. Log into the portal to establish the extra sessions.
         ```zsh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 -l
         ```
 
-     1. List sessions and note 3 added sessions for a total of 4 sessions against the single portal IP:
+     1. List sessions to see the added sessions against the single portal IP.
         ```zsh
         iscsiadm -m session
         ``` 
 
-     1. Logo ut of a single iSCSI session by using the session ID in place of the X in the following command.
+     1. Log out of the iSCSI session by using the session ID in place of the X in the following command.
         ```zsh
         iscsiadm -m session -r X -u
         ```
