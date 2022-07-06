@@ -38,7 +38,6 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
      For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. However, when you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
      {: note}
 
-
 ## Best Practice 2: Set up multiple paths for redundancy
 {: #bestpractice2}
 
@@ -102,7 +101,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 * **[Enable Jumbo Frames](/docs/BlockStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device <-> switch <-> router <-> switch <-> target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value. 
 
    Setting MTU to 9000 on your hosts has the following benefits:
-    - Data can be transmitted in fewer frames.  
+    - Data can be transmitted in fewer frames.
     - Per-packet overhead is reduced.
     - Throughput is increased by reducing the number of CPU cycles and instructions for packet processing.
     - Jumbo frames provide less opportunity for packets to arrive out of order or to be lost, resulting in fewer retransmissions. Fewer retransmissions mean less time spent in TCP recovery. The end result is greater throughput.
