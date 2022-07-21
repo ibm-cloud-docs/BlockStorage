@@ -36,9 +36,9 @@ This action breaks the replication relationship and restoring the connection bet
 {: #DRFailoverUI}
 {: ui}
 
-1. Go to your list of {{site.data.keyword.blockstoragefull}}. From the **Classic Infrastructure** menu, click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstoragefull}}. From the **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") menu, click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Locate and click the volume name.
-3. Click **Actions** > **Failover**.
+3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Failover**.
 4. When the primary location is unavailable, the option of Disaster Recovery Failover becomes active. Check the box to confirm you understand the failover cannot be undone without a support case.
 5. Click **Yes** to proceed.
 

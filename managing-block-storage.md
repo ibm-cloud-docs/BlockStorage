@@ -23,7 +23,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}. From the **menu**, select **Classic Infrastructure** to interact with classic services.
+You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the UI
@@ -64,7 +64,7 @@ You can authorize and connect hosts that are located in the same data center as 
 {: important}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Locate the volume and click the ellipsis (**...**).
+2. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Click **Authorize Host**.
 4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
@@ -214,7 +214,7 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and select the LUN from which you want to revoke access.
 2. Click **Authorized Hosts**.
-3. Click **Actions** next to the host whose access is to be revoked, and select **Revoke Access**.
+3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to the host whose access is to be revoked, and select **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
 
 If you want to disconnect multiple hosts from a specific LUN, you need to repeat the Revoke Access action for each host.
