@@ -52,8 +52,8 @@ If the volume has replication in place, the replica is automatically updated to 
 {: #adjustingstepsUI}
 {: ui}
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click the **menu** icon, then click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Select the iSCSI volume from the list and click the ellipsis (**...**) > **Modify Volume**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon, then click **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+2. Select the iSCSI volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Modify Volume**.
 3. Under **Adjust Storage IOPS**, make a new selection:
     - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
     - For Performance (Allocated IOPS), specify new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.

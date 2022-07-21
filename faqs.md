@@ -41,7 +41,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 
 1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the volume and click the ellipsis (**...**).
+3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available IP addresses, select **IP address** as the host type. Then, select the subnet where your host resides.
 6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.

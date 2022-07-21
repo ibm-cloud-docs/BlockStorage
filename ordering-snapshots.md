@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-07-29"
+  years: 2014, 2022
+lastupdated: "2022-07-21"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -57,9 +57,9 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 {: #ordersnapshotUI}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external}, and click the menu icon on the upper left. Then, select **Classic Infrastructure**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/catalog){: external}, and click the menu icon ![Menu icon](../icons/icon_hamburger.svg "Menu"). Then, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Access your Storage LUN through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Click **Actions**, then click **Change Snapshot Space**.
+3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions"), then click **Change Snapshot Space**.
 4. Select the storage size that you need.
 5. Click **Continue**.
 6. Enter any **Promo Code** that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
@@ -67,7 +67,7 @@ Additionally, for most workloads, the larger a volume is the less space needs to
    Discounts are applied when the order is processed.
    {: note}
 
-7. Check the **I have read the Master Service Agreement and agree to the terms therein** box and click **Place Order**. Your snapshot space is provisioned in a few minutes.
+7. Check the **I have read the Service Description and agree to the terms therein** box and click **Place Order**. Your snapshot space is provisioned in a few minutes.
 
 ## Ordering Snapshot space from the SLCLI
 {: #ordersnapshotSLCLI}
@@ -86,3 +86,4 @@ Options:
   -h, --help            Show this message and exit.
 ```
 {: codeblock}
+ 

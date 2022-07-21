@@ -123,7 +123,7 @@ Options:
 {: #listsnapshotUI}
 {: ui}
 
-A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used. 
+A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used. 
 
 You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
@@ -240,7 +240,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. Deletion is done through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click your storage volume and click **Snapshot** to see the list of existing snapshots.
-2. Click **Actions** next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
+2. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 
@@ -275,7 +275,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
    - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
-4. Click **Actions** next to the snapshot to be used and click **Restore**.
+4. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to the snapshot to be used and click **Restore**.
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
