@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-07-06"
+lastupdated: "2022-08-05"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -86,7 +86,7 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 {: faq}
 {: support}
 
-When you create a LUN, you must specify the OS type. The OS type must be based on the operating system, which is used by the hosts that access the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN.
+When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows&reg; OS helps to prevent mis-aligned IO operations.
 
 ### Windows&reg; GPT
 {: #winGPT}
