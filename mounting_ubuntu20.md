@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-14"
+lastupdated: "2022-08-15"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -124,7 +124,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 {: #setupmultipathdubu20}
 {: step}
 
-1. After you installed the multipath utility, create an empty config file that is called `/etc/multipath.conf`.
+1. After you installed the multipath utility, create an empty configuration file that is called `/etc/multipath.conf`.
 2. Modify the default values of `/etc/multipath.conf`.
 
    ```text
