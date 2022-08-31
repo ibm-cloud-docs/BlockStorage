@@ -52,7 +52,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
    While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to ensure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
    {: important}
 
-* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance tuning strategy documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
+* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
  
    Add persistent iscsi multi-sessions through the iscsiadm CLI.
      1. List existing sessions. 
@@ -65,7 +65,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
         iscsiadm -m node -T <IQN> -p <IP> --op update -n node.session.nr_sessions -v <TOTAL_SESSION>
         ```
 
-        EXAMPLE of adding 3 additional sessions (4 total) to target portal 161.26.115.77:3260.
+        EXAMPLE of adding three more sessions (4 total) to target portal 161.26.115.77:3260.
         ```zsh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 --op update -n node.session.nr_sessions -v 4
         ```
@@ -88,7 +88,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 ## Best Practice 3: Optimize the host and applications
 {: #bestpractice3}
 
-* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally do this by merging I/O requests. By grouping requests located at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, there are several I/O scheduler options available. Each of these have their own unique method of scheduling disk access requests. 
+* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally do this by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, there are several I/O scheduler options available. Each of these have their own unique method of scheduling disk access requests. 
 
     - **Deadline** is the default I/O scheduler on Red Hat 7.9, and usually it does not need to be changed to a different I/O scheduler. It's latency-oriented scheduler and it works by creating a separate read queue and separate a write queue. Each I/O request has a time stamp that is associated with it to be used by the kernel for an expiration time. While this scheduler also attempts to service the queues based on the most efficient ordering possible, the expiration time acts as a "deadline" for each I/O request. When an I/O request reaches its deadline, it is pushed to the highest priority. 
 
@@ -98,7 +98,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
    If your work load is dominated by interactive applications, the users might complain of sluggish performance of databases with many I/O operations. In such environments, read operations happen significantly more often than write operations, and applications are more likely to be waiting to read data. You can check the default IO scheduler settings and try different schedulers to ensure optimization for your specific workload. 
 
-* **Tune the I/O queue depth**. Change `/etc/iscsi/iscsid.conf node.session.queue_depth` from the default 32 to 64. Most host bus adapters (HBA) have a default queue depth of around 32, which is usually enough to generate up to the target maximum IOPS. If you have only one path to the LUN then that's the maximum possible number of IOPS, however the same LUN with 2 or more sessions would be able to push more I/O's per second of storage throughput to the target LUN. The flip-side of increasing i/o depth is that it adds more latency. To counteract the latency, enable Jumbo Frames. For more information about host queue depth recommendations, see [Adjusting Host Queue settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings).
+* **Tune the I/O queue depth**. Change `/etc/iscsi/iscsid.conf node.session.queue_depth` from the default 32 to 64. Most host bus adapters (HBA) have a default queue depth of around 32, which is usually enough to generate up to the target maximum IOPS. If you have only one path to the LUN, then that's the maximum possible number of IOPS. However, the same LUN with 2 or more sessions would be able to push more I/O's per second of storage throughput to the target LUN. The flip-side of increasing i/o depth is that it adds more latency. To counteract the latency, enable Jumbo Frames. For more information about host queue depth recommendations, see [Adjusting Host Queue settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings).
 
 * **[Enable Jumbo Frames](/docs/BlockStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device <-> switch <-> router <-> switch <-> target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value. 
 
@@ -106,7 +106,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
     - Data can be transmitted in fewer frames.
     - Per-packet overhead is reduced.
     - Throughput is increased by reducing the number of CPU cycles and instructions for packet processing.
-    - Jumbo frames provide less opportunity for packets to arrive out of order or to be lost, resulting in fewer retransmissions. Fewer retransmissions mean less time spent in TCP recovery. The end result is greater throughput.
+    - Jumbo frames provide less opportunity for packets to arrive out of order or to be lost, resulting in fewer retransmissions. Fewer retransmissions mean less time that is spent in TCP recovery. The result is greater throughput.
 
-* **VMware specific best practice for teaming**:  If you plan to use teaming to increase the availability of your network access to the storage array, you must turn off port security on the switch for the two ports on which the virtual IP address is shared. The purpose of this port security setting is to prevent spoofing of IP addresses. Thus, many network administrators enable this setting. However, if you do not change it, the port security setting prevents failover of the virtual IP from one switch port to another and teaming cannot fail over from one path to another. For most LAN switches, the port security is enabled on a port level and thus can be set on or off for each port.
+* **VMware specific best practice for teaming**:  If you plan to use teaming to increase the availability of your network access to the storage array, you must turn off port security on the switch for the two ports on which the virtual IP address is shared. The purpose of this port security setting is to prevent spoofing of IP addresses. Thus, many network administrators enable this setting. If you do not change it, the port security setting prevents failover of the virtual IP from one switch port to another, and teaming cannot fail over from one path to another. For most LAN switches, the port security is enabled on a port level and thus can be set on or off for each port.
 
