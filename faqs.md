@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-08-05"
+lastupdated: "2022-08-31"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -215,18 +215,18 @@ To enact this best practice, complete the following steps.
 {: faq}
 {: support}
 
-No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use Multi-Path Input/Output (MPIO) framework for I/O balancing and redundancy.
+No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use multi-path input/output (MPIO) framework for I/O balancing and redundancy.
 
-With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1Gb NICs, the theoretical maximum throughput is about 200 MB/s. 
+With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s. 
 
 Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the same way as MPIO. Link aggregation does not improve the throughput of a single I/O flow, nor does it provide multiple paths. A single flow always traverses one single path. The benefit of link aggregation can be observed when several “unique” flows exist, and each flow comes from a different source. Each individual flow is sent down its own available NIC interface which is determined by a hash algorithm. Thus with more unique flows, more NICs can provide greater aggregate throughput.
 
-Bonding works between a server and switch. However, MPIO works between a storage server and the client server, whether or not there is a switch in the path.
+Bonding works between a server and switch. However, MPIO works between a storage server and the host, whether or not there is a switch in the path.
 
 For more information, see one of the following articles.
 - Red Hat Linux&reg;: [Is the use of bonded nic interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
-- Microsoft&reg; Windows&reg;: [Never run MPIO on top of NIC teaming](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi?forum=winserverhyperv){: external}.
-- VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}
+- Microsoft&reg; Windows&reg;: [NIC Teaming and ISCSI](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi?forum=winserverhyperv){: external}.
+- VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
 {: #latency}  
@@ -261,7 +261,7 @@ When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{
 {: #upgradedcenter}
 {: support}
 
-When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/BlockStorage?topic=BlockStorage-selectDC).
+When you order {{site.data.keyword.blockstorageshort}}, all upgraded data centers are denoted with an asterisk (`*`) in the order form, and an indication that you're about to provision storage with encryption. When the storage is provisioned, you can see an icon in the storage list that shows that storage as encrypted. All encrypted volumes and LUNs are provisioned in upgraded data centers only. You can find a full list of upgraded data centers and available features [here](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 ## If we own nonencrypted {{site.data.keyword.blockstorageshort}} in a data center that was recently upgraded, can we encrypt that {{site.data.keyword.blockstorageshort}}?
 {: faq}
@@ -319,9 +319,9 @@ If you use more than two iSCSI LUNs with the same host, and if all the iSCSI con
 {: faq}
 {: support}
 
-There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A reboot of the host solves the read-only state issue.
+There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
 
-This issue can be observed with hosts that have incorrect MPIO settings. When MPIO is not configured correctly, the host loses connection to the storage and might not be able to reconnect to the storage when the connectivity issue is resolved.
+This issue can be observed with hosts that have incorrect MPIO settings. When MPIO is not configured correctly, the host loses connection to the storage, and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
 ## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do I have to use multipath?
 {: #singlepath}
@@ -530,7 +530,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             The filesystem on /dev/mapper/3600a098038304338415d4b4159487669p1 is now 26214139 blocks long.
             ```
 
-         4. Mount the partition and run `df -vh` to verify that the new size.
+         4. Mount the partition and run `df -vh` to verify that the new size is correct.
             ```zsh
             # mount /dev/mapper/3600a098038304338415d4b4159487669p1 /SL02SEL1160157-73
 
@@ -626,7 +626,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #identifyLUNfaq}
 {: faq}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not quite sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
