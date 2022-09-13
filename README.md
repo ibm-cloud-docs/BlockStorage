@@ -1,2 +1,2 @@
 # BlockStorage
-This collection belongs to the Storage tribe. If you have any questions about this offering, contact Doug Petteway, Offering Manager.
+This collection belongs to the Infrastructure as a Service Storage services. If you have any questions about this offering, contact Offering Management: Tony Sater (tsater@us.ibm.com).
