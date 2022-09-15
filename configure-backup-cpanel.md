@@ -39,8 +39,8 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
    ```
    {: pre}
 
-    This command compresses and transmits your data, while it preserves as much as possible, except for hard links. It provides information about what files are being transferred plus a brief summary at the end.
-    {: tip}
+   This command compresses and transmits your data, while it preserves as much as possible, except for hard links. It provides information about what files are being transferred plus a brief summary at the end.
+   {: tip}
 
 5. Log in to WHM and go to the backup configuration by clicking **Home** > **Backup** > **Backup Configuration**.
 
