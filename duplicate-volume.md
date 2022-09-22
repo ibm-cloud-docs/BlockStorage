@@ -66,7 +66,7 @@ You can create an independent duplicate volume through the [{{site.data.keyword.
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Duplicate Volume**.
-3. Select the snapshot option to be be used to create the duplicate. You can choose an existing Snapshot or take a new one.
+3. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 4. The location entries remain the same as the original volume.
 5. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
 6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
