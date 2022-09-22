@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-04-29"
+  years: 2017, 2022
+lastupdated: "2022-09-21"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -20,19 +20,24 @@ subcollection: BlockStorage
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating and managing independent duplicate volumes
+# Creating and managing duplicate volumes
 {: #duplicatevolume}
 
-You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume is independent from the original volume.
+You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume.
 {: shortdesc}
 
-Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).  
+Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
+{: important}
 
-Duplicates can be created from both **primary** and **replica** volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
+**Independent duplicates** can be created from both **primary** and **replica** volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the duplicate volume is created in the same data center as the replica volume.
 
-Duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. However, snapshots and replication aren't allowed until the data copy from the original to the duplicate is complete. Depending on the size of the data, the copying can take several hours.
+**Dependent duplicate** volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicate volumes.
 
-When the data copy is complete, the duplicate can be managed and used as an independent volume.
+All duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. 
+
+Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists.
+
+However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent from the parent volume. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
@@ -45,13 +50,15 @@ Some common uses for a duplicate volume:
 - **Data refreshes**. Create a copy of your production data to mount to your non-production environment for testing.
 - **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
-- **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.  
+- **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.
+
+
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
 {: ui}
 
-You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} in a couple of ways.
+You can create an independent duplicate volume through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} in a couple of ways. However, you can provision dependent duplicate volumes only from the CLI.
 
 ### Creating a duplicate from the Storage List in the UI
 {: #cloneLUN1UI}
@@ -105,7 +112,10 @@ You can create a duplicate volume through the [{{site.data.keyword.cloud_notm}} 
 {: #cloneinCLI}
 {: cli}
 
-You can use the following command in the SLCLI to create a duplicate {{site.data.keyword.blockstorageshort}} volume.
+The commands that are described in the article are part of the SLCLI. For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+{: tip}
+
+You can use the following command in the SLCLI to create an independent duplicate {{site.data.keyword.blockstorageshort}} volume.
 
 ```python
 # slcli block volume-duplicate --help
@@ -159,18 +169,44 @@ Options:
 ```
 {: codeblock}
 
+Dependent duplicate volumes can be ordered from the SLCLI, too, with the option `--dependent-duplicate TRUE`.
+
+```python
+slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
+```
+
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
-While data is being copied from the original volume to the duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the duplication process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal.
+While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal, and can be manually refreshed by using a snapshot from the parent volume.
 
-## Updating data on the independent duplicate from the CLI
+Dependent replicas do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI.
+
+## Updating data on the duplicate from the parent volume from the CLI
 {: #refreshindependentvol}
 {: cli}
 
-As time passes and the primary volume changes, the independent duplicate volume can be updated with these changes to reflect the current state through the refresh action. The data on the independent volume can be refreshed at any time. The refresh involves taking a snapshot of the primary volume and then, updating the independent volume by using that snapshot. A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using that snapshot. 
+
+A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
+{: important}
 
 Refreshes can be performed by using the SLCLI.
 ```python
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
+
+## Converting a dependent volume to an independent duplicate
+{: #convertdependentvol}
+{: cli}
+
+If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI.
+
+```python
+slcli block volume-convert <dependent-vol-id>
+```
+
+## Canceling a storage volume with a dependent duplicate
+{: #cancelvolwithdependent}
+
+Canceling a parent volume that has active dependent volumes requires canceling the dependent duplicate volumes first.
