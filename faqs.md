@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-09-21"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -644,3 +644,41 @@ The following examples are utilities that you could consider to use to check per
 - [`esxtop`](https://communities.vmware.com/t5/Storage-Performance/Interpreting-esxtop-Statistics/ta-p/2776936){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
 
 
+## What is the difference between a replica volume, a dependent volume and an independent duplicate volume?
+{: #replicavsduplicate}
+{: faq}
+
+You can create a replica or a duplicate volume by using a snapshot of your volume. Replication and cloning use one of your snapshots to copy data to a destination volume.
+
+Replication keeps your data in sync in two different locations. Only one of the volume pair (primary volume and replica volume) can be active at a time. The replication process automatically copies information from the active volume to the inactive volume based on the replication schedule. 
+
+Replicas can be used as a Disaster Recovery method because when something happens at the primary location, you can fail over to the replica location and continue IT operations in that availability zone.
+{: tip}
+
+Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume.
+
+- A dependent volume does not go through the conversion of becoming independent, and can be refreshed at any time after it’s created. It keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists.
+
+- An independent duplicate is superior to the Dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It could take up to a day for a 12-TB volume.
+
+Some common uses for a duplicate volume:
+- Disaster Recovery Testing. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
+- Golden Copy. Use a storage volume as golden copy that you can create multiple instances from for various uses.
+- Data refreshes. Create a copy of your production data to mount to your non-production environment for testing.
+- Restore from Snapshot. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
+- Development and Testing (dev/test). Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
+- Storage Resize. Create a volume with new size, IOPS rate or both without needing to move your data.
+{: tip}
+
+
+| Feature | Replica | Dependent duplicate | Independent duplicate |
+|---------|---------|---------------------|-----------------------|
+| Created from a snapshot | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+| Location of copied volume | Remote AZ | Same AZ  | Same AZ |
+| Supports failover  | ![Checkmark icon.](../../icons/checkmark-icon.svg) |  |  |
+| Different Size/Iops |          | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+| On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+| Auto-synced with parent volume | ![Checkmark icon.](../../icons/checkmark-icon.svg) | |  |
+{: caption="Table 1. Comparison of features between different types of volume copies" caption-side="top"}
+{: summary="This table has row and column headers. The row headers identify the capability. The column headers identify the type of volume copy."}
+{: #table1}
