@@ -654,7 +654,7 @@ Replication keeps your data in sync in two different locations. Only one of the 
 
 Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume.
 
-- A dependent volume does not go through the conversion of becoming independent, and can be refreshed at any time after it’s created. It keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent replica volume exists.
+- A dependent volume does not go through the conversion of becoming independent, and can be refreshed at any time after it’s created. It keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists.
 
 - An independent duplicate is superior to the dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It could take up to a day for a 12-TB volume. However, after the separation process is complete, the data can be manually refreshed by using another snapshot.
 
@@ -668,7 +668,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 | Different Size/Iops |          | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | Auto-synced with parent volume | ![Checkmark icon.](../../icons/checkmark-icon.svg) | |  |
 | On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
-| Seprated from parent volume | | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+| Separated from parent volume | | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison of features between different types of volume copies. " caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the capability. The column headers identify the type of volume copy."}
 {: #table1}
