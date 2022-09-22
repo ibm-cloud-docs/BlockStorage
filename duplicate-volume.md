@@ -53,7 +53,6 @@ Some common uses for a duplicate volume:
 - **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.
 
 
-
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
 {: ui}
