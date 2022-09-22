@@ -648,15 +648,15 @@ The following examples are utilities that you could consider to use to check per
 {: #replicavsduplicate}
 {: faq}
 
-You can create a replica or a duplicate volume by using a snapshot of your volume. Replication and cloning use one of your snapshots to copy data to a destination volume.
+You can create a replica or a duplicate volume by using a snapshot of your volume. Replication and cloning use one of your snapshots to copy data to a destination volume. However, that is where the similarities end.
 
 Replication keeps your data in sync in two different locations. Only one of the volume pair (primary volume and replica volume) can be active at a time. The replication process automatically copies information from the active volume to the inactive volume based on the replication schedule. For more information about replica volumes, see [Replicating data](/docs/BlockStorage?topic=BlockStorage-replication).
 
-Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume.
+Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume. You can adjust the IOPS or increase the volume size of the duplicate without any effect on the parent volume.
 
-- A dependent volume does not go through the conversion of becoming independent, and can be refreshed at any time after it’s created. It keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists.
+- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it’s created. It keeps the original snapshot locked so that snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you have to either cancel the dependent duplicate first or convert it to an independent duplicate.
 
-- An independent duplicate is superior to the dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It could take up to a day for a 12-TB volume. However, after the separation process is complete, the data can be manually refreshed by using another snapshot.
+- An independent duplicate is superior to the dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It can take up to several hours based on the size of the volume. For example, it might take up to a day for a 12-TB volume. However, after the separation process is complete, the data can be manually refreshed by using another snapshot of the original parent volume.
 
 For more information about duplicates, see [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
 
