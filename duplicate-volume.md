@@ -33,7 +33,7 @@ Because the duplicate is based on the data in a point-in-time snapshot, snapshot
 
 **Dependent duplicate** volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicate volumes.
 
-All duplicate volumes can be accessed by a host for read/write as soon as the storage is provisioned. 
+All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned. 
 
 Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists.
 
