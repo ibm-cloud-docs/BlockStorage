@@ -674,11 +674,12 @@ Some common uses for a duplicate volume:
 | Feature | Replica | Dependent duplicate | Independent duplicate |
 |---------|---------|---------------------|-----------------------|
 | Created from a snapshot | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
-| Location of copied volume | Remote AZ | Same AZ  | Same AZ |
+| Location of copied volume | Remote Availability Zone | Same Availability Zone   | Same Availability Zone |
 | Supports failover  | ![Checkmark icon.](../../icons/checkmark-icon.svg) |  |  |
 | Different Size/Iops |          | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
-| On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | Auto-synced with parent volume | ![Checkmark icon.](../../icons/checkmark-icon.svg) | |  |
-{: caption="Table 1. Comparison of features between different types of volume copies" caption-side="top"}
+| On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+| Seprated from parent volume | | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+{: caption="Table 1. Comparison of features between different types of volume copies. " caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the capability. The column headers identify the type of volume copy."}
 {: #table1}
