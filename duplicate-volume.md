@@ -90,7 +90,7 @@ You can create an independent duplicate volume through the [{{site.data.keyword.
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
 3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.   
-4. Select the snapshot option to be be used to create the duplicate. You can choose an existing Snapshot or take a new one.
+4. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 5. The location entries remain the same as the original volume.
 6. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
 7. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
@@ -108,14 +108,14 @@ You can create an independent duplicate volume through the [{{site.data.keyword.
 12. Click **Create** to continue.
 
 
-## Creating a duplicate LUN through the SLCLI
+## Creating a duplicate LUN from the SLCLI
 {: #cloneinCLI}
 {: cli}
 
 The commands that are described in the article are part of the SLCLI. For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 {: tip}
 
-You can use the following command in the SLCLI to create an independent duplicate {{site.data.keyword.blockstorageshort}} volume.
+To create an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume, you can use the following command.
 
 ```python
 # slcli block volume-duplicate --help
@@ -169,7 +169,7 @@ Options:
 ```
 {: codeblock}
 
-Dependent duplicate volumes can be ordered from the SLCLI, too, with the option `--dependent-duplicate TRUE`.
+**Dependent duplicate** volumes can be ordered from the SLCLI, too, with the option `--dependent-duplicate TRUE`.
 
 ```python
 slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
@@ -180,7 +180,7 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 
 While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal, and can be manually refreshed by using a snapshot from the parent volume.
 
-Dependent replicas do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI.
+Dependent duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI.
 
 ## Updating data on the duplicate from the parent volume from the CLI
 {: #refreshindependentvol}
@@ -188,19 +188,19 @@ Dependent replicas do not go through the separation process and can be refreshed
 
 As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using that snapshot. 
 
-A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
-{: important}
-
-Refreshes can be performed by using the SLCLI.
+Refreshes can be performed by using the following command.
 ```python
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
+
+A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
+{: important}
 
 ## Converting a dependent volume to an independent duplicate
 {: #convertdependentvol}
 {: cli}
 
-If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI.
+If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI by using the following command.
 
 ```python
 slcli block volume-convert <dependent-vol-id>
