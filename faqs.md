@@ -644,7 +644,7 @@ The following examples are utilities that you could consider to use to check per
 - [`esxtop`](https://communities.vmware.com/t5/Storage-Performance/Interpreting-esxtop-Statistics/ta-p/2776936){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
 
 
-## What is the difference between a replica volume, a dependent volume and an independent duplicate volume?
+## What is the difference between a replica volume, a dependent and an independent duplicate volume?
 {: #replicavsduplicate}
 {: faq}
 
