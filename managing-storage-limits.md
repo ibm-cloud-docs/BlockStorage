@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-09-27"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -26,7 +26,7 @@ subcollection: BlockStorage
 {: help}
 {: support}
 
-By default, you can provision a combined total of 750 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process, you can increase the number of volumes that you can provision.
+By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process, you can increase the number of volumes that you can provision.
 
 For more information about increasing your storage volume capacity beyond 12 TB, see [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacityover12TB).
 
@@ -47,11 +47,11 @@ You can list the number of your volumes by using the [volume-limits](https://sof
 
 Example output:
 ```zsh
-[{'datacenterName': 'global', 'maximumAvailableCount': 750, 'provisioned Count':117}]
+[{'datacenterName': 'global', 'maximumAvailableCount': 700, 'provisioned Count':117}]
 :............:.......................:..................:
 : Datacenter : maximumAvailableCount : ProvisionedCount :
 :............:.......................:..................:
-:   global   :           750         :         117      :
+:   global   :           700         :         117      :
 :............:.......................:..................:
 ```
 
