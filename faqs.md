@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-09-30"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -676,4 +676,25 @@ For more information about duplicates, see [Creating and managing duplicate volu
 [^depdup]: Dependent duplicates can be refreshed immediately after creation.
 
 [^indepdup]: Independent duplicates can be refreshed after the separation process completes.
+
+## How long does it take to convert a depent duplicate into an independent volume?
+{: #duplicateconversion}
+{: faq}
+
+The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. In case of a 12-TB volume, it could take 24 hours. You can check on the progress in the UI or from the CLI.
+
+From the CLI, use the following command.
+
+```python
+slcli block duplicate-convert-status <dependent-vol-id>
+```
+
+Example output:
+```python
+slcli block duplicate-convert-status 370597202
+Username            Active Conversion Start Timestamp   Completed Percentage
+SL02SEVC307608_74   2022-06-13 14:59:17                 90
+```
+
+In the UI, go to Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversation status is displayed on the Overview page.
 
