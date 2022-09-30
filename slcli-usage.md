@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-04-28"
+  years: 2014, 2022
+lastupdated: "2022-09-30"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -80,18 +80,6 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    slcli block volume-order
    ```
 
-* [Creating an independent duplicate volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
-    ```python
-   slcli block volume-duplicate
-   ```
-
-* [Creating and managing a dependent duplicate volume](/docs/BlockStorage?topic=BlockStorage-dependentduplicate)
-   ```python
-   slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
-   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
-   slcli block volume-convert <dependent-vol-id>
-   ```
-
 * [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS)
    ```python
    slcli block volume-modify
@@ -109,6 +97,15 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    slcli block volume-detail
    slcli block volume-list
    slcli block volume-set-lun-id
+   ```
+
+* [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
+   ```python
+   slcli block volume-duplicate
+   slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
+   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
+   slcli block volume-convert <dependent-vol-id>
+   slcli block duplicate-convert-status <dependent-vol-id>
    ```
 
 * [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits)  
