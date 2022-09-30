@@ -677,7 +677,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 
 [^indepdup]: Independent duplicates can be refreshed after the separation process completes.
 
-## How long does it take to convert a depent duplicate into an independent volume?
+## How long does it take to convert a dependent duplicate into an independent volume?
 {: #duplicateconversion}
 {: faq}
 
