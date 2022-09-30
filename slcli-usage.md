@@ -103,7 +103,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    ```python
    slcli block volume-duplicate
    slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
-   slcli block volume-refresh <dependent-vol-id> <independent-snapshot-id>
+   slcli block volume-refresh <duplicate-vol-id> <parent-vol-snapshot-id>
    slcli block volume-convert <dependent-vol-id>
    slcli block duplicate-convert-status <dependent-vol-id>
    ```
