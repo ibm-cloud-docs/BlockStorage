@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-22"
+lastupdated: "2022-09-30"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -179,7 +179,7 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 
 While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal, and can be manually refreshed by using a snapshot from the parent volume.
 
-Dependent duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI.
+Dependent duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process from the CLI, too.
 
 ## Updating data on the duplicate from the parent volume from the CLI
 {: #refreshindependentvol}
@@ -203,6 +203,19 @@ If you want to use the dependent volume as a stand-alone volume in the future, y
 
 ```python
 slcli block volume-convert <dependent-vol-id>
+```
+
+The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. You can check on the status of the process by using the following command.
+
+```python
+slcli block duplicate-convert-status <dependent-vol-id>
+```
+
+Example output:
+```python
+slcli block duplicate-convert-status 370597202
+Username            Active Conversion Start Timestamp   Completed Percentage
+SL02SEVC307608_74   2022-06-13 14:59:17                 90
 ```
 
 ## Canceling a storage volume with a dependent duplicate
