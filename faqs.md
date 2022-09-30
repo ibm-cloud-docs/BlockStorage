@@ -696,5 +696,5 @@ Username            Active Conversion Start Timestamp   Completed Percentage
 SL02SEVC307608_74   2022-06-13 14:59:17                 90
 ```
 
-In the UI, go to Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversation status is displayed on the Overview page.
+In the UI, go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
 
