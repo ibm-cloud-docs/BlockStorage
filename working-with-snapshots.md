@@ -123,7 +123,7 @@ Options:
 {: #listsnapshotUI}
 {: ui}
 
-A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used. 
+A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
 
 You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
@@ -175,13 +175,13 @@ Options:
 
 To change the status of the notification setting, use the following command.
 ```python
-# slcli block snapshot-set-notification VOLUME_ID 
+# slcli block snapshot-set-notification VOLUME_ID
 Usage: slcli block snapshot-set-notification VOLUME_ID [OPTIONS]
 
 Options:
  --disable  Disable snapshot threshold warning notification for the storage volume
  --enable   Enable snapshot threshold warning notification for the storage volume
- -h, --help  Show this message and exit. 
+ -h, --help  Show this message and exit.
 ```
 
 ## Increasing the amount of Snapshot space for a volume in the UI
@@ -208,7 +208,7 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click the schedule to be deleted in the **Snapshot Schedules** section on the **{{site.data.keyword.blockstorageshort}} Detail** page.
-2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**. 
+2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**.
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
@@ -273,13 +273,13 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 1. Unmount and detach your storage volume from the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
    - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
-2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to the snapshot to be used and click **Restore**.
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
-   
+
 5. Click **Yes** to start the restore.
 
    Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
@@ -309,7 +309,7 @@ Options:
                           the block volume
   -h, --help              Show this message and exit.
 ```
-{: codeblock}  
+{: codeblock}
 
 After the restore is complete, mount and reattach your storage volume to the host.
 

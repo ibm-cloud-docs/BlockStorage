@@ -41,7 +41,7 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 
 "Authorized" hosts are hosts that were given access to a volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the user name, password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Select **Authorize Host**.

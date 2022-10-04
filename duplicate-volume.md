@@ -33,7 +33,7 @@ Because the duplicate is based on the data in a point-in-time snapshot, snapshot
 
 **Dependent duplicate** volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicate volumes.
 
-All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned. 
+All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
 
 Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists.
 
@@ -57,7 +57,7 @@ Some common uses for a duplicate volume:
 {: #cloneLUNinUI}
 {: ui}
 
-You can create an independent duplicate volume through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} in a couple of ways. However, you can provision dependent duplicate volumes only from the CLI.
+You can create an independent duplicate volume through the [{{site.data.keyword.cloud_notm}} console](/login){: external} in a couple of ways. However, you can provision dependent duplicate volumes only from the CLI.
 
 ### Creating a duplicate from the Storage List in the UI
 {: #cloneLUN1UI}
@@ -88,7 +88,7 @@ You can create an independent duplicate volume through the [{{site.data.keyword.
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
 2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
-3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.   
+3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.
 4. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 5. The location entries remain the same as the original volume.
 6. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
@@ -185,7 +185,7 @@ Dependent duplicates do not go through the separation process and can be refresh
 {: #refreshindependentvol}
 {: cli}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using that snapshot. 
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using that snapshot.
 
 Refreshes can be performed by using the following command.
 ```python

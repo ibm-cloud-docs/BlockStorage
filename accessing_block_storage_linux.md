@@ -33,7 +33,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 ## Authorizing the host
 {: #authhostlin}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -114,7 +114,7 @@ The Host IQN, user name, password, and target address that are referenced in the
       wwid "SAdaptec*"
       devnode "^hd[a-z]"
       devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-      devnode "^cciss.*"  
+      devnode "^cciss.*"
       }
       devices {
       device {
@@ -243,7 +243,7 @@ The Host IQN, user name, password, and target address that are referenced in the
      modprobe dm-multipath
      ```
      {: pre}
- 
+
      ```zsh
      systemctl start multipathd
      ```
@@ -404,7 +404,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
-   
+
    The disk name that is returned looks similar to `/dev/mapper/XXX`.
 
 2. Create a partition on the disk.
@@ -489,13 +489,13 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 On many Linux&reg; distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian and Ubuntu
    ```zsh
-   sudo apt-get install parted  
+   sudo apt-get install parted
    ```
    {: pre}
 
 - RHEL and CentOS
    ```zsh
-   yum install parted  
+   yum install parted
    ```
    {: pre}
 

@@ -29,7 +29,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 ## Authorizing the host
 {: #authhostclin}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -147,12 +147,12 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 3. Restart `iscsi` and `multipathd` services.
    ```zsh
-   /etc/init.d/iscsi restart   
+   /etc/init.d/iscsi restart
    ```
    {: pre}
 
    ```zsh
-   /etc/init.d/multipathd restart   
+   /etc/init.d/multipathd restart
    ```
    {: pre}
 

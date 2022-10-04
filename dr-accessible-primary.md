@@ -38,7 +38,7 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 
 You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](https://{DomainName}/cloud-storage/block){: external}.
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external} and click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon on the upper left. Select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon on the upper left. Select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click your source volume from the **{{site.data.keyword.blockstorageshort}}** page. Its replica volume is listed under the source volume in the inactive status.
 3. Click the replica name and on the next screen, click **Actions**. From the menu, select **Authorize Hosts**.
 4. Select a host type and then choose a host from the dropdown that is available for the volume. Filter the available host list by the device type, or IP address.
@@ -104,7 +104,7 @@ To fail a block volume over to a specific replicant volume, use the following co
    ```python
    # slcli block replica-failover --help
    Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
- 
+
    Options:
    --replicant-id TEXT  ID of the replicant volume
    --immediate          Failover to replicant immediately.

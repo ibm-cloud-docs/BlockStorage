@@ -42,7 +42,7 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 {: #authhostrhelUI}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -132,7 +132,7 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    wwid "SAdaptec*"
    devnode "^hd[a-z]"
    devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-   devnode "^cciss.*"  
+   devnode "^cciss.*"
    }
    devices {
    device {
@@ -277,7 +277,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    ```
    {: pre}
 
-   The XXX represents the disk name that is returned in Step 1.  
+   The XXX represents the disk name that is returned in Step 1.
 
    Scroll further down for the commands codes that are listed in the `fdisk` command table.
    {: tip}
@@ -319,7 +319,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      {: pre}
 
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).  
+   - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
      ```zsh
      /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
@@ -366,7 +366,7 @@ To create a file system with `parted`, follow these steps.
       ```
       {: pre}
 
-   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create. 
+   4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
 
        ```zsh
        mkpart
@@ -416,7 +416,7 @@ To create a file system with `parted`, follow these steps.
    {: pre}
 
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
-   - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).  
+   - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
    ```zsh
    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
