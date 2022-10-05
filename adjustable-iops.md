@@ -9,14 +9,7 @@ keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS
 subcollection: BlockStorage
 
 ---
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:shortdesc: .shortdesc}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Adjusting IOPS
 {: #adjustingIOPS}

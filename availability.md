@@ -9,12 +9,7 @@ keywords: Block Storage, block storage, ISCSI, durability, availability, HA, hig
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:shortdesc: .shortdesc}
+{{site.data.keyword.attribute-definition-list}}
 
 # Availability and Durability of {{site.data.keyword.blockstorageshort}}
 {: #storageavailability}

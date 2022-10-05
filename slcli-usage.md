@@ -9,18 +9,12 @@ keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managi
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:shortdesc: .shortdesc}
+{{site.data.keyword.attribute-definition-list}}
 
 # SLCLI commands for {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
-You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. For example, from the SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, or cancel volumes.
+You can use the SLCLI to take actions that are normally handled through the [{{site.data.keyword.cloud_notm}} console](/login){: external}. For example, from the SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, or cancel volumes.
 {: shortdesc}
 
 For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
@@ -29,7 +23,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 ## Access-related SLCLI commands
 {: #slcliaccess}
 
-* [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
+* [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)
    ```python
    slcli block access-authorize
    slcli block access-list
@@ -89,8 +83,8 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    ```python
    slcli block volume-modify
    ```
-  
-* [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)  
+
+* [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)
    ```python
    slcli block volume-cancel
    slcli block volume-count
@@ -108,7 +102,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
    slcli block duplicate-convert-status <dependent-vol-id>
    ```
 
-* [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits)  
+* [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits)
    ```python
    slcli block volume-limit
    slcli block volume-count

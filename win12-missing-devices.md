@@ -9,18 +9,7 @@ keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, win
 subcollection: BlockStorage
 
 ---
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:shortdesc: .shortdesc}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Windows 2012 R2 - multiple iSCSI devices
 {: #troubleshootingWin12}

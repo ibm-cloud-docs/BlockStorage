@@ -9,13 +9,7 @@ keywords: Block storage, encryption, LUKS, RHEL, Linux, security, auxiliary stor
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:shortdesc: .shortdesc}
+{{site.data.keyword.attribute-definition-list}}
 
 # Achieving full disk encryption with LUKS in RHEL
 {: #LUKSencryption}
@@ -50,13 +44,13 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
 The process of data encryption creates a load on the host that might potentially impact performance.
 {: note}
 
-1. Type the following command at a shell prompt as root to install the required package:    
+1. Type the following command at a shell prompt as root to install the required package:
    ```zsh
    # yum install cryptsetup-luks
    ```
    {: pre}
 
-2. Get the disk ID: 
+2. Get the disk ID:
    ```zsh
    # fdisk –l | grep /dev/mapper
    ```
@@ -65,7 +59,7 @@ The process of data encryption creates a load on the host that might potentially
 3. Locate your volume in the listing.
 4. Encrypt the block device;
 
-   1. This command initializes the volume, and you can set a passphrase.  
+   1. This command initializes the volume, and you can set a passphrase.
 
       ```zsh
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
@@ -81,7 +75,7 @@ The process of data encryption creates a load on the host that might potentially
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
 
-5. Open the volume, and create a mapping. 
+5. Open the volume, and create a mapping.
    ```zsh
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
@@ -103,19 +97,19 @@ The process of data encryption creates a load on the host that might potentially
      Command successful
    ```
 
-8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action ensures that outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while. 
+8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action ensures that outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.
     ```zsh
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
 
-9. Format the volume. 
+9. Format the volume.
    ```zsh
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
 
-10. Mount the volume. 
+10. Mount the volume.
    ```zsh
    # mkdir /cryptData
    ```

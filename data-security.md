@@ -10,13 +10,7 @@ subcollection: BlockStorage
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Securing your data in {{site.data.keyword.blockstorageshort}}
 {: #mng-data}

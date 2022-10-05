@@ -14,17 +14,7 @@ account-plan: paid
 completion-time: 1h
 
 ---
-{:external: target="_blank" .external}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:shortdesc: .shortdesc}
-{:step: data-tutorial-type='step'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Mount iSCSI LUN on Debian 10
 {: #mountingdebian10}
@@ -42,7 +32,7 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 {: #authhostdebi10}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -147,7 +137,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
     wwid "SAdaptec*"
     devnode "^hd[a-z]"
     devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
-    devnode "^cciss.*"  
+    devnode "^cciss.*"
     }
     devices {
     device {
@@ -248,7 +238,7 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
 4. Restart the iscsid service.
    ```zsh
    systemctl restart iscsid.service
-   ```  
+   ```
 
 5. Log in to the iSCSI array.
    ```zsh

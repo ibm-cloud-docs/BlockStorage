@@ -9,13 +9,7 @@ keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mo
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:codeblock: .codeblock}
-{:shortdesc: .shortdesc}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
@@ -28,7 +22,7 @@ By following the steps in this topic, you can authorize your host to access your
 
 Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -51,7 +45,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 
 1. Start the Server Manager and browse to **Manage**, **Add Roles and Features**.
 2. Click **Next** to open the Features menu.
-3. Scroll down and check **Multipath I/O**. 
+3. Scroll down and check **Multipath I/O**.
 4. Click **Install** to install MPIO on the host server.
     ![Adding Roles and Features in Server Manager](/images/Roles_Features.png){: caption="Figure 1. Install MPIO on the host server. " caption-side="bottom"}
 5. Restart the server.
@@ -80,12 +74,12 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
       {: tip}
 
    - Click **Discovery**, and click **Discover Portal**.
-   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260. 
-   - Click **Advanced** to open the Advanced Settings window. 
-   - On the Local adapter list, select Microsoft&reg; iSCSI Initiator. 
-   - On the Initiator IP list, select the IP address of the host. 
-   - On the Target Portal IP list, select the IP of one of the storage interfaces. 
-   - Select **Enable CHAP log-on** to turn on CHAP authentication. 
+   - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
+   - Click **Advanced** to open the Advanced Settings window.
+   - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+   - On the Initiator IP list, select the IP address of the host.
+   - On the Target Portal IP list, select the IP of one of the storage interfaces.
+   - Select **Enable CHAP log-on** to turn on CHAP authentication.
        ![Enable CHAP login.](/images/Advanced_0.png){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
 
        The Name and Target secret fields are case-sensitive.
@@ -93,23 +87,23 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 
    - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
    - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
-   - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries. 
+   - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
     ![Inactive Target.](/images/Inactive_0.png){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
 
     The name of your target appears in the Discovered targets section with an `Inactive` status.
     {: note}
-     
+
 3. Click **Connect** to connect to the target.
 4. Select **Enable multi-path** check box to enable multi-path IO to the target.
     ![Enable Multi-path.](/images/Connect_0.png){: caption="Figure 5. Make changes on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
     ![Enable CHAP.](/images/chap_0.png){: caption="Figure 6. CHAP logon and credentials." caption-side="bottom"}
 6. Enter the user name in the Name field, and enter the password in the Target secret field.
-    
+
     The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
     {: tip}
 
-7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**. 
+7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
     ![Connected status.](/images/Connected.png){: caption="Figure 7. The discovered target is shown as connected." caption-side="bottom"}
 
 ### Adding and configuring multiple MPIO sessions in the iSCSI Initiator
@@ -146,7 +140,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 
    If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} before you attempt to make the connection.
    {: note}
-   
+
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
    ![Devices](/images/Devices.png){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
 
@@ -205,7 +199,7 @@ In the rare case of a LUN being provisioned and attached while the second path i
 Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor documentation.
 
 ### Starting the iSCSI Initiator
-{: #startISCSIwin} 
+{: #startISCSIwin}
 
 1. Click **Targets**.
 2. Select the targets that you want to remove and click **Disconnect**.

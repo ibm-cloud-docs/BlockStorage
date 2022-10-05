@@ -9,18 +9,7 @@ keywords: Block Storage, expand size, adjusting capacity, modify capacity, incre
 subcollection: BlockStorage
 
 ---
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:shortdesc: .shortdesc}
-{:preview: .preview}
-{:external: target="_blank" .external}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Expanding {{site.data.keyword.blockstorageshort}} Capacity
@@ -39,7 +28,7 @@ The upgrade process is not instantaneous. You can expect to see the updated size
 ## Advantages of Expandable Storage
 {: #advantageofresizing}
 
-- **Cost management** – You might know that there's potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on cost of storage, and later grow to accommodate their needs.  
+- **Cost management** – You might know that there's potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on cost of storage, and later grow to accommodate their needs.
 
 - **Growing Storage needs** - Customers who experience rapid data growth need a way to quickly and easily increase the size of their storage to manage it.
 
