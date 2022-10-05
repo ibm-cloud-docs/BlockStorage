@@ -9,10 +9,7 @@ keywords: Block Storage, block storage, snapshot, snapshot space, snapshot best 
 subcollection: BlockStorage
 
 ---
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:shortdesc: .shortdesc}
+{{site.data.keyword.attribute-definition-list}}
 
 # Snapshots
 {: #snapshots}

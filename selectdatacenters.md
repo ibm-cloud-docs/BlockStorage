@@ -9,12 +9,7 @@ keywords: Block Storage, locations, data centers, iscsi
 subcollection: BlockStorage
 
 ---
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:shortdesc: .shortdesc}
-{:term: .term}
+{{site.data.keyword.attribute-definition-list}}
 {: ui-linked}
 
 # {{site.data.keyword.blockstorageshort}} locations

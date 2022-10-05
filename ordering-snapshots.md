@@ -9,17 +9,7 @@ keywords: Block Storage, snapshot space, ordering snapshots,
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:shortdesc: .shortdesc}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Ordering Snapshots
 {: #orderingsnapshots}
@@ -32,7 +22,7 @@ To create snapshots of your storage volume, either automated or manually, you ne
 
 Generically speaking, snapshot space is used by snapshots based on two key factors:
 - How much your active file system changes over time,
-- How long you plan to retain snapshots.  
+- How long you plan to retain snapshots.
 
 The way to calculate the amount of space that you need is **(Rate of Change)** x **(number of hours/days/weeks/months data is kept)**.
 
@@ -44,7 +34,7 @@ A volume with numerous changes and a lengthy retention period needs more space t
 If you take 12 hourly snapshots of 500 GB of actual data, and there's 1 percent of change between each snapshot, you end up with 60 GB for snapshots.
 
     *(5-GB Rate of Change) x (12 hourly snapshots) = (60 GB of used space)*
- 
+
 Conversely, if that 500 GB of actual data, with 12 hourly snapshots, saw 10 percent of change every hour, the snapshot space that is used is 600 GB.
 
     *(50-GB Rate of Change) x (12 hourly snapshots) = (600 GB of used space)*
@@ -86,4 +76,3 @@ Options:
   -h, --help            Show this message and exit.
 ```
 {: codeblock}
- 

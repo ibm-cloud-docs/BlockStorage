@@ -9,13 +9,7 @@ keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mo
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:codeblock: .codeblock}
-{:shortdesc: .shortdesc}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}

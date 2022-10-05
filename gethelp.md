@@ -7,17 +7,7 @@ lastupdated: "2020-09-01"
 subcollection: BlockStorage
 
 ---
-
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:external: target="_blank" .external}
-{:deprecated: .deprecated}
-{:important: .important}
-{:note: .note}
-{:tip: .tip}
-{:pre: .pre}
-{:codeblock: .codeblock}
-{:screen: .screen}
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting help
 {: #gethelp}

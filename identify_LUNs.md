@@ -9,17 +9,7 @@ keywords: Block Storage, LUN, volume ID,
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:shortdesc: .shortdesc}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Identifying LUNs
@@ -35,20 +25,20 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    ```zsh
    root@server:~# multipath -l
-   3600a098038303845372b4a5232346e35 dm-0 NETAPP ,LUN C-Mode 
+   3600a098038303845372b4a5232346e35 dm-0 NETAPP ,LUN C-Mode
    size=12T features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='1 alua' wp=rw
    -+- policy='round-robin 0' prio=50 status=active
    - `1:0:0:0 sdc 8:32 active ready running`
-   3600a098038304471562b4c4743384332 dm-1 NETAPP ,LUN C-Mode 
+   3600a098038304471562b4c4743384332 dm-1 NETAPP ,LUN C-Mode
    size=12T features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='1 alua' wp=rw
-   -+- policy='round-robin 0' prio=10 status=active 
+   -+- policy='round-robin 0' prio=10 status=active
    `- 3:0:0:1 sdd 8:48 active ready running`
    ```
 
    Note "1:0:0:0" and "3:0:0:1". The last digits in each of these fields "1:0:0:0" and "3:0:0:1", the "0" and "1" are the iscsi LUN ID numbers of your block storage devices.
 
-2. Enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.  
-   
+2. Enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
+
    ```zsh
    $ ibmcloud sl block volume-list
    id       username          datacenter storage_type              capacity_gb bytes_used lunId
@@ -66,13 +56,13 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    Type                       endurance_block_storage
    Capacity (GB)              20
    LUN Id                     0
-   Endurance Tier             READHEAVY_TIER   
-   Endurance Tier Per IOPS    2 
-   Datacenter                 dal12 
-   Target IP                  161.26.110.17   
-   Snapshot Size (GB)         5   
-   Snapshot Used (Bytes)      3325952   
-   # of Active Transactions   0   
+   Endurance Tier             READHEAVY_TIER
+   Endurance Tier Per IOPS    2
+   Datacenter                 dal12
+   Target IP                  161.26.110.17
+   Snapshot Size (GB)         5
+   Snapshot Used (Bytes)      3325952
+   # of Active Transactions   0
    Replicant Count            0
    ```
 
@@ -114,13 +104,13 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    Abort Timeout: 15
    *****
    CHAP:
-   *****   
+   *****
    username: IBM02SU1575811-I117305979
    password: ********
    username_in: <empty>
    password_in: ********
    ************************
-   Negotiated iSCSI params:   
+   Negotiated iSCSI params:
    ************************
    HeaderDigest: None
    DataDigest: None
@@ -137,7 +127,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    Host Number: 1 State: running
    scsi1 Channel 00 Id 0 Lun: 0 # match the "Lun: 0" here to the LUN ID.
    Attached scsi disk sdc State: running
-   
+
    Current Portal: 161.26.110.43:3260,1041 # match this target iscsi IP to the block storage device.
    Persistent Portal: 161.26.110.43:3260,1041
    **********
@@ -186,7 +176,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    scsi3 Channel 00 Id 0 Lun: 1 # match the "Lun: 1" here to the LUN ID.
    Attached scsi disk sdd State: running
    ```
-   
+
 ## Viewing the LUN ID in Windows&reg;
 {: #identifyLUNWin}
 {: support}
@@ -201,24 +191,24 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
       Target Portal    : 10.201.174.123/3260
       Device Number    : 4
       Location:        : Bus Number 0, Target ID 1, LUN 0
-   ```   
+   ```
 
 2. Then, enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
 
    ```zsh
    $ ibmcloud sl block volume-list
-   id        username           datacenter storage_type            capacity_gb bytes_used lunId   
+   id        username           datacenter storage_type            capacity_gb bytes_used lunId
    333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200         -          0
    333506786 SL02SEL1160157-222 tok02      endurance_block_storage 200         -          0
    ```
 
    ```zsh
    $ ibmcloud sl block volume-detail 333506786
-   Name                       Value   
-   ID                         333506786   
-   User name                  SL02SEL1160157-222   
-   Type                       endurance_block_storage   
-   Capacity (GB)              200   
+   Name                       Value
+   ID                         333506786
+   User name                  SL02SEL1160157-222
+   Type                       endurance_block_storage
+   Capacity (GB)              200
    LUN Id                     0
    Endurance Tier             READHEAVY_TIER
    Endurance Tier Per IOPS    2
@@ -236,7 +226,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    ```sh
    Volume Name     VMFS UUID                           Extent Device Name                     Partition
-                                                       Number 
+                                                       Number
    --------------- ----------------------------------- ------ ------------------------------------ ----
    datastore1      5f69774e-f1031e44-7bdb-ac1f6bc4b812      0 naa.600062b2049d040026fc1e4b2f305682    3
    iscsi-datastore 621f425f-0dc2da8a-927b-ac1f6bc4b812      0 naa.600a098038305674695d51694b427849    1
@@ -246,13 +236,13 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    ```sh
    naa.600a098038305674695d51694b427849 : NETAPP iSCSI Disk (naa.600a098038305674695d51694b427849)
-      vmhba64:C0:T1:L0 LUN:0 state:active iscsi Adapter: iqn.2020-10.com.ibm:sl02su1160157-h1907004  
+      vmhba64:C0:T1:L0 LUN:0 state:active iscsi Adapter: iqn.2020-10.com.ibm:sl02su1160157-h1907004
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000001 PortalTag=1034
-      vmhba64:C1:T1:L0 LUN:0 state:active iscsi Adapter: iqn.2020-10.com.ibm:sl02su1160157-h1907004  
+      vmhba64:C1:T1:L0 LUN:0 state:active iscsi Adapter: iqn.2020-10.com.ibm:sl02su1160157-h1907004
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000002 PortalTag=1030
-   ```   
-   
-   In the example, `LUN:0` means that the LUN ID is 0. 
+   ```
+
+   In the example, `LUN:0` means that the LUN ID is 0.
 
 3. Execute the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
 
@@ -267,7 +257,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 4. Next, use the IBMCLOUD CLI command `ibmcloud sl block volume-list`. The output contains the volume ID, the hostname of the storage device, the DC location, storage type, capacity, the amount of space already being used and the LUN ID.
 
-   ```text 
+   ```text
    $ ibmcloud sl block volume-list
    id        username           datacenter storage_type            capacity_gb bytes_used lunId
    221426384 SL02SEL1160157-195 che01      endurance_block_storage 1500         -          2
@@ -304,7 +294,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 ## Viewing the LUN ID in the UI
 {: #identifyLUNUI}
 {: support}
-   
-You can also gather the LUN ID, Target IP address, and hostname of the {{site.data.keyword.blockstorageshort}} device on the Volume Details page in the UI. 
+
+You can also gather the LUN ID, Target IP address, and hostname of the {{site.data.keyword.blockstorageshort}} device on the Volume Details page in the UI.
 
 ![The Volume Details page in the Console provides detailed information about the LUN.](images/vmwareLUNID.png "Block Storage Volume Details in the Console."){: caption="Image 1 shows the Volume Details page in the Console that provides detailed information about the LUN." caption-side="bottom"}

@@ -9,17 +9,7 @@ keywords: Block Storage, new feature, ideas, feedback, issues
 subcollection: BlockStorage
 
 ---
-
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:external: target="_blank" .external}
-{:deprecated: .deprecated}
-{:important: .important}
-{:note: .note}
-{:tip: .tip}
-{:pre: .pre}
-{:codeblock: .codeblock}
-{:screen: .screen}
+{{site.data.keyword.attribute-definition-list}}
 
 # Feedback
 {: #feedback}

@@ -9,12 +9,7 @@ keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 subcollection: BlockStorage
 
 ---
-{:external: target="_blank" .external}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs
 {: #block-storage-faqs}
@@ -133,10 +128,10 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 {: #blockstoruse}
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} is yours to format and manage the way that you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and so the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system. 
+{{site.data.keyword.blockstorageshort}} is yours to format and manage the way that you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and so the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system.
 
 You can use the following commands.
-- Linux&reg;: 
+- Linux&reg;:
    ```txt
    df -h
    ```
@@ -161,9 +156,9 @@ You can use the following commands.
    dir C:
    ```
    {: pre}
-   
+
    The last line of the output shows how much space is free.
-   
+
    You can also view the free disk space in the File Explorer by clicking This PC.
 
 ## Does the volume need to be pre-warmed to achieve expected throughput?
@@ -217,7 +212,7 @@ To enact this best practice, complete the following steps.
 
 No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use multi-path input/output (MPIO) framework for I/O balancing and redundancy.
 
-With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s. 
+With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
 Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the same way as MPIO. Link aggregation does not improve the throughput of a single I/O flow, nor does it provide multiple paths. A single flow always traverses one single path. The benefit of link aggregation can be observed when several “unique” flows exist, and each flow comes from a different source. Each individual flow is sent down its own available NIC interface which is determined by a hash algorithm. Thus with more unique flows, more NICs can provide greater aggregate throughput.
 
@@ -228,8 +223,8 @@ For more information, see one of the following articles.
 - Microsoft&reg; Windows&reg;: [NIC Teaming and ISCSI](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi?forum=winserverhyperv){: external}.
 - VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
 
-## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?   
-{: #latency}  
+## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
+{: #latency}
 {: faq}
 {: support}
 
@@ -357,7 +352,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
-3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an unallocated partition on the existing Disk. 
+3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an unallocated partition on the existing Disk.
 4. Partition the unallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
@@ -383,7 +378,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
 4. List the new size by using `fdisk -l` to confirm that the storage was expanded.
 
-5. Reload multipath device map. 
+5. Reload multipath device map.
    ```zsh
    # multipath -r <WWID>
    ```
@@ -400,13 +395,13 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
    ```
 
 6. Expand the file system.
-   - LVM 
+   - LVM
      1. Resize Physical Volume.
         ```zsh
         # pvresize /dev/mapper/3600a09803830477039244e6b4a396b30
           Physical volume "/dev/mapper/3600a09803830477039244e6b4a396b30" changed
           1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-           
+
         # pvdisplay -m /dev/mapper/3600a09803830477039244e6b4a396b30
           --- Physical volume ---
           PV Name               /dev/mapper/3600a09803830477039244e6b4a396b30
@@ -414,11 +409,11 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
           PV Size               <30.00 GiB / not usable 3.00 MiB
           Allocatable           yes
           PE Size               4.00 MiB
-          Total PE              7679 - Changed  <- new number of physical extents 
+          Total PE              7679 - Changed  <- new number of physical extents
           Free PE               2560
           Allocated PE          5119
           PV UUID               dehWT5-VxgV-SJsb-ydyd-1Uck-JUA9-B9w0cO
- 
+
           --- Physical Segments ---
           Physical extent 0 to 5118:
           Logical volume  /dev/vg00/vol_projects
@@ -436,7 +431,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
           Filesystem at /dev/mapper/vg00-vol_projects is mounted on /projects; on-line resizing required
           old_desc_blocks = 7, new_desc_blocks = 8
           The filesystem on /dev/mapper/vg00-vol_projects is now 15726592 blocks long.
-         
+
         # lvdisplay
           --- Logical volume ---
           LV Path                /dev/vg00/vol_projects
@@ -465,7 +460,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
         For more information, see [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
 
-       
+
    - Non-LVM - ext2, ext3, ext4:
       1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you need to install them, run the following command.
          ```zsh
@@ -488,7 +483,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```zsh
             # partprobe
 
-            # lsblk 
+            # lsblk
             NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
             sda 8:0 0 100G 0 disk
             ├─sda1 8:1 0 100G 0 part
@@ -505,7 +500,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```
 
       2. Extend the existing file system on the partition.
-         1. Unmount the partition. 
+         1. Unmount the partition.
             ```zsh
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
@@ -551,7 +546,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
           ```zsh
           # mount /dev/sdb1 /mnt
           ```
-        
+
       2. Extend the file system. Substitute the mount point of the file system.
          ```zsh
          # xfs_growfs -d </mnt>
@@ -568,7 +563,7 @@ Seeing two disks in Disk Management can occur if MPIO is not installed or is dis
 {: faq}
 
 Complete the following steps to successfully reconnect the storage after a chassis swap.
-1. Before the swap, remove the authorization (revoke access) from the storage devices. 
+1. Before the swap, remove the authorization (revoke access) from the storage devices.
 2. After the swap, authorize the host again.
 3. Discover the storage devices again, with the new credentials that were gained from the new authorization.
 

@@ -9,7 +9,7 @@ keywords: Block Storage, performance tuning, host performance improvement,
 subcollection: BlockStorage
 
 ---
-{:shortdesc: .shortdesc}
+{{site.data.keyword.attribute-definition-list}}
 
 # Adjusting host queue depth settings
 {: #hostqueuesettings}
@@ -27,7 +27,7 @@ subcollection: BlockStorage
 
 The host setting doesn’t affect disk and controller latency. It affects only the latency that is observed by the host and application.
 
-Queue depth that exceeds the listed numbers can increase host I/O latency, while queue depth less than the listed number can reduce host I/O performance. Because each application is different, adjustment and observation are required to achieve maximum storage performance. 
+Queue depth that exceeds the listed numbers can increase host I/O latency, while queue depth less than the listed number can reduce host I/O performance. Because each application is different, adjustment and observation are required to achieve maximum storage performance.
 
 Performance tuning is typically a trial-and-error process. For example, for the 10 IOPS per GB performance tier, the recommendation is to start at 56, then tune up in increments until you see diminishing gains, then back off until you find the right balance of performance and latency.
 
