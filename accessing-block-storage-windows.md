@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2021-08-25"
+  years: 2014, 2022
+lastupdated: "2022-10-06"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -24,12 +24,18 @@ Before you start, make sure that the host that is accessing the {{site.data.keyw
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
+3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
+
+When your host is authorized, take note of the following information which is needed later.
+* iSCSI Target IPs
+* Username
+* Password
+* IQN
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
@@ -67,11 +73,9 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 1. From the Server Manager, start iSCSI Initiator, and select **Tools**, **iSCSI Initiator**.
 2. Click the **Configuration** tab.
    - The Initiator Name field might already be populated with an entry similar to `iqn.1991-05.com.microsoft:`.
-   - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN).
+   - Click **Change** to replace existing values with your iSCSI Qualified Name (IQN)[^iqn].
        ![iSCSI Initiator Properties](/images/iSCSI.png){: caption="Figure 2. ISCSI Initiator Properties" caption-side="bottom"}
-
-       The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic){: external}.
-      {: tip}
+       [^iqn]: The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
    - Click **Discovery**, and click **Discover Portal**.
    - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
@@ -82,11 +86,8 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    - Select **Enable CHAP log-on** to turn on CHAP authentication.
        ![Enable CHAP login.](/images/Advanced_0.png){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
 
-       The Name and Target secret fields are case-sensitive.
-       {: important}
-
-   - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
-   - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
+   - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive
+   - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
     ![Inactive Target.](/images/Inactive_0.png){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
 
@@ -98,10 +99,9 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     ![Enable Multi-path.](/images/Connect_0.png){: caption="Figure 5. Make changes on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
     ![Enable CHAP.](/images/chap_0.png){: caption="Figure 6. CHAP logon and credentials." caption-side="bottom"}
-6. Enter the user name in the Name field, and enter the password in the Target secret field.
-
-    The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
-    {: tip}
+6. Enter the user name in the Name[^uname] field, and enter the password in the Target secret[^pword] field.
+   [^uname]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
+   [^pword]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
 
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
     ![Connected status.](/images/Connected.png){: caption="Figure 7. The discovered target is shown as connected." caption-side="bottom"}
@@ -128,17 +128,15 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 7. In the Advanced Settings window,
     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
     - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
-    - On the Target Portal IP list, select the IP address for the second interface that is enabled on the storage array.
-
-     You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/classic/storage/block){: external}.
-     {: tip}
+    - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
+    [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
     - Click **Enable CHAP log-on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} before you attempt to make the connection.
+   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
    {: note}
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
@@ -190,7 +188,7 @@ To verify multipathing by using the command line, complete the following steps.
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If there's an event, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If there's an event, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
