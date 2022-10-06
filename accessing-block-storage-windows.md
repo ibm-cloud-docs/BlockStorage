@@ -99,7 +99,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     ![Enable Multi-path.](/images/Connect_0.png){: caption="Figure 5. Make changes on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
     ![Enable CHAP.](/images/chap_0.png){: caption="Figure 6. CHAP logon and credentials." caption-side="bottom"}
-6. Enter the user name[^uname] in the Name field, and enter the password[^pword] in the Target secret field.
+6. Enter the user name in the Name[^uname] field, and enter the password in the Target secret[^pword] field.
    [^uname]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    [^pword]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
 
