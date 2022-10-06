@@ -62,6 +62,12 @@ Options:
 ```
 {: codeblock}
 
+When your host is authorized, take note of the following information which is needed later.
+* iSCSI Target IPs
+* Username
+* Password
+* IQN
+
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
