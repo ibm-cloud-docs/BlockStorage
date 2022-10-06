@@ -249,7 +249,7 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 {: faq}
 {: support}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
@@ -575,7 +575,7 @@ For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/do
 
 Perform the following steps to disconnect from a host:
 1. Remove operating system ISCSI sessions and, if applicable, unmount the device.
-1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external}.
+1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}.
 1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for ISCSI connections.
 
 ## How do endurance and performance storage differ?
@@ -591,7 +591,7 @@ Endurance and Performance are provisioning options that you can select for stora
 The following situations can affect the ability to upgrade or expand storage:
 - If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
 - Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
-- The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic/storage/block){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
+- The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
 ## Are ISCSI LUNs thin or thick provisioned?
 {: #thin}

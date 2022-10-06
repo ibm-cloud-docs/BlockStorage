@@ -86,8 +86,8 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    - Select **Enable CHAP log-on** to turn on CHAP authentication.
        ![Enable CHAP login.](/images/Advanced_0.png){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
 
-   - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](/classic/storage/block){: external}. This field is case-sensitive
-   - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/classic/storage/block){: external}. This field is case-sensitive.
+   - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive
+   - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
     ![Inactive Target.](/images/Inactive_0.png){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
 
@@ -129,14 +129,14 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
     - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
     - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
-    [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/classic/storage/block){: external}.
+    [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
     - Click **Enable CHAP log-on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/classic/storage/block){: external} before you attempt to make the connection.
+   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
    {: note}
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
