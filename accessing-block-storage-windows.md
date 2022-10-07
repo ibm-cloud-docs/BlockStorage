@@ -129,7 +129,8 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
     - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
     - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
-    [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+
+     [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
     - Click **Enable CHAP log-on** check box.
     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
