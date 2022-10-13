@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-30"
+lastupdated: "2022-10-13"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -14,35 +14,46 @@ subcollection: BlockStorage
 # Creating and managing duplicate volumes
 {: #duplicatevolume}
 
-You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume.
+You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default, however both attributes can be changed manually. The duplicate has a copy of the data up to the point-in-time of the snapshot that was used to create it. The duplicate volume can be dependent or independent from the original volume.
 {: shortdesc}
-
-Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
-{: important}
-
-**Independent duplicates** can be created from both **primary** and **replica** volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the duplicate volume is created in the same data center as the replica volume.
-
-**Dependent duplicate** volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicate volumes.
-
-All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
-
-Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists.
-
-However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent from the parent volume. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
 If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {: tip}
 
-Some common uses for a duplicate volume:
-- **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
+Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
+{: important}
+
+## Types of duplicate volumes
+{: #duplicatetype}
+
+### Independent duplicate
+{: #independent}
+
+Independent duplicates can be created from both **primary** and **replica** volumes. The duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the duplicate volume is created in the same data center as the replica volume.
+
+Common uses for an independent duplicate volume:
 - **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
 - **Data refreshes**. Create a copy of your production data to mount to your non-production environment for testing.
-- **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
-- **Storage Resize**. Create a volume with new size, IOPS rate or both without needing to move your data.
 
+### Dependent duplicate
+{: #dependent}
+
+Dependent duplicate volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicates.
+
+Common uses for a dependent duplicate volume:
+- **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
+- **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
+- **Data refreshes**. Create a copy of your production data to mount to your non-production environment for testing.
+- **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
+
+All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
+
+Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume keeps the original snapshot locked so the snapshot cannot be deleted while the dependent duplicate exists.
+
+However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent from the parent volume. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
@@ -190,7 +201,7 @@ A refresh incurs no downtime on the primary volume. However, during the refresh 
 {: #convertdependentvol}
 {: cli}
 
-If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI by using the following command.
+If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI. Use the following command.
 
 ```python
 slcli block volume-convert <dependent-vol-id>
