@@ -59,7 +59,7 @@ However, snapshots and replication of independent duplicate volumes aren't allow
 {: #cloneLUNinUI}
 {: ui}
 
-You can create an independent duplicate volume through the [{{site.data.keyword.cloud_notm}} console](/login){: external} in a couple of ways. However, you can provision dependent duplicate volumes only from the CLI.
+You can create an independent duplicate volume from the CLI and in the [{{site.data.keyword.cloud_notm}} console](/login){: external} in a couple of ways. However, you can provision dependent duplicate volumes only from the CLI.
 
 ### Creating a duplicate from the Storage List in the UI
 {: #cloneLUN1UI}
