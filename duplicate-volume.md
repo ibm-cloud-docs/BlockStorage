@@ -35,7 +35,7 @@ Independent duplicates can be created from both **primary** and **replica** volu
 
 Common uses for an independent duplicate volume:
 - **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
-- **Data refreshes**. Create a copy of your production data to mount to your non-production environment for testing.
+- **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 
 ### Dependent duplicate
@@ -46,7 +46,7 @@ Dependent duplicate volumes are created by using a snapshot from the primary vol
 Common uses for a dependent duplicate volume:
 - **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
 - **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
-- **Data refreshes**. Create a copy of your production data to mount to your non-production environment for testing.
+- **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 
 All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
@@ -89,7 +89,7 @@ You can create an independent duplicate volume through the [{{site.data.keyword.
 {: ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
-2. Click a LUN from the list to view the details page. (It can either be a replica or non-replica volume.)
+2. Click a LUN from the list to view the details page. (It can either be a replica or a primary volume.)
 3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.
 4. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 5. The location entries remain the same as the original volume.
