@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-13"
+lastupdated: "2022-10-14"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -17,13 +17,14 @@ subcollection: BlockStorage
 You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default, however both attributes can be changed manually. The duplicate has a copy of the data up to the point-in-time of the snapshot that was used to create it. The duplicate volume can be dependent or independent from the original volume.
 {: shortdesc}
 
-This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
-
 If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {: tip}
 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
 {: important}
+
+This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}. Provisioning storage and snapshots in closing data centers is not allowed.
+{: note}
 
 ## Types of duplicate volumes
 {: #duplicatetype}
@@ -179,7 +180,7 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
-While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal, and can be manually refreshed by using a snapshot from the parent volume.
+While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is completem, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
 Dependent duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process from the CLI, too.
 
