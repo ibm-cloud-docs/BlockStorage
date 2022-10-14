@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-10-14"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -37,8 +37,11 @@ See Table 1 for the complete list of data center availability and replication ta
 | - DAL05 \n - DAL06 \n  -  SJC01 \n -  WDC01 | - SJC03 \n -  SJC04 \n -  WDC04 \n -  WDC06 \n -  WDC07 \n -  DAL09 \n -  DAL10 \n -  DAL12 \n -  DAL13 | - MEX01 \n -  SAO01 \n -  SAO04 \n -   SAO05 | - TOR01 \n -  TOR04 \n -  TOR05 \n -  MON01 | - AMS01 \n -  AMS03 \n -  FRA02 \n -  FRA04 \n -  FRA05 \n -  LON02 \n -  LON04 \n -  LON05 \n -  LON06 \n -  PAR01 \n -  MIL01 | - HKG02 \n -  TOK02 \n -  TOK04 \n -  TOK05 \n -  OSA21 \n -  OSA22 \n -  OSA23 \n -  SNG01 \n -  SEO01 \n -  CHE01 | - SYD01 \n -  SYD04 \n -  SYD05 \n |
 {: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
 
- Data centers in US 1 region do NOT have enhanced storage. For that reason, hosts in data centers within the US 2 region can't start replication with replica targets in US 1 data centers.
- {: note}
+Data centers in US 1 region do NOT have enhanced storage. For that reason, hosts in data centers within the US 2 region can't start replication with replica targets in US 1 data centers.
+{: note}
+
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}. Provisioning storage and snapshots in closing data centers is not allowed.
+{: note}
 
 ## Determining the remote data center for my replicated storage volume from the SLCLI
 {: #determinereplocationCLI}
@@ -56,6 +59,9 @@ Options:
 --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
 -h, --help      Show this message and exit.
 ```
+
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}. Provisioning storage and snapshots in closing data centers is not allowed.
+{: note}
 
 ## Creating the initial replica in the UI
 {: #enablerepUI}
