@@ -609,7 +609,7 @@ You might notice that your Storage volumes are now billed as "Endurance Storage 
 {: #stordurabilityfaq}
 {: faq}
 
-When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. The durability target for a single Availability zone is 99.999999999% (11 9's). For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=FBlockStorage-storageavailability).
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. The durability target for a single Availability zone is 99.999999999% (11 9's). For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
 
 ## What's the average uptime for {{site.data.keyword.blockstorageshort}}?
 {: #storavailabilityfaq}
