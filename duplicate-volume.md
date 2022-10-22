@@ -180,7 +180,7 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
-While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is completem, the independent volume can be manually refreshed by using a snapshot from the parent volume.
+While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
 Dependent duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process from the CLI, too.
 
