@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-14"
+lastupdated: "2022-11-14"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -60,7 +60,7 @@ However, snapshots and replication of independent duplicate volumes aren't allow
 {: #cloneLUNinUI}
 {: ui}
 
-You can create an independent duplicate volume from the CLI and in the [{{site.data.keyword.cloud_notm}} console](/login){: external} in a couple of ways. However, you can provision dependent duplicate volumes only from the CLI.
+You can create duplicate volume from the CLI and in the [{{site.data.keyword.cloud_notm}} console](/login){: external} in a couple of ways.
 
 ### Creating a duplicate from the Storage List in the UI
 {: #cloneLUN1UI}
@@ -68,30 +68,7 @@ You can create an independent duplicate volume from the CLI and in the [{{site.d
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Duplicate Volume**.
-3. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
-4. The location entries remain the same as the original volume.
-5. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
-6. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
-
-   {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
-   {: tip}
-
-7. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
-8. You can select the OS Type to be different than the original volume or to stay the same.
-9. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
-   - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-   - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
-
-10. Check the box if you read and agreed to the terms and conditions.
-11. Click **Create** to continue.
-
-### Creating a duplicate from the Volume detail page the UI
-{: #cloneLUN2UI}
-{: ui}
-
-1. Go to your list of {{site.data.keyword.blockstorageshort}}.
-2. Click a LUN from the list to view the details page. (It can either be a replica or a primary volume.)
-3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.
+3. Select whether the duplicate is to be dependent or independent.
 4. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 5. The location entries remain the same as the original volume.
 6. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
@@ -103,8 +80,33 @@ You can create an independent duplicate volume from the CLI and in the [{{site.d
 8. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 9. You can select the OS Type to be different than the original volume or to stay the same.
 10. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
+   - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
+   - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
+
+11. Check the box if you read and agreed to the terms and conditions.
+12. Click **Create** to continue.
+
+### Creating a duplicate from the Volume detail page the UI
+{: #cloneLUN2UI}
+{: ui}
+
+1. Go to your list of {{site.data.keyword.blockstorageshort}}.
+2. Click a LUN from the list to view the details page. (It can either be a replica or a primary volume.)
+3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.
+4. Select whether the duplicate is to be dependent or independent.
+5. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
+6. The location entries remain the same as the original volume.
+7. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
+8. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
+
+   {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
+   {: tip}
+
+9. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
+10. You can select the OS Type to be different than the original volume or to stay the same.
+11. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-    - If your original volume is 2, 4, or 10 IOPR Endurance tier, you can move anywhere between those tiers for the new volume.
+    - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
 
 11. Check the box if you read and agreed to the terms and conditions.
 12. Click **Create** to continue.
@@ -180,9 +182,21 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
-While data is being copied from the original volume to the independent duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
+While data is being copied from the original volume to the **independent** duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
-Dependent duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process is initiated from the CLI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process from the CLI, too.
+**Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI or the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI or the CLI, too.
+
+## Updating data on the duplicate from the parent volume in the UI
+{: #refreshindependentvol_ui}
+{: ui}
+
+TBD
+
+## Converting a dependent volume to an independent duplicate in the UI
+{: #convertdependentvol_ui}
+{: ui}
+
+TBD
 
 ## Updating data on the duplicate from the parent volume from the CLI
 {: #refreshindependentvol}
