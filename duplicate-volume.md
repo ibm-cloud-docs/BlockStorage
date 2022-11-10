@@ -80,8 +80,8 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 8. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 9. You can select the OS Type to be different than the original volume or to stay the same.
 10. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
-   - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
-   - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
+    - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
+    - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
 
 11. Check the box if you read and agreed to the terms and conditions.
 12. Click **Create** to continue.
@@ -108,8 +108,8 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
     - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
 
-11. Check the box if you read and agreed to the terms and conditions.
-12. Click **Create** to continue.
+12. Check the box if you read and agreed to the terms and conditions.
+13. Click **Create** to continue.
 
 
 ## Creating a duplicate LUN from the SLCLI
@@ -182,7 +182,7 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
-While data is being copied from the original volume to the **independent** duplicate, you can see a status on the details page that shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
+While data is being copied from the original volume to the **independent** duplicate, you can see that the status indicator on the details page shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
 **Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI or the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI or the CLI, too.
 
@@ -190,13 +190,27 @@ While data is being copied from the original volume to the **independent** dupli
 {: #refreshindependentvol_ui}
 {: ui}
 
-TBD
+1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+2. Locate the duplicate volume and click its name to view the volume details.
+3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Restore parent snapshot**.
+4. From the list of snapshots, select the parent snapshot that holds the data you want to restore to the duplicate volume.
+   Performing a restore results in the loss of any data that was created or modified since the selected snapshot was taken. During the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
+   {:  note}
+
+5. Check the box to confirm that you want to proceed with the refresh operation.
+6. Click **Yes**.
 
 ## Converting a dependent volume to an independent duplicate in the UI
 {: #convertdependentvol_ui}
 {: ui}
 
-TBD
+1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+2. Locate the duplicate volume and click its name to view the volume details.
+3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Convert Dependent Duplicate**.
+4. Check the box to confirm that you want to proceed with the conversion.
+5. Click **Yes**.
+
+The conversion process can take some time to complete. The bigger the volume is, the longer it takes to convert it. You can view the status of the process on the volume details page under the **Duplicate conversion status** header.
 
 ## Updating data on the duplicate from the parent volume from the CLI
 {: #refreshindependentvol}
