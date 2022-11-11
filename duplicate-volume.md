@@ -111,6 +111,8 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 12. Check the box if you read and agreed to the terms and conditions.
 13. Click **Create** to continue.
 
+After you click **Create**, the order confirmation window appears. When you close the window, you return to the resources list. You can go back to your list of {{site.data.keyword.blockstorageshort}} volumes to click on the newly provisioned duplicate. The volume details section displays information such as Duplicate Type, a link to the parent volume's details page and the name of the snapshot that was used to create the duplicate.
+
 
 ## Creating a duplicate LUN from the SLCLI
 {: #cloneinCLI}
