@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2022
-lastupdated: "2022-09-30"
+lastupdated: "2022-11-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -83,6 +83,8 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 
 When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows&reg; OS helps to prevent mis-aligned IO operations.
 
+If the LUN's being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN's being presented to the hypervisor to serve Virtual Hard Drive (VHD) files, choose Hyper-V.
+
 ### Windows&reg; GPT
 {: #winGPT}
 
@@ -98,6 +100,10 @@ When you create a LUN, you must specify the OS type. The OS type specifies the o
 
 - The LUN stores Windows&reg; data for Windows&reg; 2008 and later versions. Use this OS option if your host operating system is Windows&reg; Server 2008, Windows&reg; Server 2012, Windows&reg; Server 2016. Both MBR and GPT partitioning methods are supported.
 
+### Hyper-V
+{: #Hyper-V}
+
+- VHDX is the virtual hard disk format that was introduced in Windows Server 2012 to create resilient high-performance virtual disks. The format has many benefits, such as supporting larger virtual disk sizes and larger block sizes. It provides protection against data corruption during power failures by logging updates to the VHDX metadata structures. If the LUN's being presented to the hypervisor to serve VHD files, choose Hyper-V for its OS type.
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: #iopslimit}
