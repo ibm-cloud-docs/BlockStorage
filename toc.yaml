@@ -51,10 +51,10 @@ toc:
             - configure-iscsi-cloudlinux.md
             - accessing-block-storage-windows.md
             - set-host-queue-depth-settings-performance-and-endurance-storage.md
-            - /FileStorage/FileStorage-jumboframes
+            - include: ../FileStorage/jumboframes.md
             - configure-backup-cpanel.md
             - configure-backup-plesk.md
-            - /vmware/vmware-mount-iscsi-esxi
+            - include: ../vmware/mounting-iscsi-vmware-esxi.md
         - topicgroup:
             label: Managing
             topics:
@@ -76,14 +76,14 @@ toc:
             - availability.md
             - data-security.md
             - use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-
+   
     - navgroup:
         id: reference
         topics:
         - topicgroup:
             label: Identity and Access Management
             topics:
-            - /account/account-mngclassicinfra
+             - include: ../account/iam-mnginfra.md
         - topicgroup:
             label: Service Level Agreement
             topics:
@@ -102,7 +102,7 @@ toc:
         - topicgroup:
             label: Command reference
             topics:
-            - /cli/cli-sl-block-storage
+            - include: ../cli/reference/ibmcloud/cli_block_storage.md
             - slcli-usage.md
 
     - navgroup:
