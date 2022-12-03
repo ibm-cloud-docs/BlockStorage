@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-02-26"
+  years: 2021, 2022
+lastupdated: "2022-12-03"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -206,7 +206,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
 
 1. Run the discovery against the iSCSI array.
    ```zsh
-   iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
+   iscsiadm -m discovery -T sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
 

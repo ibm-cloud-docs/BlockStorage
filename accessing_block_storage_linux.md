@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2021
-lastupdated: "2020-07-14"
+  years: 2014, 2022
+lastupdated: "2022-12-03"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
@@ -351,7 +351,7 @@ The Host IQN, user name, password, and target address that are referenced in the
 
    A. Run the discovery against the iSCSI array.
      ```zsh
-     iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
+     iscsiadm -m discovery -T sendtargets -p <ip-value-from-IBM-Cloud-console>
      ```
      {: pre}
 
