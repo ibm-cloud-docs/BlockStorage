@@ -351,7 +351,7 @@ The Host IQN, user name, password, and target address that are referenced in the
 
    A. Run the discovery against the iSCSI array.
      ```zsh
-     iscsiadm -m discovery -T sendtargets -p <ip-value-from-IBM-Cloud-console>
+     iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
      ```
      {: pre}
 
