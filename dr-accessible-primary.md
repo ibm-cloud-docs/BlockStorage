@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2021
+  years: 2018, 2023
 lastupdated: "2021-06-10"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
@@ -32,7 +32,7 @@ You can authorize a host to access the {{site.data.keyword.blockstoragefull}} vo
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon on the upper left. Select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click your source volume from the **{{site.data.keyword.blockstorageshort}}** page. Its replica volume is listed under the source volume in the inactive status.
 3. Click the replica name and on the next screen, click **Actions**. From the menu, select **Authorize Hosts**.
-4. Select a host type and then choose a host from the dropdown that is available for the volume. Filter the available host list by the device type, or IP address.
+4. Select a host type and then choose a host from the list that is available for the volume. Filter the available host list by the device type, or IP address.
 5. Highlight the host that is to be authorized for replications. To select multiple hosts, use the CTRL-key and click the applicable hosts.
 6. Click **Save**. If you have no hosts that are available, you are prompted to purchase compute resources in the same data center.
 
@@ -40,7 +40,7 @@ You can authorize a host to access the {{site.data.keyword.blockstoragefull}} vo
 {: #authreplicahostCLI}
 {: cli}
 
-To authorize the hosts in the replica datacenter, use the following command.
+To authorize the hosts in the replica data center, use the following command.
 ```Python
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
@@ -62,7 +62,7 @@ If a failure event is imminent, you can start an **Immediate failover** or a "Co
 
 When you choose an Immediate Failover, the last successfully replicated snapshot is activated, and the volume is made available for mounting. The target volume becomes active in less time compared to a Controlled Failover. However, any data that was written to the source volume since the previous replication cycle is lost.
 
-A Controlled Failover is the best choice when you want to test the failover functionality or when it’s more important to continue operations at the replica location with the most recent data. In a Controlled Failover, a new snapshot is taken and copied over to the replica location. After the data is successfully copied over, the volume is made available for mounting.
+A Controlled Failover is the best choice when you want to test the failover function or when it’s more important to continue operations at the replica location with the most recent data. In a Controlled Failover, a new snapshot is taken and copied over to the replica location. After the data is successfully copied over, the volume is made available for mounting.
 
 When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **Volume Name** followed by **REP**.
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2022
+  years: 2014, 2023
 lastupdated: "2022-04-13"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
@@ -115,7 +115,7 @@ Options:
 {: #listsnapshotUI}
 {: ui}
 
-A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
+A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
 
 You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
@@ -191,7 +191,7 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 2. Select from a range of sizes from the prompt. Sizes typically range from 0 to the size of your volume.
 3. Click **Continue**.
 4. Enter any Promo Code that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
-5. Click the **I have read the…** check box and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
+5. Click the **I have read the…** checkbox and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
 
 ## Deleting a snapshot schedule in the UI
 {: #cancelnapshotscheduleUI}
@@ -200,7 +200,7 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click the schedule to be deleted in the **Snapshot Schedules** section on the **{{site.data.keyword.blockstorageshort}} Detail** page.
-2. Click the check box next to the schedule to be deleted so it becomes empty. Then, click **Save**.
+2. Click the checkbox next to the schedule to be deleted so it becomes empty. Then, click **Save**.
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}

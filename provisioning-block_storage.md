@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2022
+  years: 2014, 2023
 lastupdated: "2022-09-27"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
@@ -61,7 +61,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 9. After you reviewed the terms and conditions, check the **I have read and agree to the...** box.
 10. Click **Create**. Your new storage allocation is available in a few minutes.
 
-By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).For the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. Read about increasing limits [here](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits). For more information about the limit on simultaneous authorizations, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 {: important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI

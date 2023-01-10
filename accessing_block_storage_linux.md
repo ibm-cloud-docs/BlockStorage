@@ -62,13 +62,13 @@ Options:
 ```
 {: codeblock}
 
-When your host is authorized, take note of the following information which is needed later.
-* iSCSI Target IPs
+When your host is authorized, take note of the following information, which is needed later.
+* iSCSI Target IP addresses
 * Username
 * Password
 * IQN
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, refer to your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -384,7 +384,7 @@ The Host IQN, user name, password, and target address that are referenced in the
    ```
    {: pre}
 
-   By default the device attaches to `/dev/mapper/<wwid>`. WWID is the generated World-Wide ID of the connected storage device that is persistent while the volume exists. So that command reports something similar to the following example.
+   By default the device attaches to `/dev/mapper/<wwid>`. WWID is the generated worldwide ID of the connected storage device that is persistent while the volume exists. So that command reports something similar to the following example.
    ```zsh
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
@@ -614,7 +614,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     `- 7:0:0:101 sde 8:64 active ready running
    ```
 
-   The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent as long as the volume exists.
+   The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent while the volume exists.
 
 * Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2022
+  years: 2014, 2023
 lastupdated: "2022-03-08"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
@@ -254,7 +254,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
    If you select the option to delete the LUN on its anniversary date, you can void the cancellation request before its anniversary date.
    {: tip}
 
-4. Click the **Acknowledgment** check box and click **Delete**
+4. Click the **Acknowledgment** checkbox and click **Delete**
 
 When the volume is canceled, there's a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 

@@ -41,7 +41,7 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, refer to your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -78,7 +78,7 @@ Options:
 ```
 {: codeblock}
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, refer to your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -90,7 +90,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages.
 
-1. Use the following command the install the packages.
+1. Use the following command to install the packages.
 
     ```zsh
     yum install iscsi-initiator-utils device-mapper-multipath
@@ -118,15 +118,15 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 * If the /etc/multipath.conf file already exists, the mpathconf utility can edit it.
 * If the /etc/multipath.conf file does not exist, the mpathconf utility creates the /etc/multipath.conf file from scratch.
 
-For more information on the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
+For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
 
-1. Enter the mpathconf command with the --enable option specified:
+1. Enter the `mpathconf` command with the `--enable` option.
     ```zsh
     # mpathconf --enable --user_friendly_names n
     ```
     {: pre}
 
-2. Edit the /etc/multipath.conf file with the following minimum configuration.
+2. Edit the `/etc/multipath.conf` file with the following minimum configuration.
 
    ```zsh
    defaults {
@@ -163,15 +163,15 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    ```
    {: pre}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpath n; where mpath n is the WWID of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpath n`; where `mpath n` is the WWID of the device.
 
 3. Save the configuration file and exit the editor, if necessary.
-4. Execute the following command:
+4. Run the following command:
    ```zsh
    # systemctl start multipathd.service
    ```
 
-    If you need to edit the multipath configuration file after you have started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
+    If you need to edit the multipath configuration file after you started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
     {: note}
 
 ## Update /etc/iscsi/initiatorname.iscsi file
@@ -208,7 +208,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 {: #discoverandloginclin8}
 {: step}
 
-The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool aids the discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```zsh
@@ -216,7 +216,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    ```
    {: pre}
 
-   If the IP info and access details are displayed, then the discovery is successful.
+   If the IP information and access details are displayed, then the discovery is successful.
 
 2. Log in to the iSCSI array.
    ```zsh
@@ -339,7 +339,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 ### Creating a file system with `parted`
 {: #partedclin8}
 
-On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the following command.
+On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it running the following command.
 
 ```zsh
 # yum install parted
