@@ -34,7 +34,7 @@ The first snapshot uses a negligible amount of space as it's just a copy of the 
 
 A volume with numerous changes and a lengthy retention period needs more space than a volume with moderate change and a moderate retention schedule. An example for the first type is a high change rate database. An example for the second type is a VMware&reg; datastore.
 
-If you take 12 hourly snapshots of 500 GB of actual data, and there's 1 percent of change between each snapshot, you end up with 60 GB for snapshots.
+If you take 12 hourly snapshots of 500 GB of actual data, and the change rate is 1 percent between each snapshot, you end up with 60 GB for snapshots.
 
     *(5-GB Rate of Change) x (12 hourly snapshots) = (60 GB of used space)*
 
