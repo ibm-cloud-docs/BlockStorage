@@ -19,7 +19,7 @@ subcollection: BlockStorage
 {: faq}
 {: support}
 
-The default limit for the number of authorizations per block volume is eight. This means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
 
 Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, refer to your host's OS documentation.
 {: important}
@@ -318,7 +318,7 @@ If you use more than two iSCSI LUNs with the same host, and if all the iSCSI con
 {: faq}
 {: support}
 
-There are a couple of scenarios where a host (bare metal or VM) loses connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
+In a couple of scenarios a host (bare metal or VM) might lose connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
 
 This issue can be observed with hosts that have incorrect MPIO settings. When MPIO is not configured correctly, the host loses connection to the storage, and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
