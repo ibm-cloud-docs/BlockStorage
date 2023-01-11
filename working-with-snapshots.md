@@ -232,7 +232,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. Deletion is done through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click your storage volume and click **Snapshot** to see the list of existing snapshots.
-2. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as there's no dependency between snapshots.
+2. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as snapshots do not depend on each other.
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 
