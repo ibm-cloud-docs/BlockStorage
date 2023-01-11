@@ -27,7 +27,7 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 {: #authreplicahostUI}
 {: ui}
 
-You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](https://{DomainName}/cloud-storage/block){: external}.
+You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](/cloud-storage/block){: external}.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon on the upper left. Select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click your source volume from the **{{site.data.keyword.blockstorageshort}}** page. Its replica volume is listed under the source volume in the inactive status.
@@ -73,7 +73,7 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 {: #failovertoreplicaUI}
 {: ui}
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
+Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](/classic){: external}.
 
 1. Click your active LUN (“source”).
 2. Click **Replica**, and click **Actions**.
@@ -120,7 +120,7 @@ When a Failback is started, the replication relationship is flipped again. Your 
 {: #failbackfromreplicaUI}
 {: ui}
 
-Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}.
+Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/classic){: external}.
 
 1. Click your active LUN ("target").
 2. In the upper right, click **Replica**, and click **Actions**.

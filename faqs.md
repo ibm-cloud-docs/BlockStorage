@@ -34,7 +34,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 ### Console UI
 {: #authinUI}
 
-1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
+1. Go to [Classic Infrastructure](/classic/devices){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -255,7 +255,7 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 {: faq}
 {: support}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](/login){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
@@ -342,7 +342,7 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Verifying MPIO on MS Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
-In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
@@ -579,7 +579,7 @@ For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/do
 
 Perform the following steps to disconnect from a host:
 1. Remove operating system ISCSI sessions and, if applicable, unmount the device.
-1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}.
+1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](/login){: external}.
 1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for ISCSI connections.
 
 ## How do endurance and performance storage differ?
@@ -595,7 +595,7 @@ Endurance and Performance are provisioning options that you can select for stora
 The following situations can affect the ability to upgrade or expand storage:
 - If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
 - Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
-- The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
+- The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
 ## Are ISCSI LUNs thin or thick provisioned?
 {: #thin}
@@ -682,7 +682,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 
 The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. In case of a 12-TB volume, it could take 24 hours. You can check on the progress in the UI or from the CLI.
 
-- In the UI, go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
+- In the UI, go to [Classic Infrastructure](/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
 
 - From the CLI, use the following command.
    ```zsh

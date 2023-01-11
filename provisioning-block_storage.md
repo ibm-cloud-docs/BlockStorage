@@ -26,7 +26,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 {: #orderingthroughConsole}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 2. Select your deployment location (region, location, zone).
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.

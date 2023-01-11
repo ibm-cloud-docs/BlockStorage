@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services.
+You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](/classic){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the UI
@@ -62,7 +62,7 @@ You can authorize and connect hosts that are located in the same data center as 
    - If you choose IP address, select the subnet where your host resides.
 5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
-The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 {: note}
 
 ## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} from the SLCLI
@@ -121,7 +121,7 @@ Options:
   -h, --help           Show this message and exit.
 ```
 
-The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](https://{DomainName}/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 {: note}
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN in the UI
@@ -163,7 +163,7 @@ Options:
 
 You can view the LUNs, which a host has access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
-1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external} and click the appropriate device.
+1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](/classic){: external} and click the appropriate device.
 2. Select the **Storage** tab.
 
 You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
@@ -188,7 +188,7 @@ You can revoke access from the **Device List** or the **Storage view**.
 {: support}
 {: ui}
 
-1. In the [{{site.data.keyword.cloud}} console](https://{DomainName}/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices** > **Device List** and double-click the appropriate device.
+1. In the [{{site.data.keyword.cloud}} console](/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices** > **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
 3. You are presented with a list of storage LUNs that this particular host has an access to. The list is grouped by storage type (block, file, other). Next to the Volume name, click **Actions**, and click **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
