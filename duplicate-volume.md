@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2022
+  years: 2017, 2023
 lastupdated: "2022-11-15"
 
 keywords: Block Storage, LUN, volume duplication,
@@ -111,7 +111,7 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 12. Check the box if you read and agreed to the terms and conditions.
 13. Click **Create** to continue.
 
-After you click **Create**, the order confirmation window appears. When you close the window, you return to the resources list. You can go back to your list of {{site.data.keyword.blockstorageshort}} volumes to click on the newly provisioned duplicate. The volume details section displays information such as Duplicate Type, a link to the parent volume's details page and the name of the snapshot that was used to create the duplicate.
+After you click **Create**, the order confirmation window appears. When you close the window, you return to the resources list. You can go back to your list of {{site.data.keyword.blockstorageshort}} volumes to click the newly provisioned duplicate. The volume details section displays information such as Duplicate Type, a link to the parent volume's details page and the name of the snapshot that was used to create the duplicate.
 
 
 ## Creating a duplicate LUN from the SLCLI
@@ -196,7 +196,7 @@ While data is being copied from the original volume to the **independent** dupli
 2. Locate the duplicate volume and click its name to view the volume details.
 3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Restore parent snapshot**.
 4. From the list of snapshots, select the parent snapshot that holds the data you want to restore to the duplicate volume.
-   Performing a restore results in the loss of any data that was created or modified since the selected snapshot was taken. During the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
+   Performing a restore results in the loss of any data that was created or modified since the selected snapshot was taken. During the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
    {:  note}
 
 5. Check the box to confirm that you want to proceed with the refresh operation.
@@ -225,7 +225,7 @@ Refreshes can be performed by using the following command.
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
 
-A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is unavailable and must be remounted after the refresh is completed.
+A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
 ## Converting a dependent volume to an independent duplicate

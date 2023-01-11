@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2014, 2023
 lastupdated: "2019-02-05"
 
 keywords: Block Storage, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
@@ -28,7 +28,7 @@ A Snapshot copy incurs no performance decrease. Users can easily store up to 50 
 
 With snapshots, you can:
 
-- Non-disruptively create point-in-time recovery points,
+- Nondisruptively create point-in-time recovery points,
 - Revert volumes to previous points-in-time.
 
 You must purchase some amount of snapshot space for your volume first so you can take snapshots of it. The snapshot space can be added during the initial order or afterward through the **Volume Details** page. Scheduled and manual snapshots share the snapshot space, so make sure you order enough Snapshot space. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2023
 lastupdated: "2019-12-06"
 
 keywords: Block storage, cPanel, backups, mountpoint, ISCSI
@@ -23,7 +23,7 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
 1. Connect to the host through SSH.
 
 2. Ensure that a mount point target exists.
-   By default, the cPanel system saves backup files locally, to the `/backup` directory. For the purpose of this document, it is assumed that `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
+   By default, the cPanel system saves backup files locally, to the `/backup` directory. For this document, it is assumed that `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
    {: note}
 
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to iSCSI LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
@@ -40,7 +40,7 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
 5. Log in to WHM and go to the backup configuration by clicking **Home** > **Backup** > **Backup Configuration**.
 
 6. Edit the configuration to save the backups in the new mount point.
-    - Change the default backup directory by entering the absolute path to the new location in place of the /backup/ directory.
+    - Change the default backup directory by entering the absolute path to the new location in place of the `/backup` directory.
     - Select **Enable to mount a backup drive**. This setting causes the backup configuration process to check the `/etc/fstab` file for a backup mount (`/backup2`).
 
     If a mount exists with the same name as the staging directory, the backup configuration process mounts the drive and backs up the information to the drive. After the backup process finishes, it dismounts the drive.

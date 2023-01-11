@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2022
+  years: 2014, 2023
 lastupdated: "2022-10-14"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
@@ -49,7 +49,7 @@ As part of the data center modernization strategy for {{site.data.keyword.cloud}
 
 {{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
-To list suitable replication datacenters for a specific volume, use the following command.
+To list suitable replication data centers for a specific volume, use the following command.
 ```python
 # slcli block replica-locations --help
 Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
@@ -84,7 +84,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
    Discounts are applied when the order is processed.
    {: note}
 
-7. Review your order, and click the **I have read the…** check box.
+7. Review your order, and click the **I have read the…** checkbox.
 8. Click **Place Order**.
 
 ## Creating the initial replica from the SLCLI
@@ -136,7 +136,7 @@ List existing replicant volumes for a file volume with the following command.
 {: #replicationhistoryUI}
 {: ui}
 
-To view the Replication history, click Manage on the main menu bar. Select **Account**, then scroll to the Audit Log. The Storage Replication Events list contains the names of the volume, a description of the replication event and the time stamp of the event.
+To view the Replication history, click Manage on the main menu bar. Select **Account**, then scroll to the Audit Log. The Storage Replication Events list contains the names of the volume, a description of the replication event and the timestamp of the event.
 
 ## Editing the Replication Schedule in the UI
 {: #editreplicaschedule}
@@ -197,5 +197,5 @@ For more information, see [Creating a duplicate {{site.data.keyword.blockstorage
 
 When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
 
-* If the primary location is in imminent danger or severely impacted, see [Failover with an accessible Primary volume](/docs/BlockStorage?topic=BlockStorage-dr-accessible).
-* If the primary location is down, see [Failover with an inaccessible Primary volume](/docs/BlockStorage?topic=BlockStorage-dr-inaccessible).
+* If the primary location is in imminent danger or severely impacted, see [Failover with an accessible primary volume](/docs/BlockStorage?topic=BlockStorage-dr-accessible).
+* If the primary location is down, see [Failover with an inaccessible primary volume](/docs/BlockStorage?topic=BlockStorage-dr-inaccessible).

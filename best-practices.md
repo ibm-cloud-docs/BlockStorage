@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2022
+  years: 2014, 2023
 lastupdated: "2022-08-31"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
@@ -24,7 +24,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Run storage traffic on a dedicate VLAN.** Running storage traffic through software firewalls increases latency and adversely affects storage performance. It's best to run storage traffic on a VLAN, which bypasses the firewall. For more information, see [routing storage traffic to its own VLAN interface](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs&interface=ui#howtoisolatedstorage).
 
-* **Avoid routing your storage traffic to a gateway device** whenever possible. When storage traffic is routed to a gateway device, this can add latency to storage traffic, or it can cause storage traffic disruption if the firewall in the gateway device is misconfigured. The storage disruption is especially true when  maintenance such as a restart is required on a single (non-clustered) gateway device. If a storage traffic must be routed through a gateway device, ensure that  the gateway device has an at least 10-Gbps interface, or the gateway device might become a network bottleneck.
+* **Avoid routing your storage traffic to a gateway device** whenever possible. When storage traffic is routed to a gateway device, this can add latency to storage traffic, or it can cause storage traffic disruption if the firewall in the gateway device is misconfigured. The storage disruption is especially true when maintenance such as a restart is required on a single (nonclustered) gateway device. If a storage traffic must be routed through a gateway device, ensure that the gateway device has an at least 10-Gbps interface, or the gateway device might become a network bottleneck.
 
 * **Use a faster NIC.** There are limits set at the LUN level and a faster interface doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential hindrance to achieving best performance levels.
 
@@ -55,7 +55,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
         iscsiadm -m session
         ```
 
-     1. Modify the number of sessions by  using  the following command. This configuration change is persistent when the host is rebooted.
+     1. Modify the number of sessions by using  the following command. This configuration change is persistent when the host is rebooted.
         ```zsh
         iscsiadm -m node -T <IQN> -p <IP> --op update -n node.session.nr_sessions -v <TOTAL_SESSION>
         ```
@@ -85,7 +85,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally do this by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, there are several I/O scheduler options available. Each of these have their own unique method of scheduling disk access requests.
 
-    - **Deadline** is the default I/O scheduler on Red Hat 7.9, and usually it does not need to be changed to a different I/O scheduler. It's latency-oriented scheduler and it works by creating a separate read queue and separate a write queue. Each I/O request has a time stamp that is associated with it to be used by the kernel for an expiration time. While this scheduler also attempts to service the queues based on the most efficient ordering possible, the expiration time acts as a "deadline" for each I/O request. When an I/O request reaches its deadline, it is pushed to the highest priority.
+    - **Deadline** is the default I/O scheduler on Red Hat 7.9, and usually it does not need to be changed to a different I/O scheduler. It's latency-oriented scheduler and it works by creating a separate read queue and separate a write queue. Each I/O request has a timestamp that is associated with it to be used by the kernel for an expiration time. While this scheduler also attempts to service the queues based on the most efficient ordering possible, the expiration time acts as a "deadline" for each I/O request. When an I/O request reaches its deadline, it is pushed to the highest priority.
 
     - **No Operation (NOOP)** is a basic scheduler that passes down the I/O that comes to it. This scheduler places all I/O requests into a FIFO (First in, First Out) queue. It's a useful tool for checking whether complex I/O scheduling decisions of other schedulers are causing I/O performance regressions. This scheduler is recommended for setups with devices that do I/O scheduling themselves, such as intelligent storage or in multipathing environments. If you choose a more complicated scheduler on the host, the scheduler of the host and the scheduler of the storage device can compete with each other and decrease performance. The storage device can usually determine best how to schedule I/O. For more information about how to check and configure the I/O scheduler, see Red Hat's [How to use the Noop or None IO Schedulers](https://access.redhat.com/solutions/109223){: external}.
 

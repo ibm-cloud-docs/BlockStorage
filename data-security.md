@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2021
+  years: 2020, 2023
 lastupdated: "2021-07-27"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
@@ -66,7 +66,7 @@ To delete a storage LUN, it's necessary to revoke access from any hosts first. A
    {: tip}
 
 4. Click **Continue**.
-5. Click the **Acknowledgment** check box and click **Confirm**.
+5. Click the **Acknowledgment** checkbox and click **Confirm**.
 
 You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it's reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
 

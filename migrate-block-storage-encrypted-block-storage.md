@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2022
+  years: 2014, 2023
 lastupdated: "2022-02-07"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
@@ -17,8 +17,8 @@ subcollection: BlockStorage
 Enhanced {{site.data.keyword.blockstoragefull}} is now available in most [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). The preferred migration path is to provision an enhanced {{site.data.keyword.blockstorageshort}}, connect both LUNs simultaneously and transfer data directly from one LUN to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 {: shortdesc}
 
-You don't need to follow this process if your Storage has recently received an upgrade to the Storage-as-a-Service package as part of {{site.data.keyword.cloud}}'s ongoing hardware refresh process.
-{: note}
+You don't need to follow this process if your Storage recently received an upgrade to the Storage-as-a-Service package as part of {{site.data.keyword.cloud}}'s ongoing hardware refresh process.
+{: tip}
 
 ## Provisioning a {{site.data.keyword.blockstorageshort}}
 {: #createencryptedLUN2}
@@ -59,7 +59,7 @@ When the host is authorized to access the new storage, you can mount or map the 
    If you need assistance with connecting the two LUNs to your host, open a support case.
    {: tip}
 
-2. Consider what type of data you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
+2. Consider what type of data that you have on your original {{site.data.keyword.blockstorageshort}} LUN and how best to copy it to your new LUN.
    - If you have backups, static content, and things that aren't expected to change during the copy, you don't need to worry much.
    - If you're running a database or a virtual machine on your {{site.data.keyword.blockstorageshort}}, make sure that the data isn't altered during the copy to avoid data corruption.
    - If you have any bandwidth concerns, do the migration during off-peak times.
