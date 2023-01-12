@@ -47,7 +47,7 @@ Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstor
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to behave appropriately, especially during boot time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} documentation.
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} documentation.
 
 
 ## Authorizing the host from the SLCLI
@@ -194,7 +194,7 @@ InitiatorName=<value-from-the-Portal>
 {: #configcreddebi10}
 {: step}
 
-Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
+Edit the following settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
 
 ```text
 node.session.auth.authmethod = CHAP
@@ -220,7 +220,7 @@ systemctl restart iscsid.service
 {: #discoverandlogindebi10}
 {: step}
 
-The iscsiadm utility is a command-line tool that handles the discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that handles the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```zsh
@@ -269,7 +269,7 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
    ```
    {: pre}
 
-   This command reports the paths. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
+   This command reports the paths. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
 
    ```text
    $ sudo multipath -ll
@@ -338,7 +338,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
    The partition table has been altered.
    ```
 
-2. Create the filesystem.
+2. Create the file system.
    ```text
    $ sudo mkfs.ext4 /dev/mapper/mpatha-part1
    mke2fs 1.45.5 (07-Jan-2020)

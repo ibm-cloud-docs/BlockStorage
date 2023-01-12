@@ -37,7 +37,7 @@ Independent duplicates can be created from both **primary** and **replica** volu
 Common uses for an independent duplicate volume:
 - **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
-- **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
+- **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 
 ### Dependent duplicate
 {: #dependent}
@@ -48,7 +48,7 @@ Common uses for a dependent duplicate volume:
 - **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
 - **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
-- **Development and Testing (dev/test)**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
+- **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 
 All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
 

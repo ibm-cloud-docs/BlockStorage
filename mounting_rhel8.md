@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-06"
+lastupdated: "2023-01-11"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -101,18 +101,18 @@ sudo dnf -y install iscsi-initiator-utils device-mapper-multipath
 
 You set up DM Multipath with the `mpathconf` utility, which creates the multipath configuration file ``/etc/multipath.conf`.
 
-* If the /etc/multipath.conf file already exists, the mpathconf utility can edit it.
+* If the /etc/multipath.conf file exists, the mpathconf utility can edit it.
 * If the /etc/multipath.conf file does not exist, the mpathconf utility creates the /etc/multipath.conf file from scratch.
 
-For more information on the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
+For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
 
-1. Enter the mpathconf command with the --enable option specified:
+1. Enter the mpathconf command with the `--enable` option.
    ```zsh
    # mpathconf --enable --user_friendly_names n
    ```
    {: pre}
 
-2. Edit the /etc/multipath.conf file with the following minimum configuration.
+2. Edit the `/etc/multipath.conf` file with the following minimum configuration.
 
    ```zsh
    defaults {
@@ -149,15 +149,16 @@ For more information on the mpathconf utility, see the [mpathconf(8) man page](h
    ```
    {: pre}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpath n; where mpath n is the WWID of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpath n, where `mpath n` is the WWID of the device.
 
 3. Save the configuration file and exit the editor, if necessary.
-4. Execute the following command:
+4. Issue the following command.
    ```zsh
-   # systemctl start multipathd.service
+   systemctl start multipathd.service
    ```
+   {: pre}
 
-   If you need to edit the multipath configuration file after you have started the multipath daemon, you must execute the `systemctl reload multipathd.service` command for the changes to take effect.
+   If you need to edit the multipath configuration file after you started the multipath daemon, you must issue the `systemctl reload multipathd.service` command for the changes to take effect.
    {: note}
 
    For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){: external}.
@@ -177,7 +178,7 @@ InitiatorName=<value-from-the-Portal>
 {: #configcred}
 {: step}
 
-Edit the following settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
+Edit the following settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
 
 ```text
 node.session.auth.authmethod = CHAP
@@ -196,7 +197,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 {: #discoverandlogin}
 {: step}
 
-The iscsiadm utility is a command-line tool allowing discovery and login to iSCSI targets, as well as access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that is used for discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```zhs
@@ -204,7 +205,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    ```
    {: pre}
 
-   If the IP info and access details are displayed, then the discovery is successful.
+   If the IP address information and access details are displayed, then the discovery is successful.
 
 2. Log in to the iSCSI array.
    ```zsh
@@ -228,7 +229,7 @@ The iscsiadm utility is a command-line tool allowing discovery and login to iSCS
    ```
    {: pre}
 
-   This command reports the paths. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
+   This command reports the paths. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service.
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
@@ -325,7 +326,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 ### Creating a file system with `parted`
 {: #partedrhel}
 
-On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by executing the foilowing command.
+On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by issuing the following command.
 ```zsh
 # dnf install parted
 ```

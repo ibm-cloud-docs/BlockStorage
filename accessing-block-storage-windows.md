@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-06"
+lastupdated: "2023-01-11"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
 
-By following the steps in this topic, you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows&reg; server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
+By completing the following steps, you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows&reg; server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
 {: shortdesc}
 
 ## Prerequisites
@@ -31,7 +31,7 @@ Before you start, make sure that the host that is accessing the {{site.data.keyw
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
-When your host is authorized, take note of the following information which is needed later.
+When your host is authorized, take note of the following information, which is needed later.
 * iSCSI Target IP addresses
 * Username
 * Password
@@ -89,9 +89,9 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    - Select **Enable CHAP log-on** to turn on CHAP authentication.
        ![Enable CHAP login.](/images/Advanced_0.png){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
 
-   - In the **Name** field, delete any existing entries and input the user name from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive
+   - In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive
    - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
-   - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the user name and password entries.
+   - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the username and password entries.
     ![Inactive Target.](/images/Inactive_0.png){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
 
     The name of your target appears in the Discovered targets section with an `Inactive` status.
@@ -102,7 +102,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
     ![Enable Multi-path.](/images/Connect_0.png){: caption="Figure 5. Make changes on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
     ![Enable CHAP.](/images/chap_0.png){: caption="Figure 6. CHAP logon and credentials." caption-side="bottom"}
-6. Enter the user name in the Name[^uname] field, and enter the password in the Target secret[^pword] field.
+6. Enter the username in the Name[^uname] field, and enter the password in the Target secret[^pword] field.
    [^uname]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    [^pword]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
 
@@ -192,7 +192,7 @@ To verify multipathing by using the command line, complete the following steps.
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see one single path. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2020
-lastupdated: "2020-06-24"
+  years: 2014, 2023
+lastupdated: "2023-01-11"
 
 keywords: Block Storage, new feature, ideas, feedback, issues
 
@@ -25,9 +25,9 @@ To share ideas or suggest new features for the {{site.data.keyword.blockstorages
 ## Did the documentation help?
 {: #feedback-doc}
 
-To provide feedback about the documentation, click the **FEEDBACK** button that is displayed along the edge of the page that you read and want to comment about.
+To provide feedback about the documentation, click **FEEDBACK** that is displayed along the edge of the page that you read and want to comment about.
 
-The **FEEDBACK** button is not available when you access the documentation site from mobile devices.
+The **FEEDBACK** feature is not available when you access the documentation site from mobile devices.
 {: note}
 
 Rate and comment about whether the topic is helpful by clicking **Yes** or **No** at the end of the topic.
