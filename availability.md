@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Availability and Durability of {{site.data.keyword.blockstorageshort}}
 {: #storageavailability}
 
-In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is top priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.blockstoragefull}}, it's durable, highly available, and encrypted.
+In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is high priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.blockstoragefull}}, it's durable, highly available, and encrypted.
 {: shortdesc}
 
 | Storage type | Use Case | Durability | Availability | Encryption |
@@ -34,11 +34,11 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 
 Think of durability as a measurement of how healthy and resilient your data is. Durability in {{site.data.keyword.blockstorageshort}} means that your data is stored consistent and intact without any signs of data decay, influence of drive failures, or any other form of corruption. 99.999999999% (11 nines) durability means that if you store 10 million files, then you expect to lose one file every 10000 years.
 
-When people hear the word durability, most of them think of hardware failures of storage, compute, and network components that could cause data loss. In {{site.data.keyword.blockstorageshort}}, your data is protected against drive failures and numerous type of disk errors that otherwise might negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
+When people hear the word durability, most of them think of hardware failures of storage, compute, and network components that might cause data loss. In {{site.data.keyword.blockstorageshort}}, your data is protected against drive failures and numerous type of disk errors that otherwise might negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
 
 Other than physical failure, a common source of data loss is accidental deletion or modifications of files by users. {{site.data.keyword.blockstorageshort}} is only accessible to authorized hosts within your network. You control who can access it. Another measure to protect against accidental deletion and modification of files by users is a snapshot. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy. For more information about this feature, see [Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots).
 
-The 11 nines durability target applies to a single Availability Zone. To protect against natural or man-made disasters that could destroy an entire Availability Zone, consider storing your most important data in multiple locations. For more information about this topic, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
+The 11 nines durability target applies to a single Availability Zone. To protect against natural or man-made disasters that might destroy an entire Availability Zone, consider storing your most important data in multiple locations. For more information, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 
 ## High Availability
 {: #storavailability}

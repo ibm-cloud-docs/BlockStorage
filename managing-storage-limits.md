@@ -77,7 +77,7 @@ The API call shows the combined number of {{site.data.keyword.blockstorageshort}
 ## Requesting volume limit increase
 {: #increaseblocklimits}
 
-You can request a provisioning limit increase by submitting a support case in the [console](https://{DomainName}/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
+You can request a provisioning limit increase by submitting a support case in the [console](/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
 {: shortdesc}
 
 In the case, provide the following information:

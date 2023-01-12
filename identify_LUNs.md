@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Identifying LUNs
 {: #identifyLUN}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes, and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes, and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
@@ -181,7 +181,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 {: #identifyLUNWin}
 {: support}
 
-1. In PowerShell, execute the command `iscsicli SessionList| findstr /c:"Device Number" /c:"Location"  /c:"Target Portal"`. The output shows the IP address and the LUN ID. In the example, the IP address is 10.201.174.123 and the LUN ID is LUN 0.
+1. In PowerShell, issue the command `iscsicli SessionList| findstr /c:"Device Number" /c:"Location"  /c:"Target Portal"`. The output shows the IP address and the LUN ID. In the example, the IP address is 10.201.174.123 and the LUN ID is LUN 0.
 
    ```powershell
    C:\Users\Adminisitrator>iscsicli SessionList| findstr /c:"Device Number" /c:"Location"  /c:"Target Portal"
@@ -222,7 +222,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 {: #identifyLUNVMware}
 {: support}
 
-1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (naa) identifier. That number is guaranteed to be unique to that LUN.
+1. Run the `esxcli storage vmfs extent list` command. The output includes the volume name `iscsi-datastore` and its unique Network Addressing Authority (`naa`) identifier. That number is guaranteed to be unique to that LUN.
 
    ```sh
    Volume Name     VMFS UUID                           Extent Device Name                     Partition
@@ -244,7 +244,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    In the example, `LUN:0` means that the LUN ID is 0.
 
-3. Execute the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
+3. Issue the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
 
    ```text
    Adapter  Target                             IP             Port  Tpgt
@@ -267,7 +267,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    In the example, "333280508" is the volume ID and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
 
-   Execute the command `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
+   Issue the command `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
 
    ```zsh
    $ ibmcloud sl block volume-detail 333280508

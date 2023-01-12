@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, refer to your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
 {: important}
 
 ## Our compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
@@ -34,7 +34,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 ### Console UI
 {: #authinUI}
 
-1. Go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}.
+1. Go to [Classic Infrastructure](/classic/devices){: external}.
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
@@ -83,7 +83,7 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 
 When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows&reg; OS helps to prevent mis-aligned IO operations.
 
-If the LUN's being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN's being presented to the hypervisor to serve Virtual Hard Drive (VHD) files, choose Hyper-V.
+If the LUN is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN is being presented to the hypervisor to serve Virtual Hard Drive (VHD) files, choose Hyper-V.
 
 ### Windows&reg; GPT
 {: #winGPT}
@@ -103,7 +103,7 @@ If the LUN's being presented as a raw block device to a guest, select the OS typ
 ### Hyper-V
 {: #Hyper-V}
 
-- VHDX is the virtual hard disk format that was introduced in Windows Server 2012 to create resilient high-performance virtual disks. The format has many benefits, such as supporting larger virtual disk sizes and larger block sizes. It provides protection against data corruption during power failures by logging updates to the VHDX metadata structures. If the LUN's being presented to the hypervisor to serve VHD files, choose Hyper-V for its OS type.
+- VHDX is the virtual hard disk format that was introduced in Windows Server 2012 to create resilient high-performance virtual disks. The format has many benefits, such as supporting larger virtual disk sizes and larger block sizes. It provides protection against data corruption during power failures by logging updates to the VHDX metadata structures. If the LUN is being presented to the hypervisor to serve VHD files, choose Hyper-V for its OS type.
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: #iopslimit}
@@ -150,20 +150,18 @@ You can use the following commands.
    /dev/sda1      disk      6.0G  1.2G  4.9G  20% /
    ```
 
-- Windows&reg;:
+- Windows&reg;: you have two options.
    ```txt
    fsutil volume diskfree C:
    ```
    {: pre}
-
-   or
 
    ```text
    dir C:
    ```
    {: pre}
 
-   The last line of the output shows how much space is free.
+   The last line of the output shows how much space is unused.
 
    You can also view the free disk space in the File Explorer by clicking This PC.
 
@@ -218,11 +216,11 @@ To enact this best practice, complete the following steps.
 
 No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use multi-path input/output (MPIO) framework for I/O balancing and redundancy.
 
-With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
+With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This setup provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
-Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the same way as MPIO. Link aggregation does not improve the throughput of a single I/O flow, nor does it provide multiple paths. A single flow always traverses one single path. The benefit of link aggregation can be observed when several “unique” flows exist, and each flow comes from a different source. Each individual flow is sent down its own available NIC interface which is determined by a hash algorithm. Thus with more unique flows, more NICs can provide greater aggregate throughput.
+Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the same way as MPIO. Link aggregation does not improve the throughput of a single I/O flow, nor does it provide multiple paths. A single flow always traverses one single path. The benefit of link aggregation can be observed when several “unique” flows exist, and each flow comes from a different source. Each individual flow is sent down its own available NIC interface, which is determined by a hash algorithm. Thus with more unique flows, more NICs can provide greater aggregate throughput.
 
-Bonding works between a server and switch. However, MPIO works between a storage server and the host, whether or not there is a switch in the path.
+Bonding works between a server and switch. However, MPIO works between a storage server and the host, even if a switch is in the path.
 
 For more information, see one of the following articles.
 - Red Hat Linux&reg;: [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
@@ -255,7 +253,7 @@ The 10 IOPS/GB tier of Endurance type {{site.data.keyword.blockstorageshort}} is
 {: faq}
 {: support}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](/login){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
 
 ## How do we know when we're provisioning {{site.data.keyword.blockstorageshort}} in an upgraded data center?
 {: faq}
@@ -304,25 +302,25 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 {: faq}
 {: #cancelstorage}
 
-The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it’s reclaimed. An hourglass or clock icon appears next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
+The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. An hourglass or clock icon appears next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
 ## My Windows&reg; 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 {: #diskmanager}
 {: support}
 
-If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
 {: faq}
 {: support}
 
-In a couple of scenarios a host (bare metal or VM) might lose connection to the storage however briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
+In a couple of scenarios a host (bare metal or VM) might lose connection to the storage briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
 
 This issue can be observed with hosts that have incorrect MPIO settings. When MPIO is not configured correctly, the host loses connection to the storage, and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
-## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do I have to use multipath?
+## Can I attach the {{site.data.keyword.blockstorageshort}} with a single path? Do I need to use multipath?
 {: #singlepath}
 {: faq}
 {: support}
@@ -342,22 +340,22 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Verifying MPIO on MS Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
-In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see only one path. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
 {: faq}
 {: support}
 
-To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. Check your operating system documentation for steps. Here are a couple of examples.
+To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system documentation. 
 
 ### Windows&reg; 2016
 {: #expandsizeWin}
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
-3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an unallocated partition on the existing Disk.
-4. Partition the unallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an deallocated partition on the existing Disk.
+4. Partition the deallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
 {: #expandsizeLin}
@@ -462,7 +460,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
         /dev/mapper/vg00-vol_projects ext4   59G  2.1G   55G   4% /projects
         ```
 
-        For more information, see [RHEL 8 - Modifying Logical  Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
+        For more information, see [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
 
 
    - Non-LVM - ext2, ext3, ext4:
@@ -472,7 +470,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
          ```
          {: pre}
 
-         1. Unmount the volume  that you want to expand the partition on.
+         1. Unmount the volume that you want to expand the partition on.
             ```zsh
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
@@ -579,7 +577,7 @@ For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/do
 
 Perform the following steps to disconnect from a host:
 1. Remove operating system ISCSI sessions and, if applicable, unmount the device.
-1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}.
+1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](/login){: external}.
 1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for ISCSI connections.
 
 ## How do endurance and performance storage differ?
@@ -595,7 +593,7 @@ Endurance and Performance are provisioning options that you can select for stora
 The following situations can affect the ability to upgrade or expand storage:
 - If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
 - Older storage types can't be upgraded. Ensure that the storage was ordered in an upgraded Data Center that allows for [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
-- The permissions that you have in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
+- The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
 ## Are ISCSI LUNs thin or thick provisioned?
 {: #thin}
@@ -607,7 +605,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the datacenters, storage volumes that reside in those datacenters are also upgraded to leverage all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that reside in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
@@ -625,7 +623,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #identifyLUNfaq}
 {: faq}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example could be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
@@ -637,7 +635,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 {{site.data.keyword.cloud}} does not provide storage performance IOPS and latency metrics. Customers are expected to monitor their own {{site.data.keyword.blockstorageshort}} devices by using their choice of third-party monitoring tools.
 
-The following examples are utilities that you could consider to use to check performance statistics.
+The following examples are utilities that you might consider to use to check performance statistics.
 - [`sysstat`](https://github.com/sysstat/sysstat/blob/master/README.md){: external} - System performance tools for the Linux&reg; operating system.
 - [`typeperf`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows&reg; command that writes performance data to the command window or to a log file.
 - [`esxtop`](https://communities.vmware.com/t5/Storage-Performance/Interpreting-esxtop-Statistics/ta-p/2776936){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
@@ -653,7 +651,7 @@ Replication keeps your data in sync in two different locations. Only one of the 
 
 Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume. You can adjust the IOPS or increase the volume size of the duplicate without any effect on the parent volume.
 
-- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it’s created. It keeps the original snapshot locked so that snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you have to either cancel the dependent duplicate first or convert it to an independent duplicate.
+- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it is created. It keeps the original snapshot locked so that snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you must either cancel the dependent duplicate first or convert it to an independent duplicate.
 
 - An independent duplicate is superior to the dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It can take up to several hours based on the size of the volume. For example, it might take up to a day for a 12-TB volume. However, after the separation process is complete, the data can be manually refreshed by using another snapshot of the original parent volume.
 
@@ -664,7 +662,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 | Created from a snapshot | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | Location of copied volume | Remote Availability Zone | Same Availability Zone   | Same Availability Zone |
 | Supports failover  | ![Checkmark icon.](../../icons/checkmark-icon.svg) |  |  |
-| Different Size/Iops |          | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
+| Different Size and IOPS |          | ![Checkmark icon.](../../icons/checkmark-icon.svg) | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
 | Auto-synced with parent volume | ![Checkmark icon.](../../icons/checkmark-icon.svg) | |  |
 | On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg)[^depdup] | ![Checkmark icon.](../../icons/checkmark-icon.svg)[^indepdup] |
 | Separated from parent volume | | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
@@ -680,9 +678,9 @@ For more information about duplicates, see [Creating and managing duplicate volu
 {: #duplicateconversion}
 {: faq}
 
-The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. In case of a 12-TB volume, it could take 24 hours. You can check on the progress in the UI or from the CLI.
+The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. For a 12-TB volume, it might take 24 hours. You can check on the progress in the UI or from the CLI.
 
-- In the UI, go to [Classic Infrastructure](https://{DomainName}/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
+- In the UI, go to [Classic Infrastructure](/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
 
 - From the CLI, use the following command.
    ```zsh

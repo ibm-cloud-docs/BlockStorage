@@ -80,7 +80,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-The Host IQN, user name, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](https://{DomainName}/login){: external}.
+The Host IQN, username, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](/login){: external}.
 {: tip}
 
 1. Install the iSCSI and multipath utilities to your host.
@@ -288,7 +288,7 @@ The Host IQN, user name, password, and target address that are referenced in the
    ```
    {: pre}
 
-6. Update the credential settings in `/etc/iscsi/iscsid.conf` by using the user name and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
+6. Update the credential settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
    ```zsh
    node.session.auth.authmethod = CHAP
    node.session.auth.username = <Username-value-from-Portal>
@@ -597,7 +597,7 @@ To create a file system with `parted`, follow these steps.
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-* To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions.
+* To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions.
 
    ```zsh
    multipath -l
@@ -650,7 +650,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-* In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+* In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see only one path. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes

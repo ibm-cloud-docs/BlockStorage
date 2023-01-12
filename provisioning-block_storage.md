@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2022-09-27"
+lastupdated: "2023-01-11"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -26,7 +26,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 {: #orderingthroughConsole}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 2. Select your deployment location (region, location, zone).
    - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
 3. Billing. If you selected a data center with improved capabilities (marked with an asterisk), you can choose between Monthly or Hourly Billing.
@@ -181,7 +181,7 @@ To avoid data-loss and to ensure business continuity, consider replicating your 
 
 If you want to clone your volume and use it independently from the original volume, see [Creating and managing independent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
 
-If you want to clone your volume and be able to refresh the duplicate on demand, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
+If you want to clone your volume and refresh the duplicate on demand, see [Creating and managing dependent duplicate volumes](/docs/BlockStorage?topic=BlockStorage-dependentduplicate).
 
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 {: #LUNonInvoice}
