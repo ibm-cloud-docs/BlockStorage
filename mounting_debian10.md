@@ -47,7 +47,7 @@ Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstor
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.io/examples?_ga=2.161418495.390824497.1610470776-1901939947.1610470776){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} documentation.
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.readthedocs.io/en/latest/examples/#){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} documentation.
 
 
 ## Authorizing the host from the SLCLI
