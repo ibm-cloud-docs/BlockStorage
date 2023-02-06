@@ -54,7 +54,7 @@ All duplicate volumes can be accessed by a host for read and write operations as
 
 Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume locks the original snapshot so the snapshot cannot be deleted while the dependent duplicate exists.
 
-However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent from the parent volume. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
+However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
@@ -232,9 +232,9 @@ slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
-The refresh process can be quite time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the parameter `--force-refresh` to stop all ongoing and pending refresh transactions and initiate a new refresh. 
+The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the parameter `--force-refresh` to stop all ongoing and pending refresh transactions, and initiate a new refresh. 
 
-The force refresh process works only on independent volumes and it does not stop a explicit `volume-convert` action on a dependent clone.
+The force refresh process works only on independent volumes and it does not stop an explicit `volume-convert` action on a dependent clone.
 {: note}
 
 For more information about available command options, see [`slcli block volume-refresh`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-refresh){: external}.
