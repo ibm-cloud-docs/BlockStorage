@@ -223,7 +223,7 @@ The conversion process can take some time to complete. The bigger the volume is,
 
 As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot.
 
-Refreshes can be performed by using the following command.
+Refreshes can be initiated by using the following command.
 ```python
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
