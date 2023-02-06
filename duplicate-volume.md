@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2022-11-15"
+lastupdated: "2023-02-08"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -180,6 +180,7 @@ Options:
 ```python
 slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ```
+{: pre}
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
@@ -218,15 +219,21 @@ The conversion process can take some time to complete. The bigger the volume is,
 {: #refreshindependentvol}
 {: cli}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using that snapshot.
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot.
 
 Refreshes can be performed by using the following command.
 ```python
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
+{: pre}
 
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
+
+The refresh process can be quite time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the parameter `--force-refresh` to stop all ongoing and pending refresh transactions and initiate a new refresh. 
+
+The force refresh process works only on independent volumes and it does not stop a explicit `volume-convert` action on a dependent clone.
+{: note}
 
 ## Converting a dependent volume to an independent duplicate
 {: #convertdependentvol}
@@ -243,6 +250,7 @@ The conversion process can take some time to complete. The bigger the volume is,
 ```python
 slcli block duplicate-convert-status <dependent-vol-id>
 ```
+{: pre}
 
 Example output:
 ```python
@@ -250,6 +258,7 @@ slcli block duplicate-convert-status 370597202
 Username            Active Conversion Start Timestamp   Completed Percentage
 SL02SEVC307608_74   2022-06-13 14:59:17                 90
 ```
+{: screen}
 
 ## Canceling a storage volume with a dependent duplicate
 {: #cancelvolwithdependent}
