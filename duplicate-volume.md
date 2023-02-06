@@ -239,7 +239,7 @@ The force refresh process works only on independent volumes.
 
 For more information about available command options, see [`slcli block volume-refresh`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-refresh){: external}.
 
-## Converting a dependent volume to an independent duplicate
+## Converting a dependent volume to an independent duplicate from the CLI
 {: #convertdependentvol}
 {: cli}
 
