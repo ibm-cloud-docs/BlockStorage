@@ -234,7 +234,7 @@ A refresh incurs no downtime on the primary volume. However, during the refresh 
 
 The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the parameter `--force-refresh` to stop all ongoing and pending refresh transactions, and initiate a new refresh. 
 
-The force refresh process works only on independent volumes and it does not stop an explicit `volume-convert` action on a dependent clone.
+The force refresh process works only on independent volumes.
 {: note}
 
 For more information about available command options, see [`slcli block volume-refresh`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-refresh){: external}.
