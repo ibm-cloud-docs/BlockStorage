@@ -182,6 +182,8 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ```
 {: pre}
 
+For more information about available command options, see [`block volume-duplicate`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block volume-duplicate){: external}.
+
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
@@ -235,6 +237,8 @@ The refresh process can be quite time-consuming. If you find that you have new d
 The force refresh process works only on independent volumes and it does not stop a explicit `volume-convert` action on a dependent clone.
 {: note}
 
+For more information about available command options, see [`slcli block volume-refresh`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-refresh){: external}.
+
 ## Converting a dependent volume to an independent duplicate
 {: #convertdependentvol}
 {: cli}
@@ -259,6 +263,8 @@ Username            Active Conversion Start Timestamp   Completed Percentage
 SL02SEVC307608_74   2022-06-13 14:59:17                 90
 ```
 {: screen}
+
+For more information about available command options, see [`duplicate-convert-status`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-duplicate-convert-status){: external}.
 
 ## Canceling a storage volume with a dependent duplicate
 {: #cancelvolwithdependent}
