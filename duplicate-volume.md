@@ -256,7 +256,7 @@ slcli block duplicate-convert-status <dependent-vol-id>
 ```
 {: pre}
 
-Example output:
+The following example shows the output that you can expect.
 ```python
 slcli block duplicate-convert-status 370597202
 Username            Active Conversion Start Timestamp   Completed Percentage
