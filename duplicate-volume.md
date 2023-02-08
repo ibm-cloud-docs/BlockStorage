@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2022-11-15"
+lastupdated: "2023-02-08"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -45,7 +45,7 @@ Common uses for an independent duplicate volume:
 Dependent duplicate volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicates.
 
 Common uses for a dependent duplicate volume:
-- **Disaster Recovery Testing**. Create a duplicate of your replica volume to verify that the data is intact and can be used if a disaster occurs, without interrupting the replication.
+- **Disaster Recovery Testing**. Create a duplicate of your source volume and compare it to the replica. By comparing the duplicate to the replica you can verify that the data that is being replicated is intact and can be used if a disaster occurs, without interrupting the replication.
 - **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
@@ -54,7 +54,7 @@ All duplicate volumes can be accessed by a host for read and write operations as
 
 Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume locks the original snapshot so the snapshot cannot be deleted while the dependent duplicate exists.
 
-However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent from the parent volume. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
+However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
@@ -180,11 +180,14 @@ Options:
 ```python
 slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ```
+{: pre}
+
+For more information about available command options, see [`block volume-duplicate`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block volume-duplicate){: external}.
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
-While data is being copied from the original volume to the **independent** duplicate, you can see that the status indicator on the details page shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or perform a refresh. When the separation process is complete, the new volume is independent from the original, and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
+While data is being copied from the original volume to the **independent** duplicate, you can see that the status indicator on the details page shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or initiate a refresh. When the separation process is complete, the new volume is independent from the original, and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
 **Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI or the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI or the CLI, too.
 
@@ -196,7 +199,7 @@ While data is being copied from the original volume to the **independent** dupli
 2. Locate the duplicate volume and click its name to view the volume details.
 3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Restore parent snapshot**.
 4. From the list of snapshots, select the parent snapshot that holds the data you want to restore to the duplicate volume.
-   Performing a restore results in the loss of any data that was created or modified since the selected snapshot was taken. During the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
+   Restoring data from a snapshot results in the loss of any data that was created or modified since the selected snapshot was taken. During the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
    {:  note}
 
 5. Check the box to confirm that you want to proceed with the refresh operation.
@@ -218,17 +221,25 @@ The conversion process can take some time to complete. The bigger the volume is,
 {: #refreshindependentvol}
 {: cli}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using that snapshot.
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot.
 
-Refreshes can be performed by using the following command.
+Refreshes can be initiated by using the following command.
 ```python
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
+{: pre}
 
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
-## Converting a dependent volume to an independent duplicate
+The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the parameter `--force-refresh` to stop all ongoing and pending refresh transactions, and initiate a new refresh. 
+
+The force refresh process works only on independent volumes.
+{: note}
+
+For more information about available command options, see [`slcli block volume-refresh`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-refresh){: external}.
+
+## Converting a dependent volume to an independent duplicate from the CLI
 {: #convertdependentvol}
 {: cli}
 
@@ -243,13 +254,17 @@ The conversion process can take some time to complete. The bigger the volume is,
 ```python
 slcli block duplicate-convert-status <dependent-vol-id>
 ```
+{: pre}
 
-Example output:
+The following example shows the output that you can expect.
 ```python
 slcli block duplicate-convert-status 370597202
 Username            Active Conversion Start Timestamp   Completed Percentage
 SL02SEVC307608_74   2022-06-13 14:59:17                 90
 ```
+{: screen}
+
+For more information about available command options, see [`duplicate-convert-status`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-duplicate-convert-status){: external}.
 
 ## Canceling a storage volume with a dependent duplicate
 {: #cancelvolwithdependent}
