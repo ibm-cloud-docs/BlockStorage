@@ -217,7 +217,6 @@ To order a **dependent duplicate** for a Performance (custom IOPS) volume, make 
 - Type: POST
 - Request body:
    ```js
-   Request body :
    {
        "parameters":[{
        "complexType": "SoftLayer_Container_Product_Order_Network_Storage_AsAService",
