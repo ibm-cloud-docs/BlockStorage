@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-02-14"
 
 keywords: Block Storage, LUN, volume duplication,
 
@@ -184,6 +184,70 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 
 For more information about available command options, see [`block volume-duplicate`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block volume-duplicate){: external}.
 
+## Creating a duplicate LUN with the API
+{: #cloneinAPI}
+{: api}
+
+To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call. The following example creates an independent duplicate for an Endurance (IOPS tiers) volume.
+
+REST API:
+URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
+Type: POST
+
+Request body:
+
+```js
+{
+    "parameters":[{
+    "complexType": "SoftLayer_Container_Product_Order_Network_Storage_AsAService",
+    "packageId": 531,
+    "duplicateOriginVolumeId":<PrimaryId>,
+    "isDependentDuplicateFlag": 0,
+    "prices": [{"id": 19497}, {"id": 16479}, {"id": 12931}, {"id": 15749}, {"id":10407}],
+    "quantity": 1,
+    "osFormatType":{
+        "keyName": "LINUX"
+    },
+    "location": 2,
+    "volumeSize":23
+    }]
+}
+```
+{: codeblock}
+
+To order a **dependent duplicate** for a Performance (custom IOPS) volume, make a call like the following example.
+
+REST API:
+URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
+Type: POST
+
+Request body:
+
+```js
+Request body :
+{
+    "parameters":[{
+    "complexType": "SoftLayer_Container_Product_Order_Network_Storage_AsAService",
+    "packageId": 531,
+    "duplicateOriginVolumeId":1327277,
+    "isDependentDuplicateFlag": 1,
+    "prices": [{"id": 15751}, {"id": 19487}, {"id": 18983}, {"id": 15749}, {"id":10407}],
+    "quantity": 1,
+    "iops":454,
+    "osFormatType":{
+        "keyName": "LINUX"
+    },
+    "location": 2,
+    "volumeSize":23
+    }]
+}
+```
+{: codeblock}
+
+
+For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
+
+
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
@@ -194,6 +258,8 @@ While data is being copied from the original volume to the **independent** dupli
 ## Updating data on the duplicate from the parent volume in the UI
 {: #refreshindependentvol_ui}
 {: ui}
+
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot.
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Locate the duplicate volume and click its name to view the volume details.
@@ -265,6 +331,75 @@ SL02SEVC307608_74   2022-06-13 14:59:17                 90
 {: screen}
 
 For more information about available command options, see [`duplicate-convert-status`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-duplicate-convert-status){: external}.
+
+## Updating data on the duplicate from the parent volume with the API
+{: #refreshindependentvol_api}
+{: api}
+
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot. 
+
+A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
+{: important}
+
+The refresh process can be time-consuming. You might find that you have new data that you want to add to the duplicate before the running refresh is finished. If that's the case, you can make a second call to `refreshDuplicate` and specify the second, `forceRefresh` parameter as `true` to stop all ongoing and pending refresh transactions, and initiate a new refresh. If the second parameter is set to `false` or it is not specified, the call fails if another refresh is already in progress.
+
+The force refresh process works only on independent volumes.
+{: note}
+
+### REST API example
+{: #refreshindependentvol_rest}
+
+URL: https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/duplicateVolumeId/refreshDuplicate
+Type: POST
+Request body:
+```js
+{
+ "parameters": [primaryVolumeSnapshotId, true OR false]
+}
+```
+{: codeblock}
+
+### SOAP API example
+{: #refreshindependentvol_soap}
+
+URL: `https://api.softlayer.com/soap/v3.1/SoftLayer_Network_Storage
+Type: POST
+Request body:
+```js
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
+<SOAP-ENV:Header>
+ <ns1:authenticate>
+  <username>USERNAME</username>
+  <apiKey>APIKEY</apiKey>
+ </ns1:authenticate>
+ <ns2:SoftLayer_Network_StorageInitParameters>
+  <id>duplicate Volume Id</id>
+ </ns2:SoftLayer_Network_StorageInitParameters>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+ <ns1:refreshDuplicate>
+   <snapshotId xsi:type="int">primary Volume Snapshot Id</snapshotId>
+   <forceRefresh xsi:type="boolean">true</forceRefresh> <-- (remove this tag for normal refresh)
+ </ns1:refreshDuplicate>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+{: codeblock}
+
+For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external} and [`SoftLayer_Network_Storage::refreshDuplicate`](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/refreshDuplicate/){: external}.
+
+## Converting a dependent volume to an independent duplicate with the API
+{: #convertdependentvol_api}
+{: api}
+
+If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume with the API. See the following example that uses the REST API.
+
+URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/<storageId>/convertCloneDependentToIndependent`
+Type: POST
+Request body: blank
+
+For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external} .
 
 ## Canceling a storage volume with a dependent duplicate
 {: #cancelvolwithdependent}
