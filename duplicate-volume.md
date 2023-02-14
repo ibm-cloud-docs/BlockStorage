@@ -113,7 +113,6 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 
 After you click **Create**, the order confirmation window appears. When you close the window, you return to the resources list. You can go back to your list of {{site.data.keyword.blockstorageshort}} volumes to click the newly provisioned duplicate. The volume details section displays information such as Duplicate Type, a link to the parent volume's details page and the name of the snapshot that was used to create the duplicate.
 
-
 ## Creating a duplicate LUN from the SLCLI
 {: #cloneinCLI}
 {: cli}
@@ -188,14 +187,11 @@ For more information about available command options, see [`block volume-duplica
 {: #cloneinAPI}
 {: api}
 
-To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call. The following example creates an independent duplicate for an Endurance (IOPS tiers) volume.
+To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call. The following REST API example creates an independent duplicate for an Endurance (IOPS tiers) volume.
 
-REST API:
 URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
 Type: POST
-
 Request body:
-
 ```js
 {
     "parameters":[{
@@ -215,14 +211,11 @@ Request body:
 ```
 {: codeblock}
 
-To order a **dependent duplicate** for a Performance (custom IOPS) volume, make a call like the following example.
+To order a **dependent duplicate** for a Performance (custom IOPS) volume, make a call like the following REST API example.
 
-REST API:
 URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
 Type: POST
-
 Request body:
-
 ```js
 Request body :
 {
@@ -244,9 +237,7 @@ Request body :
 ```
 {: codeblock}
 
-
 For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
-
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
@@ -399,7 +390,7 @@ URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Stor
 Type: POST
 Request body: blank
 
-For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external} .
+For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
 
 ## Canceling a storage volume with a dependent duplicate
 {: #cancelvolwithdependent}
