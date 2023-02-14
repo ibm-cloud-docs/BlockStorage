@@ -244,7 +244,7 @@ For more information about the API commands and options, see the [API Reference]
 
 While data is being copied from the original volume to the **independent** duplicate, you can see that the status indicator on the details page shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or initiate a refresh. When the separation process is complete, the new volume is independent from the original, and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
-**Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI or the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI or the CLI, too.
+**Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI, with the API and in the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI, the CLI, or the API, too.
 
 ## Updating data on the duplicate from the parent volume in the UI
 {: #refreshindependentvol_ui}
