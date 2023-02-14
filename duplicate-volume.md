@@ -236,7 +236,7 @@ To order a **dependent duplicate** for a Performance (custom IOPS) volume, make 
    ```
    {: codeblock}
 
-For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
+For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
@@ -377,7 +377,7 @@ The force refresh process works only on independent volumes.
    ```
    {: codeblock}
 
-For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external} and [`SoftLayer_Network_Storage::refreshDuplicate`](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/refreshDuplicate/){: external}.
+For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external} and [`SoftLayer_Network_Storage::refreshDuplicate`](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/refreshDuplicate/){: external}.
 
 ## Converting a dependent volume to an independent duplicate with the API
 {: #convertdependentvol_api}
@@ -389,7 +389,7 @@ If you want to use the dependent volume as a stand-alone volume in the future, y
 - Type: POST
 - Request body: blank
 
-For more information about the API commands and options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
+For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
 
 ## Canceling a storage volume with a dependent duplicate
 {: #cancelvolwithdependent}
