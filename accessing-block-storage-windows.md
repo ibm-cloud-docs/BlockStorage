@@ -56,7 +56,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 2. Click **Next** to open the Features menu.
 3. Scroll down and check **Multipath I/O**.
 4. Click **Install** to install MPIO on the host server.
-    ![Adding Roles and Features in Server Manager](/images/Roles_Features.svg){: caption="Figure 1. Install MPIO on the host server. " caption-side="bottom"}
+    ![Adding Roles and Features in Server Manager](/images/Roles_Features.svg){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
 5. Restart the server.
 
 ### Adding iSCSI support for MPIO devices
@@ -89,17 +89,17 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    - Select **Enable CHAP log-on** to turn on CHAP authentication.
        ![Enable CHAP login.](/images/Advanced_0.svg){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
 
-   - In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive
+   - In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the username and password entries.
-    ![Inactive Target.](/images/Inactive_0.svg){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
+     ![Inactive Target.](/images/Inactive_0.svg){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
 
     The name of your target appears in the Discovered targets section with an `Inactive` status.
     {: note}
 
 3. Click **Connect** to connect to the target.
 4. Select **Enable multi-path** checkbox to enable multi-path IO to the target.
-    ![Enable Multi-path.](/images/Connect_0.svg){: caption="Figure 5. Make changes on the Connect to Target screen." caption-side="bottom"}
+     ![Enable Multi-path.](/images/Connect_0.svg){: caption="Figure 5. Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
     ![Enable CHAP.](/images/chap_0.svg){: caption="Figure 6. CHAP logon and credentials." caption-side="bottom"}
 6. Enter the username in the Name[^uname] field, and enter the password in the Target secret[^pword] field.
@@ -107,7 +107,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    [^pword]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
 
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
-    ![Connected status.](/images/Connected.svg){: caption="Figure 7. The discovered target is shown as connected." caption-side="bottom"}
+     ![Connected status.](/images/Connected.svg){: caption="Figure 7. The discovered target is shown as connected." caption-side="bottom"}
 
 ### Adding and configuring multiple MPIO sessions in the iSCSI Initiator
 {: #configmultiMPIOsessions}
@@ -115,39 +115,39 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 1. Start the iSCSI Initiator, and on the Targets tab, click **Properties**.
 2. Click **Add Session** on the Properties window.
 3. In the Connect to Target dialog box, select **Enable multi-path** checkbox, and click **Advanced**.
-    ![Target](/images/Target.svg){: caption="Figure 8. Adding extra MPIO paths." caption-side="bottom"}
+     ![Target](/images/Target.svg){: caption="Figure 8. Adding extra MPIO paths." caption-side="bottom"}
 
 4. In the Advanced Settings window, update the following fields.
-    ![Settings](/images/Settings.svg){: caption="Figure 9. Advanced Settings." caption-side="bottom"}
-    - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
-    - On the Initiator IP list, select the IP address of the host.
-    - On the Target Portal IP list, select the IP of one of the storage interfaces.
-    - Click **Enable CHAP log-on** checkbox.
-    - Enter the Name and Target secret values that were obtained from the console and click **OK**.
-    - Click **OK** on the Connect To Target window to go back to the Properties window.
+     ![Settings](/images/Settings.svg){: caption="Figure 9. Advanced Settings." caption-side="bottom"}
+     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+     - On the Initiator IP list, select the IP address of the host.
+     - On the Target Portal IP list, select the IP of one of the storage interfaces.
+     - Click **Enable CHAP log-on** checkbox.
+     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
+     - Click **OK** on the Connect To Target window to go back to the Properties window.
 
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
 6. In the Connect to Target window, select the **Enable multi-path** checkbox. Click **Advanced**.
 7. In the Advanced Settings window,
-    - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
-    - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
-    - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
+     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+     - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
+     - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
 
      [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
-    - Click **Enable CHAP log-on** checkbox.
-    - Enter the Name and Target secret values that were obtained from the console and click **OK**.
-    - Click **OK** on the Connect To Target window to go back to the Properties window.
+     - Click **Enable CHAP log-on** checkbox.
+     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
+     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
-   {: note}
+     If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
+     {: note}
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
-   ![Devices](/images/Devices.svg){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
+     ![Devices](/images/Devices.svg){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
 
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balance policy.
-    ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.svg){: caption="Figure 11. Multipath can be validated on the Device Details window." caption-side="bottom"}
+     ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.svg){: caption="Figure 11. Multipath can be validated on the Device Details window." caption-side="bottom"}
 
 11. Click **OK** several times to exit the iSCSI Initiator.
 
