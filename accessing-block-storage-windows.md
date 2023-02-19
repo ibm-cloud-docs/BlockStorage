@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-02-15"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -22,9 +22,9 @@ By completing the following steps, you can authorize your host to access your {{
 
 Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized through the [{{site.data.keyword.cloud}} console](/classic){: external}.
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.png "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.png "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
+3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.png "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
    - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
@@ -56,7 +56,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 2. Click **Next** to open the Features menu.
 3. Scroll down and check **Multipath I/O**.
 4. Click **Install** to install MPIO on the host server.
-    ![Adding Roles and Features in Server Manager](/images/Roles_Features.png){: caption="Figure 1. Install MPIO on the host server. " caption-side="bottom"}
+    ![Adding Roles and Features in Server Manager](/images/Roles_Features.png){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
 5. Restart the server.
 
 ### Adding iSCSI support for MPIO devices
@@ -89,17 +89,17 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    - Select **Enable CHAP log-on** to turn on CHAP authentication.
        ![Enable CHAP login.](/images/Advanced_0.png){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
 
-   - In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive
+   - In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    - In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    - Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the username and password entries.
-    ![Inactive Target.](/images/Inactive_0.png){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
+     ![Inactive Target.](/images/Inactive_0.png){: caption="Figure 4. Discovered Target in ISCSI Initiator Properties window." caption-side="bottom"}
 
     The name of your target appears in the Discovered targets section with an `Inactive` status.
     {: note}
 
 3. Click **Connect** to connect to the target.
 4. Select **Enable multi-path** checkbox to enable multi-path IO to the target.
-    ![Enable Multi-path.](/images/Connect_0.png){: caption="Figure 5. Make changes on the Connect to Target screen." caption-side="bottom"}
+     ![Enable Multi-path.](/images/Connect_0.png){: caption="Figure 5. Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
     ![Enable CHAP.](/images/chap_0.png){: caption="Figure 6. CHAP logon and credentials." caption-side="bottom"}
 6. Enter the username in the Name[^uname] field, and enter the password in the Target secret[^pword] field.
@@ -107,7 +107,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    [^pword]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
 
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
-    ![Connected status.](/images/Connected.png){: caption="Figure 7. The discovered target is shown as connected." caption-side="bottom"}
+     ![Connected status.](/images/Connected.png){: caption="Figure 7. The discovered target is shown as connected." caption-side="bottom"}
 
 ### Adding and configuring multiple MPIO sessions in the iSCSI Initiator
 {: #configmultiMPIOsessions}
@@ -115,39 +115,39 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 1. Start the iSCSI Initiator, and on the Targets tab, click **Properties**.
 2. Click **Add Session** on the Properties window.
 3. In the Connect to Target dialog box, select **Enable multi-path** checkbox, and click **Advanced**.
-    ![Target](/images/Target.png){: caption="Figure 8. Adding extra MPIO paths." caption-side="bottom"}
+     ![Target](/images/Target.png){: caption="Figure 8. Adding extra MPIO paths." caption-side="bottom"}
 
 4. In the Advanced Settings window, update the following fields.
-    ![Settings](/images/Settings.png){: caption="Figure 9. Advanced Settings." caption-side="bottom"}
-    - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
-    - On the Initiator IP list, select the IP address of the host.
-    - On the Target Portal IP list, select the IP of one of the storage interfaces.
-    - Click **Enable CHAP log-on** checkbox.
-    - Enter the Name and Target secret values that were obtained from the console and click **OK**.
-    - Click **OK** on the Connect To Target window to go back to the Properties window.
+     ![Settings](/images/Settings.png){: caption="Figure 9. Advanced Settings." caption-side="bottom"}
+     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+     - On the Initiator IP list, select the IP address of the host.
+     - On the Target Portal IP list, select the IP of one of the storage interfaces.
+     - Click **Enable CHAP log-on** checkbox.
+     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
+     - Click **OK** on the Connect To Target window to go back to the Properties window.
 
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
 6. In the Connect to Target window, select the **Enable multi-path** checkbox. Click **Advanced**.
 7. In the Advanced Settings window,
-    - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
-    - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
-    - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
+     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+     - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
+     - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
 
      [^SecondIP]: You can find the second IP address in the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
-    - Click **Enable CHAP log-on** checkbox.
-    - Enter the Name and Target secret values that were obtained from the console and click **OK**.
-    - Click **OK** on the Connect To Target window to go back to the Properties window.
+     - Click **Enable CHAP log-on** checkbox.
+     - Enter the Name and Target secret values that were obtained from the console and click **OK**.
+     - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-   If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
-   {: note}
+     If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
+     {: note}
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
-   ![Devices](/images/Devices.png){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
+     ![Devices](/images/Devices.png){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
 
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balance policy.
-    ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.png){: caption="Figure 11. Multipath can be validated on the Device Details window." caption-side="bottom"}
+     ![Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.png){: caption="Figure 11. Multipath can be validated on the Device Details window." caption-side="bottom"}
 
 11. Click **OK** several times to exit the iSCSI Initiator.
 
@@ -177,7 +177,7 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 ![Roles_Features_0](/images/Roles_Features_0.png){: caption="Figure 12. Multipath I/O is shown as checked." caption-side="bottom"}
 
 After the restart is complete, take the following steps to view all of the active paths.
-1. On the Windows&reg; desktop, click **Start**.
+1. On the desktop, click **Start**.
 2. In the Start Search field, type `diskmgmt.msc`.
 3. In the Programs list, click `diskmgmt`.
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
@@ -186,13 +186,13 @@ After the restart is complete, take the following steps to view all of the activ
 
 To verify multipathing by using the command line, complete the following steps.
 
-1. Open Windows&reg; command prompt.
+1. Open the command prompt.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture multipath configuration.
 3. Review the contents of `multipathconfig.txt`. Confirm that each of the two paths that are listed for the LUN contain distinct TPG_Id values.
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see one single path. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+In the rare case of a LUN being provisioned and attached while the second path is down, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
