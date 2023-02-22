@@ -113,7 +113,6 @@ toc:
             topics:
             - faqs.md
             - gethelp.md
-            - feedback.md
         - topicgroup:
             label: Troubleshooting
             topics:
