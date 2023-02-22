@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-02-15"
 
 keywords: Block Storage, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
 
@@ -62,9 +62,9 @@ In the active file system, the changed blocks are rewritten to different locatio
 
 | Disk space usage |   |
 |-----|-----|
-| ![The space that is used before a snapshot copy is taken.](/images/bfcircle1.png "Before Snapshot Copy") | Before any Snapshot copy is created, disk space is used by the active file system only. |
-| ![The space that is used when a snapshot copy is taken.](/images/bfcircle3.png "After Snapshot Copy") | After a Snapshot copy is created, the active file system and Snapshot copy point to the same disk blocks. The Snapshot copy doesn't use extra disk space.  |
-| ![The space that is used when something changes after a snapshot copy was taken.](/images/bfcircle2.png "Changes after Snapshot Copy") | After `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. Thus, deleting active file system data doesn't always free up disk space. |
+| ![The space that is used before a snapshot copy is taken.](/images/bfcircle1.svg "Before Snapshot Copy") | Before any Snapshot copy is created, disk space is used by the active file system only. |
+| ![The space that is used when a snapshot copy is taken.](/images/bfcircle3.svg "After Snapshot Copy") | After a Snapshot copy is created, the active file system and Snapshot copy point to the same disk blocks. The Snapshot copy doesn't use extra disk space.  |
+| ![The space that is used when something changes after a snapshot copy was taken.](/images/bfcircle2.svg "Changes after Snapshot Copy") | After `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. Thus, deleting active file system data doesn't always free up disk space. |
 {: caption="Table 1 shows how snapshots affect the space usage on the Storage." caption-side="top"}
 
 For more information about snapshot space usage, see [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots).
