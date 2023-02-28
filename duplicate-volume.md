@@ -258,6 +258,7 @@ If the duplicate volume is independent, you can stop a running refresh operation
 2. Locate the duplicate volume and click its name to view the volume details.
 3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Restore parent snapshot**.
 4. From the list of snapshots, select the parent snapshot that holds the data that you want to restore to the duplicate volume.
+
    If the duplicate volume that you're refreshing is an independent volume, you can stop a running operation and force a new restore to start. If you want to force any current refresh process to stop, check the box before you proceed.
    {: tip}
 
