@@ -83,7 +83,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 ## Best practice 3 - Optimize the host and applications
 {: #bestpractice3}
 
-* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of these schedulers has their own unique method of scheduling disk access requests.
+* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of the schedulers has their own unique method of scheduling disk access requests.
 
     - **Deadline** is the default I/O scheduler on Red Hat 7.9, and usually it does not need to be changed to a different I/O scheduler. It's latency-oriented scheduler and it works by creating a separate read queue and separate a write queue. Each I/O request has a timestamp that is associated with it to be used by the kernel for an expiration time. While this scheduler also attempts to service the queues based on the most efficient ordering possible, the expiration time acts as a "deadline" for each I/O request. When an I/O request reaches its deadline, it is pushed to the highest priority.
 
