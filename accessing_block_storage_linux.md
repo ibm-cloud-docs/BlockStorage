@@ -86,14 +86,14 @@ The Host IQN, username, password, and target address that are referenced in the 
 1. Install the iSCSI and multipath utilities to your host.
    - RHEL and CentOS
 
-    ```zsh
+    ```sh
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
 
    - Ubuntu and Debian
 
-    ```zsh
+    ```sh
     sudo apt-get update
     sudo apt-get install multipath-tools
     ```
@@ -103,7 +103,7 @@ The Host IQN, username, password, and target address that are referenced in the 
    - **RHEL** 6 and **CENTOS 6**
       * Edit **/etc/multipath.conf** with the following minimum configuration.
 
-      ```zsh
+      ```sh
       defaults {
       user_friendly_names no
       max_fds max
@@ -139,14 +139,14 @@ The Host IQN, username, password, and target address that are referenced in the 
 
      - Restart `iscsi` and `iscsid` services so that the changes take effect.
 
-      ```zsh
+      ```sh
       service iscsi restart
       service iscsid restart
       ```
       {: pre}
 
    - **RHEL7** and **CentOS7**, edit `multipath.conf` with the following minimum configuration.
-      ```zsh
+      ```sh
       defaults {
       user_friendly_names no
       max_fds max
@@ -182,7 +182,7 @@ The Host IQN, username, password, and target address that are referenced in the 
 
    - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load-balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
 
-      ```zsh
+      ```sh
       defaults {
       user_friendly_names no
       max_fds max
@@ -219,46 +219,46 @@ The Host IQN, username, password, and target address that are referenced in the 
 
       - Restart `multipathd` service so that the changes take effect.
 
-        ```zsh
+        ```sh
         systemctl multipathd restart
         ```
         {: pre}
 
 3. Load the multipath module, start multipath services, and set it start on boot.
    - RHEL 6
-     ```zsh
+     ```sh
      modprobe dm-multipath
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      service multipathd start
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      chkconfig multipathd on
      ```
      {: pre}
 
    - CentOS 7
-     ```zsh
+     ```sh
      modprobe dm-multipath
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      systemctl start multipathd
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      systemctl enable multipathd
      ```
      {: pre}
 
    - Ubuntu
-     ```zsh
+     ```sh
      service multipath-tools start
      ```
      {: pre}
@@ -267,14 +267,14 @@ The Host IQN, username, password, and target address that are referenced in the 
 
 4. Verify that multipath is working.
    - RHEL 6
-     ```zsh
+     ```sh
      multipath -l
      ```
      {: pre}
 
      If it returns blank, it's working.
    - CentOS 7
-     ```zsh
+     ```sh
      multipath -ll
      ```
      {: pre}
@@ -283,13 +283,13 @@ The Host IQN, username, password, and target address that are referenced in the 
 
 5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
-   ```zsh
+   ```sh
    InitiatorName=<value-from-the-Portal>
    ```
    {: pre}
 
 6. Update the credential settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
-   ```zsh
+   ```sh
    node.session.auth.authmethod = CHAP
    node.session.auth.username = <Username-value-from-Portal>
    node.session.auth.password = <Password-value-from-Portal>
@@ -307,43 +307,43 @@ The Host IQN, username, password, and target address that are referenced in the 
 
 7. Set iSCSI to start at boot and start it now.
    - RHEL 6
-     ```zsh
+     ```sh
      chkconfig iscsi on
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      chkconfig iscsid on
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      service iscsi start
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      service iscsid start
      ```
      {: pre}
 
    - CentOS 7
-     ```zsh
+     ```sh
      systemctl enable iscsi
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      systemctl enable iscsid
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      systemctl restart iscsi
      ```
      {: pre}
 
-     ```zsh
+     ```sh
      systemctl restart iscsid
      ```
      {: pre}
@@ -353,24 +353,24 @@ The Host IQN, username, password, and target address that are referenced in the 
 8. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
    A. Run the discovery against the iSCSI array.
-     ```zsh
+     ```sh
      iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
      ```
      {: pre}
 
    B. Log in the host to the iSCSI array.
-     ```zsh
+     ```sh
      iscsiadm -m node -L automatic
      ```
      {: pre}
 
 9. Verify that the host is logged in to the iSCSI array and maintained its sessions.
-   ```zsh
+   ```sh
    iscsiadm -m session
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    multipath -l
    ```
    {: pre}
@@ -379,13 +379,13 @@ The Host IQN, username, password, and target address that are referenced in the 
 
 10. Verify that the device is connected by issuing the following command.
 
-   ```zsh
+   ```sh
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
 
    By default the device attaches to `/dev/mapper/<wwid>`. WWID is the generated worldwide ID of the connected storage device that is persistent while the volume exists. So that command reports something similar to the following example.
-   ```zsh
+   ```sh
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
@@ -403,7 +403,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 {: #fdisk}
 
 1. Get the disk name.
-   ```zsh
+   ```sh
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
@@ -412,7 +412,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 2. Create a partition on the disk.
 
-   ```zsh
+   ```sh
    fdisk /dev/mapper/XXX
    ```
    {: pre}
@@ -424,7 +424,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 3. Create a file system on the new partition.
 
-   ```zsh
+   ```sh
    fdisk –l /dev/mapper/XXX
    ```
    {: pre}
@@ -433,7 +433,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
    - Create the file system:
 
-     ```zsh
+     ```sh
      mkfs.ext3 /dev/mapper/XXXp1
      ```
      {: pre}
@@ -441,19 +441,19 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 4. Create a mount point for the file system, and mount it.
    - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-     ```zsh
+     ```sh
      mkdir /PerfDisk
      ```
      {: pre}
 
    - Mount the storage with the partition name.
-     ```zsh
+     ```sh
      mount /dev/mapper/XXXp1 /PerfDisk
      ```
      {: pre}
 
    - Check that you see your new file system listed.
-     ```zsh
+     ```sh
      df -h
      ```
      {: pre}
@@ -461,7 +461,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
-     ```zsh
+     ```sh
      /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
@@ -487,13 +487,13 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 On many Linux&reg; distributions, `parted` comes preinstalled. If it isn't included in your distro, you can install it with:
 - Debian and Ubuntu
-   ```zsh
+   ```sh
    sudo apt-get install parted
    ```
    {: pre}
 
 - RHEL and CentOS
-   ```zsh
+   ```sh
    yum install parted
    ```
    {: pre}
@@ -503,7 +503,7 @@ To create a file system with `parted`, follow these steps.
 
 1. Run `parted`.
 
-   ```zsh
+   ```sh
    parted
    ```
    {: pre}
@@ -511,21 +511,21 @@ To create a file system with `parted`, follow these steps.
 2. Create a partition on the disk.
    1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
 
-      ```zsh
+      ```sh
       select /dev/mapper/XXX
       ```
       {: pre}
 
    2. Run `print` to confirm that you are on the right disk.
 
-      ```zsh
+      ```sh
       print
       ```
       {: pre}
 
    3. Create a GPT partition table.
 
-      ```zsh
+      ```sh
       mklabel gpt
       ```
       {: pre}
@@ -534,21 +534,21 @@ To create a file system with `parted`, follow these steps.
      The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
      {: tip}
 
-      ```zsh
+      ```sh
       mkpart
       ```
       {: pre}
 
    5. Exit `parted` with `quit`.
 
-      ```zsh
+      ```sh
       quit
       ```
       {: pre}
 
 3. Create a file system on the new partition.
 
-   ```zsh
+   ```sh
    mkfs.ext3 /dev/mapper/XXXp1
    ```
    {: pre}
@@ -560,21 +560,21 @@ To create a file system with `parted`, follow these steps.
 4. Create a mount point for the file system and mount it.
    - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-     ```zsh
+     ```sh
      mkdir /PerfDisk
      ```
      {: pre}
 
    - Mount the storage with the partition name.
 
-     ```zsh
+     ```sh
      mount /dev/mapper/XXXp1 /PerfDisk
      ```
      {: pre}
 
    - Check that you see your new file system listed.
 
-     ```zsh
+     ```sh
      df -h
      ```
      {: pre}
@@ -582,7 +582,7 @@ To create a file system with `parted`, follow these steps.
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
-     ```zsh
+     ```sh
      /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
@@ -595,12 +595,12 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
 * To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions.
 
-   ```zsh
+   ```sh
    multipath -l
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    root@server:~# multipath -l
    3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode
    size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
@@ -614,14 +614,14 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
 * Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
 
-   ```zsh
+   ```sh
    fdisk -l | grep Disk
    ```
    {: pre}
 
    - The following example output shows a correct configuration.
 
-    ```zsh
+    ```sh
     root@server:~# fdisk -l | grep Disk
     Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
     Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
@@ -633,7 +633,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
    - The following example output shows incorrect configuration. The `/dev/mapper` disk does not exist.
 
-    ```zsh
+    ```sh
     root@server:~# fdisk -l | grep Disk
     Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
     Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
@@ -641,7 +641,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     ```
 
 * To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blocklist.
-   ```zsh
+   ```sh
    multipath -l -v 3 | grep sd <date and time>
    ```
    {: pre}
@@ -653,19 +653,19 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 {: #unmountingLin}
 
 1. Unmount the file system.
-   ```zsh
+   ```sh
    umount /dev/mapper/XXXp1 /PerfDisk
    ```
    {: pre}
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
-   ```zsh
+   ```sh
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
 3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
-   ```zsh
+   ```sh
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}

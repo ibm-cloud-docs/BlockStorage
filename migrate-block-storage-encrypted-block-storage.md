@@ -68,7 +68,7 @@ When the host is authorized to access the new storage, you can mount or map the 
 3. Copy your data across.
    - For **Microsoft&reg; Windows**, format the new storage, and copy the data from your original {{site.data.keyword.blockstorageshort}} LUN to your new LUN by using Windows Explorer.
    - For **Linux&reg;**, you can use `rsync` to copy over the data.
-      ```zsh
+      ```sh
       [root@server ~]# rsync -Pavzu /path/to/original/block/storage/* /path/to/new/block/storage
       ```
 

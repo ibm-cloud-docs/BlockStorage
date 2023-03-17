@@ -56,7 +56,7 @@ Use the following command to fail a block volume over to a specific replicant vo
 
 * URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant`
 * Request body
-   ```zsh
+   ```sh
    {
     "parameters": [replicavolumeid]
    }
@@ -67,7 +67,7 @@ Use the following command to fail a block volume over to a specific replicant vo
 
 * URL - `https://api.softlayer.com/soap/v3/SoftLayer_Network_Storage`
 * Request body
-   ```zsh
+   ```sh
    <?xml version="1.0" encoding="UTF-8"?>
    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
    <SOAP-ENV:Header>

@@ -36,7 +36,7 @@ You can list the number of your volumes by using the [volume-limits](https://sof
 ```
 
 The output looks similar to the following example.
-```zsh
+```sh
 [{'datacenterName': 'global', 'maximumAvailableCount': 700, 'provisioned Count':117}]
 :............:.......................:..................:
 : Datacenter : maximumAvailableCount : ProvisionedCount :

@@ -45,13 +45,13 @@ The process of data encryption creates a load on the host that might potentially
 {: note}
 
 1. Type the following command at a shell prompt as root to install the required package:
-   ```zsh
+   ```sh
    # yum install cryptsetup-luks
    ```
    {: pre}
 
 2. Get the disk ID:
-   ```zsh
+   ```sh
    # fdisk –l | grep /dev/mapper
    ```
    {: pre}
@@ -61,7 +61,7 @@ The process of data encryption creates a load on the host that might potentially
 
    1. This command initializes the volume, and you can set a passphrase.
 
-      ```zsh
+      ```sh
       # cryptsetup -y -v luksFormat /dev/mapper/3600a0980383034685624466470446564
       ```
       {: pre}
@@ -70,13 +70,13 @@ The process of data encryption creates a load on the host that might potentially
 
    3. The device now appears as an encrypted volume:
 
-      ```zsh
+      ```sh
       # blkid | grep LUKS
       /dev/mapper/3600a0980383034685624466470446564: UUID="46301dd4-035a-4649-9d56-ec970ceebe01" TYPE="crypto_LUKS"
       ```
 
 5. Open the volume, and create a mapping.
-   ```zsh
+   ```sh
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
    ```
    {: pre}
@@ -84,7 +84,7 @@ The process of data encryption creates a load on the host that might potentially
 6. Enter the passphrase.
 7. Verify the mapping, and view status of the encrypted volume.
 
-   ```zsh
+   ```sh
    # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
      type:  LUKS1
@@ -98,29 +98,29 @@ The process of data encryption creates a load on the host that might potentially
    ```
 
 8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action ensures that outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.
-    ```zsh
+    ```sh
     # shred -v -n1 /dev/mapper/cryptData
     ```
     {: pre}
 
 9. Format the volume.
-   ```zsh
+   ```sh
    # mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
 
 10. Mount the volume.
-   ```zsh
+   ```sh
    # mkdir /cryptData
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    # mount /dev/mapper/cryptData /cryptData
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    # df -H /cryptData
    ```
    {: pre}
@@ -128,7 +128,7 @@ The process of data encryption creates a load on the host that might potentially
 ### Unmounting and closing the encrypted volume securely
 {: #unmountLUKS}
 
-   ```zsh
+   ```sh
    # umount /cryptData
    # cryptsetup luksClose cryptData
    ```
@@ -137,7 +137,7 @@ The process of data encryption creates a load on the host that might potentially
 ### Remounting and mounting an existing LUKS encrypted partition
 {: #remountLUKS}
 
-   ```zsh
+   ```sh
    # cryptsetup luksOpen /dev/mapper/3600a0980383034685624466470446564 cryptData
       Enter the password previously provided.
    # mount /dev/mapper/cryptData /cryptData

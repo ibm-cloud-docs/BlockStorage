@@ -144,7 +144,7 @@ You can use the following commands.
    {: pre}
 
    The command provides an output that shows how much space is available space and the percentage used.
-   ```zsh
+   ```sh
    $ df -hT /dev/sda1
    Filesystem     Type      Size  Used Avail Use% Mounted on
    /dev/sda1      disk      6.0G  1.2G  4.9G  20% /
@@ -361,19 +361,19 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 {: #expandsizeLin}
 
 1. Log out of each multipath session of the block storage device that you expanded.
-   ```zsh
+   ```sh
    # iscsiadm --mode node --portal <Target IP> --logout
    ```
    {: pre}
 
 2. Log in again.
-   ```zsh
+   ```sh
    # iscsiadm --mode node --portal <Target IP> --login
    ```
    {: pre}
 
 3. Rescan the iscsi sessions.
-   ```zsh
+   ```sh
    # iscsiadm -m session --rescan
    ```
    {: pre}
@@ -381,12 +381,12 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 4. List the new size by using `fdisk -l` to confirm that the storage was expanded.
 
 5. Reload multipath device map.
-   ```zsh
+   ```sh
    # multipath -r <WWID>
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    # multipath -r 3600a09803830477039244e6b4a396b30
    reload: 3600a09803830477039244e6b4a396b30 undef NETAPP  ,LUN C-Mode
    size=30G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=undef
@@ -399,7 +399,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 6. Expand the file system.
    - LVM
      1. Resize Physical Volume.
-        ```zsh
+        ```sh
         # pvresize /dev/mapper/3600a09803830477039244e6b4a396b30
           Physical volume "/dev/mapper/3600a09803830477039244e6b4a396b30" changed
           1 physical volume(s) resized or updated / 0 physical volume(s) not resized
@@ -425,7 +425,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
         ```
 
      2. Resize Logical Volume.
-        ```zsh
+        ```sh
         # lvextend -l +100%FREE -r /dev/vg00/vol_projects
           Size of logical volume vg00/vol_projects changed from 49.99 GiB (12798 extents) to 59.99 GiB (15358 extents).
           Logical volume vg00/vol_projects successfully resized.
@@ -454,7 +454,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
         ```
 
      3. Verify file system size.
-        ```zsh
+        ```sh
         # df -Th /projects
         Filesystem                    Type  Size  Used Avail Use% Mounted on
         /dev/mapper/vg00-vol_projects ext4   59G  2.1G   55G   4% /projects
@@ -465,24 +465,24 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
    - Non-LVM - ext2, ext3, ext4:
       1. Extend the existing partition on the disk by using `growpart` and `xfs_progs` utilities. If you need to install them, run the following command.
-         ```zsh
+         ```sh
          # yum install cloud-utils-growpart xfsprogs -y
          ```
          {: pre}
 
          1. Unmount the volume that you want to expand the partition on.
-            ```zsh
+            ```sh
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
          2. Run the `growpart` utility. This action grows the specified partition regardless whether it's an ext2, ext3, ext, or xfsf file system.
-            ```zsh
+            ```sh
             # growpart /dev/mapper/3600a098038304338415d4b4159487669 1
             CHANGED: partition=1 start=2048 old: size=146800640 end=146802688 new: size=209713119,end=209715167
             ```
 
          3. Run `partprobe` to reread the disks and its partitions, then run `lsblk` to verify the new extended partition size.
-            ```zsh
+            ```sh
             # partprobe
 
             # lsblk
@@ -503,12 +503,12 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
       2. Extend the existing file system on the partition.
          1. Unmount the partition.
-            ```zsh
+            ```sh
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
          2. Run `e2fsck -f` to ensure that the file system is clean and has no issues before you proceed with resizing.
-            ```zsh
+            ```sh
             # e2fsck -f /dev/mapper/3600a098038304338415d4b4159487669p1
             e2fsck 1.42.9 (28-Dec-2013)
             Pass 1: Checking inodes, blocks, and sizes
@@ -520,7 +520,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```
 
          3. Issue the `resize2fs` command to resize the file system.
-            ```zsh
+            ```sh
             # resize2fs /dev/mapper/3600a098038304338415d4b4159487669p1
             resize2fs 1.42.9 (28-Dec-2013)
             Resizing the filesystem on /dev/mapper/3600a098038304338415d4b4159487669p1 to 26214139 (4k) blocks.
@@ -528,7 +528,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```
 
          4. Mount the partition and run `df -vh` to verify that the new size is correct.
-            ```zsh
+            ```sh
             # mount /dev/mapper/3600a098038304338415d4b4159487669p1 /SL02SEL1160157-73
 
             # df -vh
@@ -545,12 +545,12 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
    - Non-LVM - xfs
       1.  Mount the xfs file system back to its mount point. See `/etc/fstab` if you're not sure what the old mount point is for the xfs partition.
-          ```zsh
+          ```sh
           # mount /dev/sdb1 /mnt
           ```
 
       2. Extend the file system. Substitute the mount point of the file system.
-         ```zsh
+         ```sh
          # xfs_growfs -d </mnt>
          ```
 
@@ -683,12 +683,12 @@ The conversion process can take some time to complete. The bigger the volume, th
 - In the UI, go to [Classic Infrastructure](/classic/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
 
 - From the CLI, use the following command.
-   ```zsh
+   ```sh
    slcli block duplicate-convert-status <dependent-vol-id>
    ```
 
    The output looks similar to the following example.:
-   ```zsh
+   ```sh
    slcli block duplicate-convert-status 370597202
    Username            Active Conversion Start Timestamp   Completed Percentage
    SL02SEVC307608_74   2022-06-13 14:59:17                 90

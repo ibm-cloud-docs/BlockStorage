@@ -17,7 +17,7 @@ subcollection: BlockStorage
 Follow our best practices to maximize the performance of your storage, and avoid application downtime.
 {: shortdesc}
 
-## Best practice 1: Clear the path
+## Best practice 1 - Clear the path
 {: #bestpractice1}
 
 To achieve maximum IOPS, adequate network resources need to be in place. 
@@ -33,7 +33,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
      For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. However, when you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
      {: note}
 
-## Best practice 2: Set up multiple paths for redundancy
+## Best practice 2 - Set up multiple paths for redundancy
 {: #bestpractice2}
 
 {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. In fact, the system can lose multiple disks in the cluster simultaneously without degrading customer performance or adverse risk of data loss. Redundant network ports and paths protect against network failures across the cloud connections.
@@ -47,40 +47,40 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
    While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to ensure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
    {: important}
 
-* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
+* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance-tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
 
    Add persistent iscsi multi-sessions through the iscsiadm CLI.
      1. List existing sessions.
-        ```zsh
+        ```sh
         iscsiadm -m session
         ```
 
      1. Modify the number of sessions by using the following command. This configuration change is persistent when the host is rebooted.
-        ```zsh
+        ```sh
         iscsiadm -m node -T <IQN> -p <IP> --op update -n node.session.nr_sessions -v <TOTAL_SESSION>
         ```
 
         EXAMPLE of adding three more sessions (4 total) to target portal 161.26.115.77:3260.
-        ```zsh
+        ```sh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 --op update -n node.session.nr_sessions -v 4
         ```
 
      1. Log in to the portal to establish the extra sessions.
-        ```zsh
+        ```sh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 -l
         ```
 
      1. List sessions to see the added sessions against the single portal IP.
-        ```zsh
+        ```sh
         iscsiadm -m session
         ```
 
      1. Log out of the iSCSI session by using the session ID in place of the X in the following command.
-        ```zsh
+        ```sh
         iscsiadm -m session -r X -u
         ```
 
-## Best practice 3: Optimize the host and applications
+## Best practice 3 - Optimize the host and applications
 {: #bestpractice3}
 
 * **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of these schedulers has their own unique method of scheduling disk access requests.
