@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Securing your data in {{site.data.keyword.blockstorageshort}}
 {: #mng-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.blockstorageshort}}, it's important to know exactly what data is stored and encrypted and how you can delete any stored personal data.
+To ensure that you can securely manage your data when you use {{site.data.keyword.blockstorageshort}}, it's important to know exactly what data is stored and encrypted and how you can delete personal data.
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.blockstorageshort}}
