@@ -37,7 +37,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
-```python
+```sh
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -50,7 +50,7 @@ Options:
 ```
 {: codeblock}
 
-```python
+```sh
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.

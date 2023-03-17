@@ -33,7 +33,9 @@ This feature is available in most locations. For more information, see [the list
 
 Independent duplicates can be created from both **primary** and **replica** volumes. The duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the duplicate volume is created in the same data center as the replica volume.
 
-Common uses for an independent duplicate volume:
+#### Common uses for an independent duplicate volume
+{: #independent_usecase}
+
 - **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
@@ -43,17 +45,13 @@ Common uses for an independent duplicate volume:
 
 Dependent duplicate volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicates.
 
-Common uses for a dependent duplicate volume:
+#### Common uses for a dependent duplicate volume
+{: #dependent_usecase}
+
 - **Disaster Recovery Testing**. Create a duplicate of your source volume and compare it to the replica. By comparing the duplicate to the replica you can verify that the data that is being replicated is intact and can be used if a disaster occurs, without interrupting the replication.
 - **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
-
-All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
-
-Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume locks the original snapshot so the snapshot cannot be deleted while the dependent duplicate exists.
-
-However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
@@ -240,9 +238,16 @@ For more information about the API and the options, see the [API Reference](http
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
+All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
+
+However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
+
 While data is being copied from the original volume to the **independent** duplicate, you can see that the status indicator on the details page shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or initiate a refresh. When the separation process is complete, the new volume is independent from the original, and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
 **Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI, with the API and in the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI, the CLI, or the API, too.
+
+The dependent duplicate volume locks the original snapshot so the snapshot cannot be deleted while the dependent duplicate exists.
+{: note}
 
 ## Updating data on the duplicate from the parent volume in the UI
 {: #refreshindependentvol_ui}

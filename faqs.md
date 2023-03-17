@@ -687,7 +687,7 @@ The conversion process can take some time to complete. The bigger the volume, th
    slcli block duplicate-convert-status <dependent-vol-id>
    ```
 
-   Example output:
+   The output looks similar to the following example.:
    ```zsh
    slcli block duplicate-convert-status 370597202
    Username            Active Conversion Start Timestamp   Completed Percentage
