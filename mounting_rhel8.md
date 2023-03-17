@@ -90,7 +90,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages. Use the following command to install the packages.
 
-```zsh
+```sh
 sudo dnf -y install iscsi-initiator-utils device-mapper-multipath
 ```
 {: pre}
@@ -107,14 +107,14 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
 
 1. Enter the mpathconf command with the `--enable` option.
-   ```zsh
+   ```sh
    # mpathconf --enable --user_friendly_names n
    ```
    {: pre}
 
 2. Edit the `/etc/multipath.conf` file with the following minimum configuration.
 
-   ```zsh
+   ```sh
    defaults {
    user_friendly_names no
    max_fds max
@@ -153,7 +153,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Issue the following command.
-   ```zsh
+   ```sh
    systemctl start multipathd.service
    ```
    {: pre}
@@ -169,7 +169,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
-```zsh
+```sh
 InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
@@ -208,7 +208,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    If the IP address information and access details are displayed, then the discovery is successful.
 
 2. Log in to the iSCSI array.
-   ```zsh
+   ```sh
    iscsiadm -m node --login
    ```
    {: pre}
@@ -218,13 +218,13 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
 {: step}
 
 1. Validate that the iSCSI session is established.
-   ```zsh
+   ```sh
    iscsiadm -m session -o show
    ```
    {: pre}
 
 2. Validate that multiple paths exist.
-   ```zsh
+   ```sh
    multipath -l
    ```
    {: pre}
@@ -234,13 +234,13 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
 3. List the partition tables for the connected device.
-   ```zsh
+   ```sh
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
 
    By default the storage device attaches to `/dev/mapper/<wwid>`. WWID is persistent while the volume exists. The command reports something similar to the following example.
-   ```zsh
+   ```sh
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
@@ -260,7 +260,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 {: #fdiskrhel}
 
 1. Get the disk name.
-   ```zsh
+   ```sh
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
@@ -269,7 +269,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 2. Create a partition on the disk.
 
-   ```zsh
+   ```sh
    fdisk /dev/mapper/XXX
    ```
    {: pre}
@@ -281,7 +281,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 3. Create a file system on the new partition.
 
-   ```zsh
+   ```sh
    fdisk –l /dev/mapper/XXX
    ```
    {: pre}
@@ -290,7 +290,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
    - Create the file system:
 
-     ```zsh
+     ```sh
      mkfs.ext3 /dev/mapper/XXXp1
      ```
      {: pre}
@@ -298,19 +298,19 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 4. Create a mount point for the file system, and mount it.
    - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-     ```zsh
+     ```sh
      mkdir /PerfDisk
      ```
      {: pre}
 
    - Mount the storage with the partition name.
-     ```zsh
+     ```sh
      mount /dev/mapper/XXXp1 /PerfDisk
      ```
      {: pre}
 
    - Check that you see your new file system listed.
-     ```zsh
+     ```sh
      df -h
      ```
      {: pre}
@@ -318,7 +318,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
-     ```zsh
+     ```sh
      /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
@@ -327,7 +327,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 {: #partedrhel}
 
 On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it by issuing the following command.
-```zsh
+```sh
 # dnf install parted
 ```
 {: pre}
@@ -336,7 +336,7 @@ To create a file system with `parted`, follow these steps.
 
 1. Start the interactive parted shell.
 
-   ```zsh
+   ```sh
    parted
    ```
    {: pre}
@@ -344,28 +344,28 @@ To create a file system with `parted`, follow these steps.
 2. Create a partition on the disk.
    1. Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
 
-      ```zsh
+      ```sh
       select /dev/mapper/XXX
       ```
       {: pre}
 
    2. Run `print` to confirm that you are on the right disk.
 
-      ```zsh
+      ```sh
       print
       ```
       {: pre}
 
    3. Create a GPT partition table.
 
-      ```zsh
+      ```sh
       mklabel gpt
       ```
       {: pre}
 
    4. `Parted` can be used to create primary and logical disk partitions, the steps that are involved are the same. To create a partition, `parted` uses `mkpart`. You can give it other parameters like **primary** or **logical** depending on the partition type that you want to create.
 
-       ```zsh
+       ```sh
        mkpart
        ```
        {: pre}
@@ -375,14 +375,14 @@ To create a file system with `parted`, follow these steps.
 
    5. Exit `parted` with `quit`.
 
-      ```zsh
+      ```sh
       quit
       ```
       {: pre}
 
 3. Create a file system on the new partition.
 
-   ```zsh
+   ```sh
    mkfs.ext3 /dev/mapper/XXXp1
    ```
    {: pre}
@@ -393,21 +393,21 @@ To create a file system with `parted`, follow these steps.
 4. Create a mount point for the file system and mount it.
    - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-   ```zsh
+   ```sh
    mkdir /PerfDisk
    ```
    {: pre}
 
    - Mount the storage with the partition name.
 
-   ```zsh
+   ```sh
    mount /dev/mapper/XXXp1 /PerfDisk
    ```
    {: pre}
 
    - Check that you see your new file system listed.
 
-   ```zsh
+   ```sh
    df -h
    ```
    {: pre}
@@ -415,7 +415,7 @@ To create a file system with `parted`, follow these steps.
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
-   ```zsh
+   ```sh
    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
    ```
    {: pre}

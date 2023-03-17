@@ -92,19 +92,19 @@ Ensure that your system is updated and includes the `iscsi-initiator-utils` and 
 
 1. Use the following command to install the packages.
 
-    ```zsh
+    ```sh
     yum install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
 
 2. Start the services.
 
-    ```zsh
+    ```sh
     chkconfig multipathd on
     ```
     {: pre}
 
-    ```zsh
+    ```sh
     chkconfig iscsid on
     ```
     {: pre}
@@ -121,14 +121,14 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
 
 1. Enter the `mpathconf` command with the `--enable` option.
-    ```zsh
+    ```sh
     # mpathconf --enable --user_friendly_names n
     ```
     {: pre}
 
 2. Edit the `/etc/multipath.conf` file with the following minimum configuration.
 
-   ```zsh
+   ```sh
    defaults {
    user_friendly_names no
    max_fds max
@@ -167,7 +167,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Run the following command:
-   ```zsh
+   ```sh
    # systemctl start multipathd.service
    ```
 
@@ -180,7 +180,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
-```zsh
+```sh
 InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
@@ -211,7 +211,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 The iscsiadm utility is a command-line tool aids the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
-   ```zsh
+   ```sh
    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
@@ -219,7 +219,7 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
    If the IP information and access details are displayed, then the discovery is successful.
 
 2. Log in to the iSCSI array.
-   ```zsh
+   ```sh
    iscsiadm -m node --login
    ```
    {: pre}
@@ -229,13 +229,13 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
 {: step}
 
 1. Validate that the iSCSI session is established.
-   ```zsh
+   ```sh
    iscsiadm -m session -o show
    ```
    {: pre}
 
 2. Validate that multiple paths exist.
-   ```zsh
+   ```sh
    multipath -l
    ```
    {: pre}
@@ -245,7 +245,7 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
 3. List the partition tables for the connected device.
-    ```zsh
+    ```sh
     fdisk -l | grep /dev/mapper
     ```
     {: pre}
@@ -271,7 +271,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 {: #fdiskclin8}
 
 1. Get the disk name.
-   ```zsh
+   ```sh
    fdisk -l | grep /dev/mapper
    ```
    {: pre}
@@ -280,7 +280,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 2. Create a partition on the disk.
 
-   ```zsh
+   ```sh
    fdisk /dev/mapper/XXX
    ```
    {: pre}
@@ -292,7 +292,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 3. Create a file system on the new partition.
 
-    ```zsh
+    ```sh
     fdisk –l /dev/mapper/XXX
     ```
     {: pre}
@@ -301,7 +301,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
     - Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
     - Create the file system:
 
-    ```zsh
+    ```sh
     mkfs.ext3 /dev/mapper/XXXp1
     ```
     {: pre}
@@ -309,21 +309,21 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 4. Create a mount point for the file system, and mount it.
     - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-    ```zsh
+    ```sh
     mkdir /PerfDisk
     ```
     {: pre}
 
     - Mount the storage with the partition name.
 
-    ```zsh
+    ```sh
     mount /dev/mapper/XXXp1 /PerfDisk
     ```
     {: pre}
 
    - Check that you see your new file system listed.
 
-    ```zsh
+    ```sh
     df -h
     ```
     {: pre}
@@ -341,7 +341,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it running the following command.
 
-```zsh
+```sh
 # yum install parted
 ```
 {: pre}
@@ -350,26 +350,26 @@ To create a file system with `parted`, follow these steps.
 
 1. Start the interactive parted shell.
 
-    ```zsh
+    ```sh
     parted
     ```
     {: pre}
 
 2. Create a partition on the disk.
    - Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
-     ```zsh
+     ```sh
      select /dev/mapper/XXX
      ```
      {: pre}
 
    - Run `print` to confirm that you are on the right disk
-     ```zsh
+     ```sh
      print
      ```
      {: pre}
 
    - Create a GPT partition table.
-     ```zsh
+     ```sh
      mklabel gpt
      ```
      {: pre}
@@ -378,20 +378,20 @@ To create a file system with `parted`, follow these steps.
      The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
      {: tip}
 
-     ```zsh
+     ```sh
      mkpart
      ```
      {: pre}
 
    - Exit `parted` with `quit`.
-     ```zsh
+     ```sh
      quit
      ```
      {: pre}
 
 3. Create a file system on the new partition.
 
-     ```zsh
+     ```sh
      mkfs.ext3 /dev/mapper/XXXp1
      ```
      {: pre}
@@ -402,21 +402,21 @@ To create a file system with `parted`, follow these steps.
 4. Create a mount point for the file system and mount it.
     - Create a partition name `PerfDisk` or where you want to mount the file system.
 
-    ```zsh
+    ```sh
     mkdir /PerfDisk
     ```
     {: pre}
 
     - Mount the storage with the partition name.
 
-    ```zsh
+    ```sh
     mount /dev/mapper/XXXp1 /PerfDisk
     ```
     {: pre}
 
     - Check that you see your new file system listed.
 
-    ```zsh
+    ```sh
     df -h
     ```
     {: pre}
@@ -424,7 +424,7 @@ To create a file system with `parted`, follow these steps.
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
     - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
-    ```zsh
+    ```sh
     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
     ```
     {: pre}

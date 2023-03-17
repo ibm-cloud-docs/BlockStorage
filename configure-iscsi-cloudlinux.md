@@ -33,7 +33,7 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 Alternatively, you can authorize the host through the SLCLI.
-```zsh
+```sh
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -46,7 +46,7 @@ Options:
 ```
 {: codeblock}
 
-```zsh
+```sh
 # slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
@@ -68,30 +68,30 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {: #mountingCloudLin}
 
 1. Install the iSCSI and multipath utilities on your host, and activate them.
-   ```zsh
+   ```sh
    yum install iscsi-initiator-utils
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    yum install multipath-tools
 
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    chkconfig multipathd on
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    chkconfig iscsid on
    ```
    {: pre}
 
 2. Create or edit your configuration files.
    - Update your `/etc/multipath.conf`.
-     ```zsh
+     ```sh
      defaults {
         user_friendly_names no
         flush_on_last_del       yes
@@ -125,7 +125,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
    - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the username, and password.
 
-     ```zsh
+     ```sh
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start
      node.startup = automatic
      node.leading_login = No
@@ -143,12 +143,12 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 
 3. Restart `iscsi` and `multipathd` services.
-   ```zsh
+   ```sh
    /etc/init.d/iscsi restart
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    /etc/init.d/multipathd restart
    ```
    {: pre}
@@ -156,45 +156,45 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 4. Discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud_notm}} console.
 
     1. Run the discovery against the iSCSI array.
-       ```zsh
+       ```sh
        # iscsiadm -m discovery -t sendtargets -p "ip-value-from-SL-Portal"
        ```
        {: pre}
 
-       Example output
-       ```zsh
+       The output looks similar to the following example.
+       ```sh
        # iscsiadm -m discovery -t sendtargets -p 161.26.98.105
        161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002
        161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002
        ```
 
     2. Set the host to automatically log in to the iSCSI array.
-       ```zsh
+       ```sh
        # iscsiadm -m node -L automatic
        ```
        {: pre}
 
 5. Verify that the host is logged in to the iSCSI array and maintained its sessions.
-   ```zsh
+   ```sh
    iscsiadm -m session
    ```
    {: pre}
 
-   Example output
-   ```zsh
+   The output looks similar to the following example.
+   ```sh
    tcp: [1] 161.26.98.105:3260,1026 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
    tcp: [2] 161.26.98.108:3260,1029 iqn.1992-08.com.netapp:stfdal1002 (non-flash)
    ```
 
 
 6. Verify that the device is connected.
-   ```zsh
+   ```sh
    fdisk -l
    ```
    {: pre}
 
-   Example output
-   ```zsh
+   The output looks similar to the following example.
+   ```sh
    Disk /dev/sda: 999.7 GB, 999653638144 bytes
    255 heads, 63 sectors/track, 121534 cylinders
    Units = cylinders of 16065 * 512 = 8225280 bytes
@@ -228,13 +228,13 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 7. Verify whether MPIO is configured correctly by listing the devices. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. If the configuration is correct, two NETAPP disks show in the output.
 
-    ```zsh
+    ```sh
     # multipath -l
     ```
     {: pre}
 
-   Example output
-    ```zsh
+   The output looks similar to the following example.
+    ```sh
     root@server:~# multipath -l
     3600a098038304454515d4b6a5a444e35 dm-0 NETAPP,LUN C-Mode
     size=20G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw

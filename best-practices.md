@@ -17,7 +17,7 @@ subcollection: BlockStorage
 Follow our best practices to maximize the performance of your storage, and avoid application downtime.
 {: shortdesc}
 
-## Best practice 1: Clear the path
+## Best practice 1 - Clear the path
 {: #bestpractice1}
 
 To achieve maximum IOPS, adequate network resources need to be in place. 
@@ -33,7 +33,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
      For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. However, when you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
      {: note}
 
-## Best practice 2: Set up multiple paths for redundancy
+## Best practice 2 - Set up multiple paths for redundancy
 {: #bestpractice2}
 
 {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. In fact, the system can lose multiple disks in the cluster simultaneously without degrading customer performance or adverse risk of data loss. Redundant network ports and paths protect against network failures across the cloud connections.
@@ -47,43 +47,43 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
    While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to ensure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
    {: important}
 
-* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
+* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance-tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. Using MS/T and creating multiple TCP connections ensures better usage of the networking stack. It also ensures better performance by using multiple send and receive threads.  
 
    Add persistent iscsi multi-sessions through the iscsiadm CLI.
      1. List existing sessions.
-        ```zsh
+        ```sh
         iscsiadm -m session
         ```
 
      1. Modify the number of sessions by using the following command. This configuration change is persistent when the host is rebooted.
-        ```zsh
+        ```sh
         iscsiadm -m node -T <IQN> -p <IP> --op update -n node.session.nr_sessions -v <TOTAL_SESSION>
         ```
 
         EXAMPLE of adding three more sessions (4 total) to target portal 161.26.115.77:3260.
-        ```zsh
+        ```sh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 --op update -n node.session.nr_sessions -v 4
         ```
 
      1. Log in to the portal to establish the extra sessions.
-        ```zsh
+        ```sh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 -l
         ```
 
      1. List sessions to see the added sessions against the single portal IP.
-        ```zsh
+        ```sh
         iscsiadm -m session
         ```
 
      1. Log out of the iSCSI session by using the session ID in place of the X in the following command.
-        ```zsh
+        ```sh
         iscsiadm -m session -r X -u
         ```
 
-## Best practice 3: Optimize the host and applications
+## Best practice 3 - Optimize the host and applications
 {: #bestpractice3}
 
-* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of these schedulers has their own unique method of scheduling disk access requests.
+* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of the schedulers has their own unique method of scheduling disk access requests.
 
     - **Deadline** is the default I/O scheduler on Red Hat 7.9, and usually it does not need to be changed to a different I/O scheduler. It's latency-oriented scheduler and it works by creating a separate read queue and separate a write queue. Each I/O request has a timestamp that is associated with it to be used by the kernel for an expiration time. While this scheduler also attempts to service the queues based on the most efficient ordering possible, the expiration time acts as a "deadline" for each I/O request. When an I/O request reaches its deadline, it is pushed to the highest priority.
 
@@ -103,4 +103,4 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
     - Throughput is increased by reducing the number of CPU cycles and instructions for packet processing.
     - Jumbo frames provide less opportunity for packets to arrive out of order or to be lost, resulting in fewer retransmissions. Fewer retransmissions mean less time that is spent in TCP recovery. The result is greater throughput.
 
-* **VMware specific best practice for teaming**:  If you plan to use teaming to increase the availability of your network access to the storage array, you must turn off port security on the switch for the two ports on which the virtual IP address is shared. The purpose of this port security setting is to prevent spoofing of IP addresses. Thus, many network administrators enable this setting. If you do not change it, the port security setting prevents failover of the virtual IP from one switch port to another, and teaming cannot fail over from one path to another. For most LAN switches, the port security is enabled on a port level and thus can be set on or off for each port.
+* **Follow VMware specific best practice for teaming**. If you plan to use teaming to increase the availability of your network access to the storage array, you must turn off port security on the switch for the two ports on which the virtual IP address is shared. The purpose of this port security setting is to prevent spoofing of IP addresses. Thus, many network administrators enable this setting. If you do not change it, the port security setting prevents failover of the virtual IP from one switch port to another, and teaming cannot fail over from one path to another. For most LAN switches, the port security is enabled on a port level and thus can be set on or off for each port.

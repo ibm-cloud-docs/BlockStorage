@@ -17,8 +17,7 @@ subcollection: BlockStorage
 To create snapshots of your storage volume, either automated or manually, you need to purchase space to hold them. You can purchase snapshot capacity during the initial volume purchase or later by using these steps.
 {: shortdesc}
 
-Snapshots are available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}. Provisioning storage and snapshots in closing data centers is not allowed.
-{: note}
+Snapshots are available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).  
 
 ## Determining how much snapshot space to order
 {: #determinesnapshotspace}

@@ -18,7 +18,7 @@ subcollection: BlockStorage
 
 By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process, you can increase the number of volumes that you can provision.
 
-For more information about increasing your storage volume capacity beyond 12 TB, see [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacityover12TB).
+For more information about increasing your storage volume capacity beyond 12 TB, see [expanding {{site.data.keyword.blockstorageshort}} capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity#increasecapacityover12TB).
 
 ## Confirming your current limit and provisioning count from the CLI
 {: #confirmblocklimitscli}
@@ -35,8 +35,8 @@ You can list the number of your volumes by using the [volume-limits](https://sof
 # slcli block volume-limits
 ```
 
-Example output:
-```zsh
+The output looks similar to the following example.
+```sh
 [{'datacenterName': 'global', 'maximumAvailableCount': 700, 'provisioned Count':117}]
 :............:.......................:..................:
 : Datacenter : maximumAvailableCount : ProvisionedCount :

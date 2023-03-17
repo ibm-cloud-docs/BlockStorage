@@ -23,7 +23,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 1. In the command line, run `multipath -ll` and look at the output.
 
-   ```zsh
+   ```sh
    root@server:~# multipath -l
    3600a098038303845372b4a5232346e35 dm-0 NETAPP ,LUN C-Mode
    size=12T features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='1 alua' wp=rw
@@ -39,7 +39,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 2. Enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
 
-   ```zsh
+   ```sh
    $ ibmcloud sl block volume-list
    id       username          datacenter storage_type              capacity_gb bytes_used lunId
    20973781 IBM02SEL1575811-1 dal09      endurance_block_storage   100           -          3
@@ -48,7 +48,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    24024217 IBM02SEL1575811-5 seo01      performance_block_storage 2000          -          2
    ```
 
-   ```zsh
+   ```sh
    $ ibmcloud sl block volume-detail 22030583
    Name                       Value
    ID                         22030583
@@ -75,7 +75,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 3. You can further confirm this information by using the following command `iscsiadm -m session -P 3`.
 
-   ```zsh
+   ```sh
    # iscsiadm -m session -P 3
    iSCSI Transport Class version 2.0-870
    version 6.2.0.874-7
@@ -195,14 +195,14 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 2. Then, enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
 
-   ```zsh
+   ```sh
    $ ibmcloud sl block volume-list
    id        username           datacenter storage_type            capacity_gb bytes_used lunId
    333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200         -          0
    333506786 SL02SEL1160157-222 tok02      endurance_block_storage 200         -          0
    ```
 
-   ```zsh
+   ```sh
    $ ibmcloud sl block volume-detail 333506786
    Name                       Value
    ID                         333506786
@@ -269,7 +269,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    Issue the command `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
 
-   ```zsh
+   ```sh
    $ ibmcloud sl block volume-detail 333280508
    Name                       Value
    ID                         333280508

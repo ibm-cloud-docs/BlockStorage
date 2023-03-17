@@ -29,7 +29,7 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to iSCSI LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
 
 4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
-   ```zsh
+   ```sh
    rsync -azv /backup/* /backup2/
    ```
    {: pre}

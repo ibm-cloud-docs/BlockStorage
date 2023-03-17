@@ -64,7 +64,7 @@ If the volume has replication in place, the replica is automatically updated to 
 {: cli}
 
 By using the following command, you can adjust the IOPS through the SLCLI.
-```zsh
+```sh
 # slcli block volume-modify --help
 Usage: slcli block volume-modify [OPTIONS] VOLUME_ID
 
@@ -111,7 +111,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Adjust IOPS on Performance storage volume.
 
-   ```zsh
+   ```sh
    <?xml version="1.0" encoding="UTF-8"?>
    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>
@@ -146,7 +146,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Adjust IOPS on Endurance storage volume.
 
-   ```zsh
+   ```sh
    <?xml version="1.0" encoding="UTF-8"?>
    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>

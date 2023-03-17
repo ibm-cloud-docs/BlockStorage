@@ -95,7 +95,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 - Install `open-iscsi`.
 
-    ```zsh
+    ```sh
     apt-get install open-iscsi
     ```
     {: pre}
@@ -109,7 +109,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 - Install `multipath-tools`.
 
-    ```zsh
+    ```sh
     apt install multipath-tools
     systemctl restart multipathd
     ```
@@ -121,14 +121,14 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 {: step}
 
 1. After you installed the multipath utility, find the location of the default multipath configuration file by issuing the following command.
-    ```zsh
+    ```sh
     multipath -t
     ```
     {: pre}
 
 2. Modify the default values of `multipath.conf`.
 
-    ```zsh
+    ```sh
     defaults {
     user_friendly_names no
     max_fds max
@@ -170,7 +170,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Start the multipath service.
-   ```zsh
+   ```sh
    systemctl restart multipathd
    ```
    {: pre}
@@ -184,7 +184,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 
 Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
-```zsh
+```sh
 InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
@@ -211,7 +211,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 
 Restart the iscsi service for the changes to take effect.
 
-```zsh
+```sh
 systemctl restart iscsid.service
 ```
 {: pre}
@@ -223,7 +223,7 @@ systemctl restart iscsid.service
 The iscsiadm utility is a command-line tool that handles the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
-   ```zsh
+   ```sh
    sudo iscsiadm -m discovery -I iscsi01 --op=new --op=del --type sendtargets --portal <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
@@ -231,23 +231,23 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
    If the IP information and access details are displayed, then the discovery is successful.
 
 2. Configure automatic login.
-   ```zsh
+   ```sh
    sudo iscsiadm -m node --op=update -n node.conn[0].startup -v automatic
    sudo iscsiadm -m node --op=update -n node.startup -v automatic
    ```
 3. Enable the necessary services.
-   ```zsh
+   ```sh
    systemctl enable open-iscsi
    systemctl enable iscsid
    ```
 
 4. Restart the iscsid service.
-   ```zsh
+   ```sh
    systemctl restart iscsid.service
    ```
 
 5. Log in to the iSCSI array.
-   ```zsh
+   ```sh
    sudo iscsiadm -m node --loginall=automatic
    ```
    {: pre}
@@ -258,13 +258,13 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
 {: step}
 
 1. Validate that the iSCSI session is established.
-   ```zsh
+   ```sh
    iscsiadm -m session -o show
    ```
    {: pre}
 
 2. Validate that multiple paths exist.
-   ```zsh
+   ```sh
    multipath -ll
    ```
    {: pre}
@@ -293,7 +293,7 @@ The iscsiadm utility is a command-line tool that handles the discovery and login
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks are detected.
-   ```zsh
+   ```sh
    dmesg
    ```
    {: pre}
@@ -354,11 +354,11 @@ After the volume is mounted and accessible on the host, you can create a file sy
    ```
 
 3. Mount the block device.
-   ```zsh
+   ```sh
    sudo mount /dev/mapper/mpatha-part1 /mnt
    ```
 
 4. Access the data to confirm that the new partition and file system are ready for use.
-   ```zsh
+   ```sh
    ls /mnt
    ```

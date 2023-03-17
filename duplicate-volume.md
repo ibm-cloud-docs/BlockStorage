@@ -23,8 +23,7 @@ If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
 {: important}
 
-This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC). As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}. Provisioning storage and snapshots in closing data centers is not allowed.
-{: note}
+This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).  
 
 ## Types of duplicate volumes
 {: #duplicatetype}
@@ -34,7 +33,9 @@ This feature is available in most locations. For more information, see [the list
 
 Independent duplicates can be created from both **primary** and **replica** volumes. The duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the duplicate volume is created in the same data center as the replica volume.
 
-Common uses for an independent duplicate volume:
+#### Common uses for an independent duplicate volume
+{: #independent_usecase}
+
 - **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
@@ -44,17 +45,13 @@ Common uses for an independent duplicate volume:
 
 Dependent duplicate volumes are created by using a snapshot from the primary volume. Replica volumes cannot be used to create or update dependent duplicates.
 
-Common uses for a dependent duplicate volume:
+#### Common uses for a dependent duplicate volume
+{: #dependent_usecase}
+
 - **Disaster Recovery Testing**. Create a duplicate of your source volume and compare it to the replica. By comparing the duplicate to the replica you can verify that the data that is being replicated is intact and can be used if a disaster occurs, without interrupting the replication.
 - **Restore from Snapshot**. Restore data on the original volume with specific files and date from a snapshot without overwriting the entire original volume with the snapshot restore function.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
-
-All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
-
-Dependent duplicate can be refreshed from new snapshots of the parent volume manually immediately after their creation. The dependent duplicate volume locks the original snapshot so the snapshot cannot be deleted while the dependent duplicate exists.
-
-However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
 
 ## Creating a duplicate volume in the UI
 {: #cloneLUNinUI}
@@ -189,9 +186,9 @@ For more information about available command options, see [`block volume-duplica
 
 To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call. The following REST API example creates an independent duplicate for an Endurance (IOPS tiers) volume.
 
-- URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
-- Type: POST
-- Request body:
+- URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
+- Type - POST
+- Request body -
    ```js
    {
        "parameters":[{
@@ -213,9 +210,9 @@ To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} vo
 
 To order a **dependent duplicate** for a Performance (custom IOPS) volume, make a `POST /SoftLayer_Product_Order/placeOrder` call like the following REST API example.
 
-- URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
-- Type: POST
-- Request body:
+- URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
+- Type - POST
+- Request body -
    ```js
    {
        "parameters":[{
@@ -241,9 +238,16 @@ For more information about the API and the options, see the [API Reference](http
 ## Managing your duplicate volume
 {: #manageduplicatevol}
 
+All duplicate volumes can be accessed by a host for read and write operations as soon as the volume is provisioned.
+
+However, snapshots and replication of independent duplicate volumes aren't allowed until the data copy from the original to the duplicate is complete and the duplicate volume is fully independent. Depending on the size of the data, the separation process can take several hours. When it's complete, the duplicate can be managed and used as an independent volume.
+
 While data is being copied from the original volume to the **independent** duplicate, you can see that the status indicator on the details page shows the duplication is in progress. During this time, you can attach to a host, and read and write to the volume, but you can't create snapshot schedules or initiate a refresh. When the separation process is complete, the new volume is independent from the original, and can be managed with snapshots and replication as normal. After the conversion is complete, the independent volume can be manually refreshed by using a snapshot from the parent volume.
 
 **Dependent** duplicates do not go through the separation process and can be refreshed manually at any time. The refresh process can be initiated from the CLI, with the API and in the UI. Later, if you want to convert the dependent duplicate into an independent volume, you can initiate that process by using the UI, the CLI, or the API, too.
+
+The dependent duplicate volume locks the original snapshot so the snapshot cannot be deleted while the dependent duplicate exists.
+{: note}
 
 ## Updating data on the duplicate from the parent volume in the UI
 {: #refreshindependentvol_ui}
@@ -291,7 +295,7 @@ slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
-The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the`--force-refresh` option to stop all ongoing and pending refresh transactions, and initiate a new refresh. 
+The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the `--force-refresh` option to stop all ongoing and pending refresh transactions, and initiate a new refresh. 
 
 The force refresh process works only on independent volumes.
 {: note}
@@ -342,9 +346,9 @@ The force refresh process works only on independent volumes.
 ### REST API example
 {: #refreshindependentvol_rest}
 
-- URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/duplicateVolumeId/refreshDuplicate`
-- Type: POST
-- Request body:
+- URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/duplicateVolumeId/refreshDuplicate`
+- Type - POST
+- Request body -
    ```js
    {
     "parameters": [primaryVolumeSnapshotId, true OR false]
@@ -355,9 +359,9 @@ The force refresh process works only on independent volumes.
 ### SOAP API example
 {: #refreshindependentvol_soap}
 
-- URL: `https://api.softlayer.com/soap/v3.1/SoftLayer_Network_Storage`
-- Type: POST
-- Request body:
+- URL - `https://api.softlayer.com/soap/v3.1/SoftLayer_Network_Storage`
+- Type - POST
+- Request body -
    ```js
    <?xml version="1.0" encoding="UTF-8"?>
    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/">
@@ -388,9 +392,9 @@ For more information about the API and the options, see the [API Reference](http
 
 If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume with the API. See the following example that uses the REST API.
 
-- URL: `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/<storageId>/convertCloneDependentToIndependent`
-- Type: POST
-- Request body: blank
+- URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/<storageId>/convertCloneDependentToIndependent`
+- Type - POST
+- Request body - blank
 
 For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
 
