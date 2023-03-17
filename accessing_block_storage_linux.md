@@ -471,20 +471,16 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 | Command | Result |
 |-----|-----|
-| `Command: n`| Creates a partition. * |
+| `Command: n`| Creates a partition. |
 | `Command action: p` | Makes the partition the primary one. |
 | `Partition number (1-4): 1` | Becomes partition 1 on the disk. |
 | `First cylinder (1-8877): 1 (default)` | Start at cylinder 1. |
 | `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Press Enter to go to the last cylinder. |
-| `Command: t` | Sets up the type of partition. * |
+| `Command: t` | Sets up the type of partition. |
 | `Select partition 1.` | Selects partition 1 to be set up as a specific type. |
-| `Hex code: 83` | Selects Linux&reg; as the Type (83 is the hex code for Linux&reg;). ** |
-| `Command: w` | Writes the new partition information to the disk. ** |
-{: caption="Table 1 - The `fdisk` command table contains commands on the left and expected results on the right." caption-side="top"}
-
-(`*`) Type m for Help.
-
-(`**`) Type L to list the hex codes.
+| `Hex code: 83` | Selects Linux&reg; as the Type (83 is the hex code for Linux&reg;). |
+| `Command: w` | Writes the new partition information to the disk. |
+{: caption="Table 1. The `fdisk` command table contains commands on the left and expected results on the right." caption-side="top"}
 
 ### Creating a file system with `parted`
 {: #parted}
