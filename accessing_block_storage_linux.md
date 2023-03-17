@@ -18,11 +18,11 @@ subcollection: BlockStorage
 These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were added, but this documentation does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating systems, refer to the documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
 {: note}
 
-For example, for more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+For more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 {: tip}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
-{: important}
+{: requirement}
 
 ## Authorizing the host
 {: #authhostlin}
@@ -623,7 +623,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-   - Example output of a correct configuration.
+   - The following example output shows a correct configuration.
 
     ```zsh
     root@server:~# fdisk -l | grep Disk
@@ -635,7 +635,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
     The WWID is included in the device name that the multipath creates. The WWID should be used by your application.
 
-   - Example output of an incorrect configuration. The`/dev/mapper` disk does not exist.
+   - The following example output shows incorrect configuration. The `/dev/mapper` disk does not exist.
 
     ```zsh
     root@server:~# fdisk -l | grep Disk
