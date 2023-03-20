@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2022-03-08"
+lastupdated: "2023-03-20"
 
 keywords: Block Storage, block storage, ISCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is high priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.blockstoragefull}}, it's durable, highly available, and encrypted.
 {: shortdesc}
 
-| Storage type | Use Case | Durability | Availability | Encryption |
+| Storage type | Purpose | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
 | Classic Endurance - \n 0.25 IOPS per GB tier  |  It is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption at rest.|
 | Classic Endurance - \n 2 IOPS per GB tier | It is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.| 99.999999999%  \n (11 9's) | 99.999%  \n (5 9's) | Provider-managed AES-256 encryption at rest. |
@@ -43,7 +43,7 @@ The 11 nines durability target applies to a single Availability Zone. To protect
 ## High Availability
 {: #storavailability}
 
-{{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. As mentioned previously, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. Redundant network ports and paths protect against network failures across the cloud connections.
+{{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. The data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. Redundant network ports and paths protect against network failures across the cloud connections.
 
 ## Encryption
 {: #storencryption}
