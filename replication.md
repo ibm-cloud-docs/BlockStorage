@@ -46,7 +46,7 @@ Data centers in US 1 region can replicate with only each other. Compute hosts in
 {: #determinereplocationCLI}
 {: cli}
 
-{{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+{{site.data.keyword.cloud}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
 To list suitable replication data centers for a specific volume, use the following command.
 ```python
