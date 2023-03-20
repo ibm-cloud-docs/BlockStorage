@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2023-02-15"
+lastupdated: "2023-03-20"
 
 keywords: Block Storage, LUN, volume ID,
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Identifying LUNs
 {: #identifyLUN}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes, and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
