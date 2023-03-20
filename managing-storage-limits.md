@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2022
-lastupdated: "2022-09-27"
+  years: 2014, 2023
+lastupdated: "2023-03-20"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -88,16 +88,16 @@ In the case, provide the following information:
    *For example, your answer might be something similar to a new VMware&reg; datastore, a new development and testing (dev/test) environment, an SQL database, or logging.*
 
 - **How many extra Block volumes are needed by type, size, IOPS, and location?**
-   *For example, your answer might be something similar to "25x Endurance 2 TB @ 4 IOPS in DAL09" or "25x Performance 4 TB @ 2 IOPS in WDC04".*
+   *For example, your answer might be "25x Endurance 2 TB @ 4 IOPS in DAL09" or "25x Performance 4 TB @ 2 IOPS in WDC04".*
 
 - **How many extra File volumes are needed by type, size, IOPS, and location?**
-   *For example, your answer might be something similar to "25x Performance 20 GB @ 10 IOPS in DAL09" or "50x Endurance 2 TB @ 0.25 IOPS in SJC03".*
+   *For example, your answer might be "25x Performance 20 GB @ 10 IOPS in DAL09" or "50x Endurance 2 TB @ 0.25 IOPS in SJC03".*
 
 - **Provide an estimate of when you expect or plan to provision all of the requested volume increase.**
-   *For example, your answer might be something similar to "90 days".*
+   *For example, your answer might be "90 days".*
 
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.**
-   *For example, your answer might be something similar to "expect 25 percent to be used in 30 days, 50 percent to be used in 60 days and 75 percent to be used in 90 days".*
+   *For example, your answer might be "expect 25 percent to be used in 30 days, 50 percent to be used in 60 days and 75 percent to be used in 90 days".*
 
 Respond to all questions and statements in your request. They are required for processing and approval.
 {: important}
