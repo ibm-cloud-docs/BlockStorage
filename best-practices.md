@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-03-20"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -40,7 +40,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Do not run iSCSI traffic over 802.3ad LACP port channel.** Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI.
 
-* **Use multi-path input/output (MPIO) framework for I/O balancing and redundancy.** MPIO is a framework to configure load balancing and failover processes for connections to storage devices. Multipathing solutions use redundant physical path components like adapters, cables, and network switches, to create logical paths between the server and the storage device. As mentioned before, each storage node has multiple paths to the SSD drives and the host needs a way to spread the I/O load between the paths and handle internal failover from one path to the next. This situation is where MPIO comes into play, servers would see multiple instances of the same disk without MPIO.
+* **Use multi-path input/output (MPIO) framework for I/O balancing and redundancy.** MPIO is a framework to configure load balancing and failover processes for connections to storage devices. Multipathing solutions use redundant physical path components like adapters, cables, and network switches, to create logical paths between the server and the storage device. Eeach storage node has multiple paths to the SSD drives and the host needs a way to spread the I/O load between the paths and handle internal failover from one path to the next. This situation is where MPIO comes into play, servers would see multiple instances of the same disk without MPIO.
 
    With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This configuration provides redundancy that can ensure that the storage traffic remains steady even if one or more of network components fail, causing the path to fail. The multipathing logic uses an alternative path for I/O so that applications can still access their data. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
@@ -60,7 +60,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
         iscsiadm -m node -T <IQN> -p <IP> --op update -n node.session.nr_sessions -v <TOTAL_SESSION>
         ```
 
-        EXAMPLE of adding three more sessions (4 total) to target portal 161.26.115.77:3260.
+        The following example shows adding three more sessions (four in total) to target portal 161.26.115.77:3260.
         ```sh
         iscsiadm -m node -T iqn.1992-08.com.netapp:stfdal1306 -p 161.26.115.77:3260 --op update -n node.session.nr_sessions -v 4
         ```
@@ -83,17 +83,17 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 ## Best practice 3 - Optimize the host and applications
 {: #bestpractice3}
 
-* **Use the right i/o scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of the schedulers has their own unique method of scheduling disk access requests.
+* **Use the right I/O scheduler**. I/O schedulers help to optimize disk access requests. They traditionally achieve optimization by merging I/O requests. By grouping requests at similar sections of disk, the drive doesn't need to "seek" as often, improving the overall response time for disk operations. On modern Linux implementations, several I/O scheduler options are available. Each of the schedulers has their own unique method of scheduling disk access requests.
 
     - **Deadline** is the default I/O scheduler on Red Hat 7.9, and usually it does not need to be changed to a different I/O scheduler. It's latency-oriented scheduler and it works by creating a separate read queue and separate a write queue. Each I/O request has a timestamp that is associated with it to be used by the kernel for an expiration time. While this scheduler also attempts to service the queues based on the most efficient ordering possible, the expiration time acts as a "deadline" for each I/O request. When an I/O request reaches its deadline, it is pushed to the highest priority.
 
     - **No Operation (NOOP)** is a basic scheduler that passes down the I/O that comes to it. This scheduler places all I/O requests into a FIFO (First in, First Out) queue. It's a useful tool for checking whether complex I/O scheduling decisions of other schedulers are causing I/O performance regressions. This scheduler is recommended for setups with devices that do I/O scheduling themselves, such as intelligent storage or in multipathing environments. If you choose a more complicated scheduler on the host, the scheduler of the host and the scheduler of the storage device can compete with each other and decrease performance. The storage device can usually determine best how to schedule I/O. For more information about how to check and configure the I/O scheduler, see Red Hat's [How to use the NOOP or None IO Schedulers](https://access.redhat.com/solutions/109223){: external}.
 
-    - **Completely fair queuing (CFQ)** uses both elevators and request merging, and it is a bit more complex than the NOOP or deadline schedulers. It's the standard scheduler for many Linux distributions. It groups simultaneous requests that are made by operations into a series of per-process pools before it allocates timeslices to use the disk for every queue.
+    - **Completely fair queuing (CFQ)** uses both elevators and request merging, and it is a bit more complex than the NOOP or deadline schedulers. It's the standard scheduler for many Linux distributions. It groups simultaneous requests that are made by operations into a series of per-process pools before it allocates time slices to use the disk for every queue.
 
    If your work load is dominated by interactive applications, the users might complain of sluggish performance of databases with many I/O operations. In such environments, read operations happen significantly more often than write operations, and applications are more likely to be waiting to read data. You can check the default IO scheduler settings and try different schedulers to ensure optimization for your specific workload.
 
-* **Tune the I/O queue depth**. Change `/etc/iscsi/iscsid.conf node.session.queue_depth` from the default 32 to 64. Most host bus adapters (HBA) have a default queue depth of around 32, which is usually enough to generate up to the target maximum IOPS. If you have only one path to the LUN, then that's the maximum possible number of IOPS. However, the same LUN with 2 or more sessions would be able to push more I/O's per second of storage throughput to the target LUN. The flip-side of increasing i/o depth is that it adds more latency. To counteract the latency, enable Jumbo Frames. For more information about host queue depth recommendations, see [Adjusting Host Queue settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings).
+* **Tune the I/O queue depth**. Change `/etc/iscsi/iscsid.conf node.session.queue_depth` from the default 32 to 64. Most host bus adapters (HBA) have a default queue depth of around 32, which is usually enough to generate up to the target maximum IOPS. If you have only one path to the LUN, then that's the maximum number of IOPS. However, the same LUN with 2 or more sessions would be able to push more I/O's per second of storage throughput to the target LUN. The flip-side of increasing I/O depth is that it adds more latency. To counteract the latency, enable Jumbo Frames. For more information about host queue depth recommendations, see [Adjusting Host Queue settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings).
 
 * **[Enable Jumbo Frames](/docs/BlockStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device <-> switch <-> router <-> switch <-> target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value.
 

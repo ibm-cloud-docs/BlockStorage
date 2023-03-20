@@ -119,7 +119,7 @@ A list of retained snapshots and space that is used can be seen on the **{{site.
 
 You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
-- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. If you heed the warning and manually add space, or delete retained and unnecessary snapshots, or reduce the number of retained snapshots in the schedule, the system is reset and no autodeletion occurs.
+- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
 - At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
 - At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
@@ -145,7 +145,7 @@ Options:
 
 Notifications are sent when you reach three different space thresholds – 75 percent, 90 percent, and 95 percent.
 
-- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. If you heed the warning and manually add space, or delete retained and unnecessary snapshots, or reduce the number of retained snapshots in the schedule, the system is reset and no autodeletion occurs.
+- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
 - At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
 - At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
@@ -180,18 +180,18 @@ Options:
 {: #changesnapshotspaceUI}
 {: ui}
 
-You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space. You can add 5 - 4,000 GB depending on your needs.
+You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space.
 
 Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Remember, automated, and manual snapshots share the space.
 {: note}
 
 Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Click your storage volume, click **Actions**, and click **Add Snapshot Space**/**Change Snapshot Space**.
+1. Click your storage volume, click **Actions**, and click **Change Snapshot Space**.
 2. Select from a range of sizes from the prompt. Sizes typically range from 0 to the size of your volume.
 3. Click **Continue**.
 4. Enter any Promo Code that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
-5. Click the **I have read the…** checkbox and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
+5. Read the service agreement, and if you agree with the terms click checkbox, and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
 
 ## Deleting a snapshot schedule in the UI
 {: #cancelnapshotscheduleUI}
@@ -199,8 +199,10 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 
 Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
-1. Click the schedule to be deleted in the **Snapshot Schedules** section on the **{{site.data.keyword.blockstorageshort}} Detail** page.
-2. Click the checkbox next to the schedule to be deleted so it becomes empty. Then, click **Save**.
+1. Click the volume ID to display its related information.
+1. Click Snapshots.
+1. Click the schedule to be deleted in the **Snapshot Schedules** frame.
+1. Click the checkbox next to the schedule to be deleted and click **Save**.
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
@@ -210,7 +212,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 {: cli}
 
 You can accomplish this task by using the following command.
-```python
+```sh
 # slcli block snapshot-disable --help
 Usage: slcli block snapshot-disable [OPTIONS] VOLUME_ID
 
@@ -232,7 +234,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. Deletion is done through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 
 1. Click your storage volume and click **Snapshot** to see the list of existing snapshots.
-2. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as snapshots do not depend on each other.
+2. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as snapshots don't depend on each other.
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 
@@ -241,7 +243,8 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 {: cli}
 
 Snapshots that are no longer needed can be manually removed to free up space for future snapshots. You can delete a snapshot from the SLCLI by using the following command.
-```python
+
+```sh
 # slcli block snapshot-delete
 Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
 
@@ -259,22 +262,20 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
-Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
-{: important}
-
 1. Unmount and detach your storage volume from the host.
    - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
    - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
-2. Click **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-3. Scroll down and click your volume to be restored. The **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page displays the list of all saved snapshots along with their size and creation date.
+2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
+3. Scroll on the list, and click your volume to be restored. The **Snapshots** page displays the list of all saved snapshots along with their size and creation date.
 4. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")next to the snapshot to be used and click **Restore**.
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
 
-5. Click **Yes** to start the restore.
+5. Click **Yes** to start the restore.  The restore is going to take a while, and your storage volume is locked during the restore.
 
-   Expect a message across the page that states that the volume is being restored by using the selected snapshot. Additionally, an icon appears next to your volume on the {{site.data.keyword.blockstorageshort}} that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
+   When you return to the volume list, a clock icon appears next to your volume that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {: note}
 
 6. Mount and reattach your storage volume to the host.
@@ -292,7 +293,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption. First, unmount your volume.
 
 Then, you can restore the volume with a snapshot from the SLCLI by using the following command.
-```python
+```sh
 # slcli block snapshot-restore --help
 Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
 
@@ -303,7 +304,7 @@ Options:
 ```
 {: codeblock}
 
-After the restore is complete, mount and reattach your storage volume to the host.
+Lastly, mount and reattach your storage volume to the host.
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-03-20"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 {: faq}
 {: support}
 
-The default limit for the number of authorizations per block volume is eight. That means that up to 8 hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 
 Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
 {: important}
@@ -204,7 +204,7 @@ To enact this best practice, complete the following steps.
    * In VMware&reg;, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 5. Add a new persistent static route on the host to the target iSCSI subnet.
 6. Ensure that the IP for the newly added interface is added to the host authorization list.
-7. Perform discovery/target portal login as described in the following topics.
+7. Perform discovery and target portal login as described in the following topics.
    - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -340,7 +340,7 @@ If MPIO is configured right, then when an unplanned disruption or a planned main
 - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 - [Verifying MPIO on MS Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
-In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see only one path. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+On very rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
@@ -354,7 +354,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
-3. Click Action > Rescan Disks. This can take up to 5 minutes or more to finish. The additional capacity displays as an deallocated partition on the existing Disk.
+3. Click Action > Rescan Disks. This process can take up to 5 minutes or more to finish. The additional capacity displays as a deallocated partition on the existing Disk.
 4. Partition the deallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
@@ -605,7 +605,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage", and you have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that reside in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage". You may also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that reside in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
@@ -623,7 +623,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #identifyLUNfaq}
 {: faq}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes and you want to detach and decommission one of them but you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server and you want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage that you want to expand to do that. For OS-specific instructions, click one of the following links.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
@@ -651,7 +651,7 @@ Replication keeps your data in sync in two different locations. Only one of the 
 
 Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume. You can adjust the IOPS or increase the volume size of the duplicate without any effect on the parent volume.
 
-- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it is created. It keeps the original snapshot locked so that snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you must either cancel the dependent duplicate first or convert it to an independent duplicate.
+- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it is created. The system locks the original snapshot so that snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you must either cancel the dependent duplicate first or convert it to an independent duplicate.
 
 - An independent duplicate is superior to the dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It can take up to several hours based on the size of the volume. For example, it might take up to a day for a 12-TB volume. However, after the separation process is complete, the data can be manually refreshed by using another snapshot of the original parent volume.
 
@@ -687,7 +687,7 @@ The conversion process can take some time to complete. The bigger the volume, th
    slcli block duplicate-convert-status <dependent-vol-id>
    ```
 
-   The output looks similar to the following example.:
+   The output looks similar to the following example.
    ```sh
    slcli block duplicate-convert-status 370597202
    Username            Active Conversion Start Timestamp   Completed Percentage

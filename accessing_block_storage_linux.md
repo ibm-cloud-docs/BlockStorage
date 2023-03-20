@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-03-20"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
@@ -389,7 +389,7 @@ The Host IQN, username, password, and target address that are referenced in the 
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
-   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){: external}.
+   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://manpages.debian.org/unstable/multipath-tools/multipath.conf.5.en.html){: external}.
    {: tip}
 
 The volume is now mounted and accessible on the host. You can create a file system next.
@@ -418,9 +418,6 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    {: pre}
 
    The XXX represents the disk name that is returned in Step 1.
-
-   Scroll further down for the commands codes that are listed in the `fdisk` command table.
-   {: tip}
 
 3. Create a file system on the new partition.
 
@@ -466,21 +463,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      ```
      {: pre}
 
-#### The  `fdisk` command table
-{: #fdiskcommands}
-
-| Command | Result |
-|-----|-----|
-| `Command: n`| Creates a partition. |
-| `Command action: p` | Makes the partition the primary one. |
-| `Partition number (1-4): 1` | Becomes partition 1 on the disk. |
-| `First cylinder (1-8877): 1 (default)` | Start at cylinder 1. |
-| `Last cylinder, +cylinders or +size {K, M, G}: 8877 (default)` | Press Enter to go to the last cylinder. |
-| `Command: t` | Sets up the type of partition. |
-| `Select partition 1.` | Selects partition 1 to be set up as a specific type. |
-| `Hex code: 83` | Selects Linux&reg; as the Type (83 is the hex code for Linux&reg;). |
-| `Command: w` | Writes the new partition information to the disk. |
-{: caption="Table 1. The `fdisk` command table contains commands on the left and expected results on the right." caption-side="top"}
+For more information about available command options, see [fdisk - manipulate disk partition table](https://manpages.ubuntu.com/manpages/xenial/man8/fdisk.8.html){: external}.
 
 ### Creating a file system with `parted`
 {: #parted}
@@ -629,7 +612,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-    The WWID is included in the device name that the multipath creates. The WWID should be used by your application.
+    The WWID is included in the device name that the multipath creates.
 
    - The following example output shows incorrect configuration. The `/dev/mapper` disk does not exist.
 
@@ -646,7 +629,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-* In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see only one path. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+* On very rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes

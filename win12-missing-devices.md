@@ -44,7 +44,7 @@ If you use more than two iSCSI devices with the same host, you might find this p
 9. Click **OK**.
 10. Repeat steps 5-9 for every IP that you entered in the iSCSI Initiator. When you're done, click the **Devices** tab and review the results. Expect to see every LUN that you set up listed twice.
 
-    ![Devices Tab](/images/win12-ts5.svg){: caption="Figure 4. Devices tab." caption-side="bottom"}
+    ![Devices](/images/win12-ts5.svg){: caption="Figure 4. Devices." caption-side="bottom"}
 11. Click **OK**.
 12. Open Disk Manager, and verify that your drives are now showing.
 

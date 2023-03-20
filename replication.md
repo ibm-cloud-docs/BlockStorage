@@ -37,19 +37,17 @@ See Table 1 for the complete list of data center availability and replication ta
 | - DAL05 \n - SJC01 \n - WDC01 | - SJC03 \n - SJC04 \n - WDC04 \n - WDC06 \n - WDC07 \n - DAL09 \n - DAL10 \n - DAL12 \n - DAL13 | - SAO01 \n - SAO04 \n - SAO05 | - TOR01 \n - TOR04 \n - TOR05 \n - MON01 | - AMS03 \n - FRA02 \n - FRA04 \n - FRA05 \n - LON02 \n - LON04 \n - LON05 \n - LON06 \n - PAR01 \n - MIL01 | - TOK02 \n - TOK04 \n - TOK05 \n - OSA21 \n - OSA22 \n - OSA23 \n - SNG01 \n - CHE01 | - SYD01 \n - SYD04 \n - SYD05 \n |
 {: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
 
-Data centers in US 1 region can replicate with only each other. Compute hosts in data centers within the US 2 region can't start replication with replica targets in US 1 data centers.
+Data centers in US 1 region can replicate with only each other. Data centers in US 2 region cannot start replication with US 1 data centers.
 {: note}
-
- 
 
 ## Determining the remote data center for my replicated storage volume from the SLCLI
 {: #determinereplocationCLI}
 {: cli}
 
-{{site.data.keyword.cloud}}'s data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+{{site.data.keyword.cloud}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
 To list suitable replication data centers for a specific volume, use the following command.
-```python
+```sh
 # slcli block replica-locations --help
 Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
 
@@ -58,8 +56,6 @@ Options:
 --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
 -h, --help      Show this message and exit.
 ```
-
- 
 
 ## Creating the initial replica in the UI
 {: #enablerepUI}
@@ -82,7 +78,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
    Discounts are applied when the order is processed.
    {: note}
 
-7. Review your order, and click the **I have read the…** checkbox.
+7. Review your order, and read the service agreement. If you agree with the terms, check the box.
 8. Click **Place Order**.
 
 ## Creating the initial replica from the SLCLI
@@ -91,7 +87,7 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 
 Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. Then, you can use the following command to order a replica volume.
 
-```python
+```sh
 # slcli block replica-order --help
 Usage: slcli block replica-order [OPTIONS] VOLUME_ID
 
@@ -112,14 +108,14 @@ Options:
 {: #replicalistUI}
 {: ui}
 
-You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. Original and Replica volumes are grouped. The **Volume Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
+You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. The **Volume Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
 
 ## Viewing the replica volumes from the SLCLI
 {: #replicalistCLI}
 {: cli}
 
 List existing replicant volumes for a file volume with the following command.
-```python
+```sh
   # slcli block replica-partners --help
   Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
 
@@ -142,39 +138,32 @@ To view the Replication history, click Manage on the main menu bar. Select **Acc
 
 The replication schedule is based on an existing snapshot schedule. To change the replica schedule from Hourly to Daily or Weekly or vice versa, you must cancel the replica volume and set up a new one.
 
-However, if you want to change the time of day when your **Daily** replication occurs, you can adjust the existing schedule by taking the following steps.
+However, if you want to change the time of day when your **Daily** replication occurs, you can adjust the existing schedule on the active volume.
 
-1. Click **Actions**.
+1. On the active volume details page, click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions").
 2. Select **Edit Snapshot Schedule**.
-3. In the Snapshot schedule window, change the daily schedule's time.
+3. Look in the **Snapshot** frame under **Schedule** to determine which Daily schedule you're using for replication. Change the schedule that you want.
 4. Click **Save**.
 
-## Canceling an existing replication in the UI
+## Deleting an existing replica file share in the UI
 {: #cancelreplicaUI}
 {: ui}
 
 You can cancel replication either immediately or on the anniversary date, which causes billing to end.
 
-1. Click the volume on the **{{site.data.keyword.blockstorageshort}}** page.
-2. Click **Actions**.
+1. Click the volume from the **{{site.data.keyword.filestorage_short}}** page.
+2. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Select **Delete Replica**.
 4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
-5. Click **I acknowledge that due to cancellation, data loss may occur**, and click **Cancel Replica**.
+5. This operation deletes the replica volume with all its data. Click the checkbox to acknowledge information, and click **Delete**.
 
-
-## Canceling replication when the primary volume is canceled in the UI
+## Canceling replication when the primary volume is deleted in the UI
 {: #cancelprimaryUI}
 {: ui}
 
 When a primary volume is canceled, the replication schedule and the volume in the replica data center are deleted. Replicas are canceled from the {{site.data.keyword.blockstorageshort}} page.
 
- 1. Click the volume name on the **{{site.data.keyword.blockstorageshort}}** page.
- 2. On the Volume Detail page, click **Actions**, and select **Delete Replica**.
- 3. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
- 4. Confirm that you understand that data loss might occur when you cancel the volume by checking the box.
- 5. Click **Cancel Replica**.
-
- You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it is reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
+You can expect the volume to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it is reclaimed. However, billing is stopped immediately after you click Delete/Cancel Replica.
 
 Active replicas can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, and replication is canceled before you attempt to cancel the original volume.
 {: important}
@@ -182,7 +171,7 @@ Active replicas can block reclamation of the Storage volume. Make sure that the 
 ## Creating a duplicate of a replica
 {: #cloneareplica}
 
-You can create a duplicate of an existing {{site.data.keyword.cloud}} {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.
+You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot.
 
 Duplicates can be created from both primary and replica volumes. The new duplicate is created in the same data center as the original volume. If you create a duplicate from a replica volume, the new volume is created in the same data center as the replica volume.
 
