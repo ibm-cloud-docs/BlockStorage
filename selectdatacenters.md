@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-02-01"
+lastupdated: "2023-04-06"
 
 keywords: Block Storage, locations, data centers, iscsi
 
@@ -17,7 +17,6 @@ subcollection: BlockStorage
 
 {{site.data.keyword.blockstoragefull}} with enhanced capabilities is available in the following regions and data centers.
 {: shortdesc}
-
 
 | Capabilities | DAL05 | DAL09 | DAL10 | DAL12 | DAL13 | SJC01 | SJC03 | SJC04 | WDC01 | WDC04 | WDC06 | WDC07 |
 |--------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -130,5 +129,5 @@ subcollection: BlockStorage
 To be able to access all the new features, select `Storage-as-a-Service Package 759` when you place your order through the API.
 {: important}
 
-As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in late 2022 and early 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
 {: note}
