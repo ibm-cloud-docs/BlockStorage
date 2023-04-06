@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-02-01"
+lastupdated: "2023-04-06"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -40,6 +40,9 @@ See Table 1 for the complete list of data center availability and replication ta
 Data centers in US 1 region can replicate with only each other. Data centers in US 2 region cannot start replication with US 1 data centers.
 {: note}
 
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
+{: note}
+
 ## Determining the remote data center for my replicated storage volume from the SLCLI
 {: #determinereplocationCLI}
 {: cli}
@@ -56,6 +59,9 @@ Options:
 --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
 -h, --help      Show this message and exit.
 ```
+
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
+{: note}
 
 ## Creating the initial replica in the UI
 {: #enablerepUI}
