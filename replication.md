@@ -40,7 +40,7 @@ See Table 1 for the complete list of data center availability and replication ta
 Data centers in US 1 region can replicate with only each other. Data centers in US 2 region cannot start replication with US 1 data centers.
 {: note}
 
-As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, the data centers in US 1 region are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
 {: note}
 
 ## Determining the remote data center for my replicated storage volume from the SLCLI
@@ -59,8 +59,9 @@ Options:
 --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
 -h, --help      Show this message and exit.
 ```
+{: codeblock}
 
-As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers and PODs are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
 {: note}
 
 ## Creating the initial replica in the UI
