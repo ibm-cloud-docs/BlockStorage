@@ -118,17 +118,6 @@
         "firewalls impact block storage performance",
         "firewalls and security groups impact performance"
     ],
-    "orderendurance": [
-        "10 IOPS/GB availability limited in block storage",
-        "limited datacenter 10 IOPS/GB for block storage",
-        "10 IOPS/GB can not order in block storage",
-        "cant order 10 IOPS/GB ",
-        "can't upgrade my Block Storage LUN",
-        "Unable to upgrade iscsi volume",
-        "Failed to upgrade iscsi lun",
-        "10 IOPS tier isn't working",
-        "Block Storage with Endurance 10 IOPS/GB tier ordering "
-    ],
     "volumeencrypt": [
         "padlock volume name on block storage",
         "which Block Storage volumes are encrypted",
