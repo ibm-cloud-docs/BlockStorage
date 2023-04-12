@@ -23,8 +23,6 @@ If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see 
 Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
 {: important}
 
-This feature is available in most locations. For more information, see [the list of available data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).  
-
 ## Types of duplicate volumes
 {: #duplicatetype}
 

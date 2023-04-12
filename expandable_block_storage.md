@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2022-03-14"
+lastupdated: "2022-04-12"
 
 keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -20,8 +20,7 @@ With this feature, current {{site.data.keyword.blockstoragefull}} users can expa
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-This feature is available in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
-
+ 
 The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait. When the expansion is complete, the host Operating system must rescan the volume, and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
 {: important}
 
@@ -40,9 +39,7 @@ The expand action on the primary storage results in automatic resizing of the re
 ## Limitations
 {: #limitsofexpandingstorage}
 
-This feature is available for storage that is provisioned in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
-
-Storage that was provisioned in these data centers before the release of this feature, during **April 2017 - 14 December 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **14 December 2017** can be increased up to 12 TB.
+Storage that was provisioned before the release of this feature, during **April 2017 - 14 December 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **14 December 2017** can be increased up to 12 TB.
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
 
