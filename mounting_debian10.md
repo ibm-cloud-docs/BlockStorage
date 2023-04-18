@@ -37,7 +37,7 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
@@ -47,13 +47,13 @@ When your host is authorized, take note of the following information, which is n
 * Password
 * IQN
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.readthedocs.io/en/latest/examples/#){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} documentation.
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.readthedocs.io/en/latest/examples/#){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} Documentation.
 
 
 ## Authorizing the host from the SLCLI
@@ -93,7 +93,7 @@ When your host is authorized, take note of the following information, which is n
 * Password
 * IQN
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -105,7 +105,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
 
-The following example defines that the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+The following example defines that the Virtual Server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
@@ -124,11 +124,11 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-After your storage resource is created, you can access the `allowed_host_info` attribute which contains the user name, password, and host IQN of the hosts that are needed later.
+After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and host IQN of the hosts that are needed later.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -222,7 +222,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    ```
    {: pre}
 
-   If you need to edit the multipath configuration file after you have started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
+   If you need to edit the multipath configuration file after you started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
    {: note}
 
 ## Update /etc/iscsi/initiatorname.iscsi file

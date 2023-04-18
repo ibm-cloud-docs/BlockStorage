@@ -58,7 +58,7 @@ You can authorize and connect hosts that are located in the same data center as 
 2. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Click **Authorize Host**.
 4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
    - If you choose IP address, select the subnet where your host resides.
 5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
@@ -137,7 +137,7 @@ You can authorize and connect hosts that are located in the same data center as 
 
 To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
 
-The following example defines that the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+The following example defines that the Virtual Server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
@@ -198,7 +198,7 @@ Options:
 {: support}
 {: terraform}
 
-After your storage resource is created, you can view the access the `allowed_host_info` attribute which contains the user name, password, and host IQN of the hosts that are authorized to access the volume.
+After your storage resource is created, you can view the access the `allowed_host_info` attribute, which contains the username, password, and host IQN of the hosts that are authorized to access the volume.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
@@ -342,7 +342,7 @@ Active replicas and dependent duplicates can block reclamation of the Storage vo
 {: support}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently destroy a remote objects such as a single volume. The following example shows the syntax of the command.
+Use the `terraform destroy` command to conveniently destroy a remote object such as a single volume. The following example shows the syntax of the command.
 
 ```terraform
 terraform destroy --target ibm_storage_block.volumeID
