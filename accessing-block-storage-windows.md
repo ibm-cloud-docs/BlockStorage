@@ -66,7 +66,7 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-After your storage resource is created, you can access the `allowed_host_info` attribute which contains the user name, password, and host IQN of the hosts that is needed later.
+After your storage resource is created, you can access the `allowed_host_info` attribute which contains the user name, password, and host IQN of the hosts that are needed later.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 

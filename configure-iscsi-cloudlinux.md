@@ -77,6 +77,8 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
+After your storage resource is created, you can access the `allowed_host_info` attribute which contains the user name, password, and host IQN of the hosts that are needed later.
+
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
 Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
