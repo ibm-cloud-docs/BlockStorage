@@ -20,7 +20,13 @@ By completing the following steps, you can authorize your host to access your {{
 ## Prerequisites
 {: #authhostwin}
 
-Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized through the [{{site.data.keyword.cloud}} console](/classic){: external}.
+Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized.
+
+### Authorizing the host in the UI
+{: #authhostwinUI}
+{: ui}
+
+You can authorize a host in the [{{site.data.keyword.cloud}} console](/classic){: external}.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -36,6 +42,10 @@ When your host is authorized, take note of the following information, which is n
 * Username
 * Password
 * IQN
+
+### Authorizing the host with Terraform
+{: #authhostwinTerraform}
+{: terraform}
 
 When you provision your storage with Terraform, you authorize a compute host to access the volume by specifing the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
@@ -55,6 +65,8 @@ resource "ibm_storage_block" "test1" {
 }
 ```
 {: codeblock}
+
+After your storage resource is created, you can access the `allowed_host_info` attribute which contains the user name, password, and host IQN of the hosts that is needed later.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
