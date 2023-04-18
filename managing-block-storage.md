@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes through the [{{site.data.keyword.cloud}} console](/classic){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services.
+You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](/classic){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the UI
