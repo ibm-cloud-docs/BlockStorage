@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2022-04-12"
+lastupdated: "2022-04-18"
 
 keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -181,6 +181,53 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    </SOAP-ENV:Envelope>
    ```
    {: codeblock}
+
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+{: tip}
+
+
+## Resizing storage with Terraform
+{: #resizingstepsTerraform}
+{: terraform}
+
+You can increase your storage capacity by using the "ibm_storage_block" resource, and specifying a larger number in the capacity argument. The following example increases the capacity of an Endurance volume to 40 GB.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal09"
+        capacity = 40
+        iops = 0.25
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+The following example increases the capacity of a Performance volume to 40 GB.
+
+```terraform
+resource "ibm_storage_block" "test2" {
+        type = "Performance"
+        datacenter = "dal09"
+        capacity = 40
+        iops = 100
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
 The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}

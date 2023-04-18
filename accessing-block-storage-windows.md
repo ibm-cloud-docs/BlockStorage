@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-02-15"
+lastupdated: "2023-04-18"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,14 +20,20 @@ By completing the following steps, you can authorize your host to access your {{
 ## Prerequisites
 {: #authhostwin}
 
-Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized through the [{{site.data.keyword.cloud}} console](/classic){: external}.
+Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized.
+
+### Authorizing the host in the UI
+{: #authhostwinUI}
+{: ui}
+
+You can authorize a host in the [{{site.data.keyword.cloud}} console](/classic){: external}.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.png "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.png "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.png "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
@@ -37,7 +43,40 @@ When your host is authorized, take note of the following information, which is n
 * Password
 * IQN
 
-Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
+{: attention}
+
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{: important}
+
+### Authorizing the host with Terraform
+{: #authhostwinTerraform}
+{: terraform}
+
+When you provision your storage with Terraform, you authorize a compute host to access the volume by specifing the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the Virtual Server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal09"
+        capacity = 40
+        iops = 4
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and host IQN of the hosts that are needed later.
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
+
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -46,7 +85,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor documentation.
+Complete the following steps to connect a Windows&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor Documentation.
 {: shortdesc}
 
 ### Installing the MPIO feature
@@ -182,13 +221,13 @@ To verify multipathing by using the command line, complete the following steps.
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
-On very rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor documentation.
+Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor Documentation.
 
 ### Starting the iSCSI Initiator
 {: #startISCSIwin}

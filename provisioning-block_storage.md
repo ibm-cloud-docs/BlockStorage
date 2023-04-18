@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-04-18"
 
 keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -156,6 +156,61 @@ To be able to access all the new features, order `Storage-as-a-Service Package 7
 
 By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {: important}
+
+
+## Ordering {{site.data.keyword.blockstorageshort}} with Terraform
+{: #orderingthroughTerraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+### Provision Endurance {{site.data.keyword.blockstorageshort}} with Terraform
+{: #order-endurance-terraform}
+
+You can use the following example to create a 20 GB block storage volume with 10 GB snapshot capacity and 0.25 IOPS/GB performance tier in the DAL09 data center.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal09"
+        capacity = 20
+        iops = 0.25
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
+
+### Provision Performance {{site.data.keyword.blockstorageshort}} with Terraform
+{: #order-performance-terraform}
+
+You can use the following example to create a 20 GB block storage volume with custom 100 IOPS performance level.
+
+```terraform
+resource "ibm_storage_block" "test2" {
+        type = "Performance"
+        datacenter = "dal09"
+        capacity = 20
+        iops = 100
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
 
 ## Connecting your new storage

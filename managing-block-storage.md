@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-04-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -58,7 +58,7 @@ You can authorize and connect hosts that are located in the same data center as 
 2. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Click **Authorize Host**.
 4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual server instances.
+   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
    - If you choose IP address, select the subnet where your host resides.
 5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
@@ -124,6 +124,43 @@ Options:
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 {: note}
 
+## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} with Terraform
+{: #authhostTerraform}
+{: help}
+{: support}
+{: terraform}
+
+"Authorized" hosts are hosts that were given access to a particular LUN. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your LUN generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+
+You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
+{: important}
+
+To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
+
+The following example defines that the Virtual Server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal09"
+        capacity = 40
+        iops = 4
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
+
+The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
+{: note}
+
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN in the UI
 {: #viewauthhostUI}
 {: help}
@@ -154,6 +191,16 @@ Options:
                   password, allowed_host_id
   -h, --help      Show this message and exit.
 ```
+
+## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN with Terraform
+{: #viewauthhostTerraform}
+{: help}
+{: support}
+{: terraform}
+
+After your storage resource is created, you can view the access the `allowed_host_info` attribute, which contains the username, password, and host IQN of the hosts that are authorized to access the volume.
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
 ## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized in the UI
 {: #viewLUNauthUI}
@@ -287,3 +334,19 @@ Options:
 When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
+
+
+## Deleting a storage LUN from Terraform
+{: #cancelLUNTerraform}
+{: help}
+{: support}
+{: terraform}
+
+Use the `terraform destroy` command to conveniently destroy a remote object such as a single volume. The following example shows the syntax of the command.
+
+```terraform
+terraform destroy --target ibm_storage_block.volumeID
+```
+{: codeblock}
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
