@@ -24,8 +24,9 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
 {: requirement}
 
-## Authorizing the host
-{: #authhostlin}
+## Authorizing the host in the UI
+{: #authhostlinui}
+{: ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -36,7 +37,23 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
-Alternatively, you can authorize the host through the SLCLI.
+When your host is authorized, take note of the following information, which is needed later.
+* iSCSI Target IP addresses
+* Username
+* Password
+* IQN
+
+Bear in mind that if multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
+{: attention}
+
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{: important}
+
+## Authorizing the host from the SLCLI
+{: #authhostlinslcli}
+{: cli}
+
+You can authorize the host through the SLCLI.
 ```sh
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
