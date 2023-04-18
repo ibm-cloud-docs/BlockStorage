@@ -176,3 +176,46 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    </SOAP-ENV:Envelope>
    ```
    {: codeblock}
+
+## Adjusting the IOPS on your Storage with Terraform
+{: #adjustingstepsTerraform}
+{: terraform}
+
+You can adjust the IOPS by using the "ibm_storage_block" resource, and specifying a different number in the `iops` argument. The following example increases the performance tier of an Endurance volume to the 4 IOPS/GB tier.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal09"
+        capacity = 40
+        iops = 4
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+The following example decreases the performance level of a Performance volume to 50 IOPS.
+
+```terraform
+resource "ibm_storage_block" "test2" {
+        type = "Performance"
+        datacenter = "dal09"
+        capacity = 40
+        iops = 50
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        hourly_billing = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
