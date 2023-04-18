@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2022-04-12"
+lastupdated: "2022-04-18"
 
 keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
