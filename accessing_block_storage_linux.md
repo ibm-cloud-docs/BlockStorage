@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-04-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
