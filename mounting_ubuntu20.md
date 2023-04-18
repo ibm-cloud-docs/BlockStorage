@@ -105,7 +105,7 @@ Before you start configuring iSCSI, make sure to have the network interfaces cor
 {: #authhostclin8Cterraform}
 {: terraform}
 
-You authorize a compute host to access the volume, use the "ibm_storage_block" resource and specify the `allowed_virtual_guest_ids` for virtual servers, `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
+To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
 
 The following example defines that the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
