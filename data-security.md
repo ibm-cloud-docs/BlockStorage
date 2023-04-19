@@ -69,6 +69,6 @@ To delete a storage LUN, it's necessary to revoke access from any hosts first. A
 4. Click **Continue**.
 5. Click the **Acknowledgment** checkbox and click **Confirm**.
 
-You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it is reclaimed. However, billing is stopped immediately after you click Delete/Cancel.
+You can expect the LUN to remain visible in your Storage list for at least 24 hours (immediate cancellation) or until the anniversary date. Certain features aren't going to be available any longer, but the volume remains visible until it is reclaimed. However, billing is stopped immediately after you cancel.
 
 After the Storage LUN is reclaimed, the disk is wiped, and data can't be restored. When drives are decommissioned, IBM destroys them before they can be disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
