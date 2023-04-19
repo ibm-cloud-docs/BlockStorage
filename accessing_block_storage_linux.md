@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
@@ -15,14 +15,17 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNs on Linux
 {: #mountingLinux}
 
-These instructions are mainly for RHEL6 and CentOS6. Notes for other OS were added, but the topic does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating systems, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
-{: note}
-
-For more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
-{: tip}
+These instructions are mainly for mounting {{site.data.keyword.blockstorageshort}} on  RHEL6 and CentOS6. Notes for other OS were added, but the topic does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+{: shortdesc}
 
 Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
 {: requirement}
+
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
+{: attention}
+
+It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
+{: important}
 
 ## Authorizing the host in the UI
 {: #authhostlinui}
@@ -37,17 +40,11 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
-When your host is authorized, take note of the following information, which is needed later.
+When your host is authorized, go to the **{{site.data.keyword.blockstorageshort}} Detail** screen and take note of the following information, which is needed later.
 * iSCSI Target IP addresses
 * Username
 * Password
-* IQN
-
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
-{: attention}
-
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{: important}
+* Host IQN
 
 ## Authorizing the host from the SLCLI
 {: #authhostlinslcli}
@@ -85,12 +82,6 @@ When your host is authorized, take note of the following information, which is n
 * Password
 * IQN
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
-{: attention}
-
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{: important}
-
 ## Authorizing the host with Terraform
 {: #authhostclin8Cterraform}
 {: terraform}
@@ -120,20 +111,13 @@ After your storage resource is created, you can access the `allowed_host_info` a
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
-{: attention}
-
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{: important}
-
 ## Mounting {{site.data.keyword.blockstorageshort}} volumes
 {: #mountLin}
 
 Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-The Host IQN, username, password, and target address that are referenced in the instructions can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud}} console](/login){: external}.
-{: tip}
+For more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
 
 1. Install the iSCSI and multipath utilities to your host.
    - RHEL and CentOS
@@ -707,3 +691,5 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
    For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
    {: tip}
+
+
