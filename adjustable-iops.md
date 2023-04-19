@@ -181,7 +181,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 {: #adjustingstepsTerraform}
 {: terraform}
 
-You can adjust the IOPS by using the "ibm_storage_block" resource, and specifying a different number in the `iops` argument. The following example increases the performance tier of an Endurance volume to the 4 IOPS/GB tier.
+You can adjust the IOPS by using the `ibm_storage_block` resource, and specifying a different number in the `iops` argument. The following example increases the performance tier of an Endurance volume to the 4 IOPS/GB tier.
 
 ```terraform
 resource "ibm_storage_block" "test1" {

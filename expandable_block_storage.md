@@ -190,7 +190,7 @@ The Operating system must rescan the storage and reload the multipath device map
 {: #resizingstepsTerraform}
 {: terraform}
 
-You can increase your storage capacity by using the "ibm_storage_block" resource, and specifying a larger number in the capacity argument. The following example increases the capacity of an Endurance volume to 40 GB.
+You can increase your storage capacity by using the `ibm_storage_block` resource, and specifying a larger number in the capacity argument. The following example increases the capacity of an Endurance volume to 40 GB.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
