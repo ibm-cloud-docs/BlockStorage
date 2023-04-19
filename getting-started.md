@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-04-19"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -85,7 +85,7 @@ Storage traffic is included in the total network usage of Public Virtual Servers
 {: #submitorder}
 {: step}
 
-When you're ready to submit your order, you can place it through the [Console](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughConsole), the [SLCLI](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI), or the [IBMCLOUD CLI](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order).
+When you're ready to submit your order, you can place it in the [console](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughConsole), from the [SLCLI](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI), or the [IBMCLOUD CLI](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order), with the API, or [Terraform](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughTerraform).
 
 ## Connecting and configuring your new storage
 {: #mountingstorage}
@@ -106,4 +106,4 @@ When your provisioning request is complete, authorize your hosts to access the n
 {: #managingnewstorage}
 {: step}
 
-Through the console or the CLI, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
+In the console, from the CLI, with the API, or Terraform, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
