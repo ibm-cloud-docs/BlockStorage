@@ -17,10 +17,10 @@ subcollection: BlockStorage
 You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default. However, both attributes can be changed manually. The duplicate has a copy of the data up to the point-in-time of the snapshot that was used to create it. The duplicate volume can be dependent or independent from the original volume.
 {: shortdesc}
 
-If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
+If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} Documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {: tip}
 
-Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
+Because the duplicate is based on the data in a point-in-time snapshot, snapshot space is required on the original volume before you can create a duplicate. For more information about snapshots and how to order snapshot space, see the [Snapshot Documentation](/docs/BlockStorage?topic=BlockStorage-snapshots).
 {: important}
 
 ## Types of duplicate volumes

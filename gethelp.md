@@ -15,8 +15,8 @@ subcollection: BlockStorage
 If you experience an issue or have questions when you use {{site.data.keyword.blockstoragefull}}, you can use the following resources before you open a support case.
 {: shortdesc}
 
-* Review the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs) in the product documentation.
-* Review the [troubleshooting documentation](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12) to troubleshoot and resolve common issues.
+* Review the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs) in the product Documentation.
+* Review the [troubleshooting Documentation](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.cloud}} platform and resources by going to the [Status page](/status){: external}.
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `block-storage`, so it can be seen by the {{site.data.keyword.cloud_notm}} development teams.
 

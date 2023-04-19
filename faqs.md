@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS documentation.
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: important}
 
 ## Our compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
@@ -67,7 +67,7 @@ By default, you can provision a combined total of 700 block and file storage. To
 {: faq}
 {: support}
 
-That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS documentation for limits on the number of volumes that can be mounted.
+That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS Documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
 {: #multiplelun}
@@ -340,7 +340,7 @@ On rare occasions, a LUN is provisioned and attached while the second path is do
 {: faq}
 {: support}
 
-To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system documentation. 
+To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system Documentation. 
 
 ### Windows&reg; 2016
 {: #expandsizeWin}
