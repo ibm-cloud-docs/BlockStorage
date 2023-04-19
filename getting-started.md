@@ -78,7 +78,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. Other c
 
 Storage traffic ought to be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#isolatedstoragetraffic).
 
-Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server documentation](/docs/virtual-servers?topic=virtual-servers-about-virtual-servers).
+Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server Documentation](/docs/virtual-servers?topic=virtual-servers-about-virtual-servers).
 {: tip}
 
 ## Submitting your Order
