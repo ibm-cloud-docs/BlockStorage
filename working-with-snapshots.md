@@ -217,13 +217,6 @@ Options:
  -h, --help  Show this message and exit.
 ```
 
-## Listing all Snapshots with Terraform
-{: #listsnapshotTerraform}
-{: terraform}
-
-
-
-
 ## Increasing the amount of Snapshot space for a volume in the UI
 {: #changesnapshotspaceUI}
 {: ui}
