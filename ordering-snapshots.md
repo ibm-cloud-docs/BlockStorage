@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-04-19"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -76,3 +76,27 @@ Options:
   -h, --help            Show this message and exit.
 ```
 {: codeblock}
+
+## Ordering Snapshot space with Terraform
+{: #ordersnapshotTerraform}
+{: terraform}
+
+When you provision a storage volume with Terraform, use the `ibm_storage_block` resource and specify the `snapshot_capacity` argument. The following example defines 10 GB snapshot space.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal05"
+        capacity = 20
+        iops = 0.25
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+}
+```
+{: codeblock}
+

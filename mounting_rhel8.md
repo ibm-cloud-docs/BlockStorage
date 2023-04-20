@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -97,7 +97,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {: important}
 
 ## Authorizing the host with Terraform
-{: #authhostclin8Cterraform}
+{: #authhostrhelterraform}
 {: terraform}
 
 To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
@@ -121,7 +121,7 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and host IQN of the hosts that are needed later.
+After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the compute host that are needed later.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
