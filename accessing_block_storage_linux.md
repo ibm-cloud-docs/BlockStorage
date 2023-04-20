@@ -83,7 +83,7 @@ When your host is authorized, take note of the following information, which is n
 * IQN
 
 ## Authorizing the host with Terraform
-{: #authhostclin8Cterraform}
+{: #authhostclinterraform}
 {: terraform}
 
 To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 

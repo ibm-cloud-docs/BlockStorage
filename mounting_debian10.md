@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Debian
 
@@ -100,7 +100,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 {: important}
 
 ## Authorizing the host with Terraform
-{: #authhostclin8Cterraform}
+{: #authhostdebi10terraform}
 {: terraform}
 
 To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
