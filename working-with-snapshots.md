@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2022-04-13"
+lastupdated: "2022-04-20"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -80,6 +80,47 @@ Options:
   -h, --help  Show this message and exit.
 ```
 {: codeblock}
+
+## Managing a Snapshot schedule with Terraform
+{: #addscheduleTerraform}
+{: terraform}
+
+To set up a snapshot schedule, use the `ibm_storage_block` resource and specify information in the `snapshot_schedule` argument. The following example defines two different schedules. One schedule is for weekly snapshots that are take on Sundays at 1:20 PM. 20 snapshots are kept before the oldest one is deleted to make space for a new one. The second schedule is for hourly snapshots.
+
+```terraform
+resource "ibm_storage_block" "test1" {
+        type = "Endurance"
+        datacenter = "dal05"
+        capacity = 20
+        iops = 0.25
+        os_format_type = "Linux"
+
+        # Optional fields
+        allowed_virtual_guest_ids = [ 27699397 ]
+        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
+        snapshot_capacity = 10
+        hourly_billing = true
+
+        # Optional fields for snapshot
+        snapshot_schedule {
+        schedule_type   = "WEEKLY"
+        retention_count = 20
+        minute          = 20
+        hour            = 13
+        day_of_week     = "SUNDAY"
+        enable          = true
+        }
+        snapshot_schedule {
+        schedule_type   = "HOURLY"
+        retention_count = 20
+        minute          = 2
+        enable          = true
+  }
+}
+```
+{: codeblock}
+
+If you want to update the schedule, just change these values and apply them to your resources. If you want to delete the schedule, remove its details from the `ibm_storage_block` resource definition, and apply your changes.
 
 ## Taking a manual Snapshot in the UI
 {: #takemanualsnapshotUI}
