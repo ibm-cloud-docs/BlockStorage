@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-20"
+lastupdated: "2023-04-25"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -20,13 +20,13 @@ By completing the following steps, you can authorize your host to access your {{
 ## Prerequisites
 {: #authhostwin}
 
-Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized.
-
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
+
+Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized.
 
 ### Authorizing the host in the UI
 {: #authhostwinUI}
@@ -53,7 +53,7 @@ When your host is authorized, take note of the following information, which is n
 {: #authhostwinTerraform}
 {: terraform}
 
-When you provision your storage with Terraform, you authorize a compute host to access the volume by specifing the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the Virtual Server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+When you provision your storage with Terraform, you authorize a compute host to access the volume by specifing the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the Virtual Server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
@@ -172,7 +172,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
      - Click **OK** on the Connect To Target window to go back to the Properties window.
 8. Now the Properties window displays more than one session within the Identifier pane. You have more than one session into the iSCSI storage.
 
-     If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the other NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
+     If your host has multiple interfaces that you want to connect to the ISCSI storage, you can set up another connection with the IP address of the second NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
      {: note}
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`. ![Devices](/images/Devices.svg){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
@@ -224,17 +224,18 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
 On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
-
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg;v versions according to the OS vendor Documentation.
+Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg; versions according to the OS vendor Documentation.
 
-### Starting the iSCSI Initiator
+### Disconnect the volume from the iSCSI Initiator
 {: #startISCSIwin}
 
-1. Click **Targets**.
-2. Select the targets that you want to remove and click **Disconnect**.
+1. In Server Manager, click Storage > iSCSI. 
+1. Right-click the volume and take it Offline.
+1. In iSCSI Initiator, click **Targets**.
+2. Select the target that you want to remove and click **Disconnect**.
 
 ### Removing targets
 {: #removetargetoptional}

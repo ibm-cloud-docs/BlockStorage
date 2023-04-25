@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2022-04-20"
+lastupdated: "2022-04-25"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -52,7 +52,7 @@ You decide how often and when you want to create a point in time reference of yo
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {: important}
 
-To set up a snapshot schedule, use the following command.
+To create a snapshot schedule, use the following command.
 
 ```python
 # slcli block snapshot-enable --help
@@ -85,7 +85,7 @@ Options:
 {: #addscheduleTerraform}
 {: terraform}
 
-To set up a snapshot schedule, use the `ibm_storage_block` resource and specify information in the `snapshot_schedule` argument. The following example defines two different schedules. One schedule is for weekly snapshots that are take on Sundays at 1:20 PM. 20 snapshots are kept before the oldest one is deleted to make space for a new one. The second schedule is for hourly snapshots.
+To create a snapshot schedule, use the `ibm_storage_block` resource and specify information in the `snapshot_schedule` argument. The following example defines two different schedules. One schedule is for weekly snapshots that are taken on Sundays at 1:20 PM. Twenty snapshots are kept before the oldest one is deleted to make space for a new one. The second schedule is for hourly snapshots.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
@@ -120,7 +120,7 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-If you want to update the schedule, just change these values and apply them to your resources. If you want to delete the schedule, remove its details from the `ibm_storage_block` resource definition, and apply your changes.
+If you want to update the schedule, change these values and apply them to your resources. If you want to delete the schedule, remove its details from the `ibm_storage_block` resource definition, and apply your changes.
 
 ## Taking a manual Snapshot in the UI
 {: #takemanualsnapshotUI}
@@ -156,7 +156,7 @@ Options:
 {: #listsnapshotUI}
 {: ui}
 
-A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page.  Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
+A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page. Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
 
 You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
@@ -303,9 +303,9 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
-1. Unmount and detach your storage volume from the host.
-   - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
+1. Unmount and detach your storage volume from the host to ensure the host is not connecting to the volume during the restore for any reason.
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 3. Scroll on the list, and click your volume to be restored. The **Snapshots** page displays the list of all saved snapshots along with their size and creation date.
@@ -314,15 +314,19 @@ You might need to take your storage volume back to a specific point in time beca
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
 
-5. Click **Yes** to start the restore.  The restore is going to take a while, and your storage volume is locked during the restore.
+5. Click **Yes** to start the restore. The restore is going to take a while, and your storage volume is locked during the restore.
 
    When you return to the volume list, a clock icon appears next to your volume that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {: note}
 
 6. Mount and reattach your storage volume to the host.
-   - [Connecting iSCSI Volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-   - [Connecting iSCSI Volumes on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Connecting iSCSI Volumes on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mount iSCSI LUNs on Linux&reg; - RHEL6 and CentOS6](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
+   - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI LUNs on CloudLinux 6.10](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux).
+   - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+   - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI LUN on Debian 10](/docs/BlockStorage?topic=BlockStorage-mountingdebian10).
+   - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}
@@ -331,21 +335,32 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 {: #restorefromsnapshotCLI}
 {: cli}
 
-You might need to take your storage volume back to a specific point in time because of user-error or data corruption. First, unmount your volume.
+You might need to take your storage volume back to a specific point in time because of user-error or data corruption. 
 
-Then, you can restore the volume with a snapshot from the SLCLI by using the following command.
-```sh
-# slcli block snapshot-restore --help
-Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+1. Unmount your volume. You must ensure that the host is not trying to connect to the volume during the restore.
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 
-Options:
-  -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
+2. Then, you can restore the volume with a snapshot from the SLCLI by using the following command.
+   ```sh
+   # slcli block snapshot-restore --help
+   Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+   
+   Options:
+    -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
                           the block volume
-  -h, --help              Show this message and exit.
-```
-{: codeblock}
+    -h, --help              Show this message and exit.
+   ```
+   {: codeblock}
 
-Lastly, mount and reattach your storage volume to the host.
+3. Lastly, mount and reattach your storage volume to the host.
+   - [Mount iSCSI LUNs on Linux&reg; - RHEL6 and CentOS6](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
+   - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI LUNs on CloudLinux 6.10](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux).
+   - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+   - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI LUN on Debian 10](/docs/BlockStorage?topic=BlockStorage-mountingdebian10).
+   - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}
