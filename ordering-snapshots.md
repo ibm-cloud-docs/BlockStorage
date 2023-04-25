@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-04-25"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -100,3 +100,4 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
+For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
