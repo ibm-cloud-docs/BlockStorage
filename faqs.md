@@ -691,4 +691,4 @@ The conversion process can take some time to complete. The bigger the volume, th
 {: #portablestorageredirect}
 {: faq}
 
-Portable storage volumes (PSVs) are an auxiliary storage solution exclusively for {{site.data.keyword.BluVirtServers_short}}. You can detach PSV from one virtual server and attach it to another. You can connect a portable storage disk to one virtual server at a time while all information that is stored on the disk is retained for transfer between devices. For more information, see [Portable SAN storage](/docs/virtual-servers?topic=virtual-servers-storage-options#portable-san-storage){: external}.
+Portable storage volumes (PSVs) are an auxiliary storage solution exclusively for {{site.data.keyword.BluVirtServers_short}}. You can detach PSV from one Virtual Server and attach it to another. You can connect a portable storage disk to one Virtual Server at a time while all information that is stored on the disk is retained for transfer between devices. For more information, see [Portable SAN storage](/docs/virtual-servers?topic=virtual-servers-storage-options#portable-san-storage){: external}.
