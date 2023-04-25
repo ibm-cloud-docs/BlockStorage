@@ -18,14 +18,13 @@ subcollection: BlockStorage
 These instructions are mainly for mounting {{site.data.keyword.blockstorageshort}} on  RHEL6 and CentOS6. Notes for other OS were added, but the topic does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
 {: shortdesc}
 
-Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
-{: requirement}
-
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
+
+Before you start, make sure the host that is accessing the {{site.data.keyword.blockstoragefull}} volume is authorized correctly.
 
 ## Authorizing the host in the UI
 {: #authhostlinui}
