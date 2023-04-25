@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNs on Linux
 {: #mountingLinux}
 
-These instructions are mainly for mounting {{site.data.keyword.blockstorageshort}} on  RHEL6 and CentOS6. Notes for other OS were added, but the topic does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+These instructions are mainly for mounting {{site.data.keyword.blockstorageshort}} on RHEL6 and CentOS6. Notes for other OS were added, but the topic does **not** cover all Linux&reg; distributions. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
 {: shortdesc}
 
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
@@ -676,13 +676,13 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-2. If you do not have any other volumes in that target portal, you can log out of the target.
+2. Optional. If you do not have any other volumes in that target portal, you can log out of the target.
    ```sh
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
-3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
+3. Optional. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
    ```sh
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
