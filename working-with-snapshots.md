@@ -304,8 +304,8 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
 1. Unmount and detach your storage volume from the host to ensure the host is not connecting to the volume during the restore for any reason.
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 3. Scroll on the list, and click your volume to be restored. The **Snapshots** page displays the list of all saved snapshots along with their size and creation date.
