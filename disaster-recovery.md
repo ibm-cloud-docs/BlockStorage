@@ -91,7 +91,7 @@ Use the following command to fail a block volume over to a specific replicant vo
 {: #DRFailback2originalUI}
 {: ui}
 
-After a disaster event, {{site.data.keyword.cloud}} begins remediation work to return the impacted locations to normal operations. When the site is restored, you can initiate a Failback to the original site by clicking **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](//classic-gen1/storage/file){: external}.
+After a disaster event, {{site.data.keyword.cloud}} begins remediation work to return the impacted locations to normal operations. When the site is restored, you can initiate a Failback to the original site by clicking **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/classic-gen1/storage/file){: external}.
 
 1. Click your active volume ("target").
 2. In the upper right, click **Replica** and click **Actions**.
