@@ -73,7 +73,7 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 {: #failovertoreplicaUI}
 {: ui}
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](/classic){: external}.
+Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](//classic-gen1){: external}.
 
 1. Click your active LUN (“source”).
 2. Click **Replica**, and click **Actions**.
@@ -120,7 +120,7 @@ When a Failback is started, the replication relationship is flipped again. Your 
 {: #failbackfromreplicaUI}
 {: ui}
 
-Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/classic){: external}.
+Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](//classic-gen1){: external}.
 
 1. Click your active LUN ("target").
 2. In the upper right, click **Replica**, and click **Actions**.

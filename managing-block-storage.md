@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](/classic){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
+You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](//classic-gen1){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the UI
@@ -212,7 +212,7 @@ For more information about the arguments and attributes, see [ibm_storage_block]
 
 You can view the LUNs, which a host has access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
 
-1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](/classic){: external} and click the appropriate device.
+1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](//classic-gen1){: external} and click the appropriate device.
 2. Select the **Storage** tab.
 
 You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
@@ -237,7 +237,7 @@ You can revoke access from the **Device List** or the **Storage view**.
 {: support}
 {: ui}
 
-1. In the [{{site.data.keyword.cloud}} console](/classic){: external}, click the Classic Infrastructure icon. Then, click **Devices** > **Device List** and double-click the appropriate device.
+1. In the [{{site.data.keyword.cloud}} console](//classic-gen1){: external}, click the Classic Infrastructure icon. Then, click **Devices** > **Device List** and double-click the appropriate device.
 2. Select the **Storage** tab.
 3. You are presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). Next to the Volume name, click **Actions**, and click **Revoke Access**.
 4. Confirm that you want to revoke the access for a LUN because the action can't be undone. Click **Yes** to revoke LUN access or **No** to cancel the action.
