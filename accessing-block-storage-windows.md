@@ -32,7 +32,7 @@ Before you start, make sure that the host that is accessing the {{site.data.keyw
 {: #authhostwinUI}
 {: ui}
 
-You can authorize a host in the [{{site.data.keyword.cloud}} console](/classic){: external}.
+You can authorize a host in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.png "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.png "Classic").
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.

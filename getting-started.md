@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-12"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -92,15 +92,15 @@ When you're ready to submit your order, you can place it in the [console](/docs/
 {: step}
 
 When your provisioning request is complete, authorize your hosts to access the new storage, and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [Mount iSCSI LUNs on Linux&reg; - RHEL6 and CentOS6](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
-- [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
-- [Mount iSCSI LUNs on CloudLinux 6.10](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux).
-- [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-- [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
-- [Mount iSCSI LUN on Debian 10](/docs/BlockStorage?topic=BlockStorage-mountingdebian10).
-- [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
-- [Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
-- [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
+- [RHEL 6]{: tag-linux} [Mount iSCSI LUNs on Linux&reg; - RHEL6 and CentOS6](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
+- [RHEL 8]{: tag-linux} [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+- [Cloudlinux 6]{: tag-linux} [Mount iSCSI LUNs on CloudLinux 6.10](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux).
+- [CloudLinux 8]{: tag-linux} [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+- [Ubuntu 20]{: tag-linux} [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+- [Debian 10]{: tag-linux} [Mount iSCSI LUN on Debian 10](/docs/BlockStorage?topic=BlockStorage-mountingdebian10).
+- [Windows]{: tag-windows}[Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
+- [cPanel]{: tag-app}[Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
+- [Plesk]{: tag-app} [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
 
 ## Managing your new Storage
 {: #managingnewstorage}
