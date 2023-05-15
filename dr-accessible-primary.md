@@ -120,7 +120,7 @@ When a Failback is started, the replication relationship is flipped again. Your 
 {: #failbackfromreplicaUI}
 {: ui}
 
-Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
+Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/cloud-storage/block){: external}.
 
 1. Click your active LUN ("target").
 2. In the upper right, click **Replica**, and click **Actions**.

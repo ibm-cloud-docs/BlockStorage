@@ -8,7 +8,7 @@ toc:
     category: storage_classic
     audience: service
     href: /docs/BlockStorage?topic=BlockStorage-getting-started
-    console-page: /classic/storage/block
+    console-page: /cloud-storage/block
     product-page: https://www.ibm.com/cloud/block-storage
     path: BlockStorage
     label: Block Storage - Classic
