@@ -104,7 +104,13 @@ toc:
             topics:
             - include: ../cli/reference/ibmcloud/cli_block_storage.md
             - slcli-usage.md
-
+        - topicgroup:
+            label: Terraform reference
+            topics:
+              - link:
+                  label: Terraform reference
+                  href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block
+                  
     - navgroup:
         id: help
         topics:
