@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-06-13"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -19,7 +19,6 @@ With this feature, {{site.data.keyword.blockstoragefull}} storage users can adju
 
 Billing for the storage is updated to add the pro-rated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
 
-
 ## Advantages of Adjustable IOPS
 {: #advantagesofresizingiops}
 
@@ -33,6 +32,21 @@ Clients can't switch between Endurance and Performance when they adjust their IO
 - If original volume is Endurance 0.25 tier, IOPS tier can’t be updated.
 - If original volume is Performance with less than or equal to 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in less than or equal to 0.30 IOPS/GB.
 - If original volume is Performance with more than 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in more than 0.30 IOPS/GB.
+
+| Volume size (GB) | IOPS range |
+|-------------|-----------------|
+| 10 - 39     | 100 - 1,000 |
+| 40 - 79     | 100 - 2,000 |
+| 80 - 99     | 100 - 4,000 |
+| 100 - 499   | 100 - 6,000 |
+| 500 - 999   | 100 - 10,000|
+| 1,000 - 1,999 | 100 - 20,000|
+| 2,000 - 2,999 | 200 - 40,000|
+| 3,000 - 3,999 | 200 - 48,000|
+| 4,000 - 7,999 | 300 - 48,000|
+| 8,000 - 9,999 | 500 - 48,000 |
+| 10,000 - 12,000 | 1,000 - 48,000 |
+{: caption="Table 1. Available IOPS based on volume size for Performance volumes" caption-side="bottom"}
 
 ## Effect of IOPS adjustment on replication
 {: #iopschangeeffectonreplicas}
