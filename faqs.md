@@ -224,7 +224,7 @@ Bonding works between a server and switch. However, MPIO works between a storage
 
 For more information, see one of the following articles.
 - Red Hat Linux&reg;: [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
-- Microsoft&reg; Windows&reg;: [NIC Teaming and ISCSI](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi?forum=winserverhyperv){: external}.
+- Microsoft&reg; Windows&reg;: [NIC Teaming and ISCSI](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi){: external}.
 - VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938?lang=en_US){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
