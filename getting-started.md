@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-08-15"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
 
@@ -30,8 +30,6 @@ completion-time: 2h
 
 For more information about using {{site.data.keyword.blockstorageshort}} with the {{site.data.keyword.containerlong}}, see [Storing data on classic IBM Cloud Block Storage](/docs/containers?topic=containers-block_storage).
 
-For more information about replicating data on IBM Cloud Block Storage for Classic, see [Replication and Disaster Recovery – Replicating Data](docs/BlockStorage?topic=BlockStorage-replication&interface=ui).
-
 ## Before you begin
 {: #prereqs}
 {: step}
@@ -52,9 +50,9 @@ For more information about the {{site.data.keyword.blockstorageshort}} offering,
 IOPS for both Endurance and Performance is based on a 16-KB block size with a 50/50 read and write, 50/50 random and sequential workload. A 16-KB block is the equivalent of one write to the volume.
 {: important}
 
-The block size that is used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before the IOPS limit.
+The IO size that is used by your application directly impacts the storage performance. If the IO size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the IO size that is used by your application is larger than 16 KB, the throughput limit is realized before the IOPS limit.
 
-| Block Size (KB) | IOPS | Throughput (MB/s) |
+| IO Size (KB) | IOPS | Throughput (MB/s) |
 |-----|-----|-----|
 | 4 | 1,000 | 4 |
 | 8 | 1,000 | 8 |
@@ -74,7 +72,7 @@ Another factor to consider is the number of hosts that are using your volume. If
 ### Network connection
 {: #networkconnectivity}
 
-The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB block size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
+The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB IO size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
 To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings).
 
@@ -83,7 +81,7 @@ Storage traffic ought to be isolated from other traffic types, and not be direct
 Storage traffic is included in the total network usage of Public Virtual Servers. For more information about the limits that might be imposed by the service, see the [Virtual Server Documentation](/docs/virtual-servers?topic=virtual-servers-about-virtual-servers).
 {: tip}
 
-## Submitting your Order
+## Submitting your order
 {: #submitorder}
 {: step}
 
@@ -104,8 +102,10 @@ When your provisioning request is complete, authorize your hosts to access the n
 - [cPanel]{: tag-app}[Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
 - [Plesk]{: tag-app} [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
 
-## Managing your new Storage
+## Managing your new storage
 {: #managingnewstorage}
 {: step}
 
 In the console, from the CLI, with the API, or Terraform, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
+
+You can keep your data in sync in two different locations by using replication. Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted. For more information, see [Replication and Disaster Recovery – Replicating Data](docs/BlockStorage?topic=BlockStorage-replication&interface=ui).
