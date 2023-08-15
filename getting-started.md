@@ -30,6 +30,8 @@ completion-time: 2h
 
 For more information about using {{site.data.keyword.blockstorageshort}} with the {{site.data.keyword.containerlong}}, see [Storing data on classic IBM Cloud Block Storage](/docs/containers?topic=containers-block_storage).
 
+For more information about replicating data on IBM Cloud Block Storage for Classic, see [Replication and Disaster Recovery – Replicating Data](docs/BlockStorage?topic=BlockStorage-replication&interface=ui).
+
 ## Before you begin
 {: #prereqs}
 {: step}
