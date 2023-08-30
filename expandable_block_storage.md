@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2022-04-19"
+lastupdated: "2023-08-30"
 
 keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -18,16 +18,17 @@ subcollection: BlockStorage
 With this feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume.
 {: shortdesc}
 
-Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
-
+Billing for the volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
  
-The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait. When the expansion is complete, the host Operating system must rescan the volume, and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
+The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait. 
+
+When the expansion is complete, the host Operating system must rescan the volume, and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
 {: important}
 
 ## Advantages of Expandable Storage
 {: #advantageofresizing}
 
-- **Cost management** – You might know of a potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on cost of storage, and later grow to accommodate their needs.
+- **Cost management** – You might know of a potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on the cost of storage, and later grow to accommodate their needs.
 
 - **Growing Storage needs** - Customers who experience rapid data growth need a way to quickly and easily increase the size of their storage to manage it.
 
@@ -39,9 +40,12 @@ The expand action on the primary storage results in automatic resizing of the re
 ## Limitations
 {: #limitsofexpandingstorage}
 
-Storage that was provisioned before the release of this feature, during **April 2017 - 14 December 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **14 December 2017** can be increased up to 12 TB.
+Storage that was provisioned before the release of this feature, during **April 2017 - 14 December 2017**, can be increased to 10 times its original size and no more. Storage that was provisioned after **14 December 2017** can be increased to 12 TB.
 
 Existing size limitations for {{site.data.keyword.blockstorageshort}} that was provisioned with Endurance still apply (up to 4 TB for 10 IOPS tier and up to 12 TB for all other tiers).
+
+You can't change the block storage to a smaller size after you expand its capacity.
+{: note}
 
 ## Resizing storage in the UI
 {: #resizingstepsUI}
