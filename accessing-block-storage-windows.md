@@ -53,7 +53,7 @@ When your host is authorized, take note of the following information, which is n
 {: #authhostwinTerraform}
 {: terraform}
 
-When you provision your storage with Terraform, you authorize a compute host to access the volume by specifing the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the Virtual Server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+When you provision your storage with Terraform, you authorize a Compute host to access the volume by specifying the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the Virtual Server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
@@ -72,7 +72,7 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the compute host that are needed later.
+After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are needed later.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
@@ -98,7 +98,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 1. Open the MPIO Properties window by clicking **Start**, pointing to **Administrative Tools**, and clicking **MPIO**.
 2. Click **Discover Multi-Paths**.
 3. Checkmark **Add support for iSCSI devices**, and click **Add**.
-4. If you're prompted to restart the computer, click **Yes**. Otherwise, continue to next step.
+4. If you're prompted to restart the Computer, click **Yes**. Otherwise, continue to next step.
 
 In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; Device-Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
 {: note}
@@ -227,7 +227,7 @@ On rare occasions, a LUN is provisioned and attached while the second path is do
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg; versions according to the OS vendor Documentation.
+Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} Compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg; versions according to the OS vendor Documentation.
 
 ### Disconnect the volume from the iSCSI Initiator
 {: #startISCSIwin}

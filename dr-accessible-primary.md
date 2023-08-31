@@ -34,7 +34,7 @@ You can authorize a host to access the {{site.data.keyword.blockstoragefull}} vo
 3. Click the replica name and on the next screen, click **Actions**. From the menu, select **Authorize Hosts**.
 4. Select a host type and then choose a host from the list that is available for the volume. Filter the available host list by the device type, or IP address.
 5. Highlight the host that is to be authorized for replications. To select multiple hosts, use the CTRL-key and click the applicable hosts.
-6. Click **Save**. If you have no hosts that are available, you are prompted to purchase compute resources in the same data center.
+6. Click **Save**. If you have no hosts that are available, you are prompted to purchase Compute resources in the same data center.
 
 ## Authorizing the host from the SLCLI
 {: #authreplicahostCLI}

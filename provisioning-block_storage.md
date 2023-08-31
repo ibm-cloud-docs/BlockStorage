@@ -31,7 +31,7 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 2. Select your deployment location (region, location, zone).
-   - Ensure that the new Storage is added in the same location as the compute host or hosts that you have.
+   - Ensure that the new Storage is added in the same location as the Compute host or hosts that you have.
 3. Billing. You can choose between Monthly or Hourly Billing.
    - With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month.
    - With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a block LUN is deleted before the end of the billing cycle, the difference is not refunded. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
@@ -74,7 +74,7 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
    Discounts are applied when the order is processed.
    {: note}
 
-9. Acknowledge that you reviewed the terms and conditions bycheck the appropriate box.
+9. Acknowledge that you reviewed the terms and conditions by checking the appropriate box.
 10. Click **Create**. Your new storage allocation is available in a few minutes.
 
 ## Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
@@ -83,7 +83,7 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 
 You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
-Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your compute instances.
+Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your Compute instances.
 {: important}
 
 For more information about how to install and use the SLCLI, see [Python CLI Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.

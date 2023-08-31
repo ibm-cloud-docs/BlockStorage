@@ -93,7 +93,7 @@ When your host is authorized, take note of the following information, which is n
 {: #authhostrhelterraform}
 {: terraform}
 
-To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
+To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
 
 The following example defines that the Virtual Server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
@@ -114,7 +114,7 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the compute host that are needed later.
+After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are needed later.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
