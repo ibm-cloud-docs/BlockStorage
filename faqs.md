@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-08-31"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -38,7 +38,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
-5. To see the list of available IP addresses, select **IP address** as the host type. Then, select the subnet where your host resides.
+5. To see the list of available IP addresses, select the **IP address** as the host type. Then, select the subnet where your host resides.
 6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
 ### SLCLI
@@ -60,7 +60,7 @@ Options:
 {: faq}
 {: support}
 
-By default, you can provision a combined total of 700 block and file storage. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
+By default, you can provision a combined total of 700 block storage and file storage volumes. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: #volumelimit}
@@ -83,7 +83,7 @@ No. A host cannot be authorized to access LUNs of differing OS types at the same
 
 When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows&reg; OS helps to prevent mis-aligned IO operations.
 
-If the LUN is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN is being presented to the hypervisor to serve Virtual Hard Drive (VHD) files, choose Hyper-V.
+If the LUN is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN is being presented to the hypervisor to serve Virtual hard disk (VHD) files, choose Hyper-V.
 
 ### Windows&reg; GPT
 {: #winGPT}
@@ -165,7 +165,7 @@ You can use the following commands.
 
    You can also view the free disk space in the File Explorer by clicking This PC.
 
-## Does the volume need to be pre-warmed to achieve expected throughput?
+## Does the volume need to be pre-warmed to achieve the expected throughput?
 {: #prewarm}
 {: faq}
 {: support}
@@ -214,7 +214,7 @@ To enact this best practice, complete the following steps.
 {: faq}
 {: support}
 
-No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use multi-path input/output (MPIO) framework for I/O balancing and redundancy.
+No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use the multi-path input/output (MPIO) framework for I/O balancing and redundancy.
 
 With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This setup provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
@@ -239,7 +239,7 @@ Target latency within the storage is <1 ms. The storage is connected to Compute 
 {: faq}
 {: support}
 
-You need to order new {{site.data.keyword.blockstorageshort}} in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. Billing for the volume stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console, too.
+You need to order a new {{site.data.keyword.blockstorageshort}} volume in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. Billing for the volume stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console, too.
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: #volumeencrypt}
@@ -295,7 +295,7 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 {: faq}
 {: #cancelstorage}
 
-The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. An hourglass or clock icon appears next to the device name to indicate that it’s in a waiting period. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
+The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. The UI indicates that it’s inactive and the status "Cancellation pending" is displayed. The minimum 24-hour waiting period gives you a chance to void the cancel request if needed.
 
 ## My Windows&reg; 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
@@ -446,7 +446,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
           Block device           253:2
         ```
 
-     3. Verify file system size.
+     3. Verify the file system size.
         ```sh
         # df -Th /projects
         Filesystem                    Type  Size  Used Avail Use% Mounted on
@@ -474,7 +474,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             CHANGED: partition=1 start=2048 old: size=146800640 end=146802688 new: size=209713119,end=209715167
             ```
 
-         3. Run `partprobe` to reread the disks and its partitions, then run `lsblk` to verify the new extended partition size.
+         3. Run `partprobe` to reread the disk and its partitions, then run `lsblk` to verify the new extended partition size.
             ```sh
             # partprobe
 
@@ -598,7 +598,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage". You may also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that reside in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage". You might also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that reside in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
@@ -644,7 +644,7 @@ Replication keeps your data in sync in two different locations. Only one of the 
 
 Duplication creates a copy of your volume based on a snapshot in the same availability zone as the parent volume. The duplicate volume inherits the capacity and performance options of the original volume by default and has a copy of the data up to the point-in-time of a snapshot. The duplicate volume can be dependent or independent from the original volume, and it can be manually refreshed with data from the parent volume. You can adjust the IOPS or increase the volume size of the duplicate without any effect on the parent volume.
 
-- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it is created. The system locks the original snapshot so that snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you must either cancel the dependent duplicate first or convert it to an independent duplicate.
+- A dependent duplicate volume does not go through the conversion of becoming independent, and can be refreshed at any time after it is created. The system locks the original snapshot so that the snapshot cannot be deleted while the dependent duplicate exists. The parent volume cannot be canceled while the dependent duplicate volume exists. If you want to cancel the parent volume, you must either cancel the dependent duplicate first or convert it to an independent duplicate.
 
 - An independent duplicate is superior to the dependent duplicate in most regards, but it cannot be refreshed immediately after creation because of the lengthy conversion process. It can take up to several hours based on the size of the volume. For example, it might take up to a day for a 12-TB volume. However, after the separation process is complete, the data can be manually refreshed by using another snapshot of the original parent volume.
 
@@ -691,4 +691,4 @@ The conversion process can take some time to complete. The bigger the volume, th
 {: #portablestorageredirect}
 {: faq}
 
-Portable storage volumes (PSVs) are an auxiliary storage solution exclusively for {{site.data.keyword.BluVirtServers_short}}. You can detach PSV from one Virtual Server and attach it to another. You can connect a portable storage disk to one Virtual Server at a time while all information that is stored on the disk is retained for transfer between devices. For more information, see [Portable SAN storage](/docs/virtual-servers?topic=virtual-servers-storage-options#portable-san-storage){: external}.
+Portable storage volumes (PSVs) are an auxiliary storage solution exclusively for {{site.data.keyword.BluVirtServers_short}}. You can detach the PSV from one virtual server and attach it to another. You can connect a portable storage disk to one virtual server at a time while all information that is stored on the disk is retained for transfer between devices. For more information, see [Portable SAN storage](/docs/virtual-servers?topic=virtual-servers-storage-options#portable-san-storage){: external}.
