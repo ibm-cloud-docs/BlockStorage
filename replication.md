@@ -189,7 +189,7 @@ For more information, see [Creating a duplicate {{site.data.keyword.blockstorage
 ## Using replicas to failover when disaster strikes
 {: #replicatotherescureDR}
 
-When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a compute instance in London.
+When you fail over, you’re "flipping the switch" from your storage volume in your primary data center to the destination volume in your remote data center. For example, your primary data center is London and your secondary data center is Amsterdam. If a failure event occurs, you’d fail over to Amsterdam – connecting to the now-primary volume from a Compute instance in Amsterdam. After your volume in London is repaired, a snapshot is taken of the Amsterdam volume to fail back to London and the once-again primary volume from a Compute instance in London.
 
 * If the primary location is in imminent danger or severely impacted, see [Failover with an accessible primary volume](/docs/BlockStorage?topic=BlockStorage-dr-accessible).
 * If the primary location is down, see [Failover with an inaccessible primary volume](/docs/BlockStorage?topic=BlockStorage-dr-inaccessible).

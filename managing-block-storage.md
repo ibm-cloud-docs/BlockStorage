@@ -135,7 +135,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
 
-To authorize a compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
+To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
 
 The following example defines that the Virtual Server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
@@ -170,7 +170,7 @@ To remove authorization from a host, remove its details from the `ibm_storage_bl
 {: ui}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
-2. Click **Authorized Hosts** to display the list of compute instances that have access to the volume.
+2. Click **Authorized Hosts** to display the list of Compute instances that have access to the volume.
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – username, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
@@ -200,7 +200,7 @@ Options:
 {: support}
 {: terraform}
 
-After your storage resource is created, you can view the access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the compute host that are authorized to access the volume.
+After your storage resource is created, you can view the access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are authorized to access the volume.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 

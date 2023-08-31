@@ -24,7 +24,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: important}
 
-## Our compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
+## Our Compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
 {: #authsubnets}
 {: faq}
 {: support}
@@ -232,7 +232,7 @@ For more information, see one of the following articles.
 {: faq}
 {: support}
 
-Target latency within the storage is <1 ms. The storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
+Target latency within the storage is <1 ms. The storage is connected to Compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
 ## I ordered a {{site.data.keyword.blockstorageshort}} LUN in the wrong data center. Is it possible to move or migrate storage to another data center?
 {: #movedatacenter}
