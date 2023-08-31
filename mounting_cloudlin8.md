@@ -42,7 +42,7 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
+   - If you choose Devices, you can select from Bare Metal Server or virtual server instances.
    - If you choose IP address, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
@@ -87,9 +87,9 @@ Options:
 {: #authhostclin8Cterraform}
 {: terraform}
 
-To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for Virtual Servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
+To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
 
-The following example defines that the Virtual Server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+The following example defines that the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
