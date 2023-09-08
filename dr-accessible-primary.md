@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2021-06-10"
+lastupdated: "2023-09-08"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -14,10 +14,10 @@ subcollection: BlockStorage
 # Disaster Recovery - Fail over from an accessible primary volume
 {: #dr-accessible}
 
-If a catastrophic failure or disaster occurs on the primary site and performance is degraded while the primary storage is still accessible, customers can perform the following actions to quickly access their data on the secondary site.
+If a failure occurs on the primary site, and performance is degrading while the primary storage is still accessible, customers can reroute their operations to the secondary site by initiating a failover.
 {: shortdesc}
 
-Before you start the failover, make sure that all host-authorization is in place.
+Before you start the failover, make sure that the required host-authorization is in place.
 {: important}
 
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
@@ -33,7 +33,7 @@ You can authorize a host to access the {{site.data.keyword.blockstoragefull}} vo
 2. Click your source volume from the **{{site.data.keyword.blockstorageshort}}** page. Its replica volume is listed under the source volume in the inactive status.
 3. Click the replica name and on the next screen, click **Actions**. From the menu, select **Authorize Hosts**.
 4. Select a host type and then choose a host from the list that is available for the volume. Filter the available host list by the device type, or IP address.
-5. Highlight the host that is to be authorized for replications. To select multiple hosts, use the CTRL-key and click the applicable hosts.
+5. Highlight the host that is to be authorized for replication. To select multiple hosts, use the CTRL-key and click the applicable hosts.
 6. Click **Save**. If you have no hosts that are available, you are prompted to purchase Compute resources in the same data center.
 
 ## Authorizing the host from the SLCLI
@@ -41,7 +41,7 @@ You can authorize a host to access the {{site.data.keyword.blockstoragefull}} vo
 {: cli}
 
 To authorize the hosts in the replica data center, use the following command.
-```Python
+```sh
 # slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
@@ -53,7 +53,7 @@ Options:
   -s, --subnet-id TEXT      An ID of one subnet to authorize.
   --help                    Show this message and exit.
 ```
-
+{: codeblock}
 
 ## Starting a failover from a volume to its replica
 {: #failovertoreplica}
@@ -62,7 +62,7 @@ If a failure event is imminent, you can start an **Immediate failover** or a "Co
 
 When you choose an Immediate Failover, the last successfully replicated snapshot is activated, and the volume is made available for mounting. The target volume becomes active in less time compared to a Controlled Failover. However, any data that was written to the source volume since the previous replication cycle is lost.
 
-A Controlled Failover is the best choice when you want to test the failover function or when it’s more important to continue operations at the replica location with the most recent data. In a Controlled Failover, a new snapshot is taken and copied over to the replica location. After the data is successfully copied over, the volume is made available for mounting.
+A Controlled Failover is the best choice when you want to test the failover function. It's also the best option when it’s more important to continue operations at the replica location with the most recent data. In a Controlled Failover, a new snapshot is taken and copied over to the replica location. After the data is successfully copied over, the volume is made available for mounting.
 
 When a failover is started, the replication relationship is flipped. Your target volume becomes your source volume, and your former source volume becomes your target as indicated by the **Volume Name** followed by **REP**.
 

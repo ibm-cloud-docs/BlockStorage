@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-20"
+lastupdated: "2023-09-08"
 
-keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -58,8 +58,8 @@ You can authorize and connect hosts that are located in the same data center as 
 2. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Click **Authorize Host**.
 4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or virtual server instances.
-   - If you choose IP address, select the subnet where your host resides.
+   - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
+   - If you choose the IP address option, select the subnet where your host resides.
 5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
@@ -298,7 +298,7 @@ To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the volume to be canceled, click **Actions**, and select **Delete {{site.data.keyword.blockstorageshort}}**.
-3. Confirm if want to delete the volume immediately or on the anniversary date of when the LUN was provisioned.
+3. Confirm if you want to delete the volume immediately or on the anniversary date of when the LUN was provisioned.
 
    If you select the option to delete the LUN on its anniversary date, you can void the cancellation request before its anniversary date.
    {: tip}

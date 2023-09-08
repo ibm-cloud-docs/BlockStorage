@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-08-31"
+lastupdated: "2023-09-08"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -54,6 +54,7 @@ Options:
   --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
 ```
+{: screen}
 
 ## How many volumes can be ordered?
 {: #orderlimit}
@@ -204,7 +205,7 @@ To enact this best practice, complete the following steps.
    * In VMware&reg;, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 5. Add a new persistent static route on the host to the target iSCSI subnet.
 6. Ensure that the IP for the newly added interface is added to the host authorization list.
-7. Perform discovery and target portal login as described in the following topics.
+7. Perform discovery and log in to target portal as described in the following topics.
    - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
    - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -224,7 +225,7 @@ Bonding works between a server and switch. However, MPIO works between a storage
 
 For more information, see one of the following articles.
 - Red Hat Linux&reg;: [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
-- Microsoft&reg; Windows&reg;: [NIC Teaming and ISCSI](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi){: external}.
+- Microsoft&reg; Windows&reg;: [NIC Teaming and iSCSI](https://social.technet.microsoft.com/Forums/en-US/441d2157-119d-4b1e-b40c-1aa3670e44a6/nic-teaming-and-iscsi){: external}.
 - VMware&reg;: [Host requirements for link aggregation](https://kb.vmware.com/s/article/1001938?lang=en_US){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
@@ -302,7 +303,7 @@ The cancellation process for this storage device is in progress so the Cancel ac
 {: #diskmanager}
 {: support}
 
-If you use more than two iSCSI LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might find that you can see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
@@ -327,7 +328,7 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 {: faq}
 {: support}
 
-If MPIO is configured right, then when an unplanned disruption or a planned maintenance occurs, and one of the routes is taken down, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
+During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured right, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
 - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -551,7 +552,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 {: #add-mpio}
 {: faq}
 
-Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for ISCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows&reg; Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for iSCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows&reg; Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
 
 ## How do I reconnect storage after a chassis swap?
 {: #chassis-swap}
@@ -569,9 +570,9 @@ For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/do
 {: faq}
 
 Perform the following steps to disconnect from a host:
-1. Remove operating system ISCSI sessions and, if applicable, unmount the device.
+1. Remove operating system iSCSI sessions and, if applicable, unmount the device.
 1. Revoke access for the host from the storage device in the [{{site.data.keyword.cloud}} console](/login){: external}.
-1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for ISCSI connections.
+1. Remove automatic discovery, and if applicable, remove connect database entries from the operating system for iSCSI connections.
 
 ## How do endurance and performance storage differ?
 {: #tier-options}
@@ -588,7 +589,7 @@ The following situations can affect the ability to upgrade or expand storage:
 - Older storage types can't be upgraded. For more information, see [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
 - The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
-## Are ISCSI LUNs thin or thick provisioned?
+## Are iSCSI LUNs thin or thick provisioned?
 {: #thin}
 {: faq}
 
@@ -622,7 +623,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 - [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
 - [Viewing LUN information in VMWare&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNVMware)
 
-## Can I get storage performance metrics (IOPS or latency) from the Support teams?
+## Can I get storage performance metrics (IOPS or latency) from the Support team?
 {: #storagemetrics}
 {: faq}
 
