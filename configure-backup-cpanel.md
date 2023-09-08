@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2019-12-06"
+lastupdated: "2023-09-08"
 
-keywords: Block storage, cPanel, backups, mountpoint, ISCSI
+keywords: Block storage, cPanel, backups, mountpoint, iSCSI
 
 subcollection: BlockStorage
 
@@ -23,7 +23,7 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
 1. Connect to the host through SSH.
 
 2. Ensure that a mount point target exists.
-   By default, the cPanel system saves backup files locally, to the `/backup` directory. For this document, it is assumed that `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
+   By default, the cPanel system saves backup files locally, to the `/backup` directory. For this document, it is assumed that the folder `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
    {: note}
 
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to iSCSI LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.

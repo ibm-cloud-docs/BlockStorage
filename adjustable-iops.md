@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-09-08"
 
 keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -17,21 +17,21 @@ subcollection: BlockStorage
 With this feature, {{site.data.keyword.blockstoragefull}} storage users can adjust the IOPS of their existing {{site.data.keyword.blockstorageshort}} immediately. They don't need to create a duplicate or manually copy data to new storage. Users don't experience any kind of outage or lack of access to the storage while the adjustment is taking place.
 {: shortdesc}
 
-Billing for the storage is updated to add the pro-rated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
+Billing for the storage is updated to add the prorated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
 
 ## Advantages of Adjustable IOPS
 {: #advantagesofresizingiops}
 
-- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need higher IOPS rate on their storage then. However, they don't need higher IOPS in the middle of the summer. This feature allows them to manage their costs and pay for higher IOPS when they need it.
+- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need a higher IOPS rate on their storage then. However, they don't need higher IOPS in the middle of the summer. This feature allows them to manage their costs and pay for higher IOPS when they need it.
 
 ## Limitations
 {: #limitsofIOPSadjustment}
 
 Clients can't switch between Endurance and Performance when they adjust their IOPS. However, they can specify a new IOPS tier or IOPS level for their storage based on the following criteria and restrictions:
 
-- If original volume is Endurance 0.25 tier, IOPS tier can’t be updated.
-- If original volume is Performance with less than or equal to 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in less than or equal to 0.30 IOPS/GB.
-- If original volume is Performance with more than 0.30 IOPS/GB, options available include only the size and IOPS combinations that result in more than 0.30 IOPS/GB.
+- If original volume is based on the Endurance 0.25 tier, the IOPS tier can’t be updated.
+- If original volume is based on a Performance profile with less than or equal to 0.30 IOPS/GB, you can select only the size and IOPS combinations that result in less than or equal to 0.30 IOPS/GB.
+- If original volume is based on a Performance profile with more than 0.30 IOPS/GB, you can select only the size and IOPS combinations that result in more than 0.30 IOPS/GB.
 
 | Volume size (GB) | IOPS range |
 |-------------|-----------------|
@@ -61,7 +61,7 @@ If the volume has replication in place, the replica is automatically updated to 
 2. Select the iSCSI volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Modify Volume**.
 3. Under **Adjust Storage IOPS**, make a new selection:
     - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
-    - For Performance (Allocated IOPS), specify new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
+    - For Performance (Allocated IOPS), specify a new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
 
     Be sure to look at any specific boundaries that are required by size in the order form.
     {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-02-15"
+lastupdated: "2023-09-08"
 
 keywords: Block Storage, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
 
@@ -38,7 +38,7 @@ You must purchase some amount of snapshot space for your volume first so you can
 
 Snapshot design depends on the customer’s environment. The following design considerations can help you to plan and implement Snapshot copies:
 - Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or LUN.
-- Don't over snap. Make sure that your scheduled snapshot frequency meets your RTO and RPO needs and your application business requirements by scheduling hourly, daily, or weekly snapshots.
+- Don't take too many snapshots. Make sure that your scheduled snapshot frequency meets your RTO and RPO needs and your application business requirements by scheduling hourly, daily, or weekly snapshots.
 - Snapshot AutoDelete can be used to control the growth of storage consumption.
 
    The AutoDelete threshold is fixed at 95 percent.
@@ -64,7 +64,7 @@ In the active file system, the changed blocks are rewritten to different locatio
 |-----|-----|
 | ![The space that is used before a snapshot copy is taken.](/images/bfcircle1.svg "Before Snapshot Copy") | Before any Snapshot copy is created, disk space is used by the active file system only. |
 | ![The space that is used when a snapshot copy is taken.](/images/bfcircle3.svg "After Snapshot Copy") | After a Snapshot copy is created, the active file system and Snapshot copy point to the same disk blocks. The Snapshot copy doesn't use extra disk space.  |
-| ![The space that is used when something changes after a snapshot copy was taken.](/images/bfcircle2.svg "Changes after Snapshot Copy") | After `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. Thus, deleting active file system data doesn't always free up disk space. |
+| ![The space that is used when something changes after a snapshot copy was taken.](/images/bfcircle2.svg "Changes after Snapshot Copy") | After the file `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. Thus, deleting active file system data doesn't always free up disk space. |
 {: caption="Table 1 shows how snapshots affect the space usage on the Storage." caption-side="top"}
 
 For more information about snapshot space usage, see [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots).

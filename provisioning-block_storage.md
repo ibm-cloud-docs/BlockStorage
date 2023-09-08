@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-09-08"
 
-keywords: Block Storage, ISCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
+keywords: Block Storage, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
 subcollection: BlockStorage
 
@@ -16,7 +16,7 @@ subcollection: BlockStorage
 # Ordering {{site.data.keyword.blockstorageshort}}
 {: #orderingBlockStorage}
 
-You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and operations-speed needs. Get the most out of your storage with two options for specifying performance.
+You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and performance needs. Get the most out of your storage with two options for specifying performance.
 {: shortdesc}
 
 - You can provision with **Endurance** tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.
@@ -39,16 +39,16 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 4. Enter your storage size in the **Size** field.
 5. Select the size of the Snapshot space from the list.
 
-   This space is in addition to your usable space. For snapshot space considerations and recommendation, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
+   This space is in addition to your usable space. For snapshot space considerations and recommendations, read [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
    {: tip}
 
 6. Choose your **OS Type** from the list.
 
-   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
+   This selection is based on the operating system that your host is running on and it cannot be modified later. For example, if your server is Ubuntu or RHEL, select Linux&reg;. If your host is a Windows 2012 or Windows 2016 server, select the Windows 2008+ option from the list. For more information about various Windows options, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
    {: tip}
 
 7. Select your IOPS profile. You can choose between the predefined values of **Endurance (Tiers)** or enter your custom IOPS value for **Performance**.
-    - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental level file shares.
+    - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental-level file shares.
     - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
     - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
     - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [all data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) for storage that is provisioned up to 4 TB.

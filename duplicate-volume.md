@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-28"
+lastupdated: "2023-09-08"
 
-keywords: Block Storage, LUN, volume duplication,
+keywords: Block Storage, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
 subcollection: BlockStorage
 
@@ -34,7 +34,7 @@ Independent duplicates can be created from both **primary** and **replica** volu
 #### Common uses for an independent duplicate volume
 {: #independent_usecase}
 
-- **Golden Copy**. Use a storage volume as golden copy that you can create multiple instances from for various uses.
+- **Gold copy**. Use a storage volume as a gold copy that you can create multiple instances from for various uses.
 - **Data refreshes**. Create a copy of your production data to mount to your nonproduction environment for testing.
 - **Development and Testing**. Create up to four simultaneous duplicates of a volume at one time to create duplicate data for development and testing.
 
@@ -74,7 +74,7 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 
 8. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 9. You can select the OS Type to be different than the original volume or to stay the same.
-10. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
+10. You can specify an IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
     - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
 
@@ -99,7 +99,7 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 
 9. You can update the snapshot space for the new volume to add more, less, or no snapshot space.
 10. You can select the OS Type to be different than the original volume or to stay the same.
-11. You can specify IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
+11. You can specify an IOPS or IOPS Tier for the new volume if you want to. The IOPS designation of the original volume is set by default. Available Performance and size combinations are displayed.
     - If your original volume is 0.25 IOPS Endurance tier, you can't make a new selection.
     - If your original volume is 2, 4, or 10 IOPS Endurance tier, you can move anywhere between those tiers for the new volume.
 
@@ -251,7 +251,7 @@ The dependent duplicate volume locks the original snapshot so the snapshot canno
 {: #refreshindependentvol_ui}
 {: ui}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot.
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then updating the duplicate volume by using the data from that snapshot.
 
 If the duplicate volume is independent, you can stop a running refresh operation and start a new one.
 {: note}
@@ -282,7 +282,7 @@ The conversion process can take some time to complete. The bigger the volume is,
 {: #refreshindependentvol}
 {: cli}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot.
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then updating the duplicate volume by using the data from that snapshot.
 
 Refreshes can be initiated by using the following command.
 ```python
@@ -331,12 +331,12 @@ For more information about available command options, see [`duplicate-convert-st
 {: #refreshindependentvol_api}
 {: api}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then, updating the duplicate volume by using the data from that snapshot. 
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then updating the duplicate volume by using the data from that snapshot. 
 
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
-The refresh process can be time-consuming. You might find that you have new data that you want to add to the duplicate before the running refresh is finished. If that's the case, you can make a second call to `refreshDuplicate` and specify the second, `forceRefresh` parameter as `true` to stop all ongoing and pending refresh transactions, and initiate a new refresh. If the second parameter is set to `false` or it is not specified, the call fails if another refresh is already in progress.
+The refresh process can be time-consuming. You might find that you have new data that you want to add to the duplicate before the running refresh is finished. If that's the case, you can make a second call to `refreshDuplicate` and specify the second `forceRefresh` parameter as `true` to stop all ongoing and pending refresh transactions, and initiate a new refresh. If the second parameter is set to `false` or it is not specified, the call fails if another refresh is already in progress.
 
 The force refresh process works only on independent volumes.
 {: note}

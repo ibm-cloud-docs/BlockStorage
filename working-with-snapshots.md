@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2022-04-25"
+lastupdated: "2023-09-08"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -21,7 +21,7 @@ Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot re
 {: #addscheduleUI}
 {: ui}
 
-You decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
+You can decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {: important}
@@ -47,7 +47,7 @@ The list of the snapshots is displayed as they're taken in the **Snapshots** sec
 {: #addscheduleCLI}
 {: cli}
 
-You decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
+You can decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {: important}
@@ -160,7 +160,7 @@ A list of retained snapshots and space that is used can be seen on the **{{site.
 
 You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
 
-- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
+- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
 - At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
 - At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
@@ -186,7 +186,7 @@ Options:
 
 Notifications are sent when you reach three different space thresholds – 75 percent, 90 percent, and 95 percent.
 
-- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
+- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
 - At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
 - At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
@@ -197,7 +197,7 @@ By default, snapshot warning notifications are enabled for every customer. Howev
 
 To check whether the notifications are enabled for the storage volume, use the following command.
 
-```python
+```sh
 # slcli block snapshot-get-notification-status
 Usage: slcli block snapshot-get-notification-status [OPTIONS] VOLUME_ID
   Get snapshots space usage threshold warning flag setting for a given volume
@@ -205,9 +205,10 @@ Usage: slcli block snapshot-get-notification-status [OPTIONS] VOLUME_ID
 Options:
   -h, --help  Show this message and exit.
 ```
+{: screen}
 
 To change the status of the notification setting, use the following command.
-```python
+```sh
 # slcli block snapshot-set-notification VOLUME_ID
 Usage: slcli block snapshot-set-notification VOLUME_ID [OPTIONS]
 
@@ -216,6 +217,7 @@ Options:
  --enable   Enable snapshot threshold warning notification for the storage volume
  -h, --help  Show this message and exit.
 ```
+{: screen}
 
 ## Increasing the amount of Snapshot space for a volume in the UI
 {: #changesnapshotspaceUI}
@@ -223,7 +225,7 @@ Options:
 
 You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space.
 
-Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Remember, automated, and manual snapshots share the space.
+Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Remember, automated and manual snapshots share the space.
 {: note}
 
 Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -304,8 +306,8 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
 1. Unmount and detach your storage volume from the host to ensure the host is not connecting to the volume during the restore for any reason.
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Microsoft&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 3. Scroll on the list, and click your volume to be restored. The **Snapshots** page displays the list of all saved snapshots along with their size and creation date.
@@ -314,7 +316,7 @@ You might need to take your storage volume back to a specific point in time beca
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
 
-5. Click **Yes** to start the restore. The restore is going to take a while, and your storage volume is locked during the restore.
+5. Click **Yes** to start the restore. The restoration is going to take a while, and your storage volume is locked during the restoration.
 
    When you return to the volume list, a clock icon appears next to your volume that indicates that an active transaction is in progress. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete.
    {: note}

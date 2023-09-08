@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-09-08"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -42,8 +42,8 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Select **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-    - If you choose Devices, you can select from Bare Metal Servers or Virtual servers.
-    - If you choose IP address, first, select the subnet where your host resides.
+    - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
+    - If you choose the IP address option, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 When the host is authorized to access the new storage, you can mount or map the storage volume.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-25"
+lastupdated: "2023-09-08"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -14,14 +14,14 @@ subcollection: BlockStorage
 # Ordering Snapshots
 {: #orderingsnapshots}
 
-To create snapshots of your storage volume, either automated or manually, you need to purchase space to hold them. You can purchase snapshot capacity during the initial volume purchase or later by using these steps.
+To create snapshots of your storage volume, you need to purchase space to hold them. You can purchase snapshot capacity during the initial volume purchase or later by using these steps.
 {: shortdesc}
 
 ## Determining how much snapshot space to order
 {: #determinesnapshotspace}
 
 Generically speaking, snapshot space is used by snapshots based on two key factors:
-- How much your active file system changes over time,
+- How much your active file system changes over time.
 - How long you plan to retain snapshots.
 
 The way to calculate the amount of space that you need is **(Rate of Change)** x **(number of hours/days/weeks/months data is kept)**.
@@ -29,7 +29,7 @@ The way to calculate the amount of space that you need is **(Rate of Change)** x
 The first snapshot uses a negligible amount of space as it's just a copy of the metadata (pointers) that indicates the active file system blocks.
 {: note}
 
-A volume with numerous changes and a lengthy retention period needs more space than a volume with moderate change and a moderate retention schedule. An example for the first type is a high change rate database. An example for the second type is a VMware&reg; datastore.
+A volume with numerous changes and a lengthy retention period needs more space than a volume with moderate changes and a moderate retention schedule. An example for the first type is a high change rate database. An example for the second type is a VMware&reg; datastore.
 
 If you take 12 hourly snapshots of 500 GB of actual data, and the change rate is 1 percent between each snapshot, you end up with 60 GB for snapshots.
 

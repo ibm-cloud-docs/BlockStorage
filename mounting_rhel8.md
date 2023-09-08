@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-20"
+lastupdated: "2023-09-08"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -42,8 +42,8 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-    - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
-    - If you choose IP address, select the subnet where your host resides.
+   - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
+   - If you choose the IP address option, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 When your host is authorized, take note of the following information, which is needed later.
@@ -201,7 +201,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
 {: #updateinitiator}
 {: step}
 
-Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
+Update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
 ```sh
 InitiatorName=<value-from-the-Portal>
@@ -234,7 +234,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 The iscsiadm utility is a command-line tool that is used for discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
-   ```zhs
+   ```sh
    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
    {: pre}
@@ -278,7 +278,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
-   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application should use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
    The volume is now mounted and accessible on the host. You can create a file system next.
@@ -310,7 +310,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
    The XXX represents the disk name that is returned in Step 1.
 
-   Scroll further down for the commands codes that are listed in the `fdisk` command table.
+   Scroll further down for the command codes that are listed in the `fdisk` command table.
    {: tip}
 
 3. Create a file system on the new partition.
@@ -421,7 +421,7 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
 
-   It's important to select the right disk and partition when you run this command. Verify the result by printing the partition table. Under file system column, you can see ext3.
+   It's important to select the right disk and partition when you run this command. Verify the result by printing the partition table. Under the file system column, you can see ext3.
    {: important}
 
 4. Create a mount point for the file system and mount it.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-09-08"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -29,11 +29,12 @@ If you're unsure how many volumes you have, you can confirm the numbers by using
 ### SLCLI
 {: #slclilimits}
 
-You can list the number of your volumes by using the [volume-limits](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-limits){: external} command in `slcli` (version 5.8.5 or higher).
+You can list the number of your volumes by using the [`volume-limits`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-limits){: external} command in `slcli` (version 5.8.5 or higher).
 
-```python
-# slcli block volume-limits
+```sh
+slcli block volume-limits
 ```
+{: pre}
 
 The output looks similar to the following example.
 ```sh
@@ -48,7 +49,7 @@ The output looks similar to the following example.
 ### IBM Cloud CLI
 {: #IBMCloudCLIlimit}
 
-The volume-limits command is also available in the `sl` plug-in for IBM Cloud CLI (v1.0 or higher).
+The `volume-limits` command is also available in the `sl` plug-in for IBM Cloud CLI (v1.0 or higher).
 
 ```python
 # ibmcloud sl block volume-limits
@@ -85,7 +86,7 @@ In the case, provide the following information:
 - **Ticket Subject**: Request to Increase Data Center Volume Count Storage Limit
 
 - **What is the use case for the additional volumes request?**
-   *For example, your answer might be something similar to a new VMware&reg; datastore, a new development and testing (dev/test) environment, an SQL database, or logging.*
+   *For example, your answer might be something similar to a new VMware&reg; datastore, a new development and testing (`dev/test`) environment, an SQL database, or logging.*
 
 - **How many extra Block volumes are needed by type, size, IOPS, and location?**
    *For example, your answer might be "25x Endurance 2 TB @ 4 IOPS in DAL09" or "25x Performance 4 TB @ 2 IOPS in WDC04".*

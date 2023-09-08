@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-04-25"
+lastupdated: "2023-09-08"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux
 
@@ -34,8 +34,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-    - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
-    - If you choose IP address, select the subnet where your host resides.
+    - If you chose the Devices option, you can select from Bare Metal Server or Virtual Server instances.
+    - If you choose the IP address option, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 When your host is authorized, take note of the following information, which is needed later.
@@ -85,7 +85,7 @@ When your host is authorized, take note of the following information, which is n
 {: #authhostCloudLinTerraform}
 {: terraform}
 
-When you provision your storage with Terraform, you authorize a Compute host to access the volume by specifying the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
+When you provision your storage with Terraform, you authorize a Compute host to access the volume by specifying the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the virtual server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
 ```terraform
 resource "ibm_storage_block" "test1" {
@@ -167,7 +167,7 @@ For more information about the arguments and attributes, see [ibm_storage_block]
      ```
      {: codeblock}
 
-   - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the username, and password.
+   - Update your CHAP settings `/etc/iscsi/iscsid.conf` by adding the username and password.
 
      ```sh
      iscsid.startup = /etc/rc.d/init.d/iscsid force-start

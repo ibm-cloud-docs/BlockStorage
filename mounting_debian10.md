@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-20"
+lastupdated: "2023-09-08"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Debian
 
@@ -33,7 +33,7 @@ You need a cluster-aware, shared-disk file system to prevent data loss such as M
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.readthedocs.io/en/latest/examples/#){: external}. For more information about how the ISCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} Documentation.
+Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work right, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.readthedocs.io/en/latest/examples/#){: external}. For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/service-iscsi){: external} Documentation.
 
 Before you begin, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume is authorized correctly.
 
@@ -46,8 +46,8 @@ Before you begin, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
-   - If you choose IP address, select the subnet where your host resides.
+   - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
+   - If you choose the IP address option, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 When your host is authorized, take note of the following information, which is needed later.
@@ -217,7 +217,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 {: #updateinitiatordebi10}
 {: step}
 
-Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
+Update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
 ```sh
 InitiatorName=<value-from-the-Portal>

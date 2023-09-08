@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-09-08"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL6, multipath, mpio, Linux,
 
@@ -35,8 +35,8 @@ Before you start, make sure the host that is accessing the {{site.data.keyword.b
 3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
 5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
-   - If you choose IP address, select the subnet where your host resides.
+   - If you chose Devices, you can select from Bare Metal Server or Virtual Server instances.
+   - If you chose the IP address option, select the subnet where your host resides.
 6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
 
 When your host is authorized, go to the **{{site.data.keyword.blockstorageshort}} Detail** screen and take note of the following information, which is needed later.
@@ -215,7 +215,7 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
       ```
       {: pre}
 
-   - **Ubuntu** has multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load-balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
+   - **Ubuntu** has a multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load-balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
 
       ```sh
       defaults {
@@ -300,7 +300,7 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
 
    - For other distributions, check the OS vendor Documentation.
 
-4. Verify that multipath is working.
+4. Verify that the multipath is working.
    - RHEL 6
      ```sh
      multipath -l
@@ -316,7 +316,7 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
 
      RHEL 7 and CentOS 7 might return No fc_host device, which can be ignored.
 
-5. Update `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
+5. Update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
 
    ```sh
    InitiatorName=<value-from-the-Portal>
@@ -572,7 +572,7 @@ To create a file system with `parted`, follow these steps.
    {: pre}
 
    It's important to select the right disk and partition when you run this command.
-   Verify the result by printing the partition table. Under file system column, you can see ext3.
+   Verify the result by printing the partition table. Under the file system column, you can see ext3.
    {: important}
 
 4. Create a mount point for the file system and mount it.
@@ -649,7 +649,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
     The WWID is included in the device name that the multipath creates.
 
-   - The following example output shows incorrect configuration. The `/dev/mapper` disk does not exist.
+   - The following example output shows an incorrect configuration. The `/dev/mapper` disk does not exist.
 
     ```sh
     root@server:~# fdisk -l | grep Disk
@@ -658,7 +658,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blocklist.
+* To confirm that no local disks are included in the list of multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blocklist.
    ```sh
    multipath -l -v 3 | grep sd <date and time>
    ```

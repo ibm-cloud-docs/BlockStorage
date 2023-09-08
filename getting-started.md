@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-08-15"
+lastupdated: "2023-09-08"
 
-keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, ISCSI, MPIO, redundant
+keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
@@ -74,7 +74,7 @@ Another factor to consider is the number of hosts that are using your volume. If
 
 The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB IO size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70 percent of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
-To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host side and application-specific tunings (IP stack or [queue depths](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings).
+To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host-side and application-specific tunings (IP stack or [queue depths](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings).
 
 Storage traffic ought to be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#isolatedstoragetraffic).
 
