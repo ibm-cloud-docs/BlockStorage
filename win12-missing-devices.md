@@ -8,6 +8,7 @@ keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, win
 
 subcollection: BlockStorage
 
+content-type: troubleshoot
 ---
 {{site.data.keyword.attribute-definition-list}}
 
