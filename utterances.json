@@ -170,7 +170,7 @@
         "NIST 800-88 compliance for block storage data",
         "data wipe procedure when LUNs deleted",
         "Block Storage NIST 800-88 compliant",
-        "policy when cancelling data on Block storage",
+        "policy when cancelling data on Block Storage",
         "block storage volume data wipe before reuse",
         " Block Storage sanitized before reuse",
         "iscsi disks wiped after cancellation",

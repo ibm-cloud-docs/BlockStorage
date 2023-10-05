@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2023
 lastupdated: "2023-02-15"
 
-keywords: Block storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
+keywords: Block Storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
 subcollection: BlockStorage
 

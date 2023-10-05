@@ -104,7 +104,7 @@ Options:
                                  Permitted Sizes:
                                  20, 40, 80, 100, 250, 500,
                                  1000, 2000, 4000, 8000, 12000  [required]
- --iops INTEGER                  Performance Storage IOPs, between 100 and
+ --iops INTEGER                  Performance Storage IOPS, between 100 and
                                  6000 in multiples of 100  [required for
                                  storage-type performance]
  --tier [0.25|2|4|10]            Endurance Storage Tier (IOP per GB)
@@ -156,7 +156,7 @@ For a successful order, you must specify the following parameters:
 - `location` – Datacenter in which to order iSCSI volume
 - `size` – Size of the volume, in GB
 - `os_type` – OS Type to use for volume alignment, see help for list
-- `iops` – Number of IOPs for a “Performance” order
+- `iops` – Number of IOPS for a “Performance” order
 - `tier_level` – Tier level to use for an “Endurance” order
 - `snapshot_size` – The size of optional snapshot space, if snapshot space is also ordered (None if not ordered)
 - `service_offering` – Requested offering package to use in the order (‘storage_as_a_service’, ‘enterprise’, or ‘performance’)

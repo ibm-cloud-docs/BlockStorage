@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2023-09-08"
 
-keywords: Block storage, Plesk, backups, mountpoint, iSCSI
+keywords: Block Storage, Plesk, backups, mountpoint, iSCSI
 
 subcollection: BlockStorage
 

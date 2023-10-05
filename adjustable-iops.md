@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2023
 lastupdated: "2023-10-05"
 
-keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
+keywords: Block Storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
 subcollection: BlockStorage
 
