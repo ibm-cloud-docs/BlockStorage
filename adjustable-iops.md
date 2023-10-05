@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-05"
 
-keywords: Block storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
+keywords: Block Storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
 subcollection: BlockStorage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Adjusting IOPS
 {: #adjustingIOPS}
 
-With this feature, {{site.data.keyword.blockstoragefull}} storage users can adjust the IOPS of their existing {{site.data.keyword.blockstorageshort}} immediately. They don't need to create a duplicate or manually copy data to new storage. Users don't experience any kind of outage or lack of access to the storage while the adjustment is taking place.
+With this feature, you can adjust the IOPS of your existing {{site.data.keyword.blockstorageshort}} immediately. You don't need to create a duplicate or manually copy data to new storage. The adjustment does not cause any kind of outage or lack of access to the storage.
 {: shortdesc}
 
 Billing for the storage is updated to add the prorated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
@@ -22,16 +22,12 @@ Billing for the storage is updated to add the prorated difference of the new pri
 ## Advantages of Adjustable IOPS
 {: #advantagesofresizingiops}
 
-- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need a higher IOPS rate on their storage then. However, they don't need higher IOPS in the middle of the summer. This feature allows them to manage their costs and pay for higher IOPS when they need it.
+- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need a higher IOPS rate on the storage then. However, the retail stores don't need higher IOPS in the middle of the summer. With this feature, you can manage your costs and pay for higher IOPS when you need it.
 
 ## Limitations
 {: #limitsofIOPSadjustment}
 
-Clients can't switch between Endurance and Performance when they adjust their IOPS. However, they can specify a new IOPS tier or IOPS level for their storage based on the following criteria and restrictions:
-
-- If original volume is based on the Endurance 0.25 tier, the IOPS tier can’t be updated.
-- If original volume is based on a Performance profile with less than or equal to 0.30 IOPS/GB, you can select only the size and IOPS combinations that result in less than or equal to 0.30 IOPS/GB.
-- If original volume is based on a Performance profile with more than 0.30 IOPS/GB, you can select only the size and IOPS combinations that result in more than 0.30 IOPS/GB.
+You can't switch between Endurance and Performance when you adjust their IOPS. However, you can specify a new IOPS for the storage based on the following criteria:
 
 | Volume size (GB) | IOPS range |
 |-------------|-----------------|
@@ -46,7 +42,7 @@ Clients can't switch between Endurance and Performance when they adjust their IO
 | 4,000 - 7,999 | 300 - 48,000|
 | 8,000 - 9,999 | 500 - 48,000 |
 | 10,000 - 12,000 | 1,000 - 48,000 |
-{: caption="Table 1. Available IOPS based on volume size for Performance volumes" caption-side="bottom"}
+{: caption="Table 1. Available IOPS based on volume size." caption-side="bottom"}
 
 ## Effect of IOPS adjustment on replication
 {: #iopschangeeffectonreplicas}
@@ -57,19 +53,15 @@ If the volume has replication in place, the replica is automatically updated to 
 {: #adjustingstepsUI}
 {: ui}
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}}. From the {{site.data.keyword.cloud}} console, click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon, then click **Infrastructure**  ![Classic icon](../icons/classic.svg "Classic") > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}}. Click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon, then click **Infrastructure**  ![Classic icon](../icons/classic.svg "Classic") > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the iSCSI volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Modify Volume**.
 3. Under **Adjust Storage IOPS**, make a new selection:
-    - For Endurance (Tiered IOPS), select an IOPS Tier greater than 0.25 IOPS/GB of your storage. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
-    - For Performance (Allocated IOPS), specify a new IOPS option for your storage by entering a value in the range 100-48,000 IOPS.
-
-    Be sure to look at any specific boundaries that are required by size in the order form.
-    {: tip}
+    - For Endurance (Tiered IOPS), select a different tier. You can increase the IOPS tier at any time. However, decreasing is available only once a month.
+    - For Performance (Allocated IOPS), specify a new IOPS option for your storage by entering a value in the range 100-48,000 IOPS. The UI notifies you if the selection is not valid for your volume size.
 
 4. Review your selection and the new pricing.
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
-
 
 ## Adjusting the IOPS on your Storage from the SLCLI
 {: #adjustingstepsCLI}
@@ -92,22 +84,10 @@ Options:
                                 volumes] ***If no IOPS value is specified, the
                                 original IOPS value of the volume will be
                                 used.***
-                                Requirements: [If original IOPS/GB
-                                for the volume is less than 0.3, new IOPS/GB
-                                must also be less than 0.3. If original
-                                IOPS/GB for the volume is greater than or
-                                equal to 0.3, new IOPS/GB for the volume must
-                                also be greater than or equal to 0.3.]
   -t, --new-tier [0.25|2|4|10]  Endurance Storage Tier (IOPS per GB) [only for
                                 endurance volumes] ***If no tier is specified,
                                 the original tier of the volume will be
                                 used.***
-                                Requirements: [If original IOPS/GB
-                                for the volume is 0.25, new IOPS/GB for the
-                                volume must also be 0.25. If original IOPS/GB
-                                for the volume is greater than 0.25, new
-                                IOPS/GB for the volume must also be greater
-                                than 0.25.]
   -h, --help                    Show this message and exit.
 ```
 {: codeblock}
@@ -214,14 +194,14 @@ resource "ibm_storage_block" "test1" {
 ```
 {: codeblock}
 
-The following example decreases the performance level of a Performance volume to 50 IOPS.
+The following example changes the performance level of a Performance volume to 150 IOPS.
 
 ```terraform
 resource "ibm_storage_block" "test2" {
         type = "Performance"
         datacenter = "dal09"
         capacity = 40
-        iops = 50
+        iops = 150
         os_format_type = "Linux"
 
         # Optional fields
