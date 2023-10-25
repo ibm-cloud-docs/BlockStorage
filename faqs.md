@@ -41,11 +41,11 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 5. To see the list of available IP addresses, select the **IP address** as the host type. Then, select the subnet where your host resides.
 6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
-### SLCLI
+### slcli
 {: #authinSLCLI}
 
-```python
-# slcli block subnets-assign -h
+```sh
+$ slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>

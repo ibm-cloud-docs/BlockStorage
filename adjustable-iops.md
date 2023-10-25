@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-05"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -29,19 +29,19 @@ Billing for the storage is updated to add the prorated difference of the new pri
 
 You can't switch between Endurance and Performance when you adjust their IOPS. However, you can specify a new IOPS for the storage based on the following criteria:
 
-| Volume size (GB) | IOPS range |
-|-------------|-----------------|
-| 10 - 39     | 100 - 1,000 |
-| 40 - 79     | 100 - 2,000 |
-| 80 - 99     | 100 - 4,000 |
-| 100 - 499   | 100 - 6,000 |
-| 500 - 999   | 100 - 10,000|
-| 1,000 - 1,999 | 100 - 20,000|
-| 2,000 - 2,999 | 200 - 40,000|
-| 3,000 - 3,999 | 200 - 48,000|
-| 4,000 - 7,999 | 300 - 48,000|
-| 8,000 - 9,999 | 500 - 48,000 |
-| 10,000 - 12,000 | 1,000 - 48,000 |
+| Volume size (GB) |  IOPS range |
+|------------------|-------------|
+| 10 - 39          | 100 - 1,000 |
+| 40 - 79          | 100 - 2,000 |
+| 80 - 99          | 100 - 4,000 |
+| 100 - 499        | 100 - 6,000 |
+| 500 - 999        | 100 - 10,000|
+| 1,000 - 1,999    | 100 - 20,000|
+| 2,000 - 2,999    | 200 - 40,000|
+| 3,000 - 3,999    | 200 - 48,000|
+| 4,000 - 7,999    | 300 - 48,000|
+| 8,000 - 9,999    | 500 - 48,000|
+| 10,000 - 12,000| 1,000 - 48,000|
 {: caption="Table 1. Available IOPS based on volume size." caption-side="bottom"}
 
 ## Effect of IOPS adjustment on replication
@@ -63,13 +63,41 @@ If the volume has replication in place, the replica is automatically updated to 
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
 
-## Adjusting the IOPS on your Storage from the SLCLI
+## Adjusting the IOPS on your Storage from the CLI
 {: #adjustingstepsCLI}
 {: cli}
 
-By using the following command, you can adjust the IOPS through the SLCLI.
+Before you can begin the process, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### Adjusting the IOPS from the IBMCLOUD CLI
+{: #adjustIOPSICCLI}
+
+You can update the IOPS by using the `ibmcloud sl block volume-modify` command. The following example modifies a Performance volume by specifying a new IOPS value.
+
 ```sh
-# slcli block volume-modify --help
+ibmcloud sl block volume-modify 12345678 --new-iops 4000
+```
+{: codeblock}
+
+The following example modifies an Endurance file share by specifying a new IOPS tier.
+
+```sh
+ibmcloud sl block volume-modify 12345678 --new-tier 4
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-modify](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_modify){: external}.
+
+### Adjusting the IOPS from the SLCLI
+{: #adjustIOPSSLCLI}
+
+You can update the IOPS by using the following command.
+
+```sh
+$ slcli block volume-modify --help
 Usage: slcli block volume-modify [OPTIONS] VOLUME_ID
 
 Options:
@@ -90,7 +118,7 @@ Options:
                                 used.***
   -h, --help                    Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 ## Adjusting the IOPS on your Storage with the API
 {: #adjustingstepsAPI}

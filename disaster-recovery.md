@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, inaccessible primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -33,19 +33,40 @@ This action breaks the replication relationship and restoring the connection bet
 4. When the primary location is unavailable, the option of Disaster Recovery Failover becomes active. Check the box to confirm you understand the failover cannot be undone without a support case.
 5. Click **Yes** to proceed.
 
-## Fail over to the replica volume by using the SL CLI
-{: #drfailoverCLI}
+## Failing over to the replica volume from the CLI
+{: #DRFailoverCLI}
 {: cli}
 
+Before you begin, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### Initiating a failover from the IBMCLOUDCLI
+{: #DRFailoverICCLI}
+
+You can use the `ibmcloud sl block replica-failover` command to fail over operations from the source file share to the replica file share. The following example initiates a failover from the source share `560156918` to the replica share `560382016`.
+
+```sh
+$ ibmcloud sl block disaster-recovery-failover 560156918 560382016
+OK
+Failover of volume 560156918 to replica 560382016 is now in progress.
+```
+{: codeblock}
+
+### Initiating a failover from the SLCLI
+{: #DRFailoverSLCLI}
+
 Use the following command to fail a block volume over to a specific replicant volume.
-   ```python
-   # slcli block disaster-recovery-failover --help
+   ```sh
+   $ slcli block disaster-recovery-failover --help
    Usage: slcli block disaster-recovery-failover [OPTIONS] VOLUME_ID
 
    Options:
    --replicant-id TEXT  ID of the replicant volume
     -h, --help           Show this message and exit.
    ```
+   {: screen}
 
 ## Fail over to the replica volume by using the API
 {: #drfailoverAPI}
@@ -57,9 +78,7 @@ Use the following command to fail a block volume over to a specific replicant vo
 * URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3/SoftLayer_Network_Storage/primaryvolumeId/disasterRecoveryFailoverToReplicant`
 * Request body
    ```sh
-   {
-    "parameters": [replicavolumeid]
-   }
+   {"parameters": [replicavolumeid]}
    ```
 
 ### SOAP API
@@ -106,19 +125,20 @@ After a disaster event, {{site.data.keyword.cloud}} begins remediation work to r
 
 If you need further assistance, create a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
 
-## Fail back from the SLCLI
+## Fail back from the CLI
 {: #DRFailback2originalCLI}
 {: cli}
 
 To fail back a file volume from a specific replicant volume, use the following command.
-```python
-# slcli block replica-failback --help
+```sh
+$ slcli block replica-failback --help
 Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
 
 Options:
  --replicant-id TEXT  ID of the replicant volume
  -h, --help           Show this message and exit.
 ```
+{: screen}
 
 During the Disaster Recovery Failover, the system is forced to fail over to the replica site and the replication relationship is severed. To be able to fail back to the original site after the site is restored to normal operations, the system must reestablish the replication bond. This operation can take a considerable amount of time. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in the replication history.
 {: note}

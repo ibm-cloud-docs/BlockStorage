@@ -75,73 +75,57 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 9. Acknowledge that you reviewed the terms and conditions by checking the appropriate box.
 10. Click **Create**. Your new storage allocation is available in a few minutes.
 
-## Ordering {{site.data.keyword.blockstorageshort}} through the SLCLI
+## Ordering {{site.data.keyword.blockstorageshort}} from the CLI
 {: #orderingthroughCLI}
 {: cli}
 
-You can use the SLCLI to place orders for products that are normally ordered through the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+Before you begin, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 
 Each order must have an associated location (data center). When you order {{site.data.keyword.blockstorageshort}}, make sure that it is provisioned in the same location as your Compute instances.
 {: important}
 
-For more information about how to install and use the SLCLI, see [Python CLI Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
-{: tip}
+### Provisioning from the IBMCLOUD CLI
+{: #orderingthroughICCLI}
 
-Use the `slcli block volume-order` command to provision the LUN.
+Use the `ibmcloud sl block volume-order` command to order a new block volume. The following example provisions a new 500-GB block volume in the DAL13 data center with a tiered performance profile (4 IOPS per GB) and 500 GB snapshot space.
 
-```python
-# slcli block volume-order --help
-Usage: slcli block volume-order [OPTIONS]
+```sh
+$ ibmcloud sl block volume-order --storage-type endurance --size 500 --tier 4 -d dal13 --snapshot-size 500 --os-type LINUX
+This action will incur charges on your account. Continue?> y
+OK
+Order 110758744 was placed.
+ > Storage as a Service
+ > Block Storage
+ > 500 GBs
+ > 4 IOPS per GB
+ > 500 GB (Snapshot Space)
 
- Order a block storage volume.
-
-Options:
- --storage-type [performance|endurance]
-                                 Type of block storage volume  [required]
- --size INTEGER                  Size of block storage volume in GB.
-                                 Permitted Sizes:
-                                 20, 40, 80, 100, 250, 500,
-                                 1000, 2000, 4000, 8000, 12000  [required]
- --iops INTEGER                  Performance Storage IOPS, between 100 and
-                                 6000 in multiples of 100  [required for
-                                 storage-type performance]
- --tier [0.25|2|4|10]            Endurance Storage Tier (IOP per GB)
-                                 [required for storage-type endurance]
- --os-type [HYPER_V|LINUX|VMWARE|WINDOWS_2008|WINDOWS_GPT|WINDOWS|XEN]
-                                 Operating System  [required]
- --location TEXT                 Datacenter short name (e.g.: dal09)
-                                 [required]
- --snapshot-size INTEGER         Optional parameter for ordering snapshot
-                                 space along with endurance block storage;
-                                 specifies the size (in GB) of snapshot space
-                                 to order
- --service-offering [storage_as_a_service|enterprise|performance]
-                                 The default is 'storage_as_a_service'
- --billing [hourly|monthly]      Optional parameter for Billing rate (default
-                                 to monthly)
- -h, --help                      Show this message and exit.
+You may run 'ibmcloud sl block volume-list --order 110758744' to find this block volume after it is ready.
 ```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-order](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order).
+
+### Provisioning from the SLCLI
+{: #orderingthroughSLCLI}
+
+Use the `slcli block volume-order` command to provision the block volume volume. The following example shows how to order a 10 GB {{site.data.keyword.blockstorageshort}} volume with 100 IOPS per GB.
+
+```sh
+$ slcli block volume-order --storage-type performance --size 20 --location dal10 --iops 100 --os-type LINUX --snapshot-size 20
+Order #32076317 placed successfully!
+> Storage as a Service
+> Block Storage
+> 20 GBs
+> 100 IOPS
+> 20 GB (Snapshot Space)
+```
+{: screen}
 
 For more information about Window OS types, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
-
-### Example order
-{: #exampleorder}
-{: cli}
-
-The following example shows how to order an 80 GB {{site.data.keyword.blockstorageshort}} volume with 20-GB Snapshot space and 0.25 IOPS per GB.
-
-```python
-slcli block volume-order --storage-type endurance --size 80 --tier 0.25 --os-type LINUX --location dal09 --snapshot-size 20
-Order #15547457 placed successfully!
- > Endurance Storage
- > Block Storage
- > 0.25 IOPS per GB
- > 80 GB Storage Space
- > 20 GB Storage Space (Snapshot Space)
-```
-
-For more information about ordering through the IBM Cloud CLI, see [Working with the Block Storage service (ibmcloud sl block)](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order){: external}.
-{: tip}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} by using the API
 {: #orderingthroughAPI}

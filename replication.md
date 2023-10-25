@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -23,7 +23,6 @@ Replication keeps your data in sync in two different locations. If you want to c
 Before you can replicate, you must create a snapshot schedule. The option to **Order Replica** does not appear unless this condition is met.
 {: important}
 
-
 ## Determining the remote data center for my replicated storage volume in the UI
 {: #determinereplocationUI}
 {: ui}
@@ -43,23 +42,53 @@ Data centers in the US 1 region can replicate with only each other. Data centers
 As part of the data center modernization strategy for {{site.data.keyword.cloud}}, the data centers in the US 1 region are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
 {: note}
 
-## Determining the remote data center for my replicated storage volume from the SLCLI
-{: #determinereplocationCLI}
+## Determining the remote data center for the replicated storage volume from the CLI
+{: #determinereplicationlocCLI}
 {: cli}
 
-{{site.data.keyword.cloud}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+Before you begin, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+{{site.data.keyword.cloud_notm}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+
+### Listing data center locations from the IBMCLOUD CLI
+{: #determinereplicationlocICCLI}
+
+You can use the `ibmcloud sl block replica-locations` command to locate a replica location for your block volume. The following example lists the available location for a block volume in the US south region.
+
+```sh
+$ ibmcloud sl block replica-locations 560156918
+ID        Short Name   Long Name
+449494    dal09        Dallas 9
+957095    wdc04        Washington 4
+1004995   sjc03        San Jose 3
+1441195   dal10        Dallas 10
+1854795   dal12        Dallas 12
+2017603   wdc07        Washington 7
+2017695   wdc06        Washington 6
+2178495   sjc04        San Jose 4
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block replica-locations](/docs/cli?topic=cli-sl-block-storage#sl_block_replica_locations).
+
+### Listing data center locations from the SLCLI
+{: #determinereplicationlocSLCLI}
 
 To list suitable replication data centers for a specific volume, use the following command.
+
 ```sh
-# slcli block replica-locations --help
+$ slcli block replica-locations --help
 Usage: slcli block replica-locations [OPTIONS] VOLUME_ID
 
 Options:
---sortby TEXT   Column to sort by
---columns TEXT  Columns to display. Options: ID, Long Name, Short Name
--h, --help      Show this message and exit.
+  --sortby TEXT   Column to sort by
+  --columns TEXT  Columns to display. Options: ID, Long Name, Short Name
+  -h, --help      Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
 {: note}
@@ -88,14 +117,33 @@ Replications work based on a snapshot schedule. You must first have snapshot spa
 7. Review your order, and read the service agreement. If you agree with the terms, check the box.
 8. Click **Place Order**.
 
-## Creating the initial replica from the SLCLI
+## Creating the initial replica from the CLI
 {: #enablerepCLI}
 {: cli}
 
-Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate. Then, you can use the following command to order a replica volume.
+Replications work based on a snapshot schedule. You must first have snapshot space and a snapshot schedule for the source volume before you can replicate.
+{: requirement}
+
+### Creating the replica volume from the IBMCLOUD CLI
+{: #enablerepICCLI}
+
+You can use the `ibmcloud sl block replica-order` command to order a replica volume. Specify the source volume, the replication schedule, and the location of your replica volume.
 
 ```sh
-# slcli block replica-order --help
+$ ibmcloud sl block replica-order 562193766 --snapshot-schedule DAILY -d dal13 -t 0.25 -o LINUX
+This action will incur charges on your account. Continue?> y
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block replica-order](/docs/cli?topic=cli-sl-block-storage#sl_block_replica_order).
+
+### Creating the replica volume from the SLCLI
+{: #enablerepSLCLI}
+
+You can use the following command to order a replica volume.
+
+```sh
+$ slcli block replica-order --help
 Usage: slcli block replica-order [OPTIONS] VOLUME_ID
 
 Options:
@@ -110,6 +158,7 @@ Options:
                                 ordered [optional]
 -h, --help                      Show this message and exit.
 ```
+{: screen}
 
 ## Viewing the replica volumes in the Volume List in the UI
 {: #replicalistUI}
@@ -117,21 +166,39 @@ Options:
 
 You can view your replication volumes on the {{site.data.keyword.blockstorageshort}} page under **Storage > {{site.data.keyword.blockstorageshort}}**. The **Volume Name** shows the primary volume's name followed by REP. The **Type** is Endurance or Performance – Replica.
 
-## Viewing the replica volumes from the SLCLI
+## Viewing the replica volumes from the CLI
 {: #replicalistCLI}
 {: cli}
 
-List existing replicant volumes for a file volume with the following command.
-```sh
-  # slcli block replica-partners --help
-  Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
+### Listing replica volumes from the IBMCLOUD CLI
+{: #replicalistICCLI}
 
-  Options:
+You can use the `ibmcloud sl block replica-order` command to list the replicas of your block volume. The following example lists the replica partners of the block volume `560156918`.
+
+```sh
+$ ibmcloud sl block replica-partners 560156918
+ID          User name                  Account ID   Capacity (GB)   Hardware ID   Guest ID   Host ID
+560382016   SL02SEV1414935_268_REP_1   1234567      500             -             -          -
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block replica-partners](/docs/cli?topic=cli-sl-block-storage#sl_block_replica_partners).
+
+### Listing replica volumes from the SLCLI
+{: #replicalistSLCLI}
+
+List existing replicant volumes for a block volume with the following command.
+```sh
+$ slcli block replica-partners --help
+Usage: slcli block replica-partners [OPTIONS] VOLUME_ID
+
+Options:
   --sortby TEXT   Column to sort by
   --columns TEXT  Columns to display. Options: ID, Username, Account ID,
                   Capacity (GB), Hardware ID, Guest ID, Host ID
   -h, --help      Show this message and exit.
 ```
+{: screen}
 
 ## Viewing the replication history in the UI
 {: #replicationhistoryUI}
@@ -152,13 +219,13 @@ However, if you want to change the time of day when your **Daily** replication o
 3. Look in the **Snapshot** frame under **Schedule** to determine which Daily schedule you're using for replication. Change the schedule that you want.
 4. Click **Save**.
 
-## Deleting an existing replica file share in the UI
+## Deleting an existing replica block volume in the UI
 {: #cancelreplicaUI}
 {: ui}
 
 You can cancel replication either immediately or on the anniversary date, which causes billing to end.
 
-1. Click the volume from the **{{site.data.keyword.filestorage_short}}** page.
+1. Click the volume from the **{{site.data.keyword.blockstorage_short}}** page.
 2. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Select **Delete Replica**.
 4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.

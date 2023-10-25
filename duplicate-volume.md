@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -108,17 +108,70 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 
 After you click **Create**, the order confirmation window appears. When you close the window, you return to the resources list. You can go back to your list of {{site.data.keyword.blockstorageshort}} volumes to click the newly provisioned duplicate. The volume details section displays information such as Duplicate Type, a link to the parent volume's details page and the name of the snapshot that was used to create the duplicate.
 
-## Creating a duplicate LUN from the SLCLI
+## Creating a duplicate from the CLI
 {: #cloneinCLI}
 {: cli}
 
-The commands that are described in the article are part of the SLCLI. For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
-{: tip}
+Before you begin, decide on the CLI client that you want to use.
 
-To create an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume, you can use the following command.
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 
-```python
-# slcli block volume-duplicate --help
+### Creating a duplicate from the IBMCLOUD CLI
+{: #createindependentduplicateICCLI}
+
+You can use the `ibmcloud sl block volume-duplicate` command to create a duplicate for your block share. The following example creates an independent duplicate of the block share `560382016`.
+
+```sh
+ibmcloud sl block volume-duplicate 560382016
+This action will incur charges on your account. Continue?> y
+OK
+Order 110554892 was placed.
+ > Storage as a Service
+ > File Storage
+ > 500 GBs
+ > 4 IOPS per GB
+ > 500 GB (Snapshot Space)
+
+You may run 'ibmcloud sl block volume-list --order 110554892' to find this block volume after it is ready.
+```
+{: codeblock}
+
+Your new duplicate is ready within minutes.
+
+```sh
+$ ibmcloud sl block volume-list --order 110554892
+id          username             datacenter   storage_type             capacity_gb   bytes_used   IOPs   ip_addr                                 lunId   active_transactions   rep_partner_count   notes
+560391190   SL02SEV1414935_269   dal09        endurance_block_storage   500           -            -      fsf-dal0902b-fz.service.softlayer.com   -       1                     0                   -
+```
+{: codeblock}
+
+When you want to create a dependent duplicate of your volume, use the command with the `--dependent-duplicate` option. See the following example.
+
+```sh
+$ ibmcloud sl block volume-duplicate 560391190 --dependent-duplicate
+This action will incur charges on your account. Continue?> y
+OK
+Order 110553472 was placed.
+ > Storage as a Service
+ > File Storage
+ > 500 GBs
+ > 4 IOPS per GB
+ > 500 GB (Snapshot Space)
+
+You may run 'ibmcloud sl block volume-list --order 110553472' to find this block volume after it is ready.
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-duplicate](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_duplicate){: external}.
+
+### Creating a duplicate from the SLCLI
+{: #createindependentduplicateSLCLI}
+
+To create an **independent duplicate** {{site.data.keyword.blockstorage_short}} volume, you can use the following command.
+
+```sh
+$ slcli block volume-duplicate --help
 Usage: slcli block volume-duplicate [OPTIONS] ORIGIN_VOLUME_ID
 
 Options:
@@ -128,10 +181,8 @@ Options:
   -c, --duplicate-size INTEGER    Size of duplicate block volume in GB. ***If
                                   no size is specified, the size of the origin
                                   volume will be used.***
-                                  Potential Sizes:
-                                  [20, 40, 80, 100, 250, 500, 1000, 2000,
-                                  4000, 8000, 12000] Minimum: [the size of the
-                                  origin volume]
+                                  Minimum: [the size
+                                  of the origin volume]
   -i, --duplicate-iops INTEGER    Performance Storage IOPS, between 100 and
                                   6000 in multiples of 100 [only used for
                                   performance volumes] ***If no IOPS value is
@@ -167,16 +218,16 @@ Options:
                                   to monthly)
   -h, --help                      Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
-**Dependent duplicate** volumes can be ordered from the SLCLI, too, with the option `--dependent-duplicate TRUE`.
+**Dependent duplicate** volumes can be ordered from the CLI, too, with the option `--dependent-duplicate TRUE`.
 
-```python
+```sh
 slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 ```
 {: pre}
 
-For more information about available command options, see [`block volume-duplicate`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block volume-duplicate){: external}.
+For more information about available command options, see [`block volume-duplicate`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-duplicate){: external}.
 
 ## Creating a duplicate LUN with the API
 {: #cloneinAPI}
@@ -285,7 +336,7 @@ The conversion process can take some time to complete. The bigger the volume is,
 As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then updating the duplicate volume by using the data from that snapshot.
 
 Refreshes can be initiated by using the following command.
-```python
+```sh
 slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 ```
 {: pre}
@@ -306,19 +357,19 @@ For more information about available command options, see [`slcli block volume-r
 
 If you want to use the dependent volume as a stand-alone volume in the future, you can convert it to a normal, independent {{site.data.keyword.blockstoragefull}} volume through the SLCLI. Use the following command.
 
-```python
+```sh
 slcli block volume-convert <dependent-vol-id>
 ```
 
 The conversion process can take some time to complete. The bigger the volume is, the longer it takes to convert it. Use the following command to check on the progress.
 
-```python
+```sh
 slcli block duplicate-convert-status <dependent-vol-id>
 ```
 {: pre}
 
 The following example shows the output that you can expect.
-```python
+```sh
 slcli block duplicate-convert-status 370597202
 Username            Active Conversion Start Timestamp   Completed Percentage
 SL02SEVC307608_74   2022-06-13 14:59:17                 90

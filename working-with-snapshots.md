@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -43,19 +43,41 @@ Snapshots schedules can be set up for hourly, daily, and weekly intervals, each 
 
 The list of the snapshots is displayed as they're taken in the **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page.
 
-## Adding a Snapshot schedule from the SLCLI
+## Adding a Snapshot schedule from the CLI
 {: #addscheduleCLI}
 {: cli}
 
-You can decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
+You can decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume.
 
 Before you can set up your initial schedule, you must first purchase snapshot space if you didn't purchase it during the initial provisioning of the storage volume. For more information, see [Ordering Snapshots](/docs/BlockStorage?topic=BlockStorage-orderingsnapshots).
 {: important}
 
+Before you begin, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### Adding a schedule from the IBMCLOUD CLI
+{: #addscheduleICCLI}
+
+Use the `ibmcloud sl block snapshot-enable` command to create a snapshot schedule. The following example creates a weekly schedule to take snapshots on every Sunday at 2:00 AM. In this example, up to 5 snapshots are retained.
+
+```sh
+$ ibmcloud sl block snapshot-enable 560156918 -s WEEKLY -c 5 -m 0 --hour 2 -d 0
+OK
+WEEKLY snapshots have been enabled for volume 560156918.
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-enable](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_enable){: external}.
+
+### Adding a schedule from the SLCLI
+{: #addscheduleSLCLI}
+
 To create a snapshot schedule, use the following command.
 
-```python
-# slcli block snapshot-enable --help
+```sh
+$ slcli block snapshot-enable --help
 Usage: slcli block snapshot-enable [OPTIONS] VOLUME_ID
 
   Enables snapshots for a given volume on the specified schedule
@@ -68,18 +90,18 @@ Options:
   --hour INTEGER          Hour of the day when snapshots should be taken
   --day-of-week TEXT      Day of the week when snapshots should be taken
   -h, --help              Show this message and exit.
-
 ```
+{: screen}
 
 You can also see the list of your snapshot schedules through the SLCLI with the following command.
-```python
-# slcli block snapshot-schedule-list --help
+```sh
+$ slcli block snapshot-schedule-list --help
 Usage: slcli block snapshot-schedule-list [OPTIONS] VOLUME_ID
 
 Options:
   -h, --help  Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 ## Managing a Snapshot schedule with Terraform
 {: #addscheduleTerraform}
@@ -118,7 +140,7 @@ resource "ibm_storage_block" "test1" {
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 If you want to update the schedule, change these values and apply them to your resources. If you want to delete the schedule, remove its details from the `ibm_storage_block` resource definition, and apply your changes.
 
@@ -136,21 +158,38 @@ The maximum limit of snapshots per storage volume is 50.
 
 The snapshot is taken and displayed in the **Snapshots** section of the **{{site.data.keyword.blockstorageshort}} Detail** page. Its schedule appears Manual.
 
-## Taking a manual Snapshot from the SLCLI
+## Taking a manual Snapshot from the CLI
 {: #takemanualsnapshotCLI}
 {: cli}
 
-You can use the following command to create a snapshot from the SLCLI.
+### Taking a Snapshot from the IBMCLOUD CLI
+{: #takemanualsnapshotICCLI}
 
-```python
-# slcli block snapshot-create --help
+You can use the `ibmcloud sl block snapshot-create` command to take a snapshot of a specific volume.
+
+```sh
+$ ibmcloud sl block snapshot-create 562193766
+OK
+New snapshot 562208096 was created.
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-create](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_create){: external}.
+
+### Taking a Snapshot from the SLCLI
+{: #takemanualsnapshotSLCLI}
+
+You can use the following command to create a snapshot from the CLI.
+
+```sh
+$ slcli block snapshot-create --help
 Usage: slcli block snapshot-create [OPTIONS] VOLUME_ID
 
 Options:
   -n, --notes TEXT  Notes to set on the new snapshot
   -h, --help        Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 ## Listing all Snapshots with Space Used Information and Management functions in the UI
 {: #listsnapshotUI}
@@ -169,13 +208,30 @@ By default, snapshot warning notifications are enabled for every customer. Howev
 If snapshot space utilization increases too rapidly, then you might receive one notification before autodeletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%.
 {: note}
 
-## Listing all Snapshots with Space Used Information and Management functions from the SLCLI
+## Listing all Snapshots with Space Used Information from the CLI
 {: #listsnapshotCLI}
 {: cli}
 
-You can accomplish this task from the SLCLI by using the following command.
-```python
-# slcli block snapshot-list --help
+### Listing all snapshots from the IBMCLOUD CLI
+{: #listsnapshotICCLI}
+
+You can use the `ibmcloud sl block snapshot-list` command to list the snapshots of a specific volume.
+
+```sh
+$ ibmcloud sl block snapshot-list 562193766
+id          user_name             created                     size_bytes   notes
+562208096   SL02SEVC1414935_651   2023-10-25T12:09:34-05:00   24000        -
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-list](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_list){: external}.
+
+### Listing all snapshots from the SLCLI
+{: #listsnapshotSLCLI}
+
+You can accomplish this task from the CLI by using the following command.
+```sh
+$ slcli block snapshot-list --help
 Usage: slcli block snapshot-list [OPTIONS] VOLUME_ID
 
 Options:
@@ -183,6 +239,10 @@ Options:
   --columns TEXT  Columns to display. Options: id, name, created, size_bytes
   -h, --help      Show this message and exit.
 ```
+
+## Check and update notification status from the CLI
+{: #notificationstatusCLI}
+{: cli}
 
 Notifications are sent when you reach three different space thresholds – 75 percent, 90 percent, and 95 percent.
 
@@ -195,10 +255,35 @@ If snapshot space utilization increases too rapidly, then you might receive one 
 
 By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
 
+### Checking notification status in the IBMCLOUD CLI
+{: #notificationstatusICCLI}
+
+To check the notificatio status, use the `ibmcloud sl block snapshot-get-notification-status` command.
+
+```sh
+$ ibmcloud sl block snapshot-get-notification-status 562193766
+Enabled: Snapshots space usage threshold is enabled for volume '562193766'.
+```
+{: screen}
+
+To change the status, use the `snapshot-set-notification` command with the `--disable` option.
+
+```sh
+$ ibmcloud sl block snapshot-set-notification --disable  562193766
+OK
+Snapshots space usage threshold warning notification has been set to 'false' for volume '562193766'.
+```
+{: screen}
+
+For more information about all of the parameters that are available for these commands, see [ibmcloud sl block snapshot-get-notification-status](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_get_notification_statust){: external} and [bmcloud sl block snapshot-set-notification](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_set_notification).{external}
+
+### Checking notification status in the SLCLI
+{: #notificationstatusICCLI}
+
 To check whether the notifications are enabled for the storage volume, use the following command.
 
 ```sh
-# slcli block snapshot-get-notification-status
+$ slcli block snapshot-get-notification-status
 Usage: slcli block snapshot-get-notification-status [OPTIONS] VOLUME_ID
   Get snapshots space usage threshold warning flag setting for a given volume
 
@@ -209,7 +294,7 @@ Options:
 
 To change the status of the notification setting, use the following command.
 ```sh
-# slcli block snapshot-set-notification VOLUME_ID
+$ slcli block snapshot-set-notification VOLUME_ID
 Usage: slcli block snapshot-set-notification VOLUME_ID [OPTIONS]
 
 Options:
@@ -250,13 +335,30 @@ Snapshot schedules can be canceled through **Storage** > **{{site.data.keyword.b
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
 
-## Deleting a snapshot schedule from the SLCLI
+## Deleting a snapshot schedule from the CLI
 {: #cancelnapshotscheduleCLI}
 {: cli}
 
+### Deleting a snapshot schedule from the IBMCLOUD CLI
+{: #cancelnapshotscheduleSLCLI}
+
+You can use the `ibmcloud sl block snapshot-disable` command to delete a snapshot schedule of a specific volume.
+
+```sh
+$ ibmcloud sl block snapshot-disable 562193766 -s DAILY
+OK
+DAILY snapshots have been disabled for volume 562193766.
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-disable](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_disable){: external}.
+
+### Deleting a snapshot schedule from the SLCLI
+{: #cancelnapshotscheduleSLCLI}
+
 You can accomplish this task by using the following command.
 ```sh
-# slcli block snapshot-disable --help
+$ slcli block snapshot-disable --help
 Usage: slcli block snapshot-disable [OPTIONS] VOLUME_ID
 
   Disables snapshots on the specified schedule for a given volume
@@ -266,6 +368,7 @@ Options:
                         [required]
   -h, --help            Show this message and exit.
 ```
+{: screen}
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
@@ -281,20 +384,42 @@ Snapshots that are no longer needed can be manually removed to free up space for
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 
-## Deleting a snapshot from the SLCLI
+## Deleting a snapshot from the CLI
 {: #deletesnapshotCLI}
 {: cli}
 
-Snapshots that are no longer needed can be manually removed to free up space for future snapshots. You can delete a snapshot from the SLCLI by using the following command.
+Snapshots that are no longer needed can be manually removed to free up space for future snapshots. 
+
+Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
+{: note}
+
+### Deleting a snapshot from the IBMCLOUD CLI
+{: #deletesnapshotICCLI}
+
+You can use the `ibmcloud sl block snapshot-delete` command to delete a specific snapshot.
 
 ```sh
-# slcli block snapshot-delete
+$ ibmcloud sl block snapshot-delete 562208096
+OK
+Snapshot 562208096 was deleted.
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-delete](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_delete){: external}.
+
+### Deleting a snapshot from the SLCLI
+{: #deletesnapshotSLCLI}
+
+You can delete a snapshot from the CLI by using the following command.
+
+```sh
+$ slcli block snapshot-delete
 Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
 
 Options:
   -h, --help  Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations. The oldest snapshot is deleted first.
 {: note}
@@ -333,7 +458,7 @@ You might need to take your storage volume back to a specific point in time beca
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}
 
-## Restoring storage volume to a specific point in time by using a snapshot from the SLCLI
+## Restoring storage volume to a specific point in time by using a snapshot from the CLI
 {: #restorefromsnapshotCLI}
 {: cli}
 
@@ -343,17 +468,28 @@ You might need to take your storage volume back to a specific point in time beca
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 
-2. Then, you can restore the volume with a snapshot from the SLCLI by using the following command.
-   ```sh
-   # slcli block snapshot-restore --help
-   Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
+2. Then, you can restore the volume with a snapshot by using one of the following commands.
+   - From the IBMCLOUD CLI:
+     ```sh
+     $ ibmcloud sl block snapshot-restore 562193766 562211890
+     OK
+     Block volume 562193766 is being restored using snapshot 562211890.
+     ```
+     {: screen}
+
+     For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-restore](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_restore){: external}.
+
+   - From the SLCLI:
+     ```sh
+     $ slcli block snapshot-restore --help
+     Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
    
-   Options:
-    -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
-                          the block volume
-    -h, --help              Show this message and exit.
-   ```
-   {: codeblock}
+     Options:
+      -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
+                              the block volume
+      -h, --help              Show this message and exit.
+      ```
+     {: screen}
 
 3. Lastly, mount and reattach your storage volume to the host.
    - [Mount iSCSI LUNs on Linux&reg; - RHEL6 and CentOS6](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
