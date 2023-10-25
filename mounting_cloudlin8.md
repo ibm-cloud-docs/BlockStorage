@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -33,84 +33,8 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 Before you begin, make sure the host that is accessing the {{site.data.keyword.blockstorageshort}} volume is authorized correctly.
 
-## Authorizing the host in the UI
-{: #authhostclin8UI}
-{: ui}
-
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
-2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
-4. Click **Authorize Host**.
-5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
-   - If you choose the IP address option, select the subnet where your host resides.
-6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
-
-When your host is authorized, take note of the following information, which is needed later.
-* iSCSI Target IP addresses
-* Username
-* Password
-* IQN
-
-## Authorizing the host from the SLCLI
-{: #authhostclin8CLI}
-{: cli}
-
-Use the following command to authorize a host to access the storage.
-
-```python
-# slcli block access-authorize --help
-Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
-
-Options:
-  -h, --hardware-id TEXT    The ID of a hardware server to authorize.
-  -v, --virtual-id TEXT     The ID of a virtual server to authorize.
-  -i, --ip-address-id TEXT  The ID of an IP address to authorize.
-  -p, --ip-address TEXT     An IP address to authorize.
-  --help                    Show this message and exit.
-```
-{: codeblock}
-
-```python
-# slcli block subnets-assign -h
-Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
-  Assign block storage subnets to the given host id.
-  access_id is the host_id obtained by: slcli block access-list <volume_id>
-
-Options:
-  --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
-  -h, --help           Show this message and exit.
-```
-{: codeblock}
-
-## Authorizing the host with Terraform
-{: #authhostclin8Cterraform}
-{: terraform}
-
-To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
-
-The following example defines that the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
-
-```terraform
-resource "ibm_storage_block" "test1" {
-        type = "Endurance"
-        datacenter = "dal09"
-        capacity = 40
-        iops = 4
-        os_format_type = "Linux"
-
-        # Optional fields
-        allowed_virtual_guest_ids = [ 27699397 ]
-        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
-        snapshot_capacity = 10
-        hourly_billing = true
-}
-```
-{: codeblock}
-
-After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are needed later.
-
-For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
+Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the UI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostterraform){: terraform}.
+{: requirement}
 
 ## Install the iSCSI and multipath utilities
 {: #installutilsclin8}

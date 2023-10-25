@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -35,18 +35,11 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 ## Authorizing the host to access the new {{site.data.keyword.blockstorageshort}}
 {: #authhosts2LUN}
 
+Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. 
+
 "Authorized" hosts are hosts that were given access to a volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
-2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the new volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
-4. Select **Authorize Host**.
-5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-    - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
-    - If you choose the IP address option, select the subnet where your host resides.
-6. From the filtered list, select one or more hosts that can access the volume and click **Save**.
-
-When the host is authorized to access the new storage, you can mount or map the storage volume.
+For more information, see [Authorizing the host in the UI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostterraform){: terraform}.
 
 ## Migrating your data
 {: #copydataacross}

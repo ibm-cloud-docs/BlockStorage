@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -28,20 +28,56 @@ You can view a summary of the key information for the selected storage LUN inclu
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate Volume name from the list.
 
-## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the SLCLI
+## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the CLI
 {: #viewLUNdeetsCLI}
 {: help}
 {: support}
 {: cli}
 
-To view information about a Storage LUN, you can use the following command from the SLCLI.
-```python
-# slcli block volume-detail --help
+Before you begin, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the IBMCLOUD CLI
+{: #viewLUNdeetsICCLI}
+
+Use the `ibmcloud sl block volume-detail` command to view the details of a specific block volume from the CLI.
+
+```sh
+$ ibmcloud sl block volume-detail  562193766
+Name                       Value
+ID                         562193766
+User name                  SL02SEL1414935-675
+Type                       endurance_block_storage
+Capacity (GB)              80
+LUN Id                     0
+Endurance Tier             LOW_INTENSITY_TIER
+Endurance Tier Per IOPS    0.25
+Datacenter                 dal09
+Target IP                  10.2.125.62
+Snapshot Size (GB)         20
+Snapshot Used (Bytes)      -
+# of Active Transactions   0
+Replicant Count            0
+Notes                      -
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-detail](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_detail){: external}.
+
+## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the SLCLI
+{: #viewLUNdeetsSLCLI}
+
+To view information about a Storage LUN, you can use the following command from the CLI.
+```sh
+$ slcli block volume-detail --help
 Usage: slcli block volume-detail [OPTIONS] VOLUME_ID
 
 Options:
   -h, --help  Show this message and exit.
 ```
+{: screen}
 
 ## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} in the UI
 {: #authhostUI}
@@ -65,20 +101,42 @@ You can authorize and connect hosts that are located in the same data center as 
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 {: note}
 
-## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} from the SLCLI
+## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} from the CLI
 {: #authhostCLI}
 {: help}
 {: support}
 {: cli}
 
-"Authorized" hosts are hosts that were given access to a particular LUN. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your LUN generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+“Authorized” hosts are hosts that were given access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username and password.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
 
-To authorize a host, you can use the following commands in SLCLI.
-```python
-# slcli block access-authorize --help
+### Authorizing hosts from the IBMCLOUD CLI
+{: #authhostICCLI}
+
+Use the `ibmcloud sl block access-authorize` command to authorize a host to access the volume. The following example authorizes the virtual server instance `87654321` to mount the volume `12345678`.
+
+```sh
+ibmcloud sl block access-authorize 12345678 --virtual-id 87654321
+```
+{: pre}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block access-authorize](/docs/cli?topic=cli-sl-block-storage#sl_block_access_authorize){: external}.
+
+You can also specify a subnet of the Compute instances that are allowed to access the storage by using the following command.
+
+```sh
+ibmcloud sl block subnets-assign --subnet-id 1234 87654321
+```
+{: pre}
+
+### Authorizing hosts from the SLCLI
+{: #authhostSLCLI}
+
+To authorize a host to access the volume, you can use the following command.
+```sh
+$ slcli block access-authorize --help
 Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
 
 Options:
@@ -88,9 +146,10 @@ Options:
   -p, --ip-address TEXT     An IP address to authorize.
   --help                    Show this message and exit.
 ```
+{: screen}
 
-```python
-# slcli block subnets-list -h
+```sh
+$ slcli block subnets-list -h
 Usage: slcli block subnets-list [OPTIONS] ACCESS_ID
   List block storage assigned subnets for the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>
@@ -98,9 +157,10 @@ Usage: slcli block subnets-list [OPTIONS] ACCESS_ID
 Options:
     -h, --help  Show this message and exit.
 ```
+{: screen}
 
-```python
-# slcli block subnets-assign -h
+```sh
+$ slcli block subnets-assign -h
 Usage: slcli block subnets-assign [OPTIONS] ACCESS_ID
   Assign block storage subnets to the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>
@@ -109,9 +169,10 @@ Options:
   --subnet-id INTEGER  ID of the subnets to assign; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
 ```
+{: screen}
 
-```python
-# slcli block subnets-remove -h
+```sh
+$ slcli block subnets-remove -h
 Usage: slcli block subnets-remove [OPTIONS] ACCESS_ID
   Remove block storage subnets for the given host id.
   access_id is the host_id obtained by: slcli block access-list <volume_id>
@@ -120,6 +181,7 @@ Options:
   --subnet-id INTEGER  ID of the subnets to remove; e.g.: --subnet-id 1234
   -h, --help           Show this message and exit.
 ```
+{: screen}
 
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, contact your sales representative or raise a [Support case](/unifiedsupport/cases/add){: external}.
 {: note}
@@ -174,16 +236,29 @@ To remove authorization from a host, remove its details from the `ibm_storage_bl
 
 There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – username, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
 
-## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN from the SLCLI
+## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN from the CLI
 {: #viewauthhostCLI}
 {: help}
 {: support}
 {: cli}
 
-To see the list of hosts, which are currently authorized to access the LUN, you can use the following command in SLCLI.
+### Viewing the list of authorized hosts from the IBMCLOUD CLI
+{: #viewauthhostICCLI}
 
-```python
-# slcli block access-list --help
+To confirm that the authorization worked, run the `ibmcloud sl block access-list` command.
+
+```sh
+ibmcloud sl block access-list 12345678 --sortby id 
+```
+{: pre}
+
+### Viewing the list of authorized hosts from the SLCLI
+{: #viewauthhostSLCLI}
+
+To see the list of hosts, which are currently authorized to access the LUN, you can use the following command.
+
+```sh
+$ slcli block access-list --help
 Usage: slcli block access-list [OPTIONS] VOLUME_ID
 
 Options:
@@ -193,6 +268,7 @@ Options:
                   password, allowed_host_id
   -h, --help      Show this message and exit.
 ```
+{: screen}
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN with Terraform
 {: #viewauthhostTerraform}
@@ -215,9 +291,9 @@ You can view the LUNs, which a host has access to, including information that is
 1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external} and click the appropriate device.
 2. Select the **Storage** tab.
 
-You're presented with a list of storage LUNs that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
+You're presented with a list of storage volumes that this particular host has access to. The list is grouped by storage type (block, file, other). You can authorize more storage or remove access by clicking **Actions**.
 
-A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
+A host cannot be authorized to access volumes of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 {: note}
 
 ## Revoking a host's access to {{site.data.keyword.blockstorageshort}} in the UI
@@ -245,7 +321,6 @@ You can revoke access from the **Device List** or the **Storage view**.
 If you want to disconnect multiple LUNs from a specific host, you need to repeat the Revoke Access action for each LUN.
 {: tip}
 
-
 ### Revoking access from the Storage View
 {: #revokeStorageUI}
 {: help}
@@ -260,8 +335,8 @@ If you want to disconnect multiple LUNs from a specific host, you need to repeat
 If you want to disconnect multiple hosts from a specific LUN, you need to repeat the Revoke Access action for each host.
 {: tip}
 
-## Revoking access from the SLCLI.
-{: #revokeSLCLI}
+## Revoking access from the CLI.
+{: #revokeCLI}
 {: help}
 {: support}
 {: cli}
@@ -271,10 +346,25 @@ If you want to stop the access from a host to a particular storage LUN, you can 
 To avoid host side issues, unmount the storage LUN from your operating system before you revoke the access to avoid missing drives or data corruption.
 {: important}
 
-Then, you can use the following command in SLCLI.
+### Revoking access from the IBMCLOUD CLI
+{: #revokeICCLI}
 
-```python
-# slcli block access-revoke --help
+Use the following command to revoke access from a Compute host. In the following example, access to the volume 12345678 is revoked from the virtual server instance 87654321.
+
+```sh
+ibmcloud sl block access-revoke 12345678 --virtual-id 87654321
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block access-revoke](/docs/cli?topic=cli-sl-block-storage#sl_block_access_revoke){: external}.
+
+### Revoking access from the SLCLI
+{: #revokeSLCLI}
+
+Use the following command to revoke access from a Compute host.
+
+```sh
+$ slcli block access-revoke --help
 Usage: slcli block access-revoke [OPTIONS] VOLUME_ID
 
 Options:
@@ -284,6 +374,7 @@ Options:
   -p, --ip-address TEXT     An IP address to revoke authorization.
   --help                    Show this message and exit.
 ```
+{: screen}
 
 ## Deleting a storage LUN in the UI
 {: #cancelLUNUI}
@@ -309,8 +400,7 @@ When the volume is canceled, the request is followed by a 24-hour reclaim wait p
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
-
-## Deleting a storage LUN from the SLCLI
+## Deleting a storage LUN from the CLI
 {: #cancelLUNCLI}
 {: help}
 {: support}
@@ -321,9 +411,28 @@ If you no longer need a specific LUN, you can cancel it at any time.
 To cancel a storage LUN, it's necessary to revoke access from any hosts first.
 {: important}
 
-Then, you can use the following command in SLCLI to cancel the storage.
-```python
-# slcli block volume-cancel --help
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+
+Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
+
+### Deleting a storage LUN from the IBMCLOUD CLI
+{: #cancelLUNICCLI}
+
+Use the following command to cancel the storage. The following example command cancels the volume 12345678 immediately, instead of on the anniversary date.
+
+```sh
+ibmcloud sl volume-cancel --immediate 12345678
+```
+{: screen}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-cancel](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_cancel){: external}.
+
+### Deleting a storage LUN from the SLCLI
+{: #cancelLUNSLCLI}
+
+Use the following command in SLCLI to cancel the storage.
+```sh
+$ slcli block volume-cancel --help
 Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
 
 Options:
@@ -332,11 +441,7 @@ Options:
                  the billing anniversary
   -h, --help     Show this message and exit.
 ```
-
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
-
-Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
-
+{: screen}
 
 ## Deleting a storage LUN from Terraform
 {: #cancelLUNTerraform}

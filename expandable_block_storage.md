@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-08-30"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -65,10 +65,30 @@ The Operating system must rescan the storage and reload the multipath device map
 {: #resizingstepsCLI}
 {: cli}
 
-By using the following command, you can increase your volume from the SLCLI.
+Before you begin, decide on the CLI client that you want to use.
 
-```python
-# slcli block volume-modify --help
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### Resizing a block volume from the IBMCLOUD CLI
+{: #resizingstepsICCLI}
+
+You can increase the capacity of a volume by using the `ibmcloud sl block volume-modify` command. The following example modifies a block volume by specifying a new, bigger capacity.
+
+```sh
+ibmcloud sl block volume-modify 12345678 --new-size 1000
+```
+{: pre}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-modify](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_modify){: external}.
+
+### Resizing a block volume from the SLCLI
+{: #resizingstepsSLCLI}
+
+To increase your storage capacity, you can use the following command in SLCLI.
+
+```sh
+$ slcli block volume-modify --help
 Usage: slcli block volume-modify [OPTIONS] VOLUME_ID
 
 Options:
@@ -101,7 +121,7 @@ Options:
                                 than 0.25.]
   -h, --help                    Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
@@ -117,7 +137,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Increase capacity on a Performance storage volume.
 
-   ```python
+   ```sh
    <?xml version="1.0" encoding="UTF-8"?>
    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>
@@ -153,7 +173,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 * Increase capacity on an Endurance storage volume.
 
-   ```python
+   ```sh
    <?xml version="1.0" encoding="UTF-8"?>
    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.service.softlayer.com/soap/v3.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
     <SOAP-ENV:Header>

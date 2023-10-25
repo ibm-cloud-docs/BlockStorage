@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, limit increase, global quota, quota increase
 
@@ -24,13 +24,29 @@ For more information about increasing your storage volume capacity beyond 12 TB,
 {: #confirmblocklimitscli}
 {: cli}
 
-If you're unsure how many volumes you have, you can confirm the numbers by using multiple methods.
+Before you begin, decide on the CLI client that you want to use.
 
-### SLCLI
-{: #slclilimits}
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### IBMCLOUD CLI
+{: #ibmcloudcli1}
+
+Use the `ibmcloud sl block volume-limits` command to display what is available and what is provisioned.
+
+```sh
+ibmcloud sl block volume-limits
+Datacenter   MaximumAvailableCount   ProvisionedCount
+global       700                     99
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-limits](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_limits){: external}.
+
+### slcli
+{: #slcli1}
 
 You can list the number of your volumes by using the [`volume-limits`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-limits){: external} command in `slcli` (version 5.8.5 or higher).
-
 ```sh
 slcli block volume-limits
 ```
@@ -45,17 +61,7 @@ The output looks similar to the following example.
 :   global   :           700         :         117      :
 :............:.......................:..................:
 ```
-
-### IBM Cloud CLI
-{: #IBMCloudCLIlimit}
-
-The `volume-limits` command is also available in the `sl` plug-in for IBM Cloud CLI (v1.0 or higher).
-
-```python
-# ibmcloud sl block volume-limits
-Datacenter   MaximumAvailableCount   ProvisionedCount
-global       700                     99
-```
+{: screen}
 
 ## Confirming your current limit and provisioning count with the API
 {: #confirmblocklimitsAPI}

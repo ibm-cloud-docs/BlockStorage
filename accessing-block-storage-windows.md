@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -26,55 +26,8 @@ If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start, make sure that the host that is accessing the {{site.data.keyword.blockstorageshort}} volume was authorized.
-
-### Authorizing the host in the UI
-{: #authhostwinUI}
-{: ui}
-
-You can authorize a host in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
-
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
-2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
-4. Click **Authorize Host**.
-5. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device types or subnets.
-   - If you choose Devices, you can select from Bare Metal Server or Virtual Server instances.
-   - If you choose an IP address, select the subnet where your host resides.
-6. From the filtered list, select one or more hosts that are supposed to access the volume and click **Save**.
-
-When your host is authorized, take note of the following information, which is needed later.
-* iSCSI Target IP addresses
-* Username
-* Password
-* IQN
-
-### Authorizing the host with Terraform
-{: #authhostwinTerraform}
-{: terraform}
-
-When you provision your storage with Terraform, you authorize a Compute host to access the volume by specifying the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. You can specify `allowed_ip_addresses` to define which IP addresses have access to the storage. The following example provides authorization to the virtual server with the ID `27699397` to access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
-
-```terraform
-resource "ibm_storage_block" "test1" {
-        type = "Endurance"
-        datacenter = "dal09"
-        capacity = 40
-        iops = 4
-        os_format_type = "Linux"
-
-        # Optional fields
-        allowed_virtual_guest_ids = [ 27699397 ]
-        allowed_ip_addresses = ["10.40.98.193", "10.40.98.200"]
-        snapshot_capacity = 10
-        hourly_billing = true
-}
-```
-{: codeblock}
-
-After your storage resource is created, you can access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are needed later.
-
-For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
+Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the UI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostterraform){: terraform}.
+{: requirement}
 
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}

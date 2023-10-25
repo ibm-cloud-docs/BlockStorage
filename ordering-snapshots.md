@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, snapshot space, ordering snapshots,
 
@@ -59,12 +59,36 @@ Additionally, for most workloads, the larger a volume is the less space needs to
 
 7. Review your order, and read the service agreement. If you agree with the terms, check the box. Cick **Place Order**. Your snapshot space is provisioned in a few minutes.
 
-## Ordering Snapshot space from the SLCLI
-{: #ordersnapshotSLCLI}
+## Ordering Snapshot space from the CLI
+{: #ordersnapshotCLI}
 {: cli}
 
-```python
-# slcli block snapshot-order --help
+Before you begin, decide on the CLI client that you want to use.
+
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### Provisioning from the IBMCLOUD CLI
+{: #orderingsnapthroughICCLI}
+
+Use the `ibmcloud sl block snapshot-order` command to provision snapshot space for your volume. The following example creates a 1000 GB snapshot space for the volume, which is identified by its ID `560156918`.
+
+```sh
+ibmcloud sl block snapshot-order 560156918 -s 1000 -t 4
+```
+{: pre}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-order](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_order){: external}.
+
+### Provisioning from the SLCLI
+{: #orderingsnapthroughSLCLI}
+
+Use the `slcli block snapshot-order` command to provision snapshot space for your volume. 
+
+```sh
+$ slcli block snapshot-order --help
+Usage: slcli block snapshot-order [OPTIONS] VOLUME_ID
+ slcli block snapshot-order --help
 Usage: slcli block snapshot-order [OPTIONS] VOLUME_ID
 
 Options:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -23,37 +23,11 @@ Before you start the failover, make sure that the required host-authorization is
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.
 {: note}
 
-## Authorizing the host in the UI
-{: #authreplicahostUI}
-{: ui}
+## Authorizing the host
+{: #authreplicahost}
 
-You can authorize a host to access the {{site.data.keyword.blockstoragefull}} volume through the [{{site.data.keyword.cloud}} console](/cloud-storage/block){: external}.
-
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon on the upper left. Select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
-2. Click your source volume from the **{{site.data.keyword.blockstorageshort}}** page. Its replica volume is listed under the source volume in the inactive status.
-3. Click the replica name and on the next screen, click **Actions**. From the menu, select **Authorize Hosts**.
-4. Select a host type and then choose a host from the list that is available for the volume. Filter the available host list by the device type, or IP address.
-5. Highlight the host that is to be authorized for replication. To select multiple hosts, use the CTRL-key and click the applicable hosts.
-6. Click **Save**. If you have no hosts that are available, you are prompted to purchase Compute resources in the same data center.
-
-## Authorizing the host from the SLCLI
-{: #authreplicahostCLI}
-{: cli}
-
-To authorize the hosts in the replica data center, use the following command.
-```sh
-# slcli block access-authorize --help
-Usage: slcli block access-authorize [OPTIONS] VOLUME_ID
-
-Options:
-  -h, --hardware-id TEXT    The ID of one hardware server to authorize.
-  -v, --virtual-id TEXT     The ID of one virtual server to authorize.
-  -i, --ip-address-id TEXT  The ID of one IP address to authorize.
-  -p, --ip-address TEXT     An IP address to authorize.
-  -s, --subnet-id TEXT      An ID of one subnet to authorize.
-  --help                    Show this message and exit.
-```
-{: codeblock}
+Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the UI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostterraform){: terraform}.
+{: requirement}
 
 ## Starting a failover from a volume to its replica
 {: #failovertoreplica}
@@ -86,14 +60,36 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 5. Click your active LUN (it was your previous target volume).
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
-## Fail over to replica from the SLCLI
+## Fail over to replica from the CLI
 {: #failovertoreplicaCLI}
 {: cli}
 
-To fail a block volume over to a specific replicant volume, use the following command.
+Before you begin, decide on the CLI client that you want to use.
 
-   ```python
-   # slcli block replica-failover --help
+* You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
+* Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
+
+### Initiating a failover from the IBMCLOUD CLI
+{: #failovertoreplicaICCLI}
+
+You can use the `ibmcloud sl block replica-failover` command to fail over operations from the source volume to the replica volume. The following example initiates a failover from the source share `560156918` to the replica share `560382016`.
+
+```sh
+$ ibmcloud sl block replica-failover 560156918 560382016
+OK
+Failover of volume 560156918 to replica 560382016 is now in progress.
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block replica-failover](/docs/cli?topic=cli-sl-block-storage#sl_block_replica_failover){: external}.
+
+### Initiating a failover from the SLCLI
+{: #failovertoreplicaSLCLI}
+
+To fail over a block volume to a specific replicant volume, use the following command.
+
+   ```sh
+   $ slcli block replica-failover --help
    Usage: slcli block replica-failover [OPTIONS] VOLUME_ID
 
    Options:
@@ -101,7 +97,10 @@ To fail a block volume over to a specific replicant volume, use the following co
    --immediate          Failover to replicant immediately.
    -h, --help           Show this message and exit.
    ```
+   {: screen}
 
+During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history. When your target volume is live, you get another message. Your original source volume's Status becomes Inactive.
+{: note}
 
 ## Starting a failback from a volume to its replica
 {: #failbackfromreplica}
@@ -133,16 +132,34 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
-## Failback from the SLCLI
+## Failing back from the CLI
 {: #failbackfromreplicaCLI}
 {: cli}
 
-To fail back a block volume from a specific replicant volume, use the following command.
- ```python
- # slcli block replica-failback --help
- Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+### Initiating a failback from the IBMCLOUDCLI
+{: #failbackfromreplicaICCLI}
 
- Options:
+You can use the `ibmcloud sl block replica-failback` command to fail back operations from the replica volume to the original source volume. The following example initiates a failback to the original source share `560156918`.
+
+```sh
+$ ibmcloud sl block replica-failback 560156918
+OK
+Failback of volume 560156918 is now in progress.
+```
+{: codeblock}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud sl block replica-failback](/docs/cli?topic=cli-sl-block-storage#sl_block_replica_failback){: external}.
+
+### Initiating a failback from the SL CLI
+{: #failbackfromreplicaSLCLI}
+
+To fail back a block volume from a specific replicant volume.
+```sh
+$ slcli block replica-failback --help
+Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
+
+Options:
  --replicant-id TEXT  ID of the replicant volume
  -h, --help           Show this message and exit.
- ```
+```
+{: screen}
