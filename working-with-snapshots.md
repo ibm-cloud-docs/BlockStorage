@@ -67,7 +67,7 @@ $ ibmcloud sl block snapshot-enable 560156918 -s WEEKLY -c 5 -m 0 --hour 2 -d 0
 OK
 WEEKLY snapshots have been enabled for volume 560156918.
 ```
-{: pre}
+{: screen}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-enable](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_enable){: external}.
 
@@ -140,7 +140,7 @@ resource "ibm_storage_block" "test1" {
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 If you want to update the schedule, change these values and apply them to your resources. If you want to delete the schedule, remove its details from the `ibm_storage_block` resource definition, and apply your changes.
 
@@ -189,7 +189,7 @@ Options:
   -n, --notes TEXT  Notes to set on the new snapshot
   -h, --help        Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 ## Listing all Snapshots with Space Used Information and Management functions in the UI
 {: #listsnapshotUI}
@@ -349,7 +349,7 @@ $ ibmcloud sl block snapshot-disable 562193766 -s DAILY
 OK
 DAILY snapshots have been disabled for volume 562193766.
 ```
-[: screen]
+{: screen}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-disable](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_disable){: external}.
 
@@ -368,6 +368,7 @@ Options:
                         [required]
   -h, --help            Show this message and exit.
 ```
+{: screen}
 
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
@@ -418,7 +419,7 @@ Usage: slcli block snapshot-delete [OPTIONS] SNAPSHOT_ID
 Options:
   -h, --help  Show this message and exit.
 ```
-{: codeblock}
+{: screen}
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations. The oldest snapshot is deleted first.
 {: note}

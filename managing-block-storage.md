@@ -39,7 +39,7 @@ Before you begin, decide on the CLI client that you want to use.
 * You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
 * Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 
-## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the IBMCLOUD CLI
+### Viewing {{site.data.keyword.blockstorageshort}} LUN details from the IBMCLOUD CLI
 {: #viewLUNdeetsICCLI}
 
 Use the `ibmcloud sl block volume-detail` command to view the details of a specific block volume from the CLI.
@@ -66,7 +66,7 @@ Notes                      -
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-detail](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_detail){: external}.
 
-## Viewing {{site.data.keyword.blockstorageshort}} LUN details from the SLCLI
+### Viewing {{site.data.keyword.blockstorageshort}} LUN details from the SLCLI
 {: #viewLUNdeetsSLCLI}
 
 To view information about a Storage LUN, you can use the following command from the CLI.
@@ -120,7 +120,7 @@ Use the `ibmcloud sl block access-authorize` command to authorize a host to acce
 ```sh
 ibmcloud sl block access-authorize 12345678 --virtual-id 87654321
 ```
-{: pre}
+{: screen}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block access-authorize](/docs/cli?topic=cli-sl-block-storage#sl_block_access_authorize){: external}.
 
@@ -129,7 +129,7 @@ You can also specify a subnet of the Compute instances that are allowed to acces
 ```sh
 ibmcloud sl block subnets-assign --subnet-id 1234 87654321
 ```
-{: pre}
+{: screen}
 
 ### Authorizing hosts from the SLCLI
 {: #authhostSLCLI}
@@ -250,7 +250,7 @@ To confirm that the authorization worked, run the `ibmcloud sl block access-list
 ```sh
 ibmcloud sl block access-list 12345678 --sortby id 
 ```
-{: pre}
+{: screen}
 
 ### Viewing the list of authorized hosts from the SLCLI
 {: #viewauthhostSLCLI}
