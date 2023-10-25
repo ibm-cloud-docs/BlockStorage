@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-10-25"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -165,6 +165,41 @@ You can use the following commands.
    The last line of the output shows how much space is unused.
 
    You can also view the free disk space in the File Explorer by clicking This PC.
+
+### Why does the available capacity that I see in my OS not match the capacity that I provisioned?
+{: faq}
+{: #faq-storage-units-2}
+
+One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume in the UI, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
+
+Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
+
+### Is storage capacity measured in GB or GiB?
+{: faq}
+{: #faq-storage-units}
+
+One confusing aspect of storage is the units that storage capacity and usage are reported in. Sometime GB is really gigabytes (base-10) and sometimes GB represents gibibytes (base-2) which should be abbreviated as GiB.
+
+Humans usually think and calculate numbers in the decimal (base-10) system. In our documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. In the UI, CLI, API, and Terraform, you see the unit GB used and displayed when you query the capacity. When you want to order a 4-TB volume, you enter 4,000 GB in your provisioning request.
+
+However, computers operate in binary, so it makes more sense to represent some resources like memory address spaces in base-2. Since 1984, computer file systems show sizes in base-2 to go along with the memory. Back then, available storage devices were smaller, and the size difference between the binary and decimal units was negligible. Now that the available storage systems are considerably larger this unit difference is causing confusion.
+
+The difference between GB and GiB lies in their numerical representation:
+- GB (Gigabyte) is a decimal unit, where 1 GB equals 1,000,000,000 bytes. When you convert GB to TB, you use 1000 as the multiplier.
+- GiB (Gibibyte), is a binary unit, where 1 GiB equals 1,073,741,824 bytes. When you convert GiB to TiB, you use 1024 as the multiplier.
+
+The following table shows the same number of bytes expressed in decimal and binary units.
+
+| Decimal SI (base 10) | Binary (base 2)       |
+|----------------------|-----------------------|
+| 2,000,000,000,000 B  | 2,000,000,000,000 B   |
+|     2,000,000,000 KB |     1,953,125,000 KiB |
+|         2,000,000 MB |         1,907,348 MiB |
+|             2,000 GB |             1,862 GiB |
+|                 2 TB |              1.81 TiB |
+{: caption="Table 1. Decimal vs Binary units" caption-side="bottom"}
+
+The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is actually larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB. 
 
 ## Does the volume need to be pre-warmed to achieve the expected throughput?
 {: #prewarm}
