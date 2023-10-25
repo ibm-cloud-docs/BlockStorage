@@ -17,7 +17,7 @@ subcollection: BlockStorage
 By completing the following steps, you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows&reg; server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
 {: shortdesc}
 
-## Prerequisites
+## Before you begin
 {: #authhostwin}
 
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
