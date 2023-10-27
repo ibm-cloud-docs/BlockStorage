@@ -168,7 +168,7 @@ For more information about all of the parameters that are available for this com
 ### Creating a duplicate from the SLCLI
 {: #createindependentduplicateSLCLI}
 
-To create an **independent duplicate** {{site.data.keyword.blockstorage_short}} volume, you can use the following command.
+To create an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume, you can use the following command.
 
 ```sh
 $ slcli block volume-duplicate --help

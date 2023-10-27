@@ -225,7 +225,7 @@ However, if you want to change the time of day when your **Daily** replication o
 
 You can cancel replication either immediately or on the anniversary date, which causes billing to end.
 
-1. Click the volume from the **{{site.data.keyword.blockstorage_short}}** page.
+1. Click the volume from the **{{site.data.keyword.blockstorageshort}}** page.
 2. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions").
 3. Select **Delete Replica**.
 4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
