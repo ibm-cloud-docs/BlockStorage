@@ -278,7 +278,7 @@ Snapshots space usage threshold warning notification has been set to 'false' for
 For more information about all of the parameters that are available for these commands, see [ibmcloud sl block snapshot-get-notification-status](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_get_notification_statust){: external} and [bmcloud sl block snapshot-set-notification](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_set_notification).{external}
 
 ### Checking notification status in the SLCLI
-{: #notificationstatusICCLI}
+{: #notificationstatusSLCLI}
 
 To check whether the notifications are enabled for the storage volume, use the following command.
 
@@ -340,7 +340,7 @@ If you're using the replication feature, be sure that the schedule you're deleti
 {: cli}
 
 ### Deleting a snapshot schedule from the IBMCLOUD CLI
-{: #cancelnapshotscheduleSLCLI}
+{: #cancelnapshotscheduleICCLI}
 
 You can use the `ibmcloud sl block snapshot-disable` command to delete a snapshot schedule of a specific volume.
 
