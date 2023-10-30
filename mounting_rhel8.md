@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-25"
+lastupdated: "2023-10-30"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -114,7 +114,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
    If you need to edit the multipath configuration file after you started the multipath daemon, you must issue the `systemctl reload multipathd.service` command for the changes to take effect.
    {: note}
 
-   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){: external}.
+   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring the device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){: external}.
 
 ## Update /etc/iscsi/initiatorname.iscsi file
 {: #updateinitiator}
@@ -197,7 +197,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
-   In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
    The volume is now mounted and accessible on the host. You can create a file system next.
@@ -268,7 +268,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      ```
      {: pre}
 
-5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
+5. To enable automatic mounting om boot, add the new file system to the system's `/etc/fstab` file.
    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
      ```sh
@@ -287,7 +287,7 @@ On many Linux&reg; distributions, `parted` comes preinstalled. However, if you n
 
 To create a file system with `parted`, follow these steps.
 
-1. Start the interactive parted shell.
+1. Start the interactive `parted` shell.
 
    ```sh
    parted
@@ -365,7 +365,7 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
 
-5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
+5. To enable automatic mounting om boot, add the new file system to the system's `/etc/fstab` file.
    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
    ```sh

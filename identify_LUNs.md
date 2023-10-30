@@ -242,7 +242,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000002 PortalTag=1030
    ```
 
-   In the example, `LUN:0` means that the LUN ID is 0.
+   In the example, the string `LUN:0` means that the LUN ID is 0.
 
 3. Issue the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
 
@@ -253,7 +253,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    vmhba64  iqn.1992-08.com.netapp:stfdal1007  161.26.99.152  3260  1030
    ```
 
-   In the example, "161.26.99.155" is the target IP address of your {{site.data.keyword.blockstorageshort}} and "1034" is the PortalTag.
+   In the example, the IP address "161.26.99.155" is the target IP address of your {{site.data.keyword.blockstorageshort}} and "1034" is the PortalTag.
 
 4. Next, use the IBMCLOUD CLI command `ibmcloud sl block volume-list`. The output contains the volume ID, the hostname of the storage device, the DC location, storage type, capacity, the amount of space already being used and the LUN ID.
 
@@ -265,7 +265,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200          -          0
    ```
 
-   In the example, "333280508" is the volume ID and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
+   In the example, the string "333280508" is the volume ID and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
 
    Issue the command `ibmcloud sl block volume-detail` to get more detailed information about the storage volume.
 

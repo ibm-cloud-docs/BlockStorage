@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-01-11"
+lastupdated: "2023-10-30"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# slcli commands for {{site.data.keyword.blockstorageshort}}
+# SLCLI commands for {{site.data.keyword.blockstorageshort}}
 {: #SLCLIcommands}
 
 You can use the SLCLI to accomplish tasks that are normally handled through the [{{site.data.keyword.cloud_notm}} console](/login){: external}. For example, from the SLCLI you can place orders for volumes, snapshot space, replication, update authorizations, or cancel volumes.

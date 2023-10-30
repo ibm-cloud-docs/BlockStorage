@@ -41,7 +41,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 5. To see the list of available IP addresses, select the **IP address** as the host type. Then, select the subnet where your host resides.
 6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
-### slcli
+### SLCLI
 {: #authinSLCLI}
 
 ```sh
@@ -68,7 +68,7 @@ By default, you can provision a combined total of 700 block storage and file sto
 {: faq}
 {: support}
 
-That depends on what the host operating system can handle, it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS Documentation for limits on the number of volumes that can be mounted.
+That depends on what the host operating system can handle, but it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS Documentation for limits on the number of volumes that can be mounted.
 
 ## Can I attach multiple LUNs with different OS settings?
 {: #multiplelun}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-25"
+lastupdated: "2023-10-30"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -208,7 +208,7 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
-    In the example, `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+    In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
     {: tip}
 
      The volume is now mounted and accessible on the host. You can create a file system next.
@@ -301,7 +301,7 @@ On many Linux&reg; distributions, `parted` comes preinstalled. However, if you n
 
 To create a file system with `parted`, follow these steps.
 
-1. Start the interactive parted shell.
+1. Start the interactive `parted` shell.
 
     ```sh
     parted
@@ -309,13 +309,13 @@ To create a file system with `parted`, follow these steps.
     {: pre}
 
 2. Create a partition on the disk.
-   - Unless it is specified otherwise, `parted` uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
+   - Unless it is specified otherwise, `parted` uses your primary drive. The primary drive is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
      ```sh
      select /dev/mapper/XXX
      ```
      {: pre}
 
-   - Run `print` to confirm that you are on the right disk
+   - Run `print` to confirm that you are on the right disk.
      ```sh
      print
      ```
@@ -374,7 +374,7 @@ To create a file system with `parted`, follow these steps.
     ```
     {: pre}
 
-5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
+5. To enable automatic mounting om boot, add the new file system to the system's `/etc/fstab` file.
     - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
     ```sh

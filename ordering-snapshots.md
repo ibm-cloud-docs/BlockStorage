@@ -88,8 +88,6 @@ Use the `slcli block snapshot-order` command to provision snapshot space for you
 ```sh
 $ slcli block snapshot-order --help
 Usage: slcli block snapshot-order [OPTIONS] VOLUME_ID
- slcli block snapshot-order --help
-Usage: slcli block snapshot-order [OPTIONS] VOLUME_ID
 
 Options:
   --capacity INTEGER    Size of snapshot space to create in GB  [required]

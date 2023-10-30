@@ -17,7 +17,7 @@ subcollection: BlockStorage
 You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile Computers and removable media. LUKS allows multiple user keys to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL6 or newer.
 {: shortdesc}
 
-These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted, or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see [Connecting to storage on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
+These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see [Connecting to storage on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
 
 {{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) is automatically provisioned with provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](/docs/BlockStorage?topic=BlockStorage-mng-data).
 {: note}

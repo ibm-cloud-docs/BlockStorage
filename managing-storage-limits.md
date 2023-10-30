@@ -43,10 +43,10 @@ global       700                     99
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-limits](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_limits){: external}.
 
-### slcli
+### SLCLI
 {: #slcli1}
 
-You can list the number of your volumes by using the [`volume-limits`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-limits){: external} command in `slcli` (version 5.8.5 or higher).
+You can list the number of your volumes by using the [`volume-limits`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-limits){: external} command in SLCLI (version 5.8.5 or higher).
 ```sh
 slcli block volume-limits
 ```
