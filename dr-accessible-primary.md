@@ -125,7 +125,7 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 2. In the upper right, click **Replica**, and click **Actions**.
 3. Select **Failback**.
 
-   Expect a message across the page that shows the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
+   Expect a message across the page that shows that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
    {: note}
 
 4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
