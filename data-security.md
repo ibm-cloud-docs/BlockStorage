@@ -33,7 +33,7 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 ## Securing your snapshots or replicated storage
 {: #SecureSnapshotBlock}
 
-All snapshots and replicas of encrypted file storage are also encrypted by default. This feature can’t be turned off on a volume basis.
+All snapshots and replicas of encrypted Block Storage are also encrypted by default. This feature can’t be turned off on a volume basis.
 All cluster-to-cluster traffic is encrypted with TLS.
 
 ## Provisioning Storage with Encryption
