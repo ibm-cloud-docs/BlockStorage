@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-11-17"
 
 keywords: Block Storage, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -127,7 +127,7 @@ Order #32076317 placed successfully!
 
 For more information about Window OS types, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#windowsOStypes).
 
-## Ordering {{site.data.keyword.blockstorageshort}} by using the API
+## Ordering {{site.data.keyword.blockstorageshort}} with the API
 {: #orderingthroughAPI}
 {: api}
 
@@ -144,7 +144,7 @@ For a successful order, you must specify the following parameters:
 - `service_offering` – Requested offering package to use in the order (‘storage_as_a_service’, ‘enterprise’, or ‘performance’)
 - `hourly_billing_flag` – Billing type, monthly (False) or hourly (True), default to monthly.
 
-For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [order_block_volume](https://softlayer-python.readthedocs.io/en/latest/api/managers/block/#SoftLayer.managers.block.BlockStorageManager.order_block_volume){: external}.
+For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [BlockStorageManager](https://softlayer-python.readthedocs.io/en/latest/api/managers/SoftLayer.managers.BlockStorageManager/){: external}.
 
 To be able to access all the new features, order `Storage-as-a-Service Package 759`.
 {: tip}
