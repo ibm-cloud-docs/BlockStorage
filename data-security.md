@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-11-14"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -33,7 +33,7 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 ## Securing your snapshots or replicated storage
 {: #SecureSnapshotBlock}
 
-All snapshots and replicas of encrypted file storage are also encrypted by default. This feature can’t be turned off on a volume basis.
+All snapshots and replicas of encrypted Block Storage are also encrypted by default. This feature can’t be turned off on a volume basis.
 All cluster-to-cluster traffic is encrypted with TLS.
 
 ## Provisioning Storage with Encryption
