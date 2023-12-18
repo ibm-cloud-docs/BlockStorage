@@ -9,7 +9,7 @@ toc:
     audience: service
     href: /docs/BlockStorage?topic=BlockStorage-getting-started
     console-page: /cloud-storage/block
-    product-page: https://www.ibm.com/cloud/block-storage
+    product-page: https://www.ibm.com/products/block-storage
     path: BlockStorage
     label: Block Storage - Classic
 
@@ -24,7 +24,7 @@ toc:
         - snapshots.md
         - link:
               label: What is Block Storage?
-              href: https://www.ibm.com/cloud/learn/block-storage
+              href: https://www.ibm.com/topics/block-storage
 
     - navgroup:
         id: tutorial

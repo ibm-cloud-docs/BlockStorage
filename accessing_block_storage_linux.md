@@ -36,7 +36,7 @@ Before you begin, make sure that the host that is to access the {{site.data.keyw
 Complete the following steps to connect a Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-For more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html){: external} and [DM-Multipath](https://help.ubuntu.com/lts/serverguide/multipath-setting-up-dm-multipath.html){: external}.
+For more information about Ubuntu specifics, see [iSCSI Initiator Configuration](https://ubuntu.com/server/docs/service-iscsi){: external} and [DM-Multipath](https://ubuntu.com/server/docs/device-mapper-multipathing-configuration){: external}.
 
 1. Install the iSCSI and multipath utilities to your host.
    - RHEL and CentOS

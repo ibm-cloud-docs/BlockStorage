@@ -114,7 +114,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
    If you need to edit the multipath configuration file after you started the multipath daemon, you must issue the `systemctl reload multipathd.service` command for the changes to take effect.
    {: note}
 
-   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring the device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/Red_Hat_Enterprise_Linux-8-Configuring_device_mapper_multipath-en-US.pdf){: external}.
+   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring the device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/red_hat_enterprise_linux-8-configuring_device_mapper_multipath-en-us.pdf){: external}.
 
 ## Update /etc/iscsi/initiatorname.iscsi file
 {: #updateinitiator}

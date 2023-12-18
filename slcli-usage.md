@@ -73,7 +73,7 @@ For more information about how to install and use the SLCLI, see [Python API Cli
 ## Volume-related SLCLI commands
 {: #sliclivolume}
 
-* [Ordering a {{site.data.keyword.blockstorageshort}} volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI)
+* [Ordering a {{site.data.keyword.blockstorageshort}} volume](https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli#orderingthroughCLI)
    ```sh
    slcli block volume-order
    ```
