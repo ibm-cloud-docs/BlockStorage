@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-11-18"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -315,7 +315,7 @@ To create a file system with `parted`, follow these steps.
      ```
      {: pre}
 
-   - Run `print` to confirm that you are on the right disk.
+   - Run `print` to confirm that you are on the correct disk.
      ```sh
      print
      ```

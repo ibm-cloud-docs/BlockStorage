@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-12-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -302,7 +302,7 @@ To create a file system with `parted`, follow these steps.
       ```
       {: pre}
 
-   2. Run `print` to confirm that you are on the right disk.
+   2. Run `print` to confirm that you are on the correct disk.
 
       ```sh
       print

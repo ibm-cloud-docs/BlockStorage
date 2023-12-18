@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-12-18"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -129,7 +129,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 {: #formatLUNonWIn}
 
 1. Press the Windows&reg; Logo key + X, and then click **Run**.
-2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The right pane shows the drives that are attached to your host.
+2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The side pane shows the drives that are attached to your host.
 3. In the Disk Management window, right-click the discovered LUN's name, and then click **Online**.
 4. Right-click and select **Initialize Disk**.
 5. In the dialog box, select the disk to initialize, and then click **OK**.

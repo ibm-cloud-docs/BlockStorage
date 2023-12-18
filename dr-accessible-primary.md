@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-25"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -122,13 +122,13 @@ When a Failback is started, the replication relationship is flipped again. Your 
 Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/cloud-storage/block){: external}.
 
 1. Click your active LUN ("target").
-2. In the upper right, click **Replica**, and click **Actions**.
+2. Next, click **Replica**, and click **Actions**.
 3. Select **Failback**.
 
    Expect a message across the page that shows that the failover is in progress. Additionally, an icon appears next to your volume on the **{{site.data.keyword.blockstorageshort}}** that indicates that an active transaction is occurring. Hovering over the icon produces a window that shows the transaction. The icon disappears when the transaction is complete. During the Failback process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history.
    {: note}
 
-4. In the upper right, click **View All {{site.data.keyword.blockstorageshort}}**.
+4. Next, click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN ("source").
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
 
