@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-09-08"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -38,7 +38,7 @@ For more information about using {{site.data.keyword.blockstorageshort}} with th
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
-For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/cloud/block-storage){: external}.
+For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/products/block-storage){: external}.
 
 ## Provisioning considerations
 {: #provconsiderBlock}
@@ -85,7 +85,7 @@ Storage traffic is included in the total network usage of Public virtual servers
 {: #submitorder}
 {: step}
 
-When you're ready to submit your order, you can place it in the [console](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughConsole), from the [SLCLI](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughCLI), or the [IBMCLOUD CLI](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order), with the API, or [Terraform](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage#orderingthroughTerraform).
+When you're ready to submit your order, you can place it in the [console](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole), from the [CLI](https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli#orderingthroughCLI), with the [API](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=api#orderingthroughAPI), or [Terraform](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=terraform#orderingthroughTerraform).
 
 ## Connecting and configuring your new storage
 {: #mountingstorage}

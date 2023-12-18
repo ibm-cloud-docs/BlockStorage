@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-12-07"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -118,7 +118,7 @@ IOPS is enforced at the volume level. Said differently, two hosts connected to a
 {: faq}
 {: support}
 
-IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance. To improve performance, you can try [adjusting the host queue depth settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings) or [enabling Jumbo frames](/docs/BlockStorage?topic=FileStorage-jumboframes).
+IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance. To improve performance, you can try [adjusting the host queue depth settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings) or [enabling Jumbo frames](/docs/FileStorage?topic=FileStorage-jumboframes).
 
 ## What happens when a smaller block size is used to measure performance?
 {: #smallblock}
@@ -364,7 +364,7 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 {: faq}
 {: support}
 
-During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured right, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
+During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
 - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
@@ -385,7 +385,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
 3. Click Action > Rescan Disks. This process can take up to 5 minutes or more to finish. The additional capacity displays as a deallocated partition on the existing Disk.
-4. Partition the deallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+4. Partition the deallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
 {: #expandsizeLin}
@@ -614,7 +614,7 @@ Perform the following steps to disconnect from a host:
 {: #tier-options}
 {: faq}
 
-Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/cloud/block-storage/details){: external}.
+Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/products/block-storage/details){: external}.
 
 ## I am unable to upgrade storage. What can affect the ability to upgrade or expand storage?
 {: #expand-fail}
@@ -667,7 +667,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 The following examples are utilities that you might consider to use to check performance statistics.
 - [`sysstat`](https://github.com/sysstat/sysstat/blob/master/README.md){: external} - System performance tools for the Linux&reg; operating system.
-- [`typeperf`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows&reg; command that writes performance data to the command window or to a log file.
+- [`typeperf`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows&reg; command that writes performance data to the command window or to a log file.
 - [`esxtop`](https://communities.vmware.com/t5/Storage-Performance/Interpreting-esxtop-Statistics/ta-p/2776936){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
 
 

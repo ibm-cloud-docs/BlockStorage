@@ -275,7 +275,7 @@ Snapshots space usage threshold warning notification has been set to 'false' for
 ```
 {: screen}
 
-For more information about all of the parameters that are available for these commands, see [ibmcloud sl block snapshot-get-notification-status](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_get_notification_statust){: external} and [bmcloud sl block snapshot-set-notification](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_set_notification).{external}
+For more information about all of the parameters that are available for these commands, see [ibmcloud sl block snapshot-get-notification-status](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_get_notification_status){: external} and [bmcloud sl block snapshot-set-notification](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_set_notification).{external}
 
 ### Checking notification status in the SLCLI
 {: #notificationstatusSLCLI}

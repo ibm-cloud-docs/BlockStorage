@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-18"
+lastupdated: "2023-12-18"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -114,7 +114,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
    }
    }
    ```
-   {: pre}
+ {: screen}
 
    The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpath n`, where `mpath n` is the WWID of the device.
 
@@ -349,7 +349,7 @@ To create a file system with `parted`, follow these steps.
      ```
      {: pre}
 
-     It's important to select the right disk and partition when you run this command. Verify the result by printing the partition table. Under the file system column, you can see ext3.
+     It's important to select the correct disk and partition when you run this command. Verify the result by printing the partition table. Under the file system column, you can see ext3.
     {: important}
 
 4. Create a mount point for the file system and mount it.

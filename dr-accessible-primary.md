@@ -58,7 +58,7 @@ Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 4. Click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN (it was your previous target volume).
-6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
+6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#mountingnewLUN).
 
 ## Fail over to replica from the CLI
 {: #failovertoreplicaCLI}
@@ -102,6 +102,8 @@ To fail over a block volume to a specific replicant volume, use the following co
 During the failover process, configuration-related actions are read-only. You can't edit any snapshot schedule or change snapshot space. The event is logged in replication history. When your target volume is live, you get another message. Your original source volume's Status becomes Inactive.
 {: note}
 
+Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli#mountingnewLUN).
+
 ## Starting a failback from a volume to its replica
 {: #failbackfromreplica}
 
@@ -130,7 +132,7 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
 
 4. Next, click **View All {{site.data.keyword.blockstorageshort}}**.
 5. Click your active LUN ("source").
-6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole#mountingnewLUN).
+6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#mountingnewLUN).
 
 ## Failing back from the CLI
 {: #failbackfromreplicaCLI}
@@ -163,3 +165,5 @@ Options:
  -h, --help           Show this message and exit.
 ```
 {: screen}
+
+Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli#mountingnewLUN).

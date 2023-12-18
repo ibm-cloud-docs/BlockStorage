@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2023-03-20"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, LUN, volume ID,
 
@@ -34,6 +34,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    -+- policy='round-robin 0' prio=10 status=active
    `- 3:0:0:1 sdd 8:48 active ready running`
    ```
+   {: screen}
 
    Note "1:0:0:0" and "3:0:0:1". The last digits in each of these fields "1:0:0:0" and "3:0:0:1", the "0" and "1" are the iscsi LUN ID numbers of your block storage devices.
 
@@ -47,6 +48,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    23976093 IBM02SEL1575811-4 dal12      performance_block_storage 80            -          1
    24024217 IBM02SEL1575811-5 seo01      performance_block_storage 2000          -          2
    ```
+   {: screen}
 
    ```sh
    $ ibmcloud sl block volume-detail 22030583
@@ -65,6 +67,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    # of Active Transactions   0
    Replicant Count            0
    ```
+   {: screen}
 
    The output shows the hostname of the storage device, the LUN ID, and the Target IP:
 
@@ -72,6 +75,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    IBM02SEL1575811-3 lun id: 0 Target IP: 161.26.110.17
    IBM02SEL1575811-4 lun id: 1 Target IP: 161.26.110.43
    ```
+   {: screen}
 
 3. You can further confirm this information by using the following command `iscsiadm -m session -P 3`.
 
@@ -176,6 +180,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    scsi3 Channel 00 Id 0 Lun: 1 # match the "Lun: 1" here to the LUN ID.
    Attached scsi disk sdd State: running
    ```
+   {: screen}
 
 ## Viewing the LUN ID in Windows&reg;
 {: #identifyLUNWin}
@@ -192,6 +197,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
       Device Number    : 4
       Location:        : Bus Number 0, Target ID 1, LUN 0
    ```
+   {: screen}
 
 2. Then, enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
 
@@ -201,6 +207,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200         -          0
    333506786 SL02SEL1160157-222 tok02      endurance_block_storage 200         -          0
    ```
+   {: screen}
 
    ```sh
    $ ibmcloud sl block volume-detail 333506786
@@ -217,6 +224,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    # of Active Transactions   0
    Replicant Count            0
    ```
+   {: screen}
 
 ## Viewing the LUN ID in VMWare&reg;
 {: #identifyLUNVMware}
@@ -231,6 +239,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    datastore1      5f69774e-f1031e44-7bdb-ac1f6bc4b812      0 naa.600062b2049d040026fc1e4b2f305682    3
    iscsi-datastore 621f425f-0dc2da8a-927b-ac1f6bc4b812      0 naa.600a098038305674695d51694b427849    1
    ```
+   {: screen}
 
 2. Next, enter the `esxcfg-mpath -b` command. The output contains the same `naa` number, the LUN ID, and the PortalTag.
 
@@ -241,6 +250,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
       vmhba64:C1:T1:L0 LUN:0 state:active iscsi Adapter: iqn.2020-10.com.ibm:sl02su1160157-h1907004
       Target: IQN=iqn.1992-08.com.netapp:stfdal1007 Alias= Session=00023d000002 PortalTag=1030
    ```
+   {: screen}
 
    In the example, the string `LUN:0` means that the LUN ID is 0.
 
@@ -252,6 +262,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    vmhba64  iqn.1992-08.com.netapp:stfdal1007  161.26.99.155  3260  1034
    vmhba64  iqn.1992-08.com.netapp:stfdal1007  161.26.99.152  3260  1030
    ```
+   {: screen}
 
    In the example, the IP address "161.26.99.155" is the target IP address of your {{site.data.keyword.blockstorageshort}} and "1034" is the PortalTag.
 
@@ -264,6 +275,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    332299016 SL02SEL1160157-220 dal13      endurance_block_storage 20           -          2
    333280508 SL02SEL1160157-221 dal10      endurance_block_storage 200          -          0
    ```
+   {: screen}
 
    In the example, the string "333280508" is the volume ID and "0" is the LUN ID of your {{site.data.keyword.blockstorageshort}} LUN.
 
@@ -284,12 +296,14 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    # of Active Transactions   0
    Replicant Count            0
    ```
+   {: screen}
 
    So you can map the iscsi LUN ID to the block device's hostname:
 
    ```text
    SL02SEL1160157-221  lun id: 0  Target IP: 161.26.99.155
    ```
+   {: screen}
 
 ## Viewing the LUN ID in the UI
 {: #identifyLUNUI}
