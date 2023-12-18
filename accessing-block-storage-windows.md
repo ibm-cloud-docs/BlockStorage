@@ -121,7 +121,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.![Devices](/images/Devices.svg){: caption="Figure 10. Devices window displays the iSCSI target." caption-side="bottom"}
 
-10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO with a Round Robin With Subset load balance policy.![The Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.svg){: caption="Figure 11. Multipath can be validated on the Device Details window." caption-side="bottom"}
+10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO.![The Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](/images/DeviceDetails.svg){: caption="Figure 11. Multipath can be validated on the Device Details window." caption-side="bottom"}
 
 11. Click **OK** several times to exit the iSCSI Initiator.
 

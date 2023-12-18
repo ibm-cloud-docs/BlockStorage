@@ -90,7 +90,7 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
       }
       }
       ```
-      {: pre}
+      {: codeblock}
 
      - Restart `iscsi` and `iscsid` services so that the changes take effect.
 
@@ -133,7 +133,7 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
       }
       }
       ```
-      {: pre}
+      {: codeblock}
 
    - **Ubuntu** has a multipath configuration that is built into `multipath-tools`. However, the built-in configuration uses a "service-time 0" load-balancing policy, which can leave your connection vulnerable to interruptions. Create a multipath.conf file and update it as follows.
 
@@ -170,7 +170,7 @@ For more information about Ubuntu specifics, see [iSCSI Initiator Configuration]
       }
       }
       ```
-      {: pre}
+      {: codeblock}
 
       - Restart `multipathd` service so that the changes take effect.
 
@@ -491,7 +491,7 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
 
-   It's important to select the right disk and partition when you run this command.
+   It's important to select the correct disk and partition when you run this command.
    Verify the result by printing the partition table. Under the file system column, you can see ext3.
    {: important}
 
@@ -547,6 +547,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    `-+- policy='round-robin 0' prio=-1 status=enabled
     `- 7:0:0:101 sde 8:64 active ready running
    ```
+   {: screen}
 
    The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent while the volume exists.
 

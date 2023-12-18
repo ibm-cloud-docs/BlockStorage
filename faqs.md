@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2023
-lastupdated: "2023-12-07"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -364,7 +364,7 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 {: faq}
 {: support}
 
-During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured right, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
+During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
 - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)

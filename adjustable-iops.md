@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-25"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -148,7 +148,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
           <packageId xsi:type="xsd:int">759</packageId>
           <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">189433</id> <!-- Top level price -->
+                  <id xsi:type="xsd:int">189433</id> <!-- Max level price -->
               </item>
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
                   <id xsi:type="xsd:int">190233</id> <!-- 2000 - 2999 GBs storage price-->
@@ -183,7 +183,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
           <volumeSize xsi:type="xsd:int">24</volumeSize>
           <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
             <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                <id xsi:type="xsd:int">189433</id> <!-- Top level price -->
+                <id xsi:type="xsd:int">189433</id> <!-- Max level price -->
             </item>
             <item xsi:type="ns1:SoftLayer_Product_Item_Price">
                 <id xsi:type="xsd:int">193373</id> <!-- New Performance tier price -->

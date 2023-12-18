@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-14"
+lastupdated: "2023-12-18"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -42,7 +42,7 @@ All cluster-to-cluster traffic is encrypted with TLS.
 The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} in all 
 {{site.data.keyword.cloud}} [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
 
-When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon to the right of the LUN/Volume Name field that indicates that the volume is encrypted.
+When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon next the LUN/Volume Name field that indicates that the volume is encrypted.
 
 ![Figure 1. Example of the lock icon that indicates that the LUN is encrypted.](/images/encryptedstorage.svg){: caption="FFigure 1. Example of the lock icon that indicates that the LUN is encrypted." caption-side="bottom"}
 

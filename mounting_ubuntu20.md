@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-25"
+lastupdated: "2023-12-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -105,7 +105,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    }
    }
    ```
-   {: pre}
+   {: screen}
 
    The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device.
 
