@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2023
+  years: 2021, 2024
 lastupdated: "2023-12-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8

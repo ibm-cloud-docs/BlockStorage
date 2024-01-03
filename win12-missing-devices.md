@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-02-15"
 
 keywords: Block Storage, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting

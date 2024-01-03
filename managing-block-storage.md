@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-12-07"
 
 keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant

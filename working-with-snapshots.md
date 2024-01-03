@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-10-25"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot

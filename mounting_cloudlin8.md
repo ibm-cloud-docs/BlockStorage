@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2023
+  years: 2021, 2024
 lastupdated: "2023-12-18"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
