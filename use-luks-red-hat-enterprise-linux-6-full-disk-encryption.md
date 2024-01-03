@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-09-08"
 
 keywords: Block Storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-12-18"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage

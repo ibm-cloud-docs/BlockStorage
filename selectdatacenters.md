@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-04-12"
 
 keywords: Block Storage, locations, data centers, iscsi

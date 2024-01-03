@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2023
+  years: 2014, 2024
 lastupdated: "2023-10-30"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
