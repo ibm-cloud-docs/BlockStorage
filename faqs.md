@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-02-14"
 
 keywords: Block Storage, use of a Block Storage volume, LUN, Block Storage
 
@@ -61,7 +61,7 @@ Options:
 {: faq}
 {: support}
 
-By default, you can provision a combined total of 700 block storage and file storage volumes. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
+By default, you can provision a combined total of 750block storage and file storage volumes. To increase your volume limit, contact your sales representative. For more information, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 
 ## How many {{site.data.keyword.blockstorageshort}} volumes can be mounted to a host?
 {: #volumelimit}

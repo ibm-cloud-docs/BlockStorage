@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-02-14"
 
 keywords: Block Storage, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -41,7 +41,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
      | 10,000 - 12,000 | 1,000 - 48,000 |
      {: caption="Table 1. Available IOPS based on volume size" caption-side="bottom"}
 
-By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
+By default, you can provision a combined total of 750{{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {: important}
 
 ## Ordering {{site.data.keyword.blockstorageshort}} in the UI
