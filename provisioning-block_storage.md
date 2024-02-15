@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-02-15"
 
 keywords: Block Storage, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -23,7 +23,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
     - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental-level file shares.
     - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor.
     - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases.
-    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [all data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) for storage that is provisioned up to 4 TB.
+    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available in [all data centers](/docs/overview?topic=overview-locations#data-centers) for storage that is provisioned up to 4 TB.
 - You can fine-tune your storage to meet specific performance requirements and build a high-powered **Performance** environment by specifying the total number of input/output operations per second (IOPS). The available **custom** IOPS range depends on the volume capacity. The following table shows the available IOPS ranges based on volume size.
 
      | Volume size (GB) | IOPS range |
