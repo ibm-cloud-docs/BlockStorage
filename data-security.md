@@ -40,7 +40,7 @@ All cluster-to-cluster traffic is encrypted with TLS.
 {: #createencryptedLUN1}
 
 The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} in all 
-{{site.data.keyword.cloud}} [data centers](/docs/BlockStorage?topic=BlockStorage-selectDC).
+{{site.data.keyword.cloud}} data centers.
 
 When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon next the LUN/Volume Name field that indicates that the volume is encrypted.
 

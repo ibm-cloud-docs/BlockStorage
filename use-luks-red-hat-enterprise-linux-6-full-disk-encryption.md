@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-09-08"
+lastupdated: "2024-02-15"
 
 keywords: Block Storage, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -19,7 +19,7 @@ You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup
 
 These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see [Connecting to storage on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux).
 
-{{site.data.keyword.blockstorageshort}} that is provisioned in [most data centers](/docs/BlockStorage?topic=BlockStorage-selectDC) is automatically provisioned with provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](/docs/BlockStorage?topic=BlockStorage-mng-data).
+All new {{site.data.keyword.blockstorageshort}} is automatically provisioned with provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](/docs/BlockStorage?topic=BlockStorage-mng-data).
 {: note}
 
 ## What LUKS does
