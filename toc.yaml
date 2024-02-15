@@ -20,7 +20,6 @@ toc:
         topics:
         - getting-started.md
         - best-practices.md
-        - selectdatacenters.md
         - snapshots.md
         - link:
               label: What is Block Storage?

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-10-30"
+lastupdated: "2024-02-15"
 
 keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
 
@@ -33,14 +33,8 @@ See Table 1 for the complete list of data center availability and replication ta
 
 | US 1 | US 2 | Latin America | Canada  | Europe  | Asia-Pacific  | Australia  |
 |-----|-----|-----|-----|-----|-----|-----|
-| - DAL05 \n - SJC01 \n - WDC01 | - SJC03 \n - SJC04 \n - WDC04 \n - WDC06 \n - WDC07 \n - DAL09 \n - DAL10 \n - DAL12 \n - DAL13 | - SAO01 \n - SAO04 \n - SAO05 | - TOR01 \n - TOR04 \n - TOR05 \n - MON01 | - AMS03 \n - FRA02 \n - FRA04 \n - FRA05 \n - LON02 \n - LON04 \n - LON05 \n - LON06 \n - PAR01 \n - MIL01 \n - MAD04 \n - MAD05 | - TOK02 \n - TOK04 \n - TOK05 \n - OSA21 \n - OSA22 \n - OSA23 \n - SNG01 \n - CHE01 | - SYD01 \n - SYD04 \n - SYD05 \n |
+| - SJC03 \n - SJC04 \n - WDC04 \n - WDC06 \n - WDC07 \n - DAL09 \n - DAL10 \n - DAL12 \n - DAL13 \n - DAL14 | - SAO01 \n - SAO04 \n - SAO05 | - TOR01 \n - TOR04 \n - TOR05 \n - MON01 | - AMS03 \n - FRA02 \n - FRA04 \n - FRA05 \n - LON02 \n - LON04 \n - LON05 \n - LON06 \n - PAR01 \n - MIL01 \n - MAD04 \n - MAD05 | - TOK02 \n - TOK04 \n - TOK05 \n - OSA21 \n - OSA22 \n - OSA23 \n - SNG01 \n - CHE01 | - SYD01 \n - SYD04 \n - SYD05 \n |
 {: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
-
-Data centers in the US 1 region can replicate with only each other. Data centers in the US 2 region cannot start replication with US 1 data centers.
-{: note}
-
-As part of the data center modernization strategy for {{site.data.keyword.cloud}}, the data centers in the US 1 region are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
-{: note}
 
 ## Determining the remote data center for the replicated storage volume from the CLI
 {: #determinereplicationlocCLI}
@@ -56,7 +50,7 @@ Before you begin, decide on the CLI client that you want to use.
 ### Listing data center locations from the IBMCLOUD CLI
 {: #determinereplicationlocICCLI}
 
-You can use the `ibmcloud sl block replica-locations` command to locate a replica location for your block volume. The following example lists the available location for a block volume in the US south region.
+You can use the `ibmcloud sl block replica-locations` command to locate a replica location for your block volume. The following example lists the available location for a block volume that is located in the US south region.
 
 ```sh
 $ ibmcloud sl block replica-locations 560156918
