@@ -67,7 +67,7 @@ The IO size that is used by your application directly impacts the storage perfor
 ### Authorized hosts
 {: #numberofhosts}
 
-Another factor to consider is the number of hosts that are using your volume. IOPS limits are enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS. At high IOPS counts, you might need a number of hosts to access the volume simultanously to realize the maximum IOPS available, especially at extreme IOPS counts (10,000s). 
+Another factor to consider is the number of hosts that are using your volume. IOPS limits are enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS. At high IOPS counts, you might need a number of hosts to access the volume simultaneously to realize the maximum IOPS available, especially at extreme IOPS counts (10,000s). 
 
 If your workload requires high throughput, it's best to configure at least a couple servers to access your volume to avoid a single-server bottleneck.
 
