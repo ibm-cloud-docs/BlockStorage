@@ -113,7 +113,7 @@ If the LUN is being presented as a raw block device to a guest, select the OS ty
 
 IOPS is enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
-The number of hosts that are accessing the volume is important because when only a single host is accessing the volume, it can be difficult to realize the maximum IOPS available, especially at extreme IOPS counts. 
+The number of hosts that are accessing the volume is important because when only a single host is accessing the volume, it can be difficult to realize the maximum IOPS available. 
 
 ## Measuring IOPS
 {: #iopsmeasure}
