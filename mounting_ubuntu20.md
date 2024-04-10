@@ -119,7 +119,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
    If you need to edit the multipath configuration file after you started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
    {: note}
 
-   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Device Mapper Multipathing - Introduction](https://ubuntu.com/server/docs/device-mapper-multipathing-introduction){: external}.
+   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Device Mapper Multipathing - Introduction](https://ubuntu.com/server/docs/introduction-to-device-mapper-multipathing){: external}.
 
 ## Update /etc/iscsi/initiatorname.iscsi file
 {: #updateinitiatorubu20}
