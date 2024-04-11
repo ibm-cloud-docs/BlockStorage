@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-04-11"
 
 keywords: Block Storage, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -43,6 +43,8 @@ You can't switch between Endurance and Performance when you adjust their IOPS. H
 | 8,000 - 9,999    | 500 - 48,000|
 | 10,000 - 12,000| 1,000 - 48,000|
 {: caption="Table 1. Available IOPS based on volume size." caption-side="bottom"}
+
+Maximum IOPS for block storage volumes varies based on volume size. The maximum IOPS for a volume is 48,000 IOPS.
 
 ## Effect of IOPS adjustment on replication
 {: #iopschangeeffectonreplicas}
