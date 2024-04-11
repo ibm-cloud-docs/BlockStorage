@@ -2,16 +2,16 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-02-15"
+lastupdated: "2024-04-11"
 
-keywords: Block Storage, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery
+keywords: Block Storage for Classic, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery, snapshots
 
 subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Replicating Data
+# Replicating {{site.data.keyword.blockstorageshort}} Volumes
 {: #replication}
 
 Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
