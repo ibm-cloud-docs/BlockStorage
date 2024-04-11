@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2023-12-18"
 
-keywords: Block Storage, LUN, volume ID,
+keywords: Block Storage for Classic, LUN, volume ID,
 
 subcollection: BlockStorage
 

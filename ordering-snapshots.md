@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2023-10-25"
 
-keywords: Block Storage, snapshot space, ordering snapshots,
+keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
 subcollection: BlockStorage
 

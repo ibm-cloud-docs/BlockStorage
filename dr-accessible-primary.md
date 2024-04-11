@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2024
 lastupdated: "2023-12-18"
 
-keywords: Block Storage, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
+keywords: Block Storage for Classic, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
 subcollection: BlockStorage
 

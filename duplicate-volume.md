@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2024
 lastupdated: "2023-10-25"
 
-keywords: Block Storage, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
+keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
 subcollection: BlockStorage
 

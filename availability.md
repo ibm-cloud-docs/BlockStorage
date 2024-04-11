@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2023-09-08"
 
-keywords: Block Storage, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
+keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
 subcollection: BlockStorage
 

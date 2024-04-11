@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2024-02-15"
 
-keywords: Block Storage, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
+keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
 subcollection: BlockStorage
 
