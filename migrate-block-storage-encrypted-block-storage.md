@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2024-02-15"
 
-keywords: Block Storage, migrate to new Block Storage, how to encrypt existing Block Storage,
+keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
 subcollection: BlockStorage
 

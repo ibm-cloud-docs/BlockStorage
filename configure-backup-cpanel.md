@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2024
 lastupdated: "2023-09-08"
 
-keywords: Block Storage, cPanel, backups, mountpoint, iSCSI
+keywords: Block Storage for Classic, cPanel, backups, mountpoint, iSCSI
 
 subcollection: BlockStorage
 

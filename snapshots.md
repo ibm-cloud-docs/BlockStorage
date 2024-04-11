@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2023-09-08"
 
-keywords: Block Storage, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
+keywords: Block Storage for Classic, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
 
 subcollection: BlockStorage
 

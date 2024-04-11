@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2024
 lastupdated: "2023-12-18"
 
-keywords: Block Storage, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
+keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
 subcollection: BlockStorage
 

@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2024-02-14"
 
-keywords: Block Storage, limit increase, global quota, quota increase
+keywords: Block Storage for Classic, limit increase, global quota, quota increase
 
 subcollection: BlockStorage
 
