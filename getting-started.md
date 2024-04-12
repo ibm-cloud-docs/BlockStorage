@@ -4,7 +4,7 @@ copyright:
   years: 2014, 2024
 lastupdated: "2024-04-11"
 
-keywords: Block Storage, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
+keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
 subcollection: BlockStorage
 
