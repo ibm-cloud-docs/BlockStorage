@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-04-11"
+lastupdated: "2024-04-12"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -71,6 +71,8 @@ Another factor to consider is the number of hosts that are using your volume. IO
 
 The maximum IOPS for a block storage volume is 48,000 IOPS. If your workload requires high throughput, it's best to configure at least a couple servers to access your volume to avoid a single-server bottleneck.
 
+The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. For more information about authorization and increasing the limit of 8, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#authlimit).
+
 ### Network connection
 {: #networkconnectivity}
 
@@ -88,6 +90,9 @@ Storage traffic is included in the total network usage of Public virtual servers
 {: step}
 
 When you're ready to submit your order, you can place it in the [console](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole), from the [CLI](https://cloud.ibm.com/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=cli#orderingthroughCLI), with the [API](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=api#orderingthroughAPI), or [Terraform](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=terraform#orderingthroughTerraform).
+
+By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. If you require more storage, see [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
+{: note}
 
 ## Connecting and configuring your new storage
 {: #mountingstorage}
