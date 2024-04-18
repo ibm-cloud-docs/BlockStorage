@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs
+# FAQs for {{site.data.keyword.blockstorageshort}}
 {: #block-storage-faqs}
 
 ## How many server instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
