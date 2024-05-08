@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-10-25"
+lastupdated: "2024-05-08"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 To create snapshots of your storage volume, you need to purchase space to hold them. You can purchase snapshot capacity during the initial volume purchase or later by using these steps.
 {: shortdesc}
 
-## Determining how much snapshot space to order
+## Determining how much snapshot space is needed
 {: #determinesnapshotspace}
 
 Generically speaking, snapshot space is used by snapshots based on two key factors:
@@ -42,6 +42,29 @@ Conversely, if that 500 GB of actual data, with 12 hourly snapshots, saw 10 perc
 So when you determine how much Snapshot space that you need, consider the rate of change carefully. It's a huge influence on how much snapshot space is needed. A bigger volume is more likely to change more often. However, a 500-GB volume with 5 GB of change and a 10-TB volume with 5 GB of change use the same amount of snapshot space.
 
 Additionally, for most workloads, the larger a volume is the less space needs to be set aside initially. It's primarily due to the underlying data efficiencies, and the nature of how snapshots work in the environment.
+
+## Available snapshot space capacity 
+{: #snapshotspaceforvolume}
+
+The size of the snapshot space that you can order depends on the size of your volume. The size of the snapshot space cannot exceed the size of the volume. The following table shows the snapshot capacity that is available for specific volume sizes.
+
+| Volume capacity (GB) | Available Snapshot capacity (GB)         |
+|----------------------|------------------------------------------|
+|          100 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` |
+|          200 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200` |
+|          300 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300` |
+|          400 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400` |
+|          500 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` |
+|          600 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500`, \n `600` |
+|          700 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700` | 
+|          800 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700` | 
+|          900 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700` | 
+|         1000 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700`, `1000` | 
+|         2000 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700`, `1000`, `2000` | 
+|         3000 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700`, `1000`, `2000` | 
+|         4000 GB      | `5`, `10`, `20`, `40`, `60`, `80`, `100` \n `150`, `200`, `250`, `300`, `350`, `400`, `450`, `500` \n `600`, `700`, `1000`, `2000`, `4000` | 
+{: caption="Table 1 - This table shows the available snapshot space in increments for different volume capacities." caption-side="bottom"}
+
 
 ## Ordering Snapshot space in the UI
 {: #ordersnapshotUI}
