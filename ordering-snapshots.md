@@ -50,6 +50,8 @@ The size of the snapshot space that you can order depends on the size of your vo
 
 | Volume capacity | Available Snapshot capacity         |
 |----------------------|------------------------------------------|
+|   10 GB | 5 GB, 10 GB  |
+|   50 GB | 5 GB, 10 GB, 20 GB, 40 GB |
 |  100 GB | 5 GB, 10 GB, 20 GB, 40 GB, 60 GB, 80 GB, 100 GB |
 |  200 GB | 5 GB, 10 GB, 20 GB, 40 GB, 60 GB, 80 GB, 100 GB 150 GB, 200 GB |
 |  300 GB | 5 GB, 10 GB, 20 GB, 40 GB, 60 GB, 80 GB, 100 GB 150 GB, 200 GB, 250 GB, 300 GB |
