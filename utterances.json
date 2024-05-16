@@ -59,7 +59,6 @@
         "block storage os type on windows",
         "windows iscsi os type",
         "lun windows o/s",
-        "windows 2012 2016 os type iscsi",
         "OS type to use for Block Storage",
         "OS type valid for my iSCSI disk?"
     ],
@@ -186,18 +185,6 @@
         "decommissioned block storage drives",
         "happens to the drives that are decommissioned from the cloud data center"
     ],
-    "diskmanager": [
-        "windows cant see lun",
-        "Unable to find iscsi disk in disk manager",
-        "troubleshoot windows iscsi disk manager",
-        "ordered block storage but cannot locate iscsi disk in Windows",
-        "Connected iscsi but cannot see disk in windows",
-        "ordered block storage but cannot locate disk in Windows",
-        "connect iSCSI storage on Windows",
-        "connect my block storage using Windows",
-        "windows host multiple block  storage but I can not see disk",
-        "can't see multiple Storage LUNs in Disk Manager"
-    ],
     "StorageOffline": [
         "iscsi read-only volume",
         "block storage appears offline",
@@ -295,7 +282,6 @@
        "remove block storage from host",
         "uninstall iscsi disk from server",
         "how to disconnect iscsi LUN from host",
-        "remove LUN from server",
         "disconnect iscsi storage from server",
         "disconnect my block storage device from a host"
      ],
