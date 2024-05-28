@@ -73,7 +73,7 @@ Ensure that your system is updated and includes the `open-iscsi` and `multipath-
 1. After you installed the multipath utility, create an empty configuration file that is called `/etc/multipath.conf`.
 2. Modify the default values of `/etc/multipath.conf`.
 
-   ```text
+   ```sh
    defaults {
    user_friendly_names no
    max_fds max
