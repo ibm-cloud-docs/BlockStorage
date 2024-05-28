@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-04-12"
+lastupdated: "2024-05-28"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -21,7 +21,7 @@ subcollection: BlockStorage
 
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact Support by raising a [Support case](/unifiedsupport/cases/add){: external}.
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: important}
 
 ## Our Compute hosts have multiple network cards with different IP addresses for network redundancy and expanded bandwidth. How can we authorize them all to access the same Storage volume?
@@ -77,29 +77,29 @@ That depends on what the host operating system can handle, but it’s not someth
 
 No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 
-## Which Windows&reg; version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
+## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
 {: #windowsOStypes}
 {: faq}
 {: support}
 
-When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows&reg; OS helps to prevent mis-aligned IO operations.
+When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows OS helps to prevent mis-aligned IO operations.
 
 If the LUN is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN is being presented to the hypervisor to serve Virtual hard disk (VHD) files, choose Hyper-V.
 
-### Windows&reg; GPT
+### Windows GPT
 {: #winGPT}
 
--  The LUN stores Windows&reg; data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows&reg; Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows&reg; support it.
+-  The LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows support it.
 
-### Windows&reg; 2003
+### Windows 2003
 {: #win2003}
 
-- The LUN stores a raw disk type in a single-partition Windows&reg; disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows&reg; 2000 Server, Windows&reg; XP, or Windows&reg; Server 2003 that uses the MBR partitioning method.
+- The LUN stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
 
-### Windows&reg; 2008+
+### Windows 2008+
 {: #win2008}
 
-- The LUN stores Windows&reg; data for Windows&reg; 2008 and later versions. Use this OS option if your host operating system is Windows&reg; Server 2008, Windows&reg; Server 2012, Windows&reg; Server 2016. Both MBR and GPT partitioning methods are supported.
+- The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
 
 ### Hyper-V
 {: #Hyper-V}
@@ -153,7 +153,7 @@ You can use the following commands.
    /dev/sda1      disk      6.0G  1.2G  4.9G  20% /
    ```
 
-- Windows&reg;: you have two options.
+- Windows: you have two options.
    ```txt
    fsutil volume diskfree C:
    ```
@@ -238,14 +238,14 @@ To enact this best practice, complete the following steps.
    {: note}
 
 4. Create a network interface on the host.
-   * In Linux&reg; or Windows&reg;, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
+   * In Linux&reg; or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
    * In VMware&reg;, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 5. Add a new persistent static route on the host to the target iSCSI subnet.
 6. Ensure that the IP for the newly added interface is added to the host authorization list.
 7. Perform discovery and log in to target portal as described in the following topics.
    - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
    - [Mounting LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-   - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## Is it good to run iSCSI traffic over 802.3ad LACP port channel?
 {: #MPIOvsLACP}
@@ -262,7 +262,7 @@ Bonding works between a server and switch. However, MPIO works between a storage
 
 For more information, see one of the following articles.
 - Red Hat Linux&reg;: [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
-- Microsoft&reg; Windows&reg;: [NIC Teaming and iSCSI](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/441d2157-119d-4b1e-b40c-1aa3670e44a6){: external}.
+- Microsoft Windows: [NIC Teaming and iSCSI](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/441d2157-119d-4b1e-b40c-1aa3670e44a6){: external}.
 - VMware&reg;: [Host requirements for link aggregation](https://knowledge.broadcom.com/external/article?legacyId=1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
@@ -322,12 +322,12 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 
 The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. The UI indicates that it’s inactive and the status "Cancellation pending" is displayed. The minimum 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}.
 
-## My Windows&reg; 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
+## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 {: #diskmanager}
 {: support}
 
-If you use more than two LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows&reg; 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
@@ -345,7 +345,7 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
@@ -355,8 +355,8 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
 - [Mounting LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
 - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux)
-- [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Verifying MPIO on MS Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
+- [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+- [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
 On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
@@ -367,13 +367,13 @@ On rare occasions, a LUN is provisioned and attached while the second path is do
 
 To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system Documentation. 
 
-### Windows&reg; 2016
+### Windows 2016
 {: #expandsizeWin}
 
 1. Go to Server Manager > Tools > Computer Management > Disk Management.
 2. Click Action > Refresh.
 3. Click Action > Rescan Disks. This process can take up to 5 minutes or more to finish. The additional capacity displays as a deallocated partition on the existing Disk.
-4. Partition the deallocated space as you want. For more information, see [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+4. Partition the deallocated space as you want. For more information, see [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Linux
 {: #expandsizeLin}
@@ -576,7 +576,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
 {: #add-mpio}
 {: faq}
 
-Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for iSCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows&reg; Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for iSCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
 
 ## How do I reconnect storage after a chassis swap?
 {: #chassis-swap}
@@ -644,7 +644,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an ESXi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
-- [Viewing LUN information in Windows&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
+- [Viewing LUN information in Windows](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)
 - [Viewing LUN information in VMWare&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNVMware)
 
 ## Can I get storage performance metrics (IOPS or latency) from the Support team?
@@ -655,7 +655,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 The following examples are utilities that you might consider to use to check performance statistics.
 - [`sysstat`](https://github.com/sysstat/sysstat/blob/master/README.md){: external} - System performance tools for the Linux&reg; operating system.
-- [`typeperf`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows&reg; command that writes performance data to the command window or to a log file.
+- [`typeperf`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows command that writes performance data to the command window or to a log file.
 - [`esxtop`](https://community.broadcom.com/vmware-cloud-foundation/blogs/zhelong-pan/2024/04/14/interpreting-esxtop-statistics){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
 
 

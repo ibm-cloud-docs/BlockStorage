@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-05-28"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -14,13 +14,13 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
 
-By completing the following steps, you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows&reg; server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
+By completing the following steps, you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
 {: shortdesc}
 
 ## Before you begin
 {: #authhostwin}
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft&reg; Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: attention}
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
@@ -32,7 +32,7 @@ Before you begin, make sure that the host that is to access the {{site.data.keyw
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows&reg;-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other versions according to the operating system's vendor Documentation.
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other versions according to the operating system's vendor Documentation.
 {: shortdesc}
 
 ### Installing the MPIO feature
@@ -52,7 +52,7 @@ Complete the following steps to connect a Windows&reg;-based {{site.data.keyword
 3. Checkmark **Add support for iSCSI devices**, and click **Add**.
 4. If you're prompted to restart the Computer, click **Yes**. Otherwise, continue to the next step.
 
-In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; Device-Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
+In Windows Server 2008, adding support for iSCSI allows the Microsoft Device-Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
 {: note}
 
 ### Configuring the iSCSI Initiator to discover the Target
@@ -66,7 +66,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
    - Click **Discovery**, and click **Discover Portal**.
    - Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
    - Click **Advanced** to open the Advanced Settings window.
-   - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+   - On the Local adapter list, select Microsoft iSCSI Initiator.
    - On the Initiator IP list, select the IP address of the host.
    - On the Target Portal IP list, select the IP of one of the storage interfaces.
    - Select **Enable CHAP log-on** to turn on CHAP authentication.![Enable CHAP login.](/images/Advanced_0.svg){: caption="Figure 3. Enable CHAP Login in Advanced Settings." caption-side="bottom"}
@@ -95,7 +95,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 3. In the Connect to Target dialog box, select **Enable multi-path** checkbox, and click **Advanced**.![Target](/images/Target.svg){: caption="Figure 8. Adding extra MPIO paths." caption-side="bottom"}
 
 4. In the Advanced Settings window, update the following fields.![Settings](/images/Settings.svg){: caption="Figure 9. Advanced Settings." caption-side="bottom"}
-     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+     - On the Local adapter list, select Microsoft iSCSI Initiator.
      - On the Initiator IP list, select the IP address of the host.
      - On the Target Portal IP list, select the IP of one of the storage interfaces.
      - Click **Enable CHAP log-on** checkbox.
@@ -105,7 +105,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
 6. In the Connect to Target window, select the **Enable multi-path** checkbox. Click **Advanced**.
 7. In the Advanced Settings window,
-     - On the Local adapter list, select Microsoft&reg; iSCSI Initiator.
+     - On the Local adapter list, select Microsoft iSCSI Initiator.
      - On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
      - On the Target Portal IP list, select the IP address for the second interface[^SecondIP] that is enabled on the storage array.
 
@@ -128,7 +128,7 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 ### Initializing and formatting the {{site.data.keyword.blockstorageshort}} volume
 {: #formatLUNonWIn}
 
-1. Press the Windows&reg; Logo key + X, and then click **Run**.
+1. Press the Windows Logo key + X, and then click **Run**.
 2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The side pane shows the drives that are attached to your host.
 3. In the Disk Management window, right-click the discovered LUN's name, and then click **Online**.
 4. Right-click and select **Initialize Disk**.
@@ -136,17 +136,17 @@ In Windows&reg; Server 2008, adding support for iSCSI allows the Microsoft&reg; 
 6. The New Simple Volume wizard starts. Select a disk size, and then click **Next**.
 7. Assign a drive letter to the LUN, and then click **Next**.
 8. Enter the parameters to format the LUN.
-    * On a Windows&reg; Server, only NTFS is supported.
+    * On a Windows Server, only NTFS is supported.
     * Set the allocation unit size to 64 K.
     * Provide a label for your Storage volume.
 9. Click **Next**.
 10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
 
 
-## Verifying whether MPIO is configured correctly in Windows&reg; Operating systems
+## Verifying whether MPIO is configured correctly in Windows Operating systems
 {: #verifyMPIOWindows}
 
-It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows&reg; MPIO is configured, you must first ensure that the MPIO Add-on is enabled and then restart the server.
+It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows MPIO is configured, you must first ensure that the MPIO Add-on is enabled and then restart the server.
 
 ![Roles_Features_0](/images/Roles_Features_0.svg){: caption="Figure 12. Multipath I/O is shown as checked." caption-side="bottom"}
 
@@ -155,7 +155,7 @@ After the restart is complete, take the following steps to view all of the activ
 2. In the Start Search field, type `diskmgmt.msc`.
 3. In the Programs list, click `diskmgmt`.
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
-5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.![Windows&reg; MPIO properties.](/images/DeviceDetails_0.svg){: caption="Figure 13. Several paths that are leading to the target are shown." caption-side="bottom"}
+5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.![Windows MPIO properties.](/images/DeviceDetails_0.svg){: caption="Figure 13. Several paths that are leading to the target are shown." caption-side="bottom"}
 
 To verify multipathing by using the command line, complete the following steps.
 
@@ -170,7 +170,7 @@ On rare occasions, a LUN is provisioned and attached while the second path is do
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 
-Following are the steps that are required to disconnect a Windows&reg;-based {{site.data.keyword.Bluemix_short}} Compute instance to an MPIO iSCSI LUN. The example is based on Windows&reg; Server 2012. The steps can be adjusted for other Windows&reg; versions according to the OS vendor Documentation.
+Following are the steps that are required to disconnect a Windows-based {{site.data.keyword.Bluemix_short}} Compute instance to an MPIO iSCSI LUN. The example is based on Windows Server 2012. The steps can be adjusted for other Windows versions according to the OS vendor Documentation.
 
 ### Disconnect the volume from the iSCSI Initiator
 {: #startISCSIwin}

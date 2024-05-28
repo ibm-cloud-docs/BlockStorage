@@ -58,7 +58,7 @@ You can't change the block storage to a smaller size after you expand its capaci
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 ## Resizing storage from the CLI
@@ -123,7 +123,7 @@ Options:
 ```
 {: screen}
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 ## Resizing storage with the API
@@ -206,7 +206,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    ```
    {: codeblock}
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 
@@ -253,7 +253,7 @@ resource "ibm_storage_block" "test2" {
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
 
 

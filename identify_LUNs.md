@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2023-12-18"
+lastupdated: "2024-05-28"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -182,7 +182,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    ```
    {: screen}
 
-## Viewing the LUN ID in Windows&reg;
+## Viewing the LUN ID in Windows
 {: #identifyLUNWin}
 {: support}
 

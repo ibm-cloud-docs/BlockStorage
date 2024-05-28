@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-08"
+lastupdated: "2024-05-28"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -432,7 +432,7 @@ You might need to take your storage volume back to a specific point in time beca
 
 1. Unmount and detach your storage volume from the host to ensure the host is not connecting to the volume during the restore for any reason.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Microsoft&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Microsoft server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 3. Scroll on the list, and click your volume to be restored. The **Snapshots** page displays the list of all saved snapshots along with their size and creation date.
@@ -453,7 +453,7 @@ You might need to take your storage volume back to a specific point in time beca
    - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
    - [Mount iSCSI LUN on Debian 10](/docs/BlockStorage?topic=BlockStorage-mountingdebian10).
-   - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
+   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}
@@ -466,7 +466,7 @@ You might need to take your storage volume back to a specific point in time beca
 
 1. Unmount your volume. You must ensure that the host is not trying to connect to the volume during the restore.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#unmountingLin)
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 
 2. Then, you can restore the volume with a snapshot by using one of the following commands.
    - From the IBMCLOUD CLI:
@@ -498,7 +498,7 @@ You might need to take your storage volume back to a specific point in time beca
    - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
    - [Mount iSCSI LUN on Debian 10](/docs/BlockStorage?topic=BlockStorage-mountingdebian10).
-   - [Mapping LUNS on Microsoft&reg; Windows&reg;](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
+   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
 {: important}
