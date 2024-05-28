@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-05-28"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -130,12 +130,12 @@ The Operating system must rescan the storage and reload the multipath device map
 {: #resizingstepsAPI}
 {: api}
 
-You can increase your storage capacity by using an API call to the SOAP web service. The following sample API calls can be called from the scripting language of your choice.
+You can adjust the IOPS by making an API call to the SOAP web service. The following sample API requests can be made from the scripting language of your choice.
 
 For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){: external}.
 {: tip}
 
-* Increase capacity on a Performance storage volume.
+* The following example shows how to increase capacity on a Performance storage volume. `XXXXXXXX` is the ID of the volume that you want to increase to `2007` GBs. `189433`, `190233`, and `190293` are IDs of pricing information that is associated with the capacity and IOPS value of this volume.
 
    ```sh
    <?xml version="1.0" encoding="UTF-8"?>
@@ -148,19 +148,19 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
       <ns1:placeOrder>
         <orderData xsi:type="ns1:SoftLayer_Container_Product_Order_Network_Storage_AsAService_Upgrade">
           <volume xsi:type="ns1:SoftLayer_Network_Storage">
-              <id xsi:type="xsd:int">XXXXXXXX</id> <!--where XXXXXXXXis the VolumeID-->
+              <id xsi:type="xsd:int">XXXXXXXX</id>
           </volume>
-          <volumeSize xsi:type="xsd:int">2007</volumeSize> <!-- This is the new size we want to upgrade to -->
+          <volumeSize xsi:type="xsd:int">2007</volumeSize>
           <packageId xsi:type="xsd:int">759</packageId>
           <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">189433</id> <!-- Max level price -->
+                  <id xsi:type="xsd:int">189433</id>
               </item>
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">190233</id> <!-- 2000 - 2999 GBs storage price-->
+                  <id xsi:type="xsd:int">190233</id>
               </item>
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">190293</id> <!-- 200 - 40000 IOPS price-->
+                  <id xsi:type="xsd:int">190293</id>
               </item>
           </prices>
         </orderData>
@@ -171,7 +171,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    {: codeblock}
 
 
-* Increase capacity on an Endurance storage volume.
+* Increase capacity on an Endurance storage volume. `XXXXXXXX` is the ID of the volume that you want to increase to `250` GBs. `189433`, `196033`, and `196093` are IDs of pricing information that is associated with the capacity and IOPS value of this volume.
 
    ```sh
    <?xml version="1.0" encoding="UTF-8"?>
@@ -184,19 +184,19 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
       <ns1:placeOrder>
         <orderData xsi:type="ns1:SoftLayer_Container_Product_Order_Network_Storage_AsAService_Upgrade">
           <volume xsi:type="ns1:SoftLayer_Network_Storage">
-              <id xsi:type="xsd:int">XXXXXXXX</id> <!--Where XXXXXXXX is the VolumeID -->
+              <id xsi:type="xsd:int">XXXXXXXX</id>
           </volume>
           <packageId xsi:type="xsd:int">759</packageId>
-            <volumeSize xsi:type="xsd:int">25</volumeSize> <!-- the new size -->
+            <volumeSize xsi:type="xsd:int">250</volumeSize>
           <prices SOAP-ENC:arrayType="ns1:SoftLayer_Product_Item_Price[3]" xsi:type="SOAP-ENC:Array">
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">189433</id> <!-- Max level price -->
+                  <id xsi:type="xsd:int">189433</id>
               </item>
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">196033</id> <!-- Performance tier price -->
+                  <id xsi:type="xsd:int">196033</id>
               </item>
               <item xsi:type="ns1:SoftLayer_Product_Item_Price">
-                  <id xsi:type="xsd:int">196093</id> <!-- Storage space price -->
+                  <id xsi:type="xsd:int">196093</id>
               </item>
           </prices>
         </orderData>

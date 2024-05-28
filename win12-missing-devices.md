@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-02-15"
+lastupdated: "2024-05-28"
 
 keywords: Block Storage for Classic, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
@@ -24,7 +24,7 @@ If you use more than two iSCSI devices with the same host, you might find this p
 {: #manualconnect}
 {: tsResolve}
 
-1. Open the Windows&reg; iSCSI Initiator.
+1. Open the Windows iSCSI Initiator.
 2. On the **Targets** tab, click **Devices**.
 
    ![iSCSI Initiator properties](/images/win12-ts1.svg){: caption="Figure 1. The iSCSI Initiator properties are displayed." caption-side="bottom"}

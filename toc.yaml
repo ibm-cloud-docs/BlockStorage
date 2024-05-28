@@ -1,7 +1,6 @@
 #  Name your file `toc.yaml`
 #  Make sure you include all nav file coding requirements.
 #  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
-
 toc:
   properties:
     subcollection: BlockStorage
@@ -12,7 +11,6 @@ toc:
     product-page: https://www.ibm.com/products/block-storage
     path: BlockStorage
     label: Block Storage - Classic
-
 #  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group.
   entries:
     - navgroup:
@@ -24,7 +22,6 @@ toc:
         - link:
               label: What is Block Storage?
               href: https://www.ibm.com/topics/block-storage
-
     - navgroup:
         id: tutorial
         topics:
@@ -32,7 +29,6 @@ toc:
         - mounting_ubuntu20.md
         - mounting_cloudlin8.md
         - mounting_debian10.md
-
     - navgroup:
         id: howto
         topics:
@@ -75,7 +71,6 @@ toc:
             - availability.md
             - data-security.md
             - use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-   
     - navgroup:
         id: reference
         topics:
@@ -109,7 +104,6 @@ toc:
               - link:
                   label: Terraform reference
                   href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block
-                  
     - navgroup:
         id: help
         topics:
