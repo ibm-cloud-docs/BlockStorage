@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-08"
+lastupdated: "2024-05-29"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -135,7 +135,7 @@ When you provision a storage volume with Terraform, use the `ibm_storage_block` 
 ```terraform
 resource "ibm_storage_block" "test1" {
         type = "Endurance"
-        datacenter = "dal05"
+        datacenter = "dal13"
         capacity = 20
         iops = 0.25
         os_format_type = "Linux"

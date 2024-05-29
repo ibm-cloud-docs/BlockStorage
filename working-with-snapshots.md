@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-05-29"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -112,7 +112,7 @@ To create a snapshot schedule, use the `ibm_storage_block` resource and specify 
 ```terraform
 resource "ibm_storage_block" "test1" {
         type = "Endurance"
-        datacenter = "dal05"
+        datacenter = "dal13"
         capacity = 20
         iops = 0.25
         os_format_type = "Linux"
