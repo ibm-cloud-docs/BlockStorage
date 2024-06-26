@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-21"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -114,7 +114,7 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
    If you need to edit the multipath configuration file after you started the multipath daemon, you must issue the `systemctl reload multipathd.service` command for the changes to take effect.
    {: note}
 
-   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring the device mapper multipath](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/red_hat_enterprise_linux-8-configuring_device_mapper_multipath-en-us.pdf){: external}.
+   For more information about using the Device Mapper Multipath feature on RHEL 8, see [Configuring the device mapper multipath](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/pdf/configuring_device_mapper_multipath/red_hat_enterprise_linux-8-configuring_device_mapper_multipath-en-us.pdf){: external}.
 
 ## Update /etc/iscsi/initiatorname.iscsi file
 {: #updateinitiator}

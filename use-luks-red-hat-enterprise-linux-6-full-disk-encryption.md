@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-02-15"
+lastupdated: "2024-06-21"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -36,7 +36,7 @@ All new {{site.data.keyword.blockstorageshort}} is automatically provisioned wit
 {: #LUKSoutofscope}
 
 - LUKS does not allow applications that require many (more than eight) users to have distinct access keys to the same devices.
-- LUKS does not work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/index){: external}.
+- LUKS does not work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/security_guide/index){: external}.
 
 ## Setting up a LUKS-encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 {: #enryptwithLUKS}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-21"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -478,7 +478,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
         /dev/mapper/vg00-vol_projects ext4   59G  2.1G   55G   4% /projects
         ```
 
-        For more information, see [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
+        For more information, see [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
 
 
    - Non-LVM - ext2, ext3, ext4:
