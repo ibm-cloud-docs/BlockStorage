@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-07-22"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -14,7 +14,9 @@ subcollection: BlockStorage
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
 
-By completing the following steps, you can authorize your host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
+
+
+By completing the following steps, you can authorize your Windows host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
 {: shortdesc}
 
 ## Before you begin
@@ -29,19 +31,27 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the UI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 {: requirement}
 
+The prerequisites on the iSCSI client include:
+- installation of Multipath-IO services 
+- setting the iSCSI initiator service start up to automatic
+- enabling support for multipath MPIO to iSCSI
+- enabling automatic claiming of all iSCSI volumes
+
+It is important to restart the Windows client after installation of these prerequisites. The MPIO load-balancing policy requires a restart so that it can be set.
+{: important}
+
 ## Mounting {{site.data.keyword.blockstorageshort}} Volumes
 {: #mountWin}
 
-Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. The example is based on Windows Server 2012. The steps can be adjusted for other versions according to the operating system's vendor Documentation.
-{: shortdesc}
+Complete the following steps to connect a Windows-based {{site.data.keyword.cloud}} Compute instance to a multipath input/output (MPIO) iSCSI storage volume. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array. *The example is based on Windows Server 2012.* The steps can be adjusted for other versions according to the operating system's vendor Documentation.
 
 ### Installing the MPIO feature
 {: #installMPIOWin}
 
-1. Start the Server Manager and browse to **Manage**, **Add Roles and Features**.
+1. Start the Server Manager and browse to **Manage**, **Add Features**.
 2. Click **Next** to open the Features menu.
 3. Scroll down and check **Multipath I/O**.
-4. Click **Install** to install MPIO on the host server.![Adding Roles and Features in Server Manager](/images/Roles_Features.svg){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
+4. Click **Next** and **Install** to install MPIO on the host server.![Adding Roles and Features in Server Manager](/images/Roles_Features.svg){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
 5. Restart the server.
 
 ### Adding iSCSI support for MPIO devices
@@ -51,9 +61,6 @@ Complete the following steps to connect a Windows-based {{site.data.keyword.clou
 2. Click **Discover Multi-Paths**.
 3. Checkmark **Add support for iSCSI devices**, and click **Add**.
 4. If you're prompted to restart the Computer, click **Yes**. Otherwise, continue to the next step.
-
-In Windows Server 2008, adding support for iSCSI allows the Microsoft Device-Specific Module (MSDSM) to claim all iSCSI devices for MPIO, which requires a connection to an iSCSI Target first.
-{: note}
 
 ### Configuring the iSCSI Initiator to discover the Target
 {: #configISCSIWin}
@@ -141,7 +148,6 @@ In Windows Server 2008, adding support for iSCSI allows the Microsoft Device-Spe
     * Provide a label for your Storage volume.
 9. Click **Next**.
 10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
-
 
 ## Verifying whether MPIO is configured correctly in Windows Operating systems
 {: #verifyMPIOWindows}

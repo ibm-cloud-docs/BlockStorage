@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2023-09-08"
+lastupdated: "2024-07-22"
 
 keywords: Block Storage for Classic, cPanel, backups, mountpoint, iSCSI
 
@@ -14,11 +14,11 @@ subcollection: BlockStorage
 # Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel
 {: #cPanelBackups}
 
-You can use the following instructions to configure your backups in cPanel to be stored in {{site.data.keyword.blockstoragefull}}. The assumption is that root or sudo SSH and full WebHost Manager (WHM) access are available. These instructions are based on a **CentOS 7** host.
+You can use the following instructions to configure your backups in cPanel to be stored in {{site.data.keyword.blockstoragefull}}. The assumption is that root or sudo SSH and full WebHost Manager (WHM) access are available.
 {: shortdesc}
 
-For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/){: external}.
-{: tip}
+While you can store a backup directly to a remote filesystem, cPanel & WHM does **not** support this configuration. For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/how-to-run-backups-on-locally-mounted-remoted-file-systems/){: external}.
+{: attention}
 
 1. Connect to the host through SSH.
 
@@ -26,7 +26,10 @@ For more information, see the [cPanel documentation for backup](https://docs.cpa
    By default, the cPanel system saves backup files locally, to the `/backup` directory. For this document, it is assumed that the folder `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
    {: note}
 
-3. Configure your {{site.data.keyword.blockstorageshort}} as described in [Connecting to iSCSI LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux#mountingLinux). Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
+3. Configure your {{site.data.keyword.blockstorageshort}} as described in one of the following tutorials. Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
+    - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+    - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+    - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
 
 4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
    ```sh

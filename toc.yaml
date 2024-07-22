@@ -28,7 +28,6 @@ toc:
         - mounting_rhel8.md
         - mounting_ubuntu20.md
         - mounting_cloudlin8.md
-        - mounting_debian10.md
     - navgroup:
         id: howto
         topics:
@@ -42,8 +41,6 @@ toc:
         - topicgroup:
             label: Configuring
             topics:
-            - accessing_block_storage_linux.md
-            - configure-iscsi-cloudlinux.md
             - accessing-block-storage-windows.md
             - set-host-queue-depth-settings-performance-and-endurance-storage.md
             - include: ../FileStorage/jumboframes.md

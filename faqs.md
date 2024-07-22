@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-06-21"
+lastupdated: "2024-07-22"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -656,7 +656,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 The following examples are utilities that you might consider to use to check performance statistics.
 - [`sysstat`](https://github.com/sysstat/sysstat/blob/master/README.md){: external} - System performance tools for the Linux&reg; operating system.
 - [`typeperf`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows command that writes performance data to the command window or to a log file.
-- [`esxtop`](https://community.broadcom.com/vmware-cloud-foundation/blogs/zhelong-pan/2024/04/14/interpreting-esxtop-statistics){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
+- [`esxtop`](https://community.broadcom.com/vmware-cloud-foundation/viewdocument/interpreting-esxtop-statistics-1){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
 
 
 ## What is the difference between a replica volume, a dependent and an independent duplicate volume?

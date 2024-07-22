@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-07-22"
 
 keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -207,12 +207,12 @@ For more information about the arguments and attributes, see [ibm_storage_block]
 {: #mountingnewLUN}
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [Connecting to LUNs on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingLinux)
-- [Connecting to LUNs on CloudLinux](/docs/BlockStorage?topic=BlockStorage-mountingCloudLinux)
-- [Connecting to LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-- [Mounting a LUN in XenServer Shared Storage](/docs/virtualization?topic=virtualization-xenserver-shared-storage#setting-up-and-mounting-an-iscsi-volume-xenserver)
-- [Configuring Block Storage for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups)
-- [Configuring Block Storage for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups)
+- [RHEL 8]{: tag-linux} [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+- [CloudLinux 8]{: tag-linux} [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+- [Ubuntu 20]{: tag-linux} [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+- [Windows]{: tag-windows}[Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
+- [cPanel]{: tag-app}[Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
+- [Plesk]{: tag-app} [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
 
 ## Disaster recovery considerations
 {: #DRconsiderations}
