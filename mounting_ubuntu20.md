@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-23"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -308,3 +308,29 @@ After the volume is mounted and accessible on the host, you can create a file sy
    ```sh
    ls /mnt
    ```
+
+## Unmounting {{site.data.keyword.blockstorageshort}} volumes
+{: #unmountingUbu}
+
+When you no longer need the volume, unmount it before you delete it.
+
+1. Unmount the file system.
+   ```zsh
+   umount /dev/mapper/XXXp1 /PerfDisk
+   ```
+   {: pre}
+
+2. If you do not have any other volumes in that target portal, you can log out of the target.
+   ```zsh
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+
+3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
+   ```zsh
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+
+   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
+   {: tip}

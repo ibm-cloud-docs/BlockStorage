@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-24"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -205,7 +205,6 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
 
    The volume is now mounted and accessible on the host. You can create a file system next.
 
-
 ## Creating a file system (optional)
 {: #createfilesys}
 {: step}
@@ -375,3 +374,88 @@ To create a file system with `parted`, follow these steps.
    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
    ```
    {: pre}
+
+## Verifying MPIO configuration
+{: #verifyMPIOLinux}
+
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+
+* To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then for each volume there is a single group, with a number of paths equal to the number of iSCSI sessions.
+
+   ```zsh
+   multipath -l
+   ```
+   {: pre}
+
+   ```zsh
+   root@server:~# multipath -l
+   3600a09803830304f3124457a45757067 dm-1 NETAPP,LUN C-Mode
+   size=20G features='1 queue_if_no_path' hwhandler='0' wp=rw
+   |-+- policy='round-robin 0' prio=-1 status=active
+   | `6:0:0:101 sdd 8:48 active ready running
+   `-+- policy='round-robin 0' prio=-1 status=enabled
+    `- 7:0:0:101 sde 8:64 active ready running
+   ```
+
+   The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent as long as the volume exists.
+
+* Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+
+   ```zsh
+   fdisk -l | grep Disk
+   ```
+   {: pre}
+
+   - Example output of a correct configuration.
+
+    ```zsh
+    root@server:~# fdisk -l | grep Disk
+    Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+    Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/mapper/3600a09803830304f3124457a45757066: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
+
+    The WWID is included in the device name that the multipath creates. The WWID should be used by your application.
+
+   - Example output of an incorrect configuration. There's no `/dev/mapper` disk.
+
+    ```zsh
+    root@server:~# fdisk -l | grep Disk
+    Disk /dev/sda: 500.1 GB, 500107862016 bytes Disk identifier: 0x0009170d
+    Disk /dev/sdc: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
+    ```
+
+* To confirm that no local disks are included in the list multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blocklist.
+   ```zsh
+   multipath -l -v 3 | grep sd <date and time>
+   ```
+   {: pre}
+
+* In the rare case of a LUN being provisioned and attached while the second path is down, when the discovery scan is run for the first time, the host might see a single path returned. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether there's an event that impacts your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If there's an event, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+
+## Unmounting {{site.data.keyword.blockstorageshort}} volumes
+{: #unmountingLin}
+
+1. Unmount the file system.
+   ```zsh
+   umount /dev/mapper/XXXp1 /PerfDisk
+   ```
+   {: pre}
+
+2. If you do not have any other volumes in that target portal, you can log out of the target.
+   ```zsh
+   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   ```
+   {: pre}
+
+3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
+   ```zsh
+   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   ```
+   {: pre}
+
+   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
+   {: tip}
+   
