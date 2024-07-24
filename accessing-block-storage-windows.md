@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-24"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -32,10 +32,10 @@ Before you begin, make sure that the host that is to access the {{site.data.keyw
 {: requirement}
 
 The prerequisites on the iSCSI client include:
-- installation of Multipath-IO services 
-- setting the iSCSI initiator service start up to automatic
-- enabling support for multipath MPIO to iSCSI
-- enabling automatic claiming of all iSCSI volumes
+- Installation of Multipath-IO services 
+- Setting the iSCSI initiator service start to automatic
+- Enabling support for multipath MPIO to iSCSI
+- Enabling automatic claiming of all iSCSI volumes
 
 It is important to restart the Windows client after installation of these prerequisites. The MPIO load-balancing policy requires a restart so that it can be set.
 {: important}

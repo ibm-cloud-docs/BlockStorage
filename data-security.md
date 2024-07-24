@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-07-24"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Securing your data in {{site.data.keyword.blockstorageshort}}
 {: #mng-data}
 
-It's important to know exactly how data is stored, how it is encrypted, and how you can delete personal data, to rest assured that your data in {{site.data.keyword.blockstorageshort}} is securely managed. 
+It's important to know exactly how data is stored, how it is encrypted, and how you can delete personal data. Your data in {{site.data.keyword.blockstorageshort}} is securely managed.
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.blockstorageshort}}
@@ -33,8 +33,7 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 ## Securing your snapshots or replicated storage
 {: #SecureSnapshotBlock}
 
-All snapshots and replicas of encrypted Block Storage are also encrypted by default. This feature can’t be turned off on a volume basis.
-All cluster-to-cluster traffic is encrypted with TLS.
+All snapshots and replicas of encrypted Block Storage are also encrypted by default. This feature can’t be turned off on a volume basis. All cluster-to-cluster traffic is encrypted with TLS.
 
 ## Provisioning Storage with Encryption
 {: #createencryptedLUN1}
@@ -42,11 +41,11 @@ All cluster-to-cluster traffic is encrypted with TLS.
 The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} in all 
 {{site.data.keyword.cloud}} data centers.
 
-When you order {{site.data.keyword.blockstorageshort}}, select a data center noted with an asterisk (`*`). You can see a lock icon next the LUN/Volume Name field that indicates that the volume is encrypted.
+You can see a lock icon next to the Volume Name field that indicates that the volume is encrypted.
 
 ![Figure 1. Example of the lock icon that indicates that the LUN is encrypted.](/images/encryptedstorage.svg){: caption="FFigure 1. Example of the lock icon that indicates that the LUN is encrypted." caption-side="bottom"}
 
-Nonencrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own nonencrypted storage in an upgraded data center and you want encrypted storage, then you need to create a new volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
+Nonencrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own nonencrypted storage in an upgraded data center and you want encrypted storage, then you need to create a volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {: important}
 
 ## Deleting {{site.data.keyword.blockstorageshort}} instances
