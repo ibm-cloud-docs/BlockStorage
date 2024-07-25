@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-04-11"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery, snapshots
 
@@ -23,7 +23,7 @@ Replication keeps your data in sync in two different locations. If you want to c
 Before you can replicate, you must create a snapshot schedule. The option to **Order Replica** does not appear unless this condition is met.
 {: important}
 
-## Determining the remote data center for my replicated storage volume in the UI
+## Determining the remote data center for my replicated storage volume in the console
 {: #determinereplocationUI}
 {: ui}
 
@@ -36,7 +36,7 @@ See Table 1 for the complete list of data center availability and replication ta
 | - SJC03 \n - SJC04 \n - WDC04 \n - WDC06 \n - WDC07 \n - DAL09 \n - DAL10 \n - DAL12 \n - DAL13 \n - DAL14 | - SAO01 \n - SAO04 \n - SAO05 | - TOR01 \n - TOR04 \n - TOR05 \n - MON01 | - AMS03 \n - FRA02 \n - FRA04 \n - FRA05 \n - LON02 \n - LON04 \n - LON05 \n - LON06 \n - PAR01 \n - MIL01 \n - MAD04 \n - MAD05 | - TOK02 \n - TOK04 \n - TOK05 \n - OSA21 \n - OSA22 \n - OSA23 \n - SNG01 \n - CHE01 | - SYD01 \n - SYD04 \n - SYD05 \n |
 {: caption="Table 1 - This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
 
-## Determining the remote data center for the replicated storage volume from the CLI
+## Determining the remote location for the replicated storage volume from the CLI
 {: #determinereplicationlocCLI}
 {: cli}
 
@@ -47,7 +47,7 @@ Before you begin, decide on the CLI client that you want to use.
 
 {{site.data.keyword.cloud_notm}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
-### Listing data center locations from the IBMCLOUD CLI
+### Listing locations from the IBMCLOUD CLI
 {: #determinereplicationlocICCLI}
 
 You can use the `ibmcloud sl block replica-locations` command to locate a replica location for your block volume. The following example lists the available location for a block volume that is located in the US south region.
@@ -68,7 +68,7 @@ ID        Short Name   Long Name
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block replica-locations](/docs/cli?topic=cli-sl-block-storage#sl_block_replica_locations).
 
-### Listing data center locations from the SLCLI
+### Listing locations from the SLCLI
 {: #determinereplicationlocSLCLI}
 
 To list suitable replication data centers for a specific volume, use the following command.
@@ -87,7 +87,7 @@ Options:
 As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
 {: note}
 
-## Creating the initial replica in the UI
+## Creating the initial replica in the console
 {: #enablerepUI}
 {: ui}
 
@@ -154,7 +154,7 @@ Options:
 ```
 {: screen}
 
-## Viewing the replica volumes in the Volume List in the UI
+## Viewing the replica volumes in the Volume List in the console
 {: #replicalistUI}
 {: ui}
 
@@ -194,13 +194,13 @@ Options:
 ```
 {: screen}
 
-## Viewing the replication history in the UI
+## Viewing the replication history in the console
 {: #replicationhistoryUI}
 {: ui}
 
 To view the Replication history, click Manage on the main menu bar. Select **Account**, and scroll to the Audit Log. The Storage Replication Events list contains the names of the volume, a description of the replication event and the timestamp of the event.
 
-## Editing the Replication Schedule in the UI
+## Editing the Replication Schedule in the console
 {: #editreplicaschedule}
 {: ui}
 
@@ -213,7 +213,7 @@ However, if you want to change the time of day when your **Daily** replication o
 3. Look in the **Snapshot** frame under **Schedule** to determine which Daily schedule you're using for replication. Change the schedule that you want.
 4. Click **Save**.
 
-## Deleting an existing replica block volume in the UI
+## Deleting an existing replica block volume in the console
 {: #cancelreplicaUI}
 {: ui}
 
@@ -225,7 +225,7 @@ You can cancel replication either immediately or on the anniversary date, which 
 4. Select when to cancel. Choose **Immediately** or **Anniversary Date**, and click **Continue**.
 5. This operation deletes the replica volume with all its data. Click the checkbox to acknowledge the information, and click **Delete**.
 
-## Canceling replication when the primary volume is deleted in the UI
+## Canceling replication when the primary volume is deleted in the console
 {: #cancelprimaryUI}
 {: ui}
 

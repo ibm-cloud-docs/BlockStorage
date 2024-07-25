@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, inaccessible primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -23,7 +23,7 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 This action breaks the replication relationship and restoring the connection between the primary and the replica location can be time-consuming.
 {: important}
 
-## Fail over to the replica volume in the UI
+## Fail over to the replica volume in the console
 {: #DRFailoverUI}
 {: ui}
 
@@ -106,7 +106,7 @@ Use the following command to fail a block volume over to a specific replicant vo
    </SOAP-ENV:Envelope>
    ```
 
-## Fail back to the original primary site in the UI
+## Fail back to the original primary site in the console
 {: #DRFailback2originalUI}
 {: ui}
 

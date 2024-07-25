@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-21"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -20,7 +20,7 @@ With this feature, current {{site.data.keyword.blockstoragefull}} users can expa
 
 Billing for the volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
  
-The upgrade process is not instantaneous. You can expect to see the updated size in the UI or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait. 
+The upgrade process is not instantaneous. You can expect to see the updated size in the console or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait. 
 
 When the expansion is complete, the host Operating system must rescan the volume, and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
 {: important}
@@ -47,7 +47,7 @@ Existing size limitations for {{site.data.keyword.blockstorageshort}} that was p
 You can't change the block storage to a smaller size after you expand its capacity.
 {: note}
 
-## Resizing storage in the UI
+## Resizing storage in the console
 {: #resizingstepsUI}
 {: ui}
 

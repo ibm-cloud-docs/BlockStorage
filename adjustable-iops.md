@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -51,7 +51,7 @@ Maximum IOPS for block storage volumes varies based on volume size. The maximum 
 
 If the volume has replication in place, the replica is automatically updated to match the IOPS selection of the primary.
 
-## Adjusting the IOPS on your Storage in the UI
+## Adjusting the IOPS on your Storage in the console
 {: #adjustingstepsUI}
 {: ui}
 

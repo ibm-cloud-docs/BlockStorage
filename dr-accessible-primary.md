@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -26,7 +26,7 @@ Authorized hosts and volumes must be in the same data center. For example, you c
 ## Authorizing the host
 {: #authreplicahost}
 
-Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the UI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
+Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 {: requirement}
 
 ## Starting a failover from a volume to its replica
@@ -43,7 +43,7 @@ When a failover is started, the replication relationship is flipped. Your target
 Before you proceed with these steps, disconnect the volume. Failure to do so, results in corruption and data loss.
 {: important}
 
-## Fail over to replica in the UI
+## Fail over to replica in the console
 {: #failovertoreplicaUI}
 {: ui}
 
@@ -117,7 +117,7 @@ When your original source volume is repaired, you can start a controlled Failbac
 
 When a Failback is started, the replication relationship is flipped again. Your source volume is restored as your source volume, and your target volume is the target volume again as indicated by the **LUN Name** followed by **REP**.
 
-## Failback in the UI
+## Failback in the console
 {: #failbackfromreplicaUI}
 {: ui}
 

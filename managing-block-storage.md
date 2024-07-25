@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-12-07"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
 {: shortdesc}
 
-## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the UI
+## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the console
 {: #viewLUNdeetsUI}
 {: help}
 {: support}
@@ -79,7 +79,7 @@ Options:
 ```
 {: screen}
 
-## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} in the UI
+## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} in the console
 {: #authhostUI}
 {: help}
 {: support}
@@ -225,7 +225,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 
 To remove authorization from a host, remove its details from the `ibm_storage_block` resource and apply your changes.
 
-## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN in the UI
+## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN in the console
 {: #viewauthhostUI}
 {: help}
 {: support}
@@ -280,7 +280,7 @@ After your storage resource is created, you can view the access the `allowed_hos
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
-## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized in the UI
+## Viewing the {{site.data.keyword.blockstorageshort}} to which a host is authorized in the console
 {: #viewLUNauthUI}
 {: help}
 {: support}
@@ -296,7 +296,7 @@ You're presented with a list of storage volumes that this particular host has ac
 A host cannot be authorized to access volumes of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
 {: note}
 
-## Revoking a host's access to {{site.data.keyword.blockstorageshort}} in the UI
+## Revoking a host's access to {{site.data.keyword.blockstorageshort}} in the console
 {: #revokeauthinUI}
 {: ui}
 
@@ -376,7 +376,7 @@ Options:
 ```
 {: screen}
 
-## Deleting a storage LUN in the UI
+## Deleting a storage LUN in the console
 {: #cancelLUNUI}
 {: help}
 {: support}

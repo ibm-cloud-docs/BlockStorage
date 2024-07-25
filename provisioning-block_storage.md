@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -44,7 +44,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
 By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes. To increase the number of your volumes, contact your sales representative. For more information about increasing limits, see [Managing Storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits).
 {: important}
 
-## Ordering {{site.data.keyword.blockstorageshort}} in the UI
+## Ordering {{site.data.keyword.blockstorageshort}} in the console
 {: #orderingthroughConsole}
 {: ui}
 

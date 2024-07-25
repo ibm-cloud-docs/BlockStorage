@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-07-25"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space. Learn more about how to manage snapshots by reading the following instructions.
 {: shortdesc}
 
-## Adding a Snapshot schedule in the UI
+## Adding a Snapshot schedule in the console
 {: #addscheduleUI}
 {: ui}
 
@@ -144,7 +144,7 @@ resource "ibm_storage_block" "test1" {
 
 If you want to update the schedule, change these values and apply them to your resources. If you want to delete the schedule, remove its details from the `ibm_storage_block` resource definition, and apply your changes.
 
-## Taking a manual Snapshot in the UI
+## Taking a manual Snapshot in the console
 {: #takemanualsnapshotUI}
 {: ui}
 
@@ -191,7 +191,7 @@ Options:
 ```
 {: screen}
 
-## Listing all Snapshots with Space Used Information and Management functions in the UI
+## Listing all Snapshots with Space Used Information and Management functions in the console
 {: #listsnapshotUI}
 {: ui}
 
@@ -304,7 +304,7 @@ Options:
 ```
 {: screen}
 
-## Increasing the amount of Snapshot space for a volume in the UI
+## Increasing the amount of Snapshot space for a volume in the console
 {: #changesnapshotspaceUI}
 {: ui}
 
@@ -321,7 +321,7 @@ Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstora
 4. Enter any Promo Code that you have, and click **Recalculate**. The Charges for this order and Order Review fields are completed by default.
 5. Read the service agreement, and if you agree with the terms click checkbox, and click **Place Order**. Your additional snapshot space is provisioned in a few minutes.
 
-## Deleting a snapshot schedule in the UI
+## Deleting a snapshot schedule in the console
 {: #cancelnapshotscheduleUI}
 {: ui}
 
@@ -373,7 +373,7 @@ Options:
 If you're using the replication feature, be sure that the schedule you're deleting isn't the schedule that is used by replication. For more information about deleting a replication schedule, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 {: important}
 
-## Deleting a snapshot in the UI
+## Deleting a snapshot in the console
 {: #deletesnapshotUI}
 {: ui}
 
@@ -424,7 +424,7 @@ Options:
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations. The oldest snapshot is deleted first.
 {: note}
 
-## Restoring storage volume to a specific point in time by using a snapshot in the UI
+## Restoring storage volume to a specific point in time by using a snapshot in the console
 {: #restorefromsnapshotUI}
 {: ui}
 

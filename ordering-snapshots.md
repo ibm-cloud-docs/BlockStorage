@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-05-29"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -70,7 +70,7 @@ The size of the snapshot space that you can order depends on the size of your vo
 {: caption="Table 1 - This table shows the available snapshot space in increments for different volume capacities." caption-side="bottom"}
 
 
-## Ordering Snapshot space in the UI
+## Ordering Snapshot space in the console
 {: #ordersnapshotUI}
 {: ui}
 

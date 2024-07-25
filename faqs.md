@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-07-25"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -133,7 +133,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 - 8 KB * 6000 IOPS == ~46.88 MB/sec
 - 4 KB * 6000 IOPS == ~23.44 MB/sec
 
-## How can I tell how much of the Storage is being used? Why are the usage details of {{site.data.keyword.blockstorageshort}} not displayed in the UI?
+## How can I tell how much of the Storage is being used? Why are the usage details of {{site.data.keyword.blockstorageshort}} not displayed in the console?
 {: #blockstoruse}
 {: faq}
 
@@ -172,7 +172,7 @@ You can use the following commands.
 {: faq}
 {: #faq-storage-units-2}
 
-One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume in the UI, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
+One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume in the console, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
 Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
 
@@ -701,7 +701,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 {: #duplicateconversion}
 {: faq}
 
-The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. For a 12-TB volume, it might take 24 hours. You can check on the progress in the UI or from the CLI.
+The conversion process can take some time to complete. The bigger the volume, the longer it takes to convert it. For a 12-TB volume, it might take 24 hours. You can check on the progress in the console or from the CLI.
 
 - In the UI, go to [Classic Infrastructure](/gen1/infrastructure/devices){: external}. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, then locate the volume in the list. The conversion status is displayed on the Overview page.
 
