@@ -2,19 +2,25 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-07-26"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
 subcollection: BlockStorage
+
+content-type: tutorial
+services:
+account-plan: paid
+completion-time: 1h
 
 ---
 {{site.data.keyword.attribute-definition-list}}
 
 # Connecting to iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
-
-
+{: toc-content-type="tutorial"}
+{: toc-services=""}
+{: toc-completion-time="1h"}
 
 By completing the following steps, you can authorize your Windows host to access your {{site.data.keyword.blockstoragefull}} volume. Then, you can install and configure the iSCSI feature on a Windows server, and mount, initialize, and format the {{site.data.keyword.blockstorageshort}} volumes.
 {: shortdesc}
@@ -33,7 +39,7 @@ Before you begin, make sure that the host that is to access the {{site.data.keyw
 
 The prerequisites on the iSCSI client include:
 - Installation of Multipath-IO services 
-- Setting the iSCSI initiator service start to automatic
+- Setting the iSCSI initiator service to start automatically
 - Enabling support for multipath MPIO to iSCSI
 - Enabling automatic claiming of all iSCSI volumes
 
