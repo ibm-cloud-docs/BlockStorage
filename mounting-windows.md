@@ -16,7 +16,7 @@ completion-time: 1h
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Connecting to iSCSI LUNS on Microsoft Windows
+# Mount iSCSI LUNS on Microsoft Windows
 {: #mountingWindows}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
