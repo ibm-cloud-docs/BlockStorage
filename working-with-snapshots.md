@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-07-29"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -191,17 +191,17 @@ Options:
 ```
 {: screen}
 
-## Listing all Snapshots with Space Used Information and Management functions in the console
+## Listing all Snapshots with Space Used information and Management functions in the console
 {: #listsnapshotUI}
 {: ui}
 
-A list of retained snapshots and space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page. Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
+A list of retained snapshots and the space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page. Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
 
-You receive notifications when you reach space thresholds – 75 percent, 90 percent, and 95 percent.
+You receive notifications when you reach space thresholds – 75%, 90%, and 95%.
 
-- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
-- At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
-- At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
+- At **75% capacity**, a warning is sent that snapshot space usage exceeded 75%. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
+- At **90% capacity**, a second warning is sent when snapshot space usage exceeded 90%. Like with reaching 75% capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
+- At **95% capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95%. Snapshots continue to be deleted each time usage exceeds 95% until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
 By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time from the CLI.
 
@@ -244,11 +244,11 @@ Options:
 {: #notificationstatusCLI}
 {: cli}
 
-Notifications are sent when you reach three different space thresholds – 75 percent, 90 percent, and 95 percent.
+Notifications are sent when you reach three different space thresholds – 75%, 90%, and 95%.
 
-- At **75 percent capacity**, a warning is sent that snapshot space usage exceeded 75 percent. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
-- At **90 percent capacity**, a second warning is sent when snapshot space usage exceeded 90 percent. Like with reaching 75 percent capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
-- At **95 percent capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95 percent. Snapshots continue to be deleted each time usage exceeds 95 percent until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
+- At **75% capacity**, a warning is sent that snapshot space usage exceeded 75%. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system is reset, and no autodeletion occurs.
+- At **90% capacity**, a second warning is sent when snapshot space usage exceeded 90%. Like with reaching 75% capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
+- At **95% capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95%. Snapshots continue to be deleted each time usage exceeds 95% until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
 If snapshot space utilization increases too rapidly, then you might receive one notification before autodeletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%. The system skips the 90%-exceeded warning.
 {: note}
@@ -258,7 +258,7 @@ By default, snapshot warning notifications are enabled for every customer. Howev
 ### Checking notification status in the IBMCLOUD CLI
 {: #notificationstatusICCLI}
 
-To check the notificatio status, use the `ibmcloud sl block snapshot-get-notification-status` command.
+To check the notification status, use the `ibmcloud sl block snapshot-get-notification-status` command.
 
 ```sh
 $ ibmcloud sl block snapshot-get-notification-status 562193766
@@ -430,7 +430,7 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
-1. Unmount and detach your storage volume from the host to ensure the host is not connecting to the volume during the restore for any reason.
+1. Unmount and detach your storage volume from the host to ensure that the host is not connected to the volume during the restore.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#unmountingLin)
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Microsoft server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
@@ -466,7 +466,7 @@ You might need to take your storage volume back to a specific point in time beca
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 
 2. Then, you can restore the volume with a snapshot by using one of the following commands.
-   - From the IBMCLOUD CLI:
+   - From the IBMCLOUD CLI, you can use the `ibmcloud sl block snapshot-restore` command.
      ```sh
      $ ibmcloud sl block snapshot-restore 562193766 562211890
      OK
@@ -476,7 +476,7 @@ You might need to take your storage volume back to a specific point in time beca
 
      For more information about all of the parameters that are available for this command, see [ibmcloud sl block snapshot-restore](/docs/cli?topic=cli-sl-block-storage#sl_block_snapshot_restore){: external}.
 
-   - From the SLCLI:
+   - From the SLCLI, you can use the `slcli block snapshot-restore` command.
      ```sh
      $ slcli block snapshot-restore --help
      Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID

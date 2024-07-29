@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-27"
+lastupdated: "2024-07-29"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -38,7 +38,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 {: requirement}
 
-The prerequisites on the iSCSI client include:
+The following activities are prerequisites on the iSCSI client:
 - Installation of Multipath-IO services 
 - Setting the iSCSI initiator service to start automatically
 - Enabling support for multipath MPIO to iSCSI
@@ -55,6 +55,7 @@ It is important to restart the Windows client after installation of these prereq
 2. Click **Next** to open the Features menu.
 3. Scroll down and check **Multipath I/O**.
 4. Click **Next** and **Install** to install MPIO on the host server.
+
    ![Adding Roles and Features in Server Manager](images/1-EnableMultipath.svg){: caption="Figure 1. Install MPIO on the host server." caption-side="bottom"}
 5. Restart the server.
 
@@ -101,6 +102,7 @@ It is important to restart the Windows client after installation of these prereq
 
    ![Enable Multi-path.](images/7-CHAPLogon4Connection.svg){: caption="Figure 7. Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
+
    ![Enable CHAP.](images/8-InputCHAPcredentials.svg){: caption="Figure 8. CHAP logon and credentials." caption-side="bottom"}
 6. Enter the username in the Name[^username] field, and enter the password in the Target secret[^password] field.
    [^username]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
@@ -126,7 +128,7 @@ It is important to restart the Windows client after installation of these prereq
    1. Enter the Name and Target secret values that were obtained from the console and click **OK**.
    1. Click **OK** on the Connect To Target window to go back to the Properties window.
 5. Click **Properties**. In the Properties dialog box, click **Add Session** again to add the second path.
-6. In the Connect to Target window, select the **Enable multi-path** checkbox. Click **Advanced**.
+6. In the Connect to Target window, select the checkbox to **Enable multi-path**. Click **Advanced**.
 7. In the Advanced Settings window,
    1. On the Local adapter list, select Microsoft iSCSI Initiator.
    1. On the Initiator IP list, select the IP address that corresponds to the host. In this case, you are connecting two network interfaces on the storage array to a single network interface on the host. Therefore, this interface is the same as the one that was provided for the first session.
@@ -150,6 +152,7 @@ It is important to restart the Windows client after installation of these prereq
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO.
    
    ![The Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](images/14-DeviceDetails2paths.svg){: caption="Figure 14. Multipath can be validated on the Device Details window." caption-side="bottom"}
+
 11. Click **OK** several times to exit the iSCSI Initiator.
 
 ## Initializing and formatting the {{site.data.keyword.blockstorageshort}} volume

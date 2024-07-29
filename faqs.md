@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-07-29"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -139,9 +139,8 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 
 {{site.data.keyword.blockstorageshort}} is yours to format and manage the way that you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and so the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system.
 
-You can use the following commands.
-- Linux&reg;:
-   ```txt
+- In Linux&reg;, you can use the following command.
+   ```sh
    df -h
    ```
    {: pre}
@@ -153,20 +152,18 @@ You can use the following commands.
    /dev/sda1      disk      6.0G  1.2G  4.9G  20% /
    ```
 
-- Windows: you have two options.
-   ```txt
+- In Windows, you can also view the free disk space in the File Explorer by clicking **This PC**, and you have two command options.
+   ```sh
    fsutil volume diskfree C:
    ```
    {: pre}
 
-   ```text
+   ```sh
    dir C:
    ```
    {: pre}
 
    The last line of the output shows how much space is unused.
-
-   You can also view the free disk space in the File Explorer by clicking This PC.
 
 ### Why does the available capacity that I see in my OS not match the capacity that I provisioned?
 {: faq}
@@ -174,7 +171,7 @@ You can use the following commands.
 
 One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume in the console, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
-Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
+Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting, and the amount and size of the various files on the system.
 
 ### Is storage capacity measured in GB or GiB?
 {: faq}
@@ -262,9 +259,9 @@ Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the
 Bonding works between a server and switch. However, MPIO works between a storage server and the host, even if a switch is in the path.
 
 For more information, see one of the following articles.
-- Red Hat Linux&reg;: [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
-- Microsoft Windows: [NIC Teaming and iSCSI](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/441d2157-119d-4b1e-b40c-1aa3670e44a6){: external}.
-- VMware&reg;: [Host requirements for link aggregation](https://knowledge.broadcom.com/external/article?legacyId=1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
+- [Linux]{: tag-linux} [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
+- [Windows]{: tag-windows} [NIC Teaming and iSCSI](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/441d2157-119d-4b1e-b40c-1aa3670e44a6){: external}.
+- [VMware]{: tag-cool-gray} [Host requirements for link aggregation](https://knowledge.broadcom.com/external/article?legacyId=1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
 {: #latency}
