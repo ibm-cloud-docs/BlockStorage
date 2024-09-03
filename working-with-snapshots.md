@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-09-03"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -382,7 +382,7 @@ Snapshots that are no longer needed can be manually removed to free up space for
 1. Click your storage volume and click **Snapshot** to see the list of existing snapshots.
 2. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as snapshots don't depend on each other.
 
-Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
+Manual snapshots that aren't deleted in the portal manually are automatically deleted when you take another snapshot if you have reached space limitations. The oldest snapshot is deleted first.
 
 ## Deleting a snapshot from the CLI
 {: #deletesnapshotCLI}

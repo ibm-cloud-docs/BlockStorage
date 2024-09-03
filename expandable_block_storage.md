@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-03"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Expanding {{site.data.keyword.blockstorageshort}} Capacity
 {: #expandingcapacity}
 
-With this feature, current {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. They don't need to create a duplicate or manually migrate data to a larger volume.
+With this feature, {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. You don't need to create a duplicate or manually migrate data to a larger volume. This feature is available in all [data centers](/docs/overview?topic=overview-locations#data-centers).
 {: shortdesc}
 
 Billing for the volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
