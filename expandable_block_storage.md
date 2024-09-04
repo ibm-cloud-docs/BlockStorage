@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-03"
+lastupdated: "2024-09-04"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -170,7 +170,6 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    ```
    {: codeblock}
 
-
 * Increase capacity on an Endurance storage volume. `XXXXXXXX` is the ID of the volume that you want to increase to `250` GBs. `189433`, `196033`, and `196093` are IDs of pricing information that is associated with the capacity and IOPS value of this volume.
 
    ```sh
@@ -208,7 +207,6 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
 
 The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
-
 
 ## Resizing storage with Terraform
 {: #resizingstepsTerraform}
@@ -255,7 +253,6 @@ For more information about the arguments and attributes, see [ibm_storage_block]
 
 The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 {: tip}
-
 
 ## Expanding Storage over 12 TB
 {: #increasecapacityover12TB}

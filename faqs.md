@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-09-04"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -31,7 +31,7 @@ If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume 
 
 It is possible to authorize a subnet of IP addresses to access a specific {{site.data.keyword.blockstorageshort}} volume through the console, SLCLI, or API. To authorize a host to connect from multiple IP addresses on a subnet, complete the following steps.
 
-### Console UI
+### Console
 {: #authinUI}
 
 1. Go to [Classic Infrastructure](/gen1/infrastructure/devices){: external}.

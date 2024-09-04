@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-04"
 
 keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -23,7 +23,7 @@ You don't need to follow this process if your Storage received an upgrade to the
 ## Provisioning a {{site.data.keyword.blockstorageshort}}
 {: #createencryptedLUN2}
 
-You can order an enhanced LUN in the {{site.data.keyword.cloud}} Console UI, through the CLI or the API. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
+You can order an enhanced LUN in the {{site.data.keyword.cloud}} console, through the CLI or the API. Your new LUN must be of the same size or greater than the original volume to facilitate the migration.
 
 - [Ordering {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole)
 

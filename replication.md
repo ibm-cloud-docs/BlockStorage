@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-04"
 
 keywords: Block Storage for Classic, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery, snapshots
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Replicating {{site.data.keyword.blockstorageshort}} Volumes
 {: #replication}
 
-Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
+Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote [data centers](/docs/overview?topic=overview-locations#data-centers). The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted.
 {: shortdesc}
 
 Replication keeps your data in sync in two different locations. If you want to clone your volume and use it independently from the original volume, see [Creating a duplicate Block Volume](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
@@ -27,9 +27,9 @@ Before you can replicate, you must create a snapshot schedule. The option to **O
 {: #determinereplocationUI}
 {: ui}
 
-{{site.data.keyword.cloud}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not allowed.
+[{{site.data.keyword.cloud_notm}} data centers](/docs/overview?topic=overview-locations#data-centers) are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
-See Table 1 for the complete list of data center availability and replication targets within each region.
+The following table shows the data center codes within each region.
 
 | US | Latin America | Canada  | Europe  | Asia-Pacific  | Australia  |
 |----|---------------|---------|---------|---------------|------------|
@@ -45,7 +45,7 @@ Before you begin, decide on the CLI client that you want to use.
 * You can either install the [IBM Cloud CLI](/docs/cli){: external} and install the SL plug-in with `ibmcloud plugin install sl`. For more information, see [Extending IBM Cloud CLI with plug-ins](/docs/cli?topic=cli-plug-ins).
 * Or, you can install the [SLCLI](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.
 
-{{site.data.keyword.cloud_notm}} data centers are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
+[{{site.data.keyword.cloud_notm}} data centers](/docs/overview?topic=overview-locations#data-centers) are paired into primary and remote combinations in every region worldwide. When you replicate data, consider the local data residency laws because moving data across borders can have legal implications. Replication across regions is not permitted.
 
 ### Listing locations from the IBMCLOUD CLI
 {: #determinereplicationlocICCLI}
