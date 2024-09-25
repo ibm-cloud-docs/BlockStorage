@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-25"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}}
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic") to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
+You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} LUN details in the console

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-25"
 
 keywords: Block Storage for Classic, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -47,7 +47,7 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 {: #failovertoreplicaUI}
 {: ui}
 
-Failovers are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [[{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
+Failovers are started under **Storage** > **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
 
 1. Click your active LUN (“source”).
 2. Click **Replica**, and click **Actions**.

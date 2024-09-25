@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-25"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -61,7 +61,7 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 {: #cloneLUN1UI}
 {: ui}
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Classic Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select a volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Duplicate Volume**.
 3. Select whether the duplicate is to be dependent or independent.
 4. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
@@ -307,7 +307,7 @@ As time passes and the primary volume changes, the duplicate volume can be updat
 If the duplicate volume is independent, you can stop a running refresh operation and start a new one.
 {: note}
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Classic Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Locate the duplicate volume and click its name to view the volume details.
 3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Restore parent snapshot**.
 4. From the list of snapshots, select the parent snapshot that holds the data that you want to restore to the duplicate volume. If the duplicate volume that you're refreshing is an independent volume, you can stop a running operation and force a new restore to start. If you want to force any current refresh process to stop, check the box before you proceed.
@@ -321,7 +321,7 @@ If the duplicate volume is independent, you can stop a running refresh operation
 {: #convertdependentvol_ui}
 {: ui}
 
-1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. Go to your list of {{site.data.keyword.blockstorageshort}} in the {{site.data.keyword.cloud_notm}} console by clicking **Infrastructure** > **Classic Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Locate the duplicate volume and click its name to view the volume details.
 3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Convert Dependent Duplicate**.
 4. Check the box to confirm that you want to proceed with the conversion.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-25"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -51,7 +51,7 @@ You can't change the block storage to a smaller size after you expand its capaci
 {: #resizingstepsUI}
 {: ui}
 
-1. From the {{site.data.keyword.cloud}} console, click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon. Then, click **Infrastructure** ![Classic icon](../icons/classic.svg "Classic") > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+1. From the {{site.data.keyword.cloud}} console, click the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu") icon. Then, click **Infrastructure**  ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** > **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Select the iSCSI volume from the list and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") > **Modify volume**.
 3. Enter the new storage size in GB.
 4. Review your selection and the new pricing.

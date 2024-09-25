@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-25"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -74,7 +74,7 @@ The size of the snapshot space that you can order depends on the size of your vo
 {: #ordersnapshotUI}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/catalog){: external}, and click the menu icon ![Menu icon](../icons/icon_hamburger.svg "Menu"). Then, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/catalog){: external}, and click the menu icon ![Menu icon](../icons/icon_hamburger.svg "Menu"). Then, select **Infrastructure**  ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure**.
 2. Access your Storage LUN through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions"), then click **Change Snapshot Space**.
 4. Select the storage size that you need.
