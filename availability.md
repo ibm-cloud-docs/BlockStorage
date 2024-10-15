@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2023-09-08"
+lastupdated: "2024-10-09"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -27,7 +27,7 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 | VPC Storage - \n 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption + Customer-managed encryption |
 | VPC Storage - \n 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption + Customer-managed encryption |
 | VPC Storage - \n 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption + Customer-managed encryption |
-{: caption="Table 1. Storage durability and availability chart." caption-side="top"}
+{: caption="Storage durability and availability chart." caption-side="top"}
 
 ## Durability
 {: #stordurability}

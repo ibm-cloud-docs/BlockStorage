@@ -6,7 +6,7 @@ toc:
     subcollection: BlockStorage
     category: storage_classic
     audience: service
-    href: /docs/BlockStorage?topic=BlockStorage-getting-started
+    href: /docs/BlockStorage
     console-page: /cloud-storage/block
     product-page: https://www.ibm.com/products/block-storage
     path: BlockStorage

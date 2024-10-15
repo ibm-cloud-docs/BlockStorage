@@ -1,0 +1,75 @@
+{
+    "version": 2,
+    "title": "Block Storage - Classic",
+    "introduction": "Block storage is a technology that is used to store data files on storage area networks (SANs) or cloud-based storage environments.",
+    "product_page": "https://www.ibm.com/products/block-storage",
+    "console_page": "/cloud-storage/block",
+    "section_topics": {
+      "links": [
+        {
+          "title": "Getting started with Block Storage for Classic",
+          "href": "/docs/BlockStorage?topic=BlockStorage-getting-started"
+        },
+        {
+          "title": "Best practices for Block Storage",
+          "href": "/docs/BlockStorage?topic=BlockStorage-best-practices-classic"
+        },
+        {
+          "title": "Replication and disaster recovery",
+          "href": "/docs/BlockStorage?topic=BlockStorage-replication"
+        },
+        {
+          "title": "Securing your data",
+          "href": "/docs/BlockStorage?topic=BlockStorage-mng-data"
+        },
+        {
+          "title": "Frequently asked questions",
+          "href": "/docs/BlockStorage?topic=BlockStorage-block-storage-faqs"
+        }
+      ]
+    },
+    "section_highlights": [
+      {
+        "title": "Block Storage vs. File Storage",
+        "description": "File storage and block storage are traditional types of storage, the blog author takes a closer look at the two options, explains the different use cases and different benefits of each offering.",
+        "href": "https://www.ibm.com/blog/block-storage-vs-file-storage/",
+        "type": "blog"
+      },
+      {
+        "title": "Cloud storage options explained",
+        "description": "Watch Bradley Knapp explain the two most commonly used storage types: block and file storage, including their differences, benefits and use cases.",
+        "href": "https://www.youtube.com/watch?v=PmxWTTpXNLI&ab_channel=IBMTechnology",
+        "type": "video"
+      }
+    ],
+    "section_devtools": {
+      "api": "https://sldn.softlayer.com/article/getting-started",
+      "cli": "/docs/BlockStorage?topic=BlockStorage-sl-block-storage",
+      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block"
+    },
+    "section_updates": {
+      "view_more": "/docs/BlockStorage?topic=BlockStorage-getting-started",
+      "tiles": [
+        {
+          "date": "15 February 2024",
+          "title": "New location available: DAL14.",
+          "description": "Customers can now provision storage volumes in Dallas 14 data center." 
+        },
+        {
+          "date": "30 June 2023",
+          "title": "New location available: MAD02, MAD04, and MAD05",
+          "description": "Customers can now provision storage volumes in three data centers in Madrid." 
+        },
+        {
+          "date": "16 May 2023",
+          "title": "All Endurance volume profiles can now support adjustable IOPS",
+          "description": "Customers can now upgrade an Endurance volume that was provisioned with a 0.25 IOPS/GB profile to another tier." 
+        },
+        {
+          "date": "28 February 2023",
+          "title": "Updated volume refresh process",
+          "description": "Customers can now use the 'force refresh' option in the Volume Refresh process in the UI, from the CLI, and with the API." 
+        }
+      ]
+    }
+  }

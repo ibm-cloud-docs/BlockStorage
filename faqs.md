@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-10-11"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -196,7 +196,7 @@ The following table shows the same number of bytes expressed in decimal and bina
 |         2,000,000 MB |         1,907,348 MiB |
 |             2,000 GB |             1,862 GiB |
 |                 2 TB |              1.81 TiB |
-{: caption="Table 1. Decimal vs Binary units" caption-side="bottom"}
+{: caption="Decimal vs Binary units" caption-side="bottom"}
 
 The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB. 
 
@@ -480,7 +480,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
         /dev/mapper/vg00-vol_projects ext4   59G  2.1G   55G   4% /projects
         ```
 
-        For more information, see [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}.
+        For more information, see [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/basic-logical-volume-management_configuring-and-managing-logical-volumes#resizing-logical-volumes_basic-logical-volume-management){: external}.
 
 
    - Non-LVM - ext2, ext3, ext4:
@@ -686,7 +686,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 | Auto-synced with parent volume | ![Checkmark icon.](../../icons/checkmark-icon.svg) | |  |
 | On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg)[^depdup] | ![Checkmark icon.](../../icons/checkmark-icon.svg)[^indepdup] |
 | Separated from parent volume | | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
-{: caption="Table 1. Comparison of features between different types of volume copies. " caption-side="top"}
+{: caption="Comparison of features between different types of volume copies. " caption-side="top"}
 {: summary="This table has row and column headers. The row headers identify the capability. The column headers identify the type of volume copy."}
 {: #table1}
 

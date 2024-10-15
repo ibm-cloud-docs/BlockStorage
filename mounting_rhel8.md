@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-10-11"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -446,13 +446,13 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
    ```sh
-   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   iscsiadm -m node -T <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
 3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
    ```sh
-   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   iscsiadm -m node -o delete -T <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
 
