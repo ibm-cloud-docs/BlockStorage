@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-09-25"
+lastupdated: "2024-10-17"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -232,9 +232,23 @@ To remove authorization from a host, remove its details from the `ibm_storage_bl
 {: ui}
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
-2. Click **Authorized Hosts** to display the list of Compute instances that have access to the volume.
+1. Click **Authorized Hosts** to display the list of Compute instances that have access to the volume.
+1. Click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **View host details**. A side panel is displayed with details like device name, IP address, username and password, Host IQN, and device type. When ISCSI Isolation is enabled, the Access Control List section is also displayed. You can add or remove subnets in this section.
+ 
+The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
+{: tip}
 
-There you can see the list of hosts, which are currently authorized to access the LUN. You can also see the authentication information that is needed to make a connection – username, password, and IQN Host. The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
+## Updating host authorization in the console
+{: #updateauthhostUI}
+{: help}
+{: support}
+{: ui}
+
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
+1. Click **Authorized Hosts** to display the list of Compute instances that have access to the volume.
+1. Click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Add a subnet**. This option is only available when ISCSI Isolation is enabled.
+1. In the new dialog box, select the subnet that you want to add from the list.
+1. Click **Submit**.
 
 ## Viewing the list of hosts that are authorized to access a {{site.data.keyword.blockstorageshort}} LUN from the CLI
 {: #viewauthhostCLI}
@@ -276,7 +290,7 @@ Options:
 {: support}
 {: terraform}
 
-After your storage resource is created, you can view the access the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are authorized to access the volume.
+After your storage resource is created, you can view the `allowed_host_info` attribute, which contains the username, password, and the IQN of the Compute host that are authorized to access the volume.
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
@@ -286,7 +300,7 @@ For more information about the arguments and attributes, see [ibm_storage_block]
 {: support}
 {: ui}
 
-You can view the LUNs, which a host has access to, including information that is needed to make a connection – LUN Name, Storage Type, Target Address, capacity and location:
+You can view the LUNs, which a host has access to, including information that is needed to make a connection – LUN Name, Storage type, Target address, capacity and location:
 
 1. Click **Devices** > **Device List** in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external} and click the appropriate device.
 2. Select the **Storage** tab.
