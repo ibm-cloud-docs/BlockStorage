@@ -31,7 +31,7 @@
     "section_highlights": [
       {
         "title": "Block Storage vs. File Storage",
-        "description": "File storage and block storage are traditional types of storage, the blog author takes a closer look at the two options, explains the different use cases and different benefits of each offering.",
+        "description": "File storage and block storage are traditional types of storage, the blog author takes a closer look at the two options, explains the different use cases and benefits of each offering.",
         "href": "https://www.ibm.com/blog/block-storage-vs-file-storage/",
         "type": "blog"
       },
@@ -43,7 +43,6 @@
       }
     ],
     "section_devtools": {
-      "api": "https://sldn.softlayer.com/article/getting-started",
       "cli": "/docs/BlockStorage?topic=BlockStorage-sl-block-storage",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block"
     },
@@ -52,23 +51,19 @@
       "tiles": [
         {
           "date": "15 February 2024",
-          "title": "New location available: DAL14.",
-          "description": "Customers can now provision storage volumes in Dallas 14 data center." 
+          "title": "New location available: DAL14."
         },
         {
           "date": "30 June 2023",
-          "title": "New location available: MAD02, MAD04, and MAD05",
-          "description": "Customers can now provision storage volumes in three data centers in Madrid." 
+          "title": "New location available: MAD02, MAD04, and MAD05" 
         },
         {
           "date": "16 May 2023",
-          "title": "All Endurance volume profiles can now support adjustable IOPS",
-          "description": "Customers can now upgrade an Endurance volume that was provisioned with a 0.25 IOPS/GB profile to another tier." 
+          "title": "All Endurance volume profiles can now support adjustable IOPS" 
         },
         {
           "date": "28 February 2023",
-          "title": "Updated volume refresh process",
-          "description": "Customers can now use the 'force refresh' option in the Volume Refresh process in the UI, from the CLI, and with the API." 
+          "title": "Updated volume refresh process" 
         }
       ]
     }
