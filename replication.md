@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-10-29"
 
 keywords: Block Storage for Classic, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery, snapshots
 
@@ -84,7 +84,7 @@ Options:
 ```
 {: screen}
 
-As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/get-support?topic=get-support-dc-closure){: external}.
+As part of the data center modernization strategy for {{site.data.keyword.cloud}}, several data centers are scheduled to consolidate in 2023. For more information, see [Data center consolidations](/docs/account?topic=account-dc-closure){: external}.
 {: note}
 
 ## Creating the initial replica in the console
