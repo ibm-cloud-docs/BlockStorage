@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-10-11"
+lastupdated: "2024-10-31"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -261,7 +261,7 @@ Bonding works between a server and switch. However, MPIO works between a storage
 For more information, see one of the following articles.
 - [Linux]{: tag-linux} [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
 - [Windows]{: tag-windows} [NIC Teaming and iSCSI](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/441d2157-119d-4b1e-b40c-1aa3670e44a6){: external}.
-- [VMware]{: tag-cool-gray} [Host requirements for link aggregation](https://knowledge.broadcom.com/external/article?legacyId=1001938){: external} or [iSCSI and LAG/LACP](https://core.vmware.com/blog/iscsi-and-laglacp){: external}.
+- [VMware]{: tag-cool-gray} [Host requirements for link aggregation](https://knowledge.broadcom.com/external/article?legacyId=1001938){: external}.
 
 ## What latency can be expected from the {{site.data.keyword.blockstorageshort}}?
 {: #latency}
