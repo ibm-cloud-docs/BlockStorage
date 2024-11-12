@@ -82,6 +82,11 @@ toc:
                   label: Service Level Agreements for IBM Cloud (Public Cloud)
                   href: https://www.ibm.com/support/customer/csol/terms
         - topicgroup:
+            label: Data portability
+            topics:
+            - topic: data-portability.md
+              navtitle: Understanding data portability for Block Storage for Classic
+        - topicgroup:
             label: API reference
             topics:
             - link:
