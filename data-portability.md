@@ -2,11 +2,11 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-15"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
-subcollection: vpc
+subcollection: BlockStorage
 
 ---
 
@@ -67,4 +67,4 @@ Other Considerations:
 ## Data ownership
 {: #data-ownership}
 
-All exported data is classified as customer content. Apply the full customer ownership and licensing rights, as stated in the [IBM Cloud Service Agreement](https://www.ibm.com/terms/?id=Z126-6304_WS){: external}.
+All exported data is classified as customer content. Apply the full customer ownership and licensing rights, as stated in the [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS){: external}.
