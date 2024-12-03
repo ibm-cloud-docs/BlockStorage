@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-12-03"
 
 keywords: Block Storage for Classic, limit increase, global quota, quota increase
 
@@ -105,7 +105,7 @@ In the case, provide the following information:
    >*For example, "90 days."*
 
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.**
-   >*"I expect 25 percent to be used in 30 days, 50 percent to be used in 60 days and 75 percent to be used in 90 days."*
+   >*"I expect 25% to be used in 30 days, 50% to be used in 60 days and 75% to be used in 90 days."*
 
 Respond to all questions and statements in your request. They are required for processing and approval.
 {: important}
