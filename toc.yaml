@@ -21,7 +21,7 @@ toc:
         - snapshots.md
         - link:
               label: What is Block Storage?
-              href: https://www.ibm.com/topics/block-storage
+              href: https://www.ibm.com/think/topics/block-storage
     - navgroup:
         id: tutorial
         topics:
