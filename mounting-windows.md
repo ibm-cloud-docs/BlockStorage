@@ -177,7 +177,7 @@ It is important to restart the Windows client after installation of these prereq
 {: #verifyMPIOWindows}
 {: step}
 
-It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. To verify whether Windows MPIO is configured, you must first make sure that the MPIO Add-on is enabled and then restart the server.
+It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to make sure that no disruption of service occurs. To verify whether Windows MPIO is configured, you must first make sure that the MPIO Add-on is enabled and then restart the server.
 
 ![Roles_Features_0](images/Roles_Features_0.svg){: caption="Multipath I/O is shown as checked." caption-side="bottom"}
 
@@ -196,7 +196,7 @@ To verify multipathing by using the command line, complete the following steps.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture the multipath configuration.
 3. Review the contents of the `multipathconfig.txt`. Confirm that each of the two paths that are listed for the LUN contain distinct TPG_Id values.
 
-If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO ensures an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
 
 On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 

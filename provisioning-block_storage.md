@@ -112,7 +112,7 @@ For more information about all of the parameters that are available for this com
 ### Provisioning from the SLCLI
 {: #orderingthroughSLCLI}
 
-Use the `slcli block volume-order` command to provision the block volume volume. The following example shows how to order a 10 GB {{site.data.keyword.blockstorageshort}} volume with 100 IOPS per GB.
+Use the `slcli block volume-order` command to provision the block volume. The following example shows how to order a 10 GB {{site.data.keyword.blockstorageshort}} volume with 100 IOPS per GB.
 
 ```sh
 $ slcli block volume-order --storage-type performance --size 20 --location dal10 --iops 100 --os-type LINUX --snapshot-size 20

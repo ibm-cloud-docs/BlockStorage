@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-09-04"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -27,7 +27,7 @@ You can order an enhanced LUN in the {{site.data.keyword.cloud}} console, throug
 
 - [Ordering {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#orderingthroughConsole)
 
-When you place an order with API, specify the "Storag-as-a-Service" package to ensure you're getting the updated features with your new storage.
+When you place an order with API, specify the "Storag-as-a-Service" package to make sure that you're getting the updated features with your new storage.
 {: important}
 
 Your new storage is available to mount in a few minutes. You can view it in the Resource List and in the {{site.data.keyword.blockstorageshort}} list.

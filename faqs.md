@@ -341,7 +341,7 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 {: faq}
 {: support}
 
-It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to ensure no disruption of service. For more information about configuring MPIO connections, see the following articles.
+It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to make sure that no disruption of service occurs. For more information about configuring MPIO connections, see the following articles.
    - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
    - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
@@ -637,7 +637,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #storavailabilityfaq}
 {: faq}
 
-When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. To make sure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to provide high availability and uptime. To make sure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
 
 ## How can I identify a {{site.data.keyword.blockstorageshort}} volume from my OS?
 {: #identifyLUNfaq}

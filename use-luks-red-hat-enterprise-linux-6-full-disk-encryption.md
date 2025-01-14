@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-07-23"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -103,7 +103,7 @@ The process of data encryption creates a load on the host that might potentially
    ```
    {: screen}
 
-8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action ensures that the outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.
+8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action makes sure that the outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.
    
    ```sh
    shred -v -n1 /dev/mapper/cryptData
