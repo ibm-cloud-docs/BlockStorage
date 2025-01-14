@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-07-25"
+  years: 2021, 2025
+lastupdated: "2025-01-14"
 
 keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
 
@@ -25,7 +25,7 @@ completion-time: 1h
 This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the CloudLinux 8 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
 {: tip}
 
 ## Before you begin
@@ -44,7 +44,7 @@ Before you begin, make sure that the host that is to access the {{site.data.keyw
 {: #installutilsclin8}
 {: step}
 
-Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages.
+Make sure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages.
 
 1. Use the following command to install the packages.
 

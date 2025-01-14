@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-07-25"
+  years: 2021, 2025
+lastupdated: "2025-01-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -25,7 +25,7 @@ completion-time: 1h
 This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the Ubuntu 20.04 Server Edition operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
 {: tip}
 
 ## Before you begin
@@ -46,7 +46,7 @@ Also, make sure that the host that is to access the {{site.data.keyword.blocksto
 {: #installutilsubu20}
 {: step}
 
-Ensure that your system is updated and includes the `open-iscsi` and `multipath-tools` packages. Use the following commands to install the packages.
+Make sure that your system is updated and includes the `open-iscsi` and `multipath-tools` packages. Use the following commands to install the packages.
 
 - Install `open-iscsi`.
 

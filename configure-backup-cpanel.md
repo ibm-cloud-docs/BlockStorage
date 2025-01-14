@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-07-22"
+  years: 2018, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, cPanel, backups, mountpoint, iSCSI
 
@@ -17,12 +17,12 @@ subcollection: BlockStorage
 You can use the following instructions to configure your backups in cPanel to be stored in {{site.data.keyword.blockstoragefull}}. The assumption is that root or sudo SSH and full WebHost Manager (WHM) access are available.
 {: shortdesc}
 
-While you can store a backup directly to a remote filesystem, cPanel & WHM does **not** support this configuration. For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/how-to-run-backups-on-locally-mounted-remoted-file-systems/){: external}.
+While you can store a backup directly to a remote filesystem, cPanel and WHM does **not** support this configuration. For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/how-to-run-backups-on-locally-mounted-remoted-file-systems/){: external}.
 {: attention}
 
 1. Connect to the host through SSH.
 
-2. Ensure that a mount point target exists.
+2. Make sure that a mount point target exists.
    By default, the cPanel system saves backup files locally, to the `/backup` directory. For this document, it is assumed that the folder `/backup` exists and contains backups, and `/backup2` is used as the new mount point.
    {: note}
 

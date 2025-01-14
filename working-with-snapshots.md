@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-09-03"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -430,7 +430,7 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
-1. Unmount and detach your storage volume from the host to ensure that the host is not connected to the volume during the restore.
+1. Unmount and detach your storage volume from the host to make sure that the host is not connected to the volume during the restore.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#unmountingLin)
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Microsoft server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
@@ -461,7 +461,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption. 
 
-1. Unmount your volume. You must ensure that the host is not trying to connect to the volume during the restore.
+1. Unmount your volume. You must make sure that the host is not trying to connect to the volume during the restore.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#unmountingLin)
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 

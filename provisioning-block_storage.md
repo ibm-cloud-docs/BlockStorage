@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-10-09"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -50,7 +50,7 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](/catalog){: external}, and click **Storage**. Then, select **{{site.data.keyword.blockstorageshort}}**, and click **Create**.
 2. Select your deployment location (region, location, zone).
-   - Ensure that the new Storage is added in the same location as the Compute host or hosts that you have.
+   - Make sure that the new Storage is added in the same location as the Compute host or hosts that you have.
 3. Billing. You can choose between Monthly or Hourly Billing.
    - With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month.
    - With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a block LUN is deleted before the end of the billing cycle, the difference is not refunded. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).

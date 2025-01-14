@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-11"
+  years: 2021, 2025
+lastupdated: "2025-01-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -25,7 +25,7 @@ completion-time: 1h
 This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the Red Hat Enterprise Linux&reg; 8 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and ensure that the multipath supports ALUA for path priority.
+If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
 {: tip}
 
 ## Before you begin
@@ -44,7 +44,7 @@ Before you begin, make sure that the host that is to access the {{site.data.keyw
 {: #installutils}
 {: step}
 
-Ensure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages. Use the following command to install the packages.
+Make sure that your system is updated and includes the `iscsi-initiator-utils` and `device-mapper-multipath` packages. Use the following command to install the packages.
 
 ```sh
 sudo dnf -y install iscsi-initiator-utils device-mapper-multipath
@@ -433,7 +433,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-* If a LUN is provisioned and attached while the second path is down, the host might see a single path when the discovery scan is run for the first time. If you encounter this rare phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event that impacts your host's ability to access the storage is in progress. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+* If a LUN is provisioned and attached while the second path is down, the host might see a single path when the discovery scan is run for the first time. If you encounter this rare phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event that impacts your host's ability to access the storage is in progress. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingLin}

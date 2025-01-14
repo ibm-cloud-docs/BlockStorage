@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-09-25"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -31,11 +31,11 @@ The first snapshot uses a negligible amount of space as it's just a copy of the 
 
 A volume with numerous changes and a lengthy retention period needs more space than a volume with moderate changes and a moderate retention schedule. An example for the first type is a high change rate database. An example for the second type is a VMware&reg; datastore.
 
-If you take 12 hourly snapshots of 500 GB of actual data, and the change rate is 1 percent between each snapshot, you end up with 60 GB for snapshots.
+If you take 12 hourly snapshots of 500 GB of actual data, and the change rate is 1% between each snapshot, you end up with 60 GB for snapshots.
 
     *(5-GB Rate of Change) x (12 hourly snapshots) = (60 GB of used space)*
 
-Conversely, if that 500 GB of actual data, with 12 hourly snapshots, saw 10 percent of change every hour, the snapshot space that is used is 600 GB.
+Conversely, if that 500 GB of actual data, with 12 hourly snapshots, saw 10% of change every hour, the snapshot space that is used is 600 GB.
 
     *(50-GB Rate of Change) x (12 hourly snapshots) = (600 GB of used space)*
 

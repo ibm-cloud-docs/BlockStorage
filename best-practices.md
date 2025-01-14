@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-12-03"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -24,7 +24,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Run storage traffic on a dedicated VLAN.** Running storage traffic through software firewalls increases latency and adversely affects storage performance. It's best to run storage traffic on a VLAN, which bypasses the firewall. For more information, see [routing storage traffic to its own VLAN interface](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs&interface=ui#howtoisolatedstorage).
 
-* **Avoid routing your storage traffic to a gateway device** whenever possible. When storage traffic is routed to a gateway device, it can add latency to storage traffic, or it can cause storage traffic disruption if the firewall in the gateway device is misconfigured. The storage disruption is especially true when maintenance such as a restart is required on a single (nonclustered) gateway device. If a storage traffic must be routed through a gateway device, ensure that the gateway device has an at-least 10-Gbps interface, or the gateway device might become a network bottleneck.
+* **Avoid routing your storage traffic to a gateway device** whenever possible. When storage traffic is routed to a gateway device, it can add latency to storage traffic, or it can cause storage traffic disruption if the firewall in the gateway device is misconfigured. The storage disruption is especially true when maintenance such as a restart is required on a single (nonclustered) gateway device. If a storage traffic must be routed through a gateway device, make sure that the gateway device has an at-least 10-Gbps interface, or the gateway device might become a network bottleneck.
 
 * **Use a faster NIC.** Throughput limits are set at the LUN level and a faster interface doesn't increase that limit. However, with a slower Ethernet connection, your bandwidth can be a potential hindrance to achieving the best performance levels.
 
@@ -42,7 +42,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Use a multi-path input/output (MPIO) framework for I/O balancing and redundancy.** MPIO is a framework to configure load balancing and failover processes for connections to storage devices. Multipathing solutions use redundant physical path components like adapters, cables, and network switches, to create logical paths between the server and the storage device. Each storage node has multiple paths to the SSD drives. The host needs a way to spread the I/O load between the paths and handle internal failover from one path to the next. This situation is where MPIO comes into play, servers would see multiple instances of the same disk without MPIO.
 
-   With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This configuration provides redundancy that can ensure that the storage traffic remains steady even if one or more of the network components fail, causing the path to fail. The multipathing logic uses an alternative path for I/O so that applications can still access their data. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
+   With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This configuration provides redundancy that can make sure that the storage traffic remains steady even if one or more of the network components fail, causing the path to fail. The multipathing logic uses an alternative path for I/O so that applications can still access their data. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
    While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to ensure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
    {: important}

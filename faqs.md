@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-10-31"
+  years: 2014, 2025
+lastupdated: "2025-01-14"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -120,7 +120,7 @@ The number of hosts that are accessing the volume is important because when only
 {: faq}
 {: support}
 
-IOPS is measured based on a load profile of 16-KB blocks with random 50 percent read and 50 percent writes. Workloads that differ from this profile can experience inferior performance. To improve performance, you can try [adjusting the host queue depth settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings) or [enabling Jumbo frames](/docs/FileStorage?topic=FileStorage-jumboframes).
+IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile can experience inferior performance. To improve performance, you can try [adjusting the host queue depth settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings) or [enabling Jumbo frames](/docs/FileStorage?topic=FileStorage-jumboframes).
 
 ## What happens when a smaller block size is used to measure performance?
 {: #smallblock}
@@ -238,7 +238,7 @@ To enact this best practice, complete the following steps.
    * In Linux&reg; or Windows, create an 802.11q interface. Choose one of the unused secondary IP addresses from the newly trunked VLAN and assign that IP address, subnet mask, and gateway to the new 802.11q interface that you created.
    * In VMware&reg;, create a VMkernel network interface (vmk) and assign the unused secondary IP address, subnet mask, and gateway from the newly trunked VLAN to the new vmk interface.
 5. Add a new persistent static route on the host to the target iSCSI subnet.
-6. Ensure that the IP for the newly added interface is added to the host authorization list.
+6. Make sure that the IP for the newly added interface is added to the host authorization list.
 7. Perform discovery and log in to target portal as described in the following topics.
    - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
    - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
@@ -252,7 +252,7 @@ To enact this best practice, complete the following steps.
 
 No. Link Aggregation Control Protocol (LACP) is not a recommended configuration with iSCSI. Use the multi-path input/output (MPIO) framework for I/O balancing and redundancy.
 
-With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This setup provides redundancy that can ensure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
+With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This setup provides redundancy that can make sure that the storage traffic remains steady even if one of the paths becomes unavailable. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
 Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the same way as MPIO. Link aggregation does not improve the throughput of a single I/O flow, nor does it provide multiple paths. A single flow always traverses one single path. The benefit of link aggregation can be observed when several “unique” flows exist, and each flow comes from a different source. Each individual flow is sent down its own available NIC interface, which is determined by a hash algorithm. Thus with more unique flows, more NICs can provide greater aggregate throughput.
 
@@ -360,7 +360,7 @@ During a planned maintenance or an unplanned disruption, one of the routes is ta
    - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
    - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
-On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to ensure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
@@ -527,7 +527,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             # umount /dev/mapper/3600a098038304338415d4b4159487669p1
             ```
 
-         2. Run `e2fsck -f` to ensure that the file system is clean and has no issues before you proceed with resizing.
+         2. Run `e2fsck -f` to make sure that the file system is clean and has no issues before you proceed with resizing.
             ```sh
             # e2fsck -f /dev/mapper/3600a098038304338415d4b4159487669p1
             e2fsck 1.42.9 (28-Dec-2013)
@@ -564,7 +564,7 @@ To see the new expanded LUN size, you need to rescan and reconfigure your existi
             ```
 
    - Non-LVM - xfs
-      1.  Mount the xfs file system back to its mount point. See `/etc/fstab` if you're not sure what the old mount point is for the xfs partition.
+      1. Mount the xfs file system back to its mount point. See `/etc/fstab` if you're not sure what the old mount point is for the xfs partition.
           ```sh
           # mount /dev/sdb1 /mnt
           ```
@@ -637,7 +637,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #storavailabilityfaq}
 {: faq}
 
-When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. To ensure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to ensure high availability and uptime. To make sure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
 
 ## How can I identify a {{site.data.keyword.blockstorageshort}} volume from my OS?
 {: #identifyLUNfaq}
