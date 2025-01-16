@@ -2,7 +2,7 @@
 
 copyright:
  years: 2014, 2025 
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -23,7 +23,7 @@ completion-time: 2h
 {: toc-services=""}
 {: toc-completion-time="2h"}
 
-{{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of Compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} LUNs are connected to authorized devices through redundant multi-path I/O (MPIO) connections.
+{{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of Compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} volumes are connected to authorized devices through redundant multi-path I/O (MPIO) connections.
 
 {{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It is built by using industry standards and best practices. {{site.data.keyword.blockstorageshort}} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures, and provide a consistent performance baseline.
 {: shortdesc}
@@ -34,7 +34,7 @@ For more information about using {{site.data.keyword.blockstorageshort}} with th
 {: #prereqs}
 {: step}
 
-{{site.data.keyword.blockstorageshort}} LUNs can be provisioned from 20 GB to 12 TB with two options:
+{{site.data.keyword.blockstorageshort}} volumes can be provisioned from 20 GB to 12 TB with two options:
 - Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
@@ -71,12 +71,12 @@ Another factor to consider is the number of hosts that are using your volume. IO
 
 The maximum IOPS for a block storage volume is 48,000 IOPS. If your workload requires high throughput, it's best to configure at least a couple servers to access your volume to avoid a single-server bottleneck.
 
-The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. For more information about authorization and increasing the limit of 8, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#authlimit).
+The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} volume. For more information about authorization and increasing the limit of 8, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#authlimit).
 
 ### Network connection
 {: #networkconnectivity}
 
-The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB IO size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your LUN, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70% of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
+The speed of your Ethernet connection must be faster than the expected maximum throughput from your volume. Generally, don't expect to saturate your Ethernet connection beyond 70% of the available bandwidth. For example, if you have 6,000 IOPS and are using a 16-KB IO size, the volume can handle approximately 94-MBps throughput. If you have a 1-Gbps Ethernet connection to your volume, it becomes a bottleneck when your servers attempt to use the maximum available throughput. It's because 70% of the theoretical limit of a 1-Gbps Ethernet connection (125 MB per second) would allow for 88 MB per second only.
 
 To achieve maximum IOPS, adequate network resources need to be in place. Other considerations include private network usage outside of storage, and host-side and application-specific tunings (IP stack or [queue depths](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings), and other settings).
 
@@ -99,10 +99,10 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 {: step}
 
 When your provisioning request is complete, authorize your hosts to access the new storage, and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [RHEL 8]{: tag-linux} [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
-- [CloudLinux 8]{: tag-linux} [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-- [Ubuntu 20]{: tag-linux} [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
-- [Windows]{: tag-windows}[Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
+- [RHEL 8]{: tag-linux} [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+- [CloudLinux 8]{: tag-linux} [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+- [Ubuntu 20]{: tag-linux} [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+- [Windows]{: tag-windows}[Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 - [cPanel]{: tag-app}[Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
 - [Plesk]{: tag-app} [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
 

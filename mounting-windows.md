@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -16,7 +16,7 @@ completion-time: 1h
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Mount iSCSI LUNS on Microsoft Windows
+# Mount iSCSI volumes on Microsoft Windows
 {: #mountingWindows}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
@@ -161,12 +161,12 @@ It is important to restart the Windows client after installation of these prereq
 
 1. Press the Windows Logo key + X, and then click **Run**.
 2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The side pane shows the drives that are attached to your host.
-3. In the Disk Management window, right-click the discovered LUN's name, and then click **Online**.
+3. In the Disk Management window, right-click the discovered volume's name, and then click **Online**.
 4. Right-click and select **Initialize Disk**.
 5. In the dialog box, select the disk to initialize, and then click **OK**.
 6. The New Simple Volume wizard starts. Select a disk size, and then click **Next**.
-7. Assign a drive letter to the LUN, and then click **Next**.
-8. Enter the parameters to format the LUN.
+7. Assign a drive letter to the volume, and then click **Next**.
+8. Enter the parameters to format the volume.
     - On a Windows Server, only NTFS is supported.
     - Set the allocation unit size to 64 K.
     - Provide a label for your Storage volume.
@@ -194,17 +194,17 @@ To verify multipathing by using the command line, complete the following steps.
 
 1. Open the command prompt.
 2. Run `mpclaim.exe –v c:\multipathconfig.txt` to capture the multipath configuration.
-3. Review the contents of the `multipathconfig.txt`. Confirm that each of the two paths that are listed for the LUN contain distinct TPG_Id values.
+3. Review the contents of the `multipathconfig.txt`. Confirm that each of the two paths that are listed for the volume contain distinct TPG_Id values.
 
-If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
-On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+On rare occasions, a volume is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether a current event might impact your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingWin}
 {: step}
 
-To disconnect an iSCSI LUN from a Windows-based {{site.data.keyword.cloud}} Compute instance, complete the following steps.
+To disconnect an iSCSI volume from a Windows-based {{site.data.keyword.cloud}} Compute instance, complete the following steps.
 
 ### Disconnect the volume from the iSCSI Initiator
 {: #startISCSIwin}

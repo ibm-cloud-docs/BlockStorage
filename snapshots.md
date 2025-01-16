@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
 
@@ -22,7 +22,7 @@ Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot re
 * First, through a configurable snapshot schedule that creates and deletes snapshot copies automatically for each storage volume. You can also create extra snapshot schedules, manually delete copies, and manage schedules based on your requirements.
 * The second way is to take a manual snapshot.
 
-A snapshot copy is a read-only image of a {{site.data.keyword.blockstorageshort}} LUN that captures the state of the volume at a point in time. Snapshot copies are efficient both in the time that is needed to create them and in storage space. A {{site.data.keyword.blockstorageshort}} snapshot copy takes only a few seconds to create. It's typically less than 1 second, regardless of the size of the volume or the level of activity on the storage. After a snapshot copy is created, changes to data objects are reflected in updates to the current version of the objects, as if Snapshot copies didn't exist. Meanwhile, the copy of the data remains stable.
+A snapshot copy is a read-only image of a {{site.data.keyword.blockstorageshort}} volume that captures the state of the volume at a point in time. Snapshot copies are efficient both in the time that is needed to create them and in storage space. A {{site.data.keyword.blockstorageshort}} snapshot copy takes only a few seconds to create. It's typically less than 1 second, regardless of the size of the volume or the level of activity on the storage. After a snapshot copy is created, changes to data objects are reflected in updates to the current version of the objects, as if Snapshot copies didn't exist. Meanwhile, the copy of the data remains stable.
 
 A Snapshot copy incurs no performance decrease. Users can easily store up to 50 scheduled snapshots and 50 manual snapshots per {{site.data.keyword.blockstorageshort}} volume, all of which are accessible as read-only and online versions of the data.
 
@@ -37,7 +37,7 @@ You must purchase some amount of snapshot space for your volume first so you can
 {: #snapshotbestpractices}
 
 Snapshot design depends on the customer’s environment. The following design considerations can help you to plan and implement Snapshot copies:
-- Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or LUN.
+- Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or volume.
 - Don't take too many snapshots. Make sure that your scheduled snapshot frequency meets your RTO and RPO needs and your application business requirements by scheduling hourly, daily, or weekly snapshots.
 - Snapshot AutoDelete can be used to control the growth of storage consumption.
 

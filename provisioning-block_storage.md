@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -52,8 +52,8 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 2. Select your deployment location (region, location, zone).
    - Make sure that the new Storage is added in the same location as the Compute host or hosts that you have.
 3. Billing. You can choose between Monthly or Hourly Billing.
-   - With **hourly** billing, the number of hours the block LUN existed on the account is calculated at the time the LUN is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month.
-   - With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a block LUN is deleted before the end of the billing cycle, the difference is not refunded. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
+   - With **hourly** billing, the number of hours the block volume existed on the account is calculated at the time the volume is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month.
+   - With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a block volume is deleted before the end of the billing cycle, the difference is not refunded. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
 
 4. Enter your storage size in the **Size** field.
 5. Select the size of the Snapshot space from the list.
@@ -102,10 +102,10 @@ Order 110758744 was placed.
  > 500 GBs
  > 4 IOPS per GB
  > 500 GB (Snapshot Space)
-
-You may run 'ibmcloud sl block volume-list --order 110758744' to find this block volume after it is ready.
 ```
 {: codeblock}
+
+You can run `ibmcloud sl block volume-list` command with `--order 110758744` parameter to find this block volume when it is ready.
 
 For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-order](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_order).
 
@@ -207,10 +207,10 @@ For more information about the arguments and attributes, see [ibm_storage_block]
 {: #mountingnewLUN}
 
 When your provisioning request is complete, authorize your hosts to access the new storage and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [RHEL 8]{: tag-linux} [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
-- [CloudLinux 8]{: tag-linux} [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-- [Ubuntu 20]{: tag-linux} [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
-- [Windows]{: tag-windows}[Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
+- [RHEL 8]{: tag-linux} [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+- [CloudLinux 8]{: tag-linux} [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+- [Ubuntu 20]{: tag-linux} [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+- [Windows]{: tag-windows}[Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 - [cPanel]{: tag-app}[Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
 - [Plesk]{: tag-app} [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).
 
@@ -224,4 +224,4 @@ If you want to clone your volume and use it independently from the original volu
 ## Identifying {{site.data.keyword.blockstorageshort}} on your invoice
 {: #LUNonInvoice}
 
-All LUNs appear on your invoice as a line item. Endurance appears as “Endurance Storage Service” and Performance appears as "Performance Storage Service" The rate varies based on your storage level. You can expand on Endurance or Performance to see that it's {{site.data.keyword.blockstorageshort}}.
+All volumes appear on your invoice as a line item. Endurance appears as “Endurance Storage Service” and Performance appears as "Performance Storage Service" The rate varies based on your storage level. You can expand on Endurance or Performance to see that it's {{site.data.keyword.blockstorageshort}}.

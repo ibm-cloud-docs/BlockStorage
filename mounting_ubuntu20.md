@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -16,7 +16,7 @@ completion-time: 1h
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Mount iSCSI LUN on Ubuntu 20
+# Mount iSCSI volume on Ubuntu 20
 {: #mountingUbu20}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
@@ -66,7 +66,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
      ```
     {: pre}
 
-    If you want to boot from the LUN, then the `multipath-tools-boot` package needs to be installed as well.
+    If you want to boot from the volume, then the `multipath-tools-boot` package needs to be installed as well.
     {: tip}
 
 ## Set up the multipath
@@ -233,7 +233,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
      `- 8:0:0:1 sdi 8:128 active ready running
    ```
 
-   If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+   If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
    In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}

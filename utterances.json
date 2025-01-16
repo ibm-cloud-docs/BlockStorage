@@ -2,7 +2,7 @@
     "authlimit": [
         "maximum hosts on a block storage volume",
         "max servers on block storage",
-        "maximum servers on a block storage LUN",
+        "maximum servers on a block storage volume",
         "iSCSI disks be shared",
         "cluster Block Storage",
         "iSCSI storage cluster compatible",
@@ -10,7 +10,7 @@
         "Connect multiple servers to Block Storage",
         "limitation on block storage devices",
         "maximum authorized host limit block storage lun",
-        "multiple servers use a Block Storage LUN"
+        "multiple servers use a Block Storage volume"
     ],
     "authsubnets": [
         "subnet authorization for block storage",
@@ -19,7 +19,7 @@
         "ip auth lun volume on block storage",
         "authorize a subnet to Block Storage",
         "connect the same server from multiple IPs to the same Block Storage volume",
-        "Multiple IPs from same server to one Block Storage LUN",
+        "Multiple IPs from same server to one Block Storage volume",
         "authorization on multiple servers in block storage using same credentials",
         "multiple NICs to the same Block Storage with the same username and password",
         "use same username and password to multiple NICs in Block Storage"
@@ -29,10 +29,10 @@
         "maximum storage device per account",
         "block storage device limit per account",
         "volume limit on block storage",
-        "there a LUN limit",
+        "there a volume limit",
         "order iscsi volumes",
         "iscsi order limit",
-        "is there a LUN limit on block storage",
+        "is there a volume limit on block storage",
         "a block storage count limit?"
     ],
     "volumelimit": [
@@ -41,14 +41,14 @@
         "maximum mount limit for block storage",
         "block storage volume attachment limit",
         "iSCSI volumes can be connected to on one server",
-        "maximum amount of iSCSI LUNs to be mounted"
+        "maximum amount of iSCSI volumes to be mounted"
     ],
     "multiplelun": [
         "connect lun to different o/s type",
         "os lun settings",
         "multiple lun os",
         "connect differing OS types to the same server in block storage",
-        "add multiple LUNs with different OS settings",
+        "add multiple volumes with different OS settings",
         "received an OS type error when I authorized in block storage"
     ],
     "windowsOStypes": [

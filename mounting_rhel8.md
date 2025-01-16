@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -16,7 +16,7 @@ completion-time: 1h
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Mount iSCSI LUN on Red Hat Enterprise Linux 8
+# Mount iSCSI volume on Red Hat Enterprise Linux 8
 {: #mountingRHEL8}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
@@ -187,7 +187,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
 
    This command reports the paths. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to make sure that no disruption of service occurs.
 
-   If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+   If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
 3. List the partition tables for the connected device.
    ```sh
@@ -378,7 +378,7 @@ To create a file system with `parted`, follow these steps.
 ## Verifying MPIO configuration
 {: #verifyMPIOLinux}
 
-If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
 * To check whether multipath is picking up the devices, list the current configuration. If it is configured correctly, then a single group exists for each volume, with a number of paths equal to the number of iSCSI sessions.
 
@@ -397,7 +397,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     `- 7:0:0:101 sde 8:64 active ready running
    ```
 
-   The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the LUN. Each volume is identified by its unique WWID, which is persistent while the volume exists.
+   The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the volume. Each volume is identified by its unique WWID, which is persistent while the volume exists.
 
 * Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
 
@@ -433,7 +433,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-* If a LUN is provisioned and attached while the second path is down, the host might see a single path when the discovery scan is run for the first time. If you encounter this rare phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event that impacts your host's ability to access the storage is in progress. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
+* If a volume is provisioned and attached while the second path is down, the host might see a single path when the discovery scan is run for the first time. If you encounter this rare phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event that impacts your host's ability to access the storage is in progress. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingLin}

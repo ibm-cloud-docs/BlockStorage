@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
-keywords: IBM Block Storage, MPIO, iSCSI, LUN, mount secondary storage, mount storage in CloudLinux 8
+keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
 subcollection: BlockStorage
 
@@ -16,7 +16,7 @@ completion-time: 1h
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Mount iSCSI LUN on CloudLinux 8
+# Mount iSCSI volume on CloudLinux 8
 {: #mountingCloudLin8}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
@@ -198,7 +198,7 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
 
    This command reports the paths. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that Connections are established on both paths to make sure that no disruption of service occurs.
 
-   If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the LUN with active read/write operations.
+   If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
 3. List the partition tables for the connected device.
     ```sh

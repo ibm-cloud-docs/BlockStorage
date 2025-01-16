@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-10-09"
+  years: 2014, 2025
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
@@ -43,7 +43,7 @@ If you use more than two iSCSI devices with the same host, you might find this p
 
    ![Advanced Settings, CHAP](images/win12-ts4.svg){: caption="CHAP configuration in Advanced Settings." caption-side="bottom"}
 9. Click **OK**.
-10. Repeat steps 5-9 for every IP that you entered in the iSCSI Initiator. When you're done, click the **Devices** tab and review the results. Expect to see every LUN that you set up listed twice.
+10. Repeat steps 5-9 for every IP that you entered in the iSCSI Initiator. When you're done, click the **Devices** tab and review the results. Expect to see every volume that you set up listed twice.
 
     ![Devices](images/win12-ts5.svg){: caption="Devices." caption-side="bottom"}
 11. Click **OK**.

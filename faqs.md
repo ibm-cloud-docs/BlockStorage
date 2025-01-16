@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -19,7 +19,7 @@ subcollection: BlockStorage
 {: faq}
 {: support}
 
-The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} LUN. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact Support by raising a [Support case](/unifiedsupport/cases/add){: external}.
+The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} volume. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware&reg; deployment can request the authorization limit to be increased to 64. To request a limit increase, contact Support by raising a [Support case](/unifiedsupport/cases/add){: external}.
 
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
 {: important}
@@ -70,41 +70,41 @@ By default, you can provision a combined total of 700 block storage and file sto
 
 That depends on what the host operating system can handle, but it’s not something that {{site.data.keyword.cloud}} limits. Refer to your OS Documentation for limits on the number of volumes that can be mounted.
 
-## Can I attach multiple LUNs with different OS settings?
+## Can I attach multiple volumes with different OS settings?
 {: #multiplelun}
 {: faq}
 {: support}
 
-No. A host cannot be authorized to access LUNs of differing OS types at the same time. A host can be authorized to access LUNs of a **single** OS type. If you attempt to authorize a host to access multiple LUNs with different OS types, the operation results in an error.
+No. A host cannot be authorized to access volumes of differing OS types at the same time. A host can be authorized to access volumes of a **single** OS type. If you attempt to authorize a host to access multiple volumes with different OS types, the operation results in an error.
 
-## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} LUN?
+## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} volume?
 {: #windowsOStypes}
 {: faq}
 {: support}
 
-When you create a LUN, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the LUN. It also determines the layout of data on the LUN, the geometry that is used to access that data, and the minimum and maximum size of the LUN. The OS Type can't be modified after the LUN is created. The actual size of the LUN might vary slightly based on the OS type of the LUN. Choosing the correct type for your Windows OS helps to prevent mis-aligned IO operations.
+When you create a volume, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the volume. It also determines the layout of data on the volume, the geometry that is used to access that data, and the minimum and maximum size of the volume. The OS Type can't be modified after the volume is created. The actual size of the volume might vary slightly based on the OS type of the volume. Choosing the correct type for your Windows OS helps to prevent mis-aligned IO operations.
 
-If the LUN is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the LUN is being presented to the hypervisor to serve Virtual hard disk (VHD) files, choose Hyper-V.
+If the volume is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the volume is being presented to the hypervisor to serve Virtual hard disk (VHD) files, choose Hyper-V.
 
 ### Windows GPT
 {: #winGPT}
 
--  The LUN stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows support it.
+-  The volume stores Windows data by using the GUID Partition Type (GPT) partitioning style. Use this option if you want to use the GPT partitioning method and your host can use it. Windows Server 2003, Service Pack 1 and later can use the GPT partitioning method, and all 64-bit versions of Windows support it.
 
 ### Windows 2003
 {: #win2003}
 
-- The LUN stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
+- The volume stores a raw disk type in a single-partition Windows disk that uses the Master Boot Record (MBR) partitioning style. Use this option only if your host operating system is Windows 2000 Server, Windows XP, or Windows Server 2003 that uses the MBR partitioning method.
 
 ### Windows 2008+
 {: #win2008}
 
-- The LUN stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
+- The volume stores Windows data for Windows 2008 and later versions. Use this OS option if your host operating system is Windows Server 2008, Windows Server 2012, Windows Server 2016. Both MBR and GPT partitioning methods are supported.
 
 ### Hyper-V
 {: #Hyper-V}
 
-- VHDX is the virtual hard disk format that was introduced in Windows Server 2012 to create resilient high-performance virtual disks. The format has many benefits, such as supporting larger virtual disk sizes and larger block sizes. It provides protection against data corruption during power failures by logging updates to the VHDX metadata structures. If the LUN is being presented to the hypervisor to serve VHD files, choose Hyper-V for its OS type.
+- VHDX is the virtual hard disk format that was introduced in Windows Server 2012 to create resilient high-performance virtual disks. The format has many benefits, such as supporting larger virtual disk sizes and larger block sizes. It provides protection against data corruption during power failures by logging updates to the VHDX metadata structures. If the volume is being presented to the hypervisor to serve VHD files, choose Hyper-V for its OS type.
 
 ## Is the allocated IOPS limit enforced by instance or by volume?
 {: #iopslimit}
@@ -137,7 +137,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 {: #blockstoruse}
 {: faq}
 
-{{site.data.keyword.blockstorageshort}} is yours to format and manage the way that you want to. {{site.data.keyword.cloud}} can't see the contents of the LUN, and so the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system.
+{{site.data.keyword.blockstorageshort}} is yours to format and manage the way that you want to. {{site.data.keyword.cloud}} can't see the contents of the volume, and so the UI can't provide information about the disk space usage. You can obtain more information about the volume, such as how much disk space is taken and how much is available, from your Compute host's operating system.
 
 - In Linux&reg;, you can use the following command.
    ```sh
@@ -240,10 +240,10 @@ To enact this best practice, complete the following steps.
 5. Add a new persistent static route on the host to the target iSCSI subnet.
 6. Make sure that the IP for the newly added interface is added to the host authorization list.
 7. Perform discovery and log in to target portal as described in the following topics.
-   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-   - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
-   - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
 
 ## Is it good to run iSCSI traffic over 802.3ad LACP port channel?
 {: #MPIOvsLACP}
@@ -270,7 +270,7 @@ For more information, see one of the following articles.
 
 Target latency within the storage is <1 ms. The storage is connected to Compute instances on a shared network, so the exact performance latency depends on the network traffic during the operation.
 
-## I ordered a {{site.data.keyword.blockstorageshort}} LUN in the wrong data center. Is it possible to move or migrate storage to another data center?
+## I ordered a {{site.data.keyword.blockstorageshort}} volume in the wrong data center. Is it possible to move or migrate storage to another data center?
 {: #movedatacenter}
 {: faq}
 {: support}
@@ -283,7 +283,7 @@ The 24-hour waiting period gives you a chance to void the cancellation request i
 {: faq}
 {: support}
 
-When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](/login){: external}, you can see a lock icon next to the volume name for the LUNs that are encrypted.
+When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{site.data.keyword.cloud}} console](/login){: external}, you can see a lock icon next to the volume name for the volumes that are encrypted.
 
 ## Does {{site.data.keyword.blockstorageshort}} support SCSI-3 Persistent Reserve to implement I/O fencing for Db2 pureScale?
 {: faq}
@@ -292,7 +292,7 @@ When you look at your list of {{site.data.keyword.blockstorageshort}} in the [{{
 
 Yes, {{site.data.keyword.blockstorageshort}} supports both SCSI-2 and SCSI-3 persistent reservations.
 
-## What happens to the data when {{site.data.keyword.blockstorageshort}} LUNs are deleted?
+## What happens to the data when {{site.data.keyword.blockstorageshort}} volumes are deleted?
 {: #deleted}
 {: faq}
 {: support}
@@ -320,12 +320,12 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 
 The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. The UI indicates that it’s inactive and the status "Cancellation pending" is displayed. The minimum 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}.
 
-## My Windows 2012 host is supposed to have access to multiple Storage LUNs, but I can't see them in Disk Manager. How do I fix it?
+## My Windows 2012 host is supposed to have access to multiple Storage volumes, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
 {: #diskmanager}
 {: support}
 
-If you use more than two LUNs with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+If you use more than two volumes with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
@@ -342,10 +342,10 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 {: support}
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to make sure that no disruption of service occurs. For more information about configuring MPIO connections, see the following articles.
-   - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
-   - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
-   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
 {: #correctMPIO}
@@ -353,21 +353,21 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 {: support}
 
 During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
-   - [Mount iSCSI LUN on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
-   - [Mount iSCSI LUN on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI LUN on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
    - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#verifyMPIOLinux)
-   - [Mapping LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
+   - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
    - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
-On rare occasions, a LUN is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
+On rare occasions, a volume is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
 {: #expandsize}
 {: faq}
 {: support}
 
-To see the new expanded LUN size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system Documentation. 
+To see the new expanded volume size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system Documentation. 
 
 ### Windows 2016
 {: #expandsizeWin}
@@ -615,7 +615,7 @@ The following situations can affect the ability to upgrade or expand storage:
 - Older storage types can't be upgraded. For more information, see [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
 - The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
 
-## Are iSCSI LUNs thin or thick provisioned?
+## Are iSCSI volumes thin or thick provisioned?
 {: #thin}
 {: faq}
 
@@ -643,7 +643,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #identifyLUNfaq}
 {: faq}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an ESXi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. For OS-specific instructions, click one of the following links.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an ESXi server. You want to expand the volume size of one of the volumes, and you need to know the correct LUN ID of the storage to do that. For OS-specific instructions, click one of the following links.
 
 - [Viewing LUN information in Linux&reg;](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNLin)
 - [Viewing LUN information in Windows](/docs/BlockStorage?topic=BlockStorage-identifyLUN#identifyLUNWin)

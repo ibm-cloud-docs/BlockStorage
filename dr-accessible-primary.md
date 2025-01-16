@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-09-25"
+  years: 2018, 2025
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -49,7 +49,7 @@ Before you proceed with these steps, disconnect the volume. Failure to do so, re
 
 Failovers are started under **Storage** > **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
 
-1. Click your active LUN (“source”).
+1. Click your active volume (“source”).
 2. Click **Replica**, and click **Actions**.
 3. Select **Controlled Failover** or **Immediate Failover**.
 
@@ -57,7 +57,7 @@ Failovers are started under **Storage** > **{{site.data.keyword.blockstorageshor
    {: note}
 
 4. Click **View All {{site.data.keyword.blockstorageshort}}**.
-5. Click your active LUN (it was your previous target volume).
+5. Click your active volume (it was your previous target volume).
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#mountingnewLUN).
 
 ## Fail over to replica from the CLI
@@ -123,7 +123,7 @@ When a Failback is started, the replication relationship is flipped again. Your 
 
 Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort}}** in the [{{site.data.keyword.cloud}} console](/cloud-storage/block){: external}.
 
-1. Click your active LUN ("target").
+1. Click your active volume ("target").
 2. Next, click **Replica**, and click **Actions**.
 3. Select **Failback**.
 
@@ -131,7 +131,7 @@ Failbacks are started under **Storage**, **{{site.data.keyword.blockstorageshort
    {: note}
 
 4. Next, click **View All {{site.data.keyword.blockstorageshort}}**.
-5. Click your active LUN ("source").
+5. Click your active volume ("source").
 6. Mount and attach your storage volume to the host. For more information, see [Connecting your storage](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage&interface=ui#mountingnewLUN).
 
 ## Failing back from the CLI

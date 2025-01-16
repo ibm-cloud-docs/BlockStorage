@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-09-25"
+  years: 2017, 2025
+lastupdated: "2025-01-15"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -66,7 +66,7 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 3. Select whether the duplicate is to be dependent or independent.
 4. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 5. The location entries remain the same as the original volume.
-6. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
+6. Hourly or Monthly Billing – you can choose to provision the duplicate volume with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
 7. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
 
    {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
@@ -86,12 +86,12 @@ You can create duplicate volume from the CLI and in the [{{site.data.keyword.clo
 {: ui}
 
 1. Go to your list of {{site.data.keyword.blockstorageshort}}.
-2. Click a LUN from the list to view the details page. (It can either be a replica or a primary volume.)
+2. Click a volume from the list to view the details page. (It can either be a replica or a primary volume.)
 3. Click **Actions**  ![Actions icon](../icons/action-menu-icon.svg "Actions")> **Duplicate Volume**.
 4. Select whether the duplicate is to be dependent or independent.
 5. Select the snapshot option to be used to create the duplicate. You can choose an existing Snapshot or take a new one.
 6. The location entries remain the same as the original volume.
-7. Hourly or Monthly Billing – you can choose to provision the duplicate LUN with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
+7. Hourly or Monthly Billing – you can choose to provision the duplicate volume with hourly or monthly billing. The billing type for the original volume is automatically selected. If you want to choose a different billing type for your duplicate storage, you can make that selection here.
 8. You can update the size of the new volume so that it's larger than the original. The size of the original volume is set by default.
 
    {{site.data.keyword.blockstorageshort}} can be resized to 10 times the original size of the volume.
@@ -229,7 +229,7 @@ slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
 
 For more information about available command options, see [`block volume-duplicate`](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-duplicate){: external}.
 
-## Creating a duplicate LUN with the API
+## Creating a duplicate volume with the API
 {: #cloneinAPI}
 {: api}
 
