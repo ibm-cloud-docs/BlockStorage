@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-31"
+lastupdated: "2025-02-03"
 
 keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -71,7 +71,7 @@ For more information, see [Authorizing the host in the console](/docs/BlockStora
 
       When this command completes without the `--dry-run` flag, your data is copied to the new {{site.data.keyword.blockstorageshort}} volume. Run the command again to make sure that nothing was missed. You can also manually review both locations to look for anything that might be missing.
 
-      For more information about `rsync`, see the [`rsync` man page](https://download.samba.org/pub/rsync/rsync.1l){: external}.
+      For more information about `rsync`, see the [`rsync` man page](https://download.samba.org/pub/rsync/rsync.1){: external}.
       {: note}
 
 When your migration is complete, you can move production to the new volume. Then, you can detach and delete your original volume from your configuration. The deletion also removes any snapshot or replica on the target site that was associated with the original volume.
