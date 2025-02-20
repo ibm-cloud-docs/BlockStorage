@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-20"
 
 keywords: Block Storage for Classic, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
 
@@ -62,9 +62,9 @@ In the active file system, the changed blocks are rewritten to different locatio
 
 | Disk space usage |   |
 |-----|-----|
-| ![The space that is used before a snapshot copy is taken.](images/bfcircle1.svg "Before Snapshot Copy") | Before any Snapshot copy is created, disk space is used by the active file system only. |
-| ![The space that is used when a snapshot copy is taken.](images/bfcircle3.svg "After Snapshot Copy") | After a Snapshot copy is created, the active file system and Snapshot copy point to the same disk blocks. The Snapshot copy doesn't use extra disk space. |
-| ![The space that is used when something changes after a snapshot copy was taken.](images/bfcircle2.svg "Changes after Snapshot Copy") | After the file `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. Thus, deleting active file system data doesn't always free up disk space. |
-{: caption="Table 1 shows how snapshots affect the space usage on the Storage." caption-side="top"}
+| ![The space that is used before a snapshot copy is taken is displayed as a shaded quarter in a circle.](images/bfcircle1.svg "Before Snapshot Copy") | Before any Snapshot copy is created, disk space is used by the active file system only. |
+| ![The space that is used when a snapshot copy is taken is displayed as the same size shade quarter of the circle.](images/bfcircle3.svg "After Snapshot Copy") | After a Snapshot copy is created, the active file system and Snapshot copy point to the same disk blocks. The Snapshot copy doesn't use extra disk space. |
+| ![The space that is used when something changes after a snapshot copy was taken, shows that the shaded area did not change.](images/bfcircle2.svg "Changes after Snapshot Copy") | After the file `myfile.txt` is deleted from the active file system, the Snapshot copy still includes the file, and references its disk blocks. Thus, deleting active file system data doesn't always free up disk space. |
+{: caption="Comparison of disk space usage before and after taking snapshots." caption-side="top"}
 
 For more information about snapshot space usage, see [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots).

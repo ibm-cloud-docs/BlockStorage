@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-20"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -43,7 +43,7 @@ The provider-managed encryption-at-rest feature is available for {{site.data.key
 
 You can see a lock icon next to the Volume Name field that indicates that the volume is encrypted.
 
-![Figure 1. Example of the lock icon that indicates that the volume is encrypted.](images/encryptedstorage.svg){: caption="FFigure 1. Example of the lock icon that indicates that the volume is encrypted." caption-side="bottom"}
+![Figure 1. A list of block volumes is shown. Some of the volume names on the list end with a lock icon that indicates that the volume is encrypted.](images/encryptedstorage.svg){: caption="Example of the lock icon that indicates that the volume is encrypted." caption-side="bottom"}
 
 Nonencrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own nonencrypted storage in an upgraded data center and you want encrypted storage, then you need to create a volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {: important}

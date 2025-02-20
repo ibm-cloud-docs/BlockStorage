@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-20"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -56,7 +56,7 @@ It is important to restart the Windows client after installation of these prereq
 3. Scroll down and check **Multipath I/O**.
 4. Click **Next** and **Install** to install MPIO on the host server.
 
-   ![Adding Roles and Features in Server Manager](images/1-EnableMultipath.svg){: caption="Install MPIO on the host server." caption-side="bottom"}
+   ![The image shows the Select features window of the Add Roles and Features Wizard in Server Manager. The MPIO option is selected in the Features list. The Next button is highlighted with a blue outline.](images/1-EnableMultipath.svg){: caption="Install MPIO on the host server." caption-side="bottom"}
 5. Restart the server.
 
 ## Adding iSCSI support for MPIO devices
@@ -67,7 +67,7 @@ It is important to restart the Windows client after installation of these prereq
 2. Click **Discover Multi-Paths**.
 3. Select **Add support for iSCSI devices**, and click **Add**.
    
-   ![Adding Roles and Features in Server Manager](images/2-AddMPIOsupport4iSCSIdevices.svg){: caption="Enable MPIO support for ISCSI devices." caption-side="bottom"}
+   ![The image shows the MPIO properties screen. The Discover Multi-paths tab is selected. The box that is next to Add support for iSCSI devices option is checked. The Add and OK buttons are also visible and active.](images/2-AddMPIOsupport4iSCSIdevices.svg){: caption="Enable MPIO support for ISCSI devices." caption-side="bottom"}
 4. If you're prompted to restart the server, click **Yes**. Otherwise, continue to the next step.
 
 ## Configuring the iSCSI Initiator to discover the Target
@@ -79,11 +79,11 @@ It is important to restart the Windows client after installation of these prereq
    1. The Initiator Name field might already be populated with an entry similar to `iqn.2024-07.com.ibm:`.
    1. Click **Change** to replace existing values with your iSCSI Qualified Name (IQN)[^IQN].
      
-      ![iSCSI Initiator Properties](images/3-ChangeIQN.svg){: caption="ISCSI Initiator Properties" caption-side="bottom"}
+      ![The image shows the iSCSI Initiator Properties screen with the Initiator Name field that is prepopulated. The Change button is highlighted with a blue outline. ](images/3-ChangeIQN.svg){: caption="ISCSI Initiator Properties" caption-side="bottom"}
       [^IQN]: The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
    1. Click **Discovery**, and click **Discover Portal**.
      
-      ![DiscoveryPortal](images/4-DiscoveryPortal.svg){: caption="ISCSI Initiator Properties" caption-side="bottom"}
+      ![The image shows the Discovery tab in the iSCSI Initiator Properties screen. The Discover portal button is highlighted with a light blue background.](images/4-DiscoveryPortal.svg){: caption="ISCSI Initiator Properties, Discovery tab" caption-side="bottom"}
    1. Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
    1. Click **Advanced** to open the Advanced Settings window.
    1. On the Local adapter list, select Microsoft iSCSI Initiator.
@@ -91,26 +91,26 @@ It is important to restart the Windows client after installation of these prereq
    1. On the Target Portal IP list, select the IP of one of the storage interfaces.
    1. Select **Enable CHAP log-on** to turn on CHAP authentication.
 
-      ![Enable CHAP login.](images/5-AdvancedCHAPLogOn.svg){: caption="Enable CHAP Login in Advanced Settings." caption-side="bottom"}
+      ![The images shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/5-AdvancedCHAPLogOn.svg){: caption="Enable CHAP Login in Advanced Settings." caption-side="bottom"}
    1. In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    1. In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    1. Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the username and password entries.
 3. The name of your target appears in the Discovered targets section with an `Inactive` status. Click **Connect** to connect to the target.
 
-   ![Inactive Target.](images/6-ConnectDiscoveredTarget.svg){: caption="Discovered Target in the ISCSI Initiator Properties window." caption-side="bottom"}
+   ![The image shows the Target tab of the iSCSI Initiator Properties screen. The discovered target is in inactive status.](images/6-ConnectDiscoveredTarget.svg){: caption="Discovered Target in the ISCSI Initiator Properties window." caption-side="bottom"}
 4. Select **Enable multi-path** checkbox to enable multi-path IO to the target.
 
-   ![Enable Multi-path.](images/7-CHAPLogon4Connection.svg){: caption="Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
+   ![The image shows the Connect to Target screen, the Enable Multi-path option is selected. Advanced and OK buttons are highlighted with a blue outline.](images/7-CHAPLogon4Connection.svg){: caption="Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
 
-   ![Enable CHAP.](images/8-InputCHAPcredentials.svg){: caption="CHAP logon and credentials." caption-side="bottom"}
+   ![The images shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/8-InputCHAPcredentials.svg){: caption="CHAP logon and credentials." caption-side="bottom"}
 6. Enter the username in the Name[^username] field, and enter the password in the Target secret[^password] field.
    [^username]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    [^password]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
 
 7. Click **OK** until the **iSCSI Initiator Properties** window is displayed. The status of the target in the **Discovered Targets** section changes from **Inactive** to **Connected**.
 
-   ![Connected status.](images/9-Target1Connected.svg){: caption="The first discovered target is shown as connected." caption-side="bottom"}
+   ![The image shows the Target tab of the iSCSI Initiator Properties screen. The discovered target is in Connected status.](images/9-Target1Connected.svg){: caption="The first discovered target is shown as connected." caption-side="bottom"}
 
 ### Adding and configuring multiple MPIO sessions
 {: #configmultiMPIOsessions}
@@ -119,7 +119,7 @@ It is important to restart the Windows client after installation of these prereq
 2. Click **Add Session** on the Properties window.
 3. In the Connect to Target dialog box, select **Enable multi-path** checkbox, and click **Advanced**.
 
-   ![Initiating connection to 2nd Target](images/10-OneActiveSession.svg){: caption="Adding a second MPIO path." caption-side="bottom"}
+   ![The image shows the Properties screen where you can click Add session to initiate a connection to second Target. The image also shows the Connect to Target dialog where the new target name is entered and the Enable multi-path option is selected.](images/10-OneActiveSession.svg){: caption="Adding a second MPIO path." caption-side="bottom"}
 4. In the Advanced Settings window, update the following fields.
    1. On the Local adapter list, select Microsoft iSCSI Initiator.
    1. On the Initiator IP list, select the IP address of the host.
@@ -138,10 +138,10 @@ It is important to restart the Windows client after installation of these prereq
    1. Enter the Name and Target secret values that were obtained from the console and click **OK**.
    1. Click **OK** on the Connect To Target window to go back to the Properties window.
      
-   ![Adding CHAP credentials for the 2nd target.](images/11-InputCHAPcredentials2ndTarget.svg){: caption="Adding CHAP credentials for the 2nd target in Advanced Settings." caption-side="bottom"}
+   ![The images shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected for adding credentials of the 2nd target.](images/11-InputCHAPcredentials2ndTarget.svg){: caption="Adding CHAP credentials for the 2nd target in Advanced Settings." caption-side="bottom"}
 8. Now the Properties window displays more than one session within the Identifier pane. It means that you have more than one session into the iSCSI storage.
     
-   ![Two connected sessions are displayed.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
+   ![The images shows the Properties window, and its Sessions tab. Two connected sessions are displayed in the list.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
 
    If your host has multiple interfaces that you want to connect to the storage, you can set up another connection with the address of the second NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
    {: note}
@@ -179,7 +179,7 @@ It is important to restart the Windows client after installation of these prereq
 
 It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to make sure that no disruption of service occurs. To verify whether Windows MPIO is configured, you must first make sure that the MPIO Add-on is enabled and then restart the server.
 
-![Roles_Features_0](images/Roles_Features_0.svg){: caption="Multipath I/O is shown as checked." caption-side="bottom"}
+![The image shows the Select features window of the Add Roles and Features Wizard in Server Manager. The MPIO option is selected in the Features list.](images/Roles_Features_0.svg){: caption="Multipath I/O is shown as checked." caption-side="bottom"}
 
 After the restart is complete, take the following steps to view all of the active paths.
 1. On the desktop, click **Start**.
@@ -188,7 +188,7 @@ After the restart is complete, take the following steps to view all of the activ
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
    
-   ![Windows MPIO properties.](images/DeviceDetails_0.svg){: caption="Several paths that are leading to the target are shown." caption-side="bottom"}
+   ![The Device Details screen is shown with 2 active paths on the MPIO tab.](images/DeviceDetails_0.svg){: caption="Several paths that are leading to the target are shown." caption-side="bottom"}
 
 To verify multipathing by using the command line, complete the following steps.
 

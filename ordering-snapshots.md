@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-02-20"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -67,8 +67,7 @@ The size of the snapshot space that you can order depends on the size of your vo
 | 4000 GB | 5 GB, 10 GB, 20 GB, 40 GB, 60 GB, 80 GB, 100 GB 150 GB, 200 GB, 250 GB, 300 GB, \n 350 GB, 400 GB, 450 GB, 500 GB, 600 GB, 700 GB, 1000 GB, 2000 GB, 4000 GB |
 | 5000 GB | 5 GB, 10 GB, 20 GB, 40 GB, 60 GB, 80 GB, 100 GB 150 GB, 200 GB, 250 GB, 300 GB, \n 350 GB, 400 GB, 450 GB, 500 GB, 600 GB, 700 GB, 1000 GB, 2000 GB, 4000 GB |
 |12000 GB | 5 GB, 10 GB, 20 GB, 40 GB, 60 GB, 80 GB, 100 GB 150 GB, 200 GB, 250 GB, 300 GB, \n 350 GB, 400 GB, 450 GB, 500 GB, 600 GB, 700 GB, 1000 GB, 2000 GB, 4000 GB |
-{: caption="Table 1 - This table shows the available snapshot space in increments for different volume capacities." caption-side="bottom"}
-
+{: caption="This table shows the available snapshot space in increments for different volume capacities." caption-side="bottom"}
 
 ## Ordering Snapshot space in the console
 {: #ordersnapshotUI}

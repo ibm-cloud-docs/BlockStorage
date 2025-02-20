@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-02-20"
 
 keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -42,7 +42,7 @@ You can't switch between Endurance and Performance when you adjust their IOPS. H
 | 4,000 - 7,999    | 300 - 48,000|
 | 8,000 - 9,999    | 500 - 48,000|
 | 10,000 - 12,000| 1,000 - 48,000|
-{: caption="Available IOPS based on volume size." caption-side="bottom"}
+{: caption="The list of available IOPS ranges based on volume size." caption-side="bottom"}
 
 Maximum IOPS for block storage volumes varies based on volume size. The maximum IOPS for a volume is 48,000 IOPS.
 
