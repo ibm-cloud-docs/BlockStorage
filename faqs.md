@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-02-19"
+lastupdated: "2025-02-27"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.blockstorageshort}}
+# FAQ for {{site.data.keyword.blockstorageshort}}
 {: #block-storage-faqs}
 
 ## How many server instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
