@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-04"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -195,7 +195,7 @@ Options:
 {: #listsnapshotUI}
 {: ui}
 
-A list of retained snapshots and the space that is used can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page. Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
+A list of retained snapshots and the space that they use can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page. Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
 
 You receive notifications when you reach space thresholds – 75%, 90%, and 95%.
 
@@ -310,7 +310,7 @@ Options:
 
 You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space.
 
-Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Remember, automated and manual snapshots share the space.
+Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Automated and manual snapshots share the space.
 {: note}
 
 Snapshot space is changed through **Storage** > **{{site.data.keyword.blockstorageshort}}**.
@@ -382,7 +382,7 @@ Snapshots that are no longer needed can be manually removed to free up space for
 1. Click your storage volume and click **Snapshot** to see the list of existing snapshots.
 2. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") next to a particular snapshot and click **Delete**. Click the confirmation box that warns about possible data loss, then click **Delete**. This deletion doesn't affect any future or past snapshots on the same schedule as snapshots don't depend on each other.
 
-Manual snapshots that aren't deleted in the portal manually are automatically deleted when you take another snapshot if you have reached space limitations. The oldest snapshot is deleted first.
+Manual snapshots that aren't deleted in the portal manually are automatically deleted when you take another snapshot if space limitations are met. The oldest snapshot is deleted first.
 
 ## Deleting a snapshot from the CLI
 {: #deletesnapshotCLI}

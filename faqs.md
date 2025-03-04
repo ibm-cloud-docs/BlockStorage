@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-02-27"
+lastupdated: "2025-03-04"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -77,7 +77,7 @@ That depends on what the host operating system can handle, but it’s not someth
 
 No. A host cannot be authorized to access volumes of differing OS types at the same time. A host can be authorized to access volumes of a **single** OS type. If you attempt to authorize a host to access multiple volumes with different OS types, the operation results in an error.
 
-## Which Windows version am I to choose for my {{site.data.keyword.blockstorageshort}} volume?
+## How do I choose a Windows version for my {{site.data.keyword.blockstorageshort}} volume?
 {: #windowsOStypes}
 {: faq}
 {: support}
@@ -259,7 +259,7 @@ Link aggregation (such as LACP or 802.3ad) through NIC teaming does not work the
 Bonding works between a server and switch. However, MPIO works between a storage server and the host, even if a switch is in the path.
 
 For more information, see one of the following articles.
-- [Linux]{: tag-linux} [Is the use of bonded NIC interfaces recommended with iscsi?](https://access.redhat.com/solutions/41899){: external}
+- [Linux]{: tag-linux} [Is the use of bonded Network Card Interfaces (NIC) recommended with iSCSI?](https://access.redhat.com/solutions/41899){: external}
 - [Windows]{: tag-windows} [NIC Teaming and iSCSI](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/441d2157-119d-4b1e-b40c-1aa3670e44a6){: external}.
 - [VMware]{: tag-cool-gray} [Host requirements for link aggregation](https://knowledge.broadcom.com/external/article?legacyId=1001938){: external}.
 
@@ -326,6 +326,9 @@ The cancellation process for this storage device is in progress so the Cancel ac
 {: support}
 
 If you use more than two volumes with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
+
+Windows Server 2012 R2 reached its end of life on 10 October 10 2023. Microsoft no longer provides security updates, bug fixes, or technical support for this operating system. Migrate your server to a newer version of the operating system, like Windows Server 2022.
+{: deprecated}
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
