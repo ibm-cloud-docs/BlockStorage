@@ -17,7 +17,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Windows Server 2012 R2 reached its end of life on 10 October 10 2023.Microsoft no longer provides security updates, bug fixes, or technical support for this operating system. Migrate your server to a newer version of the operating system, like Windows Server 2022.
+Windows Server 2012 R2 reached its end of life on 10 October 10 2023. Microsoft no longer provides security updates, bug fixes, or technical support for this operating system. Migrate your server to a newer version of the operating system, like Windows Server 2022.
 {: deprecated}
 
 If you use more than two iSCSI devices with the same host, you might find this procedure useful; especially if all the iSCSI connections are from the same Storage device. When you use more than two devices, but can see only two devices in Disk Manager, then you need to manually connect to each device in iSCSI Initiator on every server node.

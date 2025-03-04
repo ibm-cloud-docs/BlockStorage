@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-03-04"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -106,7 +106,6 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    rr_weight uniform
    rr_min_io 128
    }
-   }
    ```
    {: screen}
 
@@ -135,7 +134,6 @@ InitiatorName=<value-from-the-Portal>
 ```
 {: pre}
 
-
 ## Configure credentials
 {: #configcredubu20}
 {: step}
@@ -162,11 +160,13 @@ systemctl restart iscsid.service
 ```
 {: pre}
 
+For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/focal/en/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/focal/en/man1/systemctl.1.html){: external}.
+
 ## Discover the storage device and login
 {: #discoverandloginubu20}
 {: step}
 
-The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/focal/en/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```sh
@@ -235,7 +235,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [Ubuntu manuals - `multipath`](https://manpages.ubuntu.com/manpages/focal/en/man8/multipath.8.html){: external}.
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks are detected.
@@ -320,6 +320,8 @@ When you no longer need the volume, unmount it before you delete it.
    ```
    {: pre}
 
+   For more information, see the [Ubuntu manuals - `umount`](https://manpages.ubuntu.com/manpages/focal/en/man2/umount.2.html){: external}.
+
 2. If you do not have any other volumes in that target portal, you can log out of the target.
    ```zsh
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
@@ -332,5 +334,5 @@ When you no longer need the volume, unmount it before you delete it.
    ```
    {: pre}
 
-   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
+   For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/focal/en/man8/iscsiadm.8.html){: external}.
    {: tip}
