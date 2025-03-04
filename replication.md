@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-04"
 
 keywords: Block Storage for Classic, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery, snapshots
 
@@ -35,6 +35,9 @@ The following table shows the data center codes within each region.
 |----|---------------|---------|---------|---------------|------------|
 | - SJC03 \n - SJC04 \n - WDC04 \n - WDC06 \n - WDC07 \n - DAL09 \n - DAL10 \n - DAL12 \n - DAL13 \n - DAL14 | - SAO01 \n - SAO04 \n - SAO05 | - TOR01 \n - TOR04 \n - TOR05 \n - MON01 | - AMS03 \n - FRA02 \n - FRA04 \n - FRA05 \n - LON02 \n - LON04 \n - LON05 \n - LON06 \n - PAR01 \n - MIL01 \n - MAD04 \n - MAD05 | - TOK02 \n - TOK04 \n - TOK05 \n - OSA21 \n - OSA22 \n - OSA23 \n - SNG01 \n - CHE01 | - SYD01 \n - SYD04 \n - SYD05 \n |
 {: caption="This table shows the complete list of data centers with enhanced capabilities in each region. Every region is a separate column. Some cities, such as Dallas, San Jose, Washington DC, Amsterdam, Frankfurt, London, and Sydney have multiple data centers." caption-side="top"}
+
+The table includes certain data centers that are set to close soon. For the list of data centers that are closing, see [Data center closures](/docs/account?topic=account-dc-closure).
+{: note}
 
 ## Determining the remote location for the replicated storage volume from the CLI
 {: #determinereplicationlocCLI}
