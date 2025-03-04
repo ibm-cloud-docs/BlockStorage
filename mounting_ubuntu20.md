@@ -109,7 +109,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    ```
    {: screen}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/focal/en/man5/multipath.conf.5.html){: external}.
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Start the multipath service.
@@ -235,7 +235,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [Ubuntu manuals - `multipath`](https://manpages.ubuntu.com/manpages/focal/en/man8/multipath.8.html){: external}.
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf.
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks are detected.
