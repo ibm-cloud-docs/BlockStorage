@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-05"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -374,6 +374,11 @@ To create a file system with `parted`, follow these steps.
    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
    ```
    {: pre}
+
+### Managing user permissions to the content of the mounted volume
+{: #user-group-permissions-rhel}
+
+As a system administrator, you can manage the access to data on the mounted volume. After the file system is ready, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see [Red Hat's tutorial: How to manage Linux permissions for users, groups, and others](https://www.redhat.com/en/blog/manage-permissions){: external}.
 
 ## Verifying MPIO configuration
 {: #verifyMPIOLinux}

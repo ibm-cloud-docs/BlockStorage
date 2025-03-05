@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-05"
 
 keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
@@ -74,8 +74,6 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 * If the /etc/multipath.conf file exists, the mpathconf utility can edit it.
 * If the /etc/multipath.conf file does not exist, the mpathconf utility creates the /etc/multipath.conf file from scratch.
 
-For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
-
 1. Enter the `mpathconf` command with the `--enable` option.
     ```sh
     # mpathconf --enable --user_friendly_names n
@@ -114,7 +112,6 @@ For more information about the mpathconf utility, see the [mpathconf(8) man page
    hardware_handler "1 alua"
    rr_weight uniform
    rr_min_io 128
-   }
    }
    ```
  {: screen}
@@ -164,7 +161,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 {: #discoverandloginclin8}
 {: step}
 
-The iscsiadm utility is a command-line tool aids the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool aids the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```sh
@@ -211,7 +208,7 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
-    In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+    In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf.
     {: tip}
 
      The volume is now mounted and accessible on the host. You can create a file system next.
@@ -385,6 +382,11 @@ To create a file system with `parted`, follow these steps.
     ```
     {: pre}
 
+### Managing user permissions to the content of the mounted volume
+{: #user-group-permissions-cloudlin}
+
+As a system administrator, you can manage the access to data on the mounted volume. After the file system is ready, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see the [CloudLinux Product Documentation](https://docs.cloudlinux.com/){: external}.
+
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingcloudlin}
 
@@ -407,6 +409,3 @@ When you no longer need the volume, unmount it before you delete it.
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
-
-   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
-   {: tip}
