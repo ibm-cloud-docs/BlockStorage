@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-03-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -200,7 +200,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
-   In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
    The volume is now mounted and accessible on the host. You can create a file system next.
@@ -230,9 +230,6 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    {: pre}
 
    The XXX represents the disk name that is returned in Step 1.
-
-   Scroll further down for the command codes that are listed in the `fdisk` command table.
-   {: tip}
 
 3. Create a file system on the new partition.
 
@@ -273,10 +270,12 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 5. To enable automatic mounting om boot, add the new file system to the system's `/etc/fstab` file.
    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
-     ```sh
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-     ```
-     {: pre}
+   ```sh
+   /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+   ```
+   {: pre}
+
+   For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.  
 
 ### Creating a file system with `parted`
 {: #partedrhel}
@@ -374,6 +373,8 @@ To create a file system with `parted`, follow these steps.
    /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
    ```
    {: pre}
+   
+   For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.  
 
 ### Managing user permissions to the content of the mounted volume
 {: #user-group-permissions-rhel}
