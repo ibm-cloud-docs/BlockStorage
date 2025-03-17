@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-03-17"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -327,7 +327,7 @@ The cancellation process for this storage device is in progress so the Cancel ac
 
 If you use more than two volumes with the same host, and if all the iSCSI connections are from the same Storage device, you might see only two devices in Disk Manager. When this situation happens, you need to manually connect to each device in the iSCSI Initiator. For more information, see [troubleshooting Windows 2012 R2 - multiple iSCSI devices](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12).
 
-Windows Server 2012 R2 reached its end of life on 10 October 10 2023. Microsoft no longer provides security updates, bug fixes, or technical support for this operating system. Migrate your server to a newer version of the operating system, like Windows Server 2022.
+Windows Server 2012 R2 reached its end of life on 10 October 2023. Microsoft no longer provides security updates, bug fixes, or technical support for this operating system. Migrate your server to a newer version of the operating system, like Windows Server 2022.
 {: deprecated}
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
@@ -365,7 +365,7 @@ During a planned maintenance or an unplanned disruption, one of the routes is ta
 
 On rare occasions, a volume is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
-For a more stable connection in a VMware deployment, mount the network storage on the hypervisor first as described in [Mounting ISCSI VMware ESXi](/docs/vmware?topic=vmware-mount-iscsi-esxi). Then create the VMs, and mount the attached storage volume from the virtual server's OS with a multipath connection. For more information, see [Using ESXi with iSCSI SAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/using-esxi-with-iscsi-san.html){: external}, [Understanding Multipathing and Failover in the ESXi Environment](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/understanding-multipathing-and-failover-in-the-esxi-environment.html#GUID-DD2FFAA7-796E-414C-84CE-1FCC14474D5B-en){: external}, and [Setting Up Network for iSCSI and iSER with ESXi](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/setting-up-network-for-iscsi-and-iser-with-esxi.html#GUID-0D31125F-DC9D-475B-BC3D-A3E131251642-en){: external}.
+For a more stable connection in a VMware deployment, mount the network storage on the hypervisor first as described in [Mounting ISCSI VMware ESXi](/docs/vmware?topic=vmware-mount-iscsi-esxi). Then, create the VMs, and mount the attached storage volume from the virtual server's OS with a multipath connection. For more information, see [Using ESXi with iSCSI SAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/using-esxi-with-iscsi-san.html){: external}, [Understanding Multipathing and Failover in the ESXi Environment](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/understanding-multipathing-and-failover-in-the-esxi-environment.html#GUID-DD2FFAA7-796E-414C-84CE-1FCC14474D5B-en){: external}, and [Setting Up Network for iSCSI and iSER with ESXi](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/setting-up-network-for-iscsi-and-iser-with-esxi.html#GUID-0D31125F-DC9D-475B-BC3D-A3E131251642-en){: external}.
 {: note}
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
