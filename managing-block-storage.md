@@ -490,7 +490,7 @@ Options:
 {: support}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a single volume. The following example shows the syntax of the command.
+Use the `terraform destroy` command to conveniently remove a remote object such as a single volume. The following example shows the syntax of the command.
 
 ```terraform
 terraform destroy --target ibm_storage_block.volumeID
