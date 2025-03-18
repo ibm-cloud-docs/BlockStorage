@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-18"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile Computers and removable media. LUKS allows multiple user keys to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL6 or newer.
 {: shortdesc}
 
-These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see one of the following topics:
+These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see one of the following topics.
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
@@ -39,7 +39,7 @@ All new {{site.data.keyword.blockstorageshort}} is automatically provisioned wit
 {: #LUKSoutofscope}
 
 - LUKS does not allow applications that require many (more than eight) users to have distinct access keys to the same devices.
-- LUKS does not work with applications that require file-level encryption. For more information, see [RHEL Security Guide](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/security_guide/index){: external}.
+- LUKS does not work with applications that require file-level encryption. For more information, see the [RHEL Security Guide](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/security_guide/index){: external}.
 
 ## Setting up a LUKS-encrypted volume with Endurance {{site.data.keyword.blockstorageshort}}
 {: #enryptwithLUKS}

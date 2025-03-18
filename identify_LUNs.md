@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-18"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -266,7 +266,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    In the example, the IP address "161.26.99.155" is the target IP address of your {{site.data.keyword.blockstorageshort}} and "1034" is the PortalTag.
 
-4. Next, use the IBMCLOUD CLI command `ibmcloud sl block volume-list`. The output contains the volume ID, the hostname of the storage device, the DC location, storage type, capacity, the amount of space already being used and the LUN ID.
+4. Next, use the IBMCLOUD CLI command `ibmcloud sl block volume-list`. The output contains the volume ID, the hostname of the storage device, the DC location, storage type, capacity, the amount of space that is already used, and the LUN ID.
 
    ```text
    $ ibmcloud sl block volume-list

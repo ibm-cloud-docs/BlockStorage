@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-18"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -47,7 +47,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
    While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to make sure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
    {: important}
 
-* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance-tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. By using MS/T and creating multiple TCP connections, you can make better use of the networking stack. By using multiple send and receive threads, you can increase performance.  
+* **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance-tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. By using MS/T and creating multiple TCP connections, you can make better use of the networking stack. You can increase performance by using multiple send and receive threads.
 
    Add persistent iscsi multi-sessions through the iscsiadm CLI.
      1. List existing sessions.

@@ -21,7 +21,7 @@ Data portability involves a set of tools and procedures that you can use to expo
 ## Responsibilities
 {: #data-portability-responsibilities}
 
-{{site.data.keyword.cloud_notm}} services provide interfaces and instructions to guide you through the process of copying and storing service customer content, including the related configuration, in your selected location.
+{{site.data.keyword.cloud_notm}} services provide interfaces and instructions to guide you through the process of copying and storing customer content, including the related configuration, in your selected location.
 
 You're responsible for the use of the exported data and configuration for data portability to other infrastructures, which includes:
 
@@ -60,7 +60,9 @@ Each migration scenario is different. Capture the requirements and any special c
    - The network bandwidth and network reliability between the source and target environments
    - The ability to verify that all data is intact on the target system after the migration is complete
 
-Other Considerations:
+## Other Considerations
+{: #other-considerations}
+
    - It is recommended that snapshots are taken within {{site.data.keyword.cloud_notm}} before execution of any data migration activities. It is important to have a backup of all data to help make sure that data is retained during the process.
    - Update any applications or systems that rely on the migrated data to point to the new storage location.
 
