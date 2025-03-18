@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-18"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -177,7 +177,7 @@ It is important to restart the Windows client after installation of these prereq
 {: #verifyMPIOWindows}
 {: step}
 
-It's possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, but it is important that connections are established on both paths to make sure that no disruption of service occurs. To verify whether Windows MPIO is configured, you must first make sure that the MPIO Add-on is enabled and then restart the server.
+It's possible to attach a volume with a single path, but it is important that connections are established on both paths to ward against disruption of service. To verify whether Windows MPIO is configured, you must first make sure that the MPIO Add-on is enabled and then restart the server.
 
 ![The image shows the Select features window of the Add Roles and Features Wizard in Server Manager. The MPIO option is selected in the Features list.](images/Roles_Features_0.svg){: caption="Multipath I/O is shown as checked." caption-side="bottom"}
 

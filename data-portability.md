@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-03-18"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
@@ -27,16 +27,16 @@ You're responsible for the use of the exported data and configuration for data p
 
 - The planning and execution for setting up alternative infrastructure on different cloud providers or on-premises software that provide similar capabilities to the {{site.data.keyword.IBM_notm}} services.
 - The planning and execution for the porting of the required application code on the alternative infrastructure, including the adaptation of your application code, deployment automation, and so on.
-- The conversion of the exported data and configuration to the format that's required by the alternative infrastructure and adapted applications.
+- The conversion of the exported data and configuration to the format that is required by the alternative infrastructure and adapted applications.
 
 To find out more about responsibility ownership for using {{site.data.keyword.cloud}} products between {{site.data.keyword.IBM_notm}} and the customer, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} products](/docs/overview?topic=overview-shared-responsibilities).
 
-## Data export procedures
+## Data exporting procedures
 {: #data-portability-procedures}
 
-When you create a strategy for migrating {{site.data.keyword.blockstorageshort}} or {{site.data.keyword.filestorage_short}} data to another target storage platform, whether that is on premises or another cloud provider, many factors must be considered to facilitate a successful outcome. 
+When you create a strategy for migrating {{site.data.keyword.blockstorageshort}} or {{site.data.keyword.filestorage_short}} data to another target storage platform (on premises or another cloud provider), many factors must be considered to facilitate a successful outcome. 
 
-Each migration scenario is different. Capture the requirements and any special considerations for your use case. Each migration scenario includes factors such as the type of data that are being migrated, the data availability, data compatibility, target storage environment requirements, and so on.
+Each migration scenario is different. Capture the requirements and any special considerations for your use case.
 {: important}
 
 1. Identify the type of data that you intend to migrate. You must validate the compatibility of the storage services that are available between the source and target storage environments to help make the workload transition upon completion of the migration process seamless.
@@ -48,7 +48,7 @@ Each migration scenario is different. Capture the requirements and any special c
 3. Consider the data availability and downtime requirements of your services
    - Identify any specific requirements around data availability and outage windows.
    - Consider the strategies that you can incorporate to help make sure that data stays consistent and accessible across your workloads during the migration process.
-   - Think about how long the migration can take. If you have a large data estate, you must develop a detailed migration plan that defines the timeline for migration execution. You must evaluate the size of the data sets to be transferred and consider expected data transfer speeds between the source and target environments.
+   - Think about how long the migration can take. If you have a large data estate, you must develop a detailed migration plan that defines the timeline for migration execution. You must evaluate the size of the datasets to be transferred and consider expected data transfer speeds between the source and target environments.
 
 4. Select the right tool. When you consider specific tools for data migration, it’s important to pick the right solution for the job.
    - Block storage – Select a block volume migration tool that maintains the native block format. Make sure that the data is transferred as raw blocks or chunks, maintaining the original file system structure and volume layout upon ingest into the target storage system. The specific tools that you choose depend on your unique migration requirements. Some important considerations to keep in mind during the evaluation process include the capacities that the provider has for data integrity, data monitoring, and data security during the migration process. In addition, it is important to evaluate any requirements that are dictated by the target storage vendor you are migrating data to. It is recommended that you review the target storage environment documentation to understand if they recommend processes or tools to simplify the migration.

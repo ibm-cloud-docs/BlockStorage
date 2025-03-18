@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-18"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -23,7 +23,7 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{sit
 {: support}
 {: ui}
 
-You can view a summary of the key information for the selected storage volume including extra snapshot and replication capabilities that were added to the storage.
+You can view a summary of the key information for the selected storage volume that include the snapshot and replication capabilities that were added to the storage.
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate Volume name from the list.
@@ -112,7 +112,7 @@ For more information about all of the parameters that are available for these co
 {: support}
 {: ui}
 
-"Authorized" hosts are hosts that were given access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+"Authorized" hosts are hosts that were granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
@@ -134,7 +134,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: support}
 {: cli}
 
-“Authorized” hosts are hosts that were given access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username and password.
+“Authorized” hosts are hosts that were granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username and password.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
@@ -219,7 +219,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: support}
 {: terraform}
 
-"Authorized" hosts are hosts that were given access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+"Authorized" hosts are hosts that were granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
