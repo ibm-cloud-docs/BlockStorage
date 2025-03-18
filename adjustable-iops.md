@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-18"
 
 keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -166,7 +166,7 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    ```
    {: codeblock}
 
-* The following example shows how to adjust IOPS on Endurance storage volume. `XXXXXXXXX` is the ID of the volume that you want to modify. `4` is the new IOPS tier value that you want your volume to have. `189433` is the ID of the max level price. `193373` and`193433` are the IDs for the price ranges for the capacity and IOPS that the volume has.
+* The following example shows how to adjust IOPS on Endurance storage volume. `XXXXXXXXX` is the ID of the volume that you want to modify. `4` is the new IOPS tier value that you want your volume to have. `189433` is the ID of the max level price. `193373` and `193433` are the IDs for the price ranges for the capacity and IOPS that the volume has.
 
    ```sh
    <?xml version="1.0" encoding="UTF-8"?>

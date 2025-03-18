@@ -23,7 +23,7 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{sit
 {: support}
 {: ui}
 
-You can view a summary of the key information for the selected storage volume that include the snapshot and replication capabilities that were added to the storage.
+You can view a summary of the key information for the selected storage volume that includes the snapshot and replication capabilities that were added to the storage.
 
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 2. Click the appropriate Volume name from the list.
