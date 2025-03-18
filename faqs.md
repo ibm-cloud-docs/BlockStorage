@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-17"
+lastupdated: "2025-03-18"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -355,13 +355,15 @@ It's possible to attach {{site.data.keyword.blockstorageshort}} with only a sing
 {: faq}
 {: support}
 
-During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following articles.
+During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following topics.
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
    - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#verifyMPIOLinux)
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
    - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
+
+When the normally load-balanced storage data paths are temporarily suspended, the compute host is forced to choose one of the surviving data paths to communicate with the attached storage. As the result, increased data traffic goes over fewer data paths. Because more requests are served by fewer resources, you might experience an increase in latency and in connection establishment times.
 
 On rare occasions, a volume is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
