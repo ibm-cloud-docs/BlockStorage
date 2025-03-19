@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -112,7 +112,7 @@ For more information about all of the parameters that are available for these co
 {: support}
 {: ui}
 
-"Authorized" hosts are hosts that were granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+"Authorized" hosts are hosts that are granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
@@ -134,7 +134,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: support}
 {: cli}
 
-“Authorized” hosts are hosts that were granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username and password.
+“Authorized” hosts are hosts that are granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username and password.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
@@ -219,7 +219,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 {: support}
 {: terraform}
 
-"Authorized" hosts are hosts that were granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
+"Authorized" hosts are hosts that are granted access to a particular volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which are needed to mount the multipath I/O (MPIO) iSCSI connection.
 
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
@@ -437,7 +437,7 @@ To cancel a storage volume, it's necessary to revoke access from any hosts first
 
 4. Click the **Acknowledgment** checkbox and click **Delete**.
 
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancel request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the request to cancel if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
@@ -452,7 +452,7 @@ If you no longer need a specific volume, you can cancel it at any time.
 To cancel a storage volume, it's necessary to revoke access from any hosts first.
 {: important}
 
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancel request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the request to cancel if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
@@ -499,6 +499,6 @@ terraform destroy --target ibm_storage_block.volumeID
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancel request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the request to cancel if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.

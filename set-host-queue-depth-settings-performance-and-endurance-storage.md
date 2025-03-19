@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2023-12-19"
+  years: 2014, 2025
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, performance tuning, host performance improvement,
 
@@ -23,7 +23,7 @@ subcollection: BlockStorage
 | 2 IOPS per GB | 24 |
 | 4 IOPS per GB | 56 |
 | 10 IOPS per GB | 56+ |
-{: caption="Recommended queue depth for each IOPS tier" caption-side="top"}
+{: caption="Recommended queue depth for each IOPS tier" caption-side="bottom"}
 
 The host setting doesn’t affect disk and controller latency. It affects only the latency that is observed by the host and application.
 

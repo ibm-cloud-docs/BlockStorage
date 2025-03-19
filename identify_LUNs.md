@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Identifying LUNs
 {: #identifyLUN}
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an esxi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you might have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the console. Another example might be that you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an ESXi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that. {: shortdesc}
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
@@ -311,4 +311,4 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 You can also gather the LUN ID, Target IP address, and hostname of the {{site.data.keyword.blockstorageshort}} device on the Volume Details page in the console.
 
-![The Volume Details page in the console provides detailed information about the LUN. The storage volume name is shown with the Name label. The target IP address is labelled as Target address. The LUN ID is shows as Volume ID.](images/vmwareLUNID.svg "Block Storage Volume Details in the Console."){: caption="The Volume Details page of the console provides detailed information about the LUN." caption-side="bottom"}
+![The Volume Details page in the console provides detailed information about the LUN. The storage volume name is shown with the Name label. The target IP address is labeled as Target address. The LUN ID is shown as Volume ID.](images/vmwareLUNID.svg "Block Storage Volume Details in the Console."){: caption="The Volume Details page of the console provides detailed information about the LUN." caption-side="bottom"}

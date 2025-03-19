@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -131,7 +131,7 @@ You can adjust the IOPS by making an API call to the SOAP web service. The follo
 For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/reference/softlayerapi){: external}.
 {: tip}
 
-* The following example shows how to request an IOPS change on a Performance storage volume. `XXXXXXXXX` is the ID of the volume that you want to modify. `3000` is the new IOPS value that you want your volume to have. `189433` is the ID of the max level price. `190233` is the ID of 2000 - 2999 GBs capacity range. `190293` is the ID for the 200 - 40000 IOPS range.
+* The following example shows how to request an IOPS change on a Performance storage volume. `XXXXXXXXX` is the ID of the volume that you want to modify. `3000` is the new IOPS value that you want your volume to have. `189433` is the ID of the max level price. `190233` is the ID of 2000 - 2999 GB capacity range. `190293` is the ID for the 200 - 40000 IOPS range.
 
    ```sh
    <?xml version="1.0" encoding="UTF-8"?>

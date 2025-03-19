@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -196,7 +196,7 @@ The following table shows the same number of bytes expressed in decimal and bina
 |         2,000,000 MB |         1,907,348 MiB |
 |             2,000 GB |             1,862 GiB |
 |                 2 TB |              1.81 TiB |
-{: caption="Decimal vs Binary units" caption-side="bottom"}
+{: caption="Decimal vs binary units" caption-side="bottom"}
 
 The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB. 
 
@@ -612,7 +612,7 @@ Perform the following steps to disconnect from a host:
 {: #tier-options}
 {: faq}
 
-Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used but delivered with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/products/block-storage){: external}.
+Endurance and Performance are provisioning options that you can select for storage devices. In short, Endurance IOPS tiers offer predefined performance levels whereas you can fine-tune those levels with the Performance tier. The same devices are used to deliver the offerings with different options. For more information, see [IBM Cloud Block Storage: Details](https://www.ibm.com/products/block-storage){: external}.
 
 ## I am unable to upgrade storage. What can affect the ability to upgrade or expand storage?
 {: #expand-fail}
@@ -694,7 +694,7 @@ For more information about duplicates, see [Creating and managing duplicate volu
 | Auto-synced with parent volume | ![Checkmark icon.](../../icons/checkmark-icon.svg) | |  |
 | On-demand refresh from parent volume | | ![Checkmark icon.](../../icons/checkmark-icon.svg)[^depdup] | ![Checkmark icon.](../../icons/checkmark-icon.svg)[^indepdup] |
 | Separated from parent volume | | | ![Checkmark icon.](../../icons/checkmark-icon.svg) |
-{: caption="Comparison of features between different types of volume copies. " caption-side="top"}
+{: caption="Comparison of features between different types of volume copies. " caption-side="bottom"}
 {: summary="This table has row and column headers. The row headers identify the capability. The column headers identify the type of volume copy."}
 {: #table1}
 

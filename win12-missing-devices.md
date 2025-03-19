@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, auxiliary storage, missing routes, mpio, multipath, windows, troubleshooting
 
@@ -30,21 +30,21 @@ If you use more than two iSCSI devices with the same host, you might find this p
 1. Open the Windows iSCSI Initiator.
 2. On the **Targets** tab, click **Devices**.
 
-   ![iSCSI Initiator properties screen is displayed. The Targets tab and Devices buttons are highlighted with dark grey ovals.](images/win12-ts1.svg){: caption="The iSCSI Initiator properties are displayed." caption-side="bottom"}
+   ![iSCSI Initiator properties screen is displayed. The Targets tab and Devices buttons are highlighted with dark gray ovals.](images/win12-ts1.svg){: caption="The iSCSI Initiator properties are displayed." caption-side="bottom"}
 3. Confirm the number of devices that are shown. If you see two devices, instead of the four that were authorized, continue to the next step.
 4. Click **Targets**, then **Connect**.
 5. Select **Multipath**, then **Advanced**.
 6. Select Microsoft iSCSI Initiator as the Local adapter. The Initiator IP belongs to your server.
 7. Select the first of the IP addresses that are shown in the Target Portal IP list.
 
-   ![Advanced Settings screen is shown. The list of IP addresses in the Target Portal IP section are highlighted with a dark grey oval outline.](images/win12-ts3.svg){: caption="IP addresses are shown in Advanced Settings." caption-side="bottom"}
+   ![The Advanced Settings screen is shown. The list of IP addresses in the Target Portal IP section are highlighted with a dark gray oval outline.](images/win12-ts3.svg){: caption="IP addresses are shown in Advanced Settings." caption-side="bottom"}
 
    You must repeat this step for all the IP addresses that are listed.
    {: tip}
 
 8. Select the **Enable CHAP** box, and enter the server's CHAP ID and Password.
 
-   ![Advanced Settings screen is shown. The Enable CHAP box is highlighted with a dark grey oval outline.](images/win12-ts4.svg){: caption="CHAP configuration in Advanced Settings." caption-side="bottom"}
+   ![The Advanced Settings screen is shown. The Enable CHAP box is highlighted with a dark gray oval outline.](images/win12-ts4.svg){: caption="CHAP configuration in Advanced Settings." caption-side="bottom"}
 9. Click **OK**.
 10. Repeat steps 5-9 for every IP that you entered in the iSCSI Initiator. When you're done, click the **Devices** tab and review the results. Expect to see every volume that you set up listed twice.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Achieving full disk encryption with LUKS in RHEL
 {: #LUKSencryption}
 
-You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup-on-disk-format (LUKS), which is important when it comes to mobile Computers and removable media. LUKS allows multiple user keys to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL6 or newer.
+You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup (LUKS), which is important when it comes to mobile Computers and removable media. With LUKS, multiple user keys can be used to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL6 or newer.
 {: shortdesc}
 
 These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see one of the following topics.

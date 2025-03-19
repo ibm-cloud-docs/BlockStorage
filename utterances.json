@@ -216,7 +216,7 @@
         "validate MPIO in block storage"
     ],
     "cancelstorage": [
-        "greyed out iscsi block storage",
+        "grayed out iscsi block storage",
         "block storage can not cancel",
         "grace period iscsi cancellation",
         "void iscsi cancellation",
@@ -224,7 +224,7 @@
         "unable to cancel iscsi storage",
         "can't cancel Block Storage",
         "block Storage cancellation is unavailable",
-        "block Storage cancellation is greyed out",
+        "block Storage cancellation is grayed out",
         "block storage can't be cancelled",
         "unable to select cancel for block storage",
         "how long to cancel block storage"

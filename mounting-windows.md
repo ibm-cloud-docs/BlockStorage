@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -91,7 +91,7 @@ It is important to restart the Windows client after installation of these prereq
    1. On the Target Portal IP list, select the IP of one of the storage interfaces.
    1. Select **Enable CHAP log-on** to turn on CHAP authentication.
 
-      ![The images shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/5-AdvancedCHAPLogOn.svg){: caption="Enable CHAP Login in Advanced Settings." caption-side="bottom"}
+      ![The image shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/5-AdvancedCHAPLogOn.svg){: caption="Enable CHAP Login in Advanced Settings." caption-side="bottom"}
    1. In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    1. In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    1. Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the username and password entries.
@@ -103,7 +103,7 @@ It is important to restart the Windows client after installation of these prereq
    ![The image shows the Connect to Target screen, the Enable Multi-path option is selected. Advanced and OK buttons are highlighted with a blue outline.](images/7-CHAPLogon4Connection.svg){: caption="Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
 
-   ![The images shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/8-InputCHAPcredentials.svg){: caption="CHAP logon and credentials." caption-side="bottom"}
+   ![The image shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/8-InputCHAPcredentials.svg){: caption="CHAP logon and credentials." caption-side="bottom"}
 6. Enter the username in the Name[^username] field, and enter the password in the Target secret[^password] field.
    [^username]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
    [^password]: The Name and Target secret field values can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen.
@@ -119,7 +119,7 @@ It is important to restart the Windows client after installation of these prereq
 2. Click **Add Session** on the Properties window.
 3. In the Connect to Target dialog box, select **Enable multi-path** checkbox, and click **Advanced**.
 
-   ![The image shows the Properties screen where you can click Add session to initiate a connection to second Target. The image also shows the Connect to Target dialog where the new target name is entered and the Enable multi-path option is selected.](images/10-OneActiveSession.svg){: caption="Adding a second MPIO path." caption-side="bottom"}
+   ![The image shows the Properties screen where you can click Add session to initiate a connection to the second Target. The image also shows the Connect to Target dialog where the new target name is entered and the Enable multi-path option is selected.](images/10-OneActiveSession.svg){: caption="Adding a second MPIO path." caption-side="bottom"}
 4. In the Advanced Settings window, update the following fields.
    1. On the Local adapter list, select Microsoft iSCSI Initiator.
    1. On the Initiator IP list, select the IP address of the host.
@@ -138,10 +138,10 @@ It is important to restart the Windows client after installation of these prereq
    1. Enter the Name and Target secret values that were obtained from the console and click **OK**.
    1. Click **OK** on the Connect To Target window to go back to the Properties window.
      
-   ![The images shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected for adding credentials of the 2nd target.](images/11-InputCHAPcredentials2ndTarget.svg){: caption="Adding CHAP credentials for the 2nd target in Advanced Settings." caption-side="bottom"}
+   ![The image shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected for adding the credentials of the 2nd target.](images/11-InputCHAPcredentials2ndTarget.svg){: caption="Adding CHAP credentials for the 2nd target in Advanced Settings." caption-side="bottom"}
 8. Now the Properties window displays more than one session within the Identifier pane. It means that you have more than one session into the iSCSI storage.
     
-   ![The images shows the Properties window, and its Sessions tab. Two connected sessions are displayed in the list.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
+   ![The image shows the Properties window, and its Sessions tab. Two connected sessions are displayed in the list.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
 
    If your host has multiple interfaces that you want to connect to the storage, you can set up another connection with the address of the second NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
    {: note}
@@ -161,7 +161,7 @@ It is important to restart the Windows client after installation of these prereq
 
 1. Press the Windows Logo key + X, and then click **Run**.
 2. In the Run dialog box, type `Diskmgmt.msc`. Click **OK**, and the Disk Management dialog box appears. The side pane shows the drives that are attached to your host.
-3. In the Disk Management window, right-click the discovered volume's name, and then click **Online**.
+3. In the Disk Management window, right-click the discovered volume's name, and then click **online**.
 4. Right-click and select **Initialize Disk**.
 5. In the dialog box, select the disk to initialize, and then click **OK**.
 6. The New Simple Volume wizard starts. Select a disk size, and then click **Next**.
@@ -171,7 +171,7 @@ It is important to restart the Windows client after installation of these prereq
     - Set the allocation unit size to 64 K.
     - Provide a label for your Storage volume.
 9. Click **Next**.
-10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as Online.
+10. Check the values for your volume, and then click **Finish**. On the Disk Management page, the volume now appears as online.
 
 ## Verifying whether MPIO is configured correctly
 {: #verifyMPIOWindows}

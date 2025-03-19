@@ -2,7 +2,7 @@
 
 copyright:
  years: 2014, 2025 
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -62,7 +62,7 @@ The IO size that is used by your application directly impacts the storage perfor
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="Table contains examples of how block size and IOPS affect the throughput. Average IO size x IOPS = Throughput in MB/s." caption-side="top"}
+{: caption="Table contains examples of how block size and IOPS affect the throughput. Average IO size x IOPS = Throughput in MB/s." caption-side="bottom"}
 
 ### Authorized hosts
 {: #numberofhosts}
