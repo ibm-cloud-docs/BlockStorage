@@ -59,7 +59,6 @@ Snapshot copies minimize disk consumption by preserving individual blocks rather
 
 In the active file system, the changed blocks are rewritten to different locations on the disk or removed as active file blocks entirely. When files are changed or deleted, the original file blocks are preserved as part of one or more Snapshot copies. As a result, disk space that is used by the original blocks is still reserved to reflect the status of the active file system before the change. This space is reserved in addition to the disk space that is used by blocks in the modified active file system.
 
-
 | Disk space usage |   |
 |-----|-----|
 | ![The shaded quarter of the circle represents the space that is used before a snapshot copy is taken.](images/bfbeforesnapshot.svg "Before Snapshot Copy") | Before any Snapshot copy is created, disk space is used by the active file system only. |
