@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-03-21"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -335,7 +335,7 @@ Windows Server 2012 R2 reached its end of life on 10 October 2023. Microsoft no 
 {: faq}
 {: support}
 
-In a couple of scenarios a host (bare metal or VM) might lose connection to the storage briefly and as a result, the host considers that storage read-only to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
+In a few scenarios, a host (bare-metal or VM) might lose connection to the storage briefly and as a result, it considers it to be a read-only volume to avoid data corruption. Most of the time the loss of connectivity is network-related but the status of the storage remains read-only from the host's perspective even when the network connection is restored. A restart of the host solves the read-only state issue.
 
 This issue can be observed with hosts that have incorrect MPIO settings. When MPIO is not configured correctly, the host loses connection to the storage, and might not be able to reconnect to the storage when the connectivity issue is resolved.
 
