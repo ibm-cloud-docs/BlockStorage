@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-04-02"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -619,9 +619,13 @@ Endurance and Performance are provisioning options that you can select for stora
 {: faq}
 
 The following situations can affect the ability to upgrade or expand storage:
-- If the original volume is the Endurance 0.25 tier, then the IOPS tier can't be updated.
-- Older storage types can't be upgraded. For more information, see [expanding {{site.data.keyword.blockstorageshort}} Capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity).
 - The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
+
+## Does upgrading my storage affect the data that is on the volume?
+{: faq}
+{: #capacity-iops-change-vs-data}
+
+No. When you choose to expand your storage volume or adjust its IOPS value, the change has no impact on your data. Nothing is overwritten or wiped during these operations. The adjustment does not cause any kind of outage or lack of access to the storage either.
 
 ## Are iSCSI volumes thin or thick provisioned?
 {: #thin}
@@ -633,7 +637,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage". You might also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that reside in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
+You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage". You might also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that are in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}
