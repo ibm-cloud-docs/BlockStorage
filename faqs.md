@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-03"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -319,6 +319,12 @@ When drives are decommissioned, IBM destroys them before they are disposed of. T
 {: #cancelstorage}
 
 The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. The UI indicates that it’s inactive and the status "Cancellation pending" is displayed. The minimum 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}.
+
+## I accidentally deleted my volume, what can I do to get it back?
+{: faq}
+{: #accidentaldeletion}
+
+The answer depends on how long ago you deleted the storage volume, and if you chose to delete immediately or on anniversary date. If the deletion happened in the last 24 hours or the anniversary date is still yet to come, the volume might still be waiting to be reclaimed. If the volume status is "Cancellation pending", you can contact support to void the cancellation request. It's important to act fast because when the reclaim-period expires, the data is deleted automatically and it is no longer possible to restore.
 
 ## My Windows 2012 host is supposed to have access to multiple Storage volumes, but I can't see them in Disk Manager. How do I fix it?
 {: faq}
@@ -671,7 +677,6 @@ The following examples are utilities that you might consider to use to check per
 - [`sysstat`](https://github.com/sysstat/sysstat/blob/master/README.md){: external} - System performance tools for the Linux&reg; operating system.
 - [`typeperf`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf){: external} - Windows command that writes performance data to the command window or to a log file.
 - [`esxtop`](https://community.broadcom.com/vmware-cloud-foundation/viewdocument/interpreting-esxtop-statistics-1){: external} - A command-line tool that gives administrators real-time information about resource usage in a VMware&reg; vSphere environment. It can monitor and collect data for all system resources: CPU, memory, disk, and network.
-
 
 ## What is the difference between a replica volume, a dependent and an independent duplicate volume?
 {: #replicavsduplicate}
