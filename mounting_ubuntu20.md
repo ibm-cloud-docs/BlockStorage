@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-30"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -16,13 +16,13 @@ completion-time: 1h
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Mount iSCSI volume on Ubuntu 20
+# Mount iSCSI volume on Ubuntu OS
 {: #mountingUbu20}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="1h"}
 
-This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the Ubuntu 20.04 Server Edition operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with an Ubuntu operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
 If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
@@ -37,7 +37,10 @@ If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start configuring iSCSI, make sure to have the network interfaces correctly set and configured in order for the open-iscsi package to work correctly, especially during startup time. In Ubuntu 20.04 LTS, the default network configuration tool is [netplan.io](https://netplan.readthedocs.io/en/latest/examples/#){: external}. For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://documentation.ubuntu.com/server/iscsi-initiator-or-client/){: external} Documentation.
+Before you start configuring iSCSI, make sure that the network interfaces are correctly set and configured for the open-iscsi package to work correctly, especially during startup time. In newer versions of Ubuntu, the main tool for setting network address information is [Netplan](https://netplan.readthedocs.io/en/latest/examples/#){: external}. It uses a YAML configuration file to define network settings, replacing older methods like `/etc/network/interfaces`. Netplan can be configured with the command line or through the NetworkManager in desktop environments. 
+
+For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://documentation.ubuntu.com/server/iscsi-initiator-or-client/){: external} Documentation.
+{: tip}
 
 Also, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 {: requirement}
@@ -198,7 +201,6 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
    ```
    {: pre}
 
-
 ## Verifying configuration
 {: #verifyconfigubu20}
 {: step}
@@ -235,7 +237,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign more easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf.
+   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf.
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks are detected.
