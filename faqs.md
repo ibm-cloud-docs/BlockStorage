@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-04-29"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -275,8 +275,16 @@ Target latency within the storage is <1 ms. The storage is connected to Compute 
 {: faq}
 {: support}
 
-You need to order a new {{site.data.keyword.blockstorageshort}} volume in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location. When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. 
-The 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console, too.
+You need to order a new {{site.data.keyword.blockstorageshort}} volume in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location.
+
+You can also create a duplicate of your share, and cancel the parent share. For more information, see [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
+
+## I cancelled my {{site.data.keyword.blockstorageshort}} volume "immediately", but it's still visible in the console. Why is it not deleted?
+{: #24hrreclaimperiod}
+{: faq}
+{: support}
+
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. The 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console, too.
 
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: #volumeencrypt}
