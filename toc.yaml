@@ -33,6 +33,7 @@ toc:
         id: howto
         topics:
         - topicgroup:
+            id: ordering-storage
             label: Provisioning
             topics:
             - provisioning-block_storage.md
@@ -40,6 +41,7 @@ toc:
             - managing-storage-limits.md
             - migrate-block-storage-encrypted-block-storage.md
         - topicgroup:
+            id: configuring-storage
             label: Configuring
             topics:
             - set-host-queue-depth-settings-performance-and-endurance-storage.md
@@ -48,6 +50,7 @@ toc:
             - configure-backup-plesk.md
             - include: ../vmware/mounting-iscsi-vmware-esxi.md
         - topicgroup:
+            id: managinng-storage
             label: Managing
             topics:
             - managing-block-storage.md
@@ -56,6 +59,7 @@ toc:
             - working-with-snapshots.md
             - identify_LUNs.md
         - topicgroup:
+            id: replication-dr
             label: Replication and Disaster Recovery
             topics:
             - replication.md
@@ -63,6 +67,7 @@ toc:
             - disaster-recovery.md
             - duplicate-volume.md
         - topicgroup:
+            id: encryption-and-security
             label: Enhancing Security
             topics:
             - availability.md
@@ -111,11 +116,13 @@ toc:
         id: help
         topics:
         - topicgroup:
+            id: FAQs
             label: FAQs
             topics:
             - faqs.md
             - gethelp.md
         - topicgroup:
+            id: troubleshooting
             label: Troubleshooting
             topics:
             - win12-missing-devices.md
