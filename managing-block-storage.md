@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-06-24"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -104,7 +104,51 @@ To view information about a Storage volume, you can use the following commands f
    ```
    {: screen}
 
-For more information about all of the parameters that are available for these commands, see [block volume-detail](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-detail){: external} and [block volume-list](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-list){: external}. 
+For more information about all of the parameters that are available for these commands, see [block volume-detail](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-detail){: external} and [block volume-list](https://softlayer-python.readthedocs.io/en/latest/cli/block/#block-volume-list){: external}.
+
+## Updating the notes of a volume in the console
+{: #update-volume-notes-UI}
+{: ui}
+
+1. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure**.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
+3. Locate the volume that you want to update. Click the volume name to view the Volume details page.
+4. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to **Notes**, and enter your text.
+
+## Updating the notes of a volume from the CLI
+{: #update-volume-notes-CLI}
+{: cli}
+
+You can use the `ibmcloud sl call-api` command to add and modify notes for your volumes.
+
+```sh
+$ ibmcloud sl call-api --help
+NAME:
+  call-api - Call arbitrary API endpoints
+
+USAGE:
+  ibmcloud sl call-api SERVICE METHOD [OPTIONS]
+
+OPTIONS:
+  --filter value      Object filters
+  -h, --help          Usage information.
+  --init value        Init parameter
+  --limit value       Result limit
+  --mask value        Object mask: use to limit fields returned
+  --offset value      Result offset
+  --output value      Specify output format, only JSON is supported now.
+  --parameters value  Append parameters to web call
+```
+{: screen}
+
+Specify the volume ID in the `--init` option, and use the `--parameters` option to set the new note. See the following example:
+
+```sh
+ibmcloud sl call-api SoftLayer_Network_Storage editObject --init 562193766 --parameters '[{"notes":"Testing."}]'
+```
+{: screen}
+
+For more information, see [ibmcloud sl call-api](/docs/cli?topic=cli-sl-all-api).
 
 ## Authorizing hosts to access {{site.data.keyword.blockstorageshort}} in the console
 {: #authhostUI}
@@ -122,7 +166,7 @@ You can authorize and connect hosts that are located in the same data center as 
 3. Click **Authorize Host**.
 4. To see the list of available devices or IP addresses, first, select whether you want to authorize access based on device type or subnets.
    - If you choose the Devices option, you can select from Bare Metal Server or virtual server instances.
-   - If you choose the IP address option, select the subnet where your host resides.
+   - If you choose the IP address option, select the subnet of your compute host.
 5. From the filtered list, select one or more hosts that can access the volume and click **Save**.
 
 The default limit for the number of authorizations per block volume is eight. That means that up to eight hosts can be authorized to access the {{site.data.keyword.blockstorageshort}} volume. Customers who use {{site.data.keyword.blockstorageshort}} in their VMware deployment can request the authorization limit to be increased to 64. To request a limit increase, raise a [Support case](/unifiedsupport/cases/add){: external}.
@@ -437,7 +481,7 @@ To cancel a storage volume, it's necessary to revoke access from any hosts first
 
 4. Click the **Acknowledgment** checkbox and click **Delete**.
 
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the request to cancel if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
@@ -452,7 +496,7 @@ If you no longer need a specific volume, you can cancel it at any time.
 To cancel a storage volume, it's necessary to revoke access from any hosts first.
 {: important}
 
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the request to cancel if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
 
@@ -499,6 +543,6 @@ terraform destroy --target ibm_storage_block.volumeID
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the request to cancel if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
+When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
