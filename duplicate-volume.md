@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-06-26"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -137,6 +137,9 @@ You may run 'ibmcloud sl block volume-list --order 110554892' to find this block
 ```
 {: codeblock}
 
+If you have a specific snapshot that holds the data that you want to use to create the duplicate volume, specify the snapshot's ID by using the `--origin-snapshot-id` option.
+{: tip}
+
 Your new duplicate is ready within minutes.
 
 ```sh
@@ -223,7 +226,7 @@ Options:
 **Dependent duplicate** volumes can be ordered from the CLI, too, with the option `--dependent-duplicate TRUE`.
 
 ```sh
-slcli block volume-duplicate --dependent-duplicate TRUE <primary-vol-id>
+slcli block volume-duplicate --dependent-duplicate TRUE ORIGIN_VOLUME_ID
 ```
 {: pre}
 
@@ -233,7 +236,7 @@ For more information about available command options, see [`block volume-duplica
 {: #cloneinAPI}
 {: api}
 
-To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call. The following REST API example creates an independent duplicate for an Endurance (IOPS tiers) volume.
+To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call to the SL API. The following REST API example creates an independent duplicate for an Endurance (IOPS tiers) volume, that is identified by its volume ID in the `duplicateOriginVolumeId` property.
 
 - URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
 - Type - POST
@@ -256,6 +259,8 @@ To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} vo
    }
    ```
    {: codeblock}
+
+   If you have a specific snapshot that holds the data that you want to use to create the duplicate volume, specify the snapshot's ID in the `duplicateOriginSnapshotId` property.
 
 To order a **dependent duplicate** for a Performance (custom IOPS) volume, make a `POST /SoftLayer_Product_Order/placeOrder` call like the following REST API example.
 
@@ -282,7 +287,9 @@ To order a **dependent duplicate** for a Performance (custom IOPS) volume, make 
    ```
    {: codeblock}
 
-For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}.
+   If you have a specific snapshot that holds the data that you want to use to create the duplicate volume, specify the snapshot's ID in the `duplicateOriginSnapshotId` property.
+
+For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}. Look for the [SoftLayer_Container_Product_Order_Network_Storage_AsAService](https://sldn.softlayer.com/reference/datatypes/SoftLayer_Container_Product_Order_Network_Storage_AsAService/){: external} Datatype.
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
