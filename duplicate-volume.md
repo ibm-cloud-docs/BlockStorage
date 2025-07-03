@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-03"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -289,7 +289,7 @@ To order a **dependent duplicate** for a Performance (custom IOPS) volume, make 
 
    If you have a specific snapshot that holds the data that you want to use to create the duplicate volume, specify the snapshot's ID in the `duplicateOriginSnapshotId` property.
 
-For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}. Look for the [SoftLayer_Container_Product_Order_Network_Storage_AsAService](https://sldn.softlayer.com/reference/datatypes/SoftLayer_Container_Product_Order_Network_Storage_AsAService/){: external} Datatype.
+For more information about the API and the options, see the [API Reference](https://sldn.softlayer.com/reference/softlayerapi/){: external}. Look for the [SoftLayer_Container_Product_Order_Network_Storage_AsAService](https://sldn.softlayer.com/reference/datatypes/SoftLayer_Container_Product_Order_Network_Storage_AsAService/){: external} data type.
 
 ## Managing your duplicate volume
 {: #manageduplicatevol}
