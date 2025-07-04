@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-07-04"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -60,7 +60,7 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
 * If the /etc/multipath.conf file exists, the mpathconf utility can edit it.
 * If the /etc/multipath.conf file does not exist, the mpathconf utility creates the /etc/multipath.conf file from scratch.
 
-For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
+For more information about the mpathconf utility, see the [mpathconf(8) man page](https://man.linuxreviews.org/man8/mpathconf.8.html){: external}.
 
 1. Enter the mpathconf command with the `--enable` option.
    ```sh
@@ -153,7 +153,7 @@ Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage use
 {: #discoverandlogin}
 {: step}
 
-The iscsiadm utility is a command-line tool that is used for discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://linux.die.net/man/8/iscsiadm){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that is used for discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [iscsiadm(8) man page](https://man.linuxreviews.org/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```sh
@@ -200,7 +200,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
    ```
 
-   In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
+   In the example, the string `3600a0980383030523424457a4a695266` is the WWID. Your application ought to use the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://man.linuxreviews.org/man5/multipath.conf.5.html){: external}.
    {: tip}
 
    The volume is now mounted and accessible on the host. You can create a file system next.
@@ -462,6 +462,6 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
+   For more information, see the [`iscsiadm` manual](https://man.linuxreviews.org/man8/iscsiadm.8.html){: external}.
    {: tip}
    
