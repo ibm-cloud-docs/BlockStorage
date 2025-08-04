@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-06-24"
+lastupdated: "2025-08-04"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -25,8 +25,9 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{sit
 
 You can view a summary of the key information for the selected storage volume that includes the snapshot and replication capabilities that were added to the storage.
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Click the appropriate Volume name from the list.
+1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**. The list of block volumes is displayed.
+1. You can filter the list by clicking the ![Filter icon](../icons/filter.svg "Filter") and selecting a location or entering a specific capacity. Click **Apply** to confirm your selection.
+1. Click the appropriate Volume name from the list.
 
 ## Viewing {{site.data.keyword.blockstorageshort}} volume details from the CLI
 {: #viewLUNdeetsCLI}
