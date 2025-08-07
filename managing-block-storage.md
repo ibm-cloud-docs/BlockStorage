@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-07"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -28,6 +28,9 @@ You can view a summary of the key information for the selected storage volume th
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**. The list of block volumes is displayed.
 1. You can filter the list by clicking the ![Filter icon](../icons/filter.svg "Filter") and selecting a location or entering a specific capacity. Click **Apply** to confirm your selection.
 1. Click the appropriate Volume name from the list.
+
+You can download the list in a CSV format by clicking Download ![Download icon](../icons/download.svg "Download").
+{: tip}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} volume details from the CLI
 {: #viewLUNdeetsCLI}
