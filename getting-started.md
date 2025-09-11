@@ -2,7 +2,7 @@
 
 copyright:
  years: 2014, 2025 
-lastupdated: "2025-03-19"
+lastupdated: "2025-09-11"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -35,7 +35,11 @@ For more information about using {{site.data.keyword.blockstorageshort}} with th
 {: step}
 
 {{site.data.keyword.blockstorageshort}} volumes can be provisioned from 20 GB to 12 TB with two options:
-- Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication.
+- Provision **Endurance** tiers that feature pre-defined performance levels and other features like snapshots and replication. The following 4 tiers are available:
+   - `LOW_INTENSITY_TIER` = 0.25 IOPS/GB
+   - `READHEAVY_TIER` = 2 IOPS/GB
+   - `WRITEHEAVY_TIER` = 4 IOPS/GB
+   - `10_IOPS_PER_GB` = 10 IOPS/GB
 - Build a high-powered **Performance** environment with allocated input/output operations per second (IOPS).
 
 For more information about the {{site.data.keyword.blockstorageshort}} offering, see [What is {{site.data.keyword.blockstorageshort}}](https://www.ibm.com/products/block-storage){: external}.
