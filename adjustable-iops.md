@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-09-15"
 
 keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -77,17 +77,17 @@ Before you can begin the process, decide on the CLI client that you want to use.
 ### Adjusting the IOPS from the IBMCLOUD CLI
 {: #adjustIOPSICCLI}
 
-You can update the IOPS by using the `ibmcloud sl block volume-modify` command. The following example modifies a Performance volume by specifying a new IOPS value.
+You can update the IOPS by using the `ibmcloud sl block volume-modify` command. The following example modifies a Performance volume by specifying a new IOPS value. When you use this command, replace the IDENTIFIER with the volume ID, for example 12345678.
 
 ```sh
-ibmcloud sl block volume-modify 12345678 --new-iops 4000
+ibmcloud sl block volume-modify IDENTIFIER --new-iops 4000
 ```
 {: codeblock}
 
 The following example modifies an Endurance file share by specifying a new IOPS tier.
 
 ```sh
-ibmcloud sl block volume-modify 12345678 --new-tier 4
+ibmcloud sl block volume-modify IDENTIFIER --new-tier 4
 ```
 {: codeblock}
 

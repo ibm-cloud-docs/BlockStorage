@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-11"
+  years: 2018, 2025
+lastupdated: "2025-09-15"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -73,10 +73,10 @@ Before you begin, decide on the CLI client that you want to use.
 ### Resizing a block volume from the IBMCLOUD CLI
 {: #resizingstepsICCLI}
 
-You can increase the capacity of a volume by using the `ibmcloud sl block volume-modify` command. The following example modifies a block volume by specifying a new, bigger capacity.
+You can increase the capacity of a volume by using the `ibmcloud sl block volume-modify` command. The following example modifies a block volume by specifying a new, bigger capacity. When you use this command, replace the IDENTIFIER with the volume ID, for example 12345678.
 
 ```sh
-ibmcloud sl block volume-modify 12345678 --new-size 1000
+ibmcloud sl block volume-modify IDENTIFIER --new-size 1000
 ```
 {: pre}
 

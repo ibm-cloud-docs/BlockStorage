@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-09-15"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -50,7 +50,7 @@ Before you begin, decide on the CLI client that you want to use.
 
    - The following example retrieves the list of volumes and the output sorts the volumes by name with the most recently created volume first.
      ```sh
-     ibmcloud sl block volume-list -sortby username
+     ibmcloud sl block volume-list --sortby username
      ```
     {: pre}
 
@@ -337,7 +337,7 @@ The Target address is listed on the **Storage Detail** page. For NFS, the Target
 To confirm that the authorization worked, run the `ibmcloud sl block access-list` command.
 
 ```sh
-ibmcloud sl block access-list 12345678 --sortby id 
+ibmcloud sl block access-list 12345678 --sortby allowed_host_id 
 ```
 {: screen}
 
