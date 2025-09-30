@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-09-30"
 
 keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
@@ -49,7 +49,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 1. Use the following command to install the packages.
 
     ```sh
-    yum install iscsi-initiator-utils device-mapper-multipath
+    dnf install iscsi-initiator-utils device-mapper-multipath
     ```
     {: pre}
 
@@ -295,7 +295,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 On many Linux&reg; distributions, `parted` comes preinstalled. However, if you need to you can install it running the following command.
 
 ```sh
-# yum install parted
+# dnf install parted
 ```
 {: pre}
 

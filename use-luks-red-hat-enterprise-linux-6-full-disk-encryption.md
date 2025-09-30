@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-09-30"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Achieving full disk encryption with LUKS in RHEL
 {: #LUKSencryption}
 
-You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup (LUKS), which is important when it comes to mobile Computers and removable media. With LUKS, multiple user keys can be used to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL6 or newer.
+You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup (LUKS), which is important when it comes to mobile Computers and removable media. With LUKS, multiple user keys can be used to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL 8 or newer.
 {: shortdesc}
 
 These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see one of the following topics.
@@ -34,7 +34,6 @@ All new {{site.data.keyword.blockstorageshort}} is automatically provisioned wit
 - LUKS provides passphrase strengthening, which protects against dictionary attaches.
 - LUKS contains multiple key slots, so users can add backup keys or passphrases.
 
-
 ## What LUKS doesn't do
 {: #LUKSoutofscope}
 
@@ -49,7 +48,7 @@ The process of data encryption creates a load on the host that might potentially
 
 1. Type the following command at a shell prompt as root to install the required package:
    ```sh
-   yum install cryptsetup-luks
+   dnf install cryptsetup-luks
    ```
    {: pre}
 
@@ -90,7 +89,7 @@ The process of data encryption creates a load on the host that might potentially
 7. Verify the mapping, and view the status of the encrypted volume.
 
    ```sh
-   $ cryptsetup -v status cryptData
+   # cryptsetup -v status cryptData
    /dev/mapper/cryptData is active.
      type:  LUKS1
      cipher:  aes-cbc-essiv:sha256
