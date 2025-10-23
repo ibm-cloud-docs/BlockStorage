@@ -1,6 +1,3 @@
-#  Name your file `toc.yaml`
-#  Make sure you include all nav file coding requirements.
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
 toc:
   properties:
     subcollection: BlockStorage
@@ -11,118 +8,117 @@ toc:
     product-page: https://www.ibm.com/products/block-storage
     path: BlockStorage
     label: Block Storage - Classic
-#  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group.
   entries:
-    - navgroup:
-        id: learn
-        topics:
-        - getting-started.md
-        - best-practices.md
-        - snapshots.md
-        - link:
-              label: What is Block Storage?
-              href: https://www.ibm.com/think/topics/block-storage
-    - navgroup:
-        id: tutorial
-        topics:
-        - mounting_rhel8.md
-        - mounting_ubuntu20.md
-        - mounting_cloudlin8.md
-        - mounting-windows.md
-    - navgroup:
-        id: howto
-        topics:
-        - topicgroup:
-            id: ordering-storage
-            label: Provisioning
-            topics:
-            - provisioning-block_storage.md
-            - ordering-snapshots.md
-            - managing-storage-limits.md
-            - migrate-block-storage-encrypted-block-storage.md
-        - topicgroup:
-            id: configuring-storage
-            label: Configuring
-            topics:
-            - set-host-queue-depth-settings-performance-and-endurance-storage.md
-            - include: ../FileStorage/jumboframes.md
-            - configure-backup-cpanel.md
-            - configure-backup-plesk.md
-            - include: ../vmware/mounting-iscsi-vmware-esxi.md
-        - topicgroup:
-            id: managinng-storage
-            label: Managing
-            topics:
-            - managing-block-storage.md
-            - expandable_block_storage.md
-            - adjustable-iops.md
-            - working-with-snapshots.md
-            - identify_LUNs.md
-        - topicgroup:
-            id: replication-dr
-            label: Replication and Disaster Recovery
-            topics:
-            - replication.md
-            - dr-accessible-primary.md
-            - disaster-recovery.md
-            - duplicate-volume.md
-        - topicgroup:
-            id: encryption-and-security
-            label: Enhancing Security
-            topics:
-            - availability.md
-            - data-security.md
-            - use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
-            - include: ../infrastructure-hub/encryption-classic-infra.md
-    - navgroup:
-        id: reference
-        topics:
-        - topicgroup:
-            label: Identity and Access Management
-            topics:
-             - include: ../account/iam-mnginfra.md
-        - topicgroup:
-            label: Service Level Agreement
-            topics:
-              - link:
-                  label: Service Level Agreements for IBM Cloud (Public Cloud)
-                  href: https://www.ibm.com/support/customer/csol/terms
-        - topicgroup:
-            label: Data portability
-            topics:
-            - topic: data-portability.md
-              navtitle: Understanding data portability for Block Storage for Classic
-        - topicgroup:
-            label: API reference
-            topics:
-            - link:
-                label: Introduction to the SL API
-                href: https://sldn.softlayer.com/article/getting-started/
-            - link:
-                label: Python API Client Information
-                href: https://softlayer-python.readthedocs.io/en/latest/index.html
-        - topicgroup:
-            label: Command reference
-            topics:
-            - include: ../cli/reference/ibmcloud/cli_block_storage.md
-            - slcli-usage.md
-        - topicgroup:
-            label: Terraform reference
-            topics:
-              - link:
-                  label: Terraform reference
-                  href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block
-    - navgroup:
-        id: help
-        topics:
-        - topicgroup:
-            id: FAQs
-            label: FAQs
-            topics:
-            - faqs.md
-            - gethelp.md
-        - topicgroup:
-            id: troubleshooting
-            label: Troubleshooting
-            topics:
-            - win12-missing-devices.md
+  - navgroup:
+      id: learn
+      topics:
+      - getting-started.md
+      - best-practices.md
+      - snapshots.md
+      - link:
+          label: What is Block Storage?
+          href: https://www.ibm.com/think/topics/block-storage
+  - navgroup:
+      id: tutorial
+      topics:
+      - mounting_rhel8.md
+      - mounting_ubuntu20.md
+      - mounting_cloudlin8.md
+      - mounting-windows.md
+  - navgroup:
+      id: howto
+      topics:
+      - topicgroup:
+          id: ordering-storage
+          label: Provisioning
+          topics:
+          - provisioning-block_storage.md
+          - ordering-snapshots.md
+          - managing-storage-limits.md
+          - migrate-block-storage-encrypted-block-storage.md
+      - topicgroup:
+          id: configuring-storage
+          label: Configuring
+          topics:
+          - set-host-queue-depth-settings-performance-and-endurance-storage.md
+          - include: ../FileStorage/jumboframes.md
+          - configure-backup-cpanel.md
+          - configure-backup-plesk.md
+          - include: ../vmware/mounting-iscsi-vmware-esxi.md
+      - topicgroup:
+          id: managing-storage
+          label: Managing
+          topics:
+          - managing-block-storage.md
+          - expandable_block_storage.md
+          - adjustable-iops.md
+          - working-with-snapshots.md
+          - identify_LUNs.md
+      - topicgroup:
+          id: replication-dr
+          label: Replication and Disaster Recovery
+          topics:
+          - replication.md
+          - dr-accessible-primary.md
+          - disaster-recovery.md
+          - duplicate-volume.md
+      - topicgroup:
+          id: encryption-and-security
+          label: Enhancing Security
+          topics:
+          - availability.md
+          - data-security.md
+          - use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
+          - include: ../infrastructure-hub/encryption-classic-infra.md
+  - navgroup:
+      id: reference
+      topics:
+      - topicgroup:
+          label: Identity and Access Management
+          topics:
+          - include: ../account/iam-mnginfra.md
+      - topicgroup:
+          label: Service Level Agreement
+          topics:
+          - link:
+              label: Service Level Agreements for IBM Cloud (Public Cloud)
+              href: https://www.ibm.com/support/customer/csol/terms
+      - topicgroup:
+          label: Data portability
+          topics:
+          - topic: data-portability.md
+            navtitle: Understanding data portability for Block Storage for Classic
+      - topicgroup:
+          label: API reference
+          topics:
+          - link:
+              label: Introduction to the SL API
+              href: https://sldn.softlayer.com/article/getting-started/
+          - link:
+              label: Python API Client Information
+              href: https://softlayer-python.readthedocs.io/en/latest/index.html
+      - topicgroup:
+          label: Command reference
+          topics:
+          - include: ../cli/reference/ibmcloud/cli_block_storage.md
+          - slcli-usage.md
+      - topicgroup:
+          label: Terraform reference
+          topics:
+          - link:
+              label: Terraform reference
+              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block
+  - navgroup:
+      id: help
+      topics:
+      - topicgroup:
+          id: FAQs
+          label: FAQs
+          topics:
+          - faqs.md
+          - gethelp.md
+      - topicgroup:
+          id: troubleshooting
+          label: Troubleshooting
+          topics:
+          - win12-missing-devices.md
