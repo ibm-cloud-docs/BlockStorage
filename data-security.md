@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-11-03"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -38,14 +38,9 @@ All snapshots and replicas of encrypted Block Storage are also encrypted by defa
 ## Provisioning Storage with Encryption
 {: #createencryptedLUN1}
 
-The provider-managed encryption-at-rest feature is available for {{site.data.keyword.blockstorageshort}} in all 
-{{site.data.keyword.cloud}} data centers.
+The provider-managed encryption-at-rest feature is available in all [data centers](/docs/overview?topic=overview-locations#data-centers). All storage that is ordered in these data centers is automatically provisioned with encryption for data-at-rest.
 
-You can see a lock icon next to the Volume Name field that indicates that the volume is encrypted.
-
-![Figure 1. A list of block volumes is shown. Some of the volume names on the list end with a lock icon that indicates that the volume is encrypted.](images/encryptedstorage.svg){: caption="Example of the lock icon that indicates that the volume is encrypted." caption-side="bottom"}
-
-Nonencrypted storage that was provisioned before the data center was upgraded **isn't** automatically encrypted. If you own nonencrypted storage in an upgraded data center and you want encrypted storage, then you need to create a volume and migrate your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
+Any nonencrypted storage that was provisioned before a data center upgrade is **not** automatically encrypted. If you own nonencrypted storage in an upgraded data center and you want to have it encrypted, you need to create a volume and move your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {: important}
 
 ## Deleting {{site.data.keyword.blockstorageshort}} instances

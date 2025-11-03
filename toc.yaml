@@ -111,14 +111,5 @@ toc:
   - navgroup:
       id: help
       topics:
-      - topicgroup:
-          id: FAQs
-          label: FAQs
-          topics:
-          - faqs.md
-          - gethelp.md
-      - topicgroup:
-          id: troubleshooting
-          label: Troubleshooting
-          topics:
-          - win12-missing-devices.md
+      - faqs.md
+      - gethelp.md
