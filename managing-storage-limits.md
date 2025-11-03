@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-12-03"
+  years: 2014, 2025
+lastupdated: "2025-11-03"
 
 keywords: Block Storage for Classic, limit increase, global quota, quota increase
 
@@ -41,7 +41,7 @@ global       700                    99
 ```
 {: codeblock}
 
-For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-limits](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_limits){: external}.
+For more information about all of the parameters that are available, see [ibmcloud sl block volume-limits](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_limits){: external}.
 
 ### SLCLI
 {: #slcli1}
@@ -72,10 +72,8 @@ The output looks similar to the following example.
 
 To directly get this information from the API, use the following method: [`SoftLayer_Network_Storage/getVolumeCountLimits`](https://sldn.softlayer.com/reference/services/SoftLayer_Network_Storage/getVolumeCountLimits/){: external}.
 
-```curl
-curl -u $SL_USER:$SL_APIKEY 'https://api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/getVolumeCountLimits.json'
-
-SoftLayer_Container_Network_Storage_DataCenterLimits_VolumeCountLimitContainer[{"datacenterName":"global","maximumAvailableCount":700,"provisionedCount":99}]
+```sh
+curl -u $SL_USER:$SL_APIKEY 'https://api.softlayer.com/rest/v3.1/SoftLayer_Network_Storage/getVolumeCountLimits.json' SoftLayer_Container_Network_Storage_DataCenterLimits_VolumeCountLimitContainer[{"datacenterName":"global","maximumAvailableCount":700,"provisionedCount":99}]
 ```
 
 The API call shows the combined number of {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}}.

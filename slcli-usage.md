@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2024
-lastupdated: "2024-12-03"
+  years: 2014, 2025
+lastupdated: "2025-11-03"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -30,7 +30,7 @@ You can use the SLCLI to accomplish tasks that are normally handled through the 
    slcli subnets-list
    slcli subnets-remove
    ```
-   {: screen}
+   {: codeblock}
 
 ## Replication-related SLCLI commands
 {: #slclireplica}
@@ -44,7 +44,7 @@ You can use the SLCLI to accomplish tasks that are normally handled through the 
    slcli block replica-order
    slcli block replica-partners
    ```
-   {: screen}
+   {: codeblock}
 
 ## Snapshots-related SLCLI commands
 {: #slclisnaps}
@@ -53,7 +53,7 @@ You can use the SLCLI to accomplish tasks that are normally handled through the 
    ```sh
    slcli block snapshot-order
    ```
-   {: screen}
+   {: codeblock}
 
 * [Managing Snapshots](/docs/BlockStorage?topic=BlockStorage-managingSnapshots)
    ```sh
@@ -65,7 +65,7 @@ You can use the SLCLI to accomplish tasks that are normally handled through the 
    slcli block snapshot-disable
    slcli block snapshot-enable
    ```
-   {: screen}
+   {: codeblock}
 
 ## Volume-related SLCLI commands
 {: #sliclivolume}
@@ -74,43 +74,43 @@ You can use the SLCLI to accomplish tasks that are normally handled through the 
    ```sh
    slcli block volume-order
    ```
-   {: screen}
+   {: codeblock}
 
 * [Adjusting the IOPS](/docs/BlockStorage?topic=BlockStorage-adjustingIOPS)
    ```sh
-   slcli block volume-modify
+   slcli block volume-modify VOLUME_ID
    ```
-   {: screen}
+   {: codeblock}
 
 * [Expanding the capacity](/docs/BlockStorage?topic=BlockStorage-expandingcapacity)
    ```sh
-   slcli block volume-modify
+   slcli block volume-modify VOLUME_ID
    ```
-   {: screen}
+   {: codeblock}
 
 * [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage)
    ```sh
-   slcli block volume-cancel
+   slcli block volume-cancel VOLUME_ID
    slcli block volume-count
-   slcli block volume-detail
+   slcli block volume-detail VOLUME_ID
    slcli block volume-list
-   slcli block volume-set-lun-id
+   slcli block volume-set-lun-id VOLUME_ID
    ```
-   {: screen}
+   {: codeblock}
 
 * [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume)
    ```sh
-   slcli block volume-duplicate
-   slcli block volume-duplicate --dependent-duplicate TRUE <independent-vol-id>
-   slcli block volume-refresh <duplicate-vol-id> <parent-vol-snapshot-id>
-   slcli block volume-convert <dependent-vol-id>
-   slcli block duplicate-convert-status <dependent-vol-id>
+   slcli block volume-duplicate ORIGIN_VOLUME_ID
+   slcli block volume-duplicate ORIGIN_VOLUME_ID --dependent-duplicate TRUE
+   slcli block volume-refresh DUPLICATE_VOLUME_ID ORIGIN_VOLUME_ID
+   slcli block volume-convert DUPLICATE_VOLUME_ID
+   slcli block duplicate-convert-status DUPLICATE_VOLUME_ID
    ```
-   {: screen}
+   {: codeblock}
 
 * [Managing storage limits](/docs/BlockStorage?topic=BlockStorage-managingstoragelimits)
    ```sh
    slcli block volume-limit
    slcli block volume-count
    ```
-   {: screen}
+   {: codeblock}
