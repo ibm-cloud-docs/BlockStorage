@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-11-03"
 
 subcollection: BlockStorage
 
@@ -17,7 +17,6 @@ If you experience an issue or have questions when you use {{site.data.keyword.bl
 
 * Ask the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) in the console or from the {{site.data.keyword.cloud_notm}} CLI.
 * Review the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs) in the product Documentation.
-* Review the [troubleshooting Documentation](/docs/BlockStorage?topic=BlockStorage-troubleshootingWin12) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.cloud}} platform and resources by going to the [Status page](/status){: external}.
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `block-storage`, so it can be seen by the {{site.data.keyword.cloud_notm}} development teams.
 
