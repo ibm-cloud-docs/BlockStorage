@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-11-03"
 
 keywords: Block Storage for Classic, Plesk, backups, mountpoint, iSCSI
 
@@ -23,7 +23,7 @@ For more information, see [Plesk's Documentation for backing up and restoration]
 1. Connect to the host through SSH.
 2. Make sure that a mount point target exists.
 
-   Plesk has two options for storing backups. One option is the internal Plesk storage (backup storage on your Plesk server). The other option is an external FTP storage (backup storage on some external server in the web or your local network). Commonly on Plesk boxes, internal backups are stored in `/var/lib/psa/dumps` and use `/tmp` as a temporary directory. In this example, the temporary directory is kept local, but the `dumps` directory is moved to the {{site.data.keyword.blockstorageshort}} target (`/backup/psa/dumps`). No FTP user credentials are required.
+   Plesk has two options for storing backups. One option is the internal Plesk storage (backup storage on your Plesk server). The other option is an external FTP storage (backup storage on an external server in the web or your local network). Commonly on Plesk boxes, internal backups are stored in `/var/lib/psa/dumps` and use `/tmp` as a temporary directory. In this example, the temporary directory is kept local, but the `dumps` directory is moved to the {{site.data.keyword.blockstorageshort}} target (`/backup/psa/dumps`). No FTP user credentials are required.
    {: note}
 
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in one of the following tutorials. Mount {{site.data.keyword.blockstorageshort}} to `/backup` and configure `/etc/fstab` to enable mounting on start.
