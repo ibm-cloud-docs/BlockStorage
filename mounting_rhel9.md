@@ -32,7 +32,6 @@ If you're using another Linux&reg; operating system, refer to the Documentation 
 {: #beforemountingRHEL9}
 
 1. Make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
-{: requirement}
 
 1. An active [VPN connection](/docs/iaas-vpn?topic=iaas-vpn-using-ssl-vpn) is required to access to the private network of IBM Cloud and to interact with several services.
 
