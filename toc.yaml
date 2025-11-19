@@ -21,7 +21,7 @@ toc:
   - navgroup:
       id: tutorial
       topics:
-      - mounting_rhel8.md
+      - mounting_rhel9.md
       - mounting_ubuntu20.md
       - mounting_cloudlin8.md
       - mounting-windows.md
