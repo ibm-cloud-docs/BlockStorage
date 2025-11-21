@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-11-21"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -37,7 +37,7 @@ If you're using another Linux&reg; operating system, refer to the Documentation 
 
 1. Establish an SSH connection to your server. The IP address, username, and password can be found in the console. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), click **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** > ** Devices**. Then, locate your server in the list and click its name to display its details.
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your OS Documentation.
 
 ## Update the OS and install the iSCSI and multipath utilities
 {: #installutilsrhel9}

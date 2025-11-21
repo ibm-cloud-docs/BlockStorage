@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-11-21"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -22,21 +22,20 @@ completion-time: 1h
 {: toc-services=""}
 {: toc-completion-time="1h"}
 
-This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the Windows 2019 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with a Windows 2019 or Windows 2022 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
 ## Before you begin
 {: #authhostwin}
 {: step}
 
-If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your host's OS Documentation.
-{: attention}
+1. [Create a virtual server for Classic in the console](/docs/virtual-servers?group=provisioning-ht), from the CLI, with the API, or [Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-sample_infrastructure_config).
 
-It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
-{: important}
+1. [Order a block storage volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage) in the same data center.
 
-Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
-{: requirement}
+1. Make sure that the host is authorized to access the {{site.data.keyword.blockstorageshort}} volume. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}. After the authorization is complete, note the username, password, and host IQN information.
+
+If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your OS Documentation.
 
 The following activities are prerequisites on the iSCSI client:
 - Installation of Multipath-IO services 
@@ -44,15 +43,16 @@ The following activities are prerequisites on the iSCSI client:
 - Enabling support for multipath MPIO to iSCSI
 - Enabling automatic claiming of all iSCSI volumes
 
-It is important to restart the Windows client after installation of these prerequisites. The MPIO load-balancing policy requires a restart so that it can be set.
+Restart the Windows client after installation of these prerequisites. The MPIO load-balancing policy requires a restart so that it can be set.
 {: important}
 
 ## Installing the MPIO feature
 {: #installMPIOWin}
 {: step}
 
+1. Establish an RDP connection to your server with the Windows App.
 1. Start the Server Manager and browse to **Manage**, **Add Features**.
-2. Click **Next** to open the Features menu.
+2. Click **Next** until you get to the Features menu.
 3. Scroll down and check **Multipath I/O**.
 4. Click **Next** and **Install** to install MPIO on the host server.
 
@@ -68,37 +68,39 @@ It is important to restart the Windows client after installation of these prereq
 3. Select **Add support for iSCSI devices**, and click **Add**.
    
    ![The image shows the MPIO properties screen. The Discover Multi-paths tab is selected. The box that is next to Add support for iSCSI devices option is checked. The Add and OK buttons are also visible and active.](images/2-AddMPIOsupport4iSCSIdevices.svg){: caption="Enable MPIO support for ISCSI devices." caption-side="bottom"}
-4. If you're prompted to restart the server, click **Yes**. Otherwise, continue to the next step.
+1. Close the window by clicking **OK**.
 
 ## Configuring the iSCSI Initiator to discover the Target
 {: #configISCSIWin}
 {: step}
 
-1. From the Server Manager, start iSCSI Initiator, and select **Tools**, **iSCSI Initiator**.
-2. Click the **Configuration** tab.
-   1. The Initiator Name field might already be populated with an entry similar to `iqn.2024-07.com.ibm:`.
-   1. Click **Change** to replace existing values with your iSCSI Qualified Name (IQN)[^IQN].
+1. From the Server Manager, start iSCSI Initiator by selecting **Tools** > **iSCSI Initiator**.
+   1. If the iSCSI service is not running yet, the server prompts you to click **Yes** to start the service. Your server must be rebooted for the setting to take effect.
+   1. Return to the iSCSI Initiator properties screen.
+1. Click the **Configuration** tab.
+   1. The Initiator Name field might already be populated with an `iqn` entry.
+   1. Click **Change** to replace existing values with your iSCSI Qualified Name (IQN)[^IQN] from the console.
      
       ![The image shows the iSCSI Initiator Properties screen with the Initiator Name field that is prepopulated. The Change button is highlighted with a blue outline. ](images/3-ChangeIQN.svg){: caption="ISCSI Initiator Properties" caption-side="bottom"}
       [^IQN]: The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-   1. Click **Discovery**, and click **Discover Portal**.
+1. Click **Discovery**, and click **Discover Portal**.
      
       ![The image shows the Discovery tab in the iSCSI Initiator Properties screen. The Discover portal button is highlighted with a light blue background.](images/4-DiscoveryPortal.svg){: caption="ISCSI Initiator Properties, Discovery tab" caption-side="bottom"}
    1. Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
    1. Click **Advanced** to open the Advanced Settings window.
    1. On the Local adapter list, select Microsoft iSCSI Initiator.
    1. On the Initiator IP list, select the IP address of the host.
-   1. On the Target Portal IP list, select the IP of one of the storage interfaces.
+   1. On the Target Portal IP list, select the IP of the block volume.
    1. Select **Enable CHAP log-on** to turn on CHAP authentication.
 
       ![The image shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected. The Name field contains an IBM Cloud volume name, and the Target secret field is active.](images/5-AdvancedCHAPLogOn.svg){: caption="Enable CHAP Login in Advanced Settings." caption-side="bottom"}
    1. In the **Name** field, delete any existing entries and input the username from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    1. In the **Target secret** field, enter the password from the [{{site.data.keyword.cloud_notm}} console](/login){: external}. This field is case-sensitive.
    1. Click **OK** on **Advanced Settings** and **Discover Target Portal** windows to get back to the main iSCSI Initiator Properties screen. If you receive authentication errors, check the username and password entries.
-3. The name of your target appears in the Discovered targets section with an `Inactive` status. Click **Connect** to connect to the target.
+1. On the Targets screen, the name of your target appears in the Discovered targets section with an `Inactive` status. Click **Connect** to connect to the target.
 
    ![The image shows the Target tab of the iSCSI Initiator Properties screen. The discovered target is in inactive status.](images/6-ConnectDiscoveredTarget.svg){: caption="Discovered Target in the ISCSI Initiator Properties window." caption-side="bottom"}
-4. Select **Enable multi-path** checkbox to enable multi-path IO to the target.
+1. Select **Enable multi-path** checkbox to enable multi-path IO to the target.
 
    ![The image shows the Connect to Target screen, the Enable Multi-path option is selected. Advanced and OK buttons are highlighted with a blue outline.](images/7-CHAPLogon4Connection.svg){: caption="Enable multi-path IO on the Connect to Target screen." caption-side="bottom"}
 5. Click **Advanced**, and select **Enable CHAP log-on**.
@@ -141,7 +143,7 @@ It is important to restart the Windows client after installation of these prereq
    ![The image shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected for adding the credentials of the 2nd target.](images/11-InputCHAPcredentials2ndTarget.svg){: caption="Adding CHAP credentials for the 2nd target in Advanced Settings." caption-side="bottom"}
 8. Now the Properties window displays more than one session within the Identifier pane. It means that you have more than one session into the iSCSI storage.
     
-   ![The image shows the Properties window, and its Sessions tab. Two connected sessions are displayed in the list.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
+   ![The image shows the Properties window, and the Sessions screen. Two connected sessions are displayed in the list.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
 
    If your host has multiple interfaces that you want to connect to the storage, you can set up another connection with the address of the second NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
    {: note}
