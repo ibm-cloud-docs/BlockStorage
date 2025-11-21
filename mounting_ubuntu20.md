@@ -17,7 +17,7 @@ completion-time: 1h
 {{site.data.keyword.attribute-definition-list}}
 
 # Mount iSCSI volume on Ubuntu OS
-{: #mountingUbu20}
+{: #mountingubu24}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="1h"}
@@ -25,30 +25,36 @@ completion-time: 1h
 This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with an Ubuntu operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
+For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://documentation.ubuntu.com/server/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
 {: tip}
 
 ## Before you begin
-{: #beforemountingUbu20}
+{: #beforemountingubu24}
+
+1. [Create a virtual server for Classic in the console](/docs/virtual-servers?group=provisioning-ht), from the CLI, with the API, or [Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-sample_infrastructure_config).
+
+1. [Order a block storage volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage) in the same data center.
+
+1. Make sure that the host is authorized to access the {{site.data.keyword.blockstorageshort}} volume. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}. After the authorization is complete, note the username, password, and host IQN information.
 
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your OS Documentation.
+
+Before you start configuring iSCSI, make sure that the network interfaces are correctly set and configured for the open-iscsi package to work correctly, especially during startup time. In newer versions of Ubuntu, the main tool for setting network address information is [Netplan](https://netplan.readthedocs.io/en/latest/examples/#){: external}. It uses a YAML configuration file to define network settings, replacing older methods like `/etc/network/interfaces`. Netplan can be configured with the command line or through the NetworkManager in desktop environments.
 
 It's best to run storage traffic on a VLAN, which bypasses the firewall. Running storage traffic through software firewalls increases latency and adversely affects storage performance. For more information about routing storage traffic to its own VLAN interface, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#howtoisolatedstorage).
 {: important}
 
-Before you start configuring iSCSI, make sure that the network interfaces are correctly set and configured for the open-iscsi package to work correctly, especially during startup time. In newer versions of Ubuntu, the main tool for setting network address information is [Netplan](https://netplan.readthedocs.io/en/latest/examples/#){: external}. It uses a YAML configuration file to define network settings, replacing older methods like `/etc/network/interfaces`. Netplan can be configured with the command line or through the NetworkManager in desktop environments. 
-
-For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://documentation.ubuntu.com/server/iscsi-initiator-or-client/){: external} Documentation.
-{: tip}
-
-Also, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
-{: requirement}
-
 ## Install the iSCSI and multipath utilities
-{: #installutilsubu20}
+{: #installutilsubu24}
 {: step}
 
 Make sure that your system is updated and includes the `open-iscsi` and `multipath-tools` packages. Use the following commands to install the packages.
+
+- Updated the OS:
+   ```sh
+   apt-get update
+   ```
+   {: pre}
 
 - Install `open-iscsi`.
 
@@ -61,6 +67,18 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
     * `/etc/iscsi/iscsid.conf`
     * `/etc/iscsi/initiatorname.iscsi`
 
+- Start the services:
+    
+    ```sh
+    systemctl enable open-iscsi
+    ```
+    {: pre}
+
+    ```sh
+    systemctl enable iscsid  
+    ```
+    {: pre}
+
 - Install `multipath-tools`.
 
     ```sh
@@ -68,15 +86,78 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
      ```
     {: pre}
 
-    If you want to boot from the volume, then the `multipath-tools-boot` package needs to be installed as well.
-    {: tip}
-
-## Set up the multipath
-{: #setupmultipathdubu20}
+## Configure ISCSI
+{: #updateiscsiconfigubu24}
 {: step}
 
-1. After you installed the multipath utility, create an empty configuration file that is called `/etc/multipath.conf`.
-2. Modify the default values of `/etc/multipath.conf`.
+### Updating Initiator name
+{: #updateinitiatorubu24}
+
+1. Check that the `/etc/iscsi/initiatorname.iscsi` file exists and review its contents.
+
+   ```sh
+   cat /etc/iscsi/initiatorname.iscsi 
+   ```
+   {: pre}
+   
+   ```sh
+   root@vsi4classicubuntu:~# cat /etc/iscsi/initiatorname.iscsi  
+   GenerateName=yes  
+   ```
+   {: screen}
+
+1. By using a text editor, update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value in the the following format.
+
+   ```sh
+   InitiatorName=<IQN-value-from-the-portal>
+   ```
+   {: pre}
+
+### Configuring credentials
+{: #configcredubu24}
+{: step}
+
+1. Make sure that the `iscsid.conf` file exist by checking its contents.
+   ```sh
+   cat /etc/iscsi/iscsid.conf
+   ```
+   {: pre} 
+
+1. By using the text editor, uncomment and edit the following entries. You can find the username and password in the {{site.data.keyword.cloud}} console.
+
+   ```text
+   node.session.auth.authmethod = CHAP
+   node.session.auth.username = <Username-value-from-Portal>
+   node.session.auth.password = <Password-value-from-Portal>
+   discovery.sendtargets.auth.authmethod = CHAP
+   discovery.sendtargets.auth.username = <Username-value-from-Portal>
+   discovery.sendtargets.auth.password = <Password-value-from-Portal>
+   ```
+   {: codeblock}
+
+   Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
+   {: important}
+
+1. Restart the iscsi service for the changes to take effect.
+
+   ```sh
+   systemctl restart iscsid.service
+   ```
+   {: pre}
+
+For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/questing/en/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/questing/en/man1/systemctl.1.html){: external}.
+
+## Set up the multipath
+{: #setupmultipathdubu24}
+{: step}
+
+1. After you installed the multipath utility, you can check the default content of the `multipath.conf` file.
+   ```sh
+   cat /etc/multipath.conf
+   ```
+   {: pre}  
+
+2. Modify the default values of `/etc/multipath.conf` with a text editor by replacing them with the contents of the following snipet.
 
    ```sh
    defaults {
@@ -109,63 +190,27 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    rr_min_io 128
    }
    ```
-   {: screen}
+   {: codeblock}
 
    The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/questing/en/man5/multipath.conf.5.html){: external}.
 
-3. Save the configuration file and exit the editor, if necessary.
+3. Save the configuration file and exit the editor.
 4. Start the multipath service.
+
    ```sh
    service multipath-tools start
    ```
    {: pre}
+
+   3. Enable the necessary services.
 
    If you need to edit the multipath configuration file after you started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
    {: note}
 
    For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Device Mapper Multipathing - Introduction](https://documentation.ubuntu.com/server/introduction-to-device-mapper-multipathing/){: external}.
 
-## Update /etc/iscsi/initiatorname.iscsi file
-{: #updateinitiatorubu20}
-{: step}
-
-Update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value as lowercase.
-
-```sh
-InitiatorName=<value-from-the-Portal>
-```
-{: pre}
-
-## Configure credentials
-{: #configcredubu20}
-{: step}
-
-Edit the following settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
-
-```text
-node.session.auth.authmethod = CHAP
-node.session.auth.username = <Username-value-from-Portal>
-node.session.auth.password = <Password-value-from-Portal>
-discovery.sendtargets.auth.authmethod = CHAP
-discovery.sendtargets.auth.username = <Username-value-from-Portal>
-discovery.sendtargets.auth.password = <Password-value-from-Portal>
-```
-{: codeblock}
-
-Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
-{: important}
-
-Restart the iscsi service for the changes to take effect.
-
-```sh
-systemctl restart iscsid.service
-```
-{: pre}
-
-For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/questing/en/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/questing/en/man1/systemctl.1.html){: external}.
-
 ## Discover the storage device and login
-{: #discoverandloginubu20}
+{: #discoverandloginubu24}
 {: step}
 
 The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/en/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
@@ -178,30 +223,28 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 
    If the IP information and access details are displayed, then the discovery is successful.
 
+   ```sh
+   root@vsi4classicubuntu:~# iscsiadm -m discovery -t sendtargets -p 161.26.114.197  
+   161.26.114.197:3260,1052 iqn.1992-08.com.netapp:stfdal1304
+   161.26.114.196:3260,1049 iqn.1992-08.com.netapp:stfdal1304
+   ```
+   {: screen}  
+
 2. Configure automatic login.
    ```sh
    sudo iscsiadm -m node --op=update -n node.conn[0].startup -v automatic
    sudo iscsiadm -m node --op=update -n node.startup -v automatic
    ```
-3. Enable the necessary services.
-   ```sh
-   systemctl enable open-iscsi
-   systemctl enable iscsid
-   ```
-
-4. Restart the iscsid service.
-   ```sh
-   systemctl restart iscsid.service
-   ```
+   {: codeblock}
 
 5. Log in to the iSCSI array.
    ```sh
-   sudo iscsiadm -m node --loginall=automatic
+   sudo iscsiadm -m node --login
    ```
    {: pre}
 
 ## Verifying configuration
-{: #verifyconfigubu20}
+{: #verifyconfigubu24}
 {: step}
 
 1. Validate that the iSCSI session is established.
@@ -210,7 +253,15 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
    ```
    {: pre}
 
+   ```sh
+   root@vsi4classicubuntu:~# iscsiadm -m session -o show  
+   tcp: [3] 161.26.114.197:3260,1052 iqn.1992-08.com.netapp:stfdal1304 (non-flash)  
+   tcp: [4] 161.26.114.196:3260,1049 iqn.1992-08.com.netapp:stfdal1304 (non-flash)  
+   ```
+   {: scteen}
+
 2. Validate that multiple paths exist.
+   
    ```sh
    multipath -ll
    ```
@@ -218,25 +269,21 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 
    This command reports the paths. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach a volume with a single path, but it is important that connections are established on both paths to ward against disruption of service.
 
-   ```text
-   $ sudo multipath -ll
-   mpathb (360014051f65c6cb11b74541b703ce1d4) dm-1 LIO-ORG,TCMU device
-   size=1.0G features='0' hwhandler='0' wp=rw
-   |-+- policy='service-time 0' prio=1 status=active
-   | `- 7:0:0:2 sdh 8:112 active ready running
-   `-+- policy='service-time 0' prio=1 status=enabled
-     `- 8:0:0:2 sdg 8:96  active ready running
-   mpatha (36001405b816e24fcab64fb88332a3fc9) dm-0 LIO-ORG,TCMU device
-   size=1.0G features='0' hwhandler='0' wp=rw
-   |-+- policy='service-time 0' prio=1 status=active
-   | `- 7:0:0:1 sdj 8:144 active ready running
-   `-+- policy='service-time 0' prio=1 status=enabled
-     `- 8:0:0:1 sdi 8:128 active ready running
+   ```sh
+   root@vsi4classicubuntu:~# multipath -ll  
+    3600a0980383056666424506a33426478 dm-0 NETAPP,LUN C-Mode
+    size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua'
+    wp=rw
+    |-+- policy='service-time 0' prio=50 status=active
+    | `- 3:0:0:0 sdb 8:16 active ready running
+    `-+- policy='service-time 0' prio=10 status=enabled
+      `- 2:0:0:0 sda 8:0    active ready running
    ```
+   {: screen}
 
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
-   In the example,`36001405b816e24fcab64fb88332a3fc9` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf.
+   In the example,`3600a0980383056666424506a33426478` is the WWID that is persistent while the volume exists. It is recommended that your application uses the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf.
    {: tip}
 
 3. Check `dmesg` to make sure that the new disks are detected.
@@ -246,7 +293,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
    {: pre}
 
 ## Creating a partition and a file system (optional)
-{: #createfilesysubu20}
+{: #createfilesysubu24}
 {: step}
 
 After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume.
@@ -284,6 +331,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
    Command (m for help): w
    The partition table has been altered.
    ```
+   {: screen}
 
 2. Create the file system.
    ```text
