@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-11-28"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -431,7 +431,7 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
 
 1. Unmount and detach your storage volume from the host to make sure that the host is not connected to the volume during the restore.
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#unmountingLin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#unmountingLin)
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Microsoft server](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
@@ -447,9 +447,9 @@ You might need to take your storage volume back to a specific point in time beca
    {: note}
 
 6. Mount and reattach your storage volume to the host.
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
@@ -462,7 +462,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 You might need to take your storage volume back to a specific point in time because of user-error or data corruption. 
 
 1. Unmount your volume. You must make sure that the host is not trying to connect to the volume during the restore.
-   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#unmountingLin)
+   - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#unmountingLin)
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
 
 2. Then, you can restore the volume with a snapshot by using one of the following commands.
@@ -489,9 +489,9 @@ You might need to take your storage volume back to a specific point in time beca
      {: screen}
 
 3. Lastly, mount and reattach your storage volume to the host.
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.

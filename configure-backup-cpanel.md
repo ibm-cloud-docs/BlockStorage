@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-04"
+lastupdated: "2025-11-28"
 
 keywords: Block Storage for Classic, cPanel, backups, mountpoint, iSCSI
 
@@ -27,9 +27,9 @@ While you can store a backup directly to a remote filesystem, cPanel and WHM do 
    {: note}
 
 3. Configure your {{site.data.keyword.blockstorageshort}} as described in one of the following tutorials. Make sure that you mount it to `/backup2` and configure it in `/etc/fstab` to enable mounting on start.
-    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
     - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
 
 4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
    ```sh

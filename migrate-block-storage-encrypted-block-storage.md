@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-11-28"
 
 keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -46,9 +46,9 @@ For more information, see [Authorizing the host in the console](/docs/BlockStora
 
 1. Connect to both your original and new {{site.data.keyword.blockstorageshort}} volumes.
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
 
    If you need assistance with connecting the two volumes to your host, open a support case.
    {: tip}

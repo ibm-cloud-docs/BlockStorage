@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-11-28"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -17,7 +17,7 @@ completion-time: 2h
 {{site.data.keyword.attribute-definition-list}}
 
 # Mount iSCSI volume on Red Hat Enterprise Linux 9
-{: #mountingRHEL9}
+{: #mountingRHEL}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="2h"}

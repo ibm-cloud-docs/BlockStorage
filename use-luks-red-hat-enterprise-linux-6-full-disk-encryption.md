@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-28"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -18,9 +18,9 @@ You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup
 {: shortdesc}
 
 These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see one of the following topics.
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
 
 All new {{site.data.keyword.blockstorageshort}} is automatically provisioned with provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](/docs/BlockStorage?topic=BlockStorage-mng-data).
 {: note}

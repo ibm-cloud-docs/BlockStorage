@@ -2,7 +2,7 @@
 
 copyright:
  years: 2014, 2025 
-lastupdated: "2025-09-11"
+lastupdated: "2025-11-28"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -103,9 +103,9 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 {: step}
 
 When your provisioning request is complete, authorize your hosts to access the new storage, and configure your connection. Depending on your host's operating system, follow the appropriate link.
-- [RHEL 8]{: tag-linux} [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+- [RHEL 9]{: tag-linux} [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 9](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
 - [CloudLinux 8]{: tag-linux} [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-- [Ubuntu 20]{: tag-linux} [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+- [Ubuntu 24]{: tag-linux} [Mount iSCSI volume on Ubuntu OS](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
 - [Windows]{: tag-windows}[Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 - [cPanel]{: tag-app}[Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel](/docs/BlockStorage?topic=BlockStorage-cPanelBackups).
 - [Plesk]{: tag-app} [Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk](/docs/BlockStorage?topic=BlockStorage-PleskBackups).

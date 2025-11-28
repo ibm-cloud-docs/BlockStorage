@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-11-28"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -17,7 +17,7 @@ completion-time: 1h
 {{site.data.keyword.attribute-definition-list}}
 
 # Mount iSCSI volume on Ubuntu OS
-{: #mountingubu24}
+{: #mountingubuntu}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="1h"}
@@ -106,7 +106,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    ```
    {: screen}
 
-1. By using a text editor, update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value in the the following format.
+1. By using a text editor, update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. Enter the value in the following format.
 
    ```sh
    InitiatorName=<IQN-value-from-the-portal>
@@ -117,7 +117,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
 {: #configcredubu24}
 {: step}
 
-1. Make sure that the `iscsid.conf` file exist by checking its contents.
+1. Make sure that the `iscsid.conf` file exists by checking its contents.
    ```sh
    cat /etc/iscsi/iscsid.conf
    ```
@@ -157,7 +157,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    ```
    {: pre}  
 
-2. Modify the default values of `/etc/multipath.conf` with a text editor by replacing them with the contents of the following snipet.
+2. Modify the default values of `/etc/multipath.conf` with a text editor by replacing them with the contents of the following snippet.
 
    ```sh
    defaults {

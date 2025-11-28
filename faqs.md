@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-11-28"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -240,9 +240,9 @@ To enact this best practice, complete the following steps.
 6. Make sure that the IP for the newly added interface is added to the host authorization list.
 7. Perform discovery and log in to target portal as described in the following topics.
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
 
 ## Is it good to run iSCSI traffic over 802.3ad LACP port channel?
 {: #MPIOvsLACP}
@@ -348,9 +348,9 @@ This issue can be observed with hosts that have incorrect MPIO settings. When MP
 {: support}
 
 It's possible to attach a volume with a single path, but it is important that connections are established on both paths to ward against disruption of service. For more information about configuring MPIO connections, see the following articles.
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
@@ -359,10 +359,10 @@ It's possible to attach a volume with a single path, but it is important that co
 {: support}
 
 During a planned maintenance or an unplanned disruption, one of the routes is taken down. If MPIO is configured correctly, the host can still access the attached storage through the second path. For more information about the MPIO settings, see the following topics.
-   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8).
+   - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
-   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbu20).
-   - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#verifyMPIOLinux)
+   - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#verifyMPIOLinux)
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
    - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)
 
@@ -589,7 +589,7 @@ To see the new expanded volume size, you need to rescan and reconfigure your exi
 {: #add-mpio}
 {: faq}
 
-Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for iSCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL8#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
+Seeing two disks in Disk Management can occur if MPIO is not installed or is disabled for iSCSI. To verify the MPIO configuration, refer to the steps for [Verifying MPIO configuration for Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#verifyMPIOLinux) or [Verifying whether MPIO is configured correctly in Windows Operating systems](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows).
 
 ## How do I reconnect storage after a chassis swap?
 {: #chassis-swap}
