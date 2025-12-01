@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-28"
+lastupdated: "2025-12-01"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -290,7 +290,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
 Follow these steps to create a file system on the newly mounted volume. A file system is necessary for most applications to use the volume. Use [`fdisk` for drives that are less than 2 TB](#fdiskrhel) and [`parted` for a disk bigger than 2 TB](#partedrhel).
 
 ### Creating a file system with `fdisk`
-{: #fdiskrhel9}
+{: #fdiskrhel}
 
 1. Get the disk name.
    ```sh
@@ -429,7 +429,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.  
 
 ### Creating a file system with `parted`
-{: #partedrhel9}
+{: #partedrhel}
 
 On Red Hat Enterprise Linux&reg; 9, `parted` comes preinstalled. However, if you need to, you can install it by issuing the following command.
 
@@ -534,7 +534,7 @@ To create a file system with `parted`, follow these steps.
 As a system administrator, you can manage the access to data on the mounted volume. After the file system is ready, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see [Red Hat's tutorial: How to manage Linux permissions for users, groups, and others](https://www.redhat.com/en/blog/manage-permissions){: external}.
 
 ## Verifying MPIO configuration
-{: #verifyMPIOLinuxrhel9}
+{: #verifyMPIOLinux}
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
@@ -594,7 +594,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 * If a volume is provisioned and attached while the second path is down, the host might see a single path when the discovery scan is run for the first time. If you encounter this rare phenomenon, check the [{{site.data.keyword.cloud}} status page](https://{DomainName}/status?component=block-storage&selected=status){: external} to see whether an event that impacts your host's ability to access the storage is in progress. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](https://{DomainName}/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
-{: #unmountingLinrhel9}
+{: #unmountingLin}
 
 1. Unmount the file system.
    ```sh
