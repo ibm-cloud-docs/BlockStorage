@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-28"
+lastupdated: "2025-12-01"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -17,7 +17,7 @@ completion-time: 1h
 {{site.data.keyword.attribute-definition-list}}
 
 # Mount iSCSI volume on Ubuntu OS
-{: #mountingubuntu}
+{: #mountingUbuntu}
 {: toc-content-type="tutorial"}
 {: toc-services=""}
 {: toc-completion-time="1h"}

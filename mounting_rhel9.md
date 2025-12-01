@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-28"
+lastupdated: "2025-12-01"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -534,7 +534,7 @@ To create a file system with `parted`, follow these steps.
 As a system administrator, you can manage the access to data on the mounted volume. After the file system is ready, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see [Red Hat's tutorial: How to manage Linux permissions for users, groups, and others](https://www.redhat.com/en/blog/manage-permissions){: external}.
 
 ## Verifying MPIO configuration
-{: #verifyMPIOLinuxrhel9}
+{: #verifyMPIOLinux}
 
 If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
