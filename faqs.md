@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-11-28"
+lastupdated: "2025-12-03"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -206,7 +206,7 @@ The storage system uses base-2 units for volume allocation. So if your volume is
 
 Pre-warming is not needed. You can observe specified throughput immediately upon provisioning the volume.
 
-## Can more throughput be achieved by using a faster Ethernet connection?
+## Does a faster Ethernet connection achieve increased throughput?
 {: #ethernet}
 {: faq}
 {: support}
@@ -331,7 +331,7 @@ The cancellation process for this storage device is in progress so the Cancel ac
 {: faq}
 {: #accidentaldeletion}
 
-The answer depends on how long ago you deleted the storage volume, and if you chose to delete immediately or on anniversary date. If the deletion happened in the last 24 hours or the anniversary date is still yet to come, the volume might still be waiting to be reclaimed. If the volume status is "Cancellation pending", you can contact support to void the cancellation request. It's important to act fast because when the reclaim-period expires, the data is deleted automatically and it is no longer possible to restore.
+The answer depends on how long ago you deleted the storage volume, and if you chose to delete immediately or on the anniversary date. If the deletion happened in the last 24 hours or the anniversary date is still yet to come, the volume might still be waiting to be reclaimed. If the volume status is "Cancellation pending", you can contact support to void the cancellation request. It's important to act fast because when the reclaim-period expires, the data is deleted automatically and it is no longer possible to restore.
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}
