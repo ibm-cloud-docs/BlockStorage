@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-12-03"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -236,7 +236,7 @@ For more information about available command options, see [`block volume-duplica
 {: #cloneinAPI}
 {: api}
 
-To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call to the SL API. The following REST API example creates an independent duplicate for an Endurance (IOPS tiers) volume, that is identified by its volume ID in the `duplicateOriginVolumeId` property.
+To order an **independent duplicate** {{site.data.keyword.blockstorageshort}} volume with the API, you can make a `POST` call to the SL API. The following REST API example creates an independent duplicate for an Endurance (IOPS tiers) volume, which is identified by its volume ID in the `duplicateOriginVolumeId` property.
 
 - URL - `https://USERNAME:APIKEY@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder`
 - Type - POST
