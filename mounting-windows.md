@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-12-03"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -86,7 +86,7 @@ Restart the Windows client after installation of these prerequisites. The MPIO l
 1. Click **Discovery**, and click **Discover Portal**.
      
       ![The image shows the Discovery tab in the iSCSI Initiator Properties screen. The Discover portal button is highlighted with a light blue background.](images/4-DiscoveryPortal.svg){: caption="ISCSI Initiator Properties, Discovery tab" caption-side="bottom"}
-   1. Input the IP address of your iSCSI target and leave the Port at the default value of 3260.
+   1. Input the IP address of your iSCSI target and keep the default value of 3260 for the Port.
    1. Click **Advanced** to open the Advanced Settings window.
    1. On the Local adapter list, select Microsoft iSCSI Initiator.
    1. On the Initiator IP list, select the IP address of the host.

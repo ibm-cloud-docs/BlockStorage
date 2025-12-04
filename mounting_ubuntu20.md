@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-12-01"
+lastupdated: "2025-12-03"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -50,7 +50,7 @@ It's best to run storage traffic on a VLAN, which bypasses the firewall. Running
 
 Make sure that your system is updated and includes the `open-iscsi` and `multipath-tools` packages. Use the following commands to install the packages.
 
-- Updated the OS:
+- Update the OS:
    ```sh
    apt-get update
    ```
@@ -135,7 +135,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    ```
    {: codeblock}
 
-   Leave the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
+   Keep the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
    {: important}
 
 1. Restart the iscsi service for the changes to take effect.

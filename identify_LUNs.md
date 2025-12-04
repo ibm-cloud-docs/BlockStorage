@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2025-03-19"
+lastupdated: "2025-12-03"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -38,7 +38,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    Note "1:0:0:0" and "3:0:0:1". The last digits in each of these fields "1:0:0:0" and "3:0:0:1", the "0" and "1" are the iscsi LUN ID numbers of your block storage devices.
 
-2. Enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
+2. Enter the following CLI commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
 
    ```sh
    $ ibmcloud sl block volume-list
@@ -199,7 +199,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
    ```
    {: screen}
 
-2. Then, enter the following ibmcloud cli commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
+2. Then, enter the following CLI commands: `ibmcloud sl block volume-list` and `ibmcloud sl block volume-detail` to compare their outputs to the information that you collected in Step 1.
 
    ```sh
    $ ibmcloud sl block volume-list
