@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-  lastupdated: "2025-12-03"
+lastupdated: "2025-12-03"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
