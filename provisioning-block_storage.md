@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-11-28"
+  years: 2014, 2026
+lastupdated: "2026-01-13"
 
 keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -23,7 +23,7 @@ You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet 
     - **0.25 IOPS per GB** is designed for workloads with low I/O intensity. These workloads are typically characterized by having a large percentage of data inactive at a time. Example applications include storing mailboxes or departmental-level file shares. The CLI and API responses show this tier as `LOW_INTENSITY_TIER`.
     - **2 IOPS per GB** is designed for most general-purpose usage. Example applications include hosting small databases that are backing web applications or virtual machine disk images for a hypervisor. The CLI and API responses show this tier as `READHEAVY_TIER`.
     - **4 IOPS per GB** is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases. The CLI and API responses show this tier as `WRITEHEAVY_TIER`.
-    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB.The CLI and API responses show this tier as `10_IOPS_PER_GB`.
+    - **10 IOPS per GB** is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. This tier is available for storage that is provisioned up to 4 TB. The CLI and API responses show this tier as `10_IOPS_PER_GB`.
 
 - You can fine-tune your storage to meet specific performance requirements and build a high-powered **Performance** environment by specifying the total number of input/output operations per second (IOPS). The available **custom** IOPS range depends on the volume capacity. The following table shows the available IOPS ranges based on volume size.
 
@@ -53,7 +53,7 @@ By default, you can provision a combined total of 700 {{site.data.keyword.blocks
 2. Select your deployment location (region, location, zone).
    - Make sure that the new Storage is added in the same location as the Compute host or hosts that you have.
 3. Billing. You can choose between Monthly or Hourly Billing.
-   - With **hourly** billing, the number of hours the block volume existed on the account is calculated at the time the volume is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month.
+   - With **hourly** billing, the number of hours the block volume was present on the account is calculated at the time the volume is deleted or at the end of the billing cycle. Which ever comes first. Hourly billing is a good choice for storage that is used for a few days or less than a full month.
    - With **monthly** billing, the calculation for the price is pro-rated from the date of creation to the end of the billing cycle and billed immediately. If a block volume is deleted before the end of the billing cycle, the difference is not refunded. Monthly billing is a good choice for storage that is used in production workloads that use data that needs to be stored and accessed for long periods of time (month or longer).
 
 4. Enter your storage size in the **Size** field.
@@ -136,7 +136,7 @@ The method `order_block_volume` (storage_type, location, size, os_type, iops=Non
 
 For a successful order, you must specify the following parameters:
 - `storage_type` – ‘performance’ or ‘endurance’
-- `location` – Datacenter in which to order iSCSI volume
+- `location` – Data center in which to order iSCSI volume
 - `size` – Size of the volume, in GB
 - `os_type` – OS Type to use for volume alignment, see help for list
 - `iops` – Number of IOPS for a “Performance” order
@@ -218,7 +218,7 @@ When your provisioning request is complete, authorize your hosts to access the n
 ## Disaster recovery considerations
 {: #DRconsiderations}
 
-To avoid data-loss and to ensure business continuity, consider replicating your servers and storage in another data center. Replication keeps your data in sync in two different locations based on your snapshot schedule. For more information, see [Replicating data](/docs/BlockStorage?topic=BlockStorage-replication).
+To avoid data-loss and to safeguard business continuity, consider replicating your servers and storage in another data center. Replication keeps your data in sync in two different locations based on your snapshot schedule. For more information, see [Replicating data](/docs/BlockStorage?topic=BlockStorage-replication).
 
 If you want to clone your volume and use it independently from the original volume, see [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
 

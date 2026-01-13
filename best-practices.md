@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-03-18"
+  years: 2014, 2026
+lastupdated: "2026-01-13"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -95,7 +95,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **Tune the I/O queue depth**. Change `/etc/iscsi/iscsid.conf node.session.queue_depth` from the default 32 to 64. Most host bus adapters (HBA) have a default queue depth of around 32, which is usually enough to generate up to the target maximum IOPS. If you have only one path to the volume, then that's the maximum number of IOPS. However, the same volume with 2 or more sessions would be able to push more I/O's per second of storage throughput to the target volume. The flip-side of increasing I/O depth is that it increases latency. To counteract the latency, enable Jumbo Frames. For more information about host queue depth recommendations, see [Adjusting Host Queue settings](/docs/BlockStorage?topic=BlockStorage-hostqueuesettings).
 
-* **[Enable Jumbo Frames](/docs/FileStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device > switch > router > switch > target device. If the entire chain isn't set the same, it defaults to the lowest setting along the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value.
+* **[Enable Jumbo Frames](/docs/FileStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device > switch > router > switch > target device. If the entire chain isn't set the same, the system applies the minimum value that's detected within the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value.
 
    Setting MTU to 9000 on your host has the following benefits:
     - Data can be transmitted in fewer frames.

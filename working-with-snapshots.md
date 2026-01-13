@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-11-28"
+  years: 2014, 2026
+lastupdated: "2026-01-13"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -436,7 +436,7 @@ You might need to take your storage volume back to a specific point in time beca
 2. Go to the [{{site.data.keyword.cloud}} console](/login){: external}. From the menu, select **Classic Infrastructure** ![Classic icon](../icons/classic.svg "Classic").
 3. Click **Storage**, **{{site.data.keyword.blockstorageshort}}**.
 3. Scroll on the list, and click your volume to be restored. The **Snapshots** page displays the list of all saved snapshots along with their size and creation date.
-4. Next to the snapshot that you want to use, click **Actions**![Actions icon](../icons/action-menu-icon.svg "Actions"), and click **Restore**.
+4. Next to the snapshot that you want to use, click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions"), and click **Restore**.
 
    Completing the restore results in the loss of the data that was created or modified after the snapshot was taken. This data loss occurs because your storage volume returns to the same state that it was in of the time of the snapshot.
    {: note}
