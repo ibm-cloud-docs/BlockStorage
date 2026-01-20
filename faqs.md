@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-12-03"
+  years: 2014, 2026
+lastupdated: "2026-01-20"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -370,7 +370,7 @@ When the normally load-balanced storage data paths are temporarily suspended, th
 
 On rare occasions, a volume is provisioned and attached while the second path is down. In such instances, the host might see one single path when the discovery scan is run. If you encounter this phenomenon, check the [{{site.data.keyword.cloud}} status page](/status?component=block-storage&selected=status){: external} to see whether an event might be impacting your host's ability to access the storage. If no events are reported, perform the discovery scan again to make sure that all paths are properly discovered. If an event is in progress, the storage can be attached with a single path. However, it's essential that paths are rescanned after the event is completed. If both paths are not discovered after the rescan, [create a support case](/unifiedsupport/cases/add){: external} so it can be properly investigated.
 
-For a more stable connection in a VMware deployment, mount the network storage on the hypervisor first as described in [Mounting ISCSI VMware ESXi](/docs/vmware?topic=vmware-mount-iscsi-esxi). Then, create the VMs, and mount the attached storage volume from the virtual server's OS with a multipath connection. For more information, see [Using ESXi with iSCSI SAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/using-esxi-with-iscsi-san.html){: external}, [Understanding Multipathing and Failover in the ESXi Environment](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/understanding-multipathing-and-failover-in-the-esxi-environment.html#GUID-DD2FFAA7-796E-414C-84CE-1FCC14474D5B-en){: external}, and [Setting Up Network for iSCSI and iSER with ESXi](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/setting-up-network-for-iscsi-and-iser-with-esxi.html#GUID-0D31125F-DC9D-475B-BC3D-A3E131251642-en){: external}.
+For a more stable connection in a VMware deployment, mount the network storage on the hypervisor first as described in [Mounting ISCSI VMware ESXi](/docs/vmware?topic=vmware-mount-iscsi-esxi). Then, create the VMs, and mount the attached storage volume from the virtual server's OS with a multipath connection. For more information, see [Using ESXi with iSCSI SAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage/using-esxi-with-iscsi-san.html){: external}, [Understanding Multipathing and Failover in the ESXi Environment](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage/understanding-multipathing-and-failover-in-the-esxi-environment.html#GUID-DD2FFAA7-796E-414C-84CE-1FCC14474D5B-en){: external}, and [Setting Up Network for iSCSI and iSER with ESXi](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/setting-up-network-for-iscsi-and-iser-with-esxi.html#GUID-0D31125F-DC9D-475B-BC3D-A3E131251642-en){: external}.
 {: note}
 
 ## I expanded the volume size of my {{site.data.keyword.blockstorageshort}} through the Cloud console, but the size on my server is still the same. How do I fix it?
