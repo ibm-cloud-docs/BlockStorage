@@ -2,11 +2,11 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-06"
 
-keywords: file storage for classic, read-only storage volume, offline file share
+keywords: block storage for classic, missing permission
 
-subcollection: FileStorage
+subcollection: BlockStorage
 
 ---
 
