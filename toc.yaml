@@ -77,6 +77,7 @@ toc:
           label: Identity and Access Management
           topics:
           - include: ../account/iam-mnginfra.md
+          - include: ../account/iam-migrated_permissions.md
       - topicgroup:
           label: Service Level Agreement
           topics:
@@ -111,5 +112,14 @@ toc:
   - navgroup:
       id: help
       topics:
-      - faqs.md
-      - gethelp.md
+      - topicgroup:
+          id: FAQs
+          label: FAQs
+          topics:
+          - faqs.md
+          - gethelp.md
+      - topicgroup:
+          id: troubleshooting
+          label: Troubleshooting
+          topics:
+          - ts-missingpermission.md

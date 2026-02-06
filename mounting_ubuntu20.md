@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-03"
+  years: 2021, 2026
+lastupdated: "2026-02-03"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -207,7 +207,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    If you need to edit the multipath configuration file after you started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
    {: note}
 
-   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Device Mapper Multipathing - Introduction](https://documentation.ubuntu.com/server/introduction-to-device-mapper-multipathing/){: external}.
+   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Introduction to device mapper multipathing](https://documentation.ubuntu.com/server/explanation/intro-to/multipath/){: external}.
 
 ## Discover the storage device and login
 {: #discoverandloginubu24}
