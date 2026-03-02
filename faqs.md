@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-03-02"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -37,7 +37,7 @@ It is possible to authorize a subnet of IP addresses to access a specific {{site
 2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
 3. Locate the volume and click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions").
 4. Click **Authorize Host**.
-5. To see the list of available IP addresses, select the **IP address** as the host type. Then, select the subnet where your host resides.
+5. To see the list of available IP addresses, select the **IP address** as the host type. Then, select the subnet where your host can be found.
 6. From the filtered list, select one or more IP addresses that can access the volume and click **Save**.
 
 ### SLCLI
@@ -652,7 +652,7 @@ When you store your data in {{site.data.keyword.blockstorageshort}}, it's durabl
 {: #storavailabilityfaq}
 {: faq}
 
-When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to provide high availability and uptime. To make sure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
+When you store your data in {{site.data.keyword.blockstorageshort}}, it's durable, highly available, and encrypted. {{site.data.keyword.blockstorageshort}} is built upon best-in-class, enterprise-grade hardware and software to provide high availability and uptime. To make sure that the availability target of 99.999% (five 9's) is met, the data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure, and also controller failure because the node can still access its partner's disks seamlessly. For more information, see [Availability and Durability of {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-storageavailability).
 
 ## How can I identify a {{site.data.keyword.blockstorageshort}} volume from my OS?
 {: #identifyLUNfaq}
