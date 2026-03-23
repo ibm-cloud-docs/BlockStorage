@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-09-15"
+  years: 2018, 2026
+lastupdated: "2026-03-09"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -19,8 +19,8 @@ With this feature, {{site.data.keyword.blockstoragefull}} users can expand the s
 {: shortdesc}
 
 Billing for the volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
- 
-The upgrade process is not instantaneous. You can expect to see the updated size in the console or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait. 
+
+The upgrade process is not instantaneous. You can expect to see the updated size in the console or through the API in a short while after you put in the modification request. Resizing does not cause an outage or lack of access to the storage, so you can continue your operations as normal while you wait.
 
 When the expansion is complete, the host Operating system must rescan the volume, and reload the multipath device map to reflect the change in size. You must resize the partition and the file system to allocate the new unused capacity.
 {: important}
@@ -58,8 +58,6 @@ You can't change the block storage to a smaller size after you expand its capaci
 5. Click **Modify**.
 6. Your new storage allocation is available in a few minutes.
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/basic-logical-volume-management_configuring-and-managing-logical-volumes#resizing-logical-volumes_basic-logical-volume-management){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
-{: tip}
 
 ## Resizing storage from the CLI
 {: #resizingstepsCLI}
@@ -205,8 +203,6 @@ For more information about the SLAPI, see the [SLDN](http://sldn.softlayer.com/r
    ```
    {: codeblock}
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/basic-logical-volume-management_configuring-and-managing-logical-volumes#resizing-logical-volumes_basic-logical-volume-management){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
-{: tip}
 
 ## Resizing storage with Terraform
 {: #resizingstepsTerraform}
@@ -251,8 +247,22 @@ resource "ibm_storage_block" "test2" {
 
 For more information about the arguments and attributes, see [ibm_storage_block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/storage_block){: external}.
 
-The Operating system must rescan the storage and reload the multipath device map to reflect the expanded volume size. Resizing of the partition and file system are also required. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/basic-logical-volume-management_configuring-and-managing-logical-volumes#resizing-logical-volumes_basic-logical-volume-management){: external} or [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
-{: tip}
+
+## Post-expansion steps
+{: #postexpansionsteps}
+
+After you expand your storage volume, you must complete the following steps on your host system to use the additional capacity:
+
+1. **Rescan the storage device** - Your operating system needs to detect the new volume size.
+2. **Reload the multipath device map** - This step can ensure that all paths to the storage reflect the updated size.
+3. **Resize the partition** - Extend the partition to use the newly available space.
+4. **Expand the file system** - Resize the file system to allocate the new capacity.
+
+The specific commands vary by operating system. For detailed instructions, see your OS documentation:
+- **Linux (RHEL/CentOS)**: [RHEL 8 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/basic-logical-volume-management_configuring-and-managing-logical-volumes#resizing-logical-volumes_basic-logical-volume-management){: external}
+- **Windows**: [Microsoft - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}
+
+These steps must be completed regardless of which method you use to expand the storage (console, CLI, API, or Terraform).
 
 ## Expanding Storage over 12 TB
 {: #increasecapacityover12TB}

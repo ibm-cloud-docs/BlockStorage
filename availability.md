@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-03-19"
+  years: 2014, 2026
+lastupdated: "2026-03-23"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -24,10 +24,9 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 | Classic Endurance - \n 4 IOPS per GB tier| It is designed for higher-intensity workloads. These workloads are typically characterized by having a high percentage of data active at a time. Example applications include transactional and other performance-sensitive databases. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption at rest. |
 | Classic Endurance - \n 10 IOPS per GB tier| It is designed for the most demanding workloads such as those created by NoSQL databases, and data processing for Analytics. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption at rest. |
 | Classic Performance - \n A high-powered environment with custom IOPS | It is designed to manage rapid data changes with well-defined performance requirements. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption at rest. |
-| VPC Storage - \n 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption + Customer-managed encryption |
-| VPC Storage - \n 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption + Customer-managed encryption |
-| VPC Storage - \n 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption + Customer-managed encryption |
 {: caption="Storage durability and availability chart." caption-side="bottom"}
+
+The values in the table represent service level objectives (SLOs), design targets that indicate the performance and availability levels the storage service is engineered to meet. These SLOs are not contractual service level agreements (SLAs) and do not constitute a guarantee. For more information, see the [Service Level Agreements for IBM Cloud](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en){: external}.
 
 ## Durability
 {: #stordurability}
