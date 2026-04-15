@@ -76,8 +76,8 @@ toc:
       - topicgroup:
           label: Identity and Access Management
           topics:
-          - include: ../account/iam-mnginfra.md
-          - include: ../account/iam-migrated_permissions.md
+          - include: ../iam/iam-mnginfra.md
+          - include: ../iam/iam-migrated_permissions.md
       - topicgroup:
           label: Service Level Agreement
           topics:
