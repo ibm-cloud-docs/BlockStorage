@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-18"
+lastupdated: "2026-04-16"
 
 keywords: block storage for classic, missing permission
 
@@ -21,5 +21,5 @@ As you try to increase your volume's capacity or update your volume's IOPS, you 
 This error can occur because you do not have `viewer` IAM role for Billing. As of 21 January 2026, any user who wants to complete operations that impact billing must also have permissions to view account and billing information. This change aims to help users be fully aware of the impact of their upgrades, and to prevent any disputes about proration and billing.
 {: tsCauses}
 
-To resolve, work with your account administrator to confirm that you have the right permissions, and correct them if needed. For more information, see [Managing migrated SoftLayer account permissions](/docs/account?topic=account-migrated_permissions). 
+To resolve, work with your account administrator to confirm that you have the right permissions, and correct them if needed. For more information, see [Viewing usage for your classic infrastructure resources](/docs/account?topic=account-infra-usage) and [Assigning access to account management services](/docs/iam?topic=iam-account-services#billing-acct-mgmt). 
 {: tsResolve}
