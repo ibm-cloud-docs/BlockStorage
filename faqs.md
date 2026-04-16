@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-03-02"
+lastupdated: "2026-04-16"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -622,7 +622,7 @@ Endurance and Performance are provisioning options that you can select for stora
 {: faq}
 
 The following situations can affect the ability to upgrade or expand storage:
-- The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/account?topic=account-userroles).
+- The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles).
 
 ## Does upgrading my storage affect the data that is on the volume?
 {: faq}
