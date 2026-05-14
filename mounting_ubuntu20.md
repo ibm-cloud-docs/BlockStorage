@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-03"
+lastupdated: "2026-05-14"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -25,7 +25,7 @@ completion-time: 1h
 This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with an Ubuntu operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 {: shortdesc}
 
-For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://documentation.ubuntu.com/server/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
+For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
 {: tip}
 
 ## Before you begin
@@ -145,7 +145,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    ```
    {: pre}
 
-For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/questing/en/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/questing/en/man1/systemctl.1.html){: external}.
+For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/questing/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/questing/man1/systemctl.1.html){: external}.
 
 ## Set up the multipath
 {: #setupmultipathdubu24}
@@ -192,7 +192,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    ```
    {: codeblock}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/questing/en/man5/multipath.conf.5.html){: external}.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/questing/man5/multipath.conf.5.html){: external}.
 
 3. Save the configuration file and exit the editor.
 4. Start the multipath service.
@@ -207,13 +207,13 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    If you need to edit the multipath configuration file after you started the multipath daemon, you must restart the `multipathd` service for the changes to take effect.
    {: note}
 
-   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Introduction to device mapper multipathing](https://documentation.ubuntu.com/server/explanation/intro-to/multipath/){: external}.
+   For more information about using the Device Mapper Multipath feature on Ubuntu 20, see [Introduction to device mapper multipathing](https://ubuntu.com/server/docs/explanation/intro-to/multipath/){: external}.
 
 ## Discover the storage device and login
 {: #discoverandloginubu24}
 {: step}
 
-The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/en/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
    ```sh
@@ -369,7 +369,7 @@ When you no longer need the volume, unmount it before you delete it.
    ```
    {: pre}
 
-   For more information, see the [Ubuntu manuals - `umount`](https://manpages.ubuntu.com/manpages/questing/en/man2/umount.2.html){: external}.
+   For more information, see the [Ubuntu manuals - `umount`](https://manpages.ubuntu.com/manpages/questing/man2/umount.2.html){: external}.
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
    ```zsh
@@ -383,5 +383,5 @@ When you no longer need the volume, unmount it before you delete it.
    ```
    {: pre}
 
-   For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/en/man8/iscsiadm.8.html){: external}.
+   For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/man8/iscsiadm.8.html){: external}.
    {: tip}

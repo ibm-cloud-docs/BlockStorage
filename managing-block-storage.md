@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-09-15"
+  years: 2014, 2026
+lastupdated: "2026-05-14"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -84,7 +84,7 @@ Before you begin, decide on the CLI client that you want to use.
    ```
    {: screen}
 
-For more information about all of the parameters that are available for these commands, see [ibmcloud sl block volume-detail](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_detail){: external} and [ibmcloud sl block volume-list](/docs/BlockStorage?topic=BlockStorage-sl-block-storage#sl_block_volume_list){: external}.
+For more information about all of the parameters that are available for these commands, see [ibmcloud sl block volume-detail](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_detail){: external} and [ibmcloud sl block volume-list](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_list){: external}.
 
 ### Viewing {{site.data.keyword.blockstorageshort}} volume details from the SLCLI
 {: #viewLUNdeetsSLCLI}
