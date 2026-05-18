@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-14"
+lastupdated: "2026-05-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -68,14 +68,14 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
     * `/etc/iscsi/initiatorname.iscsi`
 
 - Start the services:
-    
+
     ```sh
     systemctl enable open-iscsi
     ```
     {: pre}
 
     ```sh
-    systemctl enable iscsid  
+    systemctl enable iscsid
     ```
     {: pre}
 
@@ -96,13 +96,13 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
 1. Check that the `/etc/iscsi/initiatorname.iscsi` file exists and review its contents.
 
    ```sh
-   cat /etc/iscsi/initiatorname.iscsi 
+   cat /etc/iscsi/initiatorname.iscsi
    ```
    {: pre}
-   
+
    ```sh
-   root@vsi4classicubuntu:~# cat /etc/iscsi/initiatorname.iscsi  
-   GenerateName=yes  
+   root@vsi4classicubuntu:~# cat /etc/iscsi/initiatorname.iscsi
+   GenerateName=yes
    ```
    {: screen}
 
@@ -121,7 +121,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    ```sh
    cat /etc/iscsi/iscsid.conf
    ```
-   {: pre} 
+   {: pre}
 
 1. By using the text editor, uncomment and edit the following entries. You can find the username and password in the {{site.data.keyword.cloud}} console.
 
@@ -155,7 +155,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    ```sh
    cat /etc/multipath.conf
    ```
-   {: pre}  
+   {: pre}
 
 2. Modify the default values of `/etc/multipath.conf` with a text editor by replacing them with the contents of the following snippet.
 
@@ -216,6 +216,10 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
 The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
+
+   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery using the SendTargets method. Do not use static node configuration, as it is not scalable and may cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
+   {: important}
+
    ```sh
    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
@@ -224,11 +228,11 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
    If the IP information and access details are displayed, then the discovery is successful.
 
    ```sh
-   root@vsi4classicubuntu:~# iscsiadm -m discovery -t sendtargets -p 161.26.114.197  
+   root@vsi4classicubuntu:~# iscsiadm -m discovery -t sendtargets -p 161.26.114.197
    161.26.114.197:3260,1052 iqn.1992-08.com.netapp:stfdal1304
    161.26.114.196:3260,1049 iqn.1992-08.com.netapp:stfdal1304
    ```
-   {: screen}  
+   {: screen}
 
 2. Configure automatic login.
    ```sh
@@ -254,14 +258,14 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
    {: pre}
 
    ```sh
-   root@vsi4classicubuntu:~# iscsiadm -m session -o show  
-   tcp: [3] 161.26.114.197:3260,1052 iqn.1992-08.com.netapp:stfdal1304 (non-flash)  
-   tcp: [4] 161.26.114.196:3260,1049 iqn.1992-08.com.netapp:stfdal1304 (non-flash)  
+   root@vsi4classicubuntu:~# iscsiadm -m session -o show
+   tcp: [3] 161.26.114.197:3260,1052 iqn.1992-08.com.netapp:stfdal1304 (non-flash)
+   tcp: [4] 161.26.114.196:3260,1049 iqn.1992-08.com.netapp:stfdal1304 (non-flash)
    ```
    {: scteen}
 
 2. Validate that multiple paths exist.
-   
+
    ```sh
    multipath -ll
    ```
@@ -270,7 +274,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
    This command reports the paths. If it is configured correctly, then each volume has a single group, with a number of paths equal to the number of iSCSI sessions. It's possible to attach a volume with a single path, but it is important that connections are established on both paths to ward against disruption of service.
 
    ```sh
-   root@vsi4classicubuntu:~# multipath -ll  
+   root@vsi4classicubuntu:~# multipath -ll
     3600a0980383056666424506a33426478 dm-0 NETAPP,LUN C-Mode
     size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua'
     wp=rw

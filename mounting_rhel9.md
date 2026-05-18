@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-01"
+  years: 2026
+lastupdated: "2026-05-18"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -52,7 +52,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
    ```
    {: pre}
 
-1. Install multipath utility   
+1. Install multipath utility
 
    ```sh
    sudo dnf -y install device-mapper-multipath
@@ -74,17 +74,17 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 {: #updateinitiatorrhel9}
 {: step}
 
-1. Update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console. 
+1. Update the `/etc/iscsi/initiatorname.iscsi` file with the IQN from the {{site.data.keyword.cloud}} console.
    1. The following example shows how to check the current initiator name.
-   
+
      ```sh
      [root@vsi4classic ~]# cat /etc/iscsi/initiatorname.iscsi
      InitiatorName=iqn.1994-05.com.redhat:7acdadcdc20
      ```
      {: screen}
 
-   1. Open the file in a text editor: 
-     ```sh 
+   1. Open the file in a text editor:
+     ```sh
      vi /etc/iscsi/initiatorname.iscsi
      ```
      {: pre}
@@ -111,7 +111,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
    {: codeblock}
 
    Don't change the other CHAP settings. {{site.data.keyword.cloud}} storage uses only one-way authentication. Do not enable Mutual CHAP.
-   {: important}     
+   {: important}
 
 1. Restart the iscsid service.
 
@@ -121,6 +121,10 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
    {: pre}
 
 1. Validate that the configuration is correct by running discovery against the iSCSI array.
+
+   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery using the SendTargets method. Do not use static node configuration, as it is not scalable and may cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
+   {: important}
+
    ```sh
    iscsiadm -m discovery -t sendtargets -p TARGET IP
    ```
@@ -147,7 +151,7 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
    ```
    {: pre}
 
-2. Edit the `/etc/multipath.conf` file with `nano`, `vi`, or another editor of your choice. 
+2. Edit the `/etc/multipath.conf` file with `nano`, `vi`, or another editor of your choice.
 
    ```sh
    sudo vi /etc/multipath.conf
@@ -271,7 +275,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    {: pre}
 
    By default the storage device attaches to `/dev/mapper/<wwid>`. WWID is persistent while the volume exists. The command reports something similar to the following example.
-   
+
    ```sh
    [root@vsi4classic ~]# fdisk -l | grep /dev/mapper
    Disk /dev/mapper/3600a0980383056716724514550666270: 20 GiB, 21474836480 bytes, 41943040 sectors
@@ -341,7 +345,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or partx(8).
    ```
    {: screen}
-   
+
 3. Create a file system on the new partition.
 
    - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux&reg;. Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
@@ -369,15 +373,15 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      ```sh
      [root@vsi4classic ~]# mkfs.ext3 /dev/mapper/3600a0980383056716724514550666270p1
      mke2fs 1.46.5 (30-Dec-2021)
-     Discarding device blocks: done                            
+     Discarding device blocks: done
      Creating filesystem with 5242624 4k blocks and 1310720 inodes
      Filesystem UUID: 09e7f833-32b7-4c7f-ab68-8c6083cb8a63
-     Superblock backups stored on blocks: 
-	     32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+     Superblock backups stored on blocks:
+	     32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
 	     4096000
 
-     Allocating group tables: done                            
-     Writing inode tables: done                            
+     Allocating group tables: done
+     Writing inode tables: done
      Creating journal (32768 blocks): done
      Writing superblocks and filesystem accounting information: done
      ```
@@ -426,7 +430,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
    ```
    {: pre}
 
-   For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.  
+   For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.
 
 ### Creating a file system with `parted`
 {: #partedrhel}
@@ -526,7 +530,7 @@ To create a file system with `parted`, follow these steps.
    ```
    {: pre}
 
-   For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.  
+   For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.
 
 ### Managing user permissions to the content of the mounted volume
 {: #user-group-permissions-rhel9}
@@ -616,4 +620,3 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
    For more information, see the [`iscsiadm` manual](https://man.linuxreviews.org/man8/iscsiadm.8.html){: external}.
    {: tip}
-   

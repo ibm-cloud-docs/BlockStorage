@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-03"
+  years: 2021, 2026
+lastupdated: "2026-05-18"
 
 keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
@@ -163,6 +163,10 @@ Keep the other CHAP settings commented. {{site.data.keyword.cloud}} storage uses
 The iscsiadm utility is a command-line tool aids the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
+
+   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery using the SendTargets method. Do not use static node configuration, as it is not scalable and may cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
+   {: important}
+
    ```sh
    iscsiadm -m discovery -t sendtargets -p <ip-value-from-IBM-Cloud-console>
    ```
