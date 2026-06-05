@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-18"
+lastupdated: "2026-06-05"
 
 keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
@@ -22,10 +22,12 @@ completion-time: 1h
 {: toc-services=""}
 {: toc-completion-time="1h"}
 
-This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the CloudLinux 8 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+Learn how to mount an {{site.data.keyword.blockstorageshort}} volume on CloudLinux 8 with multipath I/O for redundant, high-performance storage access.
 {: shortdesc}
 
-If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
+Follow the tutorial to mount an {{site.data.keyword.blockstoragefull}} volume on a server with the CloudLinux 8 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+
+If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and Make sure that the multipath supports ALUA (Asymmetric Logical Unit Access) for path priority.
 {: tip}
 
 ## Before you begin
@@ -115,7 +117,7 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
    ```
  {: screen}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpath n`, where `mpath n` is the WWID of the device.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpath n`, where `mpath n` is the WWID (World Wide Identifier) of the device.
 
 3. Save the configuration file and exit the editor, if necessary.
 4. Run the following command:
@@ -141,7 +143,7 @@ InitiatorName=<value-from-the-Portal>
 {: #configcredclin8}
 {: step}
 
-Edit the following settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP names.
+Edit the following settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. U se uppercase for CHAP (Challenge-Handshake Authentication Protocol) names.
 
 ```text
 node.session.auth.authmethod = CHAP
@@ -324,7 +326,7 @@ To create a file system with `parted`, follow these steps.
      ```
      {: pre}
 
-   - Create a GPT partition table.
+   - Create a partition table.
      ```sh
      mklabel gpt
      ```

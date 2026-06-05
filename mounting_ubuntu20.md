@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-18"
+lastupdated: "2026-06-05"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -22,10 +22,12 @@ completion-time: 1h
 {: toc-services=""}
 {: toc-completion-time="1h"}
 
-This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with an Ubuntu operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+Learn how to mount an {{site.data.keyword.blockstorageshort}} volume on Ubuntu with multipath I/O for redundant, high-performance storage access.
 {: shortdesc}
 
-For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports ALUA for path priority.
+Follow the tutorial to mount an {{site.data.keyword.blockstoragefull}} volume on a server with an Ubuntu operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+
+For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and Make sure that the multipath supports ALUA (Asymmetric Logical Unit Access) for path priority.
 {: tip}
 
 ## Before you begin
@@ -192,7 +194,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    ```
    {: codeblock}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/questing/man5/multipath.conf.5.html){: external}.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID (World Wide Identifier) number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/questing/man5/multipath.conf.5.html){: external}.
 
 3. Save the configuration file and exit the editor.
 4. Start the multipath service.

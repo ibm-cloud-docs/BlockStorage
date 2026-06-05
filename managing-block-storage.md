@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-05-14"
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -11,10 +11,10 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing {{site.data.keyword.blockstorageshort}}
+# Managing {{site.data.keyword.blockstorageshort}} volumes
 {: #managingstorage}
 
-You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** to interact with classic services. You can also manage your volumes from the CLI, with the API or Terraform.
+Manage {{site.data.keyword.blockstorageshort}} volumes through the IBM Cloud console, CLI, API, or Terraform to configure, monitor, and control your storage resources.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} volume details in the console
@@ -25,9 +25,10 @@ You can manage your {{site.data.keyword.blockstoragefull}} volumes in the [{{sit
 
 You can view a summary of the key information for the selected storage volume that includes the snapshot and replication capabilities that were added to the storage.
 
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**. The list of block volumes is displayed.
-1. You can filter the list by clicking the ![Filter icon](../icons/filter.svg "Filter") and selecting a location or entering a specific capacity. Click **Apply** to confirm your selection.
-1. Click the appropriate Volume name from the list.
+1. Go to the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), select **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure**.
+2. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**. The list of block volumes is displayed.
+3. You can filter the list by clicking the ![Filter icon](../icons/filter.svg "Filter") and selecting a location or entering a specific capacity. Click **Apply** to confirm your selection.
+4. Click the appropriate Volume name from the list.
 
 You can download the list in a CSV format by clicking Download ![Download icon](../icons/download.svg "Download").
 {: tip}
@@ -58,7 +59,7 @@ Before you begin, decide on the CLI client that you want to use.
      ```sh
      $ ibmcloud sl block volume-list --order 110758744
      id        username            datacenter   storage_type             capacity_gb   bytes_used   IOPs   ip_addr     lunId  active_transactions   rep_partner_count   notes
-     562193766 SL02SEL1414935-675  dal09        endurance_block_storage  80            -            -      10.2.125.62 0      0                     0                   - 
+     562193766 SL02SEL1414935-675  dal09        endurance_block_storage  80            -            -      10.2.125.62 0      0                     0                   -
      ```
      {: screen}
 
@@ -97,7 +98,7 @@ To view information about a Storage volume, you can use the following commands f
    ```
     {: pre}
 
-1. Use the volume ID from the output of the first command to run the `slcli block volume-detail` command. 
+1. Use the volume ID from the output of the first command to run the `slcli block volume-detail` command.
 
    ```sh
    $ slcli block volume-detail --help
@@ -272,7 +273,7 @@ The default limit for the number of authorizations per block volume is eight. Th
 You can authorize and connect hosts that are located in the same data center as your storage. You can have multiple accounts, but you can't authorize a host from one account to access your storage on another account.
 {: important}
 
-To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage. 
+To authorize a Compute host to access the volume, use the `ibm_storage_block` resource and specify the `allowed_virtual_guest_ids` for virtual servers, or `allowed_hardware_ids` for bare metal servers. Specify `allowed_ip_addresses` to define which IP addresses have access to the storage.
 
 The following example defines that the virtual server with the ID `27699397` can access the volume from the `10.40.98.193`, `10.40.98.200` addresses.
 
@@ -309,8 +310,8 @@ To remove authorization from a host, remove its details from the `ibm_storage_bl
 1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**, and click your Volume name.
 1. Click **Authorized Hosts** to display the list of Compute instances that have access to the volume.
 1. Click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **View host details**. A side panel is displayed with details like device name, IP address, username and password, Host IQN, and device type. When ISCSI Isolation is enabled, the Access Control List section is also displayed. You can add or remove subnets in the Access Control List section.
- 
-The Target address is listed on the **Storage Detail** page. For NFS, the Target address is described as a DNS name, and for iSCSI, it's the IP address of the Discover Target Portal.
+
+The Target address is listed on the **Storage Detail** page. For Block Storage, it's the IP address of the Discover Target Portal. For File Storage, the Target address is described as a DNS name.
 {: tip}
 
 ## Updating host authorization in the console
@@ -337,7 +338,7 @@ The Target address is listed on the **Storage Detail** page. For NFS, the Target
 To confirm that the authorization worked, run the `ibmcloud sl block access-list` command.
 
 ```sh
-ibmcloud sl block access-list 12345678 --sortby allowed_host_id 
+ibmcloud sl block access-list 12345678 --sortby allowed_host_id
 ```
 {: screen}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-01-15"
+  years: 2018, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Disaster Recovery - Fail over from an accessible primary volume
 {: #dr-accessible}
 
-If a failure occurs on the primary site, and performance is degrading while the primary storage is still accessible, customers can reroute their operations to the secondary site by initiating a failover.
+Learn how to initiate a failover to reroute operations to the secondary site when primary site performance degrades but storage remains accessible.
 {: shortdesc}
 
 Before you start the failover, make sure that the required host-authorization is in place.

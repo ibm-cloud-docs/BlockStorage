@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -14,8 +14,12 @@ subcollection: BlockStorage
 # Availability and Durability of {{site.data.keyword.blockstorageshort}}
 {: #storageavailability}
 
-In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is important because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.blockstoragefull}}, it's durable, highly available, and encrypted.
+{{site.data.keyword.blockstorageshort}} provides enterprise-grade durability, high availability, and encryption to keep your data secure, accessible, and protected at all times.
 {: shortdesc}
+
+In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is important because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing.
+
+The following table provides an overview of the durability, availability, and encryption features of Block Storage.
 
 | Storage type | Purpose | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|

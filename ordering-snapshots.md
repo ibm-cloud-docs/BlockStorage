@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-02-20"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -11,10 +11,10 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Ordering Snapshots
+# Ordering snapshot space
 {: #orderingsnapshots}
 
-To create snapshots of your storage volume, you need to purchase space to hold them. You can purchase snapshot capacity during the initial volume purchase or later by using these steps.
+Purchase snapshot space to create snapshots of your storage volume during initial provisioning or add capacity later.
 {: shortdesc}
 
 ## Determining how much snapshot space is needed
@@ -43,7 +43,7 @@ So when you determine how much Snapshot space that you need, consider the rate o
 
 Additionally, for most workloads, the larger a volume is the less space needs to be set aside initially. It's primarily due to the underlying data efficiencies, and the nature of how snapshots work in the environment.
 
-## Available snapshot space capacity 
+## Available snapshot space capacity
 {: #snapshotspaceforvolume}
 
 The size of the snapshot space that you can order depends on the size of your volume. The size of the snapshot space cannot exceed the size of the volume. The following table shows the snapshot capacity that is available for specific volume sizes.
@@ -109,7 +109,7 @@ For more information about all of the parameters that are available for this com
 ### Provisioning from the SLCLI
 {: #orderingsnapthroughSLCLI}
 
-Use the `slcli block snapshot-order` command to provision snapshot space for your volume. 
+Use the `slcli block snapshot-order` command to provision snapshot space for your volume.
 
 ```sh
 $ slcli block snapshot-order --help

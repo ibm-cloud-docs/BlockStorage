@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-01-13"
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, iSCSI LUN, secondary storage, SLCLI, API, provisioning, cloning, replication, duplicate volume
 
@@ -16,7 +16,7 @@ subcollection: BlockStorage
 # Ordering {{site.data.keyword.blockstorageshort}}
 {: #orderingBlockStorage}
 
-You can provision {{site.data.keyword.blockstorageshort}} and fine-tune to meet your capacity and performance needs. Get the most out of your storage with two options for specifying performance.
+Provision {{site.data.keyword.blockstorageshort}} with customizable capacity and performance options using Endurance or Performance tiers to meet your workload requirements.
 {: shortdesc}
 
 - You can provision with **Endurance** tiers that feature pre-defined performance levels to fit workloads that don't have well-defined performance requirements.

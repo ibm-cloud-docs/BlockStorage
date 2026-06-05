@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-09-15"
+  years: 2018, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Adjusting IOPS
 {: #adjustingIOPS}
 
-With this feature, you can adjust the IOPS of your existing {{site.data.keyword.blockstorageshort}} immediately. You don't need to create a duplicate or manually copy data to new storage. The adjustment does not cause any kind of outage or lack of access to the storage.
+Adjust the IOPS of your existing {{site.data.keyword.blockstorageshort}} immediately without creating duplicates, migrating data, or causing outages.
 {: shortdesc}
 
 Billing for the storage is updated to add the prorated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.
@@ -22,7 +22,7 @@ Billing for the storage is updated to add the prorated difference of the new pri
 ## Advantages of Adjustable IOPS
 {: #advantagesofresizingiops}
 
-- Cost management – Some clients might need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and might need a higher IOPS rate on the storage then. However, the retail stores don't need higher IOPS in the middle of the summer. With this feature, you can manage your costs and pay for higher IOPS when you need it.
+- Cost management – Some clients need high IOPS only during peak usage times. For example, a large retail store has peak usage during the holidays and needs a higher IOPS rate on the storage then. However, the retail stores don't need higher IOPS in the middle of the summer. With this feature, you can manage your costs and pay for higher IOPS when you need it.
 
 ## Limitations
 {: #limitsofIOPSadjustment}

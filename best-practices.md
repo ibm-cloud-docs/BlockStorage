@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-01-13"
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Best practices for {{site.data.keyword.blockstorageshort}}
 {: #best-practices-classic}
 
-Follow our best practices to maximize the performance of your storage, and avoid application downtime.
+Follow best practices to maximize {{site.data.keyword.blockstorageshort}} performance, maintain data integrity, and keep your critical workloads highly available.
 {: shortdesc}
 
 ## Best practice 1 - Clear the path
@@ -97,7 +97,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
 * **[Enable Jumbo Frames](/docs/FileStorage?topic=FileStorage-jumboframes) and configure them to be the same on the entire network path** from source device > switch > router > switch > target device. If the entire chain isn't set the same, the system applies the minimum value that's detected within the chain. {{site.data.keyword.cloud}} has network devices set to 9,000 currently. For best performance, all customer devices need to be set to the same 9,000 value.
 
-   Setting MTU to 9000 on your host has the following benefits:
+   Setting the Maximum Transmission Unit (MTU) value to 9000 on your host has the following benefits:
     - Data can be transmitted in fewer frames.
     - Data can be transmitted in faster because fewer packets require fewer bytes of format information that is stored in the packet header.
     - Throughput is increased by reducing the number of CPU cycles and instructions for packet processing.

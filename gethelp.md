@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-05"
 
 subcollection: BlockStorage
 
@@ -12,7 +12,7 @@ subcollection: BlockStorage
 # Getting help and support for {{site.data.keyword.blockstorageshort}}
 {: #help-and-support}
 
-If you experience an issue or have questions when you use {{site.data.keyword.blockstoragefull}}, you can use the following resources before you open a support case.
+Find help resources and troubleshooting information for {{site.data.keyword.blockstorageshort}} issues before opening a support case.
 {: shortdesc}
 
 * Ask the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) in the console or from the {{site.data.keyword.cloud_notm}} CLI.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
- years: 2014, 2025 
-lastupdated: "2025-11-28"
+ years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -23,10 +23,12 @@ completion-time: 2h
 {: toc-services=""}
 {: toc-completion-time="2h"}
 
+{{site.data.keyword.blockstorageshort}} delivers enterprise-grade durability and availability with data integrity protection and consistent performance through planned and unplanned events.
+{: shortdesc}
+
 {{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of Compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} volumes are connected to authorized devices through redundant multi-path I/O (MPIO) connections.
 
 {{site.data.keyword.blockstorageshort}} brings best-in-class levels of durability and availability with an unmatched feature set. It is built by using industry standards and best practices. {{site.data.keyword.blockstorageshort}} is designed to protect the integrity of the data and maintain availability through maintenance events and unplanned failures, and provide a consistent performance baseline.
-{: shortdesc}
 
 For more information about using {{site.data.keyword.blockstorageshort}} with the {{site.data.keyword.containerlong}}, see [Storing data on classic IBM Cloud Block Storage](/docs/containers?topic=containers-block_storage).
 
@@ -71,7 +73,7 @@ The IO size that is used by your application directly impacts the storage perfor
 ### Authorized hosts
 {: #numberofhosts}
 
-Another factor to consider is the number of hosts that are using your volume. IOPS limits are enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS. At high IOPS counts, you might need several hosts to access the volume simultaneously to realize the maximum IOPS available, especially at extreme IOPS counts (10,000s).
+Another factor to consider is the number of hosts that are using your volume. IOPS limits are enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS. At high IOPS counts,  especially at extreme IOPS counts (10,000s), you must use several hosts to access the volume simultaneously to realize the maximum IOPS available.
 
 The maximum IOPS for a block storage volume is 48,000 IOPS. If your workload requires high throughput, it's best to configure at least a couple servers to access your volume to avoid a single-server bottleneck.
 
@@ -86,7 +88,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. Other c
 
 Storage traffic ought to be isolated from other traffic types, and not be directed through firewalls and routers. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#isolatedstoragetraffic).
 
-Storage traffic is included in the total network usage of Public virtual servers. For more information about the limits that might be imposed by the service, see the [virtual server Documentation](/docs/virtual-servers?topic=virtual-servers-about-virtual-servers).
+Storage traffic is included in the total network usage of Public virtual servers. For more information about the limits that can be imposed by the service, see the [virtual server Documentation](/docs/virtual-servers?topic=virtual-servers-about-virtual-servers).
 {: tip}
 
 ## Submitting your order

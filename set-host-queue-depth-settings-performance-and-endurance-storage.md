@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-03-19"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, performance tuning, host performance improvement,
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Adjusting host queue depth settings
 {: #hostqueuesettings}
 
-{{site.data.keyword.cloud}} suggests a maximum host and application input/output (I/O) queue depth for each performance tier.
+Learn the recommended maximum host and application I/O queue depth settings for each {{site.data.keyword.blockstorageshort}} performance tier to optimize throughput and latency.
 {: shortdesc}
 
 | Performance tier | Maximum host queue depth |

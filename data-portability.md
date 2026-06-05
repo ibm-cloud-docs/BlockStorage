@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-03-18"
+  years: 2024, 2026
+lastupdated: "2026-06-05"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
@@ -15,8 +15,10 @@ subcollection: BlockStorage
 # Understanding data portability for Classic Block and File Storage services
 {: #data-portability}
 
-Data portability involves a set of tools and procedures that you can use to export the digital artifacts that are needed to implement similar workload and data processing on different service providers or on-premises software. It includes procedures for copying and storing the service customer content, including the related configuration that is used by the service to store and process the data, in your location.
+You can export your {{site.data.keyword.blockstorageshort}} data and configurations to implement similar workloads on different service providers or on-premises infrastructure.
 {: shortdesc}
+
+Data portability involves a set of tools and procedures that you can use to export the digital artifacts that are needed to implement similar workload and data processing on different service providers or on-premises software. It includes procedures for copying and storing the service customer content, including the related configuration that is used by the service to store and process the data, in your location.
 
 ## Responsibilities
 {: #data-portability-responsibilities}
@@ -34,7 +36,7 @@ To find out more about responsibility ownership for using {{site.data.keyword.cl
 ## Data exporting procedures
 {: #data-portability-procedures}
 
-When you create a strategy for migrating {{site.data.keyword.blockstorageshort}} or {{site.data.keyword.filestorage_short}} data to another target storage platform (on premises or another cloud provider), many factors must be considered to facilitate a successful outcome. 
+When you create a strategy for migrating {{site.data.keyword.blockstorageshort}} or {{site.data.keyword.filestorage_short}} data to another target storage platform (on premises or another cloud provider), many factors must be considered to facilitate a successful outcome.
 
 Each migration scenario is different. Capture the requirements and any special considerations for your use case.
 {: important}

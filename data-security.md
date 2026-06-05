@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-03"
+  years: 2020, 2026
+lastupdated: "2026-06-05"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Securing your data in {{site.data.keyword.blockstorageshort}}
 {: #mng-data}
 
-It's important to know exactly how data is stored, how it is encrypted, and how you can delete personal data. Your data in {{site.data.keyword.blockstorageshort}} is securely managed.
+Learn how {{site.data.keyword.blockstorageshort}} securely manages your data with encryption, and understand data storage, protection, and deletion procedures.
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.blockstorageshort}}
@@ -26,7 +26,7 @@ It's important to know exactly how data is stored, how it is encrypted, and how 
 
 The provider-managed encryption-at-rest feature uses the following industry standard protocols:
 
-* Industry-Standard AES-256 encryption.
+* Industry-Standard AES-256 (Advanced Encryption Standard with a 256-bit key) encryption.
 * Keys are managed in-house with industry standard Key Management Interoperability Protocol (KMIP).
 * Storage is validated for US Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU General Data Protection Regulation (GDPR) compliance.
 

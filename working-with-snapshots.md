@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-01-13"
+lastupdated: "2026-06-05"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -11,15 +11,17 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing Snapshots
+# Managing snapshots
 {: #managingSnapshots}
 
-Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space. Learn more about how to manage snapshots by reading the following instructions.
+Learn how to create, schedule, and manage snapshots to protect your {{site.data.keyword.blockstorageshort}} data with no performance impact and minimal space consumption.
 {: shortdesc}
 
 ## Adding a Snapshot schedule in the console
 {: #addscheduleUI}
 {: ui}
+
+Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space.
 
 You can decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume. Schedules are managed through the **Storage** > **{{site.data.keyword.blockstorageshort}}** tab of the [{{site.data.keyword.cloud}} console](/classic-gen1){: external}.
 
@@ -46,6 +48,8 @@ The list of the snapshots is displayed as they're taken in the **Snapshots** sec
 ## Adding a Snapshot schedule from the CLI
 {: #addscheduleCLI}
 {: cli}
+
+Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space.
 
 You can decide how often and when you want to create a point in time reference of your storage volume with Snapshot schedules. You can have a maximum of 50 snapshots per storage volume.
 
@@ -106,6 +110,8 @@ Options:
 ## Managing a Snapshot schedule with Terraform
 {: #addscheduleTerraform}
 {: terraform}
+
+Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space.
 
 To create a snapshot schedule, use the `ibm_storage_block` resource and specify information in the `snapshot_schedule` argument. The following example defines two different schedules. One schedule is for weekly snapshots that are taken on Sundays at 1:20 PM. Twenty snapshots are kept before the oldest one is deleted to make space for a new one. The second schedule is for hourly snapshots.
 
@@ -205,7 +211,7 @@ You receive notifications when you reach space thresholds – 75%, 90%, and 95%.
 
 By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time from the CLI.
 
-If snapshot space utilization increases too rapidly, then you might receive one notification before autodeletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%.
+If snapshot space utilization increases too rapidly, you can receive one notification before autodeletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%.
 {: note}
 
 ## Listing all Snapshots with Space Used Information from the CLI
@@ -250,7 +256,7 @@ Notifications are sent when you reach three different space thresholds – 75%, 
 - At **90% capacity**, a second warning is sent when snapshot space usage exceeded 90%. Like with reaching 75% capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
 - At **95% capacity**, a final warning is sent. If no action is taken to bring your space usage under the threshold, automatic deletion starts so that future snapshots can be created. Scheduled snapshots are deleted, starting with the oldest, until usage drops under 95%. Snapshots continue to be deleted each time usage exceeds 95% until it drops under the threshold. If the space is manually increased or snapshots are manually deleted, the warning is reset and reissued if the threshold is exceeded again. If no actions are taken, this notification is the only warning that you receive.
 
-If snapshot space utilization increases too rapidly, then you might receive one notification before autodeletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%. The system skips the 90%-exceeded warning.
+If snapshot space utilization increases too rapidly, you can receive one notification before autodeletion of the oldest scheduled snapshot occurs. For example, if utilization jumps from 76% to 96% within 15 minutes, you receive one notification about exceeding 75% and one notification about exceeding 95%. The system skips the 90%-exceeded warning.
 {: note}
 
 By default, snapshot warning notifications are enabled for every customer. However, you can choose to disable them. When this feature is disabled, all ticket generation and notifications are stopped. You can disable and enable notifications for the volume at any time.
@@ -308,7 +314,7 @@ Options:
 {: #changesnapshotspaceUI}
 {: ui}
 
-You might need to add snapshot space to a volume that didn't previously have any or might require extra snapshot space.
+You can add snapshot space to a volume that didn't previously have any or that requires extra snapshot space.
 
 Snapshot space can be increased. It can't be reduced. You can select a smaller amount of space until you determine how much space you need. Automated and manual snapshots share the space.
 {: note}
@@ -388,7 +394,7 @@ Manual snapshots that aren't deleted in the portal manually are automatically de
 {: #deletesnapshotCLI}
 {: cli}
 
-Snapshots that are no longer needed can be manually removed to free up space for future snapshots. 
+Snapshots that are no longer needed can be manually removed to free up space for future snapshots.
 
 Manual snapshots that aren't deleted in the portal manually, are automatically deleted when you reach space limitations (oldest first).
 {: note}
@@ -428,7 +434,7 @@ Manual snapshots that aren't deleted in the portal manually, are automatically d
 {: #restorefromsnapshotUI}
 {: ui}
 
-You might need to take your storage volume back to a specific point in time because of user-error or data corruption.
+To recover from user-error or data corruption, you can restore your storage volume to a specific point in time.
 
 1. Unmount and detach your storage volume from the host to make sure that the host is not connected to the volume during the restore.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#unmountingLin)
@@ -459,7 +465,7 @@ Restoring a volume results in deleting all snapshots that were taken after the s
 {: #restorefromsnapshotCLI}
 {: cli}
 
-You might need to take your storage volume back to a specific point in time because of user-error or data corruption. 
+To recover from user-error or data corruption, you can restore your storage volume to a specific point in time.
 
 1. Unmount your volume. You must make sure that the host is not trying to connect to the volume during the restore.
    - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on a Linux&reg; server](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#unmountingLin)
@@ -480,7 +486,7 @@ You might need to take your storage volume back to a specific point in time beca
      ```sh
      $ slcli block snapshot-restore --help
      Usage: slcli block snapshot-restore [OPTIONS] VOLUME_ID
-   
+
      Options:
       -s, --snapshot-id TEXT  The id of the snapshot which is to be used to restore
                               the block volume

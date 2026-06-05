@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-11-28"
+  years: 2018, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, Plesk, backups, mountpoint, iSCSI
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Configuring {{site.data.keyword.blockstorageshort}} for backup with Plesk
 {: #PleskBackups}
 
-You can use the following instructions to configure {{site.data.keyword.blockstoragefull}} for your backups in Plesk. The assumption is that root or sudo SSH and full admin level Plesk access are available.
+Configure {{site.data.keyword.blockstorageshort}} for Plesk backups with root or sudo SSH access and full admin-level Plesk permissions.
 {: shortdesc}
 
 For more information, see [Plesk's Documentation for backing up and restoration](https://docs.plesk.com/en-US/obsidian/administrator-guide/backing-up-and-restoration.59256/){: external}.

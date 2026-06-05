@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -15,8 +15,10 @@ subcollection: BlockStorage
 # Expanding {{site.data.keyword.blockstorageshort}} Capacity
 {: #expandingcapacity}
 
-With this feature, {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. You don't need to create a duplicate or manually migrate data to a larger volume. This feature is available in all [data centers](/docs/overview?topic=overview-locations#data-centers).
+Expand your {{site.data.keyword.blockstorageshort}} volume up to 12 TB without creating duplicates or migrating data manually.
 {: shortdesc}
+
+With this feature, {{site.data.keyword.blockstoragefull}} users can expand the size of their existing {{site.data.keyword.blockstorageshort}} in GB increments up to 12 TB immediately. You don't need to create a duplicate or manually migrate data to a larger volume. This feature is available in all [data centers](/docs/overview?topic=overview-locations#data-centers).
 
 Billing for the volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
@@ -28,7 +30,7 @@ When the expansion is complete, the host Operating system must rescan the volume
 ## Advantages of Expandable Storage
 {: #advantageofresizing}
 
-- **Cost management** – You might know of a potential for growth of your data, but you need a smaller amount of storage to start. The ability to expand allows our customers to save on the cost of storage, and later grow to accommodate their needs.
+- **Cost management** – When you anticipate data growth but need a smaller amount of storage to start, you can expand your storage later. This approach saves on costs and accommodates your needs as they grow.
 
 - **Growing Storage needs** - Customers who experience rapid data growth need a way to quickly and easily increase the size of their storage to manage it.
 

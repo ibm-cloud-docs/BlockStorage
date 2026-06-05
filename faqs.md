@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -81,7 +81,7 @@ No. A host cannot be authorized to access volumes of differing OS types at the s
 {: faq}
 {: support}
 
-When you create a volume, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the volume. It also determines the layout of data on the volume, the geometry that is used to access that data, and the minimum and maximum size of the volume. The OS Type can't be modified after the volume is created. The actual size of the volume might vary slightly based on the OS type of the volume. Choosing the correct type for your Windows OS helps to prevent mis-aligned IO operations.
+When you create a volume, you must specify the OS type. The OS type specifies the operating system of the host that's going to access the volume. It also determines the layout of data on the volume, the geometry that is used to access that data, and the minimum and maximum size of the volume. The OS Type can't be modified after the volume is created. The actual size of the volume can vary slightly based on the OS type of the volume. Choosing the correct type for your Windows OS helps to prevent mis-aligned IO operations.
 
 If the volume is being presented as a raw block device to a guest, select the OS type of the guest's OS. If the volume is being presented to the hypervisor to serve Virtual hard disk (VHD) files, choose Hyper-V.
 
@@ -112,7 +112,7 @@ If the volume is being presented as a raw block device to a guest, select the OS
 
 IOPS is enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
 
-The number of hosts that are accessing the volume is important because when only a single host is accessing the volume, it can be difficult to realize the maximum IOPS available. 
+The number of hosts that are accessing the volume is important because when only a single host is accessing the volume, it can be difficult to realize the maximum IOPS available.
 
 ## Measuring IOPS
 {: #iopsmeasure}
@@ -168,7 +168,7 @@ Maximum IOPS can still be obtained when you use smaller block sizes. However, th
 {: faq}
 {: #faq-storage-units-2}
 
-One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume in the console, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
+One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume in the console, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system can display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
 Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting, and the amount and size of the various files on the system.
 
@@ -197,7 +197,7 @@ The following table shows the same number of bytes expressed in decimal and bina
 |                 2 TB |              1.81 TiB |
 {: caption="Decimal vs binary units" caption-side="bottom"}
 
-The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB. 
+The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is larger than 4 TB. However, your operating system can display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
 ## Does the volume need to be pre-warmed to achieve the expected throughput?
 {: #prewarm}
@@ -378,7 +378,7 @@ For a more stable connection in a VMware deployment, mount the network storage o
 {: faq}
 {: support}
 
-To see the new expanded volume size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system Documentation. 
+To see the new expanded volume size, you need to rescan and reconfigure your existing {{site.data.keyword.blockstorageshort}} disk on the server. See the following examples. For more information, see your operating system Documentation.
 
 ### Windows 2016
 {: #expandsizeWin}
@@ -640,7 +640,7 @@ All File and {{site.data.keyword.blockstorageshort}} services are thin-provision
 {: #staasV2migration}
 {: faq}
 
-You might notice that your Storage volumes are now billed as "Endurance Storage Service” or "Performance Storage Service" instead of "Enterprise Storage". You might also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that are in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
+You can notice that your Storage volumes are now billed as "Endurance Storage Service" or "Performance Storage Service" instead of "Enterprise Storage". You can also have new options in the console, such as the ability to adjust IOPS or increase capacity. {{site.data.keyword.cloud}} strives to continuously improve storage capabilities. As hardware gets upgraded in the data centers, storage volumes that are in those data centers are also upgraded to use all enhanced features. The price that you pay for your Storage volume does not change with this upgrade.
 
 ## How durable is {{site.data.keyword.blockstorageshort}}?
 {: #stordurabilityfaq}

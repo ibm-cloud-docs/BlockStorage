@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-03-21"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, block storage, snapshot, snapshot space, snapshot best practices, snapshot usage,
 
@@ -11,11 +11,15 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Snapshots
+# Understanding snapshots for data protection
 {: #snapshots}
 
-Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space. Snapshots are considered your first line of defense for data protection. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy.
+Protect your data with snapshots that capture volume contents at a point in time with no performance impact and minimal space consumption.
 {: shortdesc}
+
+Snapshots are a feature of {{site.data.keyword.blockstoragefull}}. A snapshot represents a volume's contents at a particular point in time. With snapshots, you can protect your data with no performance impact and minimal consumption of space.
+
+Snapshots are considered your first line of defense for data protection. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy.
 
 {{site.data.keyword.blockstorageshort}} provides you with two ways to take your snapshots.
 
@@ -38,13 +42,13 @@ You must purchase some amount of snapshot space for your volume first so you can
 
 Snapshot design depends on the customer’s environment. The following design considerations can help you to plan and implement Snapshot copies:
 - Up to 50 snapshots can be created through a schedule and up to 50 manually on each volume or volume.
-- Don't take too many snapshots. Make sure that your scheduled snapshot frequency meets your RTO and RPO needs and your application business requirements by scheduling hourly, daily, or weekly snapshots.
+- Don't take too many snapshots. Make sure that your scheduled snapshot frequency meets your Recovery Time Objective (RTO) and Recovery Point Objective (RPO) needsand your application business requirements by scheduling hourly, daily, or weekly snapshots.
 - Snapshot AutoDelete can be used to control the growth of storage consumption.
 
    The AutoDelete threshold is fixed at 95%.
    {: note}
 
-Snapshots are not replacements for actual off-site Disaster Recovery replication or long-retention backup.
+Snapshots are not replacements for actual offsite Disaster Recovery replication or long-retention backup.
 {: important}
 
 ## Security

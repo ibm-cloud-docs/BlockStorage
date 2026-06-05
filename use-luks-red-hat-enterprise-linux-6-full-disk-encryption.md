@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-11-28"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -14,8 +14,10 @@ subcollection: BlockStorage
 # Achieving full disk encryption with LUKS in RHEL
 {: #LUKSencryption}
 
-You can encrypt partitions on your RHEL server with Linux&reg; Unified Key Setup (LUKS), which is important when it comes to mobile Computers and removable media. With LUKS, multiple user keys can be used to decrypt a main key that is used for the bulk encryption of the partition. The following instructions are applicable to RHEL versions RHEL 8 or newer.
+Learn how to encrypt {{site.data.keyword.blockstorageshort}} partitions with LUKS using multiple user keys for enhanced data security.
 {: shortdesc}
+
+You can encrypt partitions on your {{site.data.keyword.blockstorageshort}} volumes with Linux® Unified Key Setup (LUKS). With LUKS, multiple user keys can be used to decrypt a main key that is used for the bulk encryption of the partition. The following instructions were validated to work for RHEL version 8 or newer.
 
 These steps assume that the server can access a new, unencrypted {{site.data.keyword.blockstoragefull}} volume that was not formatted or mounted. For more information about connecting {{site.data.keyword.blockstorageshort}} to a Linux&reg; host, see one of the following topics.
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
@@ -103,21 +105,21 @@ The process of data encryption creates a load on the host that might potentially
    {: screen}
 
 8. Write random data to `/dev/mapper/cryptData` on the encrypted device. This action makes sure that the outside world sees this as random data, which means it is protected against disclosure of usage patterns. This step can take a while.
-   
+
    ```sh
    shred -v -n1 /dev/mapper/cryptData
    ```
    {: pre}
 
 9. Format the volume.
-   
+
    ```sh
    mkfs.ext4 /dev/mapper/cryptData
    ```
    {: pre}
 
 10. Mount the volume.
-   
+
    ```sh
    mkdir /cryptData
    ```

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-12-03"
+  years: 2017, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -14,8 +14,10 @@ subcollection: BlockStorage
 # Creating and managing duplicate volumes
 {: #duplicatevolume}
 
-You can create a duplicate of an existing {{site.data.keyword.blockstoragefull}}. The duplicate volume inherits the capacity and performance options of the original volume by default. However, both attributes can be changed manually. The duplicate has a copy of the data up to the point-in-time of the snapshot that was used to create it. The duplicate volume can be dependent or independent from the original volume.
+Create a duplicate {{site.data.keyword.blockstorageshort}} volume from a snapshot with inherited or customized capacity and performance settings as a dependent or independent copy.
 {: shortdesc}
+
+The duplicate volume inherits the capacity and performance options of the original volume by default, but you can customize both attributes during creation. The duplicate contains a copy of the data from the snapshot that was used to create it.
 
 If you are a Dedicated account user of {{site.data.keyword.containerlong}}, see your options for duplicating a volume in the [{{site.data.keyword.containerlong_notm}} Documentation](/docs/containers?topic=containers-block_storage#block_backup_restore).
 {: tip}
@@ -351,7 +353,7 @@ slcli block volume-refresh <duplicate-vol-id> <primary-snapshot-id>
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
-The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the `--force-refresh` option to stop all ongoing and pending refresh transactions, and initiate a new refresh. 
+The refresh process can be time-consuming. If you find that you have new data that you want to copy to the independent duplicate volume, you can issue the `slcli block volume-refresh` command with the `--force-refresh` option to stop all ongoing and pending refresh transactions, and initiate a new refresh.
 
 The force refresh process works only on independent volumes.
 {: note}
@@ -389,12 +391,12 @@ For more information about available command options, see [`duplicate-convert-st
 {: #refreshindependentvol_api}
 {: api}
 
-As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then updating the duplicate volume by using the data from that snapshot. 
+As time passes and the primary volume changes, the duplicate volume can be updated with these changes to reflect the current state through the refresh action. The refresh involves taking a snapshot of the primary volume and then updating the duplicate volume by using the data from that snapshot.
 
 A refresh incurs no downtime on the primary volume. However, during the refresh transaction, the duplicate volume is disabled and must be remounted after the refresh is completed.
 {: important}
 
-The refresh process can be time-consuming. You might find that you have new data that you want to add to the duplicate before the running refresh is finished. If that's the case, you can make a second call to `refreshDuplicate` and specify the second `forceRefresh` parameter as `true` to stop all ongoing and pending refresh transactions, and initiate a new refresh. If the second parameter is set to `false` or it is not specified, the call fails if another refresh is already in progress.
+The refresh process can be time-consuming. To add new data to the duplicate before the running refresh finishes, make a second call to `refreshDuplicate` with the `forceRefresh` parameter set to `true`. This stops all ongoing and pending refresh transactions and starts a new refresh. If the parameter is set to `false` or not specified, the call fails when another refresh is in progress.
 
 The force refresh process works only on independent volumes.
 {: note}

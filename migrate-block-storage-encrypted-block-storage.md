@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-11-28"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -14,8 +14,10 @@ subcollection: BlockStorage
 # Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 
-Enhanced {{site.data.keyword.blockstoragefull}} is now available in all [data centers](/docs/overview?topic=overview-locations#data-centers). The preferred migration path is to provision an enhanced {{site.data.keyword.blockstorageshort}}, connect both volumes simultaneously and transfer data directly from one volume to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
+Migrate to enhanced {{site.data.keyword.blockstorageshort}} by provisioning a new volume, connecting both simultaneously, and transferring data directly between volumes.
 {: shortdesc}
+
+Enhanced {{site.data.keyword.blockstoragefull}} is available in all [data centers](/docs/overview?topic=overview-locations#data-centers). The preferred migration path is to provision an enhanced {{site.data.keyword.blockstorageshort}}, connect both volumes simultaneously and transfer data directly from one volume to another. The specifics depend on your operating system and whether the data is expected to change during the copy operation.
 
 You don't need to follow this process if your Storage received an upgrade to the Storage-as-a-Service package as part of the ongoing hardware refresh process.
 {: tip}
@@ -35,7 +37,7 @@ Your new storage is available to mount in a few minutes. You can view it in the 
 ## Authorizing the host to access the new {{site.data.keyword.blockstorageshort}}
 {: #authhosts2LUN}
 
-Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. 
+Before you begin, make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized.
 
 "Authorized" hosts are hosts that are granted access to a volume. Without host authorization, you can't access or use the storage from your system. Authorizing a host to access your volume generates the username, password, and iSCSI qualified name (IQN), which is needed to mount the multipath I/O (MPIO) iSCSI connection.
 

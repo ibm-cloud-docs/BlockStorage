@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-12-03"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: MPIO iSCSI LUNS, iSCSI Target, MPIO, multipath, block storage, LUN, mounting, mapping secondary storage
 
@@ -22,8 +22,10 @@ completion-time: 1h
 {: toc-services=""}
 {: toc-completion-time="1h"}
 
-This tutorial guides you through how to mount an {{site.data.keyword.blockstoragefull}} volume on a server with a Windows 2019 or Windows 2022 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
+Learn how to mount an {{site.data.keyword.blockstorageshort}} volume on Windows Server with MPIO for redundant, high-performance storage access.
 {: shortdesc}
+
+Follow the tutorial to mount an {{site.data.keyword.blockstoragefull}} volume on a server with a Windows 2019 or Windows 2022 operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 
 ## Before you begin
 {: #authhostwin}
@@ -38,7 +40,7 @@ This tutorial guides you through how to mount an {{site.data.keyword.blockstorag
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your OS Documentation.
 
 The following activities are prerequisites on the iSCSI client:
-- Installation of Multipath-IO services 
+- Installation of Multipath-IO services
 - Setting the iSCSI initiator service to start automatically
 - Enabling support for multipath MPIO to iSCSI
 - Enabling automatic claiming of all iSCSI volumes
@@ -66,7 +68,7 @@ Restart the Windows client after installation of these prerequisites. The MPIO l
 1. Open the MPIO Properties window by clicking **Start**, pointing to **Administrative Tools**, and clicking **MPIO**.
 2. Click **Discover Multi-Paths**.
 3. Select **Add support for iSCSI devices**, and click **Add**.
-   
+
    ![The image shows the MPIO properties screen. The Discover Multi-paths tab is selected. The box that is next to Add support for iSCSI devices option is checked. The Add and OK buttons are also visible and active.](images/2-AddMPIOsupport4iSCSIdevices.svg){: caption="Enable MPIO support for ISCSI devices." caption-side="bottom"}
 1. Close the window by clicking **OK**.
 
@@ -80,11 +82,11 @@ Restart the Windows client after installation of these prerequisites. The MPIO l
 1. Click the **Configuration** tab.
    1. The Initiator Name field might already be populated with an `iqn` entry.
    1. Click **Change** to replace existing values with your iSCSI Qualified Name (IQN)[^IQN] from the console.
-     
+
       ![The image shows the iSCSI Initiator Properties screen with the Initiator Name field that is prepopulated. The Change button is highlighted with a blue outline. ](images/3-ChangeIQN.svg){: caption="ISCSI Initiator Properties" caption-side="bottom"}
       [^IQN]: The IQN name can be obtained from the **{{site.data.keyword.blockstorageshort}} Detail** screen in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Click **Discovery**, and click **Discover Portal**.
-     
+
       ![The image shows the Discovery tab in the iSCSI Initiator Properties screen. The Discover portal button is highlighted with a light blue background.](images/4-DiscoveryPortal.svg){: caption="ISCSI Initiator Properties, Discovery tab" caption-side="bottom"}
    1. Input the IP address of your iSCSI target and keep the default value of 3260 for the Port.
    1. Click **Advanced** to open the Advanced Settings window.
@@ -139,20 +141,20 @@ Restart the Windows client after installation of these prerequisites. The MPIO l
    1. Click **Enable CHAP log-on** checkbox.
    1. Enter the Name and Target secret values that were obtained from the console and click **OK**.
    1. Click **OK** on the Connect To Target window to go back to the Properties window.
-     
+
    ![The image shows the General tab of the Advanced Settings screen. The Enable CHAP log-on option is selected for adding the credentials of the 2nd target.](images/11-InputCHAPcredentials2ndTarget.svg){: caption="Adding CHAP credentials for the 2nd target in Advanced Settings." caption-side="bottom"}
 8. Now the Properties window displays more than one session within the Identifier pane. It means that you have more than one session into the iSCSI storage.
-    
+
    ![The image shows the Properties window, and the Sessions screen. Two connected sessions are displayed in the list.](images/12-Confirm2ConnectedSessions.svg){: caption="Two connected sessions are displayed." caption-side="bottom"}
 
    If your host has multiple interfaces that you want to connect to the storage, you can set up another connection with the address of the second NIC in the Initiator IP field. However, be sure to authorize the second initiator IP address in the [{{site.data.keyword.cloud}} console](/login){: external} before you attempt to make the connection.
    {: note}
 
 9. In the Properties window, click **Devices** to open the Devices window. The device interface name start with `mpio`.
-   
+
    ![Devices window](images/13-ConfigureMPIO.svg){: caption="Devices window displays the iSCSI target." caption-side="bottom"}
 10. Click **MPIO** to open the **Device Details** window. You can choose load balance policies for MPIO in this window and it shows you the paths to the iSCSI. In this example, two paths are shown as available for MPIO.
-   
+
    ![The Device Details window shows two paths available for MPIO with a Round Robin With Subset load balance policy.](images/14-DeviceDetails2paths.svg){: caption="Multipath can be validated on the Device Details window." caption-side="bottom"}
 
 11. Click **OK** several times to exit the iSCSI Initiator.
@@ -189,7 +191,7 @@ After the restart is complete, take the following steps to view all of the activ
 3. In the Programs list, click `diskmgmt`.
 4. Right-click each disk for which you want to verify the multiple paths and then click **Properties**.
 5. On the MPIO tab, in the Select the MPIO policy list, click all the paths that are active.
-   
+
    ![The Device Details screen is shown with 2 active paths on the MPIO tab.](images/DeviceDetails_0.svg){: caption="Several paths that are leading to the target are shown." caption-side="bottom"}
 
 To verify multipathing by using the command line, complete the following steps.
@@ -211,7 +213,7 @@ To disconnect an iSCSI volume from a Windows-based {{site.data.keyword.cloud}} C
 ### Disconnect the volume from the iSCSI Initiator
 {: #startISCSIwin}
 
-1. In Server Manager, click **Storage** > **iSCSI**. 
+1. In Server Manager, click **Storage** > **iSCSI**.
 1. Right-click the volume and take it **Offline**.
 1. In iSCSI Initiator, click **Targets**.
 2. Select the target that you want to remove and click **Disconnect**.

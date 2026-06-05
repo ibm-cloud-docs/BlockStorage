@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2025
-lastupdated: "2025-11-03"
+  years: 2014, 2026
+lastupdated: "2026-06-05"
 
 keywords: Block Storage for Classic, limit increase, global quota, quota increase
 
@@ -82,16 +82,16 @@ The API call shows the combined number of {{site.data.keyword.blockstorageshort}
 ## Requesting volume limit increase
 {: #increaseblocklimits}
 
-You can request a provisioning limit increase by submitting a support case in the [console](/unifiedsupport/cases/add){: external}. When the request is approved, you get a volume limit that is set for a specific data center.
+Request a provisioning limit increase by submitting a support case to get a higher volume limit for a specific data center.
 {: shortdesc}
 
 In the case, provide the following information:
 
-- **Ticket Subject**: 
+- **Ticket Subject**:
    > Request to Increase Data Center Volume Count Storage Limit
 
 - **What is the use case for the additional volumes request?**
-   >*For example, your answer might be something similar to a "new VMware&reg; datastore", "a new development and testing (`dev/test`) environment", "an SQL database", or "logging".*
+   >*For example, your answer can be something similar to a "new VMware&reg; datastore", "a new development and testing (`dev/test`) environment", "an SQL database", or "logging".*
 
 - **How many extra Block volumes are needed by type, size, IOPS, and location?**
    >*For example, "25x Endurance 2 TB @ 4 IOPS in DAL09" or "25x Performance 4 TB @ 2 IOPS in WDC04."*
