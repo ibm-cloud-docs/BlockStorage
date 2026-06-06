@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-06"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -11,10 +11,10 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing {{site.data.keyword.blockstorageshort}} volumes in IBM Cloud
+# Managing {{site.data.keyword.blockstorageshort}} volumes in {{site.data.keyword.cloud_notm}}
 {: #managingstorage}
 
-Manage {{site.data.keyword.blockstorageshort}} volumes through the IBM Cloud console, CLI, API, or Terraform to configure, monitor, and control your storage resources.
+Manage {{site.data.keyword.blockstorageshort}} volumes through the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform to configure, monitor, and control your storage resources.
 {: shortdesc}
 
 ## Viewing {{site.data.keyword.blockstorageshort}} volume details in the console

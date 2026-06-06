@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-06"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -35,7 +35,7 @@ If you're using another Linux&reg; operating system, refer to the Documentation 
 
 1. Make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 
-1. An active [VPN connection](/docs/iaas-vpn?topic=iaas-vpn-using-ssl-vpn) is required to access to the private network of IBM Cloud and to interact with several services.
+1. An active [VPN connection](/docs/iaas-vpn?topic=iaas-vpn-using-ssl-vpn) is required to access to the private network of {{site.data.keyword.cloud_notm}} and to interact with several services.
 
 1. Establish an SSH connection to your server. The IP address, username, and password can be found in the console. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), click **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** > ** Devices**. Then, locate your server in the list and click its name to display its details.
 

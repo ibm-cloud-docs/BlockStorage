@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-06"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -20,7 +20,7 @@ Learn how to look up the LUN ID of attached storage volumes on your Compute host
 
 In Storage Area Networks (SAN), a Logical Unit Number (LUN) is a unique identifier assigned to a logical block of storage. LUNs allow servers to identify, access, and manage specific virtual partitions or physical hard drives across a network.
 
-Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you can have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the IBM Cloud console. Another example is when you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an ESXi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that.
+Various reasons exist for why you would want to look up the LUN ID of the attached storage volumes on the Compute host. For example, you can have multiple storage devices that are mounted on the same host with the same volume sizes. You want to detach and decommission one of them. However, you are not sure how to correlate what you see on your Linux&reg; host with what you see in the {{site.data.keyword.cloud_notm}} console. Another example is when you have multiple {{site.data.keyword.blockstorageshort}} volumes that are attached to an ESXi server. You want to expand the volume size of one of the LUNs, and you need to know the correct LUN ID of the storage to do that.
 
 ## Viewing the LUN ID in Linux&reg;
 {: #identifyLUNLin}
