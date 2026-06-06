@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing {{site.data.keyword.blockstorageshort}} volumes
+# Managing {{site.data.keyword.blockstorageshort}} volumes in IBM Cloud
 {: #managingstorage}
 
 Manage {{site.data.keyword.blockstorageshort}} volumes through the IBM Cloud console, CLI, API, or Terraform to configure, monitor, and control your storage resources.

@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Upgrading existing {{site.data.keyword.blockstorageshort}} to enhanced {{site.data.keyword.blockstorageshort}}
+# Upgrading Enterprise storage volume to enhanced {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 
 Migrate to enhanced {{site.data.keyword.blockstorageshort}} by provisioning a new volume, connecting both simultaneously, and transferring data directly between volumes.

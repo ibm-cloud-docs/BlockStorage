@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing snapshots
+# Managing snapshots for {{site.data.keyword.blockstorageshort}}
 {: #managingSnapshots}
 
 Learn how to create, schedule, and manage snapshots to protect your {{site.data.keyword.blockstorageshort}} data with no performance impact and minimal space consumption.
@@ -203,7 +203,7 @@ Options:
 
 A list of retained snapshots and the space that they use can be seen on the **{{site.data.keyword.blockstorageshort}} Detail** page. Management functions (editing schedules and adding more space) are conducted on the **{{site.data.keyword.blockstorageshort}} Detail** page by using the **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") menu or links in the various sections on the page. The Snapshot page displays how much capacity the volume has and how much of it is used.
 
-You receive notifications when you reach space thresholds – 75%, 90%, and 95%.
+You receive notifications when you reach space thresholds - 75%, 90%, and 95%.
 
 - At **75% capacity**, a warning is sent that snapshot space usage exceeded 75%. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system resets, and no autodeletion occurs.
 - At **90% capacity**, a second warning is sent when snapshot space usage exceeded 90%. Like with reaching 75% capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.
@@ -250,7 +250,7 @@ Options:
 {: #notificationstatusCLI}
 {: cli}
 
-Notifications are sent when you reach three different space thresholds – 75%, 90%, and 95%.
+Notifications are sent when you reach three different space thresholds - 75%, 90%, and 95%.
 
 - At **75% capacity**, a warning is sent that snapshot space usage exceeded 75%. To remediate this issue, you can manually add space, or delete retained unnecessary snapshots. You can reduce the number of retained snapshots in the schedule. If you reduce the snapshot data or increase the space, the warning system resets, and no autodeletion occurs.
 - At **90% capacity**, a second warning is sent when snapshot space usage exceeded 90%. Like with reaching 75% capacity, if you take the necessary actions to decrease the snapshot data or increase the space, the warning system is reset and no autodeletion occurs.

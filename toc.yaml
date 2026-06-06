@@ -32,10 +32,13 @@ toc:
           id: ordering-storage
           label: Provisioning
           topics:
-          - provisioning-block_storage.md
-          - ordering-snapshots.md
+          - topic: provisioning-block_storage.md
+            navtitle: Ordering Block Storage
+          - topic: ordering-snapshots.md
+            navtitle: Ordering snapshot space
           - managing-storage-limits.md
-          - migrate-block-storage-encrypted-block-storage.md
+          - topic: migrate-block-storage-encrypted-block-storage.md
+            navtitle: Upgrading to enhanced storage
       - topicgroup:
           id: configuring-storage
           label: Configuring
@@ -49,10 +52,14 @@ toc:
           id: managing-storage
           label: Managing
           topics:
-          - managing-block-storage.md
-          - expandable_block_storage.md
-          - adjustable-iops.md
-          - working-with-snapshots.md
+          - topic: managing-block-storage.md
+            navtitle: Managing volumes
+          - topic: expandable_block_storage.md
+            navtitle: Expanding volume capacity
+          - topic: adjustable-iops.md
+            navtitle: Adjusting IOPS
+          - topic: working-with-snapshots.md
+            navtitle: Managing snapshots
           - identify_LUNs.md
       - topicgroup:
           id: replication-dr

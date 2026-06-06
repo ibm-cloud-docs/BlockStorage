@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Ordering snapshot space
+# Ordering snapshot space for {{site.data.keyword.blockstorageshort}}
 {: #orderingsnapshots}
 
 Purchase snapshot space to create snapshots of your storage volume during initial provisioning or add capacity later.

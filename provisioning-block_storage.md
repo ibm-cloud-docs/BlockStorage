@@ -13,7 +13,7 @@ subcollection: BlockStorage
 {: ui-linked}
 
 
-# Ordering {{site.data.keyword.blockstorageshort}}
+# Ordering {{site.data.keyword.blockstorageshort}} volumes
 {: #orderingBlockStorage}
 
 Provision {{site.data.keyword.blockstorageshort}} with customizable capacity and performance options using Endurance or Performance tiers to meet your workload requirements.
@@ -135,15 +135,15 @@ For more information about Window OS types, see the [FAQ](/docs/BlockStorage?top
 The method `order_block_volume` (storage_type, location, size, os_type, iops=None, tier_level=None, snapshot_size=None, service_offering='storage_as_a_service', hourly_billing_flag=False) places an order for a block volume.
 
 For a successful order, you must specify the following parameters:
-- `storage_type` – ‘performance’ or ‘endurance’
-- `location` – Data center in which to order iSCSI volume
-- `size` – Size of the volume, in GB
-- `os_type` – OS Type to use for volume alignment, see help for list
-- `iops` – Number of IOPS for a “Performance” order
-- `tier_level` – Tier level to use for an “Endurance” order
-- `snapshot_size` – The size of optional snapshot space, if snapshot space is also ordered (None if not ordered)
-- `service_offering` – Requested offering package to use in the order (‘storage_as_a_service’, ‘enterprise’, or ‘performance’)
-- `hourly_billing_flag` – Billing type, monthly (False) or hourly (True), default to monthly.
+- `storage_type` - 'performance' or 'endurance'
+- `location` - Data center in which to order iSCSI volume
+- `size` - Size of the volume, in GB
+- `os_type` - OS Type to use for volume alignment, see help for list
+- `iops` - Number of IOPS for a "Performance" order
+- `tier_level` - Tier level to use for an "Endurance" order
+- `snapshot_size` - The size of optional snapshot space, if snapshot space is also ordered (None if not ordered)
+- `service_offering` - Requested offering package to use in the order ('storage_as_a_service', 'enterprise', or 'performance')
+- `hourly_billing_flag` - Billing type, monthly (False) or hourly (True), default to monthly.
 
 For more information about ordering {{site.data.keyword.blockstorageshort}} through the API, see [BlockStorageManager](https://softlayer-python.readthedocs.io/en/latest/api/managers/SoftLayer.managers.BlockStorageManager/){: external}.
 

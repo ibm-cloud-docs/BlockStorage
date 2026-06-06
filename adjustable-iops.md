@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Adjusting IOPS
+# Adjusting IOPS for {{site.data.keyword.blockstorageshort}} volumes
 {: #adjustingIOPS}
 
 Adjust the IOPS of your existing {{site.data.keyword.blockstorageshort}} immediately without creating duplicates, migrating data, or causing outages.

@@ -14,6 +14,9 @@ subcollection: BlockStorage
 # FAQ for {{site.data.keyword.blockstorageshort}}
 {: #block-storage-faqs}
 
+Find answers to common questions about {{site.data.keyword.blockstorageshort}}, including provisioning, management, performance, security, and troubleshooting.
+{: shortdesc}
+
 ## How many server instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
 {: #authlimit}
 {: faq}

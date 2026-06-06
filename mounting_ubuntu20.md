@@ -27,7 +27,7 @@ Learn how to mount an {{site.data.keyword.blockstorageshort}} volume on Ubuntu w
 
 Follow the tutorial to mount an {{site.data.keyword.blockstoragefull}} volume on a server with an Ubuntu operating system. You're going to create two connections from one network interface of your host to two target IP addresses of the storage array.
 
-For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and Make sure that the multipath supports ALUA (Asymmetric Logical Unit Access) for path priority.
+For more information about how the iSCSI service works on the Ubuntu OS, see [iSCSI Initiator (or Client)](https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/){: external} Documentation. If you're using another Linux&reg; operating system, refer to the Documentation of your specific distribution, and make sure that the multipath supports Asymmetric Logical Unit Access (ALUA) for path priority.
 {: tip}
 
 ## Before you begin

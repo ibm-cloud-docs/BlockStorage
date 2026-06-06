@@ -12,7 +12,7 @@ subcollection: BlockStorage
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Expanding {{site.data.keyword.blockstorageshort}} Capacity
+# Expanding {{site.data.keyword.blockstorageshort}} volume capacity
 {: #expandingcapacity}
 
 Expand your {{site.data.keyword.blockstorageshort}} volume up to 12 TB without creating duplicates or migrating data manually.
