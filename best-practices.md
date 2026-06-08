@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-08"
 
 keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
 
@@ -44,7 +44,7 @@ To achieve maximum IOPS, adequate network resources need to be in place. 
 
    With an MPIO configuration, a server with multiple NICs can transmit and receive I/O across all available interfaces to a corresponding MPIO-enabled storage device. This configuration provides redundancy that can make sure that the storage traffic remains steady even if one or more of the network components fail, causing the path to fail. The multipathing logic uses an alternative path for I/O so that applications can still access their data. If a server has two 1-Gb NICs and the storage server has two 1-Gb NICs, the theoretical maximum throughput is about 200 MB/s.
 
-   While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to make sure no disruption of service. If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
+   While it is possible to attach {{site.data.keyword.blockstorageshort}} with only a single path, it is important to establish connections on both paths to make sure no disruption of service. If MPIO isn't configured correctly, your storage device can disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance.
    {: important}
 
 * **Add iSCSI multi-sessions when necessary**. Having multiple sessions per target (MS/T) is a storage performance-tuning strategy that was documented by [Oracle](https://docs.oracle.com/cd/E37838_01/html/E61018/gqgbw.html){: external}. By using MS/T and creating multiple TCP connections, you can make better use of the networking stack. You can increase performance by using multiple send and receive threads.

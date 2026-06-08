@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-08"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -37,11 +37,11 @@ The values in the table represent service level objectives (SLOs), design target
 
 Think of durability as a measurement of how healthy and resilient your data is. Durability in {{site.data.keyword.blockstorageshort}} means that your data is stored consistently and intact without any signs of data decay, influence of drive failures, or any other form of corruption. 99.999999999% (11 nines) durability means that if you store 10 million files, then you expect to lose one file every 10000 years.
 
-When people hear the word durability, most of them think of hardware failures of storage, Compute, and network components that might cause data loss. In {{site.data.keyword.blockstorageshort}}, your data is protected against drive failures and numerous types of disk errors that otherwise might negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
+When people hear the word durability, most of them think of hardware failures of storage, Compute, and network components that can cause data loss. In {{site.data.keyword.blockstorageshort}}, your data is protected against drive failures and numerous types of disk errors that otherwise can negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
 
 Other than physical failure, a common source of data loss is accidental deletion or modifications of files by users. {{site.data.keyword.blockstorageshort}} is only accessible to authorized hosts within your network. You control who can access it. Another measure to protect against accidental deletion and modification of files by users is a snapshot. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy. For more information about this feature, see [Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots).
 
-The 11 nines durability target applies to a single Availability Zone. To protect against natural or human-made disasters that might destroy an entire Availability Zone, consider storing your most important data in multiple locations. For more information, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
+The 11 nines durability target applies to a single Availability Zone. To protect against natural or human-made disasters that could destroy an entire Availability Zone, consider storing your most important data in multiple locations. For more information, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 
 ## High Availability
 {: #storavailability}

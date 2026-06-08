@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-08"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
@@ -43,7 +43,7 @@ Each migration scenario is different. Capture the requirements and any special c
 
 1. Identify the type of data that you intend to migrate. You must validate the compatibility of the storage services that are available between the source and target storage environments to help make the workload transition upon completion of the migration process seamless.
    -  If the targeted storage is block volume service data, make sure that the target cloud provider has equivalent block storage services available to map your existing data correctly.
-   -  If target storage is file service data, confirm that the target cloud provider has equivalent NFS file services available to map your existing data correctly.
+   -  If target storage is file service data, confirm that the target cloud provider has equivalent Network File System (NFS) file services available to map your existing data correctly.
 
 2. Identify the performance and capacity requirements for the data. Make sure that the target platform has compatible performance, and capacity profiles available to reduce any impact to workload behavior after the transition. It is recommended to conduct performance testing upfront within the new target environment to evaluate any workload performance impacts before you migrate your data.
 
