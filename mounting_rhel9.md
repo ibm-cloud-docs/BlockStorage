@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-08"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -102,7 +102,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 
 1. Uncomment and update the following entries in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. U se uppercase for CHAP (Challenge-Handshake Authentication Protocol) names.
 
-   ```text
+   ```sh
    node.session.auth.authmethod = CHAP
    node.session.auth.username = <Username-value-from-Portal>
    node.session.auth.password = <Password-value-from-Portal>

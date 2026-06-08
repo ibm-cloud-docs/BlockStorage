@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-08"
 
 keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
@@ -145,7 +145,7 @@ InitiatorName=<value-from-the-Portal>
 
 Edit the following settings in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. U se uppercase for CHAP (Challenge-Handshake Authentication Protocol) names.
 
-```text
+```sh
 node.session.auth.authmethod = CHAP
 node.session.auth.username = <Username-value-from-Portal>
 node.session.auth.password = <Password-value-from-Portal>
@@ -209,7 +209,7 @@ The iscsiadm utility is a command-line tool aids the discovery and login to iSCS
     {: pre}
 
     By default the storage device attaches to `/dev/mapper/<wwid>`. WWID is persistent while the volume exists. The command reports something similar to the following example.
-    ```text
+    ```sh
     Disk /dev/mapper/3600a0980383030523424457a4a695266: 73.0 GB, 73023881216 bytes
     ```
 
@@ -289,7 +289,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 5. Add the new file system to the system's `/etc/fstab` file to enable automatic mounting on boot.
     - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
-    ```text
+    ```sh
     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
     ```
     {: pre}

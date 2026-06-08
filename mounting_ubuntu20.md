@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-08"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -127,7 +127,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
 
 1. By using the text editor, uncomment and edit the following entries. You can find the username and password in the {{site.data.keyword.cloud}} console.
 
-   ```text
+   ```sh
    node.session.auth.authmethod = CHAP
    node.session.auth.username = <Username-value-from-Portal>
    node.session.auth.password = <Password-value-from-Portal>
@@ -305,7 +305,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 After the volume is mounted and accessible on the host, you can create a file system. Follow these steps to create a file system on the newly mounted volume.
 
 1. Create a partition.
-   ```text
+   ```sh
    $ sudo fdisk /dev/mapper/mpatha
 
    Welcome to fdisk (util-linux 2.34).
@@ -340,7 +340,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
    {: screen}
 
 2. Create the file system.
-   ```text
+   ```sh
    $ sudo mkfs.ext4 /dev/mapper/mpatha-part1
    mke2fs 1.45.5 (07-Jan-2020)
    Creating filesystem with 261888 4k blocks and 65536 inodes

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-08"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -76,7 +76,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    The output shows the hostname of the storage device, the LUN ID, and the Target IP:
 
-   ```text
+   ```sh
    IBM02SEL1575811-3 lun id: 0 Target IP: 161.26.110.17
    IBM02SEL1575811-4 lun id: 1 Target IP: 161.26.110.43
    ```
@@ -261,7 +261,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 3. Issue the `esxcli iscsi adapter target portal list` command. From the output, note the IP address and Tpgt value that matches the Portal Tag.
 
-   ```text
+   ```sh
    Adapter  Target                             IP             Port  Tpgt
    -------  ---------------------------------  -------------  ----  ----
    vmhba64  iqn.1992-08.com.netapp:stfdal1007  161.26.99.155  3260  1034
@@ -273,7 +273,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
 4. Next, use the IBMCLOUD CLI command `ibmcloud sl block volume-list`. The output contains the volume ID, the hostname of the storage device, the DC location, storage type, capacity, the amount of space that is already used, and the LUN ID.
 
-   ```text
+   ```sh
    $ ibmcloud sl block volume-list
    id        username           datacenter storage_type            capacity_gb bytes_used lunId
    221426384 SL02SEL1160157-195 che01      endurance_block_storage 1500         -          2
@@ -305,7 +305,7 @@ Various reasons exist for why you would want to look up the LUN ID of the attach
 
    So you can map the iscsi LUN ID to the block device's hostname:
 
-   ```text
+   ```sh
    SL02SEL1160157-221  lun id: 0  Target IP: 161.26.99.155
    ```
    {: screen}
