@@ -13,6 +13,16 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <metadata
+     id="metadata1">
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description>
+        <dc:date>2026-06-09</dc:date>
+        <dc:description>Last reviewed: 2026-06-09</dc:description>
+      </rdf:Description>
+    </rdf:RDF>
+  </metadata>
   <defs
      id="defs4105" />
   <sodipodi:namedview
