@@ -2,16 +2,16 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-09"
 
-keywords: Block Storage for Classic, secondary storage, replication, duplicate volume, synchronized volumes, primary volume, secondary volume, DR, disaster recovery, snapshots
+keywords: Block Storage for Classic, iSCSI, replication, disaster recovery, duplicate volume, replica schedule, primary volume, secondary volume, failover, snapshots
 
 subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Replicating {{site.data.keyword.blockstorageshort}} Volumes
+# Replicating {{site.data.keyword.blockstorageshort}} volumes for disaster recovery
 {: #replication}
 
 Automatically copy snapshots to a remote data center with replication to recover data if a catastrophic event occurs or data becomes corrupted.

@@ -2,9 +2,9 @@
 
 copyright:
  years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-09"
 
-keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
+keywords: Block Storage for Classic, iSCSI, provisioning, setup, configuration, mounting storage, mount storage, provision storage, IOPS, performance, redundant
 
 subcollection: BlockStorage
 
@@ -23,7 +23,7 @@ completion-time: 2h
 {: toc-services=""}
 {: toc-completion-time="2h"}
 
-{{site.data.keyword.blockstorageshort}} delivers enterprise-grade durability and availability with data integrity protection and consistent performance through planned and unplanned events.
+{{site.data.keyword.blockstorageshort}} delivers enterprise-grade durability and availability with flexible performance options through persistent iSCSI-based block storage.
 {: shortdesc}
 
 {{site.data.keyword.blockstoragefull}} is persistent, high-performance iSCSI storage that is provisioned and managed independently of Compute instances. iSCSI-based {{site.data.keyword.blockstorageshort}} volumes are connected to authorized devices through redundant multi-path I/O (MPIO) connections.

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-09"
 
-keywords: Block Storage for Classic, new feature, adjusting IOPS, modify IOPS, increase IOPS, decrease IOPS,
+keywords: Block Storage for Classic, adjusting IOPS, increase IOPS, decrease IOPS, modify IOPS, performance tuning
 
 subcollection: BlockStorage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Adjusting IOPS for {{site.data.keyword.blockstorageshort}} volumes
 {: #adjustingIOPS}
 
-Adjust the IOPS of your existing {{site.data.keyword.blockstorageshort}} immediately without creating duplicates, migrating data, or causing outages.
+Adjust the input/output operations per second (IOPS) value for your block storage volume immediately without outage or disruption.
 {: shortdesc}
 
 Billing for the storage is updated to add the prorated difference of the new price to the current billing cycle. The full new amount is billed in the next billing cycle.

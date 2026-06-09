@@ -2,19 +2,19 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-09"
 
-keywords: Block Storage for Classic, inaccessible primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
+keywords: Block Storage for Classic, disaster recovery, inaccessible primary volume, replica volume, replication, failover, failback
 
 subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Disaster Recovery - Fail over from an inaccessible primary volume
+# Fail over from an inaccessible primary volume for disaster recovery
 {: #dr-inaccessible}
 
-Learn how to force a failover to the remote replica and quickly access your data on the secondary site when a disaster makes the primary volume inaccessible.
+Quickly access your data on the secondary site when catastrophic failure makes the primary volume inaccessible by forcing failover to the remote replica.
 {: shortdesc}
 
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.

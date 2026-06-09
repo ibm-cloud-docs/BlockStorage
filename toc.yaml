@@ -36,7 +36,8 @@ toc:
             navtitle: Ordering Block Storage
           - topic: ordering-snapshots.md
             navtitle: Ordering snapshot space
-          - managing-storage-limits.md
+          - topic: managing-storage-limits.md
+            navtitle: Managing storage limits
           - topic: migrate-block-storage-encrypted-block-storage.md
             navtitle: Upgrading to enhanced storage
       - topicgroup:
@@ -65,16 +66,22 @@ toc:
           id: replication-dr
           label: Replication and Disaster Recovery
           topics:
-          - replication.md
-          - dr-accessible-primary.md
-          - disaster-recovery.md
-          - duplicate-volume.md
+          - topic: replication.md
+            navtitle: Replicating volumes for disaster recovery
+          - topic: dr-accessible-primary.md
+            navtitle: Fail over with accessible primary
+          - topic: disaster-recovery.md
+            navtitle: Fail over from inaccessible primary
+          - topic: duplicate-volume.md
+            navtitle: Creating duplicate volumes
       - topicgroup:
           id: encryption-and-security
           label: Enhancing Security
           topics:
-          - availability.md
-          - data-security.md
+          - topic: availability.md
+            navtitle: Availability and durability
+          - topic: data-security.md
+            navtitle: Securing your data
           - use-luks-red-hat-enterprise-linux-6-full-disk-encryption.md
           - include: ../infrastructure-hub/encryption-classic-infra.md
   - navgroup:

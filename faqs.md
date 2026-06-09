@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-06-09"
 
-keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
+keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
 subcollection: BlockStorage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # FAQ for {{site.data.keyword.blockstorageshort}}
 {: #block-storage-faqs}
 
-Find answers to common questions about {{site.data.keyword.blockstorageshort}}, including provisioning, management, performance, security, and troubleshooting.
+Find answers to common questions about {{site.data.keyword.blockstoragefull}}, including provisioning, management, performance, security, and troubleshooting.
 {: shortdesc}
 
 ## How many server instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?

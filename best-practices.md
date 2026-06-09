@@ -2,9 +2,9 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-08"
+lastupdated: "2026-06-09"
 
-keywords: Block Storage for Classic, use of a Block Storage volume, LUN, Block Storage
+keywords: Block Storage for Classic, block storage performance, iSCSI best practices, storage optimization
 
 subcollection: BlockStorage
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Best practices for {{site.data.keyword.blockstorageshort}}
 {: #best-practices-classic}
 
-Follow best practices to maximize {{site.data.keyword.blockstorageshort}} performance, maintain data integrity, and keep your critical workloads highly available.
+Follow best practices to maximize block storage performance, avoid service disruption, and ensure reliable data access for your workloads.
 {: shortdesc}
 
 ## Best practice 1 - Clear the path
