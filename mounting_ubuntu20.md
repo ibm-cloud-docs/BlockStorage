@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-08"
+lastupdated: "2026-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -219,7 +219,7 @@ The iscsiadm utility is a command-line tool that is used for the discovery and l
 
 1. Run the discovery against the iSCSI array.
 
-   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery using the SendTargets method. Do not use static node configuration, as it is not scalable and may cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
+   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery that uses the SendTargets method. Do not use static node configuration, as it is not scalable and can cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
    {: important}
 
    ```sh

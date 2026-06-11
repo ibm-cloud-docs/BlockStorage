@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-08"
+lastupdated: "2026-06-10"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -124,7 +124,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 
 1. Validate that the configuration is correct by running discovery against the iSCSI array.
 
-   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery using the SendTargets method. Do not use static node configuration, as it is not scalable and may cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
+   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery that uses the SendTargets method. Do not use static node configuration, as it is not scalable and can cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
    {: important}
 
    ```sh

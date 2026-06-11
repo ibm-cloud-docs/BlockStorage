@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-08"
+lastupdated: "2026-06-10"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -11,13 +11,13 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Availability and Durability of {{site.data.keyword.blockstorageshort}}
+# High availability and durability for {{site.data.keyword.blockstorageshort}}
 {: #storageavailability}
 
-{{site.data.keyword.blockstorageshort}} provides enterprise-grade durability, high availability, and encryption to keep your data secure, accessible, and protected at all times.
+{{site.data.keyword.blockstoragesfull}} delivers 99.999% availability and 99.999999999% durability with Advanced Encryption Standard (AES)-256 encryption and redundant storage.
 {: shortdesc}
 
-In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is important because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing.
+Enterprise data storage requires both immediate accessibility and long-term data integrity. According to {{site.data.keyword.cloud}} infrastructure standards, Block Storage is designed to provide continuous data access while protecting against hardware failures, data corruption, and unauthorized access.
 
 The following table provides an overview of the durability, availability, and encryption features of Block Storage.
 
@@ -35,20 +35,20 @@ The values in the table represent service level objectives (SLOs), design target
 ## Durability
 {: #stordurability}
 
-Think of durability as a measurement of how healthy and resilient your data is. Durability in {{site.data.keyword.blockstorageshort}} means that your data is stored consistently and intact without any signs of data decay, influence of drive failures, or any other form of corruption. 99.999999999% (11 nines) durability means that if you store 10 million files, then you expect to lose one file every 10000 years.
+Durability measures data integrity and resilience over time. {{site.data.keyword.blockstorageshort}} is designed to achieve 99.999999999% (eleven 9's) durability, which means storing 10 million files results in an expected loss of only one file every 10,000 years. This durability level protects data against decay, drive failures, and corruption.
 
-When people hear the word durability, most of them think of hardware failures of storage, Compute, and network components that can cause data loss. In {{site.data.keyword.blockstorageshort}}, your data is protected against drive failures and numerous types of disk errors that otherwise can negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
+{{site.data.keyword.blockstorageshort}} protects data through redundant storage across multiple physical disks within an Availability Zone. This architecture prevents data loss from single component failures, including drive failures, disk errors, and hardware malfunctions that typically compromise data durability and integrity.
 
-Other than physical failure, a common source of data loss is accidental deletion or modifications of files by users. {{site.data.keyword.blockstorageshort}} is only accessible to authorized hosts within your network. You control who can access it. Another measure to protect against accidental deletion and modification of files by users is a snapshot. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy. For more information about this feature, see [Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots).
+Beyond hardware failures, accidental deletion and user modifications represent common data loss scenarios. {{site.data.keyword.blockstorageshort}} restricts access to authorized hosts within your network, providing administrator-controlled access management. Snapshot functionality enables rapid data restoration when users accidentally modify or delete critical data. For more information about this feature, see [Snapshots](/docs/BlockStorage?topic=BlockStorage-snapshots).
 
-The 11 nines durability target applies to a single Availability Zone. To protect against natural or human-made disasters that could destroy an entire Availability Zone, consider storing your most important data in multiple locations. For more information, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
+The eleven 9's durability target applies within a single Availability Zone. To protect against zone-wide disasters (natural or human-made), {{site.data.keyword.cloud}} recommends storing critical data across multiple geographic locations. For more information, see [Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication).
 
 ## High Availability
 {: #storavailability}
 
-{{site.data.keyword.blockstorageshort}} is built upon best-in-class, proven, enterprise-grade hardware and software to provide high availability and uptime. The data is stored redundantly across multiple physical disks on HA paired nodes. Each storage node has multiple paths to its own Solid-State Drives and its partner node's SSDs as well. This configuration protects against path failure and controller failure because the node can still access its partner's disks for continued productivity. Redundant network ports and paths protect against network failures across the cloud connections.
+{{site.data.keyword.blockstorageshort}} is designed to achieve high availability through enterprise-grade hardware and redundant architecture. Data is stored across multiple physical disks on high-availability (HA) paired nodes. Each storage node maintains multiple paths to both its own Solid-State Drives (SSDs) and its partner node's SSDs. This multi-path configuration ensures continued operation during path failures or controller failures, as nodes can access partner disks for uninterrupted service. Redundant network ports and paths provide additional protection against network failures.
 
 ## Encryption
 {: #storencryption}
 
-{{site.data.keyword.cloud}} provides full-disk encryption without compromising storage application performance. For more information about encryption of {{site.data.keyword.blockstorageshort}}, see [Securing your data in {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-mng-data). For more information about provider- and customer-managed encryption in a VPC, see [Data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+{{site.data.keyword.cloud}} implements provider-managed Advanced Encryption Standard (AES)-256 encryption at rest for all Block Storage volumes. This full-disk encryption maintains data security without impacting storage performance. For more information about encryption of {{site.data.keyword.blockstorageshort}}, see [Securing your data in {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-mng-data). For more information about provider- and customer-managed encryption in a VPC, see [Data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
