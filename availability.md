@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # High availability and durability for {{site.data.keyword.blockstorageshort}}
 {: #storageavailability}
 
-{{site.data.keyword.blockstoragesfull}} delivers 99.999% availability and 99.999999999% durability with Advanced Encryption Standard (AES)-256 encryption and redundant storage.
+{{site.data.keyword.blockstoragefull}} delivers 99.999% availability and 99.999999999% durability with Advanced Encryption Standard (AES)-256 encryption and redundant storage.
 {: shortdesc}
 
 Enterprise data storage requires both immediate accessibility and long-term data integrity. According to {{site.data.keyword.cloud}} infrastructure standards, Block Storage is designed to provide continuous data access while protecting against hardware failures, data corruption, and unauthorized access.
