@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-16"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
@@ -114,6 +114,26 @@ If the volume is being presented as a raw block device to a guest, select the OS
 {: support}
 
 IOPS is enforced at the volume level. In other words, two hosts connected to a volume with 6000 IOPS share that 6000 IOPS.
+
+## Is there a minimum IOPS guaranteed by {{site.data.keyword.cloud_notm}}?
+{: #miniops}
+{: faq}
+{: support}
+
+No, {{site.data.keyword.cloud_notm}} does not guarantee a minimum IOPS value. IOPS (input/output operations per second) are driven by the compute host where the block storage is mounted, not by the storage itself. The storage volume has an upper IOPS limit and a throughput limit based on your provisioned configuration. These are maximum thresholds, not minimum guarantees.
+
+When you provision a {{site.data.keyword.blockstorageshort}} volume, you select an IOPS tier (for Endurance) or specify a custom IOPS value (for Performance). This value represents the maximum IOPS that the volume can handle. The actual IOPS that you experience depends on your application's workload and the I/O operations that your compute host generates.
+
+The storage system can throttle data traffic based on two factors:
+- **IOPS limit** - The maximum number of I/O operations per second that the volume can process
+- **Throughput limit** - The maximum data transfer rate (calculated as IOPS × I/O size)
+
+If your application uses an I/O size larger than the nominal 16 KB, the throughput limit is reached before the IOPS limit. For example, with a 6000 IOPS volume:
+- At 16 KB I/O size: You can achieve 6000 IOPS (~93.75 MB/sec throughput)
+- At 32 KB I/O size: Throughput limit is reached at 3000 IOPS (~93.75 MB/sec throughput)
+
+For more information about how I/O size affects performance, see [What happens when a smaller block size is used to measure performance?](#smallblock)
+
 
 The number of hosts that are accessing the volume is important because when only a single host is accessing the volume, it can be difficult to realize the maximum IOPS available.
 
