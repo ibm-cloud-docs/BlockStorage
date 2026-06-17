@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-17"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -17,7 +17,7 @@ subcollection: BlockStorage
 {{site.data.keyword.blockstoragefull}} delivers 99.999% availability and 99.999999999% durability with Advanced Encryption Standard (AES)-256 encryption and redundant storage.
 {: shortdesc}
 
-Enterprise data storage requires both immediate accessibility and long-term data integrity. According to {{site.data.keyword.cloud}} infrastructure standards, Block Storage is designed to provide continuous data access while protecting against hardware failures, data corruption, and unauthorized access.
+Enterprise data storage requires both immediate accessibility and long-term data integrity. According to {{site.data.keyword.cloud}} infrastructure standards, Block Storage is designed to provide continuous data access while it protects against hardware failures, data corruption, and unauthorized access.
 
 The following table provides an overview of the durability, availability, and encryption features of Block Storage.
 
@@ -46,7 +46,7 @@ The eleven 9's durability target applies within a single Availability Zone. To p
 ## High Availability
 {: #storavailability}
 
-{{site.data.keyword.blockstorageshort}} is designed to achieve high availability through enterprise-grade hardware and redundant architecture. Data is stored across multiple physical disks on high-availability (HA) paired nodes. Each storage node maintains multiple paths to both its own Solid-State Drives (SSDs) and its partner node's SSDs. This multi-path configuration ensures continued operation during path failures or controller failures, as nodes can access partner disks for uninterrupted service. Redundant network ports and paths provide additional protection against network failures.
+{{site.data.keyword.blockstorageshort}} is designed to achieve high availability through enterprise-grade hardware and redundant architecture. Data is stored across multiple physical disks on high-availability (HA) paired nodes. Each storage node maintains multiple paths to both its own Solid-State Drives (SSDs) and its partner node's SSDs. This multi-path configuration helps ensure continued operation during path failures or controller failures, as nodes can access partner disks for uninterrupted service. Redundant network ports and paths provide extra protection against network failures.
 
 ## Encryption
 {: #storencryption}
