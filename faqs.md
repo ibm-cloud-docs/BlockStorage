@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-07-14"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
@@ -266,6 +266,7 @@ To enact this best practice, complete the following steps.
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [VMware]{: tag-cool-gray} [How do you connect iSCSI Block Storage through isolated VLANs?](https://www.ibm.com/support/pages/how-do-you-connect-iscsi-block-storage-through-isolated-vlans){: external}
 
 ## Is it good to run iSCSI traffic over 802.3ad LACP port channel?
 {: #MPIOvsLACP}
