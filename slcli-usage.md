@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-07-14"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -11,7 +11,7 @@ subcollection: BlockStorage
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# SLCLI commands for {{site.data.keyword.blockstorageshort}}
+# Managing {{site.data.keyword.blockstorageshort}} with SLCLI commands
 {: #SLCLIcommands}
 
 Use the SLCLI to manage {{site.data.keyword.blockstorageshort}} volumes, snapshots, replication, and authorizations from the command line.
