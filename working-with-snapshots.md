@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-08-06"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Managing snapshots for {{site.data.keyword.blockstorageshort}}
 {: #managingSnapshots}
 
-Learn how to create, schedule, and manage snapshots to protect your {{site.data.keyword.blockstorageshort}} data with no performance impact and minimal space consumption.
+Learn how to create, schedule, and manage {{site.data.keyword.blockstorageshort}} snapshots to protect your data with no performance impact and minimal space consumption.
 {: shortdesc}
 
 ## Adding a Snapshot schedule in the console

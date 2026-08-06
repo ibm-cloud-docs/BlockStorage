@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, disaster recovery, inaccessible primary volume, replica volume, replication, failover, failback
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Fail over from an inaccessible primary volume for disaster recovery
 {: #dr-inaccessible}
 
-Quickly access your data on the secondary site when catastrophic failure makes the primary volume inaccessible by forcing failover to the remote replica.
+Access your data on the secondary site when a catastrophic failure makes the primary {{site.data.keyword.blockstorageshort}} volume inaccessible by forcing a failover to the remote replica.
 {: shortdesc}
 
 Authorized hosts and volumes must be in the same data center. For example, you can't have a replica volume in London and the host in Amsterdam. Both must be in London or both must be in Amsterdam.

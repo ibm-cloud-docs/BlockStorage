@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-06"
 
 keywords: SLCLI, API, SLCLI usage, Block Storage, provisioning, ordering, managing
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Managing {{site.data.keyword.blockstorageshort}} with SLCLI commands
 {: #SLCLIcommands}
 
-Use the SLCLI to manage {{site.data.keyword.blockstorageshort}} volumes, snapshots, replication, and authorizations from the command line.
+Use SLCLI commands to manage {{site.data.keyword.blockstorageshort}} volumes, snapshots, replication, and authorizations from the command line.
 {: shortdesc}
 
 For more information about how to install and use the SLCLI, see [Python API Client](https://softlayer-python.readthedocs.io/en/latest/cli/){: external}.

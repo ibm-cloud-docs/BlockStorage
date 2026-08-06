@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, cPanel, backups, mountpoint, iSCSI
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Configuring {{site.data.keyword.blockstorageshort}} for backup with cPanel
 {: #cPanelBackups}
 
-Configure cPanel backups to store in {{site.data.keyword.blockstorageshort}} with root or sudo SSH access and full WebHost Manager permissions.
+Configure cPanel backups to store in {{site.data.keyword.blockstorageshort}} with root or sudo SSH access and full WebHost Manager (WHM) permissions.
 {: shortdesc}
 
 While you can store a backup directly to a remote filesystem, cPanel and WHM do **not** support this configuration. For more information, see the [cPanel documentation for backup](https://docs.cpanel.net/knowledge-base/backup/how-to-run-backups-on-locally-mounted-remote-file-systems/){: external}.
