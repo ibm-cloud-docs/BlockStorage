@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, LUN, volume duplication, duplicate volume, dependent duplicate, independent duplicate
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Creating and managing duplicate volumes
 {: #duplicatevolume}
 
-Create a duplicate {{site.data.keyword.blockstorageshort}} volume from a snapshot with inherited or customized capacity and performance settings as a dependent or independent copy.
+Create a duplicate {{site.data.keyword.blockstorageshort}} volume from a snapshot with inherited or customized capacity and performance settings, either as a dependent or an independent copy.
 {: shortdesc}
 
 The duplicate volume inherits the capacity and performance options of the original volume by default, but you can customize both attributes during creation. The duplicate contains a copy of the data from the snapshot that was used to create it.

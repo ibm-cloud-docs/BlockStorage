@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # FAQ for {{site.data.keyword.blockstorageshort}}
 {: #block-storage-faqs}
 
-Find answers to common questions about {{site.data.keyword.blockstoragefull}}, including provisioning, management, performance, security, and troubleshooting.
+Find answers to common questions about {{site.data.keyword.blockstoragefull}}, including provisioning, management, performance, security, iSCSI connectivity, and troubleshooting.
 {: shortdesc}
 
 ## How many server instances can share the use of a {{site.data.keyword.blockstorageshort}} volume?
@@ -646,7 +646,7 @@ Endurance and Performance are provisioning options that you can select for stora
 {: faq}
 
 The following situations can affect the ability to upgrade or expand storage:
-- The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles).
+- The permissions that you have in the [{{site.data.keyword.cloud}} console](/login){: external} can be a factor. For more information, see the topics within [User roles and permissions](/docs/iam?topic=iam-userroles){: external}.
 
 ## Does upgrading my storage affect the data that is on the volume?
 {: faq}

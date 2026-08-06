@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Ordering snapshot space for {{site.data.keyword.blockstorageshort}}
 {: #orderingsnapshots}
 
-Purchase snapshot space to create snapshots of your storage volume during initial provisioning or add capacity later.
+Purchase snapshot space to create point-in-time snapshots of your {{site.data.keyword.blockstorageshort}} volume during initial provisioning or add capacity later.
 {: shortdesc}
 
 ## Determining how much snapshot space is needed

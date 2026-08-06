@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-08-06"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Securing your data in {{site.data.keyword.blockstorageshort}}
 {: #mng-data}
 
-Learn how {{site.data.keyword.blockstorageshort}} securely manages your data with encryption, and understand data storage, protection, and deletion procedures.
+Learn how {{site.data.keyword.blockstorageshort}} securely manages your data with AES-256 encryption, and understand data storage, protection, and deletion procedures.
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.blockstorageshort}}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, limit increase, global quota, quota increase
 
@@ -15,6 +15,9 @@ subcollection: BlockStorage
 {: #managingstoragelimits}
 {: help}
 {: support}
+
+Request a provisioning limit increase by submitting a support case to get a higher volume limit for a specific data center.
+{: shortdesc}
 
 By default, you can provision a combined total of 700 {{site.data.keyword.blockstorageshort}} and {{site.data.keyword.filestorage_short}} volumes globally. By following this process, you can increase the number of volumes that you can provision.
 

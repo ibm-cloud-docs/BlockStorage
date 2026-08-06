@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage for Classic, LUN, volume ID,
 
@@ -15,7 +15,7 @@ subcollection: BlockStorage
 # Identifying Logical Unit Number IDs (LUN IDs)
 {: #identifyLUN}
 
-Learn how to look up the LUN ID of attached storage volumes on your Compute host.
+Learn how to look up the logical unit number (LUN) ID of attached {{site.data.keyword.blockstorageshort}} volumes on your compute host.
 {: shortdesc}
 
 In Storage Area Networks (SAN), a Logical Unit Number (LUN) is a unique identifier that is assigned to a logical block of storage. LUNs allow servers to identify, access, and manage specific virtual partitions or physical hard disks across a network.
