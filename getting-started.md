@@ -2,7 +2,7 @@
 
 copyright:
  years: 2014, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-08-07"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, setup, configuration, mounting storage, mount storage, provision storage, IOPS, performance, redundant
 
@@ -118,4 +118,6 @@ When your provisioning request is complete, authorize your hosts to access the n
 
 In the console, from the CLI, with the API, or Terraform, you can manage various aspects of your {{site.data.keyword.blockstorageshort}} such as host authorizations and cancellations. For more information, see [Managing {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-managingstorage).
 
-You can keep your data in sync in two different locations by using replication. Replication uses one of your snapshot schedules to automatically copy snapshots to a destination volume in a remote data center. The copies can be recovered in the remote site if a catastrophic event occurs or your data becomes corrupted. For more information, see [Replication and Disaster Recovery – Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication&interface=ui).
+You can keep your data synchronized across two different locations by using replication. Replication uses one of your snapshot schedules to copy snapshots automatically to a destination volume in a remote data center. You can recover the copies from the remote site if a catastrophic event occurs or your data becomes corrupted. For more information, see [Replication and Disaster Recovery – Replicating Data](/docs/BlockStorage?topic=BlockStorage-replication&interface=ui).
+
+If you are planning to expand your {{site.data.keyword.cloud_notm}} infrastructure or evaluate modern storage options, see [Migrating data from IBM Cloud classic infrastructure to VPC](/docs/classic-to-vpc?topic=classic-to-vpc-data-migration-classic-to-vpc).

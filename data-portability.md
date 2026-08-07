@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-08"
+lastupdated: "2026-08-07"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
@@ -52,9 +52,16 @@ Each migration scenario is different. Capture the requirements and any special c
    - Consider the strategies that you can incorporate to help make sure that data stays consistent and accessible across your workloads during the migration process.
    - Think about how long the migration can take. If you have a large data estate, you must develop a detailed migration plan that defines the timeline for migration execution. You must evaluate the size of the datasets to be transferred and consider expected data transfer speeds between the source and target environments.
 
-4. Select the right tool. When you consider specific tools for data migration, it’s important to pick the right solution for the job.
-   - Block storage – Select a block volume migration tool that maintains the native block format. Make sure that the data is transferred as raw blocks or chunks, maintaining the original file system structure and volume layout upon ingest into the target storage system. The specific tools that you choose depend on your unique migration requirements. Some important considerations to keep in mind during the evaluation process include the capacities that the provider has for data integrity, data monitoring, and data security during the migration process. In addition, it is important to evaluate any requirements that are dictated by the target storage vendor you are migrating data to. It is recommended that you review the target storage environment documentation to understand if they recommend processes or tools to simplify the migration.
-   - File storage – Select an NFS migration tool that maintains file system hierarchy, directory structure, metadata, and permissions when the data is transferred to the new storage environment. When you evaluate NFS migration tools, make sure that the tool you use maintains data consistency and integrity during the migration. Make sure that the tool supports secure data transfer capabilities and has adequate monitoring facilities. Different tools each have their own strengths, so it's important to evaluate your specific requirements and choose the one that best fits your needs.
+4. Select the right tool. When you consider specific tools for data migration, it is important to pick the right solution for the job.
+
+   Block Storage
+   :   Select a block volume migration tool that maintains the native block format. Make sure that the data is transferred as raw blocks or chunks, maintaining the original file system structure and volume layout upon ingest into the target storage system. The specific tools that you choose depend on your unique migration requirements. Some important considerations to keep in mind during the evaluation process include the capacities that the provider has for data integrity, data monitoring, and data security during the migration process. In addition, it is important to evaluate any requirements that are dictated by the target storage vendor you are migrating data to. It is recommended that you review the target storage environment documentation to understand if they recommend processes or tools to simplify the migration.
+
+   File Storage
+   :   Select an NFS migration tool that maintains file system hierarchy, directory structure, metadata, and permissions when you transfer the data to the new storage environment. When you evaluate NFS migration tools, ensure that the tool maintains data consistency and integrity during the migration. Ensure that the tool supports secure data transfer capabilities and has sufficient monitoring capabilities. Tools vary in their strengths, so evaluate your specific requirements and choose the tool that best fits your needs.
+
+   If you are migrating your data to {{site.data.keyword.vpc_full}}, {{site.data.keyword.cloud_notm}} provides detailed guidance on connecting your classic and VPC environments, and transferring volumes by using tools such as `rsync` and `dcfldd`. For more information, see [Migrating data from IBM Cloud classic infrastructure to VPC](/docs/classic-to-vpc?topic=classic-to-vpc-data-migration-classic-to-vpc).
+
 
 5. Develop a comprehensive test plan to validate the migration tools' capabilities against your requirements before you start your data migration plan. Make sure that the testing evaluates the following requirements:
    - The data consistency and data integrity of the data during the migration process

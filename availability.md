@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-08-07"
 
 keywords: Block Storage for Classic, block storage, iSCSI, durability, availability, HA, high-availability, data loss, data integrity, uptime, five 9's, eleven 9's, data health, data corruption, data decay, encryption, security, integrity
 
@@ -51,4 +51,6 @@ The eleven 9's durability target applies within a single Availability Zone. To p
 ## Encryption
 {: #storencryption}
 
-{{site.data.keyword.cloud}} implements provider-managed Advanced Encryption Standard (AES)-256 encryption at rest for all Block Storage volumes. This full-disk encryption maintains data security without impacting storage performance. For more information about encryption of {{site.data.keyword.blockstorageshort}}, see [Securing your data in {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-mng-data). For more information about provider- and customer-managed encryption in a VPC, see [Data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+{{site.data.keyword.cloud_notm}} uses provider-managed Advanced Encryption Standard (AES)-256 encryption at rest for all Block Storage volumes. This full-disk encryption is handled by dedicated hardware infrastructure, keeping encryption and decryption transparent to your workloads with negligible impact on latency and throughput. For more information about encryption of {{site.data.keyword.blockstorageshort}}, see [Securing your data in {{site.data.keyword.blockstorageshort}}](/docs/BlockStorage?topic=BlockStorage-mng-data). For more information about provider- and customer-managed encryption in a VPC, see [Data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+
+If you are evaluating {{site.data.keyword.vpc_short}} as a target environment for your workloads, see [Migrating data from IBM Cloud classic infrastructure to VPC](/docs/classic-to-vpc?topic=classic-to-vpc-data-migration-classic-to-vpc).

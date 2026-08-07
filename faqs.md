@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-07"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
@@ -300,7 +300,10 @@ Target latency within the storage is <1 ms. The storage is connected to Compute 
 
 You need to order a new {{site.data.keyword.blockstorageshort}} volume in the correct data center, and then cancel the {{site.data.keyword.blockstorageshort}} device that you ordered in the wrong location.
 
-You can also create a duplicate of your share, and cancel the parent share. For more information, see [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
+You can also create a duplicate of your share and cancel the parent share. For more information, see [Creating and managing duplicate volumes](/docs/BlockStorage?topic=BlockStorage-duplicatevolume).
+
+If you are considering a broader migration to {{site.data.keyword.vpc_short}}, see [Migrating data from IBM Cloud classic infrastructure to VPC](/docs/classic-to-vpc?topic=classic-to-vpc-data-migration-classic-to-vpc).
+
 
 ## I cancelled my {{site.data.keyword.blockstorageshort}} volume "immediately", but it's still visible in the console. Why is it not deleted?
 {: #24hrreclaimperiod}
@@ -756,4 +759,10 @@ The conversion process can take some time to complete. The bigger the volume, th
 {: #portablestorageredirect}
 {: faq}
 
-Portable storage volumes (PSVs) are an auxiliary storage solution exclusively for {{site.data.keyword.BluVirtServers_short}}. You can detach the PSV from one virtual server and attach it to another. You can connect a portable storage disk to one virtual server at a time while all information that is stored on the disk is retained for transfer between devices. For more information, see [Portable SAN storage](/docs/virtual-servers?topic=virtual-servers-storage-options#portable-san-storage){: external}.
+Portable storage volumes (PSVs) are an auxiliary storage solution exclusively for {{site.data.keyword.BluVirtServers_short}}. You can detach the PSV from one virtual server and attach it to another. You can connect a PSV to one virtual server at a time, and all information stored on the PSV is preserved during transfer between devices. For more information, see [Portable SAN storage](/docs/virtual-servers?topic=virtual-servers-storage-options#portable-san-storage).
+
+## Can I migrate my {{site.data.keyword.blockstorageshort}} volumes to VPC?
+{: #migrate-to-vpc}
+{: faq}
+
+Yes. If you are planning to move your workloads to {{site.data.keyword.vpc_full}}, {{site.data.keyword.cloud_notm}} provides guidance on connecting your classic and VPC environments and copying your data by using tools such as `rsync` and `dcfldd`. For more information, see [Migrating data from IBM Cloud classic infrastructure to VPC](/docs/classic-to-vpc?topic=classic-to-vpc-data-migration-classic-to-vpc) and the broader [Classic to VPC migration guide](/docs/classic-to-vpc?topic=classic-to-vpc-about-migration-infra).
