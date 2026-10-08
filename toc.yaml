@@ -61,6 +61,8 @@ toc:
             navtitle: Adjusting IOPS
           - topic: working-with-snapshots.md
             navtitle: Managing snapshots
+          - topic: decommissioning-block-storage.md
+            navtitle: Deleting volumes
           - identify_LUNs.md
       - topicgroup:
           id: replication-dr

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-08-07"
+lastupdated: "2026-10-07"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
@@ -312,6 +312,8 @@ If you are considering a broader migration to {{site.data.keyword.vpc_short}}, s
 
 When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours. The 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console, too.
 
+Before you cancel a volume, review the [pre-deletion checklist](/docs/BlockStorage?topic=BlockStorage-decommissioning-block-storage#block-storage-deletion-checklist) to confirm that the volume is safe to remove.
+
 ## How can we tell which {{site.data.keyword.blockstorageshort}} volumes are encrypted?
 {: #volumeencrypt}
 {: faq}
@@ -341,6 +343,8 @@ When IBM decommissions a physical drive, the drive is destroyed before disposal.
 
 Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization can perform the data sanitization procedure before they delete their storage.
 
+Before you delete a volume, review the [pre-deletion checklist](/docs/BlockStorage?topic=BlockStorage-decommissioning-block-storage#block-storage-deletion-checklist) to help avoid accidental data loss.
+
 ## What happens to the drives that are decommissioned from the cloud data center?
 {: faq}
 {: #decommission}
@@ -348,17 +352,21 @@ Customers with special requirements for compliance such as NIST 800-88 Guideline
 
 When drives are decommissioned, IBM destroys them before they are disposed of. The drives become unusable. Any data that was written to that drive becomes inaccessible.
 
-## I cannot cancel a {{site.data.keyword.blockstorageshort}} volume because the Cancel action in the Cloud console is disabled. What’s happening?
+## I cannot cancel a {{site.data.keyword.blockstorageshort}} volume because the Cancel action in the Cloud console is disabled. What's happening?
 {: faq}
 {: #cancelstorage}
 
-The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. The UI indicates that it’s inactive and the status "Cancellation pending" is displayed. The minimum 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}.
+The cancellation process for this storage device is in progress so the Cancel action is no longer available. The volume remains visible for at least 24 hours until it is reclaimed. The UI indicates that it's inactive and the status "Cancellation pending" is displayed. The minimum 24-hour waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}.
+
+If you have not yet submitted a cancellation request, review the [pre-deletion checklist](/docs/BlockStorage?topic=BlockStorage-decommissioning-block-storage#block-storage-deletion-checklist) before you proceed.
 
 ## I accidentally deleted my volume, what can I do to get it back?
 {: faq}
 {: #accidentaldeletion}
 
 The answer depends on how long ago you deleted the storage volume, and if you chose to delete immediately or on the anniversary date. If the deletion happened in the last 24 hours or the anniversary date is still yet to come, the volume might still be waiting to be reclaimed. If the volume status is "Cancellation pending", you can contact support to void the cancellation request. It's important to act fast because when the reclaim-period expires, the data is deleted automatically and it is no longer possible to restore.
+
+To reduce the risk of accidental deletion, use the [pre-deletion checklist](/docs/BlockStorage?topic=BlockStorage-decommissioning-block-storage#block-storage-deletion-checklist) before you cancel any volume.
 
 ## My storage appears offline or read-only. Why did it happen and how do I fix it?
 {: #StorageOffline}

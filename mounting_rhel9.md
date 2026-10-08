@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-10-07"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
 
@@ -145,7 +145,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 {: #setupmultipathdrhel9}
 {: step}
 
-You set up DM Multipath with the `mpathconf` utility, which creates the multipath configuration file `/etc/multipath.conf`. For more information about the mpathconf utility, see the [mpathconf(8) man page](https://man.linuxreviews.org/man8/mpathconf.8.html){: external}.
+You set up DM Multipath with the `mpathconf` utility, which creates the multipath configuration file `/etc/multipath.conf`. For more information about the mpathconf utility, see the [mpathconf(8) man page](https://linux.die.net/man/8/mpathconf){: external}.
 
 1. If you didn't do it already, enter the mpathconf command with the `--enable` option.
    ```sh
@@ -284,7 +284,7 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    ```
    {: screen}
 
-   In the example, the string `3600a0980383056716724514550666270` is the WWID. Your application ought to use the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://man.linuxreviews.org/man5/multipath.conf.5.html){: external}.
+   In the example, the string `3600a0980383056716724514550666270` is the WWID. Your application ought to use the WWID. It's also possible to assign easier-to-read names by using "user_friendly_names" or "alias" keywords in multipath.conf. For more information, see the [`multipath.conf` man page](https://linux.die.net/man/5/multipath.conf){: external}.
    {: tip}
 
    The volume is now mounted and accessible on the host. You can create a file system next.
@@ -620,5 +620,5 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-   For more information, see the [`iscsiadm` manual](https://man.linuxreviews.org/man8/iscsiadm.8.html){: external}.
+   For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
    {: tip}

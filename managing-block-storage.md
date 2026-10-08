@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-10-07"
 
 keywords: Block Storage for Classic, IOPS, Security, Encryption, LUN, secondary storage, mount storage, provision storage, iSCSI, MPIO, redundant
 
@@ -466,88 +466,9 @@ Options:
 ```
 {: screen}
 
-## Deleting a storage volume in the console
-{: #cancelLUNUI}
+## Deleting a storage volume
+{: #cancelLUN}
 {: help}
 {: support}
-{: ui}
 
-If you no longer need a specific volume, you can delete it at any time.
-
-To cancel a storage volume, it's necessary to revoke access from any hosts first.
-{: important}
-
-1. Click **Storage** > **{{site.data.keyword.blockstorageshort}}**.
-2. Select the volume to be canceled, click **Actions**, and select **Delete {{site.data.keyword.blockstorageshort}}**.
-3. Confirm if you want to delete the volume immediately or on the anniversary date of when the volume was provisioned.
-
-   If you select the option to delete the volume on its anniversary date, you can void the cancellation request before its anniversary date.
-   {: tip}
-
-4. Click the **Acknowledgment** checkbox and click **Delete**.
-
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
-
-Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
-
-## Deleting a storage volume from the CLI
-{: #cancelLUNCLI}
-{: help}
-{: support}
-{: cli}
-
-If you no longer need a specific volume, you can cancel it at any time.
-
-To cancel a storage volume, it's necessary to revoke access from any hosts first.
-{: important}
-
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
-
-Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
-
-### Deleting a storage volume from the IBMCLOUD CLI
-{: #cancelLUNICCLI}
-
-Use the following command to cancel the storage. The following example command cancels the volume 12345678 immediately, instead of on the anniversary date.
-
-```sh
-ibmcloud sl volume-cancel --immediate 12345678
-```
-{: screen}
-
-For more information about all of the parameters that are available for this command, see [ibmcloud sl block volume-cancel](/docs/cli?topic=cli-sl-block-storage#sl_block_volume_cancel){: external}.
-
-### Deleting a storage volume from the SLCLI
-{: #cancelLUNSLCLI}
-
-Use the following command in SLCLI to cancel the storage.
-```sh
-$ slcli block volume-cancel --help
-Usage: slcli block volume-cancel [OPTIONS] VOLUME_ID
-
-Options:
-  --reason TEXT  An optional reason for cancellation
-  --immediate    Cancels the block storage volume immediately instead of on
-                 the billing anniversary
-  -h, --help     Show this message and exit.
-```
-{: screen}
-
-## Deleting a storage volume from Terraform
-{: #cancelLUNTerraform}
-{: help}
-{: support}
-{: terraform}
-
-Use the `terraform destroy` command to conveniently remove a remote object such as a single volume. The following example shows the syntax of the command.
-
-```terraform
-terraform destroy --target ibm_storage_block.volumeID
-```
-{: codeblock}
-
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
-
-When the volume is canceled, the request is followed by a 24-hour reclaim wait period. You can still see the volume in the console during those 24 hours (immediate cancellation) or until the anniversary date. The waiting period gives you a chance to void the cancellation request if needed. If you want to cancel the deletion of the volume, raise a [Support case](/unifiedsupport/cases/add){: external}. Billing for the volume stops immediately. When the reclaim-period expires, the data is destroyed and the volume is removed from the console, too. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
-
-Active replicas and dependent duplicates can block reclamation of the Storage volume. Make sure that the volume is no longer mounted, host authorizations are revoked, replication is canceled, and no dependent duplicates exist before you attempt to cancel the original volume.
+For steps to safely decommission and delete a {{site.data.keyword.blockstorageshort}} volume — including a pre-deletion checklist to help you avoid accidental data loss — see [Decommissioning and deleting {{site.data.keyword.blockstorageshort}} volumes](/docs/BlockStorage?topic=BlockStorage-decommissioning-block-storage).
