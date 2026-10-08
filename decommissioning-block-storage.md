@@ -146,13 +146,27 @@ Options:
 {: support}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently remove a remote object such as a single volume. The following example shows the syntax of the command.
+The preferred way to delete a block volume that is managed by Terraform is to remove its `ibm_storage_block` resource block from your configuration and run `terraform apply`. Terraform detects the missing resource and destroys it, keeping your configuration and state in sync.
 
-```terraform
-terraform destroy --target ibm_storage_block.volumeID
+1. Open your Terraform configuration file and delete the `ibm_storage_block` resource block for the volume.
+2. Run `terraform apply` to apply the change.
+
+   ```sh
+   terraform apply
+   ```
+   {: pre}
+
+   Terraform displays a plan that shows the resource is marked for destruction. Confirm the plan to proceed.
+
+If you want to destroy a specific volume without editing your configuration, you can use `terraform destroy --target` instead. The following example targets a single resource by its Terraform address.
+
+```sh
+terraform destroy --target ibm_storage_block.example
 ```
-{: codeblock}
+{: pre}
 
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+Using this method preserves the resource block in your configuration, which creates a drift between your config and your infrastructure state. Remove the resource block from your configuration after you confirm that the volume is deleted.
+
+For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 After you submit the deletion request, a 24-hour reclaim wait period begins. You can still see the volume in the console during that time. If you need to void the cancellation, raise a [Support case](/unifiedsupport/cases/add){: external} before the period expires. Billing stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
