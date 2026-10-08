@@ -100,8 +100,6 @@ If you no longer need a specific volume, you can delete it at any time.
 
 4. Click the **Acknowledgment** checkbox and click **Delete**.
 
-After you submit the deletion request, a 24-hour reclaim wait period begins. You can still see the volume in the console during that time. If you need to void the cancellation, raise a [Support case](/unifiedsupport/cases/add){: external} before the period expires. Billing stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
-
 ## Delete a storage volume from the CLI
 {: #cancelLUNCLI}
 {: help}
@@ -109,8 +107,6 @@ After you submit the deletion request, a 24-hour reclaim wait period begins. You
 {: cli}
 
 If you no longer need a specific volume, you can delete it at any time.
-
-After you submit the deletion request, a 24-hour reclaim wait period begins. You can still see the volume in the console during that time. If you need to void the cancellation, raise a [Support case](/unifiedsupport/cases/add){: external} before the period expires. Billing stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
 
 ### Delete a storage volume from the IBM Cloud CLI
 {: #cancelLUNICCLI}
@@ -140,6 +136,14 @@ Options:
 ```
 {: screen}
 
+## Delete a storage volume with the API
+{: #cancelLUNAPI}
+{: help}
+{: support}
+{: api}
+
+Use the [`cancel_volume` method](https://softlayer-python.readthedocs.io/en/latest/api/managers/SoftLayer.managers.BlockStorageManager/#SoftLayer.managers.BlockStorageManager.cancel_volume){: external} in the SoftLayer Python API client. Specify the `volume_id` and whether to cancel immediately or on the billing anniversary date (`immediate=True` or `immediate=False`). Optionally, provide a reason for the cancellation.
+
 ## Delete a storage volume from Terraform
 {: #cancelLUNTerraform}
 {: help}
@@ -168,5 +172,3 @@ terraform destroy --target ibm_storage_block.example
 Using this method preserves the resource block in your configuration, which creates a drift between your config and your infrastructure state. Remove the resource block from your configuration after you confirm that the volume is deleted.
 
 For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
-
-After you submit the deletion request, a 24-hour reclaim wait period begins. You can still see the volume in the console during that time. If you need to void the cancellation, raise a [Support case](/unifiedsupport/cases/add){: external} before the period expires. Billing stops immediately. When the reclaim period expires, the data is destroyed and the volume is removed from the console. For more information, see the [FAQ](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs).
