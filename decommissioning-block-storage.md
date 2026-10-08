@@ -62,7 +62,6 @@ Before you revoke authorization or cancel the volume, unmount the volume from al
 Follow the instructions for your operating system to safely unmount and disconnect:
 
 - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Red Hat Enterprise Linux 9](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#unmountingLin)
-- [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingdebian#unmountingLindebian)
 - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Ubuntu](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu#unmountingUbu)
 - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8#unmountingcloudlin)
 - [Unmounting {{site.data.keyword.blockstorageshort}} volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#unmountingWin)
