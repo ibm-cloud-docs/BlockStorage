@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-10-12"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -147,7 +147,7 @@ Make sure that your system is updated and includes the `open-iscsi` and `multipa
    ```
    {: pre}
 
-For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/questing/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/questing/man1/systemctl.1.html){: external}.
+For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.com/manpages/resolute/man8/iscsid.8.html){: external} and [Ubuntu manuals - `systemctl`](https://manpages.ubuntu.com/manpages/resolute/man1/systemctl.1.html){: external}.
 
 ## Set up the multipath
 {: #setupmultipathdubu24}
@@ -194,7 +194,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    ```
    {: codeblock}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID (World Wide Identifier) number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/questing/man5/multipath.conf.5.html){: external}.
+   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form `/dev/mapper/mpathn`, where `mpathn` is the WWID (World Wide Identifier) number of the device. For more information, see [Ubuntu manuals - `multipath.conf`](https://manpages.ubuntu.com/manpages/resolute/man5/multipath.conf.5.html){: external}.
 
 3. Save the configuration file and exit the editor.
 4. Start the multipath service.
@@ -215,7 +215,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
 {: #discoverandloginubu24}
 {: step}
 
-The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
+The iscsiadm utility is a command-line tool that is used for the discovery and login to iSCSI targets, plus access and management of the open-iscsi database. For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/resolute/man8/iscsiadm.8.html){: external}. In this step, discover the device by using the Target IP address that was obtained from the {{site.data.keyword.cloud}} console.
 
 1. Run the discovery against the iSCSI array.
 
@@ -375,7 +375,7 @@ When you no longer need the volume, unmount it before you delete it.
    ```
    {: pre}
 
-   For more information, see the [Ubuntu manuals - `umount`](https://manpages.ubuntu.com/manpages/questing/man2/umount.2.html){: external}.
+   For more information, see the [Ubuntu manuals - `umount`](https://manpages.ubuntu.com/manpages/resolute/man2/umount.2.html){: external}.
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
    ```zsh
@@ -389,5 +389,5 @@ When you no longer need the volume, unmount it before you delete it.
    ```
    {: pre}
 
-   For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/questing/man8/iscsiadm.8.html){: external}.
+   For more information, see the [Ubuntu manuals - `iscsiadm`](https://manpages.ubuntu.com/manpages/resolute/man8/iscsiadm.8.html){: external}.
    {: tip}
