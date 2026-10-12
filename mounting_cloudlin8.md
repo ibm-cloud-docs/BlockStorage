@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-10-12"
 
 keywords: IBM Block Storage, MPIO, iSCSI, volume, mount secondary storage, mount storage in CloudLinux 8
 
@@ -398,19 +398,19 @@ As a system administrator, you can manage the access to data on the mounted volu
 When you no longer need the volume, unmount it before you delete it.
 
 1. Unmount the file system.
-   ```zsh
+   ```sh
    umount /dev/mapper/XXXp1 /PerfDisk
    ```
    {: pre}
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
-   ```zsh
+   ```sh
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
 3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
-   ```zsh
+   ```sh
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}

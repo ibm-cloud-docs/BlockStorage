@@ -370,7 +370,7 @@ After the volume is mounted and accessible on the host, you can create a file sy
 When you no longer need the volume, unmount it before you delete it.
 
 1. Unmount the file system.
-   ```zsh
+   ```sh
    umount /dev/mapper/XXXp1 /PerfDisk
    ```
    {: pre}
@@ -378,13 +378,13 @@ When you no longer need the volume, unmount it before you delete it.
    For more information, see the [Ubuntu manuals - `umount`](https://manpages.ubuntu.com/manpages/resolute/man2/umount.2.html){: external}.
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
-   ```zsh
+   ```sh
    iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
 3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
-   ```zsh
+   ```sh
    iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
