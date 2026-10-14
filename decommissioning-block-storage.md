@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-10-13"
+lastupdated: "2026-10-14"
 
 keywords: Block Storage for Classic, delete volume, cancel LUN, decommission, authorized hosts, device permissions, reclaim
 
@@ -113,7 +113,7 @@ If you no longer need a specific volume, you can delete it at any time.
 Use the following command to cancel the storage. The following example command cancels the volume 12345678 immediately, instead of on the anniversary date.
 
 ```sh
-ibmcloud sl block volume-cancel --immediate 12345678
+ibmcloud sl block volume-cancel 12345678 --immediate
 ```
 {: screen}
 
