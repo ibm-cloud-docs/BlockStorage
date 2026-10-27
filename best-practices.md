@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-10-27"
 
 keywords: Block Storage for Classic, block storage performance, iSCSI best practices, storage optimization
 
@@ -14,7 +14,7 @@ subcollection: BlockStorage
 # Best practices for {{site.data.keyword.blockstorageshort}}
 {: #best-practices-classic}
 
-Follow best practices to maximize block storage performance, avoid service disruption, and ensure reliable data access for your workloads.
+Follow best practices to maximize  performance, avoid service disruption, and ensure reliable data access for your workloads.
 {: shortdesc}
 
 ## Best practice 1 - Clear the path

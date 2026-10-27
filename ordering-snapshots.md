@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-10-27"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -10,7 +10,6 @@ subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
-
 # Ordering snapshot space for {{site.data.keyword.blockstorageshort}}
 {: #orderingsnapshots}
 
