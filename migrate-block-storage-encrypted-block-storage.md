@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-10-27"
 
 keywords: Block Storage for Classic, migrate to new Block Storage, how to encrypt existing Block Storage,
 
@@ -10,7 +10,6 @@ subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
-
 # Upgrading Enterprise storage volume to enhanced {{site.data.keyword.blockstorageshort}}
 {: #migratestorage}
 

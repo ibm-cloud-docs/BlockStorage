@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-10-27"
 
 keywords: Block Storage for Classic, disaster recovery, inaccessible primary volume, replica volume, replication, failover, failback
 
@@ -10,7 +10,6 @@ subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
-
 # Fail over from an inaccessible primary volume for disaster recovery
 {: #dr-inaccessible}
 
