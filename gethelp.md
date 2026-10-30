@@ -12,10 +12,10 @@ subcollection: BlockStorage
 # Getting help and support for {{site.data.keyword.blockstorageshort}}
 {: #help-and-support}
 
-If you experience an issue or have questions when using {{site.data.keyword.blockstorageshort}}, you can use the following resources before you open a support case.
+If you experience an issue or have questions about {{site.data.keyword.blockstoragefull}}, you can use the following resources before you open a support case.
 {: shortdesc}
 
-* Troubleshoot with [{{site.data.keyword.paver_full}}](http://cloud.paver.ibm.com){: external}. {{site.data.keyword.paver}} is an embedded AI operator that understands your account context, creates a resolution plan, and executes changes on your behalf, while always requiring your approval before touching your live environment.
+* Troubleshoot with [{{site.data.keyword.paver_full}}](https://paver.cloud.ibm.com){: external}. {{site.data.keyword.paver}} is an embedded AI operator that understands your account context, creates a resolution plan, and executes changes on your behalf, while always requiring your approval before touching your live environment.
 * Review the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs) in the product Documentation.
 * Check the status of the {{site.data.keyword.cloud}} platform and resources by going to the [Status page](/status){: external}.
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `block-storage`, so it can be seen by the {{site.data.keyword.cloud_notm}} development teams.
