@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-11-05"
 
 keywords: Block Storage for Classic, accessible Primary volume, duplicate of a replica volume, Disaster Recovery, volume duplication, replication, failover, failback
 
@@ -86,7 +86,7 @@ For more information about all of the parameters that are available for this com
 ### Initiating a failover from the SLCLI
 {: #failovertoreplicaSLCLI}
 
-To fail over a block volume to a specific replicant volume, use the following command.
+To fail over operations to a specific replica volume, use the following command.
 
    ```sh
    $ slcli block replica-failover --help
@@ -94,7 +94,6 @@ To fail over a block volume to a specific replicant volume, use the following co
 
    Options:
    --replicant-id TEXT  ID of the replicant volume
-   --immediate          Failover to replicant immediately.
    -h, --help           Show this message and exit.
    ```
    {: screen}
@@ -155,14 +154,13 @@ For more information about all of the parameters that are available for this com
 ### Initiating a failback from the SL CLI
 {: #failbackfromreplicaSLCLI}
 
-To fail back a block volume from a specific replicant volume.
+To fail back operations to the original source volume, use the following command.
 ```sh
 $ slcli block replica-failback --help
 Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
 
 Options:
- --replicant-id TEXT  ID of the replicant volume
- -h, --help           Show this message and exit.
+ -h, --help  Show this message and exit.
 ```
 {: screen}
 

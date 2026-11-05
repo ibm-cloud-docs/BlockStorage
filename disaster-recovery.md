@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-05"
 
 keywords: Block Storage for Classic, disaster recovery, inaccessible primary volume, replica volume, replication, failover, failback
 
@@ -56,7 +56,7 @@ Failover of volume 560156918 to replica 560382016 is now in progress.
 ### Initiating a failover from the SLCLI
 {: #DRFailoverSLCLI}
 
-Use the following command to fail a block volume over to a specific replicant volume.
+To fail over operations to a specific replica volume, use the following command.
    ```sh
    $ slcli block disaster-recovery-failover --help
    Usage: slcli block disaster-recovery-failover [OPTIONS] VOLUME_ID
@@ -128,14 +128,13 @@ If you need further assistance, create a [support case](https://cloud.ibm.com/un
 {: #DRFailback2originalCLI}
 {: cli}
 
-To fail back a file volume from a specific replicant volume, use the following command.
+To fail back operations to the original source volume, use the following command.
 ```sh
 $ slcli block replica-failback --help
 Usage: slcli block replica-failback [OPTIONS] VOLUME_ID
 
 Options:
- --replicant-id TEXT  ID of the replicant volume
- -h, --help           Show this message and exit.
+ -h, --help  Show this message and exit.
 ```
 {: screen}
 
