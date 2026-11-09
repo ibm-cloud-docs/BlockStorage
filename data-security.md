@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-11-09"
 
 keywords: data encryption in Block Storage, data storage for Block Storage, bring your own keys for Block Storage, BYOK for Block Storage, key management for Block Storage, key encryption for Block Storage, personal data in Block Storage, data deletion for Block Storage, data in Block Storage, data security in Block Storage
 
@@ -35,7 +35,7 @@ The provider-managed encryption-at-rest feature uses the following industry stan
 
 All snapshots and replicas of encrypted Block Storage are also encrypted by default. This feature can’t be turned off on a volume basis. All cluster-to-cluster traffic is encrypted with TLS.
 
-## Provisioning Storage with Encryption
+## Provisioning storage with encryption
 {: #createencryptedLUN1}
 
 The provider-managed encryption-at-rest feature is available in all [data centers](/docs/overview?topic=overview-locations#data-centers). All storage that is ordered in these data centers is automatically provisioned with encryption for data-at-rest.
@@ -43,10 +43,10 @@ The provider-managed encryption-at-rest feature is available in all [data center
 Any nonencrypted storage that was provisioned before a data center upgrade is **not** automatically encrypted. If you own nonencrypted storage in an upgraded data center and you want to have it encrypted, you need to create a volume and move your data. For more information, see [{{site.data.keyword.blockstorageshort}} Migration in Upgraded Data Centers](/docs/BlockStorage?topic=BlockStorage-migratestorage).
 {: important}
 
-## Deleting {{site.data.keyword.blockstorageshort}} instances
+## Deleting {{site.data.keyword.blockstorageshort}} volumes
 {: #service-delete}
 
-If you no longer need a specific volume, you can cancel it at any time. {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. For more information, see the [FAQs](/docs/BlockStorage?topic=BlockStorage-block-storage-faqs#deleted).
+If you no longer need a specific volume, you can cancel it at any time. {{site.data.keyword.blockstoragefull}} presents Block volumes to customers on physical storage that is wiped before any reuse. For more information, see [Decommissioning and deleting {{site.data.keyword.blockstorageshort}} volumes](/docs/BlockStorage?topic=BlockStorage-decommissioning-block-storage).
 
 Customers with special requirements for compliance such as NIST 800-88 Guidelines for Media Sanitization can perform the data sanitization procedure before they delete their storage.
 

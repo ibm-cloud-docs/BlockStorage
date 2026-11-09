@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-11-09"
 
 keywords: Block Storage for Classic, iSCSI, provisioning, performance, security, troubleshooting, encryption
 
@@ -266,6 +266,7 @@ To enact this best practice, complete the following steps.
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian)
    - [VMware]{: tag-cool-gray} [How do you connect iSCSI Block Storage through isolated VLANs?](https://www.ibm.com/support/pages/how-do-you-connect-iscsi-block-storage-through-isolated-vlans){: external}
 
 ## Is it good to run iSCSI traffic over 802.3ad LACP port channel?
@@ -386,6 +387,7 @@ It's possible to attach a volume with a single path, but it is important that co
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian)
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
 
 ## How can I configure and validate multipath connections to the {{site.data.keyword.blockstorageshort}} volume?
@@ -397,6 +399,7 @@ During a planned maintenance or an unplanned disruption, one of the routes is ta
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian)
    - [Verifying MPIO on Linux&reg;](/docs/BlockStorage?topic=BlockStorage-mountingRHEL#verifyMPIOLinux)
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows)
    - [Verifying MPIO on MS Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#verifyMPIOWindows)

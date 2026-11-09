@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-12"
+lastupdated: "2026-11-09"
 
 keywords: MPIO, iSCSI LUNs, multipath configuration file, Ubuntu 20, multipath, mpio, Linux, Ubuntu
 
@@ -190,6 +190,7 @@ For more information, see [Ubuntu manuals - `iscsid`](https://manpages.ubuntu.co
    hardware_handler "1 alua"
    rr_weight uniform
    rr_min_io 128
+   }
    }
    ```
    {: codeblock}
@@ -379,13 +380,13 @@ When you no longer need the volume, unmount it before you delete it.
 
 2. If you do not have any other volumes in that target portal, you can log out of the target.
    ```sh
-   iscsiadm -m node -t <TARGET NAME> -p <PORTAL IP:PORT> --logout
+   iscsiadm -m node -T <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
 3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
    ```sh
-   iscsiadm -m node -o delete -t <TARGET IQN> -p <PORTAL IP:PORT>
+   iscsiadm -m node -o delete -T <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
 

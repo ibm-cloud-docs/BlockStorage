@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-05"
+lastupdated: "2026-11-09"
 
 keywords: Block Storage for Classic, Plesk, backups, mountpoint, iSCSI
 
@@ -30,6 +30,7 @@ For more information, see [Plesk's Documentation for backing up and restoration]
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian)
 
 4. **Optional**: Copy existing backups to the new storage. You can use `rsync`.
    ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-11-09"
 
 keywords: Block Storage for Classic, encryption, LUKS, RHEL, Linux, security, auxiliary storage
 
@@ -23,6 +23,7 @@ These steps assume that the server can access a new, unencrypted {{site.data.key
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian)
 
 All new {{site.data.keyword.blockstorageshort}} is automatically provisioned with provider-managed encryption-at-rest. For more information, see [Securing Your Data - Provider-managed Encryption-At-Rest](/docs/BlockStorage?topic=BlockStorage-mng-data).
 {: note}

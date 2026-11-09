@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-11-09"
 
 keywords:  Block Storage, block storage, snapshot, snapshot space, snapshot schedule, create snapshot schedule, manual snapshot, view snapshot space, modify snapshot space, SLCLI, API, restore from snapshot
 
@@ -456,6 +456,7 @@ To recover from user-error or data corruption, you can restore your storage volu
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian)
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.
@@ -498,6 +499,7 @@ To recover from user-error or data corruption, you can restore your storage volu
    - [Mount iSCSI volume on Red Hat Enterprise Linux&reg; 8](/docs/BlockStorage?topic=BlockStorage-mountingRHEL).
    - [Mount iSCSI volume on CloudLinux 8](/docs/BlockStorage?topic=BlockStorage-mountingCloudLin8).
    - [Mount iSCSI volume on Ubuntu 20](/docs/BlockStorage?topic=BlockStorage-mountingUbuntu).
+   - [Mount iSCSI volume on Debian 12](/docs/BlockStorage?topic=BlockStorage-mountingDebian).
    - [Mapping volumes on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows).
 
 Restoring a volume results in deleting all snapshots that were taken after the snapshot that was used for the restore.

@@ -10,6 +10,7 @@ subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
+
 # Ordering snapshot space for {{site.data.keyword.blockstorageshort}}
 {: #orderingsnapshots}
 

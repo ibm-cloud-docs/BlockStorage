@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-09"
 
 keywords: Block Storage for Classic, expand size, adjusting capacity, modify capacity, increase capacity, Storage Capacity
 
@@ -10,6 +10,7 @@ subcollection: BlockStorage
 
 ---
 {{site.data.keyword.attribute-definition-list}}
+
 # Expanding {{site.data.keyword.blockstorageshort}} volume capacity
 {: #expandingcapacity}
 
