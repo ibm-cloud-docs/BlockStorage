@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-09"
 
 keywords: Block Storage for Classic, snapshot space, ordering snapshots,
 
@@ -38,7 +38,7 @@ Conversely, if that 500 GB of actual data, with 12 hourly snapshots, saw 10% of 
 
     *(50-GB Rate of Change) x (12 hourly snapshots) = (600 GB of used space)*
 
-So when you determine how much Snapshot space that you need, consider the rate of change carefully. It's a huge influence on how much snapshot space is needed. A bigger volume is more likely to change more often. However, a 500-GB volume with 5 GB of change and a 10-TB volume with 5 GB of change use the same amount of snapshot space.
+So when you determine how much Snapshot space that you need, consider the rate of change carefully. It's a significant influence on how much snapshot space is needed. A bigger volume is more likely to change more often. However, a 500-GB volume with 5 GB of change and a 10-TB volume with 5 GB of change use the same amount of snapshot space.
 
 Additionally, for most workloads, the larger a volume is the less space needs to be set aside initially. It's primarily due to the underlying data efficiencies, and the nature of how snapshots work in the environment.
 
