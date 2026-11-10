@@ -33,7 +33,7 @@ If you're using another Linux&reg; operating system, refer to the Documentation 
 ## Before you begin
 {: #beforemountingRHEL9}
 
-1. [Order a block storage volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage) in the same datacenter as your server.
+1. [Order a block storage volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage) in the same data center as your server.
 
 1. Make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 
@@ -102,6 +102,9 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 
    1. Save the file (`:w`), and exit (`:x`).
 
+   The IQN must exactly match the IQN that is authorized for the volume in the console. If it doesn't, discovery fails with `initiator failed authorization`, which can look like a CHAP error.
+   {: note}
+
 1. Uncomment and update the following entries in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP (Challenge-Handshake Authentication Protocol) names.
 
    ```sh
@@ -126,7 +129,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 
 1. Validate that the configuration is correct by running discovery against the iSCSI array.
 
-   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery that uses the SendTargets method. Do not use static node configuration, as it is not scalable and can cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery ensures that your host automatically detects any changes to the target portals.
+   {{site.data.keyword.blockstorageshort}} requires dynamic target discovery that uses the SendTargets method. Do not use static node configuration, as it is not scalable and can cause connectivity issues when changes are made to the storage (such as authorizing or deauthorizing hosts to LUNs). Dynamic discovery makes sure that your host automatically detects any changes to the target portals.
    {: important}
 
    ```sh
@@ -270,6 +273,20 @@ The iscsiadm utility is a command-line tool that is used for discovery and login
    ```
    {: screen}
 
+   The `multipath -l` command shows the topology without running the path checkers, so it reports `prio=0` and the path state `undef`. To see the ALUA path priorities and the path state `ready`, run `multipath -ll`. The output lists the same paths, as in the following example.
+   {: note}
+
+   ```sh
+   [root@vsi4classic ~]# multipath -ll
+   3600a0980383056716724514550666270 dm-0 NETAPP,LUN C-Mode
+   size=20G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+   |-+- policy='round-robin 0' prio=50 status=active
+   | `- 2:0:0:0 sda 8:0  active ready running
+   `-+- policy='round-robin 0' prio=10 status=enabled
+     `- 3:0:0:0 sdb 8:16 active ready running
+   ```
+   {: screen}
+
    If MPIO isn't configured correctly, your storage device might disconnect and appear offline when a network outage occurs or when {{site.data.keyword.cloud}} teams perform maintenance. MPIO provides an extra level of connectivity during those events, and keeps an established session to the volume with active read/write operations.
 
 3. List the partition tables for the connected device.
@@ -352,7 +369,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
 3. Create a file system on the new partition.
 
-   - The new partition is listed with the disk, similar to `XXXp1`, followed by the size, Type (83), and Linux&reg;. Take a note of the partition name, you need it in the next step. (The XXXp1 represents the partition name.)
+   - The new partition is listed with the disk, followed by the size, Type (83), and Linux&reg;. The partition name in this output might differ from the name of its device node in `/dev/mapper`. The following instructions show how to get the device node name.
      ```sh
      [root@vsi4classic ~]# fdisk -l /dev/mapper/3600a0980383056716724514550666270
      Disk /dev/mapper/3600a0980383056716724514550666270: 20 GiB, 21474836480 bytes, 41943040 sectors
@@ -363,14 +380,22 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      Disk identifier: 0x2aa2e16c
 
      Device                                           Boot Start      End  Sectors Size Id Type
-     /dev/mapper/3600a0980383056716724514550666270p1        2048 41943039 41940992  20G 83 Linu
+     /dev/mapper/3600a0980383056716724514550666270-part1    2048 41943039 41940992  20G 83 Linu
      ```
      {: screen}
 
-   - Create the file system:
+   - The kernel doesn't know about the new partition yet, so it has no device node. Create the device node, where `XXX` is the WWID of your volume. Then, list the devices to find the name of the new partition. The partition name varies, so use the name that is listed on your system.
 
      ```sh
-     mkfs.ext3 /dev/mapper/XXXp1
+     kpartx -a /dev/mapper/XXX
+     ls /dev/mapper
+     ```
+     {: pre}
+
+   - Create the file system. Replace PARTITION_NAME with the partition name that you found.
+
+     ```sh
+     mkfs.ext3 /dev/mapper/PARTITION_NAME
      ```
      {: pre}
 
@@ -401,7 +426,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
 
    - Mount the storage with the partition name.
      ```sh
-     mount /dev/mapper/XXXp1 /PerfDisk
+     mount /dev/mapper/PARTITION_NAME /PerfDisk
      ```
      {: pre}
 
@@ -427,10 +452,10 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      {: screen}
 
 5. To enable automatic mounting on boot, add the new file system to the system's `/etc/fstab` file.
-   - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
+   - Append the following line to the end of `/etc/fstab` (with the partition name that you found in Step 3).
 
      ```sh
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+     /dev/mapper/PARTITION_NAME    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -456,12 +481,15 @@ To create a file system with `parted`, follow these steps.
    {: pre}
 
 2. Create a partition on the disk.
-   1. Unless it is specified otherwise, the `parted` utility uses your primary drive, which is `/dev/sda` in most cases. Switch to the disk that you want to partition by using the command **select**. Replace **XXX** with your new device name.
+   1. Unless it is specified otherwise, the `parted` utility opens the first disk that it finds, which is `/dev/sda` in most cases. On a host with a multipath volume, `/dev/sda` can be one of the iSCSI paths to your volume and not the multipath device. Switch to the multipath device by using the command **select**. Replace **XXX** with the WWID of your volume.
 
       ```sh
       select /dev/mapper/XXX
       ```
       {: pre}
+
+      Do not skip this command. If you do, `parted` partitions the disk that it opened. Confirm that `parted` reports `Using /dev/mapper/XXX` before you continue.
+      {: attention}
 
    2. Run `print` to confirm that you are on the correct disk.
 
@@ -484,6 +512,8 @@ To create a file system with `parted`, follow these steps.
        ```
        {: pre}
 
+       The utility asks for the partition name, file system type, start, and end. To use the entire volume, press Enter to skip the partition name, and then enter `ext3` for the file system type, `1` for the start, and `100%` for the end.
+
        The listed units default to megabytes (MB). To create a 10-GB partition, you start from 1 and end at 10000. You can also change the sizing units to terabytes by entering `unit TB` if you want to.
        {: tip}
 
@@ -496,10 +526,21 @@ To create a file system with `parted`, follow these steps.
 
 3. Create a file system on the new partition.
 
-   ```sh
-   mkfs.ext3 /dev/mapper/XXXp1
-   ```
-   {: pre}
+   - List the device nodes to find the name of the new partition. The partition name varies, so use the name that is listed on your system.
+
+     ```sh
+     ls /dev/mapper
+     ```
+     {: pre}
+
+     If the partition isn't listed, run `kpartx -a /dev/mapper/XXX`, where XXX is the WWID of your volume, and list the devices again.
+
+   - Create the file system. Replace PARTITION_NAME with the partition name that you found.
+
+     ```sh
+     mkfs.ext3 /dev/mapper/PARTITION_NAME
+     ```
+     {: pre}
 
    It's important to select the correct disk and partition when you run this command. Verify the result by printing the partition table. Under the file system column, you can see ext3.
    {: important}
@@ -515,7 +556,7 @@ To create a file system with `parted`, follow these steps.
    - Mount the storage with the partition name.
 
      ```sh
-     mount /dev/mapper/XXXp1 /PerfDisk
+     mount /dev/mapper/PARTITION_NAME /PerfDisk
      ```
      {: pre}
 
@@ -527,10 +568,10 @@ To create a file system with `parted`, follow these steps.
      {: pre}
 
 5. To enable automatic mounting on boot, add the new file system to the system's `/etc/fstab` file.
-   - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
+   - Append the following line to the end of `/etc/fstab` (by using the partition name that you found in Step 3).
 
      ```sh
-     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+     /dev/mapper/PARTITION_NAME    /PerfDisk    ext3    defaults,_netdev    0    1
      ```
      {: pre}
 
@@ -565,7 +606,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
    The string `3600a09803830304f3124457a45757067` in the example is the unique WWID of the volume. Each volume is identified by its unique WWID, which is persistent while the volume exists.
 
-* Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same identifier, and a `/dev/mapper` listing of the same size with the same identifier. The `/dev/mapper` device is the one that multipath sets up.
+* Confirm that all the disks are present. In a correct configuration, you can expect two disks to show in the output with the same size, and a `/dev/mapper` listing of the same size. The `/dev/mapper` device is the one that multipath sets up.
 
    ```sh
    fdisk -l | grep Disk
@@ -593,9 +634,9 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
     Disk /dev/sdb: 21.5 GB, 21474836480 bytes Disk identifier: 0x2b5072d1
     ```
 
-* To confirm that no local disks are included in the list of multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blocklist.
+* To confirm that no local disks are included in the list of multipath devices, display the current configuration with verbosity level 3. The output of the following command lists the devices that were added to the blocklist. Local disks, such as `xvda`, are reported as `device node name blacklisted`.
    ```sh
-   multipath -l -v 3 | grep sd
+   multipath -v 3 2>&1 | grep blacklisted
    ```
    {: pre}
 
@@ -627,7 +668,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
    ```
    {: pre}
 
-   Run this command twice as well, once for each portal. After both records are deleted, `iscsiadm -m node` reports `No records found`.
+   Run this command for each portal. After both records are deleted, `iscsiadm -m node` reports `No records found`.
    {: important}
 
    For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
