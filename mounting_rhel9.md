@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-11-10"
 
-keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL8, multipath, mpio, Linux, Red Hat Enterprise Linux 8
+keywords: MPIO, iSCSI LUNs, multipath configuration file, RHEL 9, multipath, mpio, Linux, Red Hat Enterprise Linux 9
 
 subcollection: BlockStorage
 
@@ -33,11 +33,13 @@ If you're using another Linux&reg; operating system, refer to the Documentation 
 ## Before you begin
 {: #beforemountingRHEL9}
 
+1. [Order a block storage volume](/docs/BlockStorage?topic=BlockStorage-orderingBlockStorage) in the same datacenter as your server.
+
 1. Make sure that the host that is to access the {{site.data.keyword.blockstorageshort}} volume is authorized. For more information, see [Authorizing the host in the console](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=ui#authhostUI){: ui}[Authorizing the host from the CLI](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=cli#authhostCLI){: cli}[Authorizing the host with Terraform](/docs/BlockStorage?topic=BlockStorage-managingstorage&interface=terraform#authhostTerraform){: terraform}.
 
 1. An active [VPN connection](/docs/iaas-vpn?topic=iaas-vpn-using-ssl-vpn) is required to access to the private network of {{site.data.keyword.cloud_notm}} and to interact with several services.
 
-1. Establish an SSH connection to your server. The IP address, username, and password can be found in the console. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), click **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** > ** Devices**. Then, locate your server in the list and click its name to display its details.
+1. Establish an SSH connection to your server. The IP address, username, and password can be found in the console. From the **menu** ![Menu icon](../icons/icon_hamburger.svg "Menu"), click **Infrastructure** ![VPC icon](../icons/vpc.svg) > **Classic Infrastructure** > **Devices**. Then, locate your server in the list and click its name to display its details.
 
 If multiple hosts mount the same {{site.data.keyword.blockstorageshort}} volume without being cooperatively managed, your data is at risk for corruption. Volume corruption can occur if changes are made to the volume by multiple hosts at the same time. You need a cluster-aware, shared-disk file system to prevent data loss such as Microsoft Cluster Shared Volumes (CSV), Red Hat Global File System (GFS2), VMware&reg; VMFS, and others. For more information, see your OS Documentation.
 
@@ -100,7 +102,7 @@ Make sure that your system is updated and includes the `iscsi-initiator-utils` a
 
    1. Save the file (`:w`), and exit (`:x`).
 
-1. Uncomment and update the following entries in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. U se uppercase for CHAP (Challenge-Handshake Authentication Protocol) names.
+1. Uncomment and update the following entries in `/etc/iscsi/iscsid.conf` by using the username and password from the {{site.data.keyword.cloud}} console. Use uppercase for CHAP (Challenge-Handshake Authentication Protocol) names.
 
    ```sh
    node.session.auth.authmethod = CHAP
@@ -198,7 +200,7 @@ You set up DM Multipath with the `mpathconf` utility, which creates the multipat
    ```
    {: screen}
 
-   The initial defaults section of the configuration file configures your system so that the names of the multipath devices are of the form /dev/mapper/mpath n, where `mpath n` is the WWID (World Wide Identifier) of the device.
+   The initial defaults section of the configuration file configures your system so that the multipath devices are named by their WWID (World Wide Identifier), in the form `/dev/mapper/<wwid>`.
 
 4. Save the configuration file and exit the editor.
 
@@ -390,7 +392,7 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      {: screen}
 
 4. Create a mount point for the file system, and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system.
+   - Create a directory called `PerfDisk`, or use another directory where you want to mount the file system.
 
      ```sh
      mkdir /PerfDisk
@@ -424,13 +426,13 @@ Follow these steps to create a file system on the newly mounted volume. A file s
      ```
      {: screen}
 
-5. To enable automatic mounting om boot, add the new file system to the system's `/etc/fstab` file.
+5. To enable automatic mounting on boot, add the new file system to the system's `/etc/fstab` file.
    - Append the following line to the end of `/etc/fstab` (with the partition name from Step 3).
 
-   ```sh
-   /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-   ```
-   {: pre}
+     ```sh
+     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+     ```
+     {: pre}
 
    For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.
 
@@ -503,34 +505,34 @@ To create a file system with `parted`, follow these steps.
    {: important}
 
 4. Create a mount point for the file system and mount it.
-   - Create a partition name `PerfDisk` or where you want to mount the file system.
+   - Create a directory called `PerfDisk`, or use another directory where you want to mount the file system.
 
-   ```sh
-   mkdir /PerfDisk
-   ```
-   {: pre}
+     ```sh
+     mkdir /PerfDisk
+     ```
+     {: pre}
 
    - Mount the storage with the partition name.
 
-   ```sh
-   mount /dev/mapper/XXXp1 /PerfDisk
-   ```
-   {: pre}
+     ```sh
+     mount /dev/mapper/XXXp1 /PerfDisk
+     ```
+     {: pre}
 
    - Check that you see your new file system listed.
 
-   ```sh
-   df -h
-   ```
-   {: pre}
+     ```sh
+     df -h
+     ```
+     {: pre}
 
-5. To enable automatic mounting om boot, add the new file system to the system's `/etc/fstab` file.
+5. To enable automatic mounting on boot, add the new file system to the system's `/etc/fstab` file.
    - Append the following line to the end of `/etc/fstab` (by using the partition name from Step 3).
 
-   ```sh
-   /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
-   ```
-   {: pre}
+     ```sh
+     /dev/mapper/XXXp1    /PerfDisk    ext3    defaults,_netdev    0    1
+     ```
+     {: pre}
 
    For more information, see [An introduction to the Linux `/etc/fstab` file](https://www.redhat.com/en/blog/etc-fstab){: external}.
 
@@ -593,7 +595,7 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 
 * To confirm that no local disks are included in the list of multipath devices, display the current configuration with verbosity level 3. The output of the following command displays the devices and also shows which ones were added to the blocklist.
    ```sh
-   multipath -l -v 3 | grep sd <date and time>
+   multipath -l -v 3 | grep sd
    ```
    {: pre}
 
@@ -602,23 +604,31 @@ If MPIO isn't configured correctly, your storage device might disconnect and app
 ## Unmounting {{site.data.keyword.blockstorageshort}} volumes
 {: #unmountingLin}
 
-1. Unmount the file system.
+1. Remove the line for the volume from the `/etc/fstab` file so that the system doesn't try to mount it again. For example, delete the line that contains `/PerfDisk`.
+
+2. Unmount the file system.
    ```sh
-   umount /dev/mapper/XXXp1 /PerfDisk
+   umount /PerfDisk
    ```
    {: pre}
 
-2. If you do not have any other volumes in that target portal, you can log out of the target.
+3. If you do not have any other volumes in that target portal, you can log out of the target.
    ```sh
    iscsiadm -m node -T <TARGET NAME> -p <PORTAL IP:PORT> --logout
    ```
    {: pre}
 
-3. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
+   A volume has two portals (two target IP addresses), and each portal has its own iSCSI session. The command logs out of only the portal that you specify, so you need to run it twice, once for each portal. Use the portal addresses from the volume details page in the console, or run `iscsiadm -m session -o show` to list the active sessions.
+   {: important}
+
+4. If you do not have any other volumes in that target portal, delete the target portal record to prevent future login attempts.
    ```sh
    iscsiadm -m node -o delete -T <TARGET IQN> -p <PORTAL IP:PORT>
    ```
    {: pre}
+
+   Run this command twice as well, once for each portal. After both records are deleted, `iscsiadm -m node` reports `No records found`.
+   {: important}
 
    For more information, see the [`iscsiadm` manual](https://linux.die.net/man/8/iscsiadm){: external}.
    {: tip}
